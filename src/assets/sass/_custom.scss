@@ -1,0 +1,589 @@
+//////////Main layout
+
+body {
+    font-family: $font-family-base;
+    background-color: $color-mainpanel;
+    color: $color-body_text;
+}
+
+.wrapper {
+    padding: 0;
+    height: 1000px;
+    max-width: 100%;
+    display: flex;
+}
+
+.sidebar {
+    min-width: 260px;
+    background-color: $color-sidebar;
+}
+
+.container-fluid {
+    background-color: $color-mainpanel;
+    flex: 1;
+    padding-left: 260px;
+}
+
+@media only screen and (max-width : 1440px) {
+    header, .container-fluid, .main-content {
+        padding-left: 0;
+    }
+}
+
+.main-nav {
+    background-color: $color-nav;
+    height: 70px;
+}
+
+.content {
+    padding-left: 15px;
+    padding-top: 15px;
+}
+
+
+////////// Typography
+
+.login h2 {
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+
+//////////Styles
+
+///Login
+
+.login {
+    background-image: url(../images/login_bckg.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+
+    .card {
+        top: 20vh;
+        width: 500px;
+        border-radius: 2.5rem;
+        background-color: $color-mainpanel;
+
+        .form-header {
+            margin-top: 0;
+            border-radius: 1.5rem;
+            box-shadow: none;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+        }
+    }
+
+    .options {
+        text-transform: uppercase;
+        font-size: .8rem;
+    }
+}
+
+///Search
+
+.search-big {
+    width: 50%;
+    margin: 0 auto;
+
+}
+
+//////////Main-nav styles
+
+.navbar {
+    box-shadow: none;
+}
+
+.header .fa {
+    color: $white;
+    align-self: center;
+
+    .fa-bars {
+        font-size: 2rem;
+    }
+}
+
+.header .tag {
+    display: inline-block;
+    position: absolute;
+    margin-left: .5rem;
+    margin-top: 13px;
+    padding: .15rem .25rem;
+    line-height: .7rem;
+    border-radius: 20%;
+    font-size: .6rem;
+    text-align: center;
+    border: 1px solid $color-nav;
+}
+
+.header .tag-danger {
+    background-color: #D90000;
+}
+
+.nav-link-icon {
+    width: 70px;
+    height: 70px;
+    text-align: center;
+
+    &:hover {
+        text-decoration: none;
+        background-color: lighten($color-nav, 5%);
+    }
+}
+
+@media only screen and (max-width : 1440px) {
+    .navbar .button-collapse {
+        display: block;
+        position: relative;
+        font-size: 2rem;
+        margin-top: -5px;
+        margin-right: 0;
+        margin-left: 20px;
+    }
+}
+
+@media only screen and (max-width : 992px) {
+    .navbar .button-collapse {
+        margin-top: 12px;
+        font-size: 2rem;
+    }
+}
+
+@media only screen and (max-width : 768px) {
+    .hamburger-icon {
+        margin-right: auto;
+    }
+}
+
+
+.header .user-nav {
+    height: 70px;
+}
+
+.header .navbar {
+    padding: 0;
+    border-radius: 0;
+}
+
+.header .navbar > a {
+    border-left: 1px solid lighten($color-nav, 5%);
+    justify-content: center;
+    color: $white;
+}
+
+.header .dropdown-toggle {
+    padding: 0 auto;
+    font-size: .8rem;
+    text-transform: uppercase;
+
+    &:hover {
+        background-color: lighten($color-nav, 5%);
+    }
+
+    .header-profile {
+        margin: 0 .3rem;
+        border-radius: 50%;
+        border: 3px solid $white;
+    }
+}
+
+////// Breadcrumb
+
+.header .navbar .breadcrumb {
+    height: 70px;
+    margin-right: auto;
+    background-color: $color-nav;
+    text-transform: uppercase;
+    font-size: .9rem;
+    padding-left: 2rem;
+    align-self: flex-end;
+    margin-bottom: 0;
+    font-weight: 300;
+    white-space: nowrap;
+
+    &:before {
+        color: aqua;
+    }
+
+    a {
+        color: $rgba-white-light;
+        font-size: .9rem;
+    }
+
+    .active {
+        color: $white;
+    }
+}
+
+@media only screen and (max-width : 1992px) {
+    .header .navbar .breadcrumb,
+    .header .navbar .breadcrumb a {
+        font-size: .9rem;
+    }
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    color: $white;
+}
+
+@media only screen and (max-width : 768px) {
+    .header .navbar .breadcrumb {
+        display: none !important;
+    }
+}
+
+
+//////////Tabs-wrapper
+
+.classic-tabs.tabs-cyan {
+    background-color: lighten($color-nav, 5%);
+    padding-right: 0px;
+}
+
+.classic-tabs.tabs-cyan li a.active {
+    border-color: $color-mainpanel;
+}
+
+.classic-tabs li a {
+    display: block;
+    padding: 20px 24px;
+    font-size: .95rem;
+    text-transform: uppercase;
+    color: $rgba-white-light;
+    text-align: center;
+    border-radius: 0;
+
+    &.active {
+        border-bottom: 5px solid $color-mainpanel;
+        color: $white;
+        border-radius: 0;
+    }
+}
+
+@media only screen and (min-width: 62em) {
+    .classic-tabs li:first-child {
+        margin-left: 0;}
+}
+
+
+//////////Sidebar styles
+
+//////Brand placeholder
+
+.brand {
+    display: flex;
+    height: 160px;
+}
+
+.brand img {
+    margin: 0 auto;
+}
+
+
+//////Menu styles
+
+.side-nav .collapsible a {
+    margin-bottom: 0;
+    margin-top:  0;
+    height: 60px;
+    font-size: 1rem;
+}
+
+.side-nav {
+    width: 260px;
+    letter-spacing: .05rem;
+}
+
+.side-nav .sidenav-bg {
+    min-width: 260px;
+}
+
+.mdb-skin .side-nav {
+    background-color: $color-sidebar;
+}
+
+.side-nav .collapsible > li {
+    border-top: 1px solid lighten($color-sidebar, 10%);
+    text-transform: uppercase;
+    color: lighten($color-sidebar, 50%);
+    white-space: nowrap;
+    padding-right: 0;
+    padding-left: 0;
+    border-radius: 0;
+}
+
+.sidebar .nav-link {
+    height: 60px;
+    text-transform: uppercase;
+    color: lighten($color-sidebar, 50%);
+    white-space: nowrap;
+    padding: .5em 1em;
+
+    &:hover {
+        background-color: lighten($color-sidebar, 3%);
+    }
+}
+
+///sidebar menu sublinks
+.side-nav .collapsible-body ul > li {
+    line-height: 45px;
+    height: 45px;
+
+    &:hover {
+        background-color: lighten($color-sidebar, 3%);
+    }
+
+    a {
+        line-height: 45px;
+        font-size: .8rem;
+        height: 45px;
+
+        &:before {
+            content: " ";
+            display: inline-block;
+            box-shadow: 0 0 0 1px lighten($color-sidebar, 10%);
+            margin: 3px 8px 3px 3px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            position: relative;
+            top: 3px;
+            background-color: $color-sidebar;
+        }
+    }
+
+    &:active {
+        background-color: $color-sidebar;
+    }
+
+}
+
+.sidebar .nav-pills .nav-link.active {
+    background-color: $color-select;
+    color: $white;
+}
+
+///sidebar menu links status dots
+.sidebar .nav-pills .nav-link.active:before {
+    content: "";
+    box-shadow: 0 0 0 0;
+    background: none;
+}
+
+///sidebar menu dot; default, complete, incomplete - depends on page status
+.sidebar .nav-pills .nav-link:before {
+    content: " ";
+    display: inline-block;
+    box-shadow: 0 0 0 1px lighten($color-sidebar, 10%);
+    margin: 3px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 8px;
+    position: relative;
+    top: 3px;
+    background-color: $color-sidebar;
+}
+
+
+////////// Separators
+
+.page-name {
+    border-bottom: 1px solid darken($color-mainpanel, 15%);
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+}
+
+.page-name-xl {
+    @extend .page-name;
+    font-size: 2rem;
+    font-weight: 300;
+    text-align: center;
+}
+
+.page-name-l {
+    @extend .page-name;
+    font-size: 1.1rem;
+    text-align: left;
+    font-weight: 600;
+    padding-bottom: .5rem;
+}
+
+.page-name-m {
+    @extend .page-name;
+    font-size: .8rem;
+    text-align: left;
+    font-weight: 400;
+    padding-bottom: .25rem;
+    margin-bottom: 1rem;
+    margin-top: -1rem;
+}
+
+
+////////// Tabels
+
+.table {
+    font-size: .9rem;
+}
+
+.table thead th {
+    background-color: $color-select;
+    font-size: .9rem;
+    text-transform: uppercase;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: $white;
+
+    &:hover {
+        background-color: darken($white, 15%);
+    }
+}
+
+///////// Inputs
+
+.md-form {
+    margin-bottom: 2.2rem;
+}
+
+.md-form label {
+    text-indent: .1rem;
+    text-transform: uppercase;
+    transform: translateY(-175%);
+    font-size: .8rem;
+}
+
+.md-form label.active {
+    text-indent: .1rem;
+    text-transform: uppercase;
+    transform: translateY(-175%);
+}
+
+.md-form .prefix.active {
+    color: $color-nav;
+}
+
+input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime-local], input[type=tel], input[type=number], input[type=search-md], input[type=search], textarea.md-textarea {
+    background-color: $white;
+    border-radius: .4rem;
+    border: 1px solid lighten($color-sidebar, 70%);
+    text-indent: 1rem;
+}
+
+input[type=text]:focus:not([readonly]) + label, input[type=password]:focus:not([readonly]) + label, input[type=email]:focus:not([readonly]) + label, input[type=url]:focus:not([readonly]) + label, input[type=time]:focus:not([readonly]) + label, input[type=date]:focus:not([readonly]) + label, input[type=datetime-local]:focus:not([readonly]) + label, input[type=tel]:focus:not([readonly]) + label, input[type=number]:focus:not([readonly]) + label, input[type=search-md]:focus:not([readonly]) + label, input[type=search]:focus:not([readonly]) + label, textarea.md-textarea:focus:not([readonly]) + label {
+    color: $color-select;
+}
+
+input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly]), input[type=email]:focus:not([readonly]), input[type=url]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=date]:focus:not([readonly]), input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=search-md]:focus:not([readonly]), input[type=search]:focus:not([readonly]), textarea.md-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #5CB3FD;
+    box-shadow: none;
+}
+
+.select-wrapper input.select-dropdown {
+    background-color: $white;
+    border-radius: .4rem;
+    border: 1px solid lighten($color-sidebar, 70%);
+    text-indent: 1rem;
+    margin-top: .2rem;
+    color: $color-body_text;
+    margin-bottom: 30px;
+    height: 3.2rem;
+}
+
+.select-wrapper + label {
+    text-indent: .1rem;
+    text-transform: uppercase;
+    color: #757575;
+    top: -1rem;
+}
+
+.dropdown-content {
+    margin-top: .2rem;
+    border-radius: .5rem;
+}
+
+.select-wrapper span.caret {
+    color: initial;
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    font-size: 10px;
+    z-index: 1;
+}
+
+.profile_xl {
+    border-radius: 50%;
+    border: 5px solid $white;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+
+}
+
+.pos_rel {
+    position: relative;
+
+    label {
+        margin-top: -.2rem;
+    }
+}
+
+////////// Buttons
+
+.btn {
+    font-family: $font-family-base;
+    font-weight: 600;
+    letter-spacing: .1rem;
+}
+
+.btn.btn-lg, .btn-group-lg > .btn {
+    padding: 1.5rem 3.9rem;
+    border-radius: .4rem;
+    font-size: .8rem;
+}
+
+.btn-footer {
+    justify-content: center;
+    border-top: 1px solid darken($color-mainpanel, 15%);
+    margin-top: 30px;
+    margin-bottom: 10rem;
+}
+
+.btn-header {
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.btn .fa.left {
+    margin-right: 10px;
+    margin-top: 0;
+}
+
+
+///Btn Colors
+
+.btn-save {
+    background-color: $color-complete;
+
+    &:hover, &:active, &:focus {
+        background-color: $color-complete;
+    }
+}
+
+.btn-neutral {
+    background-color: $color-nav;
+}
+
+.btn-attention {
+    background-color: $color-incomplete;
+}
+
+.btn-blank {
+    background-color: $color-sidebar;
+}
+
+.btn-cancel {
+    background-color: $color-cancel;
+}
+
