@@ -13,8 +13,22 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example', require('./components/Example.vue'));
+/*Vue.component('example', require('./components/Example.vue'));
 
 const app = new Vue({
     el: '#app'
+});*/
+
+// SideNav init
+$(".button-collapse").sideNav();
+
+// Custom scrollbar init
+var el = document.querySelector('.custom-scrollbar');
+Ps.initialize(el);
+
+// Material Select Initialization
+$(document).ready(function() {
+    $('.mdb-select').material_select();
 });
+
+

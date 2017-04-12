@@ -30,7 +30,7 @@
             <ul id="slide-out" class="sidebar side-nav fixed custom-scrollbar">
                 <!-- Logo -->
                 <li class="brand">
-                    <img src="{{ asset('img/sk_logo.svg') }}" href="{{ url('/') }}">
+                    <img src="{{ asset('images/sk_logo.svg') }}" href="{{ url('/') }}">
                 </li>
                 <!--/. Logo -->
                 <!-- Side navigation links -->

@@ -16,13 +16,13 @@
                 <!--Body-->
                 <div class="md-form">
                     <i class="fa fa-envelope prefix"></i>
-                    <input type="text" id="form2" class="form-control">
-                    <label for="form2">Korisničko ime</label>
+                    <input type="email" id="form2" name="email" class="form-control" required>
+                    <label for="form2">Email</label>
                 </div>
 
                 <div class="md-form">
                     <i class="fa fa-lock prefix"></i>
-                    <input type="password" id="form4" class="form-control">
+                    <input type="password" id="form4" name="password" class="form-control" required>
                     <label for="form4">Lozinka</label>
                 </div>
 

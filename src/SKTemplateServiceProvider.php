@@ -14,6 +14,10 @@ class SKTemplateServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadViewsFrom( __DIR__ . '/views', 'sktemplate' );
+
+        $this->publishes([
+            __DIR__ . '/assets/images' => public_path('images'),
+        ], 'public');
     }
 
     /**
