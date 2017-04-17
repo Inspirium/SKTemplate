@@ -75,7 +75,7 @@
             <div class="row header">
                 <nav class="col navbar main-nav d-flex flex-row-reverse navbar-toggleable-md scrolling-navbar double-nav">
                     <a class="nav-link dropdown-toggle user-nav" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}
-                        <img src="https://www.gravatar.com/avatar/{{ md5( Auth::user()->email ) }}?s=50" class="header-profile">
+                        <img src="https://www.gravatar.com/avatar/{{ md5( Auth::user()->email ) }}?s=50&d=wavatar" class="header-profile">
                     </a>
                     <div class="dropdown-menu dropdown-ins dropdown-menu-right" aria-labelledby="userDropdown">
                         <a class="dropdown-item waves-effect waves-light" href="{{ url('logout') }}">Log Out</a>
