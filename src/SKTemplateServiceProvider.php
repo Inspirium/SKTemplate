@@ -18,6 +18,10 @@ class SKTemplateServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/assets/images' => public_path('images'),
         ], 'public');
+
+        $this->publishes([
+            __DIR__ . '/translations' => resource_path('lang')
+        ], 'translations');
     }
 
     /**
