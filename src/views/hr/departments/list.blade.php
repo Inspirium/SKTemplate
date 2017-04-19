@@ -1,7 +1,7 @@
 @extends('sktemplate::layout')
 
 @section('content')
-    <div class="page-name-xl">@lang('Employees')</div>
+    <div class="page-name-xl">@lang('Departments')</div>
     <!-- Search -->
     <div class="md-form input-group search-big">
         <input type="search" class="form-control" placeholder="@lang('Search...')">
@@ -11,7 +11,7 @@
     </div>
     <!--/. Search -->
     <div class="btn-header d-flex p-2">
-        <a href="{{ url('hr/employees/edit') }}" class="btn btn-lg btn-unique"><i class="fa fa-plus left"></i>@lang('Add New Employee')</a>
+        <a href="{{ url('hr/departments/edit') }}" class="btn btn-lg btn-unique"><i class="fa fa-plus left"></i>@lang('Add New Department')</a>
     </div>
     <table class="table table-striped table-hover">
         <thead class="thead-inverse">
@@ -22,13 +22,13 @@
         </tr>
         </thead>
         <tbody>
-        @foreach($employees as $employee)
+        @foreach($departments as $department)
         <tr>
             <th scope="row">{{ $loop->iteration }}</th>
-            <td>{{ $employee->name }}</td>
+            <td>{{ $department->name }}</td>
             <td>
-                <a class="teal-text" href="{{ url('employee/edit/'.$employee->id) }}" title="@lang('Edit')"><i class="fa fa-pencil"></i></a>
-                <a class="red-text" href="{{ url('employee/delete/'.$employee->id) }}" title="@lang('Delete')"><i class="fa fa-times"></i></a>
+                <a class="teal-text" href="{{ url('department/edit/'.$department->id) }}" title="@lang('Edit')"><i class="fa fa-pencil"></i></a>
+                <a class="red-text" href="{{ url('department/delete/'.$department->id) }}" title="@lang('Delete')"><i class="fa fa-times"></i></a>
             </td>
         </tr>
         @endforeach
