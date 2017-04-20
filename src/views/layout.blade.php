@@ -77,7 +77,7 @@
                     <a class="nav-link dropdown-toggle user-nav" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}
                         <img src="https://www.gravatar.com/avatar/{{ md5( Auth::user()->email ) }}?s=50&d=wavatar" class="header-profile">
                     </a>
-                    <div class="dropdown-menu dropdown-ins dropdown-menu-right" aria-labelledby="userDropdown">
+                    <div class="dropdown-menu dropdown-ins dropdown-menu-right dropdown-custom-login" aria-labelledby="userDropdown">
                         <a class="dropdown-item waves-effect waves-light" href="{{ url('logout') }}">@lang('Log Out')</a>
                         <a class="dropdown-item waves-effect waves-light" href="#">@Lang ('My account')</a>
                     </div>
