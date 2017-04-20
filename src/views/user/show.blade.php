@@ -8,6 +8,13 @@
         <div class="col col-md-6">
             <p>{{ $user->name }}</p>
             <p>{{ $user->email }}</p>
+            @if(Auth::user()->hasRole('user_edit'))
+                <a href="{{ url('user/edit/'.$user->id) }}" class="btn btn-primary">@lang('Edit User')</a>
+            @endif
+            @if(Auth::user()->hasRole('user_edit_roles'))
+                <a href="{{ url('user/roles/'.$user->id) }}" class="btn btn-primary">@lang('Edit User Roles')</a>
+            @endif
         </div>
     </div>
+
 @endsection

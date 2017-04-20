@@ -29,8 +29,8 @@
             <td>{{ $role->name }}</td>
             <td>{{ $role->description }}</td>
             <td>
-                <a class="teal-text" href="{{ url('user/role/edit/'.$user->id) }}" title="@lang('Edit')"><i class="fa fa-pencil"></i></a>
-                <a class="red-text" href="{{ url('user/role/delete/'.$user->id) }}" title="@lang('Delete')"><i class="fa fa-times"></i></a>
+                <a class="teal-text" href="{{ url('user/role/edit/'.$role->id) }}" title="@lang('Edit')"><i class="fa fa-pencil"></i></a>
+                <a class="red-text" href="{{ url('user/role/delete/'.$role->id) }}" title="@lang('Delete')"><i class="fa fa-times"></i></a>
             </td>
         </tr>
         @endforeach
