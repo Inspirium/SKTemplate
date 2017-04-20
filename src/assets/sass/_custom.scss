@@ -477,10 +477,24 @@ body {
 }
 
 .table thead th {
-    background-color: $color-select;
-    font-size: .9rem;
+    background-color: $color-table-th;
+    color: $color-sidebar;
+    font-size: .85rem;
     text-transform: uppercase;
+    border-bottom: none;
+    vertical-align: middle;
+    height: 60px;
+    font-weight: 600;
+    
+    &:first-child {
+        border-top-left-radius: .9rem;
+    }
+    
+    &:last-child {
+        border-top-right-radius: .9rem;
+    }
 }
+
 
 .table-striped tbody tr:nth-of-type(odd) {
     background-color: $white;
@@ -489,6 +503,7 @@ body {
         background-color: darken($white, 15%);
     }
 }
+
 
 ///////// Inputs
 
