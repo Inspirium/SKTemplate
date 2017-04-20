@@ -50,7 +50,7 @@
                         <li><a class="collapsible-header nav-link" href="#">@lang('Proposition')</a>
                             <div class="collapsible-body">
                                 <ul>
-                                    <li><a href="#" class ="waves-effect">Osnovni podaci</a></li>
+                                    <li><a href="#" class ="waves-effect">@lang('Basic data')</a></li>
                                     <li><a href="#" class ="waves-effect">Tržišni potencijal</a></li>
                                     <li><a href="#" class ="waves-effect">Tehnički podaci</a></li>
                                     <li><a href="#" class ="waves-effect">Tisak</a></li>
