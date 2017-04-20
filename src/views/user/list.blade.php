@@ -2,14 +2,7 @@
 
 @section('content')
     <div class="page-name-xl">@lang('Users')</div>
-    <!-- Search -->
-    <div class="md-form input-group search-big">
-        <input type="search" class="form-control" placeholder="@lang('Search...')">
-        <span class="input-group-btn">
-            <a class="btn search-big-button" type="button"><i class="fa fa-search fa-4x left"></i></a>
-        </span>
-    </div>
-    <!--/. Search -->
+    @component('sktemplate::components.search')@endcomponent
     <div class="btn-header d-flex p-2">
         <a href="{{ url('user/edit') }}" class="btn btn-lg btn-unique"><i class="fa fa-plus left"></i>@lang('Add New User')</a>
     </div>
@@ -26,7 +19,7 @@
         @foreach($users as $user)
         <tr>
             <th scope="row">{{ $loop->iteration }}</th>
-            <td>{{ $user->name }}</td>
+            <td><a href="{{ url('user/show/'.$user->id) }}">{{ $user->name }}</a></td>
             <td>{{ $user->email }}</td>
             <td>
                 <a class="teal-text" href="{{ url('user/edit/'.$user->id) }}" title="@lang('Edit')"><i class="fa fa-pencil"></i></a>

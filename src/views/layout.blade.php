@@ -40,8 +40,10 @@
                         <li><a class="collapsible-header nav-link" href="#">@lang('Administration')</a>
                             <div class="collapsible-body">
                                 <ul>
-                                    <li><a href="{{ url('/users') }}" class="waves-effect">@lang('Users')</a></li>
+                                    <li><a href="{{ url('/user') }}" class="waves-effect">@lang('Users')</a></li>
                                     <li><a href="{{ url('/user/edit') }}" class="waves-effect">@lang('Add new user')</a></li>
+                                    <li><a href="{{ url('user/role') }}" class="waves-effect">@lang('Roles')</a></li>
+                                    <li><a href="{{ url('user/role/edit') }}" class="waves-effect">@lang('Add New Role')</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -52,6 +54,7 @@
                                 <ul>
                                     <li><a href="{{ url('hr/employee') }}" class="waves-effect">@lang('Employees')</a></li>
                                     <li><a href="{{ url('hr/candidates') }}" class="waves-effect">@lang('Candidates')</a></li>
+                                    <li><a href="{{ url('hr/department') }}" class="waves-effect">@lang('Departments')</a></li>
                                 </ul>
                             </div>
                         </li>

@@ -2,14 +2,7 @@
 
 @section('content')
     <div class="page-name-xl">@lang('Roles')</div>
-    <!-- Search -->
-    <div class="md-form input-group search-big">
-        <input type="search" class="form-control" placeholder="@lang('Search')">
-        <span class="input-group-btn">
-                <a class="btn btn-neutral btn-lg search-big-button" type="button"><i class="fa fa-search fa-4x left"></i></a>
-            </span>
-    </div>
-    <!--/. Search -->
+    @component('sktemplate::components.search')@endcomponent
     <div class="btn-header d-flex p-2">
         <a href="{{ url('user/role/edit') }}" class="btn btn-lg btn-unique"><i class="fa fa-plus left"></i>@lang('Add New Role')</a>
     </div>
