@@ -11,7 +11,7 @@
     </div>
     <!--/. Search -->
     <div class="btn-header d-flex p-2">
-        <a href="{{ url('hr/employees/edit') }}" class="btn btn-lg btn-unique"><i class="fa fa-plus left"></i>@lang('Add New Employee')</a>
+        <a href="{{ url('hr/employee/edit') }}" class="btn btn-lg btn-unique"><i class="fa fa-plus left"></i>@lang('Add New Employee')</a>
     </div>
     <table class="table table-striped table-hover">
         <thead class="thead-inverse">

@@ -50,7 +50,7 @@
                         <li><a class="collapsible-header nav-link" href="#">@lang('Human Resources')</a>
                             <div class="collapsible-body">
                                 <ul>
-                                    <li><a href="{{ url('hr/employees') }}" class="waves-effect">@lang('Employees')</a></li>
+                                    <li><a href="{{ url('hr/employee') }}" class="waves-effect">@lang('Employees')</a></li>
                                     <li><a href="{{ url('hr/candidates') }}" class="waves-effect">@lang('Candidates')</a></li>
                                 </ul>
                             </div>
