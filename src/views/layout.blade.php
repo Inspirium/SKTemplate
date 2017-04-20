@@ -78,8 +78,8 @@
                         <img src="https://www.gravatar.com/avatar/{{ md5( Auth::user()->email ) }}?s=50&d=wavatar" class="header-profile">
                     </a>
                     <div class="dropdown-menu dropdown-ins dropdown-menu-right" aria-labelledby="userDropdown">
-                        <a class="dropdown-item waves-effect waves-light" href="{{ url('logout') }}">Log Out</a>
-                        <a class="dropdown-item waves-effect waves-light" href="#">My account</a>
+                        <a class="dropdown-item waves-effect waves-light" href="{{ url('logout') }}">@lang('Log Out')</a>
+                        <a class="dropdown-item waves-effect waves-light" href="#">@Lang ('My account')</a>
                     </div>
                     <a href="#" class="nav-item nav-link-icon d-flex">
                         <i class="fa fa-bell"></i>
