@@ -36,6 +36,16 @@
                 <!-- Side navigation links -->
                 <li class="nav nav-pills flex-column sidebar-menu">
                     <ul class="collapsible collapsible-accordion">
+                        @if (Auth::user()->hasRole('main_admin'))
+                        <li><a class="collapsible-header nav-link" href="#">@lang('Administration')</a>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li><a href="{{ url('hr/employees') }}" class="waves-effect">@lang('Users')</a></li>
+                                    <li><a href="{{ url('hr/candidates') }}" class="waves-effect">@lang('Add new user')</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        @endif
                         @if (Auth::user()->hasRole('hr_admin'))
                         <li><a class="collapsible-header nav-link" href="#">@lang('Human Resources')</a>
                             <div class="collapsible-body">
