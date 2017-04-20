@@ -18,10 +18,10 @@
         @foreach($employees as $employee)
         <tr>
             <th scope="row">{{ $loop->iteration }}</th>
-            <td>{{ $employee->name }}</td>
+            <td><a href="{{ url('hr/employee/show/'.$employee->id) }}">{{ $employee->first_name . ' ' . $employee->last_name }}</a></td>
             <td>
-                <a class="teal-text" href="{{ url('employee/edit/'.$employee->id) }}" title="@lang('Edit')"><i class="fa fa-pencil"></i></a>
-                <a class="red-text" href="{{ url('employee/delete/'.$employee->id) }}" title="@lang('Delete')"><i class="fa fa-times"></i></a>
+                <a class="teal-text" href="{{ url('hr/employee/edit/'.$employee->id) }}" title="@lang('Edit')"><i class="fa fa-pencil"></i></a>
+                <a class="red-text" href="{{ url('hr/employee/delete/'.$employee->id) }}" title="@lang('Delete')"><i class="fa fa-times"></i></a>
             </td>
         </tr>
         @endforeach
