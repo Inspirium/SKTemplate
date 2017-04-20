@@ -84,7 +84,7 @@ body {
 
 
 .md-form.input-group.search-big {
-    margin-bottom: 0;
+    margin-bottom: 1.5rem;
 }
 
 .search-big {
@@ -99,6 +99,15 @@ body {
         font-family: Open Sans;
         box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.06), 0 2px 10px 0 rgba(0, 0, 0, 0.02);
     }
+    
+    span {
+            z-index: 0;
+    }
+}
+
+.input-group .form-control:not(:last-child) {
+    border-bottom-right-radius: 3rem;
+    border-top-right-radius: 3rem;
 }
 
 @media only screen and (max-width : 768px) {
@@ -107,18 +116,18 @@ body {
     }
 }
 
-.search-big .btn-neutral.search-big-button {
-    height: 5.25rem;
-    width: 5.1rem;
-    display: inline-block;
-    top: -6px;
-    border-top-right-radius: 2.3rem;
-    border-bottom-right-radius: 2.3rem;
-
+.search-big .search-big-button {
+    top: 4px;
+    box-shadow: none;
+    position: absolute;
+    right: -42px;
+    z-index: 2;
+    
     i {
         top: -3px;
         font-size: 2.3rem;
         right: 16px;
+        color: $color-table-th;
     }
 }
 
@@ -507,6 +516,10 @@ body {
 
 ///////// Inputs
 
+.form-control:focus {
+    border-color: $color-table-th;
+}
+
 .md-form {
     margin-bottom: 2.2rem;
 }
@@ -540,7 +553,7 @@ input[type=text]:focus:not([readonly]) + label, input[type=password]:focus:not([
 }
 
 input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly]), input[type=email]:focus:not([readonly]), input[type=url]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=date]:focus:not([readonly]), input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=search-md]:focus:not([readonly]), input[type=search]:focus:not([readonly]), textarea.md-textarea:focus:not([readonly]) {
-    border-bottom: 1px solid #5CB3FD;
+    border-bottom: 1px solid #a5d6e6;
     box-shadow: none;
 }
 
@@ -593,6 +606,8 @@ input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly
         margin-top: -.2rem;
     }
 }
+
+
 
 ////////// Buttons
 
