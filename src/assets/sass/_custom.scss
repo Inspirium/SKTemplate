@@ -114,6 +114,11 @@ body {
 .search-big {
     width: 50%;
     margin: 0 auto;
+    
+    input::placeholder {
+        font-size: 2rem;
+        font-family: $font-family-base;
+    }
 
     .form-control {
         height: 4rem;
@@ -540,8 +545,20 @@ body {
 
 ///////// Inputs
 
+input, 
+input::placeholder {
+    font-size: 1rem;
+    font-family: $font-family-base;
+}
+
+input::placeholder {
+    color: #ccc !important;
+}
+    
+
 label {
     text-transform: uppercase;
+    margin-bottom: 0;
 }
 
 .form-control:focus {

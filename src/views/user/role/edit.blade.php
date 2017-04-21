@@ -4,14 +4,21 @@
 
     <form action="{{ url('user/role/edit/'.$role->id) }}" method="post">
         {{ csrf_field() }}
-        <div class="form-group">
-            <label for="name">@lang("Name")</label>
-            <input type="text" class="form-control" id="name" name="name" placeholder="@lang("Enter Name")" required value="{{ $role->name }}">
+        <div class="page-name-xl">@lang("Roles")</div>
+        <div class="col-md-5 mx-auto">
+            <div class="form-group">
+                <label for="name">@lang("Name")</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="@lang("Enter Name")" required value="{{ $role->name }}">
+            </div>
+            <div class="form-group">
+                <label for="description">@lang("Description")</label>
+                <input type="text" class="form-control" id="description" name="description" placeholder="@lang("Enter Description")" required value="{{ $role->description }}">
+            </div>
         </div>
-        <div class="form-group">
-            <label for="description">@lang("Description")</label>
-            <input type="text" class="form-control" id="description" name="description" placeholder="@lang("Enter Description")" required value="{{ $role->description }}">
-        </div>
-        <button type="submit" class="btn btn-primary">@lang('Submit')</button>
     </form>
+    <!-- Footer buttons --> 
+    <div class="btn-footer d-flex p-2">
+        <button type="button" class="btn btn-lg btn-neutral">@lang("Submit")</button>
+    </div>
+    <!--/. Footer buttons --> 
 @endsection
