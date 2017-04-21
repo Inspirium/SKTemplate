@@ -40,7 +40,6 @@ body {
     padding-top: 15px;
 }
 
-
 ////////// Typography
 
 .login h2 {
@@ -50,6 +49,31 @@ body {
 
 
 //////////Styles
+
+///Labels
+
+.switch_label {
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+.switch_sty {
+    border-bottom: 1px solid darken($color-mainpanel, 15%);
+    padding: 1.5rem 0;
+    
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+.switch label input[type=checkbox]:checked + .lever {
+    background-color: $color-table-th;
+        
+    &:after {
+    background-color: $color-nav;
+    }
+}
+
 
 ///Login
 
