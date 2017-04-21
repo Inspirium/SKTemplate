@@ -11,6 +11,9 @@
         <tr>
             <th>#</th>
             <th>@lang('Name')</th>
+            <th>@lang('Department')</th>
+            <th>@lang('Phone')</th>
+            <th>@lang('Mobile')</th>
             <th>@lang('Actions')</th>
         </tr>
         </thead>
@@ -19,6 +22,9 @@
         <tr>
             <th scope="row">{{ $loop->iteration }}</th>
             <td><a href="{{ url('hr/employee/show/'.$employee->id) }}">{{ $employee->first_name . ' ' . $employee->last_name }}</a></td>
+            <td>{{ $employee->department->name }}</td>
+            <td>{{ $employee->getMeta('phone_pre') . ' ' . $employee->getMeta('phone') }}</td>
+            <td>{{ $employee->getMeta('mobile_pre') . ' ' .$employee->getMeta('mobile') }}</td>
             <td>
                 <a class="teal-text" href="{{ url('hr/employee/edit/'.$employee->id) }}" title="@lang('Edit')"><i class="fa fa-pencil"></i></a>
                 <a class="red-text" href="{{ url('hr/employee/delete/'.$employee->id) }}" title="@lang('Delete')"><i class="fa fa-times"></i></a>
