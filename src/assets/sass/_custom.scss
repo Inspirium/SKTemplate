@@ -540,12 +540,16 @@ body {
 
 ///////// Inputs
 
+label {
+    text-transform: uppercase;
+}
+
 .form-control:focus {
     border-color: $color-table-th;
 }
 
 .md-form {
-    margin-bottom: 2.2rem;
+    margin-bottom: 2.2rem; 
 }
 
 .md-form label {
