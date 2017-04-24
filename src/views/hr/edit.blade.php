@@ -89,8 +89,8 @@
                 </div>
             </div>
             <div class="md-form">
-                <input type="text" id="form3" class="form-control" name="address" value="{{ $employee->getMeta('address') }}">
-                <label for="form3" class="">@lang('Address')-ovdje treba ići mjesto rada tj. soba</label>
+                <input type="text" id="room" class="form-control" name="room" value="{{ $employee->getMeta('room') }}">
+                <label for="room" class="">@lang('Office Location')</label>
             </div>
             <div class="md-form">
                 <input type="text" id="form3" class="form-control" name="address" value="{{ $employee->getMeta('address') }}">
