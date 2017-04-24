@@ -21,7 +21,7 @@
             <div class="row">
                 <div class="col-md-6 showdata_box">
                     <h6>@lang('Mobile Phone')</h6>
-                    <h3>{{ $employee->getMeta('mobile') }}"</h3>
+                    <h3>{{ $employee->getMeta('mobile') }}</h3>
                 </div>
                 <div class="col-md-6 showdata_box">
                     <h6>@lang('VPN Mobile Phone')</h6>
@@ -31,7 +31,7 @@
             <div class="row">
                 <div class="col-md-6 showdata_box">
                     <h6>@lang('Phone')</h6>
-                    <h3>{{ $employee->getMeta('phone') }}"</h3>
+                    <h3>{{ $employee->getMeta('phone') }}</h3>
                 </div>
                 <div class="col-md-6 showdata_box">
                     <h6>@lang('VPN phone')</h6>
