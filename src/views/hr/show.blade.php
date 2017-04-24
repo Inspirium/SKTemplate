@@ -10,7 +10,7 @@
 <div class="content">
     <div class="row">
         <div class="col-md-4">
-            <img src="http://homestead.app/images/profile.jpg" href="#" class="profile_xl mt-2">
+            <img src="{{ asset('images/profile.jpg') }}" class="profile_xl mt-2">
         </div>
         <div class="col-md-8">
             <div class="page-name-l">@lang('Basic Info')</div>
