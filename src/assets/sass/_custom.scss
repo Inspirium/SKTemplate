@@ -542,6 +542,40 @@ body {
     }
 }
 
+///Document-File table
+
+.file_box {
+    background-color: $white;
+}
+
+.file_box > * {
+    margin-right: 1rem;
+}
+
+.file_box_l {
+    height: 5.5rem;
+    padding: .7rem;
+    
+    & > * {
+        border-left: 1px solid $color-mainpanel;
+        line-height: 5.5rem;
+        padding-left: 1rem;
+    }
+    
+    & > *:first-child {
+        border-left: 0;
+        padding-left: 0;    
+    }    
+    
+}
+
+.file_box_sty {
+    color: $color-body_text;
+    font-size: .85rem;
+    text-transform: uppercase;
+    border-bottom: none;
+    font-weight: 600;
+}
 
 ///////// Inputs
 
