@@ -713,12 +713,14 @@ table td a:first-child {
 
 ///////// Inputs
 
-input, 
+input,
+input[type=value],
 input::placeholder {
     font-size: 1rem;
     font-family: $font-family-base;
 }
 
+input[type=value],
 input::placeholder {
     color: #ccc !important;
 }
@@ -752,6 +754,12 @@ label {
 
 .md-form .prefix.active {
     color: $color-nav;
+}
+
+textarea.md-textarea {
+    font-family: $font-family-base;
+    color: $color-body_text; 
+    padding: 0.9rem 0 3rem 0;
 }
 
 input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime-local], input[type=tel], input[type=number], input[type=search-md], input[type=search], textarea.md-textarea {
@@ -877,6 +885,21 @@ input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly
 
 .btn-cancel {
     background-color: $color-cancel;
+}
+
+.btn-assign {
+    background-color: $color-incomplete;
+}
+
+.btn-assign_icon:before {
+    color: $white;
+    font-family: FontAwesome;
+    content: "\f2bd";
+    font-size: 2.4rem;
+    margin-right: 1.1rem;
+    line-height: 0;
+    margin-left: 0.5rem;
+    vertical-align: middle;
 }
 
 .color-grey {
