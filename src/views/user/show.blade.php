@@ -12,25 +12,27 @@
             <img src="https://www.gravatar.com/avatar/{{ md5( $user->email ) }}?s=200&d=wavatar" class="profile_xl mt-2 mx-auto">
         </div>
         <div class="col-md-8 showdata_box">
-            <div class="page-name-l">@lang('Basic Info')</div>
-            <div>
+            <div class="data_section_l">
+                <div class="page-name-l">@lang('Basic Info')</div>
                 <h6 class="no_border">@lang('Email')</h6>
                 <h3 class="mb-1">{{ $user->email }}</h3>
             </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <h6>@lang('Mobile Phone')</h6>
-                    <h3 class="mb-1">Nešto će valjda doć</h3>
-                </div>
-                <div class="col-md-6">
-                    <h6>@lang('VPN Mobile Phone')</h6>
-                    <h3 class="mb-1">Valjda...</h3>
+            <div class="data_section_l">
+                <div class="page-name-l">@lang('User Roles')</div>
+                <div class="row">
+                    <div class="col-md-12">
+                @foreach($user->roles as $role)
+                        <h6>{{ $role->name }}</h6>
+                        <h3 class="mb-1">{{ $role->description }}</h3>
+                @endforeach
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-    
+           
+           
+
     <!-- Footer buttons -->
     <div class="btn-footer d-flex p-2">
     @if(Auth::user()->hasRole('user_edit'))
@@ -41,5 +43,6 @@
     @endif
     </div>
     <!--/. Footer buttons -->
+</div>
 
 @endsection

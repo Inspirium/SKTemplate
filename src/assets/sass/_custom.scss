@@ -54,7 +54,7 @@ body {
 }
 
 .showdata_box .page-name-l {
-    margin-bottom: 1rem;
+    margin-bottom: .7rem;
 }
 
 
@@ -533,6 +533,16 @@ h6 {
     padding-bottom: .25rem;
     margin-bottom: 1rem;
     margin-top: -1rem;
+}
+
+////// Sections
+
+.data_section_l h3:last-child {
+    padding-bottom: 1.5rem;
+}
+
+.data_section_l h6:first-child {
+    border: none;
 }
 
 
