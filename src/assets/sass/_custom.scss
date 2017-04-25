@@ -53,6 +53,10 @@ body {
     border: none;
 }
 
+.showdata_box .page-name-l {
+    margin-bottom: 1rem;
+}
+
 
 //////////Sidebar styles
 
@@ -80,7 +84,7 @@ h6 {
     font-weight: 400;
     font-size: .85rem;
     margin-bottom: 3px;
-    color: $color-nav_text;
+    color: $color-nav-sub2;
     border-top: 1px solid darken($color-mainpanel, 10%);
     padding-top: 9px;
 }
