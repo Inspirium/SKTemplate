@@ -82,12 +82,14 @@ body {
 h6 {
     text-transform: uppercase;
     font-weight: 400;
-    font-size: .85rem;
+    font-size: .75rem;
     margin-bottom: 3px;
     color: $color-nav-sub2;
     border-top: 1px solid darken($color-mainpanel, 10%);
     padding-top: 9px;
 }
+
+
 
 
 
@@ -737,6 +739,14 @@ label {
 
 .md-form {
     margin-bottom: 2.2rem; 
+}
+
+.md-form .btn {
+    margin-bottom: 1.5rem;
+    display: block;
+    width: 30%;
+    height: 51px;
+    top: -2px;
 }
 
 .md-form label {

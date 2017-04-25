@@ -7,10 +7,17 @@
         <div class="col-md-12">
            
             <!-- Input field -->
-            <div class="md-form">
-                <input type="text" id="form1" class="form-control" name="first_name" placeholder="neko ime" required>
-                <label for="form1" class="">@lang('Author')</label>
-            </div>               
+            <div class="row">
+                <div class="col-md-12">   
+                    <div class="md-form d-md-flex flex-sm-column">
+                        <input type="text" id="form1" class="form-control" name="first_name" placeholder="neko ime" required>
+                        <label for="form1" class="">@lang('Author')</label>
+                        <button type="button" class="btn btn-neutral">@lang('Dodaj')</button>
+                        <button type="button" class="btn btn-neutral">@lang('Unesi novog')</button>
+                    </div> 
+                </div>
+            </div>
+                                        
             <div class="md-form">
                 <input type="text" id="form1" class="form-control" name="first_name" placeholder="neko ime" required>
                 <label for="form1" class="">@lang('Title')</label>

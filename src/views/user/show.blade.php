@@ -15,7 +15,7 @@
             <div class="data_section_l">
                 <div class="page-name-l">@lang('Basic Info')</div>
                 <h6 class="no_border">@lang('Email')</h6>
-                <h3 class="mb-1">{{ $user->email }}</h3>
+                <h5 class="mb-1">{{ $user->email }}</h5>
             </div>
             <div class="data_section_l">
                 <div class="page-name-l">@lang('User Roles')</div>
@@ -23,7 +23,7 @@
                     <div class="col-md-12">
                 @foreach($user->roles as $role)
                         <h6>{{ $role->name }}</h6>
-                        <h3 class="mb-1">{{ $role->description }}</h3>
+                        <h5 class="mb-1">{{ $role->description }}</h5>
                 @endforeach
                     </div>
                 </div>
