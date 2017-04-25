@@ -29,21 +29,5 @@
         @endforeach
         </tbody>
     </table>
-    <div class="file_box file_box_l d-flex align-items-center">
-        <a href="#" class="file_icon">Fizika.doc</a>
-        <div class="file_box_sty ml-auto">19.07.2017.</div>
-        <div class="file_box_sty hover_neutral"><i class="fa fa-cloud-download color-grey" aria-hidden="true"></i>Preuzmi</div>
-        <div class="file_box_sty hover_cancel"><i class="fa fa-times color-grey" aria-hidden="true"></i>Obriši</div>
-        
-        
-    </div>
-    
-    <h1 class="mt-3">Testing</h1>
-    <h2>Testing</h2>
-    <h3>Testing</h3>
-    <h4>Testing</h4>
-    <h5>Testing</h5>
-    <h6>Testing</h6>
-    <div class="file_box_sty">Testing</div>
     
 @endsection

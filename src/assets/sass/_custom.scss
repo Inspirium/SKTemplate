@@ -40,12 +40,51 @@ body {
     padding-top: 15px;
 }
 
+//////////Misc
+
+.profile_head {
+    background-color: lighten($color-nav, 7%);
+    margin-top: -15px;
+    margin-right: -15px;
+    padding: 3rem 0;
+}
+
+.showdata_box .no_border {
+    border: none;
+}
+
+
+//////////Sidebar styles
+
+//////Brand placeholder
+
+.brand {
+    display: flex;
+    height: 160px;
+}
+
+.brand img {
+    margin: 0 auto;
+}
+
+
 ////////// Typography
 
 .login h2 {
     text-transform: uppercase;
     font-weight: 300;
 }
+
+h6 {
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: .85rem;
+    margin-bottom: 3px;
+    color: $color-nav_text;
+    border-top: 1px solid darken($color-mainpanel, 10%);
+    padding-top: 9px;
+}
+
 
 
 //////////Styles
@@ -73,7 +112,6 @@ body {
     background-color: $color-nav;
     }
 }
-
 
 ///Login
 
@@ -104,8 +142,8 @@ body {
     }
 }
 
-///Search input
 
+///Search input
 
 .md-form.input-group.search-big {
     margin-bottom: 1.5rem;
@@ -227,7 +265,6 @@ body {
     }
 }
 
-
 .header .user-nav {
     height: 70px;
 }
@@ -274,6 +311,7 @@ body {
     background-color: lighten($color-nav, 5%);
     color: $white;
 }
+
 
 ////// Breadcrumb
 
@@ -351,20 +389,6 @@ body {
 @media only screen and (min-width: 62em) {
     .classic-tabs li:first-child {
         margin-left: 0;}
-}
-
-
-//////////Sidebar styles
-
-//////Brand placeholder
-
-.brand {
-    display: flex;
-    height: 160px;
-}
-
-.brand img {
-    margin: 0 auto;
 }
 
 
@@ -494,7 +518,7 @@ body {
     font-size: 1.1rem;
     text-align: left;
     font-weight: 600;
-    padding-bottom: .5rem;
+    padding-bottom: .35rem;
 }
 
 .page-name-m {
@@ -565,10 +589,6 @@ table td a:first-child {
 
 .file_box {
     background-color: $white;
-    
-    &:hover {
-        background-color: darken($white, 7%);
-    }
 }
 
 .file_box > * {
@@ -589,7 +609,6 @@ table td a:first-child {
         border-left: 0;
         padding-left: 0;    
     }    
-    
 }
 
 .file_box_sty {
@@ -608,26 +627,74 @@ table td a:first-child {
     top: -2px;
 }
 
+.file_icon {
+    white-space: nowrap;
+    overflow: hidden; 
+}
+
 .file_icon:before {
+    color: lighten($color-body_text, 25%);
     font-family: FontAwesome;
-    content: "\f1c1";
+    content: "\f016";
     font-size: 3.6rem;
     margin-right: 1.1rem;
     margin-left: 0.5rem;
     vertical-align: middle;
+    
 }
 
-.hover_cancel:hover,
-.hover_cancel i:hover {
-    color: $color-cancel;
+.file_icon:hover::before {
+    color: $color-select;
 }
 
-.hover_neutral:hover,
-.hover_cancel i:hover {
+.file_icon[href$=".jpg"]:before {
+    content: "\f1c5";        
+}
+
+.file_icon[href$=".pdf"]:before {
+    content: "\f1c1";
+
+}
+
+.file_icon[href$=".xls"]:before {
+    content: "\f1c3";
+
+}
+
+.file_icon[href$=".doc"]:before {
+    font-family: FontAwesome;
+    content: "\f1c2";
+
+}
+
+.icon {
+    color: $color-body_text;
+    cursor: pointer;
+
+    &:before {
+        color: lighten($color-body_text, 25%);
+        font-family: FontAwesome;
+        font-size: 1.7rem;
+        margin-right: .7rem;
+        vertical-align: middle;
+    }    
+}
+
+.icon_cancel {
+    &:hover {color: $color-cancel;}  
+    &:hover::before {color: $color-cancel;}
+    &:before {content: "\f2d3";}    
+}
+
+.icon_download {
+    &:hover {color: $color-select;}
+    &:hover::before {color: $color-select;}
+    &:before {content: "\f0ed";}    
+}
+
+.icon_neutral:hover {
     color: $color-nav;
 }
-
-
 
 
 ///////// Inputs
@@ -738,7 +805,6 @@ input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly
         margin-top: -.2rem;
     }
 }
-
 
 
 ////////// Buttons
