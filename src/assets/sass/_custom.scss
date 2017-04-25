@@ -542,10 +542,33 @@ body {
     }
 }
 
+///Action Icons
+
+td .fa {
+    font-size: 1.2rem;
+}
+
+td .color-grey .fa-times:hover {
+    color: $color-cancel;
+}
+
+td .color-grey .fa-pencil:hover {
+    color: $color-select;
+}
+
+table td a:first-child {
+    margin-left: 0;
+}
+
+
 ///Document-File table
 
 .file_box {
     background-color: $white;
+    
+    &:hover {
+        background-color: darken($white, 7%);
+    }
 }
 
 .file_box > * {
@@ -576,6 +599,36 @@ body {
     border-bottom: none;
     font-weight: 600;
 }
+
+.file_box_sty i {
+    font-size: 1.4rem;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+    position: relative;
+    top: -2px;
+}
+
+.file_icon:before {
+    font-family: FontAwesome;
+    content: "\f1c1";
+    font-size: 3.6rem;
+    margin-right: 1.1rem;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+}
+
+.hover_cancel:hover,
+.hover_cancel i:hover {
+    color: $color-cancel;
+}
+
+.hover_neutral:hover,
+.hover_cancel i:hover {
+    color: $color-nav;
+}
+
+
+
 
 ///////// Inputs
 
@@ -744,5 +797,9 @@ input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly
 
 .btn-cancel {
     background-color: $color-cancel;
+}
+
+.color-grey {
+    color: lighten($color-body_text, 25%);
 }
 
