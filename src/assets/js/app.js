@@ -12,12 +12,16 @@ require('./bootstrap');
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+Vue.prototype.lang= function (key) {
+    return _.get(window.trans, key, key);
+};
 
-/*Vue.component('example', require('./components/Example.vue'));
+Vue.component('inspirium-tablesearch', require('./components/TableSearch.vue'));
+
 
 const app = new Vue({
     el: '#app'
-});*/
+});
 
 // SideNav init
 $(".button-collapse").sideNav();
