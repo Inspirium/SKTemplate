@@ -737,16 +737,12 @@ label {
     border-color: $color-table-th;
 }
 
-.md-form {
-    margin-bottom: 2.2rem; 
+.md-form.addon {
+    margin-bottom: 15px;
 }
 
-.md-form .btn {
-    margin-bottom: 1.5rem;
-    display: block;
-    width: 30%;
-    height: 51px;
-    top: -2px;
+.md-form {
+    margin-bottom: 2.2rem; 
 }
 
 .md-form label {
@@ -786,6 +782,11 @@ input[type=text]:focus:not([readonly]) + label, input[type=password]:focus:not([
 input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly]), input[type=email]:focus:not([readonly]), input[type=url]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=date]:focus:not([readonly]), input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=search-md]:focus:not([readonly]), input[type=search]:focus:not([readonly]), textarea.md-textarea:focus:not([readonly]) {
     border-bottom: 1px solid #a5d6e6;
     box-shadow: none;
+}
+
+input.md-form.addon {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
 }
 
 .select-wrapper input.select-dropdown {
@@ -838,6 +839,8 @@ input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly
     }
 }
 
+/// Chip
+
 
 ////////// Buttons
 
@@ -846,6 +849,14 @@ input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly
     font-weight: 600;
     letter-spacing: .1rem;
 }
+
+.md-form .btn {
+    margin-bottom: 1.5rem;
+    width: 30%;
+    height: 51px;
+    top: -2px;
+}
+
 
 .btn.btn-lg, .btn-group-lg > .btn {
     padding: 1.5rem 3.9rem;
@@ -870,8 +881,12 @@ input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly
     margin-top: 0;
 }
 
+.btn-addon {
+    flex-grow: 3;
+}
 
-///Btn Colors
+
+///Btn colors
 
 .btn-save {
     background-color: $color-complete;
@@ -915,4 +930,6 @@ input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly
 .color-grey {
     color: lighten($color-body_text, 25%);
 }
+
+
 

@@ -8,16 +8,19 @@
            
             <!-- Input field -->
             <div class="row">
-                <div class="col-md-12">   
-                    <div class="md-form d-md-flex flex-sm-column">
+                <div class="col-md-10">   
+                    <div class="md-form d-flex addon">
                         <input type="text" id="form1" class="form-control" name="first_name" placeholder="neko ime" required>
                         <label for="form1" class="">@lang('Author')</label>
-                        <button type="button" class="btn btn-neutral">@lang('Dodaj')</button>
-                        <button type="button" class="btn btn-neutral">@lang('Unesi novog')</button>
-                    </div> 
-                </div>
-            </div>
-                                        
+                        <span class="d-flex">
+                            <button class="btn btn-neutral btn-addon" type="button">@lang('Add')</button>
+                        </span>
+                    </div>
+                </div>                   
+            </div> 
+            <div class="chip mb-3">
+                <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg" alt="Contact Person"> Jane Doe<i class="close fa fa-times"></i>
+            </div>                                                
             <div class="md-form">
                 <input type="text" id="form1" class="form-control" name="first_name" placeholder="neko ime" required>
                 <label for="form1" class="">@lang('Title')</label>
