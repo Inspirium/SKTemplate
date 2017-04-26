@@ -565,6 +565,7 @@ h6 {
     vertical-align: middle;
     height: 60px;
     font-weight: 600;
+    cursor: pointer;
     
     &:first-child {
         border-top-left-radius: .9rem;
@@ -572,6 +573,16 @@ h6 {
     
     &:last-child {
         border-top-right-radius: .9rem;
+    }
+    
+    &:after {
+        font-family: FontAwesome;
+        content: "\f0dc";
+        font-size: .6rem;
+        line-height: 0;
+        margin-left: 0.5rem;
+        vertical-align: middle;
+        
     }
 }
 
