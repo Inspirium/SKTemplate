@@ -49,9 +49,11 @@ body {
     padding: 3rem 0;
 }
 
-.showdata_box .no_border {
+.showdata_box .no_border,
+.no_border {
     border: none;
 }
+
 
 .showdata_box .page-name-l {
     margin-bottom: .7rem;
@@ -614,7 +616,8 @@ table td a:first-child {
 .file_box_l {
     height: 5.5rem;
     padding: .7rem;
-    
+    margin-top: .2rem;
+        
     & > * {
         border-left: 1px solid $color-mainpanel;
         line-height: 5.5rem;
@@ -625,6 +628,10 @@ table td a:first-child {
         border-left: 0;
         padding-left: 0;    
     }    
+}
+
+.files .file_box:first-child {
+    margin-top: 1rem;
 }
 
 .file_box_sty {
@@ -841,6 +848,10 @@ input.md-form.addon {
 
 /// Chip
 
+.chip {
+    position: relative;
+    top: -15px;
+}
 
 ////////// Buttons
 
@@ -853,7 +864,8 @@ input.md-form.addon {
 .md-form .btn {
     margin-bottom: 1.5rem;
     width: 30%;
-    height: 51px;
+    padding-bottom: 18px;
+    padding-top: 18px;
     top: -2px;
 }
 
@@ -883,6 +895,7 @@ input.md-form.addon {
 
 .btn-addon {
     flex-grow: 3;
+    border-radius: 7px;
 }
 
 
@@ -932,4 +945,10 @@ input.md-form.addon {
 }
 
 
+////////// Proposition
 
+.print_offer_box {
+    height: 150px;
+    background-color: darken($color-mainpanel, 5%);
+    padding: 3rem 2rem;
+}
