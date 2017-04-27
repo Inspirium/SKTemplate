@@ -81,6 +81,10 @@ body {
     font-weight: 300;
 }
 
+h1 {
+    letter-spacing: -.25rem;
+}
+
 h6 {
     text-transform: uppercase;
     font-weight: 400;
@@ -167,7 +171,7 @@ h6 {
     }
 
     .form-control {
-        height: 4rem;
+        height: 3rem;
         border-radius: 3rem;
         font-size: 1.8rem;
         font-weight: 300;
