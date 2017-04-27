@@ -1,7 +1,7 @@
 @extends('sktemplate::layout')
 
 @section('content')
-
+   
     <div class="page-name-xl mb-3">@lang('Distribution')</div>
     <div class="row">
         <div class="col-md-12">
