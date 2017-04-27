@@ -67,6 +67,10 @@
                                     <li><a href="{{ url('proposition/market_potential') }}" class ="waves-effect">Tržišni potencijal</a></li>
                                     <li><a href="{{ url('proposition/technical_data') }}" class ="waves-effect">Tehnički podaci</a></li>
                                     <li><a href="{{ url('proposition/print') }}" class ="waves-effect">Tisak</a></li>
+                                    <li><a href="{{ url('proposition/authors_expense') }}" class ="waves-effect">Authors Expense</a></li>
+                                    <li><a href="{{ url('proposition/production_expense') }}" class ="waves-effect">Production Expense</a></li>
+                                    <li><a href="{{ url('proposition/marketing_expense') }}" class ="waves-effect">Marketing Expense</a></li>
+                                    <li><a href="{{ url('proposition/distribution_expense') }}" class ="waves-effect">Distribution Expense</a></li>
                                 </ul>
                             </div>
                         </li>
