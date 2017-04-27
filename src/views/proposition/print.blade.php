@@ -1,7 +1,7 @@
 @extends('sktemplate::layout')
 
 @section('content')
-    <div class="page-name-xl">@lang('Print Offers')</div>
+    <div class="page-name-xl mb-3">@lang('Print Offers')</div>
     <div class="row">
         <div class="col-md-12">
             <h6 class="text-center no_border">@lang('Circulation')</h6>
@@ -24,7 +24,7 @@
             <!-- First column -->         
             <div class="row">
                 <div class="col-md-6">
-                    <div class="page-name-l">@lang('Book Block')</div> 
+                    <div class="page-name-l mb-2">@lang('Book Block')</div> 
                                                 
                     <!-- Dropdown menu --> 
                     <div class="row">  
@@ -88,7 +88,7 @@
 
             <!-- Second column -->         
                 <div class="col-md-6">
-                    <div class="page-name-l">@lang('Cover')</div> 
+                    <div class="page-name-l mb-2">@lang('Cover')</div> 
 
                     <!-- Dropdown menu --> 
                     <div class="row">  
@@ -166,9 +166,9 @@
     </div>        
    
     <div class="page-name-l text-center">@lang('Download as...')</div> 
-        <div class="file_box file_box_l d-flex align-items-center">
-            <a src="" href="http://homestead.app/images/profile.pdf" class="file_icon">.pdf</a>
-            <a src="" href="http://homestead.app/images/profile.doc" class="file_icon">.doc</a>
+    <div class="file_box file_box_l d-flex align-items-center">
+        <a src="" href="http://homestead.app/images/profile.pdf" class="file_icon">.pdf</a>
+        <a src="" href="http://homestead.app/images/profile.doc" class="file_icon">.doc</a>
     </div>
    
 

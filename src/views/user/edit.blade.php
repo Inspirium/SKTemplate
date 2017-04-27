@@ -1,7 +1,7 @@
 @extends('sktemplate::layout')
 
 @section('content')
-<div class="page-name-xl">@lang('Edit User')</div>
+<div class="page-name-xl mb-3">@lang('Edit User')</div>
     <div class="row">
         <div class="col-md-4 order-sm-first">
             <div class="d-flex flex-column align-items-center">

@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="page-name-xl">@lang('Market Potential')</div>
+    <div class="page-name-xl mb-3">@lang('Market Potential')</div>
     <div class="row">
         <div class="col-md-12">
            
