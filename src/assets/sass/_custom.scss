@@ -81,7 +81,7 @@ body {
     font-weight: 300;
 }
 
-h1 {
+h1.display-2 {
     letter-spacing: -.25rem;
 }
 
@@ -95,7 +95,10 @@ h6 {
     padding-top: 9px;
 }
 
-
+.total_sty {
+    font-weight: 400;
+    font-size: 1.35rem;
+}
 
 
 
@@ -514,7 +517,6 @@ h6 {
 
 .page-name {
     border-bottom: 1px solid darken($color-mainpanel, 15%);
-    margin-bottom: 2rem;
     text-transform: uppercase;
 }
 
@@ -955,9 +957,49 @@ input.md-form.addon {
     vertical-align: middle;
 }
 
+
+////////// Colors
+
 .color-grey {
     color: lighten($color-body_text, 25%);
 }
+
+.color-sidebar {
+    color: $color-sidebar;
+}
+
+.color-body_text {
+    color: $color-sidebar;
+}
+
+.color-nav {
+    color: $color-nav;
+}  
+    
+.color-nav-sub {
+    color: $color-nav-sub;
+} 
+    
+.color-nav-sub2 {
+    color: $color-nav-sub2;
+}  
+    
+.color-incomplete {
+    color: $color-incomplete;
+}
+    
+.color-complete {
+    color: $color-complete;
+}  
+    
+.color-cancel {
+    color: $color-cancel;
+}    
+    
+.color-table-th {
+    color: $color-table-th;
+}
+
 
 
 ////////// Proposition

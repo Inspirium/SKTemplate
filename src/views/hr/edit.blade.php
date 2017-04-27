@@ -3,10 +3,10 @@
 @section('content')
     <form method="post" action="{{ url('hr/employee/edit/'.$employee->id) }}" enctype="multipart/form-data">
         {{ csrf_field() }}
-    <div class="page-name-xl">@lang('Name And Surname')</div>
+    <div class="page-name-xl mb-3">@lang('Name And Surname')</div>
     <div class="row">
         <div class="col-md-6">
-            <div class="page-name-l">@lang('First and Last Name')</div>
+            <div class="page-name-l mb-2">@lang('First and Last Name')</div>
             <div class="md-form">
                 <input type="text" id="form1" class="form-control" name="first_name" value="{{ $employee->first_name }}" required>
                 <label for="form1" class="">@lang('First Name')</label>
@@ -114,7 +114,7 @@
 
 
         <div class="col-md-6 order-sm-first">
-            <div class="page-name-l">@lang('Image')</div>
+            <div class="page-name-l mb-2">@lang('Image')</div>
             <div class="d-flex flex-column align-items-center">
                 <img src="https://www.gravatar.com/avatar/{{ md5( $employee->email ) }}?s=300&d=wavatar" href="#" class="profile_xl">
                 <button type="button" class="btn btn-neutral mt-1">@lang('Upload New Image')</button>

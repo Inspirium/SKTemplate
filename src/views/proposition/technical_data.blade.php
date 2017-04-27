@@ -2,12 +2,12 @@
 
 @section('content')
 
-    <div class="page-name-xl">@lang('Tehnical Information')</div>
+    <div class="page-name-xl mb-3">@lang('Tehnical Information')</div>
     <div class="row">
         <div class="col-md-12">
            
             <!-- Input field -->
-            <div class="row">
+            <div class="row mb-3">
                 <div class="col-md-10">   
                     <div class="md-form d-flex addon">
                         <input type="text" id="form1" class="form-control" name="first_name" placeholder="@lang('Circulation')" required>
@@ -51,7 +51,7 @@
     <!-- First column -->         
     <div class="row">
         <div class="col-md-6">
-            <div class="page-name-l">@lang('Book Block')</div> 
+            <div class="page-name-l mb-2">@lang('Book Block')</div> 
             <div class="row">
                 <div class="col-md-6">
                     <div class="md-form">
@@ -114,7 +114,7 @@
 
     <!-- Second column -->         
         <div class="col-md-6">
-            <div class="page-name-l">@lang('Cover')</div> 
+            <div class="page-name-l mb-2">@lang('Cover')</div> 
                 
             <!-- Dropdown menu --> 
             <div class="row">  

@@ -13,7 +13,7 @@
             <img src="{{ asset('images/profile.jpg') }}" class="profile_xl mt-2">
         </div>
         <div class="col-md-8 showdata_box">
-            <div class="page-name-l">@lang('Basic Info')</div>
+            <div class="page-name-l mb-2">@lang('Basic Info')</div>
             <div>
                 <h6 class="no_border">@lang('Email')</h6>
                 <h3 class="mb-1">{{ $employee->email }}</h3>

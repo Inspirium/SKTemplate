@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="page-name-xl">@lang('Technical Information')</div>
+    <div class="page-name-xl mb-3">@lang('Technical Information')</div>
     <div class="row">
         <div class="col-md-12">
            
