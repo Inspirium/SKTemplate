@@ -3,9 +3,6 @@
     <div class="page-name-xl">{{ lang( strings['title'] ) }}</div>
         <div class="md-form input-group search-big">
             <input type="search" class="form-control" v-model="filterKey" v-bind:placeholder="lang('Search...')">
-            <span class="input-group-btn">
-            <a class="btn search-big-button" type="button"><i class="fa fa-search fa-4x left"></i></a>
-        </span>
         </div>
     <div class="btn-header d-flex p-2">
         <a href="#" class="btn btn-lg btn-unique"><i class="fa fa-plus left"></i>{{ lang( strings['add_new'] ) }}</a>
@@ -14,10 +11,10 @@
         <thead class="thead-inverse">
         <tr>
             <th>#</th>
-            <th v-for="key in columns"
+            <th v-for="(item, key) in columns"
                 @click="sortBy(key)"
                 :class="{ active: sortKey == key }">
-                {{ lang(key) | capitalize }}
+                {{ lang(item) | capitalize }}
                 <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'">
           </span>
             </th>
@@ -27,12 +24,17 @@
         <tbody>
         <tr v-for="(entry, index) in filteredData">
             <th scope="row">{{ index+1 }}</th>
-            <td v-for="key in columns">
-                {{entry[key]}}
+            <td v-for="(item, key) in columns">
+                <template v-if="key === 'name' && links['show']">
+                    <a v-bind:href="links['show'] | add_id(entry)">{{entry[key]}}</a>
+                </template>
+                <template v-else>
+                    {{entry[key]}}
+                </template>
             </td>
             <td>
-                <a class="color-grey" href="#" v-bind:title="lang('Edit')"><i class="fa fa-pencil"></i></a>
-                <a class="color-grey" href="#" v-bind:title="lang('Delete')"><i class="fa fa-times"></i></a>
+                <a class="color-grey" v-bind:href="links['edit'] | add_id(entry)" v-bind:title="lang('Edit')"><i class="fa fa-pencil"></i></a>
+                <a class="color-grey" v-bind:href="links['delete'] | add_id(entry)" v-bind:title="lang('Delete')"><i class="fa fa-times"></i></a>
             </td>
         </tr>
         </tbody>
@@ -44,11 +46,13 @@
     export default {
         props: {
             data: Array,
-            columns: Array
+            columns: Object,
+            strings: Object,
+            links: Object
         },
         data: function () {
             let sortOrders = {};
-            this.columns.forEach(function (key) {
+            _.forEach(this.columns, function(value, key) {
                 sortOrders[key] = 1
             });
             return {
@@ -83,6 +87,9 @@
         filters: {
             capitalize: function (str) {
                 return str.charAt(0).toUpperCase() + str.slice(1)
+            },
+            add_id: function(str, entry) {
+                return str + '/' + entry['id'];
             }
         },
         methods: {
