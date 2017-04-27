@@ -44,7 +44,7 @@
     
     
     <!-- Footer buttons --> 
-    <div class="btn-footer flex-column flex-md-row d-flex p-2">
+    <div class="btn-footer mt-2 mb-5 flex-column flex-md-row d-flex p-2">
         <button type="submit" class="btn btn-lg btn-save">@lang('Submit')</button>
         <button type="submit" class="btn btn-lg btn-cancel">@lang('Delete')</button>
         <button type="submit" class="btn btn-lg btn-neutral">@lang('Nesto')</button>

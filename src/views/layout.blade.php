@@ -79,6 +79,7 @@
                                     <li><a href="{{ url('proposition/production_expense') }}" class ="waves-effect">Production Expense</a></li>
                                     <li><a href="{{ url('proposition/marketing_expense') }}" class ="waves-effect">Marketing Expense</a></li>
                                     <li><a href="{{ url('proposition/distribution_expense') }}" class ="waves-effect">Distribution Expense</a></li>
+                                    <li><a href="{{ url('proposition/layout_expense') }}" class ="waves-effect">Layout Expense</a></li>
                                 </ul>
                             </div>
                         </li>

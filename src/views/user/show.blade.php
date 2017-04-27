@@ -3,7 +3,7 @@
 @section('content')
    
     </div>
-    <div class="profile_head d-flex flex-column justify-content-center align-items-center">
+    <div class="profile_head py-5 d-flex flex-column justify-content-center align-items-center">
         <h1 class="display-3 text-white">{{ $user->name }}</h1>
     </div>  
 <div class="content">    
@@ -34,7 +34,7 @@
            
 
     <!-- Footer buttons -->
-    <div class="btn-footer d-flex p-2">
+    <div class="btn-footer mt-2 mb-5 d-flex p-2">
     @if(Auth::user()->hasRole('user_edit'))
         <a href="{{ url('user/edit/'.$user->id) }}" class="btn btn-lg btn-neutral">@lang('Edit User')</a>
     @endif

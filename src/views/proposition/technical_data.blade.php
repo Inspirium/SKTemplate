@@ -7,7 +7,7 @@
         <div class="col-md-12">
            
             <!-- Input field -->
-            <div class="row mb-3">
+            <div class="row">
                 <div class="col-md-10">   
                     <div class="md-form d-flex addon">
                         <input type="text" id="form1" class="form-control" name="first_name" placeholder="@lang('Circulation')" required>
@@ -52,6 +52,11 @@
     <div class="row">
         <div class="col-md-6">
             <div class="page-name-l mb-2">@lang('Book Block')</div> 
+            <!-- Input fileds -->         
+            <div class="md-form">
+                <input type="text" id="form1" class="form-control" name="first_name" placeholder="" required>
+                <label for="form1" class="">@lang('Number of Pages')</label>
+            </div>
             <div class="row">
                 <div class="col-md-6">
                     <div class="md-form">
@@ -190,7 +195,7 @@
     </div>        
 
     <!-- Footer buttons --> 
-    <div class="btn-footer flex-column flex-md-row d-flex p-2">
+    <div class="btn-footer mt-2 mb-5 flex-column flex-md-row d-flex p-2">
         <button type="submit" class="btn btn-lg btn-save">@lang('Submit')</button>
         <button type="submit" class="btn btn-lg btn-assign btn-assign_icon">@lang('Assign to...')</button>
     </div>

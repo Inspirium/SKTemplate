@@ -46,7 +46,6 @@ body {
     background-color: $color-nav-sub2;
     margin-top: -15px;
     margin-right: -15px;
-    padding: 3rem 0;
 }
 
 .showdata_box .no_border,
@@ -105,6 +104,16 @@ h6 {
 //////////Styles
 
 ///Labels
+
+.white_label {
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: .75rem;
+    margin-bottom: 3px;
+    color: $white;
+    border-top: 1px solid $white;
+    padding-top: 9px;
+}
 
 .switch_label {
     text-transform: uppercase;
@@ -896,8 +905,6 @@ input.md-form.addon {
 .btn-footer {
     justify-content: center;
     border-top: 1px solid darken($color-mainpanel, 15%);
-    margin-top: 30px;
-    margin-bottom: 10rem;
 }
 
 .btn-header {

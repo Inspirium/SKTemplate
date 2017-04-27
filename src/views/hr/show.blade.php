@@ -2,7 +2,7 @@
 
 @section('content')
 </div>
-<div class="profile_head d-flex flex-column justify-content-center align-items-center">
+<div class="profile_head py-5 d-flex flex-column justify-content-center align-items-center">
     <h1 class="display-3 text-white">{{ $employee->first_name }} {{ $employee->last_name }}</h1>
     <h4 class="text-white text-center pt-1">{{ $employee->department->name }}</h4>
 </div>
@@ -59,7 +59,7 @@
         </div>
     </div>
     <!-- Footer buttons -->
-    <div class="btn-footer d-flex p-2">
+    <div class="btn-footer mt-2 mb-5 d-flex p-2">
         <button type="submit" class="btn btn-lg btn-neutral">@lang('Edit')</button>
     </div>
     <!--/. Footer buttons -->
