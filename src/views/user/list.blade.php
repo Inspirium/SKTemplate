@@ -3,6 +3,8 @@
 @section('content')
     <inspirium-tablesearch
         :data={{$users}}
-        :columns={{ json_encode( array('name', 'email') ) }}
+            :strings={{ $strings  }}
+            :links={{$links}}
+        :columns={{ $columns }}
     ></inspirium-tablesearch>
 @endsection

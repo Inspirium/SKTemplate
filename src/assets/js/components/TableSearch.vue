@@ -1,6 +1,6 @@
 <template>
     <div>
-    <div class="page-name-xl">{{ lang( 'Users' ) }}</div>
+    <div class="page-name-xl">{{ lang( strings['title'] ) }}</div>
         <div class="md-form input-group search-big">
             <input type="search" class="form-control" v-model="filterKey" v-bind:placeholder="lang('Search...')">
             <span class="input-group-btn">
@@ -8,7 +8,7 @@
         </span>
         </div>
     <div class="btn-header d-flex p-2">
-        <a href="#" class="btn btn-lg btn-unique"><i class="fa fa-plus left"></i>{{ lang('Add New User') }}</a>
+        <a href="#" class="btn btn-lg btn-unique"><i class="fa fa-plus left"></i>{{ lang( strings['add_new'] ) }}</a>
     </div>
     <table class="table table-striped table-hover">
         <thead class="thead-inverse">
