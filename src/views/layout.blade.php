@@ -22,6 +22,14 @@
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
+    <script>
+        window.trans = @php
+            // copy all translations from /resources/lang/CURRENT_LOCALE/* to global JS variable
+            $trans = Storage::disk('langs')->get(App::getLocale().'.json');
+
+            echo $trans;
+        @endphp;
+    </script>
 </head>
 <body class="fixed-sn">
 <div id="app">
@@ -153,6 +161,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="{{ asset('js/scripts.js') }}"></script>
 <script src="{{ asset('js/app.js') }}"></script>
+
 </body>
 </html>
 
