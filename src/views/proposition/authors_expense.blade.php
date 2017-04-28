@@ -51,6 +51,8 @@
                     </div>    
                 </div>               
             </div> 
+        </div>
+    </div>
             
             <!-- Input field -->
             <div class="page-name-l mb-1">@lang('Other Expenses')</div>

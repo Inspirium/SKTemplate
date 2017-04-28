@@ -32,14 +32,13 @@
                     </div>    
                 </div>               
             </div>
-            
-            
-            <!-- Input field -->
-            <div class="page-name-l mb-1">@lang('Add Expenses')</div>
-            <button class="btn btn-neutral btn-addon" type="button">@lang('Add New Expense')</button>
-  
-                      
-
+        </div>
+    </div>
+                 
+    <!-- Input field -->
+    <div class="page-name-l mb-1">@lang('Add Expenses')</div>
+    <button class="btn btn-neutral btn-addon" type="button">@lang('Add New Expense')</button>
+                    
     <!-- Footer buttons --> 
     <div class="btn-footer mt-2 mb-5 flex-column flex-md-row d-flex p-2">
         <button type="submit" class="btn btn-lg btn-save">@lang('Submit')</button>

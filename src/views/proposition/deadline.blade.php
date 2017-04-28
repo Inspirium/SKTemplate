@@ -43,7 +43,9 @@
                         <label for="form76">@lang('Note')</label>
                     </div>    
                 </div>               
-            </div>                      
+            </div>
+        </div>
+    </div>                      
 
     <!-- Footer buttons --> 
     <div class="btn-footer mt-2 mb-5 flex-column flex-md-row d-flex p-2">

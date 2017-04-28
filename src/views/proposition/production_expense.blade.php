@@ -273,6 +273,8 @@
             </div>
         </div>
     </div>
+</div>
+</div>
     
     <!-- Documents upload -->
     <div class="page-name-l mb-1">@lang('Additional Expenses')</div>            

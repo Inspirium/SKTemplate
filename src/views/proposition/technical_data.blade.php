@@ -187,6 +187,8 @@
             </div>
         </div>
     </div>
+    </div>
+</div>
             
     <!-- Textarea -->
     <div class="md-form mt-3">
