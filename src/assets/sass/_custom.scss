@@ -100,6 +100,20 @@ h6 {
 }
 
 
+////// Text size
+
+
+.display {
+    &-a {font-size: .75rem;}
+    &-b {font-size: .85rem;}
+    &-c {font-size: 1rem;}
+    &-d {font-size: 1.15rem;}
+    &-e {font-size: 1.3rem;}
+    &-f {font-size: 1.5rem;}
+    &-g {font-size: 1.75rem;}
+    &-h {font-size: 2rem;}
+}
+
 
 //////////Styles
 
@@ -759,7 +773,6 @@ input[type=value],
 input::placeholder {
     color: #ccc !important;
 }
-    
 
 label {
     text-transform: uppercase;
@@ -799,9 +812,10 @@ textarea.md-textarea {
     font-family: $font-family-base;
     color: $color-body_text; 
     padding: 0.9rem 0 3rem 0;
+    margin-bottom: 0;
 }
 
-input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime-local], input[type=tel], input[type=number], input[type=search-md], input[type=search], textarea.md-textarea {
+input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime-local], input[type=tel], input[type=number], input[type=search-md], input[type=search], textarea.md-textarea, input.form-control datepicker {
     background-color: $white;
     border-radius: .4rem;
     border: 1px solid lighten($color-sidebar, 70%);
@@ -870,6 +884,90 @@ input.md-form.addon {
     label {
         margin-top: -.2rem;
     }
+}
+
+
+////////// Date Picker
+
+.picker__box {
+    border: none;
+}
+
+.picker__select--year,
+.picker__select--month {
+    border: 1px solid lighten($color-sidebar, 70%);
+    font-family: $font-family-base;
+    background-color: $white;
+    border-radius: .4rem;
+    color: $color-body_text;
+    text-indent: .35rem;
+}
+
+.picker__date-display {
+    background-color: $color-nav-sub;
+}
+
+.picker__weekday-display {
+    background-color: $color-nav;
+}
+
+.picker__nav--prev:hover, 
+.picker__nav--next:hover {
+    cursor: pointer;
+    color: $white;
+    background: $color-table-th;
+}
+
+.picker__nav--next:before {
+    border-right: 0;
+    border-left: 0.75em solid $color-nav-sub;
+}
+
+.picker__nav--prev:before {
+    border-right: 0.75em solid $color-nav-sub;
+}
+
+.picker__day--selected, .picker__day--selected:hover, .picker--focused .picker__day--selected {
+    background-color: $color-nav;
+}
+
+.picker__button--today,
+.picker__button--clear, 
+.picker__button--close {
+    font-family: $font-family-base;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    background-color: $color-nav;
+    border-radius: .4rem;
+    color: $white;
+    padding: 0.8rem 0 0.7rem 0;
+    
+    &:before {
+        display: none;
+    }
+    
+    &:hover {
+        background-color: $color-table-th;
+        color: $color-nav;
+    }
+}
+
+.picker__button--today,
+.picker__button--clear {
+    background-color: $color-nav;
+}
+
+.picker__button--close {
+    background-color: $color-cancel;
+}
+
+.form-control[readonly] {
+    background-color: $white;
+}
+
+.picker__footer {
+    text-align: right;
+    padding: 8px 8px;
 }
 
 /// Chip
@@ -953,6 +1051,10 @@ input.md-form.addon {
     background-color: $color-incomplete;
 }
 
+.btn-white {
+    background-color: $white;
+}
+
 .btn-assign_icon:before {
     color: $white;
     font-family: FontAwesome;
@@ -1016,3 +1118,4 @@ input.md-form.addon {
     background-color: darken($color-mainpanel, 5%);
     padding: 3rem 2rem;
 }
+

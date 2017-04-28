@@ -3,7 +3,7 @@
 @section('content')
 </div>
 <div class="profile_head pt-3 pb-2 d-flex flex-column justify-content-center align-items-center">
-    <h1 class="display-3 text-white">@lang('Layout and Design')</h1>
+    <h1 class="display-3 text-white text-center">@lang('Layout and Design')</h1>
 </div>
 
 <!-- Display fileds -->
@@ -38,7 +38,7 @@
     <!-- Circulation Number -->
     <div class="row">
     <div class="col-md-6 mt-2">
-        <h6 class="text-center no_border">@lang('Layout Expense')</h6>
+        <h6 class="text-center no_border display-e">@lang('Layout Expense')</h6>
         <h1 class="text-center display-2">9.700 kn</h1>
          <div class="col-md-6 mx-auto mt-3">
             <!-- Dropdown menu --> 
@@ -73,7 +73,7 @@
         </div>
     </div>    
     <div class="col-md-6 mt-2">
-        <h6 class="text-center no_border">@lang('Design Expense')</h6>
+        <h6 class="text-center no_border display-e">@lang('Design Expense')</h6>
         <h1 class="text-center display-2">6.250 kn</h1>
          <div class="col-md-6 mx-auto mt-3">
             <!-- Dropdown menu --> 
@@ -86,7 +86,7 @@
                     <option>@lang('4 - Demanding')</option>
                     <option>@lang('5 - Very Demanding')</option>
                 </select>
-                <label>@lang('Layout Complexity')</label>
+                <label>@lang('Design Complexity')</label>
             </div>    
             <!--/. Checkbox -->
             <div class="page-name-m mt-2">@lang('Include Design Expense')</div>

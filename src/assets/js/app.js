@@ -35,5 +35,6 @@ $(document).ready(function() {
     $('.mdb-select').material_select();
 });
 
-
+// Data Picker Initialization
+$('.datepicker').pickadate();
 
