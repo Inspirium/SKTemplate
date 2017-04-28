@@ -15,21 +15,15 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+    @if (Auth::check())
     <!-- Scripts -->
     <script>
         window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),
         ]) !!};
+        window.translations = {!! Storage::disk('langs')->get(App::getLocale().'.json') !!};
     </script>
-    <script>
-        window.trans = @php
-            // copy all translations from /resources/lang/CURRENT_LOCALE/* to global JS variable
-            $trans = Storage::disk('langs')->get(App::getLocale().'.json');
-
-            echo $trans;
-        @endphp;
-    </script>
+    @endif
 </head>
 <body class="fixed-sn">
 <div id="app">
@@ -159,13 +153,13 @@
         </div>
     @endif
 </div>
-
+@if (Auth::check())
 <!-- Scripts -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="{{ asset('js/scripts.js') }}"></script>
 <script src="{{ asset('js/app.js') }}"></script>
-
+@endif
 </body>
 </html>
 

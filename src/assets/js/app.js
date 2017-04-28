@@ -13,17 +13,18 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 Vue.prototype.lang= function (key) {
-    return _.get(window.trans, key, key);
+    return _.get(window.translations, key, key);
 };
 
 Vue.component('inspirium-tablesearch', require('./components/TableSearch.vue'));
-
+Vue.component('inspirium-notifications', require('./components/Notifications.vue'));
 
 const app = new Vue({
     el: '#app'
 });
 
-if (window.trans.datepicker) {
+//load datepicker default options and translations
+if (window.translations.datepicker) {
     $.extend($.fn.pickadate.defaults, window.trans.datepicker)
 }
 
