@@ -104,10 +104,13 @@
                         <a class="dropdown-item waves-effect waves-light" href="{{ url('logout') }}">@lang('Log Out')</a>
                         <a class="dropdown-item waves-effect waves-light" href="#">@Lang ('My account')</a>
                     </div>
-                    <a href="#" class="nav-item nav-link-icon d-flex">
+                    <a href="#" class="nav-item nav-link-icon dropdown-toggle d-flex" data-toggle="dropdown">
                         <i class="fa fa-bell"></i>
                         <span class="tag tag-danger">4</span>
                     </a>
+                    <div class="dropdown-menu dropdown-ins dropdown-menu-right dropdown-custom-login" aria-labelledby="userDropdown">
+                        <inspirium-notifications></inspirium-notifications>
+                    </div>
                     <a href="#" class="nav-item nav-link-icon d-flex">
                         <i class="fa fa-search"></i>
                     </a>

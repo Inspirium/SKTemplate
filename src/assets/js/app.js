@@ -25,7 +25,7 @@ const app = new Vue({
 
 //load datepicker default options and translations
 if (window.translations.datepicker) {
-    $.extend($.fn.pickadate.defaults, window.trans.datepicker)
+    $.extend($.fn.pickadate.defaults, window.translations.datepicker)
 }
 
 // SideNav init
