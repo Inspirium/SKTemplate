@@ -53,6 +53,10 @@ body {
     border: none;
 }
 
+.border_white {
+    border-color: $white;
+}
+
 
 .showdata_box .page-name-l {
     margin-bottom: .7rem;
@@ -568,6 +572,15 @@ h6 {
     margin-top: -1rem;
 }
 
+.page-name-l-white {
+    text-transform: uppercase;
+    border-bottom: 1px solid $white;
+    font-size: 1.1rem;
+    text-align: left;
+    font-weight: 600;
+    padding-bottom: .35rem;
+}
+
 ////// Sections
 
 .data_section_l h3:last-child {
@@ -615,13 +628,44 @@ h6 {
     }
 }
 
-
 .table-striped tbody tr:nth-of-type(odd) {
     background-color: $white;
 
     &:hover {
         background-color: darken($white, 15%);
     }
+}
+
+.table-display_1 {
+    background-color: darken($white, 5%);
+}
+
+.table-display_2 {
+    background-color: $color-table-th;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.table-display_3 {
+    background-color: $color-nav;
+    color: $white;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.table-editable {
+    border-bottom: dashed 1px $color-nav-sub2;
+}
+
+.table-editable:after {
+    content: " ";
+    border-bottom: dashed 1px $color-nav-sub2;
+    display: block;
+    width: 30%;
+    margin: 0 auto;
+    padding-top: 0px;
 }
 
 ///Action Icons
@@ -1082,7 +1126,7 @@ input.md-form.addon {
 
 ////////// Colors
 
-.color-grey {
+.color-grey i {
     color: lighten($color-body_text, 25%);
 }
 

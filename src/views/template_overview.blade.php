@@ -109,7 +109,75 @@
     <!--/. Display fields -->
     
     
-    
+    <!-- Table --> 
+    <table class="table table-striped table-hover">
+        <thead class="thead-inverse">
+        <tr>
+            <th>#</th>
+            <th>Ime</th>
+            <th>Prezime</th>
+            <th>Org. jedinica</th>
+            <th>Mobitel</th>
+            <th>Mob. VPN</th>
+            <th>Telefon</th>
+            <th>Tel. VPN</th>
+            <th>Grad</th>
+            <th>Lokacija</th>
+            <th>Uredi</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Snežana</td>
+            <td>Dobra</td>
+            <td>Tajništvo uprave i nadzornog odbora</td>
+            <td>098370271</td>
+            <td>515</td>
+            <td>01/4830491</td>
+            <td>4491</td>
+            <td>Zagreb</td>
+            <td>Soba 315</td>
+            <td>
+                <a class="color-grey"><i class="fa fa-pencil"></i></a>
+                <a class="color-grey"><i class="fa fa-times"></i></a>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">1</th>
+            <td>Snežana</td>
+            <td>Dobra</td>
+            <td>Tajništvo uprave i nadzornog odbora</td>
+            <td>098370271</td>
+            <td>515</td>
+            <td>01/4830491</td>
+            <td>4491</td>
+            <td>Zagreb</td>
+            <td>Soba 315</td>
+            <td>
+                <a class="color-grey"><i class="fa fa-pencil"></i></a>
+                <a class="color-grey"><i class="fa fa-times"></i></a>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">1</th>
+            <td>Snežana</td>
+            <td>Dobra</td>
+            <td>Tajništvo uprave i nadzornog odbora</td>
+            <td>098370271</td>
+            <td>515</td>
+            <td>01/4830491</td>
+            <td>4491</td>
+            <td>Zagreb</td>
+            <td>Soba 315</td>
+            <td>
+                <a class="color-grey"><i class="fa fa-pencil"></i></a>
+                <a class="color-grey"><i class="fa fa-times"></i></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!--/. Table -->
     
     <!-- Input fields --> 
     <div class="page-name-xl mb-3">@lang('Name And Surname')</div>
