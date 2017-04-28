@@ -23,6 +23,10 @@ const app = new Vue({
     el: '#app'
 });
 
+if (window.trans.datepicker) {
+    $.extend($.fn.pickadate.defaults, window.trans.datepicker)
+}
+
 // SideNav init
 $(".button-collapse").sideNav();
 
