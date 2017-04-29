@@ -319,15 +319,7 @@
         
         </tbody>
     </table>
-</div>
    
-    
-    
-    
-    
-    
-    
-    
     
     
      <!-- Textarea -->
@@ -349,6 +341,7 @@
         <button type="submit" class="btn btn-lg btn-assign btn-assign_icon">@lang('Assign to...')</button>
     </div>
     
+</div>
     
     
 @endsection
