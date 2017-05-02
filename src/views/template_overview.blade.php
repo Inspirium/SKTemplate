@@ -179,6 +179,54 @@
     </table>
     <!--/. Table -->
     
+    <!-- Table -->  
+            <div class="page-name-xl mb-2 mt-3">Proposition Archive
+                <span class="tag tag-neutral text-white">154</span>
+            </div>                                                                       
+            <table class="table table-striped table-hover">
+                <thead class="thead-inverse">
+                <tr>
+                    <th>#</th>
+                    <th>@lang('Title')</th>
+                    <th>@lang('Author')</th>
+                    <th>@lang('Creation Date')</th>
+                    <th>@lang('Completion Date')</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Fizika oko nas — udžbenik za fiziku </td>
+                    <td><img class="profile_m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</td>
+                    <td>9444,96</td>
+                    <td>12.12.2017.</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Fizika oko nas — udžbenik za fiziku </td>
+                    <td><img class="profile_m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</td>
+                    <td>9444,96</td>
+                    <td> 12.12.2017.</td>
+                </tr>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Fizika oko nas — udžbenik za fiziku </td>
+                    <td><img class="profile_m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</td>
+                    <td>9444,96</td>
+                    <td>12.12.2017.</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Fizika oko nas — udžbenik za fiziku </td>
+                    <td><img class="profile_m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</td>
+                    <td>9444,96</td>
+                    <td>12.12.2017.</td>
+                </tr>
+                </tbody>
+            </table>
+    
+    
+    
     <!-- Input fields --> 
     <div class="page-name-xl mb-3">@lang('Name And Surname')</div>
     <div class="row">

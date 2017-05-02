@@ -77,6 +77,7 @@
                                     <li><a href="{{ url('proposition/deadline') }}" class ="waves-effect">Deadline</a></li>
                                     <li><a href="{{ url('proposition/calculation') }}" class ="waves-effect">calculation</a></li>
                                     <li><a href="{{ url('proposition/precalculation') }}" class ="waves-effect">precalculation</a></li>
+                                    <li><a href="{{ url('proposition/list') }}" class ="waves-effect">list</a></li>
                                 </ul>
                             </div>
                         </li>

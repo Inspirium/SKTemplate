@@ -278,8 +278,25 @@ h6 {
     border: 1px solid $color-nav;
 }
 
-.header .tag-danger {
+.page-name-xl .tag {
+    display: inline-block;
+    position: relative;
+    top: -16px;
+    margin-left: .25rem;
+    margin-top: 13px;
+    padding: .15rem .25rem;
+    line-height: .7rem;
+    border-radius: 20%;
+    font-size: .6rem;
+    text-align: center;
+}
+
+.tag-danger {
     background-color: #D90000;
+}
+
+.tag-neutral {
+    background-color: $color-nav-sub;
 }
 
 .nav-link-icon {
@@ -562,6 +579,7 @@ h6 {
     font-size: 2rem;
     font-weight: 300;
     text-align: center;
+    line-height: 2.4rem;
 }
 
 .page-name-l {
@@ -694,6 +712,12 @@ td .color-grey .fa-pencil:hover {
 
 table td a:first-child {
     margin-left: 0;
+}
+
+.table td,
+.table th,  {
+    vertical-align: middle;
+    border-bottom: 1px solid #eceeef;
 }
 
 
@@ -942,7 +966,14 @@ input.md-form.addon {
     display: block;
     margin: 0 auto;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
 
+.profile_m {
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    border: 2px solid $white;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
 .pos_rel {
@@ -1131,6 +1162,17 @@ input.md-form.addon {
     font-family: FontAwesome;
     content: "\f2bd";
     font-size: 2.4rem;
+    margin-right: 1.1rem;
+    line-height: 0;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+}
+
+.btn-plus_icon:before {
+    color: $white;
+    font-family: FontAwesome;
+    content: "\f067";
+    font-size: 1.4rem;
     margin-right: 1.1rem;
     line-height: 0;
     margin-left: 0.5rem;
