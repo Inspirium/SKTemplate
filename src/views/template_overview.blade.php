@@ -3,19 +3,25 @@
 @section('content')
    
     <!-- File/document table -->  
-    <div class="files">
+    <div class="files mt-2 mb-2">
         <div class="file_box file_box_l d-flex align-items-center">
             <a src="" href="http://homestead.app/images/profile.pdf" class="file_icon">Fizika i društvo.doc</a>
-            <div class="file_box_sty ml-auto">19.07.2017.</div>
-            <div class="file_box_sty icon icon_download">Preuzmi</div>
-            <div class="file_box_sty icon icon_cancel">Obriši</div>
-        </div>            
-        <div class="file_box file_box_l d-flex align-items-center">
-            <a src="" href="http://homestead.app/images/profile.pdf" class="file_icon">Fizika i društvo.doc</a>
-            <div class="file_box_sty ml-auto">19.07.2017.</div>
+            <div class="file_box_sty ml-auto d-flex">
+                <img class="profile_m_1 mr-3 float-left align-self-center" src="../images/profile.jpg" href="#">Jelena Lončarić
+            </div>
+            <div class="file_box_sty">19.07.2017.</div>
             <div class="file_box_sty icon icon_download">Preuzmi</div>
             <div class="file_box_sty icon icon_cancel">Obriši</div>
         </div>
+        <div class="file_box file_box_l d-flex align-items-center">
+            <a src="" href="http://homestead.app/images/profile.pdf" class="file_icon">Fizika i društvo.doc</a>
+            <div class="file_box_sty ml-auto d-flex">
+                <img class="profile_m_1 mr-3 float-left align-self-center" src="../images/profile.jpg" href="#">Jelena Lončarić
+            </div>
+            <div class="file_box_sty">19.07.2017.</div>
+            <div class="file_box_sty icon icon_download">Preuzmi</div>
+            <div class="file_box_sty icon icon_cancel">Obriši</div>
+        </div> 
     </div>
     
     
