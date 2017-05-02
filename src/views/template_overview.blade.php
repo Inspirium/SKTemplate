@@ -56,6 +56,15 @@
     <div class="page-name-m mt-2">@lang('Documents')</div>
     <button class="btn btn-neutral btn-addon" type="button">@lang('Add Documents')</button>
 
+    
+    <!-- Notification -->
+    <div class="notification_bar btn-attention d-flex flex-md-row flex-column justify-content-start align-items-center mt-2">
+        <div class="file_box_sty text-white btn-clock_icon">@lang('Task Sent')</div>
+        <div class="file_box_sty text-white">@lang('Publisher Director')</div>
+        <div class="file_box_sty text-white">@lang('25.11.2017.')</div>
+        <div class="file_box_sty text-white">@lang('Waiting time'): 2 days 15 hours</div>
+    </div>
+    
 
     <!-- File/document table -->  
     <div class="files">

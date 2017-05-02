@@ -48,9 +48,6 @@ body {
     margin-right: -15px;
 }
 
-
-
-
 .showdata_box .no_border,
 .no_border {
     border: none;
@@ -60,10 +57,45 @@ body {
     border-color: $white;
 }
 
-
 .showdata_box .page-name-l {
     margin-bottom: .7rem;
 }
+
+.notification_bar {
+    padding: 1.7rem;
+    white-space: nowrap;
+}
+
+.notification_bar div {
+    padding: 0 2rem;
+    border-left: 1px solid transparentize($white, .5);
+    line-height: 2.2rem;
+    
+    &:first-child {
+        border-left: none;
+    }
+}
+
+@media only screen and (max-width : 768px) {
+    .notification_bar div {
+        border-left: none;
+    }
+
+    .btn-clock_icon:before {
+        color: $white;
+        font-family: FontAwesome;
+        content: "\f017";
+        font-size: 3.6rem;
+        margin-right: 1.1rem;
+        line-height: 0;
+        margin-bottom: 2rem;
+        margin-top: 1rem;
+        display: block;
+        vertical-align: middle;
+    }
+
+}
+
 
 
 //////////Sidebar styles
@@ -976,6 +1008,15 @@ input.md-form.addon {
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
+.profile_m_1 {
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    border: 2px solid $white;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    margin-top: .4rem;
+}
+
 .pos_rel {
     position: relative;
 
@@ -1178,6 +1219,18 @@ input.md-form.addon {
     margin-left: 0.5rem;
     vertical-align: middle;
 }
+
+.btn-clock_icon:before {
+    color: $white;
+    font-family: FontAwesome;
+    content: "\f017";
+    font-size: 3.6rem;
+    margin-right: 1.1rem;
+    line-height: 0;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+}
+
 
 
 ////////// Colors

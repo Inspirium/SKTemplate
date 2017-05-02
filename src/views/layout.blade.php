@@ -65,6 +65,7 @@
                         <li><a class="collapsible-header nav-link" href="#">@lang('Proposition')</a>
                             <div class="collapsible-body">
                                 <ul>
+                                    <li><a href="{{ url('proposition/proposition') }}" class ="waves-effect">@lang('proposition')</a></li>
                                     <li><a href="{{ url('proposition/basic_data') }}" class ="waves-effect">@lang('Basic data')</a></li>
                                     <li><a href="{{ url('proposition/market_potential') }}" class ="waves-effect">Tržišni potencijal</a></li>
                                     <li><a href="{{ url('proposition/technical_data') }}" class ="waves-effect">Tehnički podaci</a></li>
@@ -82,14 +83,6 @@
                             </div>
                         </li>
                         @endif
-                        <li><a class="collapsible-header nav-link" href="#">Info</a>
-                            <div class="collapsible-body">
-                                <ul>
-                                    <li><a href="#" class ="waves-effect">Neki link</a></li>
-                                    <li><a href="#" class ="waves-effect">Neki link</a></li>
-                                </ul>
-                            </div>
-                        </li>
                     </ul>
                 </li>
                 <!--/. Side navigation links -->

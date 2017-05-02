@@ -43,3 +43,7 @@ $(document).ready(function() {
 // Data Picker Initialization
 $('.datepicker').pickadate();
 
+// Tooltip Initialization
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
