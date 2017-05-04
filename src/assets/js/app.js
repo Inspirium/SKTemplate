@@ -7,6 +7,13 @@
 
 require('./bootstrap');
 
+window.breakpoints = {
+    'sm' : 576,
+    'md' : 768,
+    'lg' : 992,
+    'xl' : 1200
+};
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -22,6 +29,7 @@ Vue.component('inspirium-notifications', require('./components/Notifications.vue
 const app = new Vue({
     el: '#app'
 });
+
 
 //load datepicker default options and translations
 if (window.translations.datepicker) {
@@ -45,5 +53,5 @@ $('.datepicker').pickadate();
 
 // Tooltip Initialization
 $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-})
+  //$('[data-toggle="tooltip"]').tooltip()
+});
