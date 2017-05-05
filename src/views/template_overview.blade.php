@@ -212,7 +212,7 @@
                 <tr>
                     <th scope="row">1</th>
                     <td>Fizika oko nas — udžbenik za fiziku </td>
-                    <td><img class="profile_m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</td>
+                    <td><a href=""><img class="profile_m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
                     <td>9444,96</td>
                     <td>12.12.2017.</td>
                 </tr>

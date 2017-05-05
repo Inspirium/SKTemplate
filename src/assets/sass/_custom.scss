@@ -163,6 +163,15 @@ h6 {
 
 //////////Styles
 
+a {
+    color: $color-body_text;
+    
+    &:hover {
+        color: $color-nav-sub;
+    }
+}
+
+
 ///Labels
 
 .white_label {
@@ -196,6 +205,34 @@ h6 {
     background-color: $color-nav;
     }
 }
+
+///Task
+
+.tasktype {
+    font-size: .65rem;
+    padding: 5px 9px;
+    vertical-align: middle;
+    white-space: nowrap;
+    color: $white;
+    text-transform: uppercase;
+    display: inline-block;
+    border-radius: .25rem;
+}
+    
+.table tr .tasktype-1 {
+    @extend .tasktype;
+    background-color: $color-incomplete;
+}  
+
+.table tr .tasktype-2 {
+    @extend .tasktype;
+    background-color: $color-nav-sub;
+}
+
+
+
+
+
 
 ///Login
 
@@ -881,10 +918,43 @@ table td a:first-child {
     &:before {content: "\f0ed";}    
 }
 
+.icon_cost_approval {
+    &:hover {color: $color-select;}
+    &:hover::before {color: $color-select;}
+    &:before {content: "\f08b";}    
+}
+
+.icon_assign {
+    &:hover {color: $color-incomplete;}
+    &:hover::before {color: $color-incomplete;}
+    &:before {
+        content: "\f055";
+        font-size: 3.4rem;
+        margin-top: -12px;
+        margin-bottom: -12px;
+        display: inline-block;
+    }    
+}
+
+.icon_handler {
+    background-image: url(../images/dragdrop.svg);
+    width: 40px;
+    height: 16px;
+    cursor: move;
+    
+    &:hover {color: $color-select;}
+    &:hover::before {color: $color-select;}   
+}
+
+
+
 .icon_neutral:hover {
     color: $color-nav;
 }
 
+.w-30 {
+    width: 30px;
+}
 
 
 

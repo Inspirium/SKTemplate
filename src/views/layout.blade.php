@@ -80,6 +80,10 @@
                                     <li><a href="{{ url('proposition/precalculation') }}" class ="waves-effect">@lang('Precalculation')</a></li>
                                     <li><a href="{{ url('proposition/work_order') }}" class ="waves-effect">@lang('Work Order')</a></li>
                                     <li><a href="{{ url('proposition/list') }}" class ="waves-effect">list</a></li>
+                                    <li><a href="{{ url('proposition/expense') }}" class ="waves-effect">Expense</a></li>
+                                    <li><a href="{{ url('proposition/compare') }}" class ="waves-effect">Compare</a></li>
+                                    <li><a href="{{ url('proposition/task') }}" class ="waves-effect">Task</a></li>
+                                    <li><a href="{{ url('proposition/task_details') }}" class ="waves-effect">Task details</a></li>
                                 </ul>
                             </div>
                         </li>
