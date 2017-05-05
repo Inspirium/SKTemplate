@@ -5,18 +5,17 @@
             <input type="search" class="form-control" v-model="filterKey" v-bind:placeholder="lang('Search...')">
         </div>
     <div class="btn-header d-flex p-2">
-        <a href="#" class="btn btn-lg btn-unique"><i class="fa fa-plus left"></i>{{ lang( strings['add_new'] ) }}</a>
+        <a v-bind:href="links['add_new']" class="btn btn-lg btn-unique"><i class="fa fa-plus left"></i>{{ lang( strings['add_new'] ) }}</a>
     </div>
     <table class="table table-striped table-hover">
         <thead class="thead-inverse">
         <tr>
             <th>#</th>
-            <th v-for="(item, key) in columns"
+            <th v-for="(item, key) in computed_columns"
                 @click="sortBy(key)"
                 :class="{ active: sortKey == key }">
-                {{ lang(item) | capitalize }}
-                <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'">
-          </span>
+                {{ lang(item['title']) | capitalize }}
+                <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'"></span>
             </th>
             <th>Actions</th>
         </tr>
@@ -24,9 +23,12 @@
         <tbody>
         <tr v-for="(entry, index) in filteredData">
             <th scope="row">{{ index+1 }}</th>
-            <td v-for="(item, key) in columns">
+            <td v-for="(item, key) in computed_columns">
                 <template v-if="key === 'name' && links['show']">
                     <a v-bind:href="links['show'] | add_id(entry)">{{entry[key]}}</a>
+                </template>
+                <template v-else-if="item['raw']">
+                    <div v-html="entry[key]"></div>
                 </template>
                 <template v-else>
                     {{entry[key]}}
@@ -82,6 +84,18 @@
                     })
                 }
                 return data
+            },
+            computed_columns: function () {
+                let columns = this.columns;
+                columns = _.pickBy(columns, function (row) {
+                    if (!row['breakpoint']) {
+                        return row;
+                    }
+                    else if ( window.innerWidth > window.breakpoints[row['breakpoint']] ){
+                        return row;
+                    }
+                });
+                return columns;
             }
         },
         filters: {
