@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="page-name-xl mb-3">@lang('Edit User')</div>
+<form action="{{ url('user/edit/'.$user->id) }}" method="post">
     <div class="row">
         <div class="col-md-4 order-sm-first">
             <div class="d-flex flex-column align-items-center">
@@ -10,7 +11,6 @@
             </div>
         </div>
         <div class="col-md-8">
-            <form action="{{ url('user/edit/'.$user->id) }}" method="post">
                 {{ csrf_field() }}
                 <div class="col-md-12 mx-auto">
                     <div class="form-group">
@@ -30,7 +30,6 @@
                         <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="@lang("Enter Password Again")">
                     </div>
                 </div>
-            </form>
         </div>
     </div>
     
@@ -39,6 +38,7 @@
         <button type="button" class="btn btn-lg btn-save">@lang("Submit")</button>
     </div>
     <!--/. Footer buttons --> 
+</form>
 @endsection
 
 
