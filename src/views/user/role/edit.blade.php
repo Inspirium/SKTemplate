@@ -15,10 +15,10 @@
                 <input type="text" class="form-control" id="description" name="description" placeholder="@lang("Enter Description")" required value="{{ $role->description }}">
             </div>
         </div>
-    </form>
     <!-- Footer buttons --> 
     <div class="btn-footer mt-2 mb-5 d-flex p-2">
         <button type="button" class="btn btn-lg btn-neutral">@lang("Submit")</button>
     </div>
     <!--/. Footer buttons --> 
+    </form>
 @endsection
