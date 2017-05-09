@@ -87,12 +87,8 @@
                                 </ul>
                             </div>
                         </li>
-                        @endif
-                        @if (Auth::user()->hasRole('hr_admin'))
                         <li><a class="collapsible-header nav-link" href="#">@lang('Expenses')</a>
                         </li>
-                        @endif
-                        @if (Auth::user()->hasRole('hr_admin'))
                         <li><a class="collapsible-header nav-link" href="#">@lang('Text Preparation')</a>
                             <div class="collapsible-body">
                                 <ul>
@@ -107,8 +103,6 @@
                                 </ul>
                             </div>
                         </li>
-                        @endif
-                        @if (Auth::user()->hasRole('hr_admin'))
                         <li><a class="collapsible-header nav-link" href="#">@lang('Design')</a>
                             <div class="collapsible-body">
                                 <ul>
@@ -117,8 +111,6 @@
                                 </ul>
                             </div>
                         </li>
-                        @endif
-                        @if (Auth::user()->hasRole('hr_admin'))
                         <li><a class="collapsible-header nav-link" href="#">@lang('Layout')</a>
                             <div class="collapsible-body">
                                 <ul>
@@ -132,12 +124,8 @@
                                 </ul>
                             </div>
                         </li>
-                        @endif
-                        @if (Auth::user()->hasRole('hr_admin'))
                         <li><a class="collapsible-header nav-link" href="#">@lang('Price/Circulation')</a>
                         </li>
-                        @endif
-                        @if (Auth::user()->hasRole('hr_admin'))
                         <li><a class="collapsible-header nav-link" href="#">@lang('Prepress')</a>
                             <div class="collapsible-body">
                                 <ul>
@@ -148,8 +136,6 @@
                                 </ul>
                             </div>
                         </li>
-                        @endif
-                        @if (Auth::user()->hasRole('hr_admin'))
                         <li><a class="collapsible-header nav-link" href="#">@lang('Additional Materials')</a>
                             <div class="collapsible-body">
                                 <ul>
