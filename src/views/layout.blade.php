@@ -85,6 +85,7 @@
                                     <li><a href="{{ url('proposition/compare') }}" class ="waves-effect">Compare</a></li>
                                     <li><a href="{{ url('proposition/task') }}" class ="waves-effect">Task</a></li>
                                     <li><a href="{{ url('proposition/task_details') }}" class ="waves-effect">Task details</a></li>
+                                    <li><a href="{{ url('proposition/task_new') }}" class ="waves-effect">Task new</a></li>
                                 </ul>
                             </div>
                         </li>

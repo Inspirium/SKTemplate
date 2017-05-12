@@ -2,10 +2,13 @@
 
 @section('content')
       
-    <!-- Table -->  
+    <div class="justify-content-center mt-1 mb-2 flex-column flex-md-row d-flex p-2">
+        <button type="submit" class="btn btn-lg btn-blank btn-plus_icon">@lang('Create new')</button>
+    </div>
     <div class="page-name-xl mb-1 mt-2">@lang('New Task')
         <span class="tag tag-neutral text-white">154</span>
     </div>
+    <!-- Table -->  
     <table class="table">
         <thead class="thead-inverse">
         <tr>
