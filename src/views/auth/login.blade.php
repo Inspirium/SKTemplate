@@ -4,7 +4,7 @@
 <div class="login">
     <div class="container">
 
-        <div class="card mx-auto">
+        <div class="col card mx-auto">
             <div class="card-block">
                 <form role="form" method="POST" action="{{ route('login') }}">
                 {{ csrf_field() }}

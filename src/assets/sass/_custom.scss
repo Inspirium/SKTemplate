@@ -247,6 +247,8 @@ a {
         width: 500px;
         border-radius: 2.5rem;
         background-color: $color-mainpanel;
+        padding-left: 0;
+        padding-right: 0;
 
         .form-header {
             margin-top: 0;
@@ -262,6 +264,14 @@ a {
         font-size: .8rem;
     }
 }
+
+@media only screen and (max-width : 768px) {
+    .login .card {
+        top: 5vh;
+        background-position-x: left;
+    }
+}
+
 
 
 ///Search input
