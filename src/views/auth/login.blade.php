@@ -9,7 +9,7 @@
                 <form role="form" method="POST" action="{{ route('login') }}">
                 {{ csrf_field() }}
                 <!--Header-->
-                <div class="form-header btn-cancel">
+                <div class="form-header">
                     <h2>Školska knjiga prijava</h2>
                 </div>
 
