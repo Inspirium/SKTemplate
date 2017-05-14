@@ -64,15 +64,37 @@ $sk-skin-btn-default: #293756;
             }
         }
         .collapsible li {
-            background-color: transparent;
+            border-top: 1px solid lighten($sk-skin-flat, 10%);
+            text-transform: uppercase;
+            color: lighten($sk-skin-flat, 50%);
+            white-space: nowrap;
+            padding-right: 0;
+            padding-left: 0;
+            border-radius: 0;
             a {
+                margin-bottom: 0;
+                margin-top:  0;
+                height: 60px;
+                font-size: 1rem;
                 color: #fff;
                 @include transition (all 0.3s linear);
                 &:hover {
-                    background-color: $sk-skin-accent;
+                    background-color: lighten($sk-skin-flat, 3%);
                 }
                 &.active {
-                    background-color: $sk-skin-accent;
+                    background-color: $sk-skin-flat;
+                }
+                &:before {
+                    content: " ";
+                    display: inline-block;
+                    box-shadow: 0 0 0 1px lighten($sk-skin-flat, 10%);
+                    margin: 3px 8px 3px 3px;
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
+                    position: relative;
+                    top: 3px;
+                    background-color: $sk-skin-flat;
                 }
             }
         }
