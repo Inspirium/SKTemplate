@@ -78,8 +78,6 @@
 
 }
 
-
-
 //////////Sidebar styles
 
 //////Brand placeholder
@@ -92,7 +90,6 @@
 .brand img {
     margin: 0 auto;
 }
-
 
 ////////// Typography
 
@@ -122,8 +119,6 @@ h6 {
 
 
 ////// Text size
-
-
 .display {
     &-a {font-size: .75rem;}
     &-b {font-size: .85rem;}
@@ -143,7 +138,6 @@ h6 {
 }
 
 ///Labels
-
 .white-label {
     text-transform: uppercase;
     font-weight: 400;
@@ -199,11 +193,6 @@ h6 {
     background-color: $color-nav-sub;
 }
 
-
-
-
-
-
 ///Login
 
 .login {
@@ -241,8 +230,6 @@ h6 {
         background-position-x: left;
     }
 }
-
-
 
 ///Search input
 
@@ -326,6 +313,7 @@ header .tag {
     border: 1px solid $color-nav;
 }
 
+//TODO: use badge instead of tag
 .page-name-xl .tag {
     display: inline-block;
     position: relative;
