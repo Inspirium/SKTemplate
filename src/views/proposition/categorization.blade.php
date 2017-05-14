@@ -10,16 +10,16 @@
                 <option disabled >@lang('Choose Category')</option>
             </select>
             <label>@lang('Supergroup')</label>
-            <div class="row">  
-                <!-- Dropdown menu --> 
+            <div class="row">
+                <!-- Dropdown menu -->
                 <div class="col-md-6">
                     <select class="mdb-select" name="department_id" required>
                         <option disabled >@lang('Choose Category')</option>
                     </select>
                     <label>@lang('Upgroup')</label>
                 </div>
-                     
-                <!-- Dropdown menu --> 
+
+                <!-- Dropdown menu -->
                 <div class="col-md-6">
                     <select class="mdb-select" name="department_id" required>
                         <option disabled >@lang('Choose Category')</option>
@@ -27,39 +27,39 @@
                     <label>@lang('Group')</label>
                 </div>
             </div>
-            
-        </div> 
+
+        </div>
     </div>
-    
+
     <div class="page-name-l mt-1 mb-2">@lang('Book Type')</div>
-    <div class="row">  
-        <!-- Dropdown menu --> 
+    <div class="row">
+        <!-- Dropdown menu -->
         <div class="col-md-6">
             <select class="mdb-select" name="department_id" required>
                 <option disabled >@lang('Choose Category')</option>
             </select>
             <label>@lang('Main Group')</label>
-        </div> 
-         
-        <!-- Dropdown menu --> 
+        </div>
+
+        <!-- Dropdown menu -->
         <div class="col-md-6">
             <select class="mdb-select" name="department_id" required>
                 <option disabled >@lang('Choose Category')</option>
             </select>
             <label>@lang('Group')</label>
         </div>
-    </div> 
-    
+    </div>
+
     <div class="page-name-l mt-1 mb-2">@lang('Škola')</div>
-    <div class="row">  
-        <!-- Dropdown menu --> 
+    <div class="row">
+        <!-- Dropdown menu -->
         <div class="col-md-6">
             <select class="mdb-select" name="department_id" required>
                 <option disabled >@lang('Choose Category')</option>
             </select>
             <label>@lang('School Type')</label>
-        <!-- Checkbox -->     
-        </div>    
+        <!-- Checkbox -->
+        </div>
         <div class="col-md-6 mb-1">
             <div class="page-name-m">@lang('Lektira')</div>
             <div class="form-inline">
@@ -71,10 +71,10 @@
                     <input name="sex" type="radio" id="radio02" value="Ordered" required>
                     <label for="radio02">@lang('Ne')</label>
                 </fieldset>
-            </div> 
+            </div>
         </div>
     </div>
-    
+
     <!-- Checkbox -->
     <div class="page-name-m">@lang('Razred OŠ')</div>
     <div class="form-inline">
@@ -110,7 +110,7 @@
             <input name="sex" type="checkbox" id="checkbox81" value="Delivered" required>
             <label for="checkbox81">@lang('8.')</label>
         </fieldset>
-    </div>    
+    </div>
     <!-- Checkbox -->
     <div class="page-name-m mt-1">@lang('Razred SŠ')</div>
     <div class="form-inline">
@@ -135,12 +135,12 @@
             <label for="checkbox51a">@lang('5.')</label>
         </fieldset>
     </div>
-    
-    
-    
+
+
+
     <div class="page-name-l mt-2 mb-2">@lang('Predmeti')</div>
-    <div class="row">  
-        <!-- Dropdown menu --> 
+    <div class="row">
+        <!-- Dropdown menu -->
         <div class="col-md-6">
             <select class="mdb-select" name="department_id" required>
                 <option disabled >@lang('Choose Category')</option>
@@ -148,18 +148,18 @@
             <label>@lang('Field')</label>
         </div>
 
-        <!-- Dropdown menu --> 
+        <!-- Dropdown menu -->
         <div class="col-md-6">
             <select class="mdb-select" name="department_id" required>
                 <option disabled >@lang('Choose Category')</option>
             </select>
             <label>@lang('Field Detailed')</label>
         </div>
-    </div>   
-     
+    </div>
+
     <div class="page-name-l mt-1 mb-2">@lang('Bibliography')</div>
-    <div class="row">  
-        <!-- Dropdown menu --> 
+    <div class="row">
+        <!-- Dropdown menu -->
         <div class="col-md-6">
             <select class="mdb-select" name="department_id" required>
                 <option disabled >@lang('Choose Category')</option>
@@ -168,22 +168,22 @@
         </div>
     </div>
 
-   
-        
+
+
     <!-- Textarea -->
     <div class="md-form mt-3">
         <textarea type="text" id="form76" class="md-textarea"></textarea>
         <label for="form76">@lang('Note')</label>
-    </div>   
-   
-    <!-- Footer buttons --> 
+    </div>
+
+    <!-- Footer buttons -->
     <div class="btn-footer mt-2 mb-5 flex-column flex-md-row d-flex p-2">
         <button type="submit" class="btn btn-lg btn-save">@lang('Submit')</button>
         <button type="submit" class="btn btn-lg btn-cancel">@lang('Delete')</button>
         <button type="submit" class="btn btn-lg btn-neutral">@lang('Nesto')</button>
-        <button type="submit" class="btn btn-lg btn-assign btn-assign_icon">@lang('Assign to...')</button>
+        <button type="submit" class="btn btn-lg btn-assign btn-assign-icon">@lang('Assign to...')</button>
     </div>
-    <!--/. Footer buttons -->    
+    <!--/. Footer buttons -->
 
 
 

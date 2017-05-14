@@ -1,14 +1,14 @@
 @extends('sktemplate::layout')
 
 @section('content')
-      
+
     <div class="justify-content-center mt-1 mb-2 flex-column flex-md-row d-flex p-2">
-        <button type="submit" class="btn btn-lg btn-blank btn-plus_icon">@lang('Create new')</button>
+        <button type="submit" class="btn btn-lg btn-blank btn-plus-icon">@lang('Create new')</button>
     </div>
     <div class="page-name-xl mb-1 mt-2">@lang('New Task')
         <span class="tag tag-neutral text-white">154</span>
     </div>
-    <!-- Table -->  
+    <!-- Table -->
     <table class="table">
         <thead class="thead-inverse">
         <tr>
@@ -24,31 +24,31 @@
         </thead>
         <tbody class="white">
         <tr>
-            <td><div class="icon icon_handler"></div></td>
+            <td><div class="icon icon-handler"></div></td>
             <th class="display-e w-30" scope="row">1</th>
-            <td class="file_box_sty">Fizika oko nas</td>
+            <td class="file-box-sty">Fizika oko nas</td>
             <td><div class="tasktype-1">Projekt</div></td>
-            <td><a href=""><img class="profile_m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
+            <td><a href=""><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
             <td>@lang('Yesterday')</td>
             <td>25.09.</td>
-            <td class="text-right"><div class="file_box_sty icon icon_assign">@lang('Assign')</div></td>
-        </tr>        
-        <tr>    
-            <td><div class="icon icon_handler"></div></td>
-            <th class="display-e w-30" scope="row">2</th>
-            <td class="file_box_sty">Fizika oko nas</td>
-            <td><div class="tasktype-2">Zadatak</div></td>
-            <td><a href=""><img class="profile_m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
-            <td>@lang('Yesterday')</td>
-            <td>25.09.</td>
-            <td class="text-right"><div class="file_box_sty icon icon_assign">@lang('Assign')</div></td>
+            <td class="text-right"><div class="file-box-sty icon icon-assign">@lang('Assign')</div></td>
         </tr>
-        
-        
+        <tr>
+            <td><div class="icon icon-handler"></div></td>
+            <th class="display-e w-30" scope="row">2</th>
+            <td class="file-box-sty">Fizika oko nas</td>
+            <td><div class="tasktype-2">Zadatak</div></td>
+            <td><a href=""><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
+            <td>@lang('Yesterday')</td>
+            <td>25.09.</td>
+            <td class="text-right"><div class="file-box-sty icon icon-assign">@lang('Assign')</div></td>
+        </tr>
+
+
         </tbody>
-    </table> 
-          
-    <!-- Table -->  
+    </table>
+
+    <!-- Table -->
     <div class="page-name-xl mb-1 mt-2">@lang('Task')
         <span class="tag tag-neutral text-white">154</span>
     </div>
@@ -67,48 +67,48 @@
         </thead>
         <tbody class="white">
         <tr>
-            <td><div class="icon icon_handler"></div></td>
+            <td><div class="icon icon-handler"></div></td>
             <th class="display-e w-30" scope="row">1</th>
-            <td class="file_box_sty">Fizika oko nas</td>
+            <td class="file-box-sty">Fizika oko nas</td>
             <td><div class="tasktype-1">Projekt</div></td>
-            <td><a href="#"><img class="profile_m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
+            <td><a href="#"><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
             <td>@lang('Yesterday')</td>
             <td>25.09.</td>
-            <td class=""><a href="#"><img class="profile_m mr-2" src="../images/profile.jpg" href="#">Marko Marić</a></td>
-        </tr>        
-        <tr>
-            <td><div class="icon icon_handler"></div></td>
-            <th class="display-e w-30" scope="row">2</th>
-            <td class="file_box_sty">Fizika oko nas</td>
-            <td><div class="tasktype-2">Zadatak</div></td>
-            <td><a href=""><img class="profile_m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
-            <td>@lang('Yesterday')</td>
-            <td>25.09.</td>
-            <td class=""><a href="#"><img class="profile_m mr-2" src="../images/profile.jpg" href="#">Marko Marić</a></td>
+            <td class=""><a href="#"><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Marko Marić</a></td>
         </tr>
         <tr>
-            <td><div class="icon icon_handler"></div></td>
-            <th class="display-e w-30" scope="row">3</th>
-            <td class="file_box_sty">Fizika oko nas</td>
-            <td><div class="tasktype-1">Projekt</div></td>
-            <td><a href="#"><img class="profile_m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
-            <td>@lang('Yesterday')</td>
-            <td>25.09.</td>
-            <td class=""><a href="#"><img class="profile_m mr-2" src="../images/profile.jpg" href="#">Marko Marić</a></td>
-        </tr>        
-        <tr>
-            <td><div class="icon icon_handler"></div></td>
-            <th class="display-e w-30" scope="row">4</th>
-            <td class="file_box_sty">Fizika oko nas</td>
+            <td><div class="icon icon-handler"></div></td>
+            <th class="display-e w-30" scope="row">2</th>
+            <td class="file-box-sty">Fizika oko nas</td>
             <td><div class="tasktype-2">Zadatak</div></td>
-            <td><a href=""><img class="profile_m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
+            <td><a href=""><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
             <td>@lang('Yesterday')</td>
             <td>25.09.</td>
-            <td class=""><a href="#"><img class="profile_m mr-2" src="../images/profile.jpg" href="#">Marko Marić</a></td>
+            <td class=""><a href="#"><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Marko Marić</a></td>
+        </tr>
+        <tr>
+            <td><div class="icon icon-handler"></div></td>
+            <th class="display-e w-30" scope="row">3</th>
+            <td class="file-box-sty">Fizika oko nas</td>
+            <td><div class="tasktype-1">Projekt</div></td>
+            <td><a href="#"><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
+            <td>@lang('Yesterday')</td>
+            <td>25.09.</td>
+            <td class=""><a href="#"><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Marko Marić</a></td>
+        </tr>
+        <tr>
+            <td><div class="icon icon-handler"></div></td>
+            <th class="display-e w-30" scope="row">4</th>
+            <td class="file-box-sty">Fizika oko nas</td>
+            <td><div class="tasktype-2">Zadatak</div></td>
+            <td><a href=""><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
+            <td>@lang('Yesterday')</td>
+            <td>25.09.</td>
+            <td class=""><a href="#"><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Marko Marić</a></td>
         </tr>
         </tbody>
-    </table> 
+    </table>
     <button class="btn btn-neutral d-block mx-auto btn-addon" type="button">@lang('Show all')</button>
- 
+
 
 @endsection

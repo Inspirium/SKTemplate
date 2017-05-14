@@ -23,32 +23,32 @@
 
 //////////Misc
 
-.profile_head {
+.profile-head {
     background-color: $color-nav-sub2;
     margin-top: -15px;
     margin-right: -15px;
 }
 
 //TODO: move to profile section
-.showdata_box .no_border,
-.no_border {
+.showdata-box .no-border,
+.no-border {
     border: none;
 }
 
-.border_white {
+.border-white {
     border-color: $white;
 }
 
-.showdata_box .page-name-l {
+.showdata-box .page-name-l {
     margin-bottom: .7rem;
 }
 
-.notification_bar {
+.notification-bar {
     padding: 1.7rem;
     white-space: nowrap;
 }
 
-.notification_bar div {
+.notification-bar div {
     padding: 0 2rem;
     border-left: 1px solid transparentize($white, .5);
     line-height: 2.2rem;
@@ -59,11 +59,11 @@
 }
 
 @media only screen and (max-width : 768px) {
-    .notification_bar div {
+    .notification-bar div {
         border-left: none;
     }
 
-    .btn-clock_icon:before {
+    .btn-clock-icon:before {
         color: $white;
         font-family: FontAwesome;
         content: "\f017";
@@ -115,7 +115,7 @@ h6 {
     padding-top: 9px;
 }
 
-.total_sty {
+.total-sty {
     font-weight: 400;
     font-size: 1.35rem;
 }
@@ -144,7 +144,7 @@ h6 {
 
 ///Labels
 
-.white_label {
+.white-label {
     text-transform: uppercase;
     font-weight: 400;
     font-size: .75rem;
@@ -154,12 +154,12 @@ h6 {
     padding-top: 9px;
 }
 
-.switch_label {
+.switch-label {
     text-transform: uppercase;
     font-size: 1rem;
 }
 
-.switch_sty {
+.switch-sty {
     border-bottom: 1px solid darken($color-mainpanel, 15%);
     padding: 1.5rem 0;
 
@@ -264,7 +264,6 @@ h6 {
         border-radius: 3rem;
         font-size: 1.8rem;
         font-weight: 300;
-        font-family: Open Sans;
         box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.06), 0 2px 10px 0 rgba(0, 0, 0, 0.02);
     }
 
@@ -523,7 +522,7 @@ header .navbar .breadcrumb {
     }
 }
 
-.sidebar .nav-pills .nav-link.active { 
+.sidebar .nav-pills .nav-link.active {
     background-color: $color-select;
     color: $white;
 }
@@ -595,11 +594,11 @@ header .navbar .breadcrumb {
 
 ////// Sections
 
-.data_section_l h3:last-child {
+.data-section-l h3:last-child {
     padding-bottom: 1.5rem;
 }
 
-.data_section_l h6:first-child {
+.data-section-l h6:first-child {
     border: none;
 }
 
@@ -653,18 +652,18 @@ header .navbar .breadcrumb {
     }
 }
 
-.table-display_1 {
+.table-display-1 {
     background-color: darken($white, 5%);
 }
 
-.table-display_2 {
+.table-display-2 {
     background-color: $color-table-th;
     font-size: 1.1rem;
     font-weight: 600;
     text-transform: uppercase;
 }
 
-.table-display_3 {
+.table-display-3 {
     background-color: $color-nav;
     color: $white;
     font-size: 1.3rem;
@@ -704,7 +703,7 @@ table td a:first-child {
 }
 
 .table td,
-.table th,  {
+.table th  {
     vertical-align: middle;
     border-bottom: 1px solid #eceeef;
 }
@@ -712,15 +711,15 @@ table td a:first-child {
 
 ///Document-File table
 
-.file_box {
+.file-box {
     background-color: $white;
 }
 
-.file_box > * {
+.file-box > * {
     margin-right: 1rem;
 }
 
-.file_box_l {
+.file-box-l {
     height: 5.5rem;
     padding: .7rem;
     margin-top: .2rem;
@@ -737,11 +736,11 @@ table td a:first-child {
     }
 }
 
-.files .file_box:first-child {
+.files .file-box:first-child {
     margin-top: 1rem;
 }
 
-.file_box_sty {
+.file-box-sty {
     color: $color-body_text;
     font-size: .85rem;
     text-transform: uppercase;
@@ -750,7 +749,7 @@ table td a:first-child {
     white-space: nowrap;
 }
 
-.file_box_sty i {
+.file-box-sty i {
     font-size: 1.4rem;
     vertical-align: middle;
     margin-right: 0.5rem;
@@ -761,19 +760,19 @@ table td a:first-child {
 ///Remove columns for mobile
 
 @media only screen and (max-width : 768px) {
-    .file_box .file_box_sty:nth-child(n+2) {
+    .file-box .file-box-sty:nth-child(n+2) {
         display: none;
     }
 }
 
 
 
-.file_icon {
+.file-icon {
     white-space: nowrap;
     overflow: hidden;
 }
 
-.file_icon:before {
+.file-icon:before {
     color: lighten($color-body_text, 25%);
     font-family: FontAwesome;
     content: "\f016";
@@ -784,25 +783,25 @@ table td a:first-child {
 
 }
 
-.file_icon:hover::before {
+.file-icon:hover::before {
     color: $color-select;
 }
 
-.file_icon[href$=".jpg"]:before {
+.file-icon[href$=".jpg"]:before {
     content: "\f1c5";
 }
 
-.file_icon[href$=".pdf"]:before {
+.file-icon[href$=".pdf"]:before {
     content: "\f1c1";
 
 }
 
-.file_icon[href$=".xls"]:before {
+.file-icon[href$=".xls"]:before {
     content: "\f1c3";
 
 }
 
-.file_icon[href$=".doc"]:before {
+.file-icon[href$=".doc"]:before {
     font-family: FontAwesome;
     content: "\f1c2";
 
@@ -821,25 +820,25 @@ table td a:first-child {
     }
 }
 
-.icon_cancel {
+.icon-cancel {
     &:hover {color: $color-cancel;}
     &:hover::before {color: $color-cancel;}
     &:before {content: "\f2d3";}
 }
 
-.icon_download {
+.icon-download {
     &:hover {color: $color-select;}
     &:hover::before {color: $color-select;}
     &:before {content: "\f0ed";}
 }
 
-.icon_cost_approval {
+.icon-cost-approval {
     &:hover {color: $color-select;}
     &:hover::before {color: $color-select;}
     &:before {content: "\f08b";}
 }
 
-.icon_assign {
+.icon-assign {
     &:hover {color: $color-incomplete;}
     &:hover::before {color: $color-incomplete;}
     &:before {
@@ -851,7 +850,7 @@ table td a:first-child {
     }
 }
 
-.icon_handler {
+.icon-handler {
     background-image: url(../images/dragdrop.svg);
     width: 40px;
     height: 16px;
@@ -863,18 +862,13 @@ table td a:first-child {
 
 
 
-.icon_neutral:hover {
+.icon-neutral:hover {
     color: $color-nav;
 }
 
-.w-30 {
+.w-30 { //TODO: really?
     width: 30px;
 }
-
-
-
-
-
 
 
 ///////// Inputs
@@ -998,7 +992,7 @@ input.md-form.addon {
     z-index: 1;
 }
 
-.profile_xl {
+.profile-xl {
     border-radius: 50%;
     border: 5px solid $white;
     text-align: center;
@@ -1007,7 +1001,7 @@ input.md-form.addon {
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
-.profile_m {
+.profile-m {
     border-radius: 50%;
     width: 56px;
     height: 56px;
@@ -1015,7 +1009,7 @@ input.md-form.addon {
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
-.profile_m_1 {
+.profile-m-1 {
     border-radius: 50%;
     width: 56px;
     height: 56px;
@@ -1024,7 +1018,7 @@ input.md-form.addon {
     margin-top: .4rem;
 }
 
-.pos_rel {
+.pos-rel {
     position: relative;
 
     label {
@@ -1126,8 +1120,6 @@ input.md-form.addon {
 ////////// Buttons
 
 .btn {
-    font-family: $font-family-base;
-    font-weight: 600;
     letter-spacing: .1rem;
 }
 
@@ -1197,7 +1189,7 @@ input.md-form.addon {
     background-color: $color-incomplete;
 }
 
-.btn_sub2 {
+.btn-sub2 {
     background-color: $color-nav-sub2;
 }
 
@@ -1205,7 +1197,7 @@ input.md-form.addon {
     background-color: $white;
 }
 
-.btn-assign_icon:before {
+.btn-assign-icon:before {
     color: $white;
     font-family: FontAwesome;
     content: "\f2bd";
@@ -1216,7 +1208,7 @@ input.md-form.addon {
     vertical-align: middle;
 }
 
-.btn-plus_icon:before {
+.btn-plus-icon:before {
     color: $white;
     font-family: FontAwesome;
     content: "\f067";
@@ -1227,7 +1219,7 @@ input.md-form.addon {
     vertical-align: middle;
 }
 
-.btn-clock_icon:before {
+.btn-clock-icon:before {
     color: $white;
     font-family: FontAwesome;
     content: "\f017";
@@ -1250,7 +1242,7 @@ input.md-form.addon {
     color: $color-sidebar;
 }
 
-.color-body_text {
+.color-body-text {
     color: $color-sidebar;
 }
 
@@ -1286,7 +1278,7 @@ input.md-form.addon {
 
 ////////// Proposition
 
-.print_offer_box {
+.print-offer-box {
     height: 150px;
     background-color: darken($color-mainpanel, 5%);
     padding: 3rem 2rem;

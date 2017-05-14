@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-4 order-sm-first">
             <div class="d-flex flex-column align-items-center">
-                <img src="https://www.gravatar.com/avatar/{{ md5( $user->email ) }}?s=300&d=wavatar" href="#" class="profile_xl">
+                <img src="https://www.gravatar.com/avatar/{{ md5( $user->email ) }}?s=300&d=wavatar" href="#" class="profile-xl">
                 <button type="button" class="btn btn-neutral mt-1">@lang('Upload New Image')</button>
             </div>
         </div>
@@ -32,12 +32,12 @@
                 </div>
         </div>
     </div>
-    
-    <!-- Footer buttons --> 
+
+    <!-- Footer buttons -->
     <div class="btn-footer mt-2 mb-5 d-flex p-2">
         <button type="button" class="btn btn-lg btn-save">@lang("Submit")</button>
     </div>
-    <!--/. Footer buttons --> 
+    <!--/. Footer buttons -->
 </form>
 @endsection
 

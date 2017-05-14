@@ -2,47 +2,47 @@
 
 @section('content')
 </div>
-<div class="profile_head pt-3 pb-2 d-flex flex-column justify-content-center align-items-center">
+<div class="profile-head pt-3 pb-2 d-flex flex-column justify-content-center align-items-center">
     <h1 class="display-3 text-white text-center">@lang('Layout and Design')</h1>
 </div>
 
 <!-- Display fileds -->
-<div class="content">       
-    <div class="profile_head pb-2 row">
+<div class="content">
+    <div class="profile-head pb-2 row">
        <div class="col-md-2">
-            <h6 class="white_label">@lang('Number of Pages')</h6>
-            <h3 class="mb-1 text-white">110</h3>  
+            <h6 class="white-label">@lang('Number of Pages')</h6>
+            <h3 class="mb-1 text-white">110</h3>
        </div>
        <div class="col-md-2">
-            <h6 class="white_label">@lang('Photos')</h6>
-            <h3 class="mb-1 text-white">553</h3>  
+            <h6 class="white-label">@lang('Photos')</h6>
+            <h3 class="mb-1 text-white">553</h3>
        </div>
        <div class="col-md-2">
-            <h6 class="white_label">@lang('Illustrations')</h6>
-            <h3 class="mb-1 text-white">21</h3>  
+            <h6 class="white-label">@lang('Illustrations')</h6>
+            <h3 class="mb-1 text-white">21</h3>
        </div>
        <div class="col-md-2">
-            <h6 class="white_label">@lang('Tehnical Drawings')</h6>
-            <h3 class="mb-1 text-white">—</h3>  
+            <h6 class="white-label">@lang('Tehnical Drawings')</h6>
+            <h3 class="mb-1 text-white">—</h3>
        </div>
        <div class="col-md-2">
-            <h6 class="white_label">@lang('Category')</h6>
-            <h3 class="mb-1 text-white">Udžbenik</h3>  
+            <h6 class="white-label">@lang('Category')</h6>
+            <h3 class="mb-1 text-white">Udžbenik</h3>
        </div>
        <div class="col-md-2">
-            <h6 class="white_label">@lang('Što još...')</h6>
-            <h3 class="mb-1 text-white">ime</h3>  
+            <h6 class="white-label">@lang('Što još...')</h6>
+            <h3 class="mb-1 text-white">ime</h3>
        </div>
-    </div>   
-    
+    </div>
+
     <!-- Circulation Number -->
     <div class="row">
     <div class="col-md-6 mt-2">
-        <h6 class="text-center no_border display-e">@lang('Layout Expense')</h6>
+        <h6 class="text-center no-border display-e">@lang('Layout Expense')</h6>
         <h1 class="text-center display-2">9.700 kn</h1>
          <div class="col-md-6 mx-auto mt-3">
-            <!-- Dropdown menu --> 
-            <div class="pos_rel">
+            <!-- Dropdown menu -->
+            <div class="pos-rel">
                 <select class="mdb-select" name="department_id" required>
                     <option disabled >@lang('Choose')</option>
                     <option>@lang('1 - Very Easy')</option>
@@ -52,7 +52,7 @@
                     <option>@lang('5 - Very Demanding')</option>
                 </select>
                 <label>@lang('Layout Complexity')</label>
-            </div>    
+            </div>
             <!--/. Checkbox -->
             <div class="page-name-m mt-2">@lang('Include Layout Expense')</div>
             <div class="form-inline mb-3 ">
@@ -71,13 +71,13 @@
             <textarea type="text" id="form76" class="md-textarea"></textarea>
             <label for="form76">@lang('Note')</label>
         </div>
-    </div>    
+    </div>
     <div class="col-md-6 mt-2">
-        <h6 class="text-center no_border display-e">@lang('Design Expense')</h6>
+        <h6 class="text-center no-border display-e">@lang('Design Expense')</h6>
         <h1 class="text-center display-2">6.250 kn</h1>
          <div class="col-md-6 mx-auto mt-3">
-            <!-- Dropdown menu --> 
-            <div class="pos_rel">
+            <!-- Dropdown menu -->
+            <div class="pos-rel">
                 <select class="mdb-select" name="department_id" required>
                     <option disabled >@lang('Choose')</option>
                     <option>@lang('1 - Very Easy')</option>
@@ -87,7 +87,7 @@
                     <option>@lang('5 - Very Demanding')</option>
                 </select>
                 <label>@lang('Design Complexity')</label>
-            </div>    
+            </div>
             <!--/. Checkbox -->
             <div class="page-name-m mt-2">@lang('Include Design Expense')</div>
             <div class="form-inline mb-3 ">
@@ -109,7 +109,7 @@
         </div>
     </div>
 
-        
+
 
     <!-- Footer buttons -->
     <div class="btn-footer mt-2 mb-5 d-flex p-2">

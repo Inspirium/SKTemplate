@@ -2,7 +2,7 @@
 
 @section('content')
 </div>
-<div class="profile_head py-5 d-flex flex-column justify-content-center align-items-center">
+<div class="profile-head py-5 d-flex flex-column justify-content-center align-items-center">
     <h1 class="display-3 text-white text-center">{{ $employee->first_name }} {{ $employee->last_name }}</h1>
     <h4 class="text-white text-center pt-1">{{ $employee->department->name }}</h4>
 </div>
@@ -10,12 +10,12 @@
 <div class="content">
     <div class="row">
         <div class="col-md-4">
-            <img src="{{ asset('images/profile.jpg') }}" class="profile_xl mt-2">
+            <img src="{{ asset('images/profile.jpg') }}" class="profile-xl mt-2">
         </div>
-        <div class="col-md-8 showdata_box">
+        <div class="col-md-8 showdata-box">
             <div class="page-name-l mb-2">@lang('Basic Info')</div>
             <div>
-                <h6 class="no_border">@lang('Email')</h6>
+                <h6 class="no-border">@lang('Email')</h6>
                 <h3 class="mb-1">{{ $employee->email }}</h3>
             </div>
             <div class="row">

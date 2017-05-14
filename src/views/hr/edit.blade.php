@@ -27,7 +27,7 @@
                 </fieldset>
             </div>
 
-            <div class="pos_rel">
+            <div class="pos-rel">
                 <select class="mdb-select" name="department_id" required>
                     <option disabled {{ $employee->department_id?'':'selected' }}>@lang('Choose Department')</option>
                     @foreach($departments as $department)
@@ -116,7 +116,7 @@
         <div class="col-md-6 order-sm-first">
             <div class="page-name-l mb-2">@lang('Image')</div>
             <div class="d-flex flex-column align-items-center">
-                <img src="https://www.gravatar.com/avatar/{{ md5( $employee->email ) }}?s=300&d=wavatar" href="#" class="profile_xl">
+                <img src="https://www.gravatar.com/avatar/{{ md5( $employee->email ) }}?s=300&d=wavatar" href="#" class="profile-xl">
                 <button type="button" class="btn btn-neutral mt-1">@lang('Upload New Image')</button>
             </div>
         </div>

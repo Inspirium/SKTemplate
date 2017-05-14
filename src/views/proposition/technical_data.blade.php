@@ -5,10 +5,10 @@
     <div class="page-name-xl mb-3">@lang('Tehnical Information')</div>
     <div class="row">
         <div class="col-md-12">
-           
+
             <!-- Input field -->
             <div class="row">
-                <div class="col-md-10">   
+                <div class="col-md-10">
                     <div class="md-form d-flex addon">
                         <input type="text" id="form1" class="form-control" name="first_name" placeholder="@lang('Circulation')" required>
                         <label for="form1" class="">@lang('Circulation')</label>
@@ -16,20 +16,20 @@
                             <button class="btn btn-neutral btn-addon" type="button">@lang('Add')</button>
                         </span>
                     </div>
-                </div>                   
-            </div> 
+                </div>
+            </div>
             <div class="chip mb-3">
                 6000
                 <i class="close fa fa-times"></i>
-            </div> 
+            </div>
             <div class="chip mb-3">
                 8000
                 <i class="close fa fa-times"></i>
-            </div>  
-                      
+            </div>
+
             <!-- Input field -->
             <div class="row">
-                <div class="col-md-10">   
+                <div class="col-md-10">
                     <div class="md-form d-flex addon">
                         <input type="text" id="form1" class="form-control" name="first_name" placeholder="@lang('Additions')" required>
                         <label for="form1" class="">@lang('Additions')</label>
@@ -37,22 +37,22 @@
                             <button class="btn btn-neutral btn-addon" type="button">@lang('Add')</button>
                         </span>
                     </div>
-                </div>                   
-            </div> 
+                </div>
+            </div>
             <div class="chip mb-3">
                 Karta svijeta
                 <i class="close fa fa-times"></i>
-            </div> 
+            </div>
             <div class="chip mb-3">
                 Labelo
                 <i class="close fa fa-times"></i>
             </div>
-            
-    <!-- First column -->         
+
+    <!-- First column -->
     <div class="row">
         <div class="col-md-6">
-            <div class="page-name-l mb-2">@lang('Book Block')</div> 
-            <!-- Input fileds -->         
+            <div class="page-name-l mb-2">@lang('Book Block')</div>
+            <!-- Input fileds -->
             <div class="md-form">
                 <input type="text" id="form1" class="form-control" name="first_name" placeholder="" required>
                 <label for="form1" class="">@lang('Number of Pages')</label>
@@ -68,12 +68,12 @@
                     <div class="md-form">
                         <input type="text" id="form1" class="form-control" name="first_name" placeholder="@lang('mm')" required>
                         <label for="form1" class="">@lang('Height')</label>
-                    </div> 
+                    </div>
                 </div>
-            </div>                                            
-                
-            <!-- Dropdown menu --> 
-            <div class="row">  
+            </div>
+
+            <!-- Dropdown menu -->
+            <div class="row">
                 <div class="col-md-12">
                     <select class="mdb-select" name="department_id" required>
                         <option disabled >@lang('Hard/Soft Cover')</option>
@@ -81,29 +81,29 @@
                     <label>@lang('Hard/Soft Cover')</label>
                 </div>
             </div>
-            
-            <!-- Input fileds -->         
+
+            <!-- Input fileds -->
             <div class="md-form">
                 <input type="text" id="form1" class="form-control" name="first_name" placeholder="" required>
                 <label for="form1" class="">@lang('Paper Type')</label>
-            </div>  
-            <div class="row">  
+            </div>
+            <div class="row">
                 <div class="col-md-12">
                     <select class="mdb-select" name="department_id" required>
                         <option disabled >@lang('Choose Colors')</option>
                     </select>
                     <label>@lang('Colors')</label>
                 </div>
-            </div>  
-            <div class="row">  
+            </div>
+            <div class="row">
                 <div class="col-md-12">
                     <select class="mdb-select" name="department_id" required>
                         <option disabled >@lang('Colors - First Pages')</option>
                     </select>
                     <label>@lang('Colors - First Pages')</label>
                 </div>
-            </div>  
-            <div class="row">  
+            </div>
+            <div class="row">
                 <div class="col-md-12">
                     <select class="mdb-select" name="department_id" required>
                         <option disabled >@lang('Colors - Last Pages')</option>
@@ -114,15 +114,15 @@
             <div class="md-form">
                 <input type="text" id="form1" class="form-control" name="first_name" placeholder="" required>
                 <label for="form1" class="">@lang('Additional Work')</label>
-            </div>                          
+            </div>
         </div>
 
-    <!-- Second column -->         
+    <!-- Second column -->
         <div class="col-md-6">
-            <div class="page-name-l mb-2">@lang('Cover')</div> 
-                
-            <!-- Dropdown menu --> 
-            <div class="row">  
+            <div class="page-name-l mb-2">@lang('Cover')</div>
+
+            <!-- Dropdown menu -->
+            <div class="row">
                 <div class="col-md-12">
                     <select class="mdb-select" name="department_id" required>
                         <option disabled >@lang('Paper Type')</option>
@@ -130,26 +130,26 @@
                     <label>@lang('Paper Type')</label>
                 </div>
             </div>
-            
-            <!-- Input fileds -->         
-            <div class="row">  
+
+            <!-- Input fileds -->
+            <div class="row">
                 <div class="col-md-12">
                     <select class="mdb-select" name="department_id" required>
                         <option disabled >@lang('Choose Colors')</option>
                     </select>
                     <label>@lang('Colors')</label>
                 </div>
-            </div>  
-            <div class="row">  
+            </div>
+            <div class="row">
                 <div class="col-md-12">
                     <select class="mdb-select" name="department_id" required>
                         <option disabled >@lang('Plastification')</option>
                     </select>
                     <label>@lang('Plastification')</label>
                 </div>
-            </div> 
-            
-            <!--/. Checkbox --> 
+            </div>
+
+            <!--/. Checkbox -->
             <div class="page-name-m">@lang('Film Print')</div>
             <div class="form-inline mb-3">
                 <fieldset class="form-group">
@@ -161,7 +161,7 @@
                     <label for="radio21">@lang('Yes')</label>
                 </fieldset>
             </div>
-            
+
             <div class="page-name-m">@lang('Blind Print')</div>
             <div class="form-inline mb-3">
                 <fieldset class="form-group">
@@ -173,7 +173,7 @@
                     <label for="radio21">@lang('Yes')</label>
                 </fieldset>
             </div>
-            
+
             <div class="page-name-m">@lang('UV Film')</div>
             <div class="form-inline mb-3">
                 <fieldset class="form-group">
@@ -189,19 +189,19 @@
     </div>
     </div>
 </div>
-            
+
     <!-- Textarea -->
     <div class="md-form mt-3">
         <textarea type="text" id="form76" class="md-textarea"></textarea>
         <label for="form76">@lang('Note')</label>
-    </div>        
+    </div>
 
-    <!-- Footer buttons --> 
+    <!-- Footer buttons -->
     <div class="btn-footer mt-2 mb-5 flex-column flex-md-row d-flex p-2">
         <button type="submit" class="btn btn-lg btn-save">@lang('Submit')</button>
-        <button type="submit" class="btn btn-lg btn-assign btn-assign_icon">@lang('Assign to...')</button>
+        <button type="submit" class="btn btn-lg btn-assign btn-assign-icon">@lang('Assign to...')</button>
     </div>
-    <!--/. Footer buttons -->    
+    <!--/. Footer buttons -->
 
 
 
