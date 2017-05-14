@@ -5,11 +5,14 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
+@import "variables";
+
 // Core variables and mixins
 @import "node_modules/bootstrap/scss/variables";
 @import "node_modules/bootstrap/scss/mixins";
+
 // load our bootstrap variables
-@import "variables";
+
 
 // Reset and dependencies
 @import "node_modules/bootstrap/scss/normalize";

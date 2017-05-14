@@ -25,7 +25,7 @@
     </script>
     @endif
 </head>
-<body class="fixed-sn">
+<body class="fixed-sn sk-skin">
 <div id="app">
     @if (Auth::check())
         @component('sktemplate::components.header')@endcomponent
