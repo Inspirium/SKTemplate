@@ -919,22 +919,6 @@ textarea.md-textarea {
     margin-bottom: 0;
 }
 
-input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime-local], input[type=tel], input[type=number], input[type=search-md], input[type=search], textarea.md-textarea, input.form-control datepicker {
-    background-color: $white;
-    border-radius: .4rem;
-    border: 1px solid lighten($color-sidebar, 70%);
-    text-indent: 1rem;
-}
-
-input[type=text]:focus:not([readonly]) + label, input[type=password]:focus:not([readonly]) + label, input[type=email]:focus:not([readonly]) + label, input[type=url]:focus:not([readonly]) + label, input[type=time]:focus:not([readonly]) + label, input[type=date]:focus:not([readonly]) + label, input[type=datetime-local]:focus:not([readonly]) + label, input[type=tel]:focus:not([readonly]) + label, input[type=number]:focus:not([readonly]) + label, input[type=search-md]:focus:not([readonly]) + label, input[type=search]:focus:not([readonly]) + label, textarea.md-textarea:focus:not([readonly]) + label {
-    color: $color-select;
-}
-
-input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly]), input[type=email]:focus:not([readonly]), input[type=url]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=date]:focus:not([readonly]), input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=search-md]:focus:not([readonly]), input[type=search]:focus:not([readonly]), textarea.md-textarea:focus:not([readonly]) {
-    border-bottom: 1px solid #a5d6e6;
-    box-shadow: none;
-}
-
 .select-wrapper input.select-dropdown:disabled {
     background-color: $color-mainpanel;
     border-bottom: 1px solid lighten($color-sidebar, 70%);

@@ -8,25 +8,6 @@
 
 <!-- Display fileds -->
 <div class="content">
-    <div class="profile-head pb-2 row">
-       <div class="col-md-3">
-            <img class="profile-m-1 mr-2 float-left" src="../images/profile.jpg" href="#">
-            <h6 class="white-label">@lang('Assigner')</h6>
-            <h3 class="mb-1 text-white">Jelena Lončarić</h3>
-        </div>
-       <div class="col-md-3">
-            <h6 class="white-label">@lang('Task Type')</h6>
-            <h3 class="mb-1 text-white">155.446 kn</h3>
-       </div>
-       <div class="col-md-3">
-            <h6 class="white-label">@lang('Task Sent')</h6>
-            <h3 class="mb-1 text-white">22.985 kn</h3>
-       </div>
-       <div class="col-md-3">
-            <h6 class="white-label">@lang('Deadline')</h6>
-            <h3 class="mb-1 text-white">18%</h3>
-       </div>
-    </div>
 
     <!-- Input fields -->
     <div class="page-name-xl mb-2 mt-2">@lang('Task Details')</div>

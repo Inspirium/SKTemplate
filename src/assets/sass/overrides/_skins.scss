@@ -1,7 +1,7 @@
 // Navy Blue skin
 $sk-skin-primary-color: #309e9e;
 $sk-skin-navbar: #0085b2;
-$sk-skin-accent: #309e9e;
+$sk-skin-accent: #6FBAD5;
 $sk-skin-flat: #262A33;
 // Gradients
 $sk-skin-gradient-start: #222735;
@@ -147,12 +147,22 @@ $sk-skin-btn-default: #293756;
         }
     }
     // Custom inputs
+    input[type="email"],
+    textarea.md-textarea,
+    input[type="text"],
+    input[type="password"] {
+        background-color: $white;
+        border-radius: .4rem;
+        border: 1px solid lighten($color-sidebar, 70%);
+        text-indent: 1rem;
+    }
     input[type="email"]:focus:not([readonly]),
+    textarea.md-textarea:focus:not([readonly]),
     input[type="text"]:focus:not([readonly]),
     input[type="password"]:focus:not([readonly]),
     textarea.md-textarea:focus:not([readonly]) {
-        border-color: $sk-skin-accent;
-        box-shadow: 0 1px 0 0 $sk-skin-accent;
+        border: 1px solid $sk-skin-accent;
+        box-shadow: none;
         &+label {
             color: $sk-skin-accent;
         }
