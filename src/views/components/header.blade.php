@@ -9,7 +9,8 @@
         <li class="nav nav-pills flex-column sidebar-menu">
             <ul class="collapsible collapsible-accordion">
                 @if (Auth::user()->hasRole('hr_admin'))
-                    <li><a class="collapsible-header nav-link" href="#">@lang('Administration')</a>
+                    <li>
+                        <a class="collapsible-header nav-link {{ ($active=='administration')?'active':'' }}" href="#">@lang('Administration')</a>
                         <div class="collapsible-body">
                             <ul>
                                 <li><a href="{{ url('/user') }}" class="waves-effect">@lang('Users')</a></li>
@@ -21,7 +22,7 @@
                     </li>
                 @endif
                 @if (Auth::user()->hasRole('hr_admin'))
-                    <li><a class="collapsible-header nav-link" href="#">@lang('Human Resources')</a>
+                    <li><a class="collapsible-header nav-link {{ ($active=='hr')?'active':'' }}" href="#">@lang('Human Resources')</a>
                         <div class="collapsible-body">
                             <ul>
                                 <li><a href="{{ url('hr/employee') }}" class="waves-effect">@lang('Employees')</a></li>
@@ -32,7 +33,7 @@
                     </li>
                 @endif
                 @if (Auth::user()->hasRole('proposition_admin'))
-                    <li><a class="collapsible-header nav-link" href="#">@lang('Proposition')</a>
+                    <li><a class="collapsible-header nav-link {{ ($active=='proposition')?'active':'' }}" href="#">@lang('Proposition')</a>
                         <div class="collapsible-body">
                             <ul>
                                 <li><a href="{{ url('proposition/proposition') }}" class ="waves-effect">@lang('proposition')</a></li>
