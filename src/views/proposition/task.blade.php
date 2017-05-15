@@ -17,7 +17,7 @@
             <th>@lang('Task')</th>
             <th>@lang('Task Type')</th>
             <th>@lang('Assiger')</th>
-            <th>@lang('Task Sent')</th>
+            <th>@lang('Created')</th>
             <th>@lang('Deadline')</th>
             <th class="text-right">@lang('Assign to')</th>
         </tr>
@@ -29,7 +29,7 @@
             <td class="file-box-sty">Fizika oko nas</td>
             <td><div class="tasktype-1">Projekt</div></td>
             <td><a href=""><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
-            <td>@lang('Yesterday')</td>
+            <td>21.09.</td>
             <td>25.09.</td>
             <td class="text-right"><div class="file-box-sty icon icon-assign">@lang('Assign')</div></td>
         </tr>
@@ -39,7 +39,7 @@
             <td class="file-box-sty">Fizika oko nas</td>
             <td><div class="tasktype-2">Zadatak</div></td>
             <td><a href=""><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
-            <td>@lang('Yesterday')</td>
+            <td>21.09.</td>
             <td>25.09.</td>
             <td class="text-right"><div class="file-box-sty icon icon-assign">@lang('Assign')</div></td>
         </tr>
@@ -60,7 +60,7 @@
             <th>@lang('Task')</th>
             <th>@lang('Task Type')</th>
             <th>@lang('Assiger')</th>
-            <th>@lang('Task Sent')</th>
+            <th>@lang('Created')</th>
             <th>@lang('Deadline')</th>
             <th class="">@lang('Assign to')</th>
         </tr>
@@ -72,7 +72,7 @@
             <td class="file-box-sty">Fizika oko nas</td>
             <td><div class="tasktype-1">Projekt</div></td>
             <td><a href="#"><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
-            <td>@lang('Yesterday')</td>
+            <td>21.09.</td>
             <td>25.09.</td>
             <td class=""><a href="#"><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Marko Marić</a></td>
         </tr>
@@ -82,7 +82,7 @@
             <td class="file-box-sty">Fizika oko nas</td>
             <td><div class="tasktype-2">Zadatak</div></td>
             <td><a href=""><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
-            <td>@lang('Yesterday')</td>
+            <td>21.09.</td>
             <td>25.09.</td>
             <td class=""><a href="#"><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Marko Marić</a></td>
         </tr>
@@ -92,7 +92,7 @@
             <td class="file-box-sty">Fizika oko nas</td>
             <td><div class="tasktype-1">Projekt</div></td>
             <td><a href="#"><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
-            <td>@lang('Yesterday')</td>
+            <td>21.09.</td>
             <td>25.09.</td>
             <td class=""><a href="#"><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Marko Marić</a></td>
         </tr>
@@ -102,8 +102,52 @@
             <td class="file-box-sty">Fizika oko nas</td>
             <td><div class="tasktype-2">Zadatak</div></td>
             <td><a href=""><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
-            <td>@lang('Yesterday')</td>
+            <td>21.09.</td>
             <td>25.09.</td>
+            <td class=""><a href="#"><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Marko Marić</a></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!-- Table -->
+    <div class="page-name-xl mb-1 mt-2">@lang('Waiting For Approval')
+        <span class="tag tag-neutral text-white">9</span>
+    </div>
+    <table class="table">
+        <thead class="thead-inverse">
+        <tr>
+            <th class="w-30"></th>
+            <th class="w-30">#</th>
+            <th>@lang('Task')</th>
+            <th>@lang('Task Type')</th>
+            <th>@lang('Assiger')</th>
+            <th>@lang('Created')</th>
+            <th>@lang('Deadline')</th>
+            <th>@lang('Waiting')</th>
+            <th class="">@lang('Assign to')</th>
+        </tr>
+        </thead>
+        <tbody class="white">
+        <tr>
+            <td><div class="icon icon-handler"></div></td>
+            <th class="display-e w-30" scope="row">1</th>
+            <td class="file-box-sty">Fizika oko nas</td>
+            <td><div class="tasktype-1">Projekt</div></td>
+            <td><a href="#"><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
+            <td>21.09.</td>
+            <td>25.09.</td>
+            <td>2d : 4h</td>
+            <td class=""><a href="#"><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Marko Marić</a></td>
+        </tr>
+        <tr>
+            <td><div class="icon icon-handler"></div></td>
+            <th class="display-e w-30" scope="row">2</th>
+            <td class="file-box-sty">Fizika oko nas</td>
+            <td><div class="tasktype-2">Zadatak</div></td>
+            <td><a href=""><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
+            <td>21.09.</td>
+            <td>25.09.</td>
+            <td>2d : 4h</td>
             <td class=""><a href="#"><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Marko Marić</a></td>
         </tr>
         </tbody>
