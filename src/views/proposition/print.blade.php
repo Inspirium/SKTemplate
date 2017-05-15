@@ -1,10 +1,10 @@
 @extends('sktemplate::layout')
 
 @section('content')
-    <div class="page-name-xl mb-3">@lang('Print Offers')</div>
+    <div class="page-name-xl mb-2">@lang('Print Offers')</div>
     <div class="row">
         <div class="col-md-12">
-            <h6 class="text-center no-border">@lang('Circulation')</h6>
+            <h6 class="text-center no-border display-e">@lang('Circulation')</h6>
             <h1 class="text-center display-2">10.000</h1>
             <div class="print-offer-box mt-2 mb-3">
                 <div class="row">
@@ -166,7 +166,7 @@
     </div>
 
     <div class="page-name-l text-center">@lang('Download as...')</div>
-    <div class="file-box file-box-l d-flex align-items-center">
+    <div class="file-box file-box-l d-flex align-items-center mt-1">
         <a src="" href="http://homestead.app/images/profile.pdf" class="file-icon">.pdf</a>
         <a src="" href="http://homestead.app/images/profile.doc" class="file-icon">.doc</a>
     </div>

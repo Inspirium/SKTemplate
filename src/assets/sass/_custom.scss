@@ -117,6 +117,10 @@ h6 {
     font-size: 1.35rem;
 }
 
+.showdata-box h4 {
+    line-height: 2rem;
+}
+
 
 ////// Text size
 .display {
@@ -924,10 +928,6 @@ textarea.md-textarea {
     border-bottom: 1px solid lighten($color-sidebar, 70%);
 }
 
-input[type=text]:disabled {
-    border-bottom: 1px solid lighten($color-sidebar, 70%);
-}
-
 input.md-form.addon {
     border-top-right-radius: 0;
     border-top-left-radius: 0;
@@ -939,7 +939,7 @@ input.md-form.addon {
     border: 1px solid lighten($color-sidebar, 70%);
     text-indent: 1rem;
     margin-top: .2rem;
-    color: $color-body_text;
+    color: lighten($color-body_text, 40%);
     margin-bottom: 30px;
     height: 3.2rem;
 }

@@ -175,6 +175,9 @@ $sk-skin-btn-default: #293756;
             }
         }
     }
+    input[type=text]:disabled {
+        border-bottom: 1px solid lighten($color-sidebar, 70%);
+    }
     input[type=checkbox].filled-in:checked {
         &+label {
             &:before {
