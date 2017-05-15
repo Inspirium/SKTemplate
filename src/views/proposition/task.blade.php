@@ -108,6 +108,7 @@
         </tr>
         </tbody>
     </table>
+    <button class="btn btn-neutral d-block mx-auto btn-addon" type="button">@lang('Show all')</button>
 
     <!-- Table -->
     <div class="page-name-xl mb-1 mt-2">@lang('Waiting For Approval')
@@ -152,7 +153,6 @@
         </tr>
         </tbody>
     </table>
-    <button class="btn btn-neutral d-block mx-auto btn-addon" type="button">@lang('Show all')</button>
 
 
 @endsection
