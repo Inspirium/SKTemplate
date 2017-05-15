@@ -27,8 +27,6 @@
             <h3 class="mb-1 text-white">18%</h3>
        </div>
     </div>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 
     <!-- Table -->
     <div class="page-name-xl mb-1 mt-3">@lang('Expenses')</div>
@@ -64,14 +62,6 @@
 
         </tbody>
     </table>
-=======
-      
-     
->>>>>>> Stashed changes
-=======
-      
-     
->>>>>>> Stashed changes
 
     <!-- Footer buttons -->
     <div class="btn-footer mt-2 mb-5 flex-column flex-md-row d-flex p-2">
