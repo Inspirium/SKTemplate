@@ -8,6 +8,92 @@
         <!-- Side navigation links -->
         <li class="nav nav-pills flex-column sidebar-menu">
             <ul class="collapsible collapsible-accordion">
+                @if ($special == 'proposition')
+                    <li><a class="collapsible-header nav-link {{ ($level1=='proposition' && $level2 == 'edit')?'active':'' }}" href="#">@lang('Proposition')</a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="{{ url('proposition/proposition') }}" class ="waves-effect">@lang('proposition')</a></li>
+                                <li><a href="{{ url('proposition/basic_data') }}" class ="waves-effect">@lang('Basic data')</a></li>
+                                <li><a href="{{ url('proposition/categorization') }}" class ="waves-effect">Categorization</a></li>
+                                <li><a href="{{ url('proposition/market_potential') }}" class ="waves-effect">@lang('Tržišni potencijal')</a></li>
+                                <li><a href="{{ url('proposition/technical_data') }}" class ="waves-effect">@lang('Tehnički podaci')</a></li>
+                                <li><a href="{{ url('proposition/print') }}" class ="waves-effect">@lang('Tisak')</a></li>
+                                <li><a href="{{ url('proposition/authors_expense') }}" class ="waves-effect">@lang('Authors Expense')</a></li>
+                                <li><a href="{{ url('proposition/production_expense') }}" class ="waves-effect">@lang('Production Expense')</a></li>
+                                <li><a href="{{ url('proposition/marketing_expense') }}" class ="waves-effect">@lang('Marketing Expense')</a></li>
+                                <li><a href="{{ url('proposition/distribution_expense') }}" class ="waves-effect">@lang('Distribution Expense')</a></li>
+                                <li><a href="{{ url('proposition/layout_expense') }}" class ="waves-effect">@lang('Layout Expense')</a></li>
+                                <li><a href="{{ url('proposition/deadline') }}" class ="waves-effect">@lang('Deadline')</a></li>
+                                <li><a href="{{ url('proposition/calculation') }}" class ="waves-effect">@lang('Calculation')</a></li>
+                                <li><a href="{{ url('proposition/precalculation') }}" class ="waves-effect">@lang('Precalculation')</a></li>
+                                <li><a href="{{ url('proposition/work_order') }}" class ="waves-effect">@lang('Work Order')</a></li>
+                                <li><a href="{{ url('proposition/list') }}" class ="waves-effect">list</a></li>
+                                <li><a href="{{ url('proposition/expense') }}" class ="waves-effect">Expense</a></li>
+                                <li><a href="{{ url('proposition/compare') }}" class ="waves-effect">Compare</a></li>
+                                <li><a href="{{ url('proposition/task') }}" class ="waves-effect">Task</a></li>
+                                <li><a href="{{ url('proposition/task_details') }}" class ="waves-effect">Task details</a></li>
+                                <li><a href="{{ url('proposition/task_new') }}" class ="waves-effect">Task new</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a class="collapsible-header nav-link" href="#">@lang('Expenses')</a>
+                    </li>
+                    <li><a class="collapsible-header nav-link" href="#">@lang('Text Preparation')</a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="{{ url('proposition/documents') }}" class ="waves-effect">@lang('Translation')</a></li>
+                                <li><a href="{{ url('proposition/basic_data') }}" class ="waves-effect">@lang('Technical Preparation')</a></li>
+                                <li><a href="{{ url('proposition/market_potential') }}" class ="waves-effect">@lang('Redaktura')</a></li>
+                                <li><a href="{{ url('proposition/technical_data') }}" class ="waves-effect">@lang('Additional Materials')</a></li>
+                                <li><a href="{{ url('proposition/print') }}" class ="waves-effect">@lang('Review')</a></li>
+                                <li><a href="{{ url('proposition/authors_expense') }}" class ="waves-effect">@lang('Text Correction')</a></li>
+                                <li><a href="{{ url('proposition/production_expense') }}" class ="waves-effect">@lang('Technical Correction')</a></li>
+                                <li><a href="{{ url('proposition/marketing_expense') }}" class ="waves-effect">@lang('Overview')</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a class="collapsible-header nav-link" href="#">@lang('Design')</a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="{{ url('proposition/proposition') }}" class ="waves-effect">@lang('Cover')</a></li>
+                                <li><a href="{{ url('proposition/basic_data') }}" class ="waves-effect">@lang('Layout Templates')</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a class="collapsible-header nav-link" href="#">@lang('Layout')</a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="{{ url('proposition/proposition') }}" class ="waves-effect">@lang('Layout Templates')</a></li>
+                                <li><a href="{{ url('proposition/basic_data') }}" class ="waves-effect">@lang('Cover')</a></li>
+                                <li><a href="{{ url('proposition/basic_data') }}" class ="waves-effect">@lang('Layout')</a></li>
+                                <li><a href="{{ url('proposition/basic_data') }}" class ="waves-effect">@lang('First Revision')</a></li>
+                                <li><a href="{{ url('proposition/basic_data') }}" class ="waves-effect">@lang('Correction')</a></li>
+                                <li><a href="{{ url('proposition/basic_data') }}" class ="waves-effect">@lang('Correction Apply')</a></li>
+                                <li><a href="{{ url('proposition/basic_data') }}" class ="waves-effect">@lang('Revisions')</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a class="collapsible-header nav-link" href="#">@lang('Price/Circulation')</a>
+                    </li>
+                    <li><a class="collapsible-header nav-link" href="#">@lang('Prepress')</a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="{{ url('proposition/proposition') }}" class ="waves-effect">@lang('Test Print')</a></li>
+                                <li><a href="{{ url('proposition/basic_data') }}" class ="waves-effect">@lang('Corrections')</a></li>
+                                <li><a href="{{ url('proposition/basic_data') }}" class ="waves-effect">@lang('Print House')</a></li>
+                                <li><a href="{{ url('proposition/basic_data') }}" class ="waves-effect">@lang('Warehouse')</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a class="collapsible-header nav-link" href="#">@lang('Additional Materials')</a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="{{ url('proposition/proposition') }}" class ="waves-effect">@lang('Multimedia')</a></li>
+                                <li><a href="{{ url('proposition/basic_data') }}" class ="waves-effect">@lang('Marketing')</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                @else
                 @if (Auth::user()->hasRole('hr_admin'))
                     <li>
                         <a class="collapsible-header nav-link {{ ($level1=='user')?'active':'' }}" href="#">@lang('Administration')</a>
@@ -33,92 +119,6 @@
                     </li>
                 @endif
                 @if (Auth::user()->hasRole('proposition_admin'))
-                    @if ($special == 'proposition')
-                            <li><a class="collapsible-header nav-link {{ ($level1=='proposition')?'active':'' }}" href="#">@lang('Proposition')</a>
-                                <div class="collapsible-body">
-                                    <ul>
-                                        <li><a href="{{ url('proposition/proposition') }}" class ="waves-effect">@lang('proposition')</a></li>
-                                        <li><a href="{{ url('proposition/basic_data') }}" class ="waves-effect">@lang('Basic data')</a></li>
-                                        <li><a href="{{ url('proposition/categorization') }}" class ="waves-effect">Categorization</a></li>
-                                        <li><a href="{{ url('proposition/market_potential') }}" class ="waves-effect">@lang('Tržišni potencijal')</a></li>
-                                        <li><a href="{{ url('proposition/technical_data') }}" class ="waves-effect">@lang('Tehnički podaci')</a></li>
-                                        <li><a href="{{ url('proposition/print') }}" class ="waves-effect">@lang('Tisak')</a></li>
-                                        <li><a href="{{ url('proposition/authors_expense') }}" class ="waves-effect">@lang('Authors Expense')</a></li>
-                                        <li><a href="{{ url('proposition/production_expense') }}" class ="waves-effect">@lang('Production Expense')</a></li>
-                                        <li><a href="{{ url('proposition/marketing_expense') }}" class ="waves-effect">@lang('Marketing Expense')</a></li>
-                                        <li><a href="{{ url('proposition/distribution_expense') }}" class ="waves-effect">@lang('Distribution Expense')</a></li>
-                                        <li><a href="{{ url('proposition/layout_expense') }}" class ="waves-effect">@lang('Layout Expense')</a></li>
-                                        <li><a href="{{ url('proposition/deadline') }}" class ="waves-effect">@lang('Deadline')</a></li>
-                                        <li><a href="{{ url('proposition/calculation') }}" class ="waves-effect">@lang('Calculation')</a></li>
-                                        <li><a href="{{ url('proposition/precalculation') }}" class ="waves-effect">@lang('Precalculation')</a></li>
-                                        <li><a href="{{ url('proposition/work_order') }}" class ="waves-effect">@lang('Work Order')</a></li>
-                                        <li><a href="{{ url('proposition/list') }}" class ="waves-effect">list</a></li>
-                                        <li><a href="{{ url('proposition/expense') }}" class ="waves-effect">Expense</a></li>
-                                        <li><a href="{{ url('proposition/compare') }}" class ="waves-effect">Compare</a></li>
-                                        <li><a href="{{ url('proposition/task') }}" class ="waves-effect">Task</a></li>
-                                        <li><a href="{{ url('proposition/task_details') }}" class ="waves-effect">Task details</a></li>
-                                        <li><a href="{{ url('proposition/task_new') }}" class ="waves-effect">Task new</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li><a class="collapsible-header nav-link" href="#">@lang('Expenses')</a>
-                            </li>
-                            <li><a class="collapsible-header nav-link" href="#">@lang('Text Preparation')</a>
-                                <div class="collapsible-body">
-                                    <ul>
-                                        <li><a href="{{ url('proposition/documents') }}" class ="waves-effect">@lang('Translation')</a></li>
-                                        <li><a href="{{ url('proposition/basic_data') }}" class ="waves-effect">@lang('Technical Preparation')</a></li>
-                                        <li><a href="{{ url('proposition/market_potential') }}" class ="waves-effect">@lang('Redaktura')</a></li>
-                                        <li><a href="{{ url('proposition/technical_data') }}" class ="waves-effect">@lang('Additional Materials')</a></li>
-                                        <li><a href="{{ url('proposition/print') }}" class ="waves-effect">@lang('Review')</a></li>
-                                        <li><a href="{{ url('proposition/authors_expense') }}" class ="waves-effect">@lang('Text Correction')</a></li>
-                                        <li><a href="{{ url('proposition/production_expense') }}" class ="waves-effect">@lang('Technical Correction')</a></li>
-                                        <li><a href="{{ url('proposition/marketing_expense') }}" class ="waves-effect">@lang('Overview')</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li><a class="collapsible-header nav-link" href="#">@lang('Design')</a>
-                                <div class="collapsible-body">
-                                    <ul>
-                                        <li><a href="{{ url('proposition/proposition') }}" class ="waves-effect">@lang('Cover')</a></li>
-                                        <li><a href="{{ url('proposition/basic_data') }}" class ="waves-effect">@lang('Layout Templates')</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li><a class="collapsible-header nav-link" href="#">@lang('Layout')</a>
-                                <div class="collapsible-body">
-                                    <ul>
-                                        <li><a href="{{ url('proposition/proposition') }}" class ="waves-effect">@lang('Layout Templates')</a></li>
-                                        <li><a href="{{ url('proposition/basic_data') }}" class ="waves-effect">@lang('Cover')</a></li>
-                                        <li><a href="{{ url('proposition/basic_data') }}" class ="waves-effect">@lang('Layout')</a></li>
-                                        <li><a href="{{ url('proposition/basic_data') }}" class ="waves-effect">@lang('First Revision')</a></li>
-                                        <li><a href="{{ url('proposition/basic_data') }}" class ="waves-effect">@lang('Correction')</a></li>
-                                        <li><a href="{{ url('proposition/basic_data') }}" class ="waves-effect">@lang('Correction Apply')</a></li>
-                                        <li><a href="{{ url('proposition/basic_data') }}" class ="waves-effect">@lang('Revisions')</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li><a class="collapsible-header nav-link" href="#">@lang('Price/Circulation')</a>
-                            </li>
-                            <li><a class="collapsible-header nav-link" href="#">@lang('Prepress')</a>
-                                <div class="collapsible-body">
-                                    <ul>
-                                        <li><a href="{{ url('proposition/proposition') }}" class ="waves-effect">@lang('Test Print')</a></li>
-                                        <li><a href="{{ url('proposition/basic_data') }}" class ="waves-effect">@lang('Corrections')</a></li>
-                                        <li><a href="{{ url('proposition/basic_data') }}" class ="waves-effect">@lang('Print House')</a></li>
-                                        <li><a href="{{ url('proposition/basic_data') }}" class ="waves-effect">@lang('Warehouse')</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li><a class="collapsible-header nav-link" href="#">@lang('Additional Materials')</a>
-                                <div class="collapsible-body">
-                                    <ul>
-                                        <li><a href="{{ url('proposition/proposition') }}" class ="waves-effect">@lang('Multimedia')</a></li>
-                                        <li><a href="{{ url('proposition/basic_data') }}" class ="waves-effect">@lang('Marketing')</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                    @else
                             <li><a class="collapsible-header nav-link {{ ($level1=='proposition')?'active':'' }}" href="#">@lang('Propositions')</a>
                                 <div class="collapsible-body">
                                     <ul>
@@ -127,7 +127,16 @@
                                     </ul>
                                 </div>
                             </li>
-                    @endif
+                @endif
+                <!-- Book management -->
+                    <li><a class="collapsible-header nav-link {{ ($level1=='book')?'active':'' }}" href="#">@lang('Books')</a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="{{ url('book') }}" class="waves-effect {{ ($level1=='book')?'active':'' }}">@lang('Books')</a></li>
+                                <li><a href="{{ url('book/category') }}" class="waves-effect {{ ($level1=='book' && $level2=='category')?'active':'' }}">@lang('Categories')</a></li>
+                            </ul>
+                        </div>
+                    </li>
 
                 @endif
             </ul>
