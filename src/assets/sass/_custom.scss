@@ -758,8 +758,6 @@ table td a:first-child {
     }
 }
 
-
-
 .file-icon {
     white-space: nowrap;
     overflow: hidden;
@@ -837,6 +835,51 @@ table td a:first-child {
     &:before {
         content: "\f055";
         font-size: 3.4rem;
+        margin-top: -12px;
+        margin-bottom: -12px;
+        display: inline-block;
+    }
+}
+
+.icon-approval-pending {
+    color: $color-incomplete;
+    
+    &:hover {color: $color-incomplete;}
+    &:hover::before {color: $color-incomplete;}
+    &:before {
+        color: $color-incomplete;
+        content: "\f252";
+        font-size: 2.5rem;
+        margin-top: -12px;
+        margin-bottom: -12px;
+        display: inline-block;
+    }
+}
+
+.icon-approval-no {
+    color: $color-cancel;
+    
+    &:hover {color: $color-cancel;}
+    &:hover::before {color: $color-cancel;}
+    &:before {
+        color: $color-cancel;
+        content: "\f00d";
+        font-size: 2.7rem;
+        margin-top: -12px;
+        margin-bottom: -12px;
+        display: inline-block;
+    }
+}
+
+.icon-approval-yes {
+    color: $color-complete;
+    
+    &:hover {color: $color-complete;}
+    &:hover::before {color: $color-complete;}
+    &:before {
+        color: $color-complete;
+        content: "\f00c";
+        font-size: 2.7rem;
         margin-top: -12px;
         margin-bottom: -12px;
         display: inline-block;
@@ -988,7 +1031,14 @@ input.md-form.addon {
     height: 56px;
     border: 2px solid $white;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-    margin-top: .4rem;
+}
+
+.profile-m-2 {
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    border: 2px solid $white;
+    margin-top: .5rem;
 }
 
 .pos-rel {

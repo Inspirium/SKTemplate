@@ -7,8 +7,8 @@
         <div class="file-box file-box-l d-flex align-items-center">
             <a src="" href="http://homestead.app/images/profile.pdf" class="file-icon">Fizika i društvo.doc</a>
             <div class="file-box-sty ml-auto d-flex">
-                <img class="profile-m-1 mr-3 float-left align-self-center" src="../images/profile.jpg" href="#">Jelena Lončarić
-            </div>
+                <a href=""><img class="profile-m-1 mr-1 align-self-center" src="../images/profile.jpg" href="#">Jelena Lončarić
+                    </a></div>
             <div class="file-box-sty">19.07.2017.</div>
             <div class="file-box-sty icon icon-download">Preuzmi</div>
             <div class="file-box-sty icon icon-cancel">Obriši</div>
@@ -16,8 +16,8 @@
         <div class="file-box file-box-l d-flex align-items-center">
             <a src="" href="http://homestead.app/images/profile.pdf" class="file-icon">Fizika i društvo.doc</a>
             <div class="file-box-sty ml-auto d-flex">
-                <img class="profile-m-1 mr-3 float-left align-self-center" src="../images/profile.jpg" href="#">Jelena Lončarić
-            </div>
+                <a href=""><img class="profile-m-1 mr-1 align-self-center" src="../images/profile.jpg" href="#">Jelena Lončarić
+                </a></div>
             <div class="file-box-sty">19.07.2017.</div>
             <div class="file-box-sty icon icon-download">Preuzmi</div>
             <div class="file-box-sty icon icon-cancel">Obriši</div>
