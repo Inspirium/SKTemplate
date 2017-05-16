@@ -72,16 +72,6 @@
                 </div>
             </div>
 
-            <!-- Dropdown menu -->
-            <div class="row">
-                <div class="col-md-12">
-                    <select class="mdb-select" name="department_id" required>
-                        <option disabled >@lang('Hard/Soft Cover')</option>
-                    </select>
-                    <label>@lang('Hard/Soft Cover')</label>
-                </div>
-            </div>
-
             <!-- Input fileds -->
             <div class="md-form">
                 <input type="text" id="form1" class="form-control" name="first_name" placeholder="" required>
@@ -121,6 +111,16 @@
         <div class="col-md-6">
             <div class="page-name-l mb-2">@lang('Cover')</div>
 
+            <!-- Dropdown menu -->
+            <div class="row">
+                <div class="col-md-12">
+                    <select class="mdb-select" name="department_id" required>
+                        <option disabled >@lang('Hard/Soft Cover')</option>
+                    </select>
+                    <label>@lang('Hard/Soft Cover')</label>
+                </div>
+            </div>
+            
             <!-- Dropdown menu -->
             <div class="row">
                 <div class="col-md-12">
@@ -191,14 +191,14 @@
 </div>
 
     <!-- Textarea -->
-    <div class="md-form mt-3">
+    <div class="md-form mt-2">
         <textarea type="text" id="form76" class="md-textarea"></textarea>
         <label for="form76">@lang('Note')</label>
     </div>
 
     <!-- Footer buttons -->
     <div class="btn-footer mt-2 mb-5 flex-column flex-md-row d-flex p-2">
-        <button type="submit" class="btn btn-lg btn-save">@lang('Submit')</button>
+        <button type="submit" class="btn btn-lg btn-save">@lang('Save')</button>
         <button type="submit" class="btn btn-lg btn-assign btn-assign-icon">@lang('Assign to...')</button>
     </div>
     <!--/. Footer buttons -->

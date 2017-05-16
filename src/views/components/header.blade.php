@@ -14,19 +14,19 @@
                             <ul>
                                 <li><a href="{{ url('proposition/proposition') }}" class ="waves-effect">@lang('0. proposition')</a></li>
                                 <li><a href="{{ url('proposition/basic_data') }}" class ="waves-effect">@lang('1. Basic data')</a></li>
-                                <li><a href="{{ url('proposition/categorization') }}" class ="waves-effect">Categorization</a></li>
-                                <li><a href="{{ url('proposition/market_potential') }}" class ="waves-effect">@lang('Tržišni potencijal')</a></li>
-                                <li><a href="{{ url('proposition/technical_data') }}" class ="waves-effect">@lang('Tehnički podaci')</a></li>
-                                <li><a href="{{ url('proposition/print') }}" class ="waves-effect">@lang('Tisak')</a></li>
-                                <li><a href="{{ url('proposition/authors_expense') }}" class ="waves-effect">@lang('Authors Expense')</a></li>
-                                <li><a href="{{ url('proposition/production_expense') }}" class ="waves-effect">@lang('Production Expense')</a></li>
-                                <li><a href="{{ url('proposition/marketing_expense') }}" class ="waves-effect">@lang('Marketing Expense')</a></li>
-                                <li><a href="{{ url('proposition/distribution_expense') }}" class ="waves-effect">@lang('Distribution Expense')</a></li>
-                                <li><a href="{{ url('proposition/layout_expense') }}" class ="waves-effect">@lang('Layout Expense')</a></li>
-                                <li><a href="{{ url('proposition/deadline') }}" class ="waves-effect">@lang('Deadline')</a></li>
-                                <li><a href="{{ url('proposition/calculation') }}" class ="waves-effect">@lang('Calculation')</a></li>
-                                <li><a href="{{ url('proposition/precalculation') }}" class ="waves-effect">@lang('Precalculation')</a></li>
-                                <li><a href="{{ url('proposition/work_order') }}" class ="waves-effect">@lang('Work Order')</a></li>
+                                <li><a href="{{ url('proposition/categorization') }}" class ="waves-effect">2. Categorization</a></li>
+                                <li><a href="{{ url('proposition/market_potential') }}" class ="waves-effect">@lang('3. Market Pontential')</a></li>
+                                <li><a href="{{ url('proposition/technical_data') }}" class ="waves-effect">@lang('4. Tehnical Data')</a></li>
+                                <li><a href="{{ url('proposition/print') }}" class ="waves-effect">@lang('5. Print')</a></li>
+                                <li><a href="{{ url('proposition/authors_expense') }}" class ="waves-effect">@lang('6. Authors Expense')</a></li>
+                                <li><a href="{{ url('proposition/production_expense') }}" class ="waves-effect">@lang('7. Production Expense')</a></li>
+                                <li><a href="{{ url('proposition/marketing_expense') }}" class ="waves-effect">@lang('8. Marketing Expense')</a></li>
+                                <li><a href="{{ url('proposition/distribution_expense') }}" class ="waves-effect">@lang('9. Distribution Expense')</a></li>
+                                <li><a href="{{ url('proposition/layout_expense') }}" class ="waves-effect">@lang('10. Layout Expense')</a></li>
+                                <li><a href="{{ url('proposition/deadline') }}" class ="waves-effect">@lang('11. Deadline')</a></li>
+                                <li><a href="{{ url('proposition/precalculation') }}" class ="waves-effect">@lang('12. Precalculation')</a></li>
+                                <li><a href="{{ url('proposition/calculation') }}" class ="waves-effect">@lang('13. Calculation')</a></li>
+                                <li><a href="{{ url('proposition/work_order') }}" class ="waves-effect">@lang('14. Work Order')</a></li>
                                 <li><a href="{{ url('proposition/list') }}" class ="waves-effect">list</a></li>
                                 <li><a href="{{ url('proposition/expense') }}" class ="waves-effect">Expense</a></li>
                                 <li><a href="{{ url('proposition/compare') }}" class ="waves-effect">Compare</a></li>

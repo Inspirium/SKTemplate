@@ -8,7 +8,7 @@
             <!-- Circulation Number -->
             <div class="col-md-12 mb-3">
                 <h6 class="text-center no-border display-e">@lang('Total')</h6>
-                <h1 class="text-center display-2">3.500 kn</h1>
+                <h1 class="text-center display-2">0 kn</h1>
             </div>
 
             <!-- Input field -->
@@ -16,7 +16,7 @@
             <div class="row">
                 <div class="col-md-5">
                     <div class="md-form d-flex addon">
-                        <input type="text" id="form1" class="form-control" name="first_name" placeholder="@lang('Currency')" required>
+                        <input type="text" id="form1" class="form-control" name="first_name" placeholder="" required>
                         <label for="form1" class="">@lang('Expense')</label>
 
                     </div>
@@ -41,7 +41,7 @@
 
     <!-- Footer buttons -->
     <div class="btn-footer mt-2 mb-5 flex-column flex-md-row d-flex p-2">
-        <button type="submit" class="btn btn-lg btn-save">@lang('Submit')</button>
+        <button type="submit" class="btn btn-lg btn-save">@lang('Save')</button>
         <button type="submit" class="btn btn-lg btn-assign btn-assign-icon">@lang('Assign to...')</button>
     </div>
     <!--/. Footer buttons -->

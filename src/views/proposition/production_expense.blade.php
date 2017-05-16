@@ -2,11 +2,11 @@
 
 @section('content')
 
-    <div class="page-name-xl mb-1">@lang('Tehnical Information')</div>
+    <div class="page-name-xl mb-1">@lang('Production Expenses')</div>
 
     <!-- Circulation Number -->
     <div class="col-md-12 mb-3">
-        <h6 class="text-center no-border">@lang('Circulation')</h6>
+        <h6 class="text-center no-border display-e">@lang('Circulation')</h6>
         <h1 class="text-center display-2">52.354 kn</h1>
     </div>
 
@@ -289,7 +289,7 @@
 
     <!-- Footer buttons -->
     <div class="btn-footer mt-2 mb-5 flex-column flex-md-row d-flex p-2">
-        <button type="submit" class="btn btn-lg btn-save">@lang('Submit')</button>
+        <button type="submit" class="btn btn-lg btn-save">@lang('Save')</button>
         <button type="submit" class="btn btn-lg btn-assign btn-assign-icon">@lang('Assign to...')</button>
     </div>
     <!--/. Footer buttons -->

@@ -1,6 +1,41 @@
 @extends('sktemplate::layout')
 
 @section('content')
+    
+</div>
+<div class="profile-head pt-3 pb-2 d-flex flex-column justify-content-center align-items-center">
+    <h1 class="display-3 text-white text-center">Ime task</h1>
+</div>
+
+<!-- Display fileds -->
+<div class="content">
+    <div class="profile-head pb-2 row">
+       <div class="col-md-3">
+            <a href="#">
+                <img class="profile-m-2 mr-1 float-left" src="../images/profile.jpg" href="#">
+                <h6 class="white-label">@lang('Assigner')</h6>
+                <h3 class="mb-1 text-white">Jelena Lončarić</h3>
+            </a>
+        </div>
+       <div class="col-md-3">
+            <a href="#">
+                <img class="profile-m-2 mr-1 float-left" src="../images/profile.jpg" href="#">
+                <h6 class="white-label">@lang('Assign to')</h6>
+                <h3 class="mb-1 text-white">Unknown</h3>
+            </a>
+        </div>
+       <div class="col-md-3">
+            <h6 class="white-label">@lang('Task Sent')</h6>
+            <h3 class="mb-1 text-white">22.09.</h3>
+       </div>
+       <div class="col-md-3">
+            <h6 class="white-label">@lang('Deadline / Priority')<span class="badge badge-danger display-d mt-1 float-right">@lang('High')</span></h6>
+            <h3 class="mb-1 text-white">25.9.</h3>
+       </div>
+    </div>    
+    
+    
+    
 
     <!-- File/document table -->
     <div class="files mt-2 mb-2">

@@ -1,12 +1,11 @@
 @extends('sktemplate::layout')
 
 @section('content')
-</div>
-    <div class="content">
+
         <div class="page-name-xl mb-1">@lang('Precalculation')</div>
         <div class="page-name-l mb-1 mt-2">@lang('Option 1')</div>
         <a href="#" class="hoverable d-block">
-            <div class="row text-white btn-sub2 d-flex py-4">
+            <div class="row text-white btn-sub2 d-flex py-2">
                 <div class="col-md-3">
                     <h6 class="no-border display-b text-white">@lang('Circulation')</h6>
                     <h1 class="mb-1 text-white weight-700">4500 komada</h1>
@@ -36,7 +35,7 @@
         </a>
         <div class="page-name-l mb-1 mt-2">@lang('Option 2')</div>
         <a href="#" class="hoverable d-block">
-            <div class="row text-white btn-sub2 d-flex py-4">
+            <div class="row text-white btn-sub2 d-flex py-2">
                 <div class="col-md-3">
                     <h6 class="no-border display-b text-white">@lang('Circulation')</h6>
                     <h1 class="mb-1 text-white weight-700">5500 komada</h1>
@@ -64,8 +63,6 @@
                 </div>
             </div>
         </a>
-
-</div>
 
 
 @endsection

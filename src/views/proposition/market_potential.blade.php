@@ -22,18 +22,23 @@
             <div class="page-name-m mt-2">@lang('Documents')</div>
             <button class="btn btn-neutral btn-addon" type="button">@lang('Add Documents')</button>
 
-
             <!-- File/document table -->
-            <div class="files">
+            <div class="files mt-2 mb-2">
                 <div class="file-box file-box-l d-flex align-items-center">
                     <a src="" href="http://homestead.app/images/profile.pdf" class="file-icon">Fizika i društvo.doc</a>
-                    <div class="file-box-sty ml-auto">19.07.2017.</div>
+                    <div class="file-box-sty ml-auto d-flex">
+                        <a href=""><img class="profile-m-1 mr-1 align-self-center" src="../images/profile.jpg" href="#">Jelena Lončarić
+                            </a></div>
+                    <div class="file-box-sty">19.07.2017.</div>
                     <div class="file-box-sty icon icon-download">Preuzmi</div>
                     <div class="file-box-sty icon icon-cancel">Obriši</div>
                 </div>
                 <div class="file-box file-box-l d-flex align-items-center">
                     <a src="" href="http://homestead.app/images/profile.pdf" class="file-icon">Fizika i društvo.doc</a>
-                    <div class="file-box-sty ml-auto">19.07.2017.</div>
+                    <div class="file-box-sty ml-auto d-flex">
+                        <a href=""><img class="profile-m-1 mr-1 align-self-center" src="../images/profile.jpg" href="#">Jelena Lončarić
+                        </a></div>
+                    <div class="file-box-sty">19.07.2017.</div>
                     <div class="file-box-sty icon icon-download">Preuzmi</div>
                     <div class="file-box-sty icon icon-cancel">Obriši</div>
                 </div>
@@ -43,9 +48,7 @@
 
     <!-- Footer buttons -->
     <div class="btn-footer mt-2 mb-5 flex-column flex-md-row d-flex p-2">
-        <button type="submit" class="btn btn-lg btn-save">@lang('Submit')</button>
-        <button type="submit" class="btn btn-lg btn-cancel">@lang('Delete')</button>
-        <button type="submit" class="btn btn-lg btn-neutral">@lang('Nesto')</button>
+        <button type="submit" class="btn btn-lg btn-save">@lang('Save')</button>
         <button type="submit" class="btn btn-lg btn-assign btn-assign-icon">@lang('Assign to...')</button>
     </div>
     <!--/. Footer buttons -->
