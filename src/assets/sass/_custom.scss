@@ -340,6 +340,12 @@ header .tag {
     background-color: $color-nav-sub;
 }
 
+.menu-subsection {
+    border-bottom: 1px dotted lighten($color-sidebar, 15%);
+    border-top: 1px dotted lighten($color-sidebar, 15%);
+    background-color: lighten($color-sidebar, 5%);
+}
+
 .nav-link-icon {
     width: 70px;
     height: 70px;
@@ -493,53 +499,6 @@ header .navbar .breadcrumb {
 @media only screen and (min-width: 62em) {
     .classic-tabs li:first-child {
         margin-left: 0;}
-}
-
-
-//////Menu styles
-
-.side-nav {
-    width: 260px;
-    letter-spacing: .05rem;
-}
-
-.sidebar .nav-link {
-    height: 60px;
-    text-transform: uppercase;
-    color: lighten($color-sidebar, 50%);
-    white-space: nowrap;
-    padding: .5em 1em;
-
-    &:hover {
-        background-color: lighten($color-sidebar, 3%);
-    }
-}
-
-.sidebar .nav-pills .nav-link.active {
-    background-color: $color-select;
-    color: $white;
-}
-
-///sidebar menu links status dots
-.sidebar .nav-pills .nav-link.active:before {
-    content: "";
-    box-shadow: 0 0 0 0;
-    background: none;
-}
-
-///sidebar menu dot; default, complete, incomplete - depends on page status
-.sidebar .nav-pills .nav-link:before {
-    content: " ";
-    display: inline-block;
-    box-shadow: 0 0 0 1px lighten($color-sidebar, 10%);
-    margin: 3px;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    margin-right: 8px;
-    position: relative;
-    top: 3px;
-    background-color: $color-sidebar;
 }
 
 

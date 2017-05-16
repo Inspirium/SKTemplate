@@ -47,6 +47,8 @@ $sk-skin-btn-default: #293756;
     }
     .side-nav {
         background-color: $sk-skin-flat;
+        width: 260px;
+        letter-spacing: .05rem;
         .logo-wrapper {
             &> div {
                 background-color: transparent!important;
@@ -83,6 +85,7 @@ $sk-skin-btn-default: #293756;
                 }
                 &.active {
                     background-color: $sk-skin-navbar;
+                    color: $white;
                 }
                 &:before {
                     content: " ";
@@ -101,6 +104,35 @@ $sk-skin-btn-default: #293756;
                 line-height: 45px;
                 font-size: 0.8rem;
                 height: 45px;
+            }
+            .collapsible-header {
+                height: 60px;
+                text-transform: uppercase;
+                white-space: nowrap;
+                padding: .5em 1em;
+                &:hover {
+                    background-color: lighten($color-sidebar, 3%);
+                }
+                &.active:hover {
+                    background-color: $sk-skin-navbar;
+                }
+                &.active:before {
+                    content: "";
+                    box-shadow: 0 0 0 0;
+                    background: none;    
+                }
+            }
+            .collapsible-body .menu-subsection-title {
+                font-size: 1.2rem;
+                font-weight: 600;
+                margin-left: 0;
+                padding-left: 11px;
+                color: $sk-skin-accent;
+                &:before {
+                    content: "";
+                    box-shadow: 0 0 0 0;
+                    background: none;
+                }
             }
         }
         .fa {
