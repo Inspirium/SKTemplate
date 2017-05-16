@@ -886,6 +886,13 @@ table td a:first-child {
     }
 }
 
+.icon-approval-comments {
+    &:hover {color: $color-select;}
+    &:hover::before {color: $color-select;}
+    &:before {content: "\f075";}
+}
+    
+
 .icon-handler {
     background-image: url(../images/dragdrop.svg);
     width: 40px;

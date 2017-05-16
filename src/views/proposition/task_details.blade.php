@@ -97,7 +97,7 @@
 
     <!-- Footer buttons -->
     <div class="btn-footer mt-2 mb-2 flex-column flex-md-row d-flex p-2">
-        <button type="submit" class="btn btn-lg btn-save">@lang('Task Complete')</button>
+        <button type="submit" class="btn btn-lg btn-attention">@lang('Send on Approval')</button>
     </div>
 
     <!-- File/document table -->
@@ -117,6 +117,7 @@
                 <a href=""><img class="profile-m-1 mr-1 align-self-center" src="../images/profile.jpg" href="#">Stjepan Drmić</a>
             </div>
             <div class="file-box-sty">24.07.2017.</div>
+            <div class="file-box-sty icon icon-approval-comments">@lang('Comments')</div>
             <div class="file-box-sty icon icon-approval-no">@lang('Approval Denied')</div>
         </div>
         <div class="file-box file-box-l d-flex align-items-center">

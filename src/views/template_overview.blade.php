@@ -59,6 +59,37 @@
         </div>
     </div>
 
+    
+    <!-- File/document table -->
+    <div class="page-name-xl mb-1">@lang('Documents')</div>     
+    <div class="files mt-2">
+        <div class="file-box file-box-l d-flex align-items-center">
+            <a src="" href="http://homestead.app/images/profile.pdf" class="file-icon">Fizika i društvo.doc</a>
+            <div class="file-box-sty ml-auto d-flex">
+                <a href=""><img class="profile-m-1 mr-1 align-self-center" src="../images/profile.jpg" href="#">Stjepan Drmić</a>
+            </div>
+            <div class="file-box-sty">24.07.2017.</div>
+            <div class="file-box-sty icon icon-approval-pending">@lang('Approval Pending...')</div>
+        </div>
+        <div class="file-box file-box-l d-flex align-items-center">
+            <a src="" href="http://homestead.app/images/profile.pdf" class="file-icon">Fizika i društvo.doc</a>
+            <div class="file-box-sty ml-auto d-flex">
+                <a href=""><img class="profile-m-1 mr-1 align-self-center" src="../images/profile.jpg" href="#">Stjepan Drmić</a>
+            </div>
+            <div class="file-box-sty">24.07.2017.</div>
+            <div class="file-box-sty icon icon-approval-comments">@lang('Comments')</div>
+            <div class="file-box-sty icon icon-approval-no">@lang('Approval Denied')</div>
+        </div>
+        <div class="file-box file-box-l d-flex align-items-center">
+            <a src="" href="http://homestead.app/images/profile.pdf" class="file-icon">Fizika i društvo.doc</a>
+            <div class="file-box-sty ml-auto d-flex">
+                <a href=""><img class="profile-m-1 mr-1 align-self-center" src="../images/profile.jpg" href="#">Stjepan Drmić</a>
+            </div>
+            <div class="file-box-sty">24.07.2017.</div>
+            <div class="file-box-sty icon icon-approval-yes">@lang('Approved')</div>
+        </div>
+    </div>   
+    
 
     <!-- Circulation Number -->
     <div class="col-md-12">
