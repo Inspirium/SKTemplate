@@ -10,9 +10,11 @@
     <!-- Header -->
     <div class="profile-head pb-2 row">
         <div class="col-md-4">
-            <img class="profile-m-1 mr-2 float-left" src="../images/profile.jpg" href="#">
-            <h6 class="white-label">@lang('Editor')</h6>
-            <h3 class="mb-1 text-white">Jelena Lončarić</h3>
+            <a href="#">
+                <img class="profile-m-2 mr-1 float-left" src="../images/profile.jpg" href="#">
+                <h6 class="white-label">@lang('Assigner')</h6>
+                <h3 class="mb-1 text-white">Jelena Lončarić</h3>
+            </a>
         </div>
         <div class="col-md-4">
             <h6 class="white-label">@lang('Starting Date')</h6>

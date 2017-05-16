@@ -1,8 +1,10 @@
 <header>
     <ul id="slide-out" class="sidebar side-nav fixed custom-scrollbar">
         <!-- Logo -->
-        <li class="brand">
-            <img src="{{ asset('images/sk_logo.svg') }}" href="{{ url('/') }}">
+        <li class="brand d-flex justify-content-center align-items-center">
+            <a href="{{ url('/') }}">
+                <img src="{{ asset('images/sk_logo.svg') }}">
+            </a>
         </li>
         <!--/. Logo -->
         <!-- Side navigation links -->
