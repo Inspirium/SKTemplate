@@ -18,32 +18,20 @@
                     </div>
                 </div>
             </div>
-            <div class="chip mb-3">
-                <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg" alt="Contact Person"> Jane Doe<i class="close fa fa-times"></i>
-            </div>
             <div class="md-form">
                 <input type="text" id="form1" class="form-control" name="first_name" placeholder="neko ime" required>
                 <label for="form1" class="">@lang('Title')</label>
             </div>
-
-            <div class="row">
-                <!-- Dropdown menu -->
-                <div class="col-md-6">
-                    <select class="mdb-select" name="department_id" required>
-                        <option disabled >@lang('Choose Category')</option>
-                    </select>
-                    <label>@lang('Category')</label>
-                </div>
-
-                <!-- Dropdown menu -->
-                <div class="col-md-6">
-                    <select class="mdb-select" name="department_id" required>
-                        <option disabled >@lang('Choose Publishing Type')</option>
-                    </select>
-                    <label>@lang('Publishing Type')</label>
-                </div>
+            <div class="chip mb-3">
+                <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg" alt="Contact Person"> Jane Doe<i class="close fa fa-times"></i>
             </div>
 
+            <!-- Textarea -->
+            <div class="md-form mt-2">
+                <textarea type="text" id="form76" class="md-textarea"></textarea>
+                <label for="form76">@lang('Concept')</label>
+            </div>
+            
             <!--/. Checkbox -->
             <div class="page-name-m">@lang('Manuscript')</div>
             <div class="form-inline">
@@ -56,22 +44,33 @@
                     <label for="radio21">@lang('Delivered')</label>
                 </fieldset>
             </div>
-
+            
+<!-- Show only if "Delivered"  -->
+            <!-- Documents upload -->
+            <button class="btn btn-neutral btn-addon mt-2" type="button">@lang('Add Documents')</button>
+                
             <!-- File/document table -->
-            <div class="files">
+            <div class="files mt-2 mb-2">
                 <div class="file-box file-box-l d-flex align-items-center">
                     <a src="" href="http://homestead.app/images/profile.pdf" class="file-icon">Fizika i društvo.doc</a>
-                    <div class="file-box-sty ml-auto">19.07.2017.</div>
+                    <div class="file-box-sty ml-auto d-flex">
+                        <a href=""><img class="profile-m-1 mr-1 align-self-center" src="../images/profile.jpg" href="#">Jelena Lončarić
+                            </a></div>
+                    <div class="file-box-sty">19.07.2017.</div>
                     <div class="file-box-sty icon icon-download">Preuzmi</div>
                     <div class="file-box-sty icon icon-cancel">Obriši</div>
                 </div>
                 <div class="file-box file-box-l d-flex align-items-center">
                     <a src="" href="http://homestead.app/images/profile.pdf" class="file-icon">Fizika i društvo.doc</a>
-                    <div class="file-box-sty ml-auto">19.07.2017.</div>
+                    <div class="file-box-sty ml-auto d-flex">
+                        <a href=""><img class="profile-m-1 mr-1 align-self-center" src="../images/profile.jpg" href="#">Jelena Lončarić
+                        </a></div>
+                    <div class="file-box-sty">19.07.2017.</div>
                     <div class="file-box-sty icon icon-download">Preuzmi</div>
                     <div class="file-box-sty icon icon-cancel">Obriši</div>
                 </div>
             </div>
+<!-- Show only if "Delivered"  -->
 
             <!--/. Checkbox -->
             <div class="page-name-m mt-2">@lang('Dotation')</div>
@@ -85,15 +84,27 @@
                     <label for="radio21">@lang('No')</label>
                 </fieldset>
             </div>
-
-            <!-- Textarea -->
-            <div class="md-form mt-3">
-                <textarea type="text" id="form76" class="md-textarea"></textarea>
-                <label for="form76">@lang('Concept')</label>
+            
+<!-- Show only if "Yes"  -->
+            <!-- Input field -->
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="md-form mt-2">
+                        <input type="text" id="form1" class="form-control" name="first_name" placeholder="" required>
+                        <label for="form1" class="">@lang('Dotation Origin')</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="md-form mt-2">
+                        <input type="text" id="form1" class="form-control" name="first_name" placeholder="" required>
+                        <label for="form1" class="">@lang('Amount')</label>
+                    </div>
+                </div>
             </div>
+<!-- Show only if "Yes"  -->
 
             <!-- Textarea -->
-            <div class="md-form mt-3">
+            <div class="md-form mt-1">
                 <textarea type="text" id="form76" class="md-textarea"></textarea>
                 <label for="form76">@lang('Note')</label>
             </div>
@@ -129,9 +140,7 @@
 
     <!-- Footer buttons -->
     <div class="btn-footer mt-2 mb-5 flex-column flex-md-row d-flex p-2">
-        <button type="submit" class="btn btn-lg btn-save">@lang('Submit')</button>
-        <button type="submit" class="btn btn-lg btn-cancel">@lang('Delete')</button>
-        <button type="submit" class="btn btn-lg btn-neutral">@lang('Nesto')</button>
+        <button type="submit" class="btn btn-lg btn-save">@lang('Save')</button>
         <button type="submit" class="btn btn-lg btn-assign btn-assign-icon">@lang('Assign to...')</button>
     </div>
     <!--/. Footer buttons -->

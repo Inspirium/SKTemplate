@@ -12,8 +12,8 @@
                     <li><a class="collapsible-header nav-link {{ ($level1=='proposition' && $level2 == 'edit')?'active':'' }}" href="#">@lang('Proposition')</a>
                         <div class="collapsible-body">
                             <ul>
-                                <li><a href="{{ url('proposition/proposition') }}" class ="waves-effect">@lang('proposition')</a></li>
-                                <li><a href="{{ url('proposition/basic_data') }}" class ="waves-effect">@lang('Basic data')</a></li>
+                                <li><a href="{{ url('proposition/proposition') }}" class ="waves-effect">@lang('0. proposition')</a></li>
+                                <li><a href="{{ url('proposition/basic_data') }}" class ="waves-effect">@lang('1. Basic data')</a></li>
                                 <li><a href="{{ url('proposition/categorization') }}" class ="waves-effect">Categorization</a></li>
                                 <li><a href="{{ url('proposition/market_potential') }}" class ="waves-effect">@lang('Tržišni potencijal')</a></li>
                                 <li><a href="{{ url('proposition/technical_data') }}" class ="waves-effect">@lang('Tehnički podaci')</a></li>
