@@ -8,6 +8,9 @@
         <div class="col-md-12">
             <select class="mdb-select" name="department_id" required>
                 <option disabled >@lang('Choose Category')</option>
+                @foreach($supergroups as $supergroup)
+                    <option>{{ $supergroup->name }}</option>
+                @endforeach
             </select>
             <label>@lang('Supergroup')</label>
             <div class="row">
@@ -15,6 +18,7 @@
                 <div class="col-md-6">
                     <select class="mdb-select" name="department_id" required>
                         <option disabled >@lang('Choose Category')</option>
+
                     </select>
                     <label>@lang('Upgroup')</label>
                 </div>

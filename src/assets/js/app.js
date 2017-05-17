@@ -25,6 +25,7 @@ Vue.prototype.lang= function (key) {
 
 Vue.component('inspirium-tablesearch', require('./components/TableSearch.vue'));
 Vue.component('inspirium-notifications', require('./components/Notifications.vue'));
+Vue.component('proposition-edit', require('./components/PropositionEdit.vue'));
 
 const app = new Vue({
     el: '#app'
