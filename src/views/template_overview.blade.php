@@ -89,11 +89,11 @@
             <div class="file-box-sty icon icon-approval-yes">@lang('Approved')</div>
         </div>
     </div>   
-    
-
+  
+   
     <!-- Circulation Number -->
     <div class="col-md-12">
-        <h6 class="text-center no-border">@lang('Circulation')</h6>
+        <h6 class="text-center no-border display-e">@lang('Circulation')</h6>
         <h1 class="text-center display-2">10.000</h1>
     </div>
 
@@ -392,12 +392,49 @@
                 <textarea type="text" id="form76" class="md-textarea"></textarea>
                 <label for="form76">Basic textarea</label>
             </div>
-
         </div>
     </div>
-
-
     <!--/. Input fields -->
+    
+    
+    <!-- Button trigger modal -->
+    <div class="btn-footer mt-2 mb-5 flex-column flex-md-row d-flex p-2">
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#basicExample">Launch demo modal</button>
+    </div>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="basicExample" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <!--Content-->
+            <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
+                </div>
+                <!--Body-->
+                <div class="modal-body">
+                    ...
+                </div>
+                <!--Footer-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+    <!-- Modal -->
+
+                
+                                            
+    
+    
+    
+    
 
 
 

@@ -864,17 +864,8 @@ table td a:first-child {
 
 ///////// Inputs
 
-input,
-input[type=value],
-input::placeholder {
-    font-size: 1rem;
-    font-family: $font-family-base;
-}
 
-input[type=value],
-input::placeholder {
-    color: #ccc !important;
-}
+
 
 label {
     text-transform: uppercase;
@@ -921,26 +912,11 @@ textarea.md-textarea {
     margin-bottom: 0;
 }
 
-.select-wrapper input.select-dropdown:disabled {
-    background-color: $color-mainpanel;
-    border-bottom: 1px solid lighten($color-sidebar, 70%);
-}
-
 input.md-form.addon {
     border-top-right-radius: 0;
     border-top-left-radius: 0;
 }
 
-.select-wrapper input.select-dropdown {
-    background-color: $white;
-    border-radius: .4rem;
-    border: 1px solid lighten($color-sidebar, 70%);
-    text-indent: 1rem;
-    margin-top: .2rem;
-    color: lighten($color-body_text, 40%);
-    margin-bottom: 30px;
-    height: 3.2rem;
-}
 
 .select-wrapper + label {
     text-indent: .1rem;
@@ -949,19 +925,9 @@ input.md-form.addon {
     top: -1rem;
 }
 
-.dropdown-content {
-    margin-top: .2rem;
-    border-radius: .5rem;
-}
 
-.select-wrapper span.caret {
-    color: initial;
-    position: absolute;
-    right: 10px;
-    top: 20px;
-    font-size: 10px;
-    z-index: 1;
-}
+
+
 
 .profile-xl {
     border-radius: 50%;
