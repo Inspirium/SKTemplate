@@ -149,7 +149,7 @@
                     }
                 ],
                 concept: '',
-                manuscript: '',
+                manuscript: 'delivered',
                 documents: [],
                 dotation: {
                     yes : 'no',
@@ -197,7 +197,6 @@
             author_delete: function(index) {
                 this.authors.splice(index, 1);
                 //TODO:make request
-                console.log("test");
             }
         }
     }

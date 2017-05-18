@@ -16,7 +16,6 @@
             }
         },
         mounted: function () {
-            console.log('test');
             window.axios.get('/api/user/notifications')
                 .then(response => {
                 // get body data

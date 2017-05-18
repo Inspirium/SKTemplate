@@ -1,6 +1,6 @@
 <template>
-    <div class="modal fade" id="upload-modal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+    <div class="modal fade" id="upload-modal" tabindex="-1" role="dialog" aria-hidden="true" v-on:dragenter.prevent="fileDragEnter" v-on:drop.prevent="fileDrop($event)">
+        <div class="modal-dialog" role="document" v-on:dragenter.prevent="fileDragEnter">
             <!--Content-->
             <div class="modal-content">
                 <!--Header-->
@@ -49,12 +49,12 @@
                 </div>
 
                 <!--Drag and Drop Overlay-->
-                <!--<div class="dragdrop">
+                <div class="dragdrop" v-if="showOverlay" v-on:dragover.prevent>
                     <div class="dragdrop-area d-flex justify-content-center align-items-center">
                         <div class="dragdrop-content file-box-sty text-white">{{ lang('Drop files here') }}
                         </div>
                     </div>
-                </div>-->
+                </div>
 
             </div>
             <!--/.Content-->
@@ -63,6 +63,7 @@
 </template>
 
 <script>
+    import DropZone from 'vue2-dropzone';
     export default {
         props: {
             action: {
@@ -73,8 +74,12 @@
         },
         data: function() {
             return {
-                files: []
+                files: [],
+                showOverlay: false
             }
+        },
+        components: {
+            DropZone
         },
         methods: {
             addFiles: function() {
@@ -129,12 +134,35 @@
                 };
                 axios.post(this.action, data, config)
                     .then(function (res) {
-                        this.files[index].id = res.data.id;
+                        console.log(res);
+                        this.files[index].id = res.data.data.id;
                     }.bind(this))
                     .catch(function (err) {
                         this.files[index].message = err.message;
                         //TODO: more error stuff
                     }.bind(this));
+            },
+            fileDragEnter: function() {
+                this.showOverlay = true;
+            },
+            fileDragLeave: function () {
+                this.showOverlay = false;
+            },
+            fileDrop: function(event) {
+                _.forEach(event.dataTransfer.files, function(file) {
+                    this.files.push({
+                        title: file.name,
+                        link: file.name,
+                        file: file,
+                        progress: 0,
+                        edit: false,
+                        message: '',
+                        id: 0
+                    });
+
+                    this.fileUpload(file, this.files.length-1);
+                }.bind(this));
+                this.showOverlay = false;
             }
         }
     }

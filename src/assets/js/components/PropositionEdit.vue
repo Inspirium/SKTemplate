@@ -19,7 +19,7 @@
         },
         data: function() {
             return {
-                title: 'B'
+                title: 'Basic Data'
             }
         },
         components: {
