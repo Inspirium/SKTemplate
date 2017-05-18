@@ -128,7 +128,7 @@
 
         </div>
 
-        <upload-modal action="" accept="pdf,doc,docx"></upload-modal>
+        <upload-modal action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx"></upload-modal>
     </div>
 </template>
 

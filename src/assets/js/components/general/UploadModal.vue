@@ -38,7 +38,7 @@
                     </div>
                     <div class="text-center mb-1">
                         <button type="button" class="btn btn-addon info-color" v-on:click="addFiles">{{ lang('Add files') }}</button>
-                        <input ref="fileInput" type="file" style="display:none;" multiple v-on:change="fileInputChange">
+                        <input ref="fileInput" type="file" style="display:none;" multiple v-on:change="fileInputChange" v-bind:accept="accept">
                     </div>
 
                 </div>
@@ -73,58 +73,68 @@
         },
         data: function() {
             return {
-                files: [],
-                title: '',
-                progress: 40,
-                message: ''
+                files: []
             }
         },
         methods: {
             addFiles: function() {
-                //TODO open file window
                 this.$refs.fileInput.click();
             },
             fileNameEdit: function(index, event) {
                 if (event) event.preventDefault();
-                this.files[index].edit = true;
+                if (this.files[index].id) {
+                    this.files[index].edit = true;
+                }
             },
             fileNameSave: function(index, event) {
                 if (event) event.preventDefault();
+                let data = {
+                    title : this.files[index].title
+                };
+                axios.patch(this.action + '/'+this.files[index].id, data)
+                    .then(function(res) {
+                        this.files[index].message = res.message;
+                    }.bind(this))
+                    .catch(function(err){
+                        this.files[index].message = err.message;
+                    }.bind(this));
                 this.files[index].edit = false;
-                //TODO: make request
             },
             fileDelete: function(index) {
                 this.files.splice(index, 1);
             },
-            fileInputChange: function(event) {
-
+            fileInputChange: function() {
                 _.forEach(this.$refs.fileInput.files, function(file) {
-                    console.log(file);
                     this.files.push({
                         title: file.name,
                         link: file.name,
                         file: file,
                         progress: 0,
-                        edit: false
+                        edit: false,
+                        message: '',
+                        id: 0
                     });
+
+                    this.fileUpload(file, this.files.length-1);
                 }.bind(this));
             },
-            fileUpload: function() {
+            fileUpload: function(file, index) {
                 let data = new FormData();
-                data.append('title', this.title);
-                data.append('file', this.file);
+                data.append('title', file.name);
+                data.append('file', file);
                 let config = {
-                    onUploadProgress: function(progressEvent) {
-                        this.progress = Math.round( (progressEvent.loaded * 100) / progressEvent.total );
-                    }
+                    onUploadProgress : function (progressEvent) {
+                        this.files[index].progress = Math.round( (progressEvent.loaded * 100) / progressEvent.total );
+                    }.bind(this)
                 };
-                axios.put(this.action, data, config)
+                axios.post(this.action, data, config)
                     .then(function (res) {
-                        this.message = res.data;
-                    })
+                        this.files[index].id = res.data.id;
+                    }.bind(this))
                     .catch(function (err) {
-                        this.message = err.message;
-                    });
+                        this.files[index].message = err.message;
+                        //TODO: more error stuff
+                    }.bind(this));
             }
         }
     }
