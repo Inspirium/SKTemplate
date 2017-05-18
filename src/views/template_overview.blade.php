@@ -40,7 +40,7 @@
     <!-- File/document table -->
     <div class="files mt-2 mb-2">
         <div class="file-box file-box-l d-flex align-items-center">
-            <a src="" href="http://homestead.app/images/profile.pdf" class="file-icon">Fizika i društvo.doc</a>
+            <a href="http://homestead.app/images/profile.pdf" class="file-icon">Fizika i društvo.doc</a>
             <div class="file-box-sty ml-auto d-flex">
                 <a href=""><img class="profile-m-1 mr-1 align-self-center" src="../images/profile.jpg" href="#">Jelena Lončarić
                     </a></div>
@@ -49,7 +49,7 @@
             <div class="file-box-sty icon icon-cancel">Obriši</div>
         </div>
         <div class="file-box file-box-l d-flex align-items-center">
-            <a src="" href="http://homestead.app/images/profile.pdf" class="file-icon">Fizika i društvo.doc</a>
+            <a href="http://homestead.app/images/profile.pdf" class="file-icon">Fizika i društvo.doc</a>
             <div class="file-box-sty ml-auto d-flex">
                 <a href=""><img class="profile-m-1 mr-1 align-self-center" src="../images/profile.jpg" href="#">Jelena Lončarić
                 </a></div>
@@ -64,7 +64,7 @@
     <div class="page-name-xl mb-1">@lang('Documents')</div>     
     <div class="files mt-2">
         <div class="file-box file-box-l d-flex align-items-center">
-            <a src="" href="http://homestead.app/images/profile.pdf" class="file-icon">Fizika i društvo.doc</a>
+            <a href="http://homestead.app/images/profile.pdf" class="file-icon">Fizika i društvo.doc</a>
             <div class="file-box-sty ml-auto d-flex">
                 <a href=""><img class="profile-m-1 mr-1 align-self-center" src="../images/profile.jpg" href="#">Stjepan Drmić</a>
             </div>
@@ -72,7 +72,7 @@
             <div class="file-box-sty icon icon-approval-pending">@lang('Approval Pending...')</div>
         </div>
         <div class="file-box file-box-l d-flex align-items-center">
-            <a src="" href="http://homestead.app/images/profile.pdf" class="file-icon">Fizika i društvo.doc</a>
+            <a href="http://homestead.app/images/profile.pdf" class="file-icon">Fizika i društvo.doc</a>
             <div class="file-box-sty ml-auto d-flex">
                 <a href=""><img class="profile-m-1 mr-1 align-self-center" src="../images/profile.jpg" href="#">Stjepan Drmić</a>
             </div>
@@ -81,7 +81,7 @@
             <div class="file-box-sty icon icon-approval-no">@lang('Approval Denied')</div>
         </div>
         <div class="file-box file-box-l d-flex align-items-center">
-            <a src="" href="http://homestead.app/images/profile.pdf" class="file-icon">Fizika i društvo.doc</a>
+            <a href="http://homestead.app/images/profile.pdf" class="file-icon">Fizika i društvo.doc</a>
             <div class="file-box-sty ml-auto d-flex">
                 <a href=""><img class="profile-m-1 mr-1 align-self-center" src="../images/profile.jpg" href="#">Stjepan Drmić</a>
             </div>
@@ -99,7 +99,7 @@
 
     <!-- Textarea -->
     <div class="md-form mt-3">
-        <textarea type="text" id="form76" class="md-textarea"></textarea>
+        <textarea id="form76" class="md-textarea"></textarea>
         <label for="form76">@lang('Note')</label>
     </div>
 
@@ -141,13 +141,13 @@
     <!-- File/document table -->
     <div class="files">
         <div class="file-box file-box-l d-flex align-items-center">
-            <a src="" href="http://homestead.app/images/profile.pdf" class="file-icon">Fizika i društvo.doc</a>
+            <a href="http://homestead.app/images/profile.pdf" class="file-icon">Fizika i društvo.doc</a>
             <div class="file-box-sty ml-auto">19.07.2017.</div>
             <div class="file-box-sty icon icon-download">Preuzmi</div>
             <div class="file-box-sty icon icon-cancel">Obriši</div>
         </div>
         <div class="file-box file-box-l d-flex align-items-center">
-            <a src="" href="http://homestead.app/images/profile.pdf" class="file-icon">Fizika i društvo.doc</a>
+            <a href="http://homestead.app/images/profile.pdf" class="file-icon">Fizika i društvo.doc</a>
             <div class="file-box-sty ml-auto">19.07.2017.</div>
             <div class="file-box-sty icon icon-download">Preuzmi</div>
             <div class="file-box-sty icon icon-cancel">Obriši</div>
@@ -389,7 +389,7 @@
 
             <!-- Textarea -->
             <div class="md-form">
-                <textarea type="text" id="form76" class="md-textarea"></textarea>
+                <textarea id="form76" class="md-textarea"></textarea>
                 <label for="form76">Basic textarea</label>
             </div>
         </div>

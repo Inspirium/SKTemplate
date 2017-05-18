@@ -386,19 +386,19 @@ $sk-skin-btn-default: #293756;
                 width: 100%;
                 color: $white;
                 border: 4px dashed $white;
-                border-radius: 10%;
+                border-radius: 20px;
             }
             .dragdrop-content {
                 font-size: 1.6rem;
                 &:before {
                     font-family: FontAwesome;
                     content: "\f0c5";
-                    font-size: 7rem;
+                    font-size: 6rem;
                     font-weight: 300;
                     text-align: center;
                     display: block;
                     color: $white;
-                    margin-top: -5rem;
+                    line-height: 110px;
                 }
             }
         }
