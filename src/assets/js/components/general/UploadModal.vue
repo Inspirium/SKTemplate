@@ -8,7 +8,10 @@
                     <button type="button" class="close" data-dismiss="modal">
                         <span>&times;</span>
                     </button>
-                    <h1 class="modal-title w-100 text-center">{{ lang('Upload Files') }}</h1>
+                    <div class="d-flex">
+                        <i class="fa fa-cloud-upload fa-4x animated rubberBand"></i>
+                        <h1 class="modal-title w-100 text-center">Upload Files</h1>
+                    </div>
                     <h6 class="w-100 text-center mt-1">{{ lang('Upload documents using upload button, or use drag and drop') }}</h6>
                 </div>
                 <!--Body-->

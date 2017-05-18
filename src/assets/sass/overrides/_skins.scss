@@ -346,19 +346,20 @@ $sk-skin-btn-default: #293756;
         }
         .modal-header {
             border-bottom: 0;
-            .modal-title {
-                &:before {
-                    font-family: FontAwesome;
-                    content: "\f0ee";
-                    font-size: 4rem;
-                    line-height: 0;
-                    margin-right: 0.7rem;
-                    vertical-align: middle;
-                    color: lighten($color-body_text, 25%);
-                }
+            i {
+                color: lighten($color-body_text, 25%);
+                margin-right: 0.7rem;
             }
         }
         .modal-body {
+            input[type="text"] {
+                background-color: transparent;
+                border: none;
+                border-bottom: none;
+                text-transform: uppercase;
+                font-size: .85rem;
+                margin-top: 14px;
+            }
             .progress {
                 background-color: $sk-skin-background;
                 height: 2px
