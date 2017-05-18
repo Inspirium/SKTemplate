@@ -63,7 +63,6 @@
 </template>
 
 <script>
-    import DropZone from 'vue2-dropzone';
     export default {
         props: {
             action: {
@@ -77,9 +76,6 @@
                 files: [],
                 showOverlay: false
             }
-        },
-        components: {
-            DropZone
         },
         methods: {
             addFiles: function() {
