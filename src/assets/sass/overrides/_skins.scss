@@ -5,6 +5,7 @@ $sk-skin-accent: #6FBAD5;
 $sk-skin-flat: #262A33;
 // Grey
 $sk-skin-grey: #666;
+$sk-skin-background: #F6F6F6;
 // Gradients
 $sk-skin-gradient-start: #222735;
 $sk-skin-gradient-end: #63739c;
@@ -166,6 +167,10 @@ $sk-skin-btn-default: #293756;
             }
         }
     }
+    .btn {
+        font-family: $font-family-sans-serif;
+        cursor: pointer;
+    }
     .btn-primary {
         background: $sk-skin-btn-primary;
         &:hover,
@@ -323,4 +328,90 @@ $sk-skin-btn-default: #293756;
             color: $sk-skin-primary-color;
         }
     }
+    /* Modal */
+    .modal {
+        .modal-content {
+            background-color: $sk-skin-background;
+            border: none;
+            .close {
+                position: absolute;
+                right: 0px;
+                top: 0px;
+                font-size: 3rem;
+                background-color: $sk-skin-flat;
+                padding: 5px 15px 5px 15px;
+                color: $sk-skin-background;
+                text-shadow: none;
+            }
+        }
+        .modal-header {
+            border-bottom: 0;
+            .modal-title {
+                &:before {
+                    font-family: FontAwesome;
+                    content: "\f0ee";
+                    font-size: 4rem;
+                    line-height: 0;
+                    margin-right: 0.7rem;
+                    vertical-align: middle;
+                    color: lighten($color-body_text, 25%);
+                }
+            }
+        }
+        .modal-body {
+            .progress {
+                background-color: $sk-skin-background;
+                height: 2px
+            }
+            .file-icon {
+                font-size: 0.85rem;
+                text-transform: uppercase;    
+                &:before {
+                    font-size: 2rem;
+                }
+            }
+            .file-box-sty {
+                 font-size: 0.75rem;   
+            }
+        }
+        .dragdrop {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            padding: 6%;
+            background-color: transparentize($sk-skin-flat, .07);
+            .dragdrop-area {
+                padding: 10%;
+                height: 100%;
+                width: 100%;
+                color: $white;
+                border: 4px dashed $white;
+                border-radius: 10%;
+            }
+            .dragdrop-content {
+                font-size: 1.6rem;
+                &:before {
+                    font-family: FontAwesome;
+                    content: "\f0c5";
+                    font-size: 7rem;
+                    font-weight: 300;
+                    text-align: center;
+                    display: block;
+                    color: $white;
+                    margin-top: -5rem;
+                }
+            }
+        }
+    }
 }
+
+
+
+
+
+
+
+
+
+
+

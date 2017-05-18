@@ -677,6 +677,23 @@ table td a:first-child {
     }
 }
 
+.file-box-s {
+    height: 3.6rem;
+    padding: .3rem;
+    margin-top: .2rem;
+
+    & > * {
+        border-left: 1px solid $color-mainpanel;
+        line-height: 3.6rem;
+        padding-left: 1.2rem;
+    }
+
+    & > *:first-child {
+        border-left: 0;
+        padding-left: 0;
+    }
+}
+
 .files .file-box:first-child {
     margin-top: 1rem;
 }
@@ -723,7 +740,7 @@ table td a:first-child {
 }
 
 .file-icon:hover::before {
-    color: $color-select;
+    color: $info-color;
 }
 
 .file-icon[href$=".jpg"]:before {
@@ -769,6 +786,12 @@ table td a:first-child {
     &:hover {color: $color-select;}
     &:hover::before {color: $color-select;}
     &:before {content: "\f0ed";}
+}
+
+.icon-edit {
+    &:hover {color: $color-select;}
+    &:hover::before {color: $color-select;}
+    &:before {content: "\f14b";}
 }
 
 .icon-cost-approval {

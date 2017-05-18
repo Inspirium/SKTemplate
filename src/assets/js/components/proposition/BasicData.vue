@@ -64,7 +64,7 @@
 
             <!--/. Checkbox -->
             <div class="page-name-m mt-2">{{ lang('Dotation') }}</div>
-            <div class="form-inline">
+            <div class="form-inline mb-2">
                 <fieldset class="form-group">
                     <input name="dotation" type="radio" id="dot-yes" value="yes" v-model="dotation.yes">
                     <label for="dot-yes">{{ lang('Yes') }}</label>
@@ -79,13 +79,13 @@
                 <!-- Input field -->
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="md-form mt-2">
+                        <div class="md-form">
                             <input type="text" id="dot-origin" class="form-control" name="dotation-origin" v-model="dotation.origin">
                             <label for="dot-origin" class="">{{ lang('Dotation Origin') }}</label>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="md-form mt-2">
+                        <div class="md-form">
                             <input type="text" id="dot-ammount" class="form-control" name="dotation-ammount" v-model="dotation.ammount">
                             <label for="dot-ammount" class="">{{ lang('Amount') }}</label>
                         </div>

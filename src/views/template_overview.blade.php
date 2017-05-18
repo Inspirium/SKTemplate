@@ -397,10 +397,7 @@
     <!--/. Input fields -->
     
     
-    <!-- Button trigger modal -->
-    <div class="btn-footer mt-2 mb-5 flex-column flex-md-row d-flex p-2">
-        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#basicExample">Launch demo modal</button>
-    </div>
+
     
     <!-- Modal -->
     <div class="modal fade" id="basicExample" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -428,6 +425,11 @@
         </div>
     </div>
     <!-- Modal -->
+                
+                    <!-- Button trigger modal -->
+    <div class="btn-footer mt-2 mb-5 flex-column flex-md-row d-flex p-2">
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#basicExample">Launch demo modal</button>
+    </div>
 
                 
                                             
