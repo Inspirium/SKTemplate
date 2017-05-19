@@ -333,15 +333,17 @@ $sk-skin-btn-default: #293756;
         .modal-content {
             background-color: $sk-skin-background;
             border: none;
-            .close {
-                position: absolute;
-                right: 0px;
-                top: 0px;
-                font-size: 3rem;
-                background-color: $sk-skin-flat;
-                padding: 5px 15px 5px 15px;
-                color: $sk-skin-background;
-                text-shadow: none;
+            .modal-header {
+                .close {
+                    position: absolute;
+                    right: 0px;
+                    top: 0px;
+                    font-size: 3rem;
+                    background-color: $sk-skin-flat;
+                    padding: 5px 15px 5px 15px;
+                    color: $sk-skin-background;
+                    text-shadow: none;
+                }
             }
         }
         .modal-header {
@@ -352,6 +354,15 @@ $sk-skin-btn-default: #293756;
             }
         }
         .modal-body {
+            .close {
+                position: static;
+            }
+            .page-name-xl {
+                font-size: 1.7rem;
+                text-align: left;
+            }
+        }
+        &#upload-modal {
             input[type="text"] {
                 background-color: transparent;
                 border: none;

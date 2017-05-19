@@ -395,6 +395,20 @@
         </div>
     </div>
     <!--/. Input fields -->
+    <div class="row">
+        <div class="col-md-10">
+            <div class="md-form d-flex addon">
+                <input type="text" id="form1" class="form-control" name="first_name" placeholder="neko ime" required>
+                <label for="form1" class="">@lang('Author')</label>
+                <span class="d-flex">
+                    <button class="btn btn-neutral btn-addon" type="button">@lang('Add')</button>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="chip mb-3">
+        <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg" alt="Contact Person"> Jane Doe<i class="close fa fa-times"></i>
+    </div>
     
     
 
@@ -412,13 +426,13 @@
                     <h1 class="modal-title w-100 text-center" id="myModalLabel">Modal title</h1>
                 </div>
                 <!--Body-->
-                <div class="modal-body">
-                    ...
+                <div class="modal-body text-center">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit iusto nulla aperiam blanditiis ad consequatur in dolores culpa, dignissimos, eius non possimus fugiat. Esse ratione fuga, enim, ab officiis totam.</p>
                 </div>
                 <!--Footer-->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                <div class="modal-footer btn-footer">
+                    <button type="button" class="btn btn-lg btn-cancel" data-dismiss="modal">@lang('Close')</button>
+                    <button type="button" class="btn btn-lg btn-save" v-on:click="fileUpload">@lang('OK')</button>
                 </div>
             </div>
             <!--/.Content-->
@@ -426,8 +440,6 @@
     </div>
     <!-- Modal -->
              
-    
-
     <!-- Central Modal Medium Warning -->
     <div class="modal fade" id="centralModalWarning" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-notify modal-warning" role="document">
@@ -439,15 +451,14 @@
                         <span aria-hidden="true" class="white-text">&times;</span>
                     </button>
                     <div class="d-flex">
-                        <i class="fa fa-check fa-4x mb-1 animated rotateIn"></i>
-                        <h1 class="modal-title w-100 text-center">Upload Files</h1>
+                        <i class="fa fa-exclamation-triangle fa-4x mb-1 animated flash"></i>
+                        <h1 class="modal-title w-100 text-center">@Lang('Warning')</h1>
                     </div>
                 </div>
 
                 <!--Body-->
                 <div class="modal-body">
                     <div class="text-center">
-                        <i class="fa fa-check fa-4x mb-1 animated rotateIn"></i>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit iusto nulla aperiam blanditiis ad consequatur in dolores culpa, dignissimos, eius non possimus fugiat. Esse ratione fuga, enim,
                             ab officiis totam.</p>
                     </div>
@@ -457,6 +468,62 @@
                 <div class="modal-footer btn-footer">
                     <button type="button" class="btn btn-lg btn-cancel" data-dismiss="modal">@lang('Close')</button>
                     <button type="button" class="btn btn-lg btn-save" v-on:click="fileUpload">@lang('Upload')</button>
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+    <!-- Central Modal Medium Warning-->   
+              
+    <!-- Central Modal Medium Warning -->
+    <div class="modal fade" id="centralModalAssign" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-notify modal-warning" role="document">
+            <!--Content-->
+            <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header flex-column px-3 pt-3">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="white-text">&times;</span>
+                    </button>
+                    <div class="d-flex">
+                        <i class="fa fa-user-circle-o fa-4x mb-1 animated flash"></i>
+                        <h1 class="modal-title w-100 text-center">@Lang('Assign to...')</h1>
+                    </div>
+                    <h6 class="w-100 text-center">@Lang('Assign department or directly employee')</h6>
+                </div>
+
+                <!--Body-->
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="page-name-xl mb-1">@lang('Department')</div>
+                            <div class="md-form d-flex addon">
+                                <input type="text" id="form1" class="form-control" name="first_name" placeholder="neko ime" required>
+                                <span class="d-flex">
+                                    <button class="btn btn-neutral btn-addon" type="button">@lang('Add')</button>
+                                </span>
+                            </div>
+                            <div class="chip mb-1">
+                                <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg" alt="Contact Person"> Jane Doe<i class="close fa fa-times"></i>
+                            </div>
+                            <div class="page-name-xl mb-1">@lang('Employee')</div>
+                            <div class="md-form d-flex addon">
+                                <input type="text" id="form1" class="form-control" name="first_name" placeholder="neko ime" required>
+                                <span class="d-flex">
+                                    <button class="btn btn-neutral btn-addon" type="button">@lang('Add')</button>
+                                </span>
+                            </div>
+                            <div class="chip mb-1">
+                                <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg" alt="Contact Person"> Jane Doe<i class="close fa fa-times"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Footer-->
+                <div class="modal-footer btn-footer">
+                    <button type="button" class="btn btn-lg btn-cancel" data-dismiss="modal">@lang('Cancel')</button>
+                    <button type="button" class="btn btn-lg btn-save" v-on:click="fileUpload">@lang('Assign')</button>
                 </div>
             </div>
             <!--/.Content-->
@@ -480,6 +547,7 @@
     <div class="btn-footer mt-2 mb-5 flex-column flex-md-row d-flex p-2">
         <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#centralModalSuccess">Launch demo modal</button>
         <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#centralModalWarning">Launch warning modal</button>
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#centralModalAssign">Launch assign modal</button>
     </div>
 
                 
