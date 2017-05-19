@@ -415,6 +415,60 @@ $sk-skin-btn-default: #293756;
             }
         }
     }
+    /* Activity stream */
+    .activity {
+        margin-top: .2rem;
+        display: flex; 
+        width: 100%;
+        height: 110px;
+        background-color: #fff;
+        padding: .6rem;
+        .activitiy-user {
+            font-weight: 300;
+            line-height: 1.9rem;
+            letter-spacing: -0.02rem;
+            span {
+                font-weight: 600;
+                letter-spacing: -0.05rem;
+                a {
+                    font-weight: 600;
+                    color: $sk-skin-accent;
+                }
+            }
+        }
+        h5 {
+            font-size: .75rem;
+            font-weight: 400;
+            margin-bottom: .3rem;
+        }
+        .activity-time {
+            text-transform: uppercase;
+            font-size: .75rem;
+            color: lighten($color-body_text, 35%);
+            &:before {
+                font-family: FontAwesome;
+                content: "\f017";
+                font-size: 1.2rem;
+                margin-right: .5rem;
+                vertical-align: middle;
+            }
+        }
+    }
+    .activity-day {
+        letter-spacing: -.08rem;
+    }
+    @media only screen and (max-width : 768px) {
+        .activity {
+            height: 100%;
+            position: relative;
+        }
+        .activity-label {
+            order: 2;
+            position: absolute;
+            top: 1rem;
+            left: 0;
+        }
+    }
 }
 
 

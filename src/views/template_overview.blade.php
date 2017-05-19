@@ -34,6 +34,38 @@
        </div>
     </div>    
     
+    <!-- Activity Stream -->
+    <div class="page-name-xl mb-1 mt-2">@lang('Activity Stream')</div>     
+    <h4 class="activity-day weight-700 text-uppercase">@lang('Today')</h4>     
+    <div class="activity align-items-center mt-1">
+        <div class="activity-label mx-1 tasktype-1">Nešto
+        </div>
+        <div class="activity-avatar file-box-sty d-flex align-items-center">
+            <a href="">
+                <img class="profile-l mx-1" src="../images/profile.jpg" href="#">
+            </a>
+        </div>
+        <div class="activity-content">
+            <h4 class="activitiy-user"><span>Jozo Jozić</span> poslao(la) je novu<span><a href=""> poruku</a></span></h4>
+            <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi fugit vel quisquam.</h5>
+            <div class="activity-time"><span>4 </span>@lang('hours')</div>
+        </div>
+    </div>     
+    <div class="activity align-items-center">
+        <div class="activity-label mx-1 tasktype-1">Nešto
+        </div>
+        <div class="activity-avatar file-box-sty d-flex align-items-center">
+            <a href="">
+                <img class="profile-l mx-1" src="../images/profile.jpg" href="#">
+            </a>
+        </div>
+        <div class="activity-content">
+            <h4 class="activitiy-user"><span>Jozo Jozić</span> poslao(la) je novu<span><a href=""> poruku</a></span></h4>
+            <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi fugit vel quisquam.</h5>
+            <div class="activity-time"><span>4 </span>@lang('hours')</div>
+        </div>
+    </div>
+    
     
     
 
@@ -42,8 +74,8 @@
         <div class="file-box file-box-l d-flex align-items-center">
             <a href="http://homestead.app/images/profile.pdf" class="file-icon">Fizika i društvo.doc</a>
             <div class="file-box-sty ml-auto d-flex">
-                <a href=""><img class="profile-m-1 mr-1 align-self-center" src="../images/profile.jpg" href="#">Jelena Lončarić
-                    </a></div>
+                <a href=""><img class="profile-m-1 mr-1 align-self-center" src="../images/profile.jpg" href="#">Jelena Lončarić</a>
+            </div>
             <div class="file-box-sty">19.07.2017.</div>
             <div class="file-box-sty icon icon-download">Preuzmi</div>
             <div class="file-box-sty icon icon-cancel">Obriši</div>
@@ -475,7 +507,7 @@
     </div>
     <!-- Central Modal Medium Warning-->   
               
-    <!-- Central Modal Medium Warning -->
+    <!-- Central Modal Medium Assign -->
     <div class="modal fade" id="centralModalAssign" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-notify modal-warning" role="document">
             <!--Content-->
@@ -486,7 +518,7 @@
                         <span aria-hidden="true" class="white-text">&times;</span>
                     </button>
                     <div class="d-flex">
-                        <i class="fa fa-user-circle-o fa-4x mb-1 animated flash"></i>
+                        <i class="fa fa-user-circle-o fa-4x mb-1 animated rotateInDownLeft"></i>
                         <h1 class="modal-title w-100 text-center">@Lang('Assign to...')</h1>
                     </div>
                     <h6 class="w-100 text-center">@Lang('Assign department or directly employee')</h6>
