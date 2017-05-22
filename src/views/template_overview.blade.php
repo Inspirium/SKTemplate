@@ -67,6 +67,54 @@
     </div>
     
     
+    <!-- Activity Stream Pop-up -->
+    <div class="activity-box mt-1 z-depth-2">
+        <div class="activity-item align-items-center d-flex">
+            <div class="activity-avatar file-box-sty d-flex align-items-center">
+                <a href="">
+                    <img class="profile-s mr-1" src="../images/profile.jpg" href="#">
+                </a>
+            </div>
+            <div class="activity-content">
+                <div class="activity-label tasktype-1">Nešto
+                </div>
+                <div class="activity-time"><span>4 </span>@lang('hours')</div>
+                <h4 class="activitiy-user"><span>Jozo Jozić</span> poslao(la) je novu<span><a href=""> poruku</a></span></h4>
+                <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi fugit vel quisquam.</h5>
+            </div>
+        </div>
+        <div class="activity-item align-items-center d-flex">
+            <div class="activity-avatar file-box-sty d-flex align-items-center">
+                <a href="">
+                    <img class="profile-s mr-1" src="../images/profile.jpg" href="#">
+                </a>
+            </div>
+            <div class="activity-content">
+                <div class="activity-label tasktype-1">Nešto
+                </div>
+                <div class="activity-time"><span>4 </span>@lang('hours')</div>
+                <h4 class="activitiy-user"><span>Jozo Jozić</span> poslao(la) je novu<span><a href=""> poruku</a></span></h4>
+                <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi fugit vel quisquam.</h5>
+            </div>
+        </div>
+        <div class="activity-item align-items-center d-flex">
+            <div class="activity-avatar file-box-sty d-flex align-items-center">
+                <a href="">
+                    <img class="profile-s mr-1" src="../images/profile.jpg" href="#">
+                </a>
+            </div>
+            <div class="activity-content">
+                <div class="activity-label tasktype-1">Nešto
+                </div>
+                <div class="activity-time"><span>4 </span>@lang('hours')</div>
+                <h4 class="activitiy-user"><span>Jozo Jozić</span> poslao(la) je novu<span><a href=""> poruku</a></span></h4>
+                <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi fugit vel quisquam.</h5>
+            </div>
+        </div>
+    </div>     
+
+    
+    
     
 
     <!-- File/document table -->

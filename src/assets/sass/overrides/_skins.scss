@@ -469,6 +469,55 @@ $sk-skin-btn-default: #293756;
             left: 0;
         }
     }
+    /* Activity stream dropdown */
+    .activity-box {
+        background-color: $sk-skin-navbar;
+        height: 100%;
+        color: #fff;
+        padding: 0 .8rem;
+        width: 350px;
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+        .tasktype-1 {
+            border-radius: 0.1rem;
+            padding: 0px 5px;
+        }
+        .activity-item {
+            border-top: 1px dashed lighten($sk-skin-accent, 20%);
+            padding: 3px 0;
+            &:first-child {
+            border-top: none;
+        }
+        }
+        h4 {
+            font-size: .85rem;
+            font-weight: 400;
+            margin-bottom: 0.30rem;
+            margin-top: 0.05rem;
+            a {
+                font-weight: 600;
+                color: lighten($sk-skin-accent, 20%);
+            } 
+        }
+        h5 {
+            font-size: .65rem;
+        }
+        .activity-time {
+            color: rgba(255, 255, 255, 0.5);
+            display: inline-block;
+            font-size: .65rem;
+            text-transform: uppercase;
+            vertical-align: text-bottom;
+            &:before {
+                font-family: FontAwesome;
+                content: "\f017";
+                font-size: .8rem;
+                margin-right: .3rem;
+                margin-left: .3rem;
+                vertical-align: middle;
+            }
+        }
+    }
 }
 
 
