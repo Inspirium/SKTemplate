@@ -474,7 +474,6 @@ $sk-skin-btn-default: #293756;
         background-color: $sk-skin-navbar;
         height: 100%;
         color: #fff;
-        padding: 0 .8rem;
         width: 350px;
         border-bottom-left-radius: 1rem;
         border-bottom-right-radius: 1rem;
@@ -484,10 +483,18 @@ $sk-skin-btn-default: #293756;
         }
         .activity-item {
             border-top: 1px dashed lighten($sk-skin-accent, 20%);
-            padding: 3px 0;
+            padding: .2rem .8rem;
             &:first-child {
-            border-top: none;
-        }
+                border-top: none;
+            }
+            &:hover {
+                background-color: $sk-skin-accent;
+                cursor: pointer;
+                &:last-child {
+                    border-bottom-left-radius: 1rem;
+                    border-bottom-right-radius: 1rem;
+                }
+            }
         }
         h4 {
             font-size: .85rem;
