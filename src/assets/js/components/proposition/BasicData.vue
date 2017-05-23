@@ -10,7 +10,10 @@
             <div class="row">
                 <div class="col-md-10">
                     <div class="md-form d-flex addon">
-                        <input type="text" id="author" class="form-control mdb-autocomplete" name="author" v-bind:placeholder="lang('Author')">
+                        <input type="text" id="author" class="form-control mdb-autocomplete" name="author" v-bind:placeholder="lang('Author')" v-on:keyup="autocomplete($event)">
+                        <ul class="mdb-autocomplete-wrap" v-if="suggestions.length">
+                            <li v-for="item in suggestions">{{ item.first_name }} {{ item.last_name }}</li>
+                        </ul>
                         <label for="author" class="">{{ lang('Author') }}</label>
                         <span class="d-flex">
                             <button class="btn btn-neutral btn-addon" type="button">{{ lang('Add') }}</button>
@@ -128,7 +131,7 @@
 
         </div>
 
-        <upload-modal action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx"></upload-modal>
+        <upload-modal action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" v-on:fileDelete="fileDelete" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave"></upload-modal>
     </div>
 </template>
 
@@ -159,8 +162,9 @@
                 note: '',
                 products: [
                     'ebook'
-                ]
-
+                ],
+                cancel: false,
+                suggestions: []
             }
         },
         components: {
@@ -197,6 +201,41 @@
             author_delete: function(index) {
                 this.authors.splice(index, 1);
                 //TODO:make request
+            },
+            fileDelete: function (id) {
+                _.remove(this.documents, {
+                    id: id
+                });
+                //TODO: make request
+            },
+            fileAdd: function(file) {
+                this.documents.push(file);
+            },
+            fileNameSave: function(id, title) {
+                _.forEach(this.documents, (file, key) => {
+                    if (file.id === id) {
+                        this.documents[key].title = title;
+                    }
+                });
+            },
+            autocomplete: function(event) {
+                if (this.cancel) {
+                    cancel();
+                    this.cancel = false;
+                }
+                let str = event.target.value;
+                let CancelToken = axios.CancelToken;
+                if (str.length > 3) {
+                    axios.get('/api/authors/search/' + str, {
+                        cancelToken: new CancelToken((c) => {
+                            this.cancel = c;
+                        })
+                    })
+                        .then((response) => {
+                            this.suggestions = response.data;
+                        })
+                        .catch((error) => {});
+                }
             }
         }
     }

@@ -95,6 +95,7 @@
                 axios.patch(this.action + '/'+this.files[index].id, data)
                     .then(function(res) {
                         this.files[index].message = res.message;
+                        this.$emit('fileNameSave', this.files[index].id, data.title);
                     }.bind(this))
                     .catch(function(err){
                         this.files[index].message = err.message;
@@ -103,6 +104,7 @@
             },
             fileDelete: function(index) {
                 this.files.splice(index, 1);
+                this.$emit('fileDelete', this.files[index].id);
             },
             fileInputChange: function() {
                 _.forEach(this.$refs.fileInput.files, function(file) {
@@ -130,8 +132,8 @@
                 };
                 axios.post(this.action, data, config)
                     .then(function (res) {
-                        console.log(res);
                         this.files[index].id = res.data.data.id;
+                        this.$emit('fileAdd', this.files[index]);
                     }.bind(this))
                     .catch(function (err) {
                         this.files[index].message = err.message;
