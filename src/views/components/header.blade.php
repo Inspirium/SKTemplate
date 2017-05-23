@@ -159,15 +159,8 @@
                 <a class="dropdown-item waves-effect waves-light" href="#">@Lang ('My account')</a>
             </div>
         </div>
-        <div class="dropdown">
-            <a href="#" class="nav-item nav-link-icon dropdown-toggle d-flex" data-toggle="dropdown">
-                <i class="fa fa-bell"></i>
-                <span class="tag tag-danger">4</span>
-            </a>
-            <div class="dropdown-menu dropdown-ins dropdown-menu-right dropdown-custom-login">
-                <inspirium-notifications></inspirium-notifications>
-            </div>
-        </div>
+        <inspirium-notifications></inspirium-notifications>
+
         <a href="#" class="nav-item nav-link-icon d-flex">
             <i class="fa fa-search"></i>
         </a>

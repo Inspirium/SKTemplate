@@ -1,16 +1,24 @@
 <template>
-    <div class="activity-box">
-        <div class="activity-item align-items-center d-flex" v-for="item in notifications">
-            <div class="activity-avatar file-box-sty d-flex align-items-center">
-                <a href="">
-                    <img class="profile-s mr-1" src="/images/profile.jpg" href="#">
-                </a>
-            </div>
-            <div class="activity-content">
-                <div class="activity-label tasktype-1">{{ item.tasktype }}</div>
-                <div class="activity-time" v-html="timed(item.created_at)"></div>
-                <h4 class="activitiy-user"><span>Jozo Jozić</span> poslao(la) je novu<span><a href=""> poruku</a></span></h4>
-                <h5>{{ item.message }}</h5>
+    <div class="dropdown">
+        <a href="#" class="nav-item nav-link-icon dropdown-toggle d-flex" data-toggle="dropdown">
+            <i class="fa fa-bell"></i>
+            <span class="tag tag-danger">{{ notifications.length }}</span>
+        </a>
+        <div class="dropdown-menu dropdown-ins dropdown-menu-right dropdown-custom-login">
+            <div class="activity-box">
+                <div class="activity-item align-items-center d-flex" v-for="item in notifications">
+                    <div class="activity-avatar file-box-sty d-flex align-items-center">
+                        <a href="">
+                            <img class="profile-s mr-1" src="/images/profile.jpg" href="#">
+                        </a>
+                    </div>
+                    <div class="activity-content">
+                        <div class="activity-label tasktype-1">{{ item.tasktype }}</div>
+                        <div class="activity-time" v-html="timed(item.created_at)"></div>
+                        <h4 class="activitiy-user"><span>Jozo Jozić</span> poslao(la) je novu<span><a href=""> poruku</a></span></h4>
+                        <h5>{{ item.message }}</h5>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
