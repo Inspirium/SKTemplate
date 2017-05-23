@@ -12,7 +12,7 @@
                     <div class="md-form d-flex addon">
                         <input type="text" id="author" class="form-control mdb-autocomplete" name="author" v-bind:placeholder="lang('Author')" v-on:keyup="autocomplete($event)">
                         <ul class="mdb-autocomplete-wrap" v-if="suggestions.length">
-                            <li v-for="item in suggestions">{{ item.first_name }} {{ item.last_name }}</li>
+                            <li v-for="(item, index) in suggestions" v-on:click="autocomplete_select(index)">{{ item.first_name }} {{ item.last_name }}</li>
                         </ul>
                         <label for="author" class="">{{ lang('Author') }}</label>
                         <span class="d-flex">
@@ -220,13 +220,13 @@
             },
             autocomplete: function(event) {
                 if (this.cancel) {
-                    cancel();
+                    this.cancel();
                     this.cancel = false;
                 }
                 let str = event.target.value;
                 let CancelToken = axios.CancelToken;
                 if (str.length > 3) {
-                    axios.get('/api/authors/search/' + str, {
+                    axios.get('/api/author/search/' + str, {
                         cancelToken: new CancelToken((c) => {
                             this.cancel = c;
                         })
@@ -236,6 +236,10 @@
                         })
                         .catch((error) => {});
                 }
+            },
+            autocomplete_select: function(index) {
+                this.authors.push(this.suggestions[index]);
+                this.suggestions = [];
             }
         }
     }
