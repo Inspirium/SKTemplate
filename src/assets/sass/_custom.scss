@@ -407,6 +407,9 @@ header .dropdown-toggle {
         border-radius: 50%;
         border: 3px solid $white;
     }
+    &:after {
+        content: none;
+    }
 }
 
 //.dropdown-custom-login {

@@ -484,19 +484,22 @@ $sk-skin-btn-default: #293756;
     /* Activity stream dropdown */
     .dropdown-custom-login {
         box-shadow: none;
-        top: 44px;
         background-color: transparent;
     }
     
     
     /* Activity stream dropdown */
+    .dropdown-menu {
+        padding: 0;
+        margin: 0;
+    }
     .activity-box {
-        background-color: $sk-skin-navbar;
+        background-color: $white;
         height: 100%;
-        color: #fff;
-        width: 350px;
+        min-width: 350px;
         border-bottom-left-radius: 1rem;
-        border-bottom-right-radius: 1rem;
+        border-left: 1px solid lighten($color-sidebar, 70%);
+        border-bottom: 1px solid lighten($color-sidebar, 70%);
         .tasktype-1 {
             border-radius: 0.1rem;
             padding: 0px 5px;
@@ -508,11 +511,10 @@ $sk-skin-btn-default: #293756;
                 border-top: none;
             }
             &:hover {
-                background-color: $color-nav-sub;
+                background-color: lighten($color-sidebar, 78%);
                 cursor: pointer;
                 &:last-child {
                     border-bottom-left-radius: 1rem;
-                    border-bottom-right-radius: 1rem;
                 }
             }
         }
@@ -523,7 +525,7 @@ $sk-skin-btn-default: #293756;
             margin-top: 0.05rem;
             a {
                 font-weight: 600;
-                color: lighten($sk-skin-accent, 20%);
+                color: $sk-skin-accent;
                 padding-left: 0;
             } 
         }
@@ -531,7 +533,7 @@ $sk-skin-btn-default: #293756;
             font-size: .65rem;
         }
         .activity-time {
-            color: rgba(255, 255, 255, 0.5);
+            color: lighten($color-sidebar, 55%);
             display: inline-block;
             font-size: .65rem;
             text-transform: uppercase;
