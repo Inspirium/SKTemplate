@@ -13,6 +13,7 @@
                     <div class="md-form d-flex addon">
                         <input type="text" id="form1" class="form-control" name="first_name" placeholder="@lang('Currency')" required>
                         <label for="form1" class="">@lang('Expense')</label>
+                        <span class="input-group-addon">@lang('Kn')</span>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -41,6 +42,7 @@
                     <div class="md-form d-flex addon">
                         <input type="text" id="form1" class="form-control" name="first_name" placeholder="@lang('Currency')" required>
                         <label for="form1" class="">@lang('Expense')</label>
+                        <span class="input-group-addon">@lang('Kn')</span>
                     </div>
                 </div>
                 <div class="col-md-6">

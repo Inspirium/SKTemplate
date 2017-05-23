@@ -21,13 +21,14 @@
             <!-- Input fileds Expenses Calculation -->
             <div class="row">
                 <div class="col-md-5">
-                    <div class="md-form">
+                    <div class="md-form input-group">
                         <input type="text" id="form1" class="form-control" name="first_name" placeholder="@lang('')" required>
                         <label for="form1" class="">@lang('Text Price')</label>
+                        <span class="input-group-addon">@lang('Kn')</span>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="md-form">
+                    <div class="md-form input-group">
                         <input type="text" id="form1" class="form-control" name="first_name" placeholder="@lang('')" required>
                         <label for="form1" class="">@lang('Amount')</label>
                     </div>
@@ -41,29 +42,33 @@
             </div>
 
             <!-- Input fileds -->
-            <div class="md-form">
+            <div class="md-form input-group">
                 <input type="text" id="form1" class="form-control" name="first_name" placeholder="" required>
                 <label for="form1" class="">@lang('Accontation')</label>
+                <span class="input-group-addon">@lang('Kn')</span>
             </div>
-            <div class="md-form">
+            <div class="md-form input-group">
                 <input type="text" id="form1" class="form-control" name="first_name" placeholder="" required>
                 <label for="form1" class="">@lang('Netto Price Percentage')</label>
+                <span class="input-group-addon">@lang('%')</span>
             </div>
-            <div class="md-form">
+            <div class="md-form input-group">
                 <input type="text" id="form1" class="form-control" name="first_name" placeholder="" required>
                 <label for="form1" class="">@lang('Reviews')</label>
+                <span class="input-group-addon">@lang('Kn')</span>
             </div>
 
             <!-- Input fileds Expenses Calculation -->
             <div class="row">
                 <div class="col-md-5">
-                    <div class="md-form">
+                    <div class="md-form input-group">
                         <input type="text" id="form1" class="form-control" name="first_name" placeholder="@lang('')" required>
                         <label for="form1" class="">@lang('Lecture')</label>
+                        <span class="input-group-addon">@lang('Kn')</span>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="md-form">
+                    <div class="md-form input-group">
                         <input type="text" id="form1" class="form-control" name="first_name" placeholder="@lang('')" required>
                         <label for="form1" class="">@lang('Amount')</label>
                     </div>
@@ -79,13 +84,14 @@
             <!-- Input fileds Expenses Calculation -->
             <div class="row">
                 <div class="col-md-5">
-                    <div class="md-form">
+                    <div class="md-form input-group">
                         <input type="text" id="form1" class="form-control" name="first_name" placeholder="@lang('')" required>
                         <label for="form1" class="">@lang('Correction')</label>
+                        <span class="input-group-addon">@lang('Kn')</span>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="md-form">
+                    <div class="md-form input-group">
                         <input type="text" id="form1" class="form-control" name="first_name" placeholder="@lang('')" required>
                         <label for="form1" class="">@lang('Amount')</label>
                     </div>
@@ -101,13 +107,14 @@
             <!-- Input fileds Expenses Calculation -->
             <div class="row">
                 <div class="col-md-5">
-                    <div class="md-form">
+                    <div class="md-form input-group">
                         <input type="text" id="form1" class="form-control" name="first_name" placeholder="@lang('')" required>
                         <label for="form1" class="">@lang('Proofreading')</label>
+                        <span class="input-group-addon">@lang('Kn')</span>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="md-form">
+                    <div class="md-form input-group">
                         <input type="text" id="form1" class="form-control" name="first_name" placeholder="@lang('')" required>
                         <label for="form1" class="">@lang('Amount')</label>
                     </div>
@@ -123,13 +130,14 @@
             <!-- Input fileds Expenses Calculation -->
             <div class="row">
                 <div class="col-md-5">
-                    <div class="md-form">
+                    <div class="md-form input-group">
                         <input type="text" id="form1" class="form-control" name="first_name" placeholder="@lang('')" required>
                         <label for="form1" class="">@lang('Translation')</label>
+                        <span class="input-group-addon">@lang('Kn')</span>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="md-form">
+                    <div class="md-form input-group">
                         <input type="text" id="form1" class="form-control" name="first_name" placeholder="@lang('')" required>
                         <label for="form1" class="">@lang('Amount')</label>
                     </div>
@@ -145,13 +153,14 @@
             <!-- Input fileds Expenses Calculation -->
             <div class="row">
                 <div class="col-md-5">
-                    <div class="md-form">
+                    <div class="md-form input-group">
                         <input type="text" id="form1" class="form-control" name="first_name" placeholder="@lang('')" required>
                         <label for="form1" class="">@lang('Index')</label>
+                        <span class="input-group-addon">@lang('Kn')</span>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="md-form">
+                    <div class="md-form input-group">
                         <input type="text" id="form1" class="form-control" name="first_name" placeholder="@lang('')" required>
                         <label for="form1" class="">@lang('Amount')</label>
                     </div>
@@ -163,9 +172,10 @@
                     </div>
                 </div>
             </div>
-            <div class="md-form">
+            <div class="md-form input-group">
                 <input type="text" id="form1" class="form-control" name="first_name" placeholder="" required>
                 <label for="form1" class="">@lang('Reviews')</label>
+                <span class="input-group-addon">@lang('Kn')</span>
             </div>
 
         </div>
@@ -179,13 +189,14 @@
             <!-- Input fileds Expenses Calculation -->
             <div class="row">
                 <div class="col-md-5">
-                    <div class="md-form">
+                    <div class="md-form input-group">
                         <input type="text" id="form1" class="form-control" name="first_name" placeholder="@lang('')" required>
                         <label for="form1" class="">@lang('Photos')</label>
+                        <span class="input-group-addon">@lang('Kn')</span>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="md-form">
+                    <div class="md-form input-group">
                         <input type="text" id="form1" class="form-control" name="first_name" placeholder="@lang('')" required>
                         <label for="form1" class="">@lang('Amount')</label>
                     </div>
@@ -201,13 +212,14 @@
             <!-- Input fileds Expenses Calculation -->
             <div class="row">
                 <div class="col-md-5">
-                    <div class="md-form">
+                    <div class="md-form input-group">
                         <input type="text" id="form1" class="form-control" name="first_name" placeholder="@lang('')" required>
                         <label for="form1" class="">@lang('Illustrations')</label>
+                        <span class="input-group-addon">@lang('Kn')</span>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="md-form">
+                    <div class="md-form input-group">
                         <input type="text" id="form1" class="form-control" name="first_name" placeholder="@lang('')" required>
                         <label for="form1" class="">@lang('Amount')</label>
                     </div>
@@ -223,13 +235,14 @@
             <!-- Input fileds Expenses Calculation -->
             <div class="row">
                 <div class="col-md-5">
-                    <div class="md-form">
+                    <div class="md-form input-group">
                         <input type="text" id="form1" class="form-control" name="first_name" placeholder="@lang('')" required>
                         <label for="form1" class="">@lang('Tehnical Drawings')</label>
+                        <span class="input-group-addon">@lang('Kn')</span>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="md-form">
+                    <div class="md-form input-group">
                         <input type="text" id="form1" class="form-control" name="first_name" placeholder="@lang('')" required>
                         <label for="form1" class="">@lang('Amount')</label>
                     </div>
@@ -242,34 +255,40 @@
                 </div>
             </div>
 
-            <div class="md-form">
+            <div class="md-form input-group">
                 <input type="text" id="form1" class="form-control" name="first_name" placeholder="@lang('')" required>
                 <label for="form1" class="">@lang('Expert Report')</label>
+                <span class="input-group-addon">@lang('Kn')</span>
             </div>
 
-            <div class="md-form">
+            <div class="md-form input-group">
                 <input type="text" id="form1" class="form-control" name="first_name" placeholder="@lang('')" required>
                 <label for="form1" class="">@lang('Copyright')</label>
+                <span class="input-group-addon">@lang('Kn')</span>
             </div>
 
-            <div class="md-form">
+            <div class="md-form input-group">
                 <input type="text" id="form1" class="form-control" name="first_name" placeholder="@lang('')" required>
                 <label for="form1" class="">@lang('Copyright Mediator')</label>
+                <span class="input-group-addon">@lang('Kn')</span>
             </div>
 
-            <div class="md-form">
+            <div class="md-form input-group">
                 <input type="text" id="form1" class="form-control" name="first_name" placeholder="@lang('')" required>
                 <label for="form1" class="">@lang('Metodički Instrumentarij')</label>
+                <span class="input-group-addon">@lang('Kn')</span>
             </div>
 
-            <div class="md-form">
+            <div class="md-form input-group">
                 <input type="text" id="form1" class="form-control" name="first_name" placeholder="@lang('')" required>
                 <label for="form1" class="">@lang('Selection')</label>
+                <span class="input-group-addon">@lang('Kn')</span>
             </div>
 
-            <div class="md-form">
+            <div class="md-form input-group">
                 <input type="text" id="form1" class="form-control" name="first_name" placeholder="@lang('')" required>
                 <label for="form1" class="">@lang('PowerPoint Presentation')</label>
+                <span class="input-group-addon">@lang('Kn')</span>
             </div>
         </div>
     </div>
@@ -293,10 +312,5 @@
         <button type="submit" class="btn btn-lg btn-assign btn-assign-icon">@lang('Assign to...')</button>
     </div>
     <!--/. Footer buttons -->
-
-
-
-
-
 
 @endsection

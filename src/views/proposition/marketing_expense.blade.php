@@ -15,10 +15,10 @@
             <div class="page-name-l mt-1 mb-2">@lang('Marketing Budget')</div>
             <div class="row">
                 <div class="col-md-5">
-                    <div class="md-form d-flex addon">
+                    <div class="md-form input-group d-flex addon">
                         <input type="text" id="form1" class="form-control" name="first_name" placeholder="" required>
                         <label for="form1" class="">@lang('Expense')</label>
-
+                        <span class="input-group-addon">@lang('Kn')</span>
                     </div>
                 </div>
             </div>
@@ -26,7 +26,7 @@
                 <div class="col-md-12">
 
                     <!-- Textarea -->
-                    <div class="md-form">
+                    <div class="md-form mt-1">
                         <textarea type="text" id="form76" class="md-textarea"></textarea>
                         <label for="form76">@lang('Note')</label>
                     </div>

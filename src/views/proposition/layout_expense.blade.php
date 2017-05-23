@@ -57,12 +57,12 @@
             <div class="page-name-m mt-2">@lang('Include Layout Expense')</div>
             <div class="form-inline mb-3 ">
                 <fieldset class="form-group">
-                    <input name="sex" type="radio" id="radio11" value="M" required>
-                    <label for="radio11">@lang('Yes')</label>
+                    <input name="layout-expense-1" type="radio" id="layout-expense-y" value="M" required>
+                    <label for="layout-expense-y">@lang('Yes')</label>
                 </fieldset>
                 <fieldset class="form-group">
-                    <input name="sex" type="radio" id="radio21" value="F" required>
-                    <label for="radio21">@lang('No')</label>
+                    <input name="layout-expense-1" type="radio" id="layout-expense-n" value="F" required>
+                    <label for="layout-expense-n">@lang('No')</label>
                 </fieldset>
             </div>
         </div>
@@ -92,12 +92,12 @@
             <div class="page-name-m mt-2">@lang('Include Design Expense')</div>
             <div class="form-inline mb-3 ">
                 <fieldset class="form-group">
-                    <input name="sex" type="radio" id="radio11" value="M" required>
-                    <label for="radio11">@lang('Yes')</label>
+                    <input name="layout-expense-2" type="radio" id="design-expense-y" value="M" required>
+                    <label for="design-expense-y">@lang('Yes')</label>
                 </fieldset>
                 <fieldset class="form-group">
-                    <input name="sex" type="radio" id="radio21" value="F" required>
-                    <label for="radio21">@lang('No')</label>
+                    <input name="layout-expense-2" type="radio" id="design-expense-n" value="F" required>
+                    <label for="design-expense-n">@lang('No')</label>
                 </fieldset>
             </div>
         </div>
