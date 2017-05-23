@@ -500,17 +500,6 @@ $sk-skin-btn-default: #293756;
         border-bottom-left-radius: 1rem;
         border-left: 1px solid lighten($color-sidebar, 70%);
         border-bottom: 1px solid lighten($color-sidebar, 70%);
-        &:before {
-            content: "";
-            width: 0;
-            height: 0;
-            border-style: solid;
-            border-width: 0 12px 12px 12px;
-            border-color: transparent transparent #ffffff transparent;
-            position: absolute;
-            top: -12px;
-            left: 163px;
-        }
         .tasktype-1 {
             border-radius: 0.1rem;
             padding: 0px 5px;
@@ -520,6 +509,22 @@ $sk-skin-btn-default: #293756;
             padding: .2rem .8rem;
             &:first-child {
                 border-top: none;
+                &:hover {
+                    &:before {
+                        border-color: transparent transparent lighten($color-sidebar, 79%) transparent;
+                    }
+                }
+                &:before {
+                    content: "";
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                    border-width: 0 12px 12px 12px;
+                    border-color: transparent transparent #ffffff transparent;
+                    position: absolute;
+                    top: -12px;
+                    left: 163px;
+                }
             }
             &:hover {
                 background-color: lighten($color-sidebar, 79%);
