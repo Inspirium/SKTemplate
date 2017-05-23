@@ -482,6 +482,14 @@ $sk-skin-btn-default: #293756;
         }
     }
     /* Activity stream dropdown */
+    .dropdown-custom-login {
+        box-shadow: none;
+        top: 44px;
+        background-color: transparent;
+    }
+    
+    
+    /* Activity stream dropdown */
     .activity-box {
         background-color: $sk-skin-navbar;
         height: 100%;
@@ -516,6 +524,7 @@ $sk-skin-btn-default: #293756;
             a {
                 font-weight: 600;
                 color: lighten($sk-skin-accent, 20%);
+                padding-left: 0;
             } 
         }
         h5 {
