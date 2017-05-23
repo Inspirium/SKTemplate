@@ -150,19 +150,23 @@
     </ul>
 
     <nav class="col navbar d-flex flex-row-reverse navbar-toggleable-md scrolling-navbar double-nav">
-        <a class="nav-link dropdown-toggle user-nav" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}
-            <img src="https://www.gravatar.com/avatar/{{ md5( Auth::user()->email ) }}?s=50&d=wavatar" class="header-profile">
-        </a>
-        <div class="dropdown-menu dropdown-ins dropdown-menu-right dropdown-custom-login" aria-labelledby="userDropdown">
-            <a class="dropdown-item waves-effect waves-light" href="{{ url('logout') }}">@lang('Log Out')</a>
-            <a class="dropdown-item waves-effect waves-light" href="#">@Lang ('My account')</a>
+        <div class="dropdown">
+            <a class="nav-link dropdown-toggle user-nav" data-toggle="dropdown" href="#" role="button" >{{ Auth::user()->name }}
+                <img src="https://www.gravatar.com/avatar/{{ md5( Auth::user()->email ) }}?s=50&d=wavatar" class="header-profile">
+            </a>
+            <div class="dropdown-menu dropdown-ins dropdown-menu-right dropdown-custom-login" >
+                <a class="dropdown-item waves-effect waves-light" href="{{ url('logout') }}">@lang('Log Out')</a>
+                <a class="dropdown-item waves-effect waves-light" href="#">@Lang ('My account')</a>
+            </div>
         </div>
-        <a href="#" class="nav-item nav-link-icon dropdown-toggle d-flex" data-toggle="dropdown">
-            <i class="fa fa-bell"></i>
-            <span class="tag tag-danger">4</span>
-        </a>
-        <div class="dropdown-menu dropdown-ins dropdown-menu-right dropdown-custom-login" aria-labelledby="userDropdown">
-            <inspirium-notifications></inspirium-notifications>
+        <div class="dropdown">
+            <a href="#" class="nav-item nav-link-icon dropdown-toggle d-flex" data-toggle="dropdown">
+                <i class="fa fa-bell"></i>
+                <span class="tag tag-danger">4</span>
+            </a>
+            <div class="dropdown-menu dropdown-ins dropdown-menu-right dropdown-custom-login">
+                <inspirium-notifications></inspirium-notifications>
+            </div>
         </div>
         <a href="#" class="nav-item nav-link-icon d-flex">
             <i class="fa fa-search"></i>
