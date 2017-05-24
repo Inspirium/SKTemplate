@@ -154,9 +154,11 @@
             <a class="nav-link dropdown-toggle user-nav" data-toggle="dropdown" href="#" role="button" >{{ Auth::user()->name }}
                 <img src="https://www.gravatar.com/avatar/{{ md5( Auth::user()->email ) }}?s=50&d=wavatar" class="header-profile">
             </a>
-            <div class="dropdown-menu dropdown-ins dropdown-menu-right dropdown-custom-login" >
-                <a class="dropdown-item waves-effect waves-light" href="{{ url('logout') }}">@lang('Log Out')</a>
-                <a class="dropdown-item waves-effect waves-light" href="#">@Lang ('My account')</a>
+            <div class="dropdown-menu dropdown-ins dropdown-menu-right dropdown-custom-login">
+                <div class="user-box">
+                    <a class="waves-effect activity-item waves-light" href="{{ url('logout') }}">@lang('Log Out')</a>
+                    <a class="waves-effect waves-light" href="#">@Lang ('My account')</a>
+                </div>
             </div>
         </div>
         <inspirium-notifications></inspirium-notifications>
