@@ -21,6 +21,18 @@
     padding-top: 15px;
 }
 
+//h1::selection,
+//h2::selection,
+//h3::selection,
+//h4::selection,
+//h5::selection,
+//h6::selection,
+//p::selection,
+//span::selection,
+//label {
+//    background-color: aquamarine;
+//}
+
 //////////Misc
 
 .profile-head {
@@ -1257,6 +1269,12 @@ input.md-form.addon {
 
 
 ////////// Proposition
+
+.grey-box {
+    height: auto;
+    background-color: darken($color-mainpanel, 5%);
+
+}
 
 .print-offer-box {
     height: 150px;

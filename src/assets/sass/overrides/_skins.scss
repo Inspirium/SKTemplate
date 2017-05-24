@@ -217,7 +217,8 @@ $sk-skin-btn-default: #293756;
     input[type="search"],
     textarea.md-textarea,
     input[type="text"],
-    input[type="password"] {
+    input[type="password"],
+    input[type="time-input"] {
         background-color: $white;
         border-radius: .4rem;
         border: 1px solid lighten($color-sidebar, 70%);
@@ -234,6 +235,13 @@ $sk-skin-btn-default: #293756;
         &+label {
             color: $sk-skin-accent;
         }
+    }
+    input[type="time-input"] {
+        padding-bottom: 1.1rem;
+        padding-top: 0.4em;
+        font-size: 2.4em;
+        font-weight: 300;
+        line-height: 2rem;
     }
     input.select-dropdown {
         margin-top: .2rem;

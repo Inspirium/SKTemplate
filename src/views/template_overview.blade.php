@@ -66,23 +66,24 @@
         </div>
     </div>
     
-    
-    <!-- Activity Stream Pop-up -->
-    <div class="activity-box mt-1 z-depth-2">
-        <div class="activity-item align-items-center d-flex">
-            <div class="activity-avatar file-box-sty d-flex align-items-center">
-                <a href="">
-                    <img class="profile-s mr-1" src="../images/profile.jpg" href="#">
-                </a>
-            </div>
-            <div class="activity-content">
-                <div class="activity-label tasktype-1">Nešto
+    <!-- Highlighted input filed -->
+    <div class="print-offer-box mt-2 mb-3">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <!-- Input field -->
+                <div class="md-form d-flex">
+                    <input type="text" id="form1" class="form-control" name="first_name" placeholder="@lang('In Kn')" required>
+                    <label for="form1" class="">@lang('Print offer')</label>
+                    <span class="d-flex">
+                        <button class="btn btn-neutral btn-addon" type="button">@lang('Save')</button>
+                    </span>
                 </div>
-                <div class="activity-time"><span>4 </span>@lang('hours')</div>
-                <h4 class="activitiy-user"><span>Jozo Jozić</span> poslao(la) je novu<span><a href=""> poruku</a></span></h4>
-                <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi fugit vel quisquam.</h5>
             </div>
         </div>
+    </div>
+    
+    <!-- Activity Stream Pop-up -->
+    <div class="activity-box mt-1">
         <div class="activity-item align-items-center d-flex">
             <div class="activity-avatar file-box-sty d-flex align-items-center">
                 <a href="">

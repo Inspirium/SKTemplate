@@ -32,6 +32,31 @@
             <h3 class="mb-1 text-white">25.9.</h3>
        </div>
     </div>
+    
+    <!-- Highlighted input filed -->
+    <div class="page-name-xl mt-2">@lang('Task Completion Time')</div>
+    <div class="grey-box mb-3 pt-3 px-1 mx-auto">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <!-- Input field -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="md-form input-group">
+                            <input type="time-input" id="form1" class="form-control" name="first_name" placeholder="@lang('')" required>
+                            <label for="form1" class="">@lang('Hours')</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="md-form input-group">
+                            <input type="time-input" id="form1" class="form-control" name="first_name" placeholder="@lang('')" required>
+                            <label for="form1" class="">@lang('Minutes')</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
 
     <!-- Task description -->   
     <div class="showdata-box row">
