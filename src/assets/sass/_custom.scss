@@ -555,15 +555,20 @@ header .navbar .breadcrumb {
 }
 
 
-////////// Tabels
+////////// Tables
 
 .table {
     font-size: .9rem;
 }
 
-.table tr td:nth-child(2) {
-    text-transform: uppercase;
-    font-weight: 700;
+.table-title {
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
+
+.table tbody {
+    background-color: #fff;   
 }
 
 .table thead th {
@@ -593,14 +598,6 @@ header .navbar .breadcrumb {
         margin-left: 0.5rem;
         vertical-align: middle;
 
-    }
-}
-
-.table-striped tbody tr:nth-of-type(odd) {
-    background-color: $white;
-
-    &:hover {
-        background-color: darken($white, 15%);
     }
 }
 
@@ -1126,7 +1123,7 @@ input.md-form.addon {
 
 .btn.btn-lg, .btn-group-lg > .btn {
     padding: 1.5rem 3.9rem;
-    border-radius: .4rem;
+    border-radius: 2rem;
     font-size: .8rem;
 }
 

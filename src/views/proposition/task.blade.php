@@ -26,9 +26,9 @@
         <tr>
             <td><div class="icon icon-handler"></div></td>
             <th class="display-e w-30" scope="row">1</th>
-            <td class="file-box-sty">Fizika oko nas</td>
+            <td class="table-title">Fizika oko nas</td>
             <td><div class="tasktype-1">Projekt</div></td>
-            <td><a href=""><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
+            <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-1" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
             <td>21.09.</td>
             <td>25.09.</td>
             <td class="text-right"><div class="file-box-sty icon icon-assign">@lang('Assign')</div></td>
@@ -36,9 +36,9 @@
         <tr>
             <td><div class="icon icon-handler"></div></td>
             <th class="display-e w-30" scope="row">2</th>
-            <td class="file-box-sty">Fizika oko nas</td>
+            <td class="table-title">Fizika oko nas</td>
             <td><div class="tasktype-2">Zadatak</div></td>
-            <td><a href=""><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
+            <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-1" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
             <td>21.09.</td>
             <td>25.09.</td>
             <td class="text-right"><div class="file-box-sty icon icon-assign">@lang('Assign')</div></td>
@@ -62,6 +62,7 @@
             <th>@lang('Assiger')</th>
             <th>@lang('Created')</th>
             <th>@lang('Deadline')</th>
+            <th>@lang('TCT')</th>
             <th class="">@lang('Assign to')</th>
         </tr>
         </thead>
@@ -69,41 +70,45 @@
         <tr>
             <td><div class="icon icon-handler"></div></td>
             <th class="display-e w-30" scope="row">1</th>
-            <td class="file-box-sty">Fizika oko nas</td>
+            <td class="table-title">Fizika oko nas</td>
             <td><div class="tasktype-1">Projekt</div></td>
-            <td><a href="#"><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
+            <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-1" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
             <td>21.09.</td>
             <td>25.09.</td>
+            <td>4 h</td>
             <td class=""><a href="#"><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Marko Marić</a></td>
         </tr>
         <tr>
             <td><div class="icon icon-handler"></div></td>
             <th class="display-e w-30" scope="row">2</th>
-            <td class="file-box-sty">Fizika oko nas</td>
+            <td class="table-title">Fizika oko nas</td>
             <td><div class="tasktype-2">Zadatak</div></td>
-            <td><a href=""><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
+            <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-1" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
             <td>21.09.</td>
             <td>25.09.</td>
+            <td>12 h</td>
             <td class=""><a href="#"><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Marko Marić</a></td>
         </tr>
         <tr>
             <td><div class="icon icon-handler"></div></td>
             <th class="display-e w-30" scope="row">3</th>
-            <td class="file-box-sty">Fizika oko nas</td>
+            <td class="table-title">Fizika oko nas</td>
             <td><div class="tasktype-1">Projekt</div></td>
-            <td><a href="#"><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
+            <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-1" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
             <td>21.09.</td>
             <td>25.09.</td>
+            <td>32 h</td>
             <td class=""><a href="#"><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Marko Marić</a></td>
         </tr>
         <tr>
             <td><div class="icon icon-handler"></div></td>
             <th class="display-e w-30" scope="row">4</th>
-            <td class="file-box-sty">Fizika oko nas</td>
+            <td class="table-title">Fizika oko nas</td>
             <td><div class="tasktype-2">Zadatak</div></td>
-            <td><a href=""><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
+            <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-1" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
             <td>21.09.</td>
             <td>25.09.</td>
+            <td>30 min</td>
             <td class=""><a href="#"><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Marko Marić</a></td>
         </tr>
         </tbody>
@@ -132,9 +137,9 @@
         <tr>
             <td><div class="icon icon-handler"></div></td>
             <th class="display-e w-30" scope="row">1</th>
-            <td class="file-box-sty">Fizika oko nas</td>
+            <td class="table-title">Fizika oko nas</td>
             <td><div class="tasktype-1">Projekt</div></td>
-            <td><a href="#"><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
+            <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-1" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
             <td>21.09.</td>
             <td>25.09.</td>
             <td>2d : 4h</td>
@@ -143,9 +148,9 @@
         <tr>
             <td><div class="icon icon-handler"></div></td>
             <th class="display-e w-30" scope="row">2</th>
-            <td class="file-box-sty">Fizika oko nas</td>
+            <td class="table-title">Fizika oko nas</td>
             <td><div class="tasktype-2">Zadatak</div></td>
-            <td><a href=""><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
+            <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-1" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
             <td>21.09.</td>
             <td>25.09.</td>
             <td>2d : 4h</td>

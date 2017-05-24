@@ -272,7 +272,7 @@
 
 
     <!-- Table -->
-    <table class="table table-striped table-hover">
+    <table class="table table-hover">
         <thead class="thead-inverse">
         <tr>
             <th>#</th>
@@ -345,7 +345,7 @@
             <div class="page-name-xl mb-2 mt-3">Proposition Archive
                 <span class="tag tag-neutral text-white">154</span>
             </div>
-            <table class="table table-striped table-hover">
+            <table class="table table-hover">
                 <thead class="thead-inverse">
                 <tr>
                     <th>#</th>
@@ -358,29 +358,29 @@
                 <tbody>
                 <tr>
                     <th scope="row">1</th>
-                    <td>Fizika oko nas — udžbenik za fiziku </td>
-                    <td><a href=""><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
+                    <td class="table-title">Fizika oko nas — udžbenik za fiziku </td>
+                    <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-1" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
                     <td>9444,96</td>
                     <td>12.12.2017.</td>
                 </tr>
                 <tr>
                     <th scope="row">2</th>
-                    <td>Fizika oko nas — udžbenik za fiziku </td>
-                    <td><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</td>
+                    <td class="table-title">Fizika oko nas — udžbenik za fiziku </td>
+                    <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-1" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
                     <td>9444,96</td>
                     <td> 12.12.2017.</td>
                 </tr>
                 <tr>
                     <th scope="row">1</th>
-                    <td>Fizika oko nas — udžbenik za fiziku </td>
-                    <td><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</td>
+                    <td class="table-title">Fizika oko nas — udžbenik za fiziku </td>
+                    <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-1" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
                     <td>9444,96</td>
                     <td>12.12.2017.</td>
                 </tr>
                 <tr>
                     <th scope="row">2</th>
-                    <td>Fizika oko nas — udžbenik za fiziku </td>
-                    <td><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</td>
+                    <td class="table-title">Fizika oko nas — udžbenik za fiziku </td>
+                    <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-1" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
                     <td>9444,96</td>
                     <td>12.12.2017.</td>
                 </tr>
