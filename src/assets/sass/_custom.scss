@@ -296,6 +296,7 @@ h6 {
 header .fa {
     color: $white;
     align-self: center;
+    font-size: 1.3rem;
 
     .fa-bars {
         font-size: 2rem;
@@ -312,7 +313,6 @@ header .tag {
     border-radius: 20%;
     font-size: .6rem;
     text-align: center;
-    border: 1px solid $color-nav;
 }
 
 //TODO: use badge instead of tag
@@ -388,7 +388,6 @@ header .navbar {
 }
 
 header .navbar > a {
-    border-left: 1px solid $color-nav-sub;
     justify-content: center;
     color: $white;
 }
@@ -397,6 +396,7 @@ header .dropdown-toggle {
     padding: 0 auto;
     font-size: .8rem;
     text-transform: uppercase;
+    justify-content: center;
 
     &:hover {
         background-color: $color-nav-sub;
