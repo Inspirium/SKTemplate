@@ -757,18 +757,15 @@ table td a:first-child {
 
 .file-icon[href$=".pdf"]:before {
     content: "\f1c1";
-
 }
 
 .file-icon[href*=".xls"]:before {
     content: "\f1c3";
-
 }
 
 .file-icon[href*=".doc"]:before {
     font-family: FontAwesome;
     content: "\f1c2";
-
 }
 
 .icon {
@@ -1186,37 +1183,31 @@ input.md-form.addon {
     background-color: $white;
 }
 
-.btn-assign-icon:before {
+.btn-icons {
     color: $white;
     font-family: FontAwesome;
-    content: "\f2bd";
-    font-size: 2.4rem;
     margin-right: 1.1rem;
     line-height: 0;
     margin-left: 0.5rem;
     vertical-align: middle;
+}
+
+.btn-assign-icon:before {
+    @extend .btn-icons;
+    content: "\f2bd";
+    font-size: 2.4rem;
 }
 
 .btn-plus-icon:before {
-    color: $white;
-    font-family: FontAwesome;
+    @extend .btn-icons;
     content: "\f067";
     font-size: 1.4rem;
-    margin-right: 1.1rem;
-    line-height: 0;
-    margin-left: 0.5rem;
-    vertical-align: middle;
 }
 
 .btn-clock-icon:before {
-    color: $white;
-    font-family: FontAwesome;
+    @extend .btn-icons;
     content: "\f017";
     font-size: 3.6rem;
-    margin-right: 1.1rem;
-    line-height: 0;
-    margin-left: 0.5rem;
-    vertical-align: middle;
 }
 
 

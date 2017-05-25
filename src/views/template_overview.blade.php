@@ -610,7 +610,100 @@
             <!--/.Content-->
         </div>
     </div>
-    <!-- Central Modal Medium Warning-->
+    <!-- Central Modal Medium Assign-->  
+                
+    <!-- Central Modal Medium Assign -->
+    <div class="modal fade" id="centralModalAssign" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-notify modal-warning" role="document">
+            <!--Content-->
+            <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header flex-column px-3 pt-3">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="white-text">&times;</span>
+                    </button>
+                    <div class="d-flex">
+                        <i class="fa fa-user-circle-o fa-4x mb-1 animated rotateInDownLeft"></i>
+                        <h1 class="modal-title w-100 text-center">@Lang('Assign to...')</h1>
+                    </div>
+                    <h6 class="w-100 text-center">@Lang('Assign department or directly employee')</h6>
+                </div>
+                
+                <!-- Nav tabs -->
+                <div class="tabs-wrapper"> 
+                    <ul class="nav classic-tabs tabs-cyan" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link waves-light active" data-toggle="tab" href="#panel51" role="tab">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link waves-light" data-toggle="tab" href="#panel52" role="tab">Follow</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link waves-light" data-toggle="tab" href="#panel53" role="tab">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link waves-light" data-toggle="tab" href="#panel54" role="tab">Be awesome</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tab panels -->
+                <div class="tab-content card">
+
+                    <!--Panel 1-->
+                    <div class="tab-pane fade in show active" id="panel51" role="tabpanel">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
+                    </div>
+                    <!--/.Panel 1-->
+
+                    <!--Panel 2-->
+                    <div class="tab-pane fade" id="panel52" role="tabpanel">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
+                    </div>
+                    <!--/.Panel 2-->
+                </div>
+
+                
+
+                <!--Body-->
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="page-name-xl mb-1">@lang('Department')</div>
+                            <div class="md-form d-flex addon">
+                                <input type="text" id="form1" class="form-control" name="first_name" placeholder="neko ime" required>
+                                <span class="d-flex">
+                                    <button class="btn btn-neutral btn-addon" type="button">@lang('Add')</button>
+                                </span>
+                            </div>
+                            <div class="chip mb-1">
+                                <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg" alt="Contact Person"> Jane Doe<i class="close fa fa-times"></i>
+                            </div>
+                            <div class="page-name-xl mb-1">@lang('Employee')</div>
+                            <div class="md-form d-flex addon">
+                                <input type="text" id="form1" class="form-control" name="first_name" placeholder="neko ime" required>
+                                <span class="d-flex">
+                                    <button class="btn btn-neutral btn-addon" type="button">@lang('Add')</button>
+                                </span>
+                            </div>
+                            <div class="chip mb-1">
+                                <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg" alt="Contact Person"> Jane Doe<i class="close fa fa-times"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Footer-->
+                <div class="modal-footer btn-footer">
+                    <button type="button" class="btn btn-lg btn-cancel" data-dismiss="modal">@lang('Cancel')</button>
+                    <button type="button" class="btn btn-lg btn-save" v-on:click="fileUpload">@lang('Assign')</button>
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+    <!-- Central Modal Medium Assign-->
 
                                                         
                    

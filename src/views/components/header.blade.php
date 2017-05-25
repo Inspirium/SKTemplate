@@ -38,6 +38,7 @@
                                 <li><a href="{{ url('proposition/task') }}" class ="waves-effect">Task</a></li>
                                 <li><a href="{{ url('proposition/task_details') }}" class ="waves-effect">Task details</a></li>
                                 <li><a href="{{ url('proposition/task_new') }}" class ="waves-effect">Task new</a></li>
+                                <li><a href="{{ url('proposition/department-list') }}" class ="waves-effect">Department-list</a></li>
                             </ul>
                         </div>
                     </li>
@@ -127,8 +128,13 @@
                             <li><a class="collapsible-header nav-link {{ ($level1=='proposition')?'active':'' }}" href="#">@lang('Propositions')</a>
                                 <div class="collapsible-body">
                                     <ul>
+                                        <li><a href="{{ url('proposition/edit') }}" class="waves-effect dot-delete item-accent">@lang('Add New')</a></li>
                                         <li><a href="{{ url('proposition') }}" class="waves-effect {{ ($level1=='proposition')?'active':'' }}">@lang('Propositions')</a></li>
-                                        <li><a href="{{ url('proposition/edit') }}" class="waves-effect">@lang('Add New')</a></li>
+                                        <li><a href="{{ url('proposition') }}" class="waves-effect">@lang('Text Preparation')</a></li>
+                                        <li><a href="{{ url('proposition') }}" class="waves-effect">@lang('Design')</a></li>
+                                        <li><a href="{{ url('proposition') }}" class="waves-effect">@lang('Layout')</a></li>
+                                        <li><a href="{{ url('proposition') }}" class="waves-effect">@lang('Price/Circulation')</a></li>
+                                        <li><a href="{{ url('proposition') }}" class="waves-effect">@lang('Prepress')</a></li>
                                     </ul>
                                 </div>
                             </li>

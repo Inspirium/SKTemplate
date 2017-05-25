@@ -108,6 +108,18 @@ $sk-skin-btn-default: #293756;
                     top: 3px;
                     background-color: $sk-skin-flat;
                 }
+                &.item-accent {
+                    &:before {
+                    content: "\f005";
+                    font-family: FontAwesome;
+                    font-size: 0.8rem;
+                    position: relative;
+                    top: 1px;
+                    margin-right: .7rem;
+                    box-shadow: 0 0 0 0;
+                    background: none; 
+                    }
+                }
             }
             .collapsible-body li {
                 a {
@@ -118,7 +130,6 @@ $sk-skin-btn-default: #293756;
                         background-color: lighten($sk-skin-flat, 7%);
                     }
                 }
-
             }
             .collapsible-header {
                 height: 60px;
@@ -237,11 +248,11 @@ $sk-skin-btn-default: #293756;
         }
     }
     input[type="time-input"] {
-        padding-bottom: 1.1rem;
-        padding-top: 0.4em;
-        font-size: 2.4em;
+        padding-bottom: 0.4rem;
+        padding-top: 0.3rem;
+        font-size: 2.1em;
         font-weight: 300;
-        line-height: 2rem;
+        line-height: 1rem;
     }
     input.select-dropdown {
         margin-top: .2rem;
