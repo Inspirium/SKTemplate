@@ -505,7 +505,7 @@ header .navbar .breadcrumb {
 ////////// Separators
 
 .page-name {
-    border-bottom: 1px solid darken($color-mainpanel, 15%);
+    border-bottom: 1px dashed darken($color-mainpanel, 15%);
     text-transform: uppercase;
 }
 

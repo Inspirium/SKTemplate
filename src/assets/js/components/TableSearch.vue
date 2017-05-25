@@ -7,7 +7,7 @@
     <div class="btn-header d-flex p-2">
         <a v-bind:href="links['add_new']" class="btn btn-lg btn-unique"><i class="fa fa-plus left"></i>{{ lang( strings['add_new'] ) }}</a>
     </div>
-    <table class="table table-striped table-hover">
+    <table class="table table-hover">
         <thead class="thead-inverse">
         <tr>
             <th>#</th>
