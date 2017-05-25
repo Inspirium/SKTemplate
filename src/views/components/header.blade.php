@@ -130,11 +130,11 @@
                                     <ul>
                                         <li><a href="{{ url('proposition/edit') }}" class="waves-effect dot-delete item-accent">@lang('Add New')</a></li>
                                         <li><a href="{{ url('proposition') }}" class="waves-effect {{ ($level1=='proposition')?'active':'' }}">@lang('Propositions')</a></li>
-                                        <li><a href="{{ url('proposition') }}" class="waves-effect">@lang('Text Preparation')</a></li>
-                                        <li><a href="{{ url('proposition') }}" class="waves-effect">@lang('Design')</a></li>
-                                        <li><a href="{{ url('proposition') }}" class="waves-effect">@lang('Layout')</a></li>
-                                        <li><a href="{{ url('proposition') }}" class="waves-effect">@lang('Price/Circulation')</a></li>
-                                        <li><a href="{{ url('proposition') }}" class="waves-effect">@lang('Prepress')</a></li>
+                                        <li><a href="{{ url('proposition/department-list') }}" class="waves-effect">@lang('Text Preparation')</a></li>
+                                        <li><a href="{{ url('proposition/department-list') }}" class="waves-effect">@lang('Design')</a></li>
+                                        <li><a href="{{ url('proposition/department-list') }}" class="waves-effect">@lang('Layout')</a></li>
+                                        <li><a href="{{ url('proposition/department-list') }}" class="waves-effect">@lang('Price/Circulation')</a></li>
+                                        <li><a href="{{ url('proposition/department-list') }}" class="waves-effect">@lang('Prepress')</a></li>
                                     </ul>
                                 </div>
                             </li>
