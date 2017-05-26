@@ -613,8 +613,8 @@
     </div>
     <!-- Central Modal Medium Assign-->  
                 
-    <!-- Central Modal Medium Assign -->
-    <div class="modal fade" id="centralModalAssign" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <!-- Central Modal Medium Assign Tab -->
+    <div class="modal fade" id="centralModalAssignTab" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-notify modal-warning" role="document">
             <!--Content-->
             <div class="modal-content">
@@ -632,70 +632,60 @@
                 
                 <!-- Nav tabs -->
                 <div class="tabs-wrapper"> 
-                    <ul class="nav classic-tabs tabs-cyan" role="tablist">
+                    <ul class="nav classic-tabs tabs-cyan tab-full" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link waves-light active" data-toggle="tab" href="#panel51" role="tab">Profile</a>
+                            <a class="nav-link waves-light active" data-toggle="tab" href="#panel51" role="tab">Department</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link waves-light" data-toggle="tab" href="#panel52" role="tab">Follow</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link waves-light" data-toggle="tab" href="#panel53" role="tab">Contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link waves-light" data-toggle="tab" href="#panel54" role="tab">Be awesome</a>
+                            <a class="nav-link waves-light" data-toggle="tab" href="#panel52" role="tab">EMPLOYEE</a>
                         </li>
                     </ul>
                 </div>
-
+                
                 <!-- Tab panels -->
-                <div class="tab-content card">
+                <div class="tab-content">
 
                     <!--Panel 1-->
-                    <div class="tab-pane fade in show active" id="panel51" role="tabpanel">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
+                    <div class="modal-body tab-pane fade in show active" id="panel51" role="tabpanel">
+                        <div class="row">
+                            <div class="col-md-12">
+                                
+                                <div class="md-form">
+                                    <input type="search" id="form-autocomplete" class="form-control mdb-autocomplete">
+                                    <button class="mdb-autocomplete-clear">
+                                        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="https://www.w3.org/2000/svg">
+                                            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                                            <path d="M0 0h24v24H0z" fill="none" />
+                                        </svg>
+                                    </button>
+                                    <label for="form-autocomplete" class="active">What is your favorite US state?</label>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
                     <!--/.Panel 1-->
 
                     <!--Panel 2-->
-                    <div class="tab-pane fade" id="panel52" role="tabpanel">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
+                    <div class="modal-body tab-pane fade" id="panel52" role="tabpanel">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="md-form d-flex addon">
+                                    <input type="text" id="form1" class="form-control" name="first_name" placeholder="neko ime" required>
+                                    <span class="d-flex">
+                                        <button class="btn btn-neutral btn-addon" type="button">@lang('Add')</button>
+                                    </span>
+                                </div>
+                                <div class="chip mb-1">
+                                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg" alt="Contact Person"> Jane Doe<i class="close fa fa-times"></i>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <!--/.Panel 2-->
                 </div>
 
-                
-
-                <!--Body-->
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="page-name-xl mb-1">@lang('Department')</div>
-                            <div class="md-form d-flex addon">
-                                <input type="text" id="form1" class="form-control" name="first_name" placeholder="neko ime" required>
-                                <span class="d-flex">
-                                    <button class="btn btn-neutral btn-addon" type="button">@lang('Add')</button>
-                                </span>
-                            </div>
-                            <div class="chip mb-1">
-                                <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg" alt="Contact Person"> Jane Doe<i class="close fa fa-times"></i>
-                            </div>
-                            <div class="page-name-xl mb-1">@lang('Employee')</div>
-                            <div class="md-form d-flex addon">
-                                <input type="text" id="form1" class="form-control" name="first_name" placeholder="neko ime" required>
-                                <span class="d-flex">
-                                    <button class="btn btn-neutral btn-addon" type="button">@lang('Add')</button>
-                                </span>
-                            </div>
-                            <div class="chip mb-1">
-                                <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg" alt="Contact Person"> Jane Doe<i class="close fa fa-times"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Footer-->
+              <!--Footer-->
                 <div class="modal-footer btn-footer">
                     <button type="button" class="btn btn-lg btn-cancel" data-dismiss="modal">@lang('Cancel')</button>
                     <button type="button" class="btn btn-lg btn-save" v-on:click="fileUpload">@lang('Assign')</button>
@@ -704,25 +694,27 @@
             <!--/.Content-->
         </div>
     </div>
-    <!-- Central Modal Medium Assign-->
-
-                                                        
-                   
-                      
-                         
-                            
-                               
-                                  
-                                     
-                                        
-                                           
-                                              
+    <!-- Central Modal Medium Assign tab-->
+                
+                         <div class="md-form">
+                                    <input type="search" id="form-autocomplete" class="form-control mdb-autocomplete">
+                                    <button class="mdb-autocomplete-clear">
+                                        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="https://www.w3.org/2000/svg">
+                                            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                                            <path d="M0 0h24v24H0z" fill="none" />
+                                        </svg>
+                                    </button>
+                                    <label for="form-autocomplete" class="active">What is your favorite US state?</label>
+                                </div>                          
+                                                                    
+                                                                                                      
                                                     
     <!-- Button trigger modal -->
     <div class="btn-footer mt-2 mb-5 flex-column flex-md-row d-flex p-2">
         <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#centralModalSuccess">Launch demo modal</button>
         <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#centralModalWarning">Launch warning modal</button>
         <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#centralModalAssign">Launch assign modal</button>
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#centralModalAssignTab">Launch assign tab modal</button>
     </div>
 
                 

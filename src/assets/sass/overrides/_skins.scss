@@ -461,6 +461,9 @@ $sk-skin-btn-default: #293756;
                 }
             }
         }
+        .tab-full {
+            flex: 1 0 30%;
+        }
     }
     /* Activity stream */
     .activity {
