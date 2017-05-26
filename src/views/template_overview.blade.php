@@ -84,6 +84,7 @@
     
     <!-- Activity Stream Pop-up -->
     <div class="activity-box mt-1">
+        <a class="activity-item file-box-sty p-2 text-center d-block">@lang('Show All')</a>   
         <div class="activity-item align-items-center d-flex">
             <div class="activity-avatar file-box-sty d-flex align-items-center">
                 <a href="">
