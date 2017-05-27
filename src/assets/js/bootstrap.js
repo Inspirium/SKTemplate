@@ -9,6 +9,9 @@ window._ = require('lodash');
 
 window.Vue = require('vue');
 
+window.Vuex = require('vuex');
+window.Vue.use(window.Vuex);
+
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the
@@ -21,8 +24,6 @@ window.axios.defaults.headers.common = {
     'X-CSRF-TOKEN': window.Laravel.csrfToken,
     'X-Requested-With': 'XMLHttpRequest'
 };
-
-//require('bootstrap');
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
