@@ -6,7 +6,7 @@
         </a>
         <div class="dropdown-menu dropdown-ins dropdown-menu-right dropdown-custom-login">
             <div class="activity-box">
-                <div class="activity-item file-box-sty p-1 text-center d-block">Show All</div> 
+                <div class="activity-item file-box-sty p-1 text-center d-block">Show All</div>
                 <div class="activity-item align-items-center d-flex" v-for="item in notifications">
                     <div class="activity-avatar file-box-sty d-flex align-items-center">
                         <a href="">
@@ -15,7 +15,7 @@
                     </div>
                     <div class="activity-content">
                         <div class="activity-label tasktype-1">{{ item.tasktype }}</div>
-                        <div class="activity-time" v-html="timed(item.created_at)"></div>
+                        <div class="activity-time">{{ item.created_at | moment("from", "now") }}</div>
                         <h4 class="activitiy-user"><span>Jozo Jozić</span> poslao(la) je novu<span><a href=""> poruku</a></span></h4>
                         <h5>{{ item.message }}</h5>
                     </div>
@@ -32,12 +32,12 @@
                 notifications: [
                     {
                         tasktype: 'message',
-                        created_at: 1495530618,
+                        created_at: "2017-05-27 22:00:00.000",
                         message: 'Moramo nešto završiti'
                     },
                     {
                         tasktype: 'message',
-                        created_at: 1495530618,
+                        created_at: "2017-05-27 22:00:00.000",
                         message: 'Moramo nešto završiti'
                     }
                 ]
@@ -57,7 +57,6 @@
                 let unit = 'sekundi';
                 let now = Math.floor(Date.now() / 1000);
                 let timediff = now - value;
-                console.log(timediff);
                 if (timediff > 60) {
                     timediff = Math.floor(timediff/60);
                     unit = 'minuta';
