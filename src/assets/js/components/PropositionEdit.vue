@@ -7,6 +7,9 @@
         <template v-else-if="step === 1">
             <categorization></categorization>
         </template>
+        <template v-else-if="step === 2">
+            <market-potential></market-potential>
+        </template>
         <template v-else>
             <h1>No step defined</h1>
         </template>
@@ -23,6 +26,7 @@
 <script>
     import BasicData from './proposition/BasicData.vue';
     import Categorization from './proposition/Categorization.vue';
+    import MarketPotential from './proposition/MarketPotential.vue';
     import { mapState, mapActions, mapMutations } from 'vuex';
     export default {
         props: {
@@ -59,7 +63,8 @@
 
         components: {
             'basic-data' : BasicData,
-            'categorization': Categorization
+            'categorization': Categorization,
+            'market-potential': MarketPotential
         },
         methods: {
             saveProposition: function() {

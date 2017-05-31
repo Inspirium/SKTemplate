@@ -28,8 +28,11 @@ export default {
             school_assignment: '',
             school_subject: '',
             school_subject_detailed: '',
+            biblioteca:'',
 
-            biblioteca:''
+            main_target: '',
+            market_potential_note: '',
+            market_potential_documents: []
 
         },
         step: 0,
