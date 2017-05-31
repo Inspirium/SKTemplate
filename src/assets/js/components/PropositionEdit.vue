@@ -4,16 +4,26 @@
         <template v-if="step === 0">
             <basic-data></basic-data>
         </template>
+        <template v-else-if="step === 1">
+            <categorization></categorization>
+        </template>
         <template v-else>
             <h1>No step defined</h1>
         </template>
+        <!-- Footer buttons -->
+        <div class="btn-footer mt-2 mb-5 flex-column flex-md-row d-flex p-2">
+            <span v-if="error">{{ error }}</span>
+            <button class="btn btn-lg btn-save" v-on:click="saveProposition">{{ lang('Save') }}</button>
+            <button class="btn btn-lg btn-assign btn-assign-icon" v-on:click="assignModalOpen">{{ lang('Assign to...') }}</button>
+        </div>
+        <!--/. Footer buttons -->
     </div>
 </template>
 
 <script>
     import BasicData from './proposition/BasicData.vue';
     import Categorization from './proposition/Categorization.vue';
-    import { mapState, mapActions } from 'vuex';
+    import { mapState, mapActions, mapMutations } from 'vuex';
     export default {
         props: {
             proposition: Object
@@ -43,18 +53,24 @@
                 ];
                 return steps[state.step].title;
             },
+            error: state => state.error,
             step: state => state.step
         }),
 
         components: {
             'basic-data' : BasicData,
-        //    'categorization': Categorization
+            'categorization': Categorization
         },
         methods: {
-            propositionUpdate: () => {
-                axios.patch('/api/proposition/' + this.proposition.id)
-                    .then((response) => {}).catch((error) => {});
+            saveProposition: function() {
+                this.$store.dispatch('proposition/saveProposition');
+            },
+            assignModalOpen: function() {
+                //TODO
             }
+        },
+        mounted: function() {
+            //this.$store.commit('proposition/initProposition', this.proposition);
         }
     }
 </script>
