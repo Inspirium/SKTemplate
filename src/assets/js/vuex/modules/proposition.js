@@ -32,7 +32,26 @@ export default {
 
             main_target: '',
             market_potential_note: '',
-            market_potential_documents: []
+            market_potential_documents: [],
+
+            circulations: [],
+            additions: [],
+            number_of_pages: 0,
+            width: 0,
+            height: 0,
+            paper_type: '',
+            additional_work: '',
+            colors: [],
+            colors_first_page: [],
+            colors_last_page: [],
+            cover_type: '',
+            cover_paper_type: '',
+            cover_colors: [],
+            cover_plastification: '',
+            film_print: '',
+            blind_print: '',
+            uv_film: '',
+            technical_data_note: ''
 
         },
         step: 0,
