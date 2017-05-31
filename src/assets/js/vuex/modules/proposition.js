@@ -1,4 +1,5 @@
 import axios from 'axios';
+import _ from 'lodash';
 
 export default {
     namespaced: true,
@@ -15,7 +16,7 @@ export default {
             dotation_origin: '',
             manuscript: '',
             manuscript_documents: [],
-            supergroup: 1,
+            supergroup: 0,
             upgroup: 0,
             group: 0,
             categorization_note: '',
@@ -31,7 +32,7 @@ export default {
             biblioteca:''
 
         },
-        step: 1,
+        step: 0,
         error: ''
     },
     mutations: {
@@ -39,7 +40,9 @@ export default {
             state.proposition[payload.key] = payload.value;
         },
         initProposition(state, payload) {
-            state.proposition = payload;
+            _.forEach(payload, (value, key) => {
+                state.proposition[key] = value;
+            });
         },
         error(state, error) {
             state.error = error;
