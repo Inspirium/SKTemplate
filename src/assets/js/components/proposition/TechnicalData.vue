@@ -189,7 +189,9 @@
 
 <script>
     export default {
-        data: function() {},
+        data: function() {
+            return {}
+        },
         computed: {
             circulations: {
                 get() { return this.$store.state.proposition.proposition.circulations; },
@@ -271,6 +273,9 @@
             deleteAddition: function() {
 
             }
+        },
+        mounted: function() {
+            $('.mdb-select').material_select();
         }
     }
 </script>

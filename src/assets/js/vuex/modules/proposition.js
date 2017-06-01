@@ -21,8 +21,8 @@ export default {
             group: 0,
             categorization_note: '',
 
-            book_type_group: '',
-            book_type: '',
+            book_type_group: 0,
+            book_type: 0,
             school_type: [],
             school_level: [],
             school_assignment: '',

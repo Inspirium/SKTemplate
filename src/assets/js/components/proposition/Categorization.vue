@@ -254,7 +254,10 @@
 
             book_type_group: {
                 get() { return this.$store.state.proposition.proposition.book_type_group; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'book_type_group', value: value}) }
+                set(value) {
+                    this.$store.commit('proposition/updateProposition', {key: 'book_type_group', value: value});
+                    this.$store.commit('proposition/updateProposition', {key: 'book_type', value: 0});
+                }
             },
 
             book_type: {

@@ -10,6 +10,12 @@
         <template v-else-if="step === 2">
             <market-potential></market-potential>
         </template>
+        <template v-else-if="step === 3">
+            <technical-data></technical-data>
+        </template>
+        <template v-else-if="step === 4">
+            <authors-expense></authors-expense>
+        </template>
         <template v-else>
             <h1>No step defined</h1>
         </template>
@@ -27,6 +33,8 @@
     import BasicData from './proposition/BasicData.vue';
     import Categorization from './proposition/Categorization.vue';
     import MarketPotential from './proposition/MarketPotential.vue';
+    import TechnicalData from './proposition/TechnicalData.vue';
+    import AuthorsExpense from './proposition/AuthorsExpense.vue';
     import { mapState, mapActions, mapMutations } from 'vuex';
     export default {
         props: {
@@ -63,8 +71,10 @@
 
         components: {
             'basic-data' : BasicData,
-            'categorization': Categorization,
-            'market-potential': MarketPotential
+            'categorization' : Categorization,
+            'market-potential' : MarketPotential,
+            'technical-data' : TechnicalData,
+            'authors-expense' : AuthorsExpense
         },
         methods: {
             saveProposition: function() {

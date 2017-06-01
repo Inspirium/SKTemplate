@@ -36,7 +36,9 @@
 
 <script>
     export default {
-        data: function() {},
+        data: function() {
+            return {}
+        },
         computed: {
             market_potential_note: {
                 get() { return this.$store.state.proposition.proposition.market_potential_note; },
