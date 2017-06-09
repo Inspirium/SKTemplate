@@ -121,12 +121,6 @@ $sk-skin-btn-default: #293756;
                     }
                 }
             }
-            .menu-incomplete:before {
-                background-color: $success-color;
-            }
-            .menu-complete:before {
-                background-color: $color-incomplete;
-            }
             .collapsible-body li {
                 a {
                     line-height: 45px;
@@ -343,13 +337,12 @@ $sk-skin-btn-default: #293756;
         }
     }
     /* Select colors */
-    .dropdown-content,
-    .mdb-autocomplete-wrap {
+    .dropdown-content {
         li:not(.disabled) {
             span {
                 color: $sk-skin-accent;
             }
-        } 
+        }
     }
     .top-nav-collapse {
         background-color: $sk-skin-navbar;
@@ -381,10 +374,6 @@ $sk-skin-btn-default: #293756;
         .page-link {
             color: $sk-skin-primary-color;
         }
-    }
-    .mdb-autocomplete-wrap {
-        top: 56px;
-        border-radius: .5rem;
     }
     /* Modal */
     .modal {
