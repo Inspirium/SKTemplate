@@ -131,6 +131,12 @@ $sk-skin-btn-default: #293756;
                     }
                 }
             }
+            .menu-incomplete:before {
+                background-color: $success-color;
+            }
+            .menu-complete:before {
+                background-color: $color-incomplete;
+            }
             .collapsible-header {
                 height: 60px;
                 text-transform: uppercase;
