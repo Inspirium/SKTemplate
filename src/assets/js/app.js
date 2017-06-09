@@ -16,13 +16,10 @@ window.breakpoints = {
 
 import Vue from 'vue';
 import VueMoment from 'vue-moment'
+import VueRouter from 'vue-router'
 import store from './vuex/store'
-
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+import { routes } from './routes'
+import { sync } from 'vuex-router-sync'
 
 Vue.prototype.lang= function (key) {
     return _.get(window.translations, key, key);
@@ -31,11 +28,24 @@ Vue.prototype.lang= function (key) {
 Vue.component('inspirium-tablesearch', require('./components/TableSearch.vue'));
 Vue.component('inspirium-notifications', require('./components/Notifications.vue'));
 Vue.component('proposition-edit', require('./components/PropositionEdit.vue'));
+Vue.component('proposition-menu', require('./components/PropositionMenu.vue'));
+
 Vue.use(VueMoment);
+Vue.use(VueRouter);
+
+const router = new VueRouter({
+    mode: 'history',
+    linkActiveClass: 'active',
+    routes
+});
+
+sync(store, router);
+window.vueRouter = router;
 
 const app = new Vue({
     el: '#app',
-    store
+    store,
+    router
 });
 
 

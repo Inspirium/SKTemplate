@@ -140,6 +140,7 @@
     import { mapState } from 'vuex';
 
     export default {
+        name: 'BasicData',
         data: function() {
             return {
                 cancel: false,
