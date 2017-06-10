@@ -5,53 +5,62 @@ export default {
     namespaced: true,
     state: {
         proposition: {
+            assigned: {
+                departments: [],
+                employees: []
+            },
             id: 0,
-            title: '',
-            authors: [],
-            concept: '',
-            basic_data_note: '',
-            possible_products: [],
-            dotation: '',
-            dotation_amount: '',
-            dotation_origin: '',
-            manuscript: '',
-            manuscript_documents: [],
-            supergroup: 0,
-            upgroup: 0,
-            group: 0,
-            categorization_note: '',
-
-            book_type_group: 0,
-            book_type: 0,
-            school_type: [],
-            school_level: [],
-            school_assignment: '',
-            school_subject: '',
-            school_subject_detailed: '',
-            biblioteca:'',
-
-            main_target: '',
-            market_potential_note: '',
-            market_potential_documents: [],
-
-            circulations: [],
-            additions: [],
-            number_of_pages: 0,
-            width: 0,
-            height: 0,
-            paper_type: '',
-            additional_work: '',
-            colors: [],
-            colors_first_page: [],
-            colors_last_page: [],
-            cover_type: '',
-            cover_paper_type: '',
-            cover_colors: [],
-            cover_plastification: '',
-            film_print: '',
-            blind_print: '',
-            uv_film: '',
-            technical_data_note: ''
+            basic_data: {
+                title: '',
+                authors: [],
+                concept: '',
+                note: '',
+                possible_products: [],
+                dotation: '',
+                dotation_amount: '',
+                dotation_origin: '',
+                manuscript: '',
+                manuscript_documents: [],
+            },
+            categorization: {
+                supergroup: 0,
+                upgroup: 0,
+                group: 0,
+                note: '',
+                book_type_group: 0,
+                book_type: 0,
+                school_type: [],
+                school_level: [],
+                school_assignment: '',
+                school_subject: '',
+                school_subject_detailed: '',
+                biblioteca:'',
+            },
+            market_potential: {
+                main_target: '',
+                note: '',
+                market_potential_documents: [],
+            },
+            technical_data: {
+                circulations: [],
+                additions: [],
+                number_of_pages: 0,
+                width: 0,
+                height: 0,
+                paper_type: '',
+                additional_work: '',
+                colors: [],
+                colors_first_page: [],
+                colors_last_page: [],
+                cover_type: '',
+                cover_paper_type: '',
+                cover_colors: [],
+                cover_plastification: '',
+                film_print: '',
+                blind_print: '',
+                uv_film: '',
+                technical_data_note: ''
+            }
 
         },
         step: 0,
@@ -59,7 +68,13 @@ export default {
     },
     mutations: {
         updateProposition(state, payload) {
-            state.proposition[payload.key] = payload.value;
+            console.log(payload);
+            if (payload.group) {
+                state.proposition[payload.group][payload.key] = payload.value;
+            }
+            else {
+                state.proposition[payload.key] = payload.value;
+            }
         },
         initProposition(state, payload) {
             _.forEach(payload, (value, key) => {

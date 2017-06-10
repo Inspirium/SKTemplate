@@ -1,5 +1,7 @@
 <template>
-    <div class="row">
+    <div>
+        <div class="page-name-xl mb-3">{{ lang('Basic Data') }}</div>
+        <div class="row">
         <div class="col-md-12">
 
             <!-- Input field -->
@@ -133,10 +135,13 @@
 
         <upload-modal action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" v-on:fileDelete="fileDelete" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave"></upload-modal>
     </div>
+        <footer-buttons></footer-buttons>
+    </div>
 </template>
 
 <script>
     import uploadModal from '../general/UploadModal.vue';
+    import FooterButtons from './partials/FooterButtons.vue';
     import { mapState } from 'vuex';
 
     export default {
@@ -149,7 +154,8 @@
             }
         },
         components: {
-            'upload-modal' : uploadModal
+            'upload-modal' : uploadModal,
+            'footer-buttons' : FooterButtons
         },
         methods: {
             document_add: function() {
