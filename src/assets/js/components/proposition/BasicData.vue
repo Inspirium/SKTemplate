@@ -159,17 +159,7 @@
         },
         methods: {
             document_add: function() {
-                //TODO: open modal, upload file...
                 jQuery('#upload-modal').modal('show');
-                this.documents.push({
-                    id: 1,
-                    title: 'Fizika',
-                    author: {
-                        name : 'Marko',
-                        image : ''
-                    },
-                    link: ''
-                });
             },
             document_download: function(index) {
                 window.open(this.documents[index].link, "_blank");
@@ -177,13 +167,6 @@
             document_delete: function(index) {
                 this.documents.splice(index, 1);
                 //TODO: make request
-            },
-            author_add: function() {
-                //TODO: make request
-                this.authors.push({
-                    name: "Vladimir Paar",
-                    image: "https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg"
-                });
             },
             author_delete: function(index) {
                 this.authors.splice(index, 1);
@@ -231,45 +214,47 @@
         },
         computed: {
             title: {
-                get() { return this.$store.state.proposition.proposition.title; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'title', value: value}) }
+                get() { return this.$store.state.proposition.proposition.basic_data.title; },
+                set(value) { this.$store.commit('proposition/updateProposition', {key: 'title', group: 'basic_data', value: value}) }
             },
             concept: {
-                get() { return this.$store.state.proposition.proposition.concept; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'concept', value: value}) }
+                get() { return this.$store.state.proposition.proposition.basic_data.concept; },
+                set(value) { this.$store.commit('proposition/updateProposition', {key: 'concept', group: 'basic_data', value: value}) }
             },
             possible_products: {
-                get() { return this.$store.state.proposition.proposition.possible_products; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'possible_product', value: value}) }
+                get() { return this.$store.state.proposition.proposition.basic_data.possible_products; },
+                set(value) { this.$store.commit('proposition/updateProposition', {key: 'possible_products', group: 'basic_data', value: value}) }
             },
             basic_data_note: {
-                get() { return this.$store.state.proposition.proposition.basic_data_note; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'basic_data_note', value: value}) }
+                get() { return this.$store.state.proposition.proposition.basic_data.note; },
+                set(value) { this.$store.commit('proposition/updateProposition', {key: 'note', group: 'basic_data', value: value}) }
             },
             dotation: {
-                get() { return this.$store.state.proposition.proposition.dotation; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'dotation', value: value}) }
+                get() { return this.$store.state.proposition.proposition.basic_data.dotation; },
+                set(value) { this.$store.commit('proposition/updateProposition', {key: 'dotation', group: 'basic_data', value: value}) }
             },
             dotation_amount: {
-                get() { return this.$store.state.proposition.proposition.dotation_amount; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'dotation_amount', value: value}) }
+                get() { return this.$store.state.proposition.proposition.basic_data.dotation_amount; },
+                set(value) { this.$store.commit('proposition/updateProposition', {key: 'dotation_amount', group: 'basic_data', value: value}) }
             },
             dotation_origin: {
-                get() { return this.$store.state.proposition.proposition.dotation_origin; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'dotation_origin', value: value}) }
+                get() { return this.$store.state.proposition.proposition.basic_data.dotation_origin; },
+                set(value) { this.$store.commit('proposition/updateProposition', {key: 'dotation_origin', group: 'basic_data', value: value}) }
             },
             manuscript: {
-                get() { return this.$store.state.proposition.proposition.manuscript; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'manuscript', value: value}) }
+                get() { return this.$store.state.proposition.proposition.basic_data.manuscript; },
+                set(value) { this.$store.commit('proposition/updateProposition', {key: 'manuscript', group: 'basic_data', value: value}) }
             },
             manuscript_documents: {
-                get() { return this.$store.state.proposition.proposition.manuscript_documents; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'manuscript_documents', value: value}) }
+                get() { return this.$store.state.proposition.proposition.basic_data.manuscript_documents; },
+                set(value) { this.$store.commit('proposition/updateProposition', {key: 'manuscript_documents', group: 'basic_data', value: value}) }
             },
             authors: {
-                get() { return this.$store.state.proposition.proposition.authors; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'authors', value: value}) }
+                get() { return this.$store.state.proposition.proposition.basic_data.authors; },
+                set(value) { this.$store.commit('proposition/updateProposition', {key: 'authors', group: 'basic_data', value: value}) }
             }
+        },
+        mounted: function() {
         }
     }
 </script>

@@ -1,5 +1,6 @@
 <template>
     <div>
+        <div class="page-name-xl mb-3">{{ lang('Technical Data') }}</div>
     <div class="row">
         <div class="col-md-12">
 
@@ -7,34 +8,34 @@
             <div class="row">
                 <div class="col-md-10">
                     <div class="md-form d-flex addon">
-                        <input type="text" id="form1" class="form-control" v-bind:placeholder="lang('Circulation')">
+                        <input type="text" id="form1" class="form-control" v-bind:placeholder="lang('Circulation')" v-model="circulation" v-on:keydown.13="addCirculation">
                         <label for="form1" class="">{{ lang('Circulation') }}</label>
                         <span class="d-flex">
-                            <button class="btn btn-neutral btn-addon" type="button">{{ lang('Add') }}</button>
+                            <button class="btn btn-neutral btn-addon" type="button" v-on:click="addCirculation">{{ lang('Add') }}</button>
                         </span>
                     </div>
                 </div>
             </div>
             <div class="chip mb-3" v-for="item in circulations">
                 {{ item }}
-                <i class="close fa fa-times" v-on:click="deleteCirculation"></i>
+                <i class="close fa fa-times" v-on:click="deleteCirculation(item)"></i>
             </div>
 
             <!-- Input field -->
             <div class="row">
                 <div class="col-md-10">
                     <div class="md-form d-flex addon">
-                        <input type="text" id="form2" class="form-control" v-bind:placeholder="lang('Additions')">
+                        <input type="text" id="form2" class="form-control" v-bind:placeholder="lang('Additions')" v-model="addition" v-on:keydown.13="addAddition">
                         <label for="form2" class="">{{ lang('Additions') }}</label>
                         <span class="d-flex">
-                            <button class="btn btn-neutral btn-addon" type="button">{{ lang('Add') }}</button>
+                            <button class="btn btn-neutral btn-addon" type="button" v-on:click="addAddition">{{ lang('Add') }}</button>
                         </span>
                     </div>
                 </div>
             </div>
             <div class="chip mb-3" v-for="item in additions">
                 {{ item }}
-                <i class="close fa fa-times" v-on:click="deleteAddition"></i>
+                <i class="close fa fa-times" v-on:click="deleteAddition(item)"></i>
             </div>
 
             <!-- First column -->
@@ -181,97 +182,117 @@
 
     <!-- Textarea -->
     <div class="md-form mt-2">
-        <textarea id="form76" class="md-textarea" v-model="technical_data_note"></textarea>
+        <textarea id="form76" class="md-textarea" v-model="note"></textarea>
         <label for="form76">{{ lang('Note') }}</label>
     </div>
+        <footer-buttons></footer-buttons>
     </div>
 </template>
 
 <script>
+    import FooterButtons from './partials/FooterButtons.vue'
     export default {
         data: function() {
-            return {}
+            return {
+                circulation: '',
+                addition: ''
+            }
+        },
+        components: {
+            'footer-buttons' : FooterButtons
         },
         computed: {
             circulations: {
-                get() { return this.$store.state.proposition.proposition.circulations; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'circulations', value: value}) }
+                get() { return this.$store.state.proposition.proposition.technical_data.circulations; },
+                set(value) { this.$store.commit('proposition/updateProposition', {key: 'circulations', group:'technical_data', value: value}) }
             },
             additions: {
-                get() { return this.$store.state.proposition.proposition.additions; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'additions', value: value}) }
+                get() { return this.$store.state.proposition.proposition.technical_data.additions; },
+                set(value) { this.$store.commit('proposition/updateProposition', {key: 'additions', group:'technical_data', value: value}) }
             },
             number_of_pages: {
-                get() { return this.$store.state.proposition.proposition.number_of_pages; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'number_of_pages', value: value}) }
+                get() { return this.$store.state.proposition.proposition.technical_data.number_of_pages; },
+                set(value) { this.$store.commit('proposition/updateProposition', {key: 'number_of_pages', group:'technical_data', value: value}) }
             },
             width: {
-                get() { return this.$store.state.proposition.proposition.width; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'width', value: value}) }
+                get() { return this.$store.state.proposition.proposition.technical_data.width; },
+                set(value) { this.$store.commit('proposition/updateProposition', {key: 'width', group:'technical_data', value: value}) }
             },
             height: {
-                get() { return this.$store.state.proposition.proposition.height; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'height', value: value}) }
+                get() { return this.$store.state.proposition.proposition.technical_data.height; },
+                set(value) { this.$store.commit('proposition/updateProposition', {key: 'height', group:'technical_data', value: value}) }
             },
             paper_type: {
-                get() { return this.$store.state.proposition.proposition.paper_type; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'paper_type', value: value}) }
+                get() { return this.$store.state.proposition.proposition.technical_data.paper_type; },
+                set(value) { this.$store.commit('proposition/updateProposition', {key: 'paper_type', group:'technical_data', value: value}) }
             },
             additional_work: {
-                get() { return this.$store.state.proposition.proposition.additional_work; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'additional_work', value: value}) }
+                get() { return this.$store.state.proposition.proposition.technical_data.additional_work; },
+                set(value) { this.$store.commit('proposition/updateProposition', {key: 'additional_work', group:'technical_data', value: value}) }
             },
             colors: {
-                get() { return this.$store.state.proposition.proposition.colors; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'colors', value: value}) }
+                get() { return this.$store.state.proposition.proposition.technical_data.colors; },
+                set(value) { this.$store.commit('proposition/updateProposition', {key: 'colors', group:'technical_data', value: value}) }
             },
             colors_first_page: {
-                get() { return this.$store.state.proposition.proposition.colors_first_page; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'colors_first_page', value: value}) }
+                get() { return this.$store.state.proposition.proposition.technical_data.colors_first_page; },
+                set(value) { this.$store.commit('proposition/updateProposition', {key: 'colors_first_page', group:'technical_data', value: value}) }
             },
             colors_last_page: {
-                get() { return this.$store.state.proposition.proposition.colors_last_page; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'colors_last_page', value: value}) }
+                get() { return this.$store.state.proposition.proposition.technical_data.colors_last_page; },
+                set(value) { this.$store.commit('proposition/updateProposition', {key: 'colors_last_page', group:'technical_data', value: value}) }
             },
             cover_type: {
-                get() { return this.$store.state.proposition.proposition.cover_type; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'cover_type', value: value}) }
+                get() { return this.$store.state.proposition.proposition.technical_data.cover_type; },
+                set(value) { this.$store.commit('proposition/updateProposition', {key: 'cover_type', group:'technical_data', value: value}) }
             },
             cover_paper_type: {
-                get() { return this.$store.state.proposition.proposition.cover_paper_type; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'cover_paper_type', value: value}) }
+                get() { return this.$store.state.proposition.proposition.technical_data.cover_paper_type; },
+                set(value) { this.$store.commit('proposition/updateProposition', {key: 'cover_paper_type', group:'technical_data', value: value}) }
             },
             cover_colors: {
-                get() { return this.$store.state.proposition.proposition.cover_colors; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'cover_colors', value: value}) }
+                get() { return this.$store.state.proposition.proposition.technical_data.cover_colors; },
+                set(value) { this.$store.commit('proposition/updateProposition', {key: 'cover_colors', group:'technical_data', value: value}) }
             },
             cover_plastification: {
-                get() { return this.$store.state.proposition.proposition.cover_plastification; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'cover_plastification', value: value}) }
+                get() { return this.$store.state.proposition.proposition.technical_data.cover_plastification; },
+                set(value) { this.$store.commit('proposition/updateProposition', {key: 'cover_plastification', group:'technical_data', value: value}) }
             },
             film_print: {
-                get() { return this.$store.state.proposition.proposition.film_print; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'film_print', value: value}) }
+                get() { return this.$store.state.proposition.proposition.technical_data.film_print; },
+                set(value) { this.$store.commit('proposition/updateProposition', {key: 'film_print', group:'technical_data', value: value}) }
             },
             blind_print: {
-                get() { return this.$store.state.proposition.proposition.blind_print; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'blind_print', value: value}) }
+                get() { return this.$store.state.proposition.proposition.technical_data.blind_print; },
+                set(value) { this.$store.commit('proposition/updateProposition', {key: 'blind_print', group:'technical_data', value: value}) }
             },
             uv_film: {
-                get() { return this.$store.state.proposition.proposition.uv_film; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'uv_film', value: value}) }
+                get() { return this.$store.state.proposition.proposition.technical_data.uv_film; },
+                set(value) { this.$store.commit('proposition/updateProposition', {key: 'uv_film', group:'technical_data', value: value}) }
             },
-            technical_data_note: {
-                get() { return this.$store.state.proposition.proposition.technical_data_note; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'technical_data_note', value: value}) }
+            note: {
+                get() { return this.$store.state.proposition.proposition.technical_data.note; },
+                set(value) { this.$store.commit('proposition/updateProposition', {key: 'note', group:'technical_data', value: value}) }
             },
         },
         methods: {
-            deleteCirculation: function() {
-
+            deleteCirculation: function(value) {
+                this.$store.commit('proposition/removeFromArray', {key: 'circulations', group:'technical_data', value: value});
             },
-            deleteAddition: function() {
-
+            deleteAddition: function(value) {
+                this.$store.commit('proposition/removeFromArray', {key: 'additions', group:'technical_data', value: value});
+            },
+            addCirculation: function() {
+                if (this.circulation) {
+                    this.$store.commit('proposition/pushToArray', {key: 'circulations', group:'technical_data', value: this.circulation});
+                    this.circulation = '';
+                }
+            },
+            addAddition: function() {
+                if (this.addition) {
+                    this.$store.commit('proposition/pushToArray', {key: 'additions', group:'technical_data', value: this.addition});
+                    this.addition = '';
+                }
             }
         },
         mounted: function() {

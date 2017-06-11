@@ -59,22 +59,88 @@ export default {
                 film_print: '',
                 blind_print: '',
                 uv_film: '',
-                technical_data_note: ''
-            }
+                note: ''
+            },
+            print: {},
+            authors_expense: {},
+            production_expense: {
+                text_price: 0,
+                text_price_amount: 0,
+                note: '',
+                accontation: 0,
+                netto_price_percentage: 0,
+                reviews: 0,
+                lecture: 0,
+                lecture_amount: 0,
+                correction: 0,
+                correction_amount: 0,
+                proofreading: 0,
+                proofreading_amount: 0,
+                translation: 0,
+                translation_amount: 0,
+                index: 0,
+                index_amount: 0,
+                reviews2: 0,
+                photos: 0,
+                photos_amount: 0,
+                illustrations: 0,
+                illustrations_amount: 0,
+                technical_drawings: 0,
+                technical_drawings_amount: 0,
+                expert_report: 0,
+                copyright: 0,
+                copyright_mediator: 0,
+                selection: 0,
+                powerpoint_presentation: 0,
+                methodical_instrumentarium: 0
+            },
+            marketing_expense: {},
+            distribution_expense: {},
+            layout_expense: {},
+            deadline: {},
+            precalculation: {},
+            calculation: {},
+            work_order: {}
 
         },
         step: 0,
+        steps: [
+            '/proposition/basic_data',
+            '/proposition/categorization',
+            '/proposition/market_potential',
+            '/proposition/technical_data',
+            '/proposition/print',
+            '/proposition/authors_expense',
+            '/proposition/production_expense',
+            '/proposition/marketing_expense',
+            '/proposition/distribution_expense',
+            '/proposition/layout_expense',
+            '/proposition/deadline',
+            '/proposition/precalculation',
+            '/proposition/calculation',
+            '/proposition/word_order',
+        ],
         error: ''
     },
     mutations: {
         updateProposition(state, payload) {
-            console.log(payload);
             if (payload.group) {
                 state.proposition[payload.group][payload.key] = payload.value;
             }
             else {
                 state.proposition[payload.key] = payload.value;
             }
+        },
+        pushToArray(state, payload) {
+            state.proposition[payload.group][payload.key].push(payload.value);
+        },
+        removeFromArray(state, payload) {
+            let arr = state.proposition[payload.group][payload.key];
+            let index = payload.index;
+            if (!index) {
+                index = arr.indexOf(payload.value)
+            }
+            arr.splice(index, 1);
         },
         initProposition(state, payload) {
             _.forEach(payload, (value, key) => {

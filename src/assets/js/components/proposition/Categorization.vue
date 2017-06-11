@@ -1,5 +1,6 @@
 <template>
 <div>
+    <div class="page-name-xl mb-3">{{ lang('Categorization') }}</div>
     <div class="page-name-l mb-2">{{ lang('Basic Categorization') }}</div>
     <div class="row">
         <div class="col-md-12">
@@ -188,13 +189,15 @@
 
     <!-- Textarea -->
     <div class="md-form mt-3">
-        <textarea id="categorization_note" class="md-textarea" v-model="categorization_note"></textarea>
+        <textarea id="categorization_note" class="md-textarea" v-model="note"></textarea>
         <label for="categorization_note">{{ lang('Note') }}</label>
     </div>
+    <footer-buttons></footer-buttons>
 </div>
 </template>
 
 <script>
+    import FooterButtons from './partials/FooterButtons.vue'
     export default {
         data: function() {
             return {
@@ -204,6 +207,9 @@
                 school_subjects: {},
                 bibliotecas: {}
             }
+        },
+        components: {
+            'footer-buttons': FooterButtons
         },
         mounted: function() {
             axios.get('/api/book/category')
@@ -233,67 +239,67 @@
         },
         computed: {
             supergroup: {
-                get() { return this.$store.state.proposition.proposition.supergroup; },
+                get() { return this.$store.state.proposition.proposition.categorization.supergroup; },
                 set(value) {
-                    this.$store.commit('proposition/updateProposition', {key: 'supergroup', value: value});
-                    this.$store.commit('proposition/updateProposition', {key: 'upgroup', value: 0});
-                    this.$store.commit('proposition/updateProposition', {key: 'group', value: 0});
+                    this.$store.commit('proposition/updateProposition', {key: 'supergroup', group: 'categorization', value: value});
+                    this.$store.commit('proposition/updateProposition', {key: 'upgroup', group: 'categorization', value: 0});
+                    this.$store.commit('proposition/updateProposition', {key: 'group', group: 'categorization', value: 0});
                 }
             },
             upgroup: {
-                    get() { return this.$store.state.proposition.proposition.upgroup; },
+                    get() { return this.$store.state.proposition.proposition.categorization.upgroup; },
                     set(value) {
-                        this.$store.commit('proposition/updateProposition', {key: 'upgroup', value: value});
-                        this.$store.commit('proposition/updateProposition', {key: 'group', value: 0});
+                        this.$store.commit('proposition/updateProposition', {key: 'upgroup', group: 'categorization', value: value});
+                        this.$store.commit('proposition/updateProposition', {key: 'group', group: 'categorization', value: 0});
                     }
             },
             group: {
-                get() { return this.$store.state.proposition.proposition.group; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'group', value: value}) }
+                get() { return this.$store.state.proposition.proposition.categorization.group; },
+                set(value) { this.$store.commit('proposition/updateProposition', {key: 'group', group: 'categorization', value: value}) }
             },
 
             book_type_group: {
-                get() { return this.$store.state.proposition.proposition.book_type_group; },
+                get() { return this.$store.state.proposition.proposition.categorization.book_type_group; },
                 set(value) {
-                    this.$store.commit('proposition/updateProposition', {key: 'book_type_group', value: value});
-                    this.$store.commit('proposition/updateProposition', {key: 'book_type', value: 0});
+                    this.$store.commit('proposition/updateProposition', {key: 'book_type_group', group: 'categorization', value: value});
+                    this.$store.commit('proposition/updateProposition', {key: 'book_type', group: 'categorization', value: 0});
                 }
             },
 
             book_type: {
-                get() { return this.$store.state.proposition.proposition.book_type; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'book_type', value: value}) }
+                get() { return this.$store.state.proposition.proposition.categorization.book_type; },
+                set(value) { this.$store.commit('proposition/updateProposition', {key: 'book_type', group: 'categorization', value: value}) }
             },
             school_type: {
-                get() { return this.$store.state.proposition.proposition.school_type; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'school_type', value: value}) }
+                get() { return this.$store.state.proposition.proposition.categorization.school_type; },
+                set(value) { this.$store.commit('proposition/updateProposition', {key: 'school_type', group: 'categorization', value: value}) }
             },
             school_level: {
-                get() { return this.$store.state.proposition.proposition.school_level; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'school_level', value: value}) }
+                get() { return this.$store.state.proposition.proposition.categorization.school_level; },
+                set(value) { this.$store.commit('proposition/updateProposition', {key: 'school_level', group: 'categorization', value: value}) }
             },
             school_assignment: {
-                get() { return this.$store.state.proposition.proposition.school_assignment; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'school_assignment', value: value}) }
+                get() { return this.$store.state.proposition.proposition.categorization.school_assignment; },
+                set(value) { this.$store.commit('proposition/updateProposition', {key: 'school_assignment', group: 'categorization', value: value}) }
             },
             school_subject: {
-                get() { return this.$store.state.proposition.proposition.school_subject; },
+                get() { return this.$store.state.proposition.proposition.categorization.school_subject; },
                 set(value) {
-                    this.$store.commit('proposition/updateProposition', {key: 'school_subject', value: value});
-                    this.$store.commit('proposition/updateProposition', {key: 'school_subject_detailed', value: 0});
+                    this.$store.commit('proposition/updateProposition', {key: 'school_subject', group: 'categorization', value: value});
+                    this.$store.commit('proposition/updateProposition', {key: 'school_subject_detailed', group: 'categorization', value: 0});
                 }
             },
             school_subject_detailed: {
-                get() { return this.$store.state.proposition.proposition.school_subject_detailed; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'school_subject_detailed', value: value}) }
+                get() { return this.$store.state.proposition.proposition.categorization.school_subject_detailed; },
+                set(value) { this.$store.commit('proposition/updateProposition', {key: 'school_subject_detailed', group: 'categorization', value: value}) }
             },
             biblioteca: {
-                get() { return this.$store.state.proposition.proposition.biblioteca; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'biblioteca', value: value}) }
+                get() { return this.$store.state.proposition.proposition.categorization.biblioteca; },
+                set(value) { this.$store.commit('proposition/updateProposition', {key: 'biblioteca', group: 'categorization', value: value}) }
             },
-            categorization_note: {
-                get() { return this.$store.state.proposition.proposition.categorization_note; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'categorization_note', value: value}) }
+            note: {
+                get() { return this.$store.state.proposition.proposition.categorization.note; },
+                set(value) { this.$store.commit('proposition/updateProposition', {key: 'note', group: 'categorization', value: value}) }
             },
         },
         methods: {

@@ -89,6 +89,9 @@
         methods: {
             saveProposition: function() {
                 this.$store.dispatch('proposition/saveProposition');
+                this.$router.push({
+                    path: this.$store.state.proposition.steps[this.$store.state.proposition.step+1]
+                });
             },
             assignModalOpen: function() {
                 jQuery('#centralModalAssign').modal('show');
@@ -118,12 +121,12 @@
             },
             autocomplete_select: function(index, type) {
                 if (type === 'department') {
-                    this.departments.push(this.d_suggestions[index]);
+                    this.$store.commit('proposition/pushToArray', {key: 'departments', group: 'assigned', value: this.d_suggestions[index]});
                     this.d_suggestions = [];
                     this.department = '';
                 }
                 else {
-                    this.employees.push(this.e_suggestions[index]);
+                    this.$store.commit('proposition/pushToArray', {key: 'employees', group: 'assigned', value: this.e_suggestions[index]});
                     this.e_suggestions = [];
                     this.employee = '';
                 }

@@ -1,4 +1,6 @@
 <template>
+    <div>
+        <div class="page-name-xl mb-3">{{ lang('Market Potential') }}</div>
     <div class="row">
         <div class="col-md-12">
 
@@ -10,7 +12,7 @@
 
             <!-- Textarea -->
             <div class="md-form mt-3">
-                <textarea id="form76" class="md-textarea" v-model="market_potential_note"></textarea>
+                <textarea id="form76" class="md-textarea" v-model="note"></textarea>
                 <label for="form76">{{ lang('Note') }}</label>
             </div>
 
@@ -21,7 +23,7 @@
             <!-- File/document table -->
             <div class="files mt-2 mb-2">
                 <div class="file-box file-box-l d-flex align-items-center" v-for="item in market_potential_documents">
-                    <a src="" href="http://homestead.app/images/profile.pdf" class="file-icon">{{ item.title }}</a>
+                    <a href="http://homestead.app/images/profile.pdf" class="file-icon">{{ item.title }}</a>
                     <div class="file-box-sty ml-auto d-flex">
                         <a href=""><img class="profile-m-1 mr-1 align-self-center" src="/images/profile.jpg" href="#">{{ item.author }}
                         </a></div>
@@ -32,25 +34,31 @@
             </div>
         </div>
     </div>
+        <footer-buttons></footer-buttons>
+    </div>
 </template>
 
 <script>
+    import FooterButtons from './partials/FooterButtons.vue'
     export default {
         data: function() {
             return {}
         },
+        components: {
+            'footer-buttons' : FooterButtons
+        },
         computed: {
-            market_potential_note: {
-                get() { return this.$store.state.proposition.proposition.market_potential_note; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'market_potential_note', value: value}) }
+            note: {
+                get() { return this.$store.state.proposition.proposition.market_potential.note; },
+                set(value) { this.$store.commit('proposition/updateProposition', {key: 'note', group: 'market_potential', value: value}) }
             },
             main_target: {
-                get() { return this.$store.state.proposition.proposition.main_target; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'main_target', value: value}) }
+                get() { return this.$store.state.proposition.proposition.market_potential.main_target; },
+                set(value) { this.$store.commit('proposition/updateProposition', {key: 'main_target', group: 'market_potential', value: value}) }
             },
             market_potential_documents: {
-                get() { return this.$store.state.proposition.proposition.market_potential_documents; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'market_potential_documents', value: value}) }
+                get() { return this.$store.state.proposition.proposition.market_potential.market_potential_documents; },
+                set(value) { this.$store.commit('proposition/updateProposition', {key: 'market_potential_documents', group: 'market_potential', value: value}) }
             },
         }
     }
