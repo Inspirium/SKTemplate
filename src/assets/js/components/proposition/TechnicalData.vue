@@ -69,24 +69,28 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <select class="mdb-select" v-model="colors" multiple>
+                            <select class="mdb-select" v-model="colors">
                                 <option disabled >{{ lang('Choose Colors') }}</option>
+                                <option v-for="(color, index) in option_colors" v-bind:value="index+1">{{ lang(color) }}</option>
+
                             </select>
                             <label>{{ lang('Colors') }}</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <select class="mdb-select" v-model="colors_first_page" multiple>
+                            <select class="mdb-select" v-model="colors_first_page">
                                 <option disabled >{{ lang('Colors - First Pages') }}</option>
+                                <option v-for="(color, index) in option_colors" v-bind:value="index+1">{{ lang(color) }}</option>
                             </select>
                             <label>{{ lang('Colors - First Pages') }}</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <select class="mdb-select" v-model="colors_last_page" multiple>
+                            <select class="mdb-select" v-model="colors_last_page">
                                 <option disabled >{{ lang('Colors - Last Pages') }}</option>
+                                <option v-for="(color, index) in option_colors" v-bind:value="index+1">{{ lang(color) }}</option>
                             </select>
                             <label>{{ lang('Colors - Last Pages') }}</label>
                         </div>
@@ -106,6 +110,10 @@
                         <div class="col-md-12">
                             <select class="mdb-select" v-model="cover_type">
                                 <option disabled >{{ lang('Hard/Soft Cover') }}</option>
+                                <option value="none">{{ lang('None') }}</option>
+                                <option value="hard">{{ lang('Hard Cover') }}</option>
+                                <option value="soft">{{ lang('Soft Cover') }}</option>
+                                <option value="both">{{ lang('Hard and Soft Cover') }}</option>
                             </select>
                             <label>{{ lang('Hard/Soft Cover') }}</label>
                         </div>
@@ -114,9 +122,7 @@
                     <!-- Dropdown menu -->
                     <div class="row">
                         <div class="col-md-12">
-                            <select class="mdb-select" v-model="cover_paper_type">
-                                <option disabled >{{ lang('Paper Type') }}</option>
-                            </select>
+                            <input type="text" v-model="cover_paper_type" class="form-control">
                             <label>{{ lang('Paper Type') }}</label>
                         </div>
                     </div>
@@ -126,6 +132,7 @@
                         <div class="col-md-12">
                             <select class="mdb-select" v-model="cover_colors">
                                 <option disabled >{{ lang('Choose Colors') }}</option>
+                                <option v-for="(color, index) in option_colors" v-bind:value="index+1">{{ lang(color) }}</option>
                             </select>
                             <label>{{ lang('Colors') }}</label>
                         </div>
@@ -134,6 +141,9 @@
                         <div class="col-md-12">
                             <select class="mdb-select" v-model="cover_plastification">
                                 <option disabled >{{ lang('Plastification') }}</option>
+                                <option value="none">{{ lang('None') }}</option>
+                                <option value="glossy">{{ lang('Glossy plastification') }}</option>
+                                <option value="mat">{{ lang('Mat plastification') }}</option>
                             </select>
                             <label>{{ lang('Plastification') }}</label>
                         </div>
@@ -195,7 +205,8 @@
         data: function() {
             return {
                 circulation: '',
-                addition: ''
+                addition: '',
+                option_colors: ['One color', 'Two colours', 'Three Colours', 'Four colours', 'Five Colours']
             }
         },
         components: {
