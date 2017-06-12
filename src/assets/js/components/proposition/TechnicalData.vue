@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-md-10">
                     <div class="md-form d-flex addon">
-                        <input type="text" id="form1" class="form-control" v-bind:placeholder="lang('Circulation')" v-model="circulation" v-on:keydown.13="addCirculation">
+                        <input type="number" id="form1" class="form-control" v-bind:placeholder="lang('Circulation')" v-model.number="circulation" step="1" min="1" v-on:keydown.13="addCirculation">
                         <label for="form1" class="">{{ lang('Circulation') }}</label>
                         <span class="d-flex">
                             <button class="btn btn-neutral btn-addon" type="button" v-on:click="addCirculation">{{ lang('Add') }}</button>
@@ -122,8 +122,9 @@
                     <!-- Dropdown menu -->
                     <div class="row">
                         <div class="col-md-12">
-                            <input type="text" v-model="cover_paper_type" class="form-control">
                             <label>{{ lang('Paper Type') }}</label>
+                            <input type="text" v-model="cover_paper_type" class="form-control">
+
                         </div>
                     </div>
 
@@ -294,7 +295,7 @@
                 this.$store.commit('proposition/removeFromArray', {key: 'additions', group:'technical_data', value: value});
             },
             addCirculation: function() {
-                if (this.circulation) {
+                if (this.circulation && !isNaN(parseFloat(this.circulation)) && isFinite(this.circulation)) {
                     this.$store.commit('proposition/pushToArray', {key: 'circulations', group:'technical_data', value: this.circulation});
                     this.circulation = '';
                 }
