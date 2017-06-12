@@ -186,7 +186,7 @@
     export default {
         data: function () {
             return {
-                option_colors: ['One color', 'Two colours', 'Three Colours', 'Four colours', 'Five Colours'],
+                option_colors: ['One Colour', 'Two Colours', 'Three Colours', 'Full Colour', 'Fifth Colour'],
                 circulations: this.$store.state.proposition.proposition.technical_data.circulations,
                 cover_type:''
             }

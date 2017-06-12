@@ -206,7 +206,7 @@
             return {
                 circulation: '',
                 addition: '',
-                option_colors: ['One color', 'Two colours', 'Three Colours', 'Four colours', 'Five Colours']
+                option_colors: ['One Colour', 'Two Colours', 'Three Colours', 'Full Colour', 'Fifth Colour']
             }
         },
         components: {
