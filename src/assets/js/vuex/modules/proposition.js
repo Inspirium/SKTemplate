@@ -42,7 +42,7 @@ export default {
                 market_potential_documents: [],
             },
             technical_data: {
-                circulations: [],
+                circulations: [100,200],
                 additions: [],
                 number_of_pages: 0,
                 width: 0,
@@ -61,7 +61,9 @@ export default {
                 uv_film: '',
                 note: ''
             },
-            print: {},
+            print: {
+                offers:[]
+            },
             authors_expense: {},
             production_expense: {
                 text_price: 0,
@@ -100,10 +102,10 @@ export default {
             deadline: {},
             precalculation: {},
             calculation: {},
-            work_order: {}
+            work_order: {},
 
+            step: 0,
         },
-        step: 0,
         steps: [
             '/proposition/basic_data',
             '/proposition/categorization',
@@ -151,7 +153,7 @@ export default {
             state.error = error;
         },
         stepIncrement(state) {
-            state.step++;
+            state.proposition.step++;
         }
     },
     actions: {

@@ -1,182 +1,191 @@
 <template>
 <div>
     <div class="page-name-xl mb-2">{{ lang('Print Offers') }}</div>
-    <div class="row">
-        <div class="col-md-12">
-            <h6 class="text-center no-border display-e">{{ lang('Circulation') }}</h6>
-            <h1 class="text-center display-2">{{ 1000 }}</h1>
-            <div class="print-offer-box mt-2 mb-3">
-                <div class="row">
-                    <div class="col-md-6 mx-auto">
-                        <!-- Input field -->
-                        <div class="md-form d-flex">
-                            <input type="text" class="form-control" v-bind:placeholder="lang('In Kn')">
-                            <label>{{ lang('Print offer') }}</label>
-                            <span class="d-flex">
-                                <button class="btn btn-neutral btn-addon" type="button">{{ lang('Save') }}</button>
-                            </span>
+    <div class="row tabs-wrapper">
+    <ul class="col nav classic-tabs tabs-cyan" id="tabs" role="tablist">
+        <li class="nav-item" v-for="(circulation, index) in $store.state.proposition.proposition.technical_data.circulations">
+            <a v-bind:class="['nav-link', !index?'active':'']" data-toggle="tab" v-bind:href="'#panel'+index" role="tab" v-on:click="switchTab($event)">{{ circulation }}</a>
+        </li>
+    </ul>
+    </div>
+    <div class="tab-content">
+        <div v-bind:class="['tab-pane', 'fade', !index?'active in show':'']" v-bind:id="'panel'+index" role="tabpanel" v-for="(offer, index) in local_offers">
+            <div class="row">
+                <div class="col-md-12">
+                    <h6 class="text-center no-border display-e">{{ lang('Circulation') }}</h6>
+                    <h1 class="text-center display-2">{{ offer.title }}</h1>
+                    <div class="print-offer-box mt-2 mb-3">
+                        <div class="row">
+                            <div class="col-md-6 mx-auto">
+                                <!-- Input field -->
+                                <div class="md-form d-flex">
+                                    <input type="text" class="form-control" v-bind:placeholder="lang('In Kn')" v-model="offer.price">
+                                    <label>{{ lang('Print offer') }}</label>
+                                    <span class="d-flex">
+                                        <button class="btn btn-neutral btn-addon" type="button" v-on:click="saveOffer">{{ lang('Save') }}</button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- First column -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="page-name-l mb-2">{{ lang('Book Block') }}</div>
+
+                            <!-- Dropdown menu -->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <select class="mdb-select" v-model="offer.cover_type">
+                                        <option disabled >{{ lang('Hard/Soft Cover') }}</option>
+                                        <option value="none" >{{ lang('None') }}</option>
+                                        <option value="hard" >{{ lang('Hard Cover') }}</option>
+                                        <option value="soft" >{{ lang('Soft Cover') }}</option>
+                                        <option value="both" >{{ lang('Hard and Soft Cover') }}</option>
+                                    </select>
+                                    <label>{{ lang('Hard/Soft Cover') }}</label>
+                                </div>
+                            </div>
+
+                            <!-- Show depent on selection above -->
+                            <!-- Input fileds -->
+                            <div class="row">
+                                <div class="col-md-6" v-if="offer.cover_type === 'soft' || offer.cover_type === 'both'" >
+                                    <div class="md-form">
+                                        <input type="text"class="form-control">
+                                        <label >{{ lang('Soft Cover Circulation') }}</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6"v-if="offer.cover_type === 'hard' || offer.cover_type === 'both'">
+                                    <div class="md-form">
+                                        <input type="text" class="form-control">
+                                        <label>{{ lang('Hard Cover Circulation') }}</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Show depent on selection above -->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <select class="mdb-select" v-model="offer.colors">
+                                        <option disabled >{{ lang('Choose Colors') }}</option>
+                                        <option v-for="(color, index) in option_colors" v-bind:value="index+1">{{ lang(color) }}</option>
+                                    </select>
+                                    <label>{{ lang('Colors') }}</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <select class="mdb-select" v-model="offer.colors_first_page">
+                                        <option disabled >{{ lang('Colors - First Pages') }}</option>
+                                        <option v-for="(color, index) in option_colors" v-bind:value="index+1">{{ lang(color) }}</option>
+                                    </select>
+                                    <label>{{ lang('Colors - First Pages') }}</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <select class="mdb-select" v-model="offer.colors_last_page">
+                                        <option disabled >{{ lang('Colors - Last Pages') }}</option>
+                                        <option v-for="(color, index) in option_colors" v-bind:value="index+1">{{ lang(color) }}</option>
+                                    </select>
+                                    <label>{{ lang('Colors - Last Pages') }}</label>
+                                </div>
+                            </div>
+                            <div class="md-form">
+                                <input type="text" id="form1" class="form-control" v-model="offer.additional_work">
+                                <label for="form1" class="">{{ lang('Additional Work') }}</label>
+                            </div>
+                        </div>
+
+                        <!-- Second column -->
+                        <div class="col-md-6">
+                            <div class="page-name-l mb-2">{{ lang('Cover') }}</div>
+
+                            <!-- Dropdown menu -->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input type="text"  class="form-control" v-model="offer.cover_paper_type">
+                                    <label>{{ lang('Paper Type') }}</label>
+                                </div>
+                            </div>
+
+                            <!-- Input fileds -->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <select class="mdb-select" v-model="offer.cover_colors">
+                                        <option disabled >{{ lang('Choose Colors') }}</option>
+                                        <option v-for="(color, index) in option_colors" v-bind:value="index+1">{{ lang(color) }}</option>
+                                    </select>
+                                    <label>{{ lang('Colors') }}</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <select class="mdb-select" v-model="offer.cover_plastification">
+                                        <option disabled >{{ lang('Plastification') }}</option>
+                                        <option value="none">{{ lang('None') }}</option>
+                                        <option value="glossy">{{ lang('Glossy plastification') }}</option>
+                                        <option value="mat">{{ lang('Mat plastification') }}</option>
+                                    </select>
+                                    <label>{{ lang('Plastification') }}</label>
+                                </div>
+                            </div>
+
+                            <!--/. Checkbox -->
+                            <div class="page-name-m">{{ lang('Film Print') }}</div>
+                            <div class="form-inline mb-3">
+                                <fieldset class="form-group">
+                                    <input name="film_print" type="radio" id="film_print_no" value="no" v-model="offer.film_print">
+                                    <label for="film_print_no">{{ lang('No') }}</label>
+                                </fieldset>
+                                <fieldset class="form-group">
+                                    <input name="film_print" type="radio" id="film_print_yes" value="yes" v-model="offer.film_print">
+                                    <label for="film_print_yes">{{ lang('Yes') }}</label>
+                                </fieldset>
+                            </div>
+
+                            <div class="page-name-m">{{ lang('Blind Print') }}</div>
+                            <div class="form-inline mb-3">
+                                <fieldset class="form-group">
+                                    <input name="blind_print" type="radio" id="blind_print_no" value="no" v-model="offer.blind_print">
+                                    <label for="blind_print_no">{{ lang('No') }}</label>
+                                </fieldset>
+                                <fieldset class="form-group">
+                                    <input name="blind_print" type="radio" id="blind_print_yes" value="yes" v-model="offer.blind_print">
+                                    <label for="blind_print_yes">{{ lang('Yes') }}</label>
+                                </fieldset>
+                            </div>
+
+                            <div class="page-name-m">{{ lang('UV Film') }}</div>
+                            <div class="form-inline mb-3">
+                                <fieldset class="form-group">
+                                    <input name="uv_print" type="radio" id="uv_print_no" value="no" v-model="offer.uv_print">
+                                    <label for="uv_print_no">{{ lang('No') }}</label>
+                                </fieldset>
+                                <fieldset class="form-group">
+                                    <input name="uv_print" type="radio" id="uv_print_yes" value="yes" v-model="offer.uv_print">
+                                    <label for="uv_print_yes">{{ lang('Yes') }}</label>
+                                </fieldset>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- First column -->
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="page-name-l mb-2">{{ lang('Book Block') }}</div>
+            <!-- Textarea -->
+            <div class="md-form mt-3">
+                <textarea id="form76" class="md-textarea" v-model="offer.note"></textarea>
+                <label for="form76">{{ lang('Note') }}</label>
+            </div>
 
-                    <!-- Dropdown menu -->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <select class="mdb-select" v-model="cover_type">
-                                <option disabled >{{ lang('Hard/Soft Cover') }}</option>
-                                <option value="none" >{{ lang('None') }}</option>
-                                <option value="hard" >{{ lang('Hard Cover') }}</option>
-                                <option value="soft" >{{ lang('Soft Cover') }}</option>
-                                <option value="both" >{{ lang('Hard and Soft Cover') }}</option>
-                            </select>
-                            <label>{{ lang('Hard/Soft Cover') }}</label>
-                        </div>
-                    </div>
-
-                    <!-- Show depent on selection above -->
-                    <!-- Input fileds -->
-                    <div class="row">
-                        <div class="col-md-6" v-if="cover_type === 'soft' || cover_type === 'both'" >
-                            <div class="md-form">
-                                <input type="text"class="form-control">
-                                <label >{{ lang('Soft Cover Circulation') }}</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6"v-if="cover_type === 'hard' || cover_type === 'both'">
-                            <div class="md-form">
-                                <input type="text" class="form-control">
-                                <label>{{ lang('Hard Cover Circulation') }}</label>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Show depent on selection above -->
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <select class="mdb-select">
-                                <option disabled >{{ lang('Choose Colors') }}</option>
-                                <option v-for="(color, index) in option_colors" v-bind:value="index+1">{{ lang(color) }}</option>
-                            </select>
-                            <label>{{ lang('Colors') }}</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <select class="mdb-select">
-                                <option disabled >{{ lang('Colors - First Pages') }}</option>
-                                <option v-for="(color, index) in option_colors" v-bind:value="index+1">{{ lang(color) }}</option>
-                            </select>
-                            <label>{{ lang('Colors - First Pages') }}</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <select class="mdb-select">
-                                <option disabled >{{ lang('Colors - Last Pages') }}</option>
-                                <option v-for="(color, index) in option_colors" v-bind:value="index+1">{{ lang(color) }}</option>
-                            </select>
-                            <label>{{ lang('Colors - Last Pages') }}</label>
-                        </div>
-                    </div>
-                    <div class="md-form">
-                        <input type="text" id="form1" class="form-control" >
-                        <label for="form1" class="">{{ lang('Additional Work') }}</label>
-                    </div>
-                </div>
-
-                <!-- Second column -->
-                <div class="col-md-6">
-                    <div class="page-name-l mb-2">{{ lang('Cover') }}</div>
-
-                    <!-- Dropdown menu -->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <select class="mdb-select">
-                                <option disabled >{{ lang('Paper Type') }}</option>
-                            </select>
-                            <label>{{ lang('Paper Type') }}</label>
-                        </div>
-                    </div>
-
-                    <!-- Input fileds -->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <select class="mdb-select">
-                                <option disabled >{{ lang('Choose Colors') }}</option>
-                                <option v-for="(color, index) in option_colors" v-bind:value="index+1">{{ lang(color) }}</option>
-                            </select>
-                            <label>{{ lang('Colors') }}</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <select class="mdb-select">
-                                <option disabled >{{ lang('Plastification') }}</option>
-                                <option value="none">{{ lang('None') }}</option>
-                                <option value="glossy">{{ lang('Glossy plastification') }}</option>
-                                <option value="mat">{{ lang('Mat plastification') }}</option>
-                            </select>
-                            <label>{{ lang('Plastification') }}</label>
-                        </div>
-                    </div>
-
-                    <!--/. Checkbox -->
-                    <div class="page-name-m">{{ lang('Film Print') }}</div>
-                    <div class="form-inline mb-3">
-                        <fieldset class="form-group">
-                            <input name="sex" type="radio" id="radio11" value="M" required>
-                            <label for="radio11">{{ lang('No') }}</label>
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <input name="sex" type="radio" id="radio21" value="F" required>
-                            <label for="radio21">{{ lang('Yes') }}</label>
-                        </fieldset>
-                    </div>
-
-                    <div class="page-name-m">{{ lang('Blind Print') }}</div>
-                    <div class="form-inline mb-3">
-                        <fieldset class="form-group">
-                            <input name="sex" type="radio" id="radio11" value="M" required>
-                            <label for="radio11">{{ lang('No') }}</label>
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <input name="sex" type="radio" id="radio21" value="F" required>
-                            <label for="radio21">{{ lang('Yes') }}</label>
-                        </fieldset>
-                    </div>
-
-                    <div class="page-name-m">{{ lang('UV Film') }}</div>
-                    <div class="form-inline mb-3">
-                        <fieldset class="form-group">
-                            <input name="sex" type="radio" id="radio11" value="M" required>
-                            <label for="radio11">{{ lang('No') }}</label>
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <input name="sex" type="radio" id="radio21" value="F" required>
-                            <label for="radio21">{{ lang('Yes') }}</label>
-                        </fieldset>
-                    </div>
-                </div>
+            <div class="page-name-l text-center">{{ lang('Download as...') }}</div>
+            <div class="file-box file-box-l d-flex align-items-center mt-1">
+                <a href="#.pdf" class="file-icon" v-on:click="downloadOffer(index, 'pdf')">.pdf</a>
+                <a href="#.docx" class="file-icon" v-on:click="downloadOffer(index, 'docx')">.docx</a>
             </div>
         </div>
-    </div>
-
-    <!-- Textarea -->
-    <div class="md-form mt-3">
-        <textarea id="form76" class="md-textarea"></textarea>
-        <label for="form76">{{ lang('Note') }}</label>
-    </div>
-
-    <div class="page-name-l text-center">{{ lang('Download as...') }}</div>
-    <div class="file-box file-box-l d-flex align-items-center mt-1">
-        <a href="http://homestead.app/images/profile.pdf" class="file-icon">.pdf</a>
-        <a href="http://homestead.app/images/profile.doc" class="file-icon">.doc</a>
     </div>
     <footer-buttons></footer-buttons>
 </div>
@@ -188,16 +197,51 @@
             return {
                 option_colors: ['One Colour', 'Two Colours', 'Three Colours', 'Full Colour', 'Fifth Colour'],
                 circulations: this.$store.state.proposition.proposition.technical_data.circulations,
-                cover_type:''
             }
         },
         components: {
             'footer-buttons' : FooterButtons
         },
-        computed: {},
-        methods: {},
+        computed: {
+            local_offers: function() {
+                return _.map(this.$store.state.proposition.proposition.technical_data.circulations, function(o) {
+                    return {
+                        title: o,
+                        note: '',
+                        price: '',
+                        cover_type: '',
+                        colors: '',
+                        colors_first_page: '',
+                        colors_last_page: '',
+                        additional_work: '',
+                        cover_paper_type: '',
+                        cover_colors: '',
+                        cover_plastification: '',
+                        film_print: '',
+                        blind_print: '',
+                        uv_print: ''
+                    }
+                });
+            },
+            offers: {
+                get() { return this.$store.state.proposition.proposition.print.offers; },
+                set(value) { this.$store.commit('proposition/updateProposition', {key: 'offer', group: 'print', value: value}) }
+            }
+        },
+        methods: {
+            switchTab: function(e) {
+                $(e.target).tab('show');
+            },
+            saveOffer: function() {
+                this.offers = this.local_offers;
+            },
+            downloadOffer: function(index, type) {
+                //TODO: make request to download offer, probably save first :)
+            }
+        },
         mounted: function() {
             $('.mdb-select').material_select();
+            this.$store.commit('proposition/updateProposition', {key: 'step', value: 4});
         }
     }
 </script>

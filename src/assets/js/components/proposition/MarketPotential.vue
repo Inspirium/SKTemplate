@@ -60,6 +60,9 @@
                 get() { return this.$store.state.proposition.proposition.market_potential.market_potential_documents; },
                 set(value) { this.$store.commit('proposition/updateProposition', {key: 'market_potential_documents', group: 'market_potential', value: value}) }
             },
+        },
+        mounted: function() {
+            this.$store.commit('proposition/updateProposition', {key: 'step', value: 2});
         }
     }
 </script>

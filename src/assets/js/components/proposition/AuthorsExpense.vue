@@ -54,6 +54,9 @@
                 set(value) { this.$store.commit('proposition/updateProposition', {key: 'authors', group: 'basic_data', value: value}) }
             }
         },
-        methods: {}
+        methods: {},
+        mounted: function() {
+            this.$store.commit('proposition/updateProposition', {key: 'step', value: 5});
+        }
     }
 </script>

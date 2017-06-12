@@ -197,19 +197,19 @@
                                 enabled: true,
                                 title: 'Print',
                                 path: '/proposition/print',
-                              //  component: true
+                                component: true
                             },
                             authors_expense: {
                                 enabled: true,
                                 title: 'Authors Expense',
                                 path: '/proposition/authors_expense',
-                              //  component: true
+                                component: true
                             },
                             production_expense: {
                                 enabled: true,
                                 title: 'Production Expense',
                                 path: '/proposition/production_expense',
-                             //   component: true
+                                component: true
                             },
                             marketing_expense: {
                                 enabled: true,

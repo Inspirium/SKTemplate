@@ -6,7 +6,7 @@
 
             <!-- Input field -->
             <div class="md-form">
-                <input type="text" id="title" class="form-control" name="title" v-bind:placeholder="lang('Title')" required v-model.lazy.trim="title">
+                <input type="text" id="title" class="form-control" name="title" v-bind:placeholder="lang('Title')" required v-model.trim="title">
                 <label for="title" class="">{{ lang('Title') }}</label>
             </div>
             <div class="row">
@@ -29,7 +29,7 @@
 
             <!-- Textarea -->
             <div class="md-form mt-2">
-                <textarea id="concept" name="concept" class="md-textarea" v-model.lazy.trim="concept"></textarea>
+                <textarea id="concept" name="concept" class="md-textarea" v-model.trim="concept"></textarea>
                 <label for="concept">{{ lang('Concept') }}</label>
             </div>
 
@@ -55,7 +55,7 @@
                     <div class="file-box file-box-l d-flex align-items-center" v-for="(document,index) in manuscript_documents">
                         <a href="http://homestead.app/images/profile.pdf" class="file-icon">{{ document.title }}</a>
                         <div class="file-box-sty ml-auto d-flex">
-                            <a href=""><img class="profile-m-1 mr-1 align-self-center" v-bind:src="document.author.image" href="#">
+                            <a href=""><img class="profile-m-1 mr-1 align-self-center" v-bind:src="document.author.image">
                                 {{ document.author.name }}
                             </a></div>
                         <div class="file-box-sty">{{ document.date }}</div>
@@ -255,6 +255,7 @@
             }
         },
         mounted: function() {
+            this.$store.commit('proposition/updateProposition', {key: 'step', value: 0});
         }
     }
 </script>

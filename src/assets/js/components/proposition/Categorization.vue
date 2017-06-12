@@ -212,6 +212,7 @@
             'footer-buttons': FooterButtons
         },
         mounted: function() {
+            this.$store.commit('proposition/updateProposition', {key: 'step', value: 1});
             axios.get('/api/book/category')
                 .then((res) => {
                     this.categories = res.data;

@@ -308,6 +308,7 @@
         },
         mounted: function() {
             $('.mdb-select').material_select();
+            this.$store.commit('proposition/updateProposition', {key: 'step', value: 3});
         }
     }
 </script>

@@ -7,6 +7,9 @@
             return {}
         },
         computed: {},
-        methods: {}
+        methods: {},
+        mounted: function() {
+            this.$store.commit('proposition/updateProposition', {key: 'step', value: 8});
+        }
     }
 </script>
