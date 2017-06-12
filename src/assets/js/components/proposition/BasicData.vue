@@ -207,7 +207,7 @@
                 }
             },
             autocomplete_select: function(index) {
-                this.authors.push(this.suggestions[index]);
+                this.$store.commit('proposition/pushToArray',{key: 'authors', group: 'basic_data', value: this.suggestions[index]});
                 this.suggestions = [];
                 this.author = '';
             }

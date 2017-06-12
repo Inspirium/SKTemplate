@@ -48,7 +48,12 @@
         data: function() {
             return {}
         },
-        computed: {},
+        computed: {
+            authors: {
+                get() { return this.$store.state.proposition.proposition.basic_data.authors; },
+                set(value) { this.$store.commit('proposition/updateProposition', {key: 'authors', group: 'basic_data', value: value}) }
+            }
+        },
         methods: {}
     }
 </script>
