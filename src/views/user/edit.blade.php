@@ -35,7 +35,7 @@
 
     <!-- Footer buttons -->
     <div class="btn-footer mt-2 mb-5 d-flex p-2">
-        <button type="button" class="btn btn-lg btn-save">@lang("Submit")</button>
+        <button type="submit" class="btn btn-lg btn-save">@lang("Submit")</button>
     </div>
     <!--/. Footer buttons -->
 </form>
