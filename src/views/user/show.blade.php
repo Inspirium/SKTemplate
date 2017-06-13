@@ -36,10 +36,10 @@
     <!-- Footer buttons -->
     <div class="btn-footer mt-2 mb-5 d-flex p-2">
     @if(Auth::user()->hasRole('user_edit'))
-        <a href="{{ url('user/edit/'.$user->id) }}" class="btn btn-lg btn-neutral">@lang('Edit User')</a>
+        <a href="{{ url('administration/user/edit/'.$user->id) }}" class="btn btn-lg btn-neutral">@lang('Edit User')</a>
     @endif
     @if(Auth::user()->hasRole('user_edit_roles'))
-        <a href="{{ url('user/roles/'.$user->id) }}" class="btn btn-lg btn-neutral">@lang('Edit User Roles')</a>
+        <a href="{{ url('administration/user/roles/'.$user->id) }}" class="btn btn-lg btn-neutral">@lang('Edit User Roles')</a>
     @endif
     </div>
     <!--/. Footer buttons -->

@@ -6,7 +6,7 @@
     <div class="col-md-6">
     </div>
 </div>
-<form method="post" action="{{ url('user/roles/' . $user->id) }}">
+<form method="post" action="{{ url('administration/user/roles/' . $user->id) }}">
     <div class="row">
         <div class="col col-md-5 mx-auto">
                 {{ csrf_field() }}
