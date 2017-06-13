@@ -155,8 +155,8 @@ export default {
         stepIncrement(state) {
             state.proposition.step++;
         },
-        addCirculation(state, payload) {
-            state.proposition.technical_data.circulations.push({
+        addToObjectArray(state, payload) {
+            state.proposition[payload.group][payload.key].push({
                 title: payload.value,
                 id: 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
                     let r = Math.random()*16|0, v = c === 'x' ? r : (r&0x3|0x8);
@@ -164,8 +164,8 @@ export default {
                 })
             });
         },
-        removeCirculation(state, payload) {
-            state.proposition.technical_data.circulations = _.filter(state.proposition.technical_data.circulations, (o) => {
+        removeFromObjectArray(state, payload) {
+            state.proposition[payload.group][payload.key] = _.filter(state.proposition[payload.group][payload.key], (o) => {
                 return o.id !== payload.value;
             });
         }

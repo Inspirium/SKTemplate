@@ -18,7 +18,7 @@
             </div>
             <div class="chip mb-3" v-for="item in circulations"v-bind:key="item.id">
                 {{ item.title }}
-                <i class="close fa fa-times" v-on:click="deleteCirculation(item)"></i>
+                <i class="close fa fa-times" v-on:click="deleteCirculation(item.id)"></i>
             </div>
             <!-- Input field -->
             <div class="row">
@@ -32,9 +32,9 @@
                     </div>
                 </div>
             </div>
-            <div class="chip mb-3" v-for="(item,index) in additions">
-                {{ item }}
-                <i class="close fa fa-times" v-on:click="deleteAddition(index)"></i>
+            <div class="chip mb-3" v-for="item in additions" v-bind:key="item.id">
+                {{ item.title }}
+                <i class="close fa fa-times" v-on:click="deleteAddition(item.id)"></i>
             </div>
 
             <!-- First column -->
@@ -288,20 +288,20 @@
         },
         methods: {
             deleteCirculation: function(value) {
-                this.$store.commit('proposition/removeCirculation', {value: value});
+                this.$store.commit('proposition/removeFromObjectArray', {key:'circulations', group: 'technical_data', value: value});
             },
             deleteAddition: function(value) {
-                this.$store.commit('proposition/removeFromArray', {key: 'additions', group:'technical_data', index: value});
+                this.$store.commit('proposition/removeFromObjectArray', {key: 'additions', group:'technical_data', value: value});
             },
             addCirculation: function() {
                 if (this.circulation && !isNaN(parseFloat(this.circulation)) && isFinite(this.circulation)) {
-                    this.$store.commit('proposition/addCirculation', {value: this.circulation});
+                    this.$store.commit('proposition/addToObjectArray', {key:'circulations', group: 'technical_data', value: this.circulation});
                     this.circulation = '';
                 }
             },
             addAddition: function() {
                 if (this.addition) {
-                    this.$store.commit('proposition/pushToArray', {key: 'additions', group:'technical_data', value: this.addition});
+                    this.$store.commit('proposition/addToObjectArray', {key:'additions', group: 'technical_data', value: this.addition});
                     this.addition = '';
                 }
             }
