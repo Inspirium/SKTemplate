@@ -42,7 +42,7 @@ export default {
                 market_potential_documents: [],
             },
             technical_data: {
-                circulations: [100,200],
+                circulations: [],
                 additions: [],
                 number_of_pages: 0,
                 width: 0,
@@ -139,7 +139,7 @@ export default {
         removeFromArray(state, payload) {
             let arr = state.proposition[payload.group][payload.key];
             let index = payload.index;
-            if (!index) {
+            if (!payload.hasOwnProperty('index')) {
                 index = arr.indexOf(payload.value)
             }
             arr.splice(index, 1);
@@ -154,6 +154,20 @@ export default {
         },
         stepIncrement(state) {
             state.proposition.step++;
+        },
+        addCirculation(state, payload) {
+            state.proposition.technical_data.circulations.push({
+                title: payload.value,
+                id: 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                    let r = Math.random()*16|0, v = c === 'x' ? r : (r&0x3|0x8);
+                    return v.toString(16);
+                })
+            });
+        },
+        removeCirculation(state, payload) {
+            state.proposition.technical_data.circulations = _.filter(state.proposition.technical_data.circulations, (o) => {
+                return o.id !== payload.value;
+            });
         }
     },
     actions: {

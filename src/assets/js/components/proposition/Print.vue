@@ -106,8 +106,9 @@
                             <!-- Dropdown menu -->
                             <div class="row">
                                 <div class="col-md-12">
-                                    <input type="text"  class="form-control" v-model="offer.cover_paper_type">
                                     <label>{{ lang('Paper Type') }}</label>
+                                    <input type="text"  class="form-control" v-model="offer.cover_paper_type">
+
                                 </div>
                             </div>
 
@@ -203,26 +204,7 @@
             'footer-buttons' : FooterButtons
         },
         computed: {
-            local_offers: function() {
-                return _.map(this.$store.state.proposition.proposition.technical_data.circulations, function(o) {
-                    return {
-                        title: o,
-                        note: '',
-                        price: '',
-                        cover_type: '',
-                        colors: '',
-                        colors_first_page: '',
-                        colors_last_page: '',
-                        additional_work: '',
-                        cover_paper_type: '',
-                        cover_colors: '',
-                        cover_plastification: '',
-                        film_print: '',
-                        blind_print: '',
-                        uv_print: ''
-                    }
-                });
-            },
+            local_offers: function() { return _.cloneDeep(this.offers) },
             offers: {
                 get() { return this.$store.state.proposition.proposition.print.offers; },
                 set(value) { this.$store.commit('proposition/updateProposition', {key: 'offer', group: 'print', value: value}) }
@@ -240,8 +222,9 @@
             }
         },
         mounted: function() {
-            $('.mdb-select').material_select();
+            //$('.mdb-select').material_select();
             this.$store.commit('proposition/updateProposition', {key: 'step', value: 4});
+            this.$store.commit('proposition/initOffers');
         }
     }
 </script>

@@ -16,11 +16,10 @@
                     </div>
                 </div>
             </div>
-            <div class="chip mb-3" v-for="item in circulations">
-                {{ item }}
+            <div class="chip mb-3" v-for="item in circulations"v-bind:key="item.id">
+                {{ item.title }}
                 <i class="close fa fa-times" v-on:click="deleteCirculation(item)"></i>
             </div>
-
             <!-- Input field -->
             <div class="row">
                 <div class="col-md-10">
@@ -33,9 +32,9 @@
                     </div>
                 </div>
             </div>
-            <div class="chip mb-3" v-for="item in additions">
+            <div class="chip mb-3" v-for="(item,index) in additions">
                 {{ item }}
-                <i class="close fa fa-times" v-on:click="deleteAddition(item)"></i>
+                <i class="close fa fa-times" v-on:click="deleteAddition(index)"></i>
             </div>
 
             <!-- First column -->
@@ -207,7 +206,7 @@
             return {
                 circulation: '',
                 addition: '',
-                option_colors: ['One Colour', 'Two Colours', 'Three Colours', 'Full Colour', 'Fifth Colour']
+                option_colors: ['One Colour', 'Two Colours', 'Three Colours', 'Full Colour', 'Fifth Colour'],
             }
         },
         components: {
@@ -289,14 +288,14 @@
         },
         methods: {
             deleteCirculation: function(value) {
-                this.$store.commit('proposition/removeFromArray', {key: 'circulations', group:'technical_data', value: value});
+                this.$store.commit('proposition/removeCirculation', {value: value});
             },
             deleteAddition: function(value) {
-                this.$store.commit('proposition/removeFromArray', {key: 'additions', group:'technical_data', value: value});
+                this.$store.commit('proposition/removeFromArray', {key: 'additions', group:'technical_data', index: value});
             },
             addCirculation: function() {
                 if (this.circulation && !isNaN(parseFloat(this.circulation)) && isFinite(this.circulation)) {
-                    this.$store.commit('proposition/pushToArray', {key: 'circulations', group:'technical_data', value: this.circulation});
+                    this.$store.commit('proposition/addCirculation', {value: this.circulation});
                     this.circulation = '';
                 }
             },
