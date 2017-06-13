@@ -3,13 +3,13 @@
     <div class="page-name-xl mb-2">{{ lang('Print Offers') }}</div>
     <div class="row tabs-wrapper">
     <ul class="col nav classic-tabs tabs-cyan" id="tabs" role="tablist">
-        <li class="nav-item" v-for="(circulation, index) in $store.state.proposition.proposition.technical_data.circulations">
-            <a v-bind:class="['nav-link', !index?'active':'']" data-toggle="tab" v-bind:href="'#panel'+index" role="tab" v-on:click="switchTab($event)">{{ circulation }}</a>
+        <li class="nav-item" v-for="(offer, key, index) in local_offers">
+            <a v-bind:class="['nav-link', !index?'active':'']" data-toggle="tab" v-bind:href="'#panel'+index" v-bind:key="key"  role="tab" v-on:click="switchTab($event)">{{ offer.title }}</a>
         </li>
     </ul>
     </div>
     <div class="tab-content">
-        <div v-bind:class="['tab-pane', 'fade', !index?'active in show':'']" v-bind:id="'panel'+index" role="tabpanel" v-for="(offer, index) in local_offers">
+        <div v-bind:class="['tab-pane', 'fade', !index?'active in show':'']" v-bind:id="'panel'+index" role="tabpanel" v-for="(offer, key, index) in offers" v-bind:key="key">
             <div class="row">
                 <div class="col-md-12">
                     <h6 class="text-center no-border display-e">{{ lang('Circulation') }}</h6>
@@ -204,10 +204,9 @@
             'footer-buttons' : FooterButtons
         },
         computed: {
-            local_offers: function() { return _.cloneDeep(this.offers) },
             offers: {
                 get() { return this.$store.state.proposition.proposition.print.offers; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'offer', group: 'print', value: value}) }
+                set(value) { this.$store.commit('proposition/updateProposition', {key: 'offers', group: 'print', value: value}) }
             }
         },
         methods: {
@@ -222,9 +221,10 @@
             }
         },
         mounted: function() {
-            //$('.mdb-select').material_select();
             this.$store.commit('proposition/updateProposition', {key: 'step', value: 4});
-            this.$store.commit('proposition/initOffers');
+            this.$store.dispatch('proposition/initOffers').then(function() {
+                $('.mdb-select').material_select();
+            });
         }
     }
 </script>

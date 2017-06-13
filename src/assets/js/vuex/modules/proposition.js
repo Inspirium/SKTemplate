@@ -62,7 +62,7 @@ export default {
                 note: ''
             },
             print: {
-                offers:[]
+                offers : {}
             },
             authors_expense: {},
             production_expense: {
@@ -133,6 +133,10 @@ export default {
                 state.proposition[payload.key] = payload.value;
             }
         },
+        pushToObject(state, payload) {
+           //Vue.set( state.proposition[payload.group][payload.key], payload.id, payload.value);
+            state.proposition[payload.group][payload.key] = {...state.proposition[payload.group][payload.key], [payload.id] :  payload.value};
+        },
         pushToArray(state, payload) {
             state.proposition[payload.group][payload.key].push(payload.value);
         },
@@ -176,8 +180,8 @@ export default {
             if (!state.proposition.id) {
                 axios.post('/api/proposition', state.proposition)
                     .then((res) => {
-                        commit('updateProposition', {key: 'id', value: res.data.id});
-                        commit('stepIncrement');
+                        //commit('updateProposition', {key: 'id', value: res.data.id});
+                       // commit('stepIncrement');
                     })
                     .catch((err) => {
                         commit('error', 'There was an error saving proposition. Please try again.');
@@ -186,12 +190,44 @@ export default {
             else {
                 axios.patch('/api/proposition/' + parseInt(state.proposition.id), state.proposition)
                     .then((res) => {
-                        commit('stepIncrement');
+                        //commit('stepIncrement');
                     })
                     .catch((err) => {
                         commit('error', 'There was an error saving proposition. Please try again.');
                     });
             }
+        },
+        initOffers({state, commit}) {
+            return new Promise((resolve, reject) => {
+                let offers = state.proposition.print.offers;
+                _.forEach(state.proposition.technical_data.circulations, function (o) {
+                    if (typeof(offers[o.id]) === 'undefined') {
+                        let offer = {
+                            title: o.title,
+                            note: '',
+                            price: '',
+                            cover_type: state.proposition.technical_data.cover_type,
+                            colors: state.proposition.technical_data.colors,
+                            colors_first_page: state.proposition.technical_data.colors_first_page,
+                            colors_last_page: state.proposition.technical_data.colors_last_page,
+                            additional_work: '',
+                            cover_paper_type: state.proposition.technical_data.cover_paper_type,
+                            cover_colors: state.proposition.technical_data.cover_colors,
+                            cover_plastification: state.proposition.technical_data.cover_plastification,
+                            film_print: state.proposition.technical_data.film_print,
+                            blind_print: state.proposition.technical_data.blind_print,
+                            uv_print: state.proposition.technical_data.uv_film
+                        };
+                        commit('pushToObject', {
+                            id: o.id,
+                            value: offer,
+                            group: 'print',
+                            key: 'offers'
+                        });
+                    }
+                });
+                resolve();
+            });
         }
     }
 }
