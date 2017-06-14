@@ -172,6 +172,9 @@ export default {
             state.proposition[payload.group][payload.key] = _.filter(state.proposition[payload.group][payload.key], (o) => {
                 return o.id !== payload.value;
             });
+        },
+        updateOffer(state, payload) {
+            state.proposition.print.offers[payload.id][payload.field] = payload.value;
         }
     },
     actions: {
