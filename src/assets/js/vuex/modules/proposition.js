@@ -64,7 +64,9 @@ export default {
             print: {
                 offers : {}
             },
-            authors_expense: {},
+            authors_expense: {
+                expenses: {}
+            },
             production_expense: {
                 text_price: 0,
                 text_price_amount: 0,
@@ -134,7 +136,6 @@ export default {
             }
         },
         pushToObject(state, payload) {
-           //Vue.set( state.proposition[payload.group][payload.key], payload.id, payload.value);
             state.proposition[payload.group][payload.key] = {...state.proposition[payload.group][payload.key], [payload.id] :  payload.value};
         },
         pushToArray(state, payload) {
@@ -230,6 +231,19 @@ export default {
                     }
                 });
                 resolve();
+            });
+        },
+        initAuthorExpenses({state, commit}) {
+            _.forEach(state.proposition.basic_data.authors, function (a) {
+                commit('pushToObject', {
+                    group: 'authors_expense',
+                    key: 'expenses',
+                    id: a.id,
+                    value: {
+                        expenses: [],
+                        note: ''
+                    }
+                });
             });
         }
     }

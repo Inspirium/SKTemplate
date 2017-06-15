@@ -99,13 +99,8 @@
             }
         },
         computed: {
-            departments: {
-                get() { return this.$store.state.proposition.proposition.assigned.departments; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'departments', group: 'assigned', value: value}) }
-            },
-            employees: {
-                get() { return this.$store.state.proposition.proposition.assigned.employees; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'employees', group: 'assigned', value: value}) }
+            assigned () {
+                return this.$deepModel('proposition.proposition.assigned');
             }
         },
         methods: {
@@ -143,12 +138,14 @@
             },
             autocomplete_select: function(index, type) {
                 if (type === 'department') {
-                    this.$store.commit('proposition/pushToArray', {key: 'departments', group: 'assigned', value: this.d_suggestions[index]});
+                    //this.$store.commit('proposition/pushToArray', {key: 'departments', group: 'assigned', value: this.d_suggestions[index]});
+                    this.assigned['departments'] = this.d_suggestions[index];
                     this.d_suggestions = [];
                     this.department = '';
                 }
                 else {
-                    this.$store.commit('proposition/pushToArray', {key: 'employees', group: 'assigned', value: this.e_suggestions[index]});
+                    //this.$store.commit('proposition/pushToArray', {key: 'employees', group: 'assigned', value: this.e_suggestions[index]});
+                    this.assigned['employees'] = this.e_suggestions[index];
                     this.e_suggestions = [];
                     this.employee = '';
                 }

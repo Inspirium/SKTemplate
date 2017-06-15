@@ -280,8 +280,6 @@
             }
         },
         mounted: function() {
-            let value = this.$store.state.proposition.steps.indexOf(this.$route.path);
-            this.$store.commit('proposition/updateProposition', {key: 'step', group: false, value: value});
         }
     }
 </script>

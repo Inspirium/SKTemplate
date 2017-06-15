@@ -17,6 +17,7 @@ window.breakpoints = {
 import Vue from 'vue';
 import VueMoment from 'vue-moment'
 import VueRouter from 'vue-router'
+import * as VueDeepSet from 'vue-deepset'
 import store from './vuex/store'
 import { routes } from './routes'
 import { sync } from 'vuex-router-sync'
@@ -32,6 +33,7 @@ Vue.component('proposition-menu', require('./components/PropositionMenu.vue'));
 
 Vue.use(VueMoment);
 Vue.use(VueRouter);
+Vue.use(VueDeepSet);
 
 const router = new VueRouter({
     mode: 'history',
