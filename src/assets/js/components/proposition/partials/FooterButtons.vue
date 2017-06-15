@@ -66,7 +66,7 @@
                                         <button class="btn btn-neutral btn-addon" type="button">{{ lang('Add') }}</button>
                                     </span>
                                     </div>
-                                    <div class="chip mb-1" v-for="employee in employees">
+                                    <div class="chip mb-1" v-for="employee in assigned['employees']">
                                         <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg">{{ employee.name }}<i class="close fa fa-times"></i>
                                     </div>
                                 </div>

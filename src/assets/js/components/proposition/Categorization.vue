@@ -65,7 +65,7 @@
     <div class="row">
         <!-- Dropdown menu -->
         <div class="col-md-6">
-            <select class="mdb-select" v-model="school_type" multiple>
+            <select class="mdb-select" v-model="categorization['school_type']" multiple>
                 <option disabled >{{ lang('Choose Category') }}</option>
                 <option v-for="(item, key) in school_types" v-bind:value="key">{{ item.name }}</option>
             </select>
@@ -76,11 +76,11 @@
             <div class="page-name-m">{{ lang('Lektira') }}</div>
             <div class="form-inline">
                 <fieldset class="form-group">
-                    <input name="sex" type="radio" id="radio01" value="yes"  v-model="school_assignment">
+                    <input name="sex" type="radio" id="radio01" value="yes"  v-model="categorization['school_assignment']">
                     <label for="radio01">{{ lang('Da') }}</label>
                 </fieldset>
                 <fieldset class="form-group">
-                    <input name="sex" type="radio" id="radio02" value="no"  v-model="school_assignment">
+                    <input name="sex" type="radio" id="radio02" value="no"  v-model="categorization['school_assignment']">
                     <label for="radio02">{{ lang('Ne') }}</label>
                 </fieldset>
             </div>
@@ -91,35 +91,35 @@
     <div class="page-name-m">{{ lang('Class in Elementary') }}</div>
     <div class="form-inline">
         <fieldset class="form-group">
-            <input name="sex" type="checkbox" id="checkbox11" value="1" v-model="school_level">
+            <input name="sex" type="checkbox" id="checkbox11" value="1" v-model="categorization['school_level']">
             <label for="checkbox11">{{ lang('1.') }}</label>
         </fieldset>
         <fieldset class="form-group">
-            <input name="sex" type="checkbox" id="checkbox21" value="2" v-model="school_level">
+            <input name="sex" type="checkbox" id="checkbox21" value="2" v-model="categorization['school_level']">
             <label for="checkbox21">{{ lang('2.') }}</label>
         </fieldset>
         <fieldset class="form-group">
-            <input name="sex" type="checkbox" id="checkbox31" value="3" v-model="school_level">
+            <input name="sex" type="checkbox" id="checkbox31" value="3" v-model="categorization['school_level']">
             <label for="checkbox31">{{ lang('3.') }}</label>
         </fieldset>
         <fieldset class="form-group">
-            <input name="sex" type="checkbox" id="checkbox41" value="4" v-model="school_level">
+            <input name="sex" type="checkbox" id="checkbox41" value="4" v-model="categorization['school_level']">
             <label for="checkbox41">{{ lang('4.') }}</label>
         </fieldset>
         <fieldset class="form-group">
-            <input name="sex" type="checkbox" id="checkbox51" value="5" v-model="school_level">
+            <input name="sex" type="checkbox" id="checkbox51" value="5" v-model="categorization['school_level']">
             <label for="checkbox51">{{ lang('5.') }}</label>
         </fieldset>
         <fieldset class="form-group">
-            <input name="sex" type="checkbox" id="checkbox61" value="6" v-model="school_level">
+            <input name="sex" type="checkbox" id="checkbox61" value="6" v-model="categorization['school_level']">
             <label for="checkbox61">{{ lang('6.') }}</label>
         </fieldset>
         <fieldset class="form-group">
-            <input name="sex" type="checkbox" id="checkbox71" value="7" v-model="school_level">
+            <input name="sex" type="checkbox" id="checkbox71" value="7" v-model="categorization['school_level']">
             <label for="checkbox71">{{ lang('7.') }}</label>
         </fieldset>
         <fieldset class="form-group">
-            <input name="sex" type="checkbox" id="checkbox81" value="8" v-model="school_level">
+            <input name="sex" type="checkbox" id="checkbox81" value="8" v-model="categorization['school_level']">
             <label for="checkbox81">{{ lang('8.') }}</label>
         </fieldset>
     </div>
@@ -127,23 +127,23 @@
     <div class="page-name-m mt-1">{{ lang('Class in High School') }}</div>
     <div class="form-inline">
         <fieldset class="form-group">
-            <input type="checkbox" id="checkbox11a" value="1s" v-model="school_level">
+            <input type="checkbox" id="checkbox11a" value="1s" v-model="categorization['school_level']">
             <label for="checkbox11a">{{ lang('1.') }}</label>
         </fieldset>
         <fieldset class="form-group">
-            <input type="checkbox" id="checkbox21a" value="2s" v-model="school_level">
+            <input type="checkbox" id="checkbox21a" value="2s" v-model="categorization['school_level']">
             <label for="checkbox21a">{{ lang('2.') }}</label>
         </fieldset>
         <fieldset class="form-group">
-            <input type="checkbox" id="checkbox31a" value="3s" v-model="school_level">
+            <input type="checkbox" id="checkbox31a" value="3s" v-model="categorization['school_level']">
             <label for="checkbox31a">{{ lang('3.') }}</label>
         </fieldset>
         <fieldset class="form-group">
-            <input type="checkbox" id="checkbox41a" value="4s" v-model="school_level">
+            <input type="checkbox" id="checkbox41a" value="4s" v-model="categorization['school_level']">
             <label for="checkbox41a">{{ lang('4.') }}</label>
         </fieldset>
         <fieldset class="form-group">
-            <input type="checkbox" id="checkbox51a" value="5s" v-model="school_level">
+            <input type="checkbox" id="checkbox51a" value="5s" v-model="categorization['school_level']">
             <label for="checkbox51a">{{ lang('5.') }}</label>
         </fieldset>
     </div>
@@ -177,7 +177,7 @@
     <div class="row">
         <!-- Dropdown menu -->
         <div class="col-md-6">
-            <select class="mdb-select" v-model="biblioteca">
+            <select class="mdb-select" v-model="categorization['biblioteca']">
                 <option disabled >{{ lang('Choose Category') }}</option>
                 <option v-for="(item, key) in bibliotecas" v-bind:value="key">{{ item.name }}</option>
             </select>
@@ -189,7 +189,7 @@
 
     <!-- Textarea -->
     <div class="md-form mt-3">
-        <textarea id="categorization_note" class="md-textarea" v-model="note"></textarea>
+        <textarea id="categorization_note" class="md-textarea" v-model="categorization['note']"></textarea>
         <label for="categorization_note">{{ lang('Note') }}</label>
     </div>
     <footer-buttons></footer-buttons>
@@ -239,6 +239,9 @@
             $('.mdb-select').material_select();
         },
         computed: {
+            categorization() {
+                return this.$deepModel('proposition.proposition.categorization');
+            },
             supergroup: {
                 get() { return this.$store.state.proposition.proposition.categorization.supergroup; },
                 set(value) {
@@ -266,18 +269,9 @@
                     this.$store.commit('proposition/updateProposition', {key: 'book_type', group: 'categorization', value: 0});
                 }
             },
-
             book_type: {
                 get() { return this.$store.state.proposition.proposition.categorization.book_type; },
                 set(value) { this.$store.commit('proposition/updateProposition', {key: 'book_type', group: 'categorization', value: value}) }
-            },
-            school_type: {
-                get() { return this.$store.state.proposition.proposition.categorization.school_type; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'school_type', group: 'categorization', value: value}) }
-            },
-            school_level: {
-                get() { return this.$store.state.proposition.proposition.categorization.school_level; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'school_level', group: 'categorization', value: value}) }
             },
             school_assignment: {
                 get() { return this.$store.state.proposition.proposition.categorization.school_assignment; },
@@ -293,20 +287,9 @@
             school_subject_detailed: {
                 get() { return this.$store.state.proposition.proposition.categorization.school_subject_detailed; },
                 set(value) { this.$store.commit('proposition/updateProposition', {key: 'school_subject_detailed', group: 'categorization', value: value}) }
-            },
-            biblioteca: {
-                get() { return this.$store.state.proposition.proposition.categorization.biblioteca; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'biblioteca', group: 'categorization', value: value}) }
-            },
-            note: {
-                get() { return this.$store.state.proposition.proposition.categorization.note; },
-                set(value) { this.$store.commit('proposition/updateProposition', {key: 'note', group: 'categorization', value: value}) }
-            },
+            }
         },
         methods: {
-            test: function() {
-                console.log("test");
-            }
         }
     }
 </script>

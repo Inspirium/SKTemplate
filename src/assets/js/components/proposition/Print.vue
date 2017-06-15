@@ -226,6 +226,7 @@
         mounted: function() {
             this.$store.commit('proposition/updateProposition', {key: 'step', value: 4});
             this.$store.dispatch('proposition/initOffers').then(function() {
+                $('.mdb-select').material_select('destroy');
                 $('.mdb-select').material_select();
             });
         }
