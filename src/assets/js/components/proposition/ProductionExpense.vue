@@ -289,9 +289,25 @@
             </div>
         </div>
 
-        <!-- Documents upload -->
         <div class="page-name-l mb-1">{{ lang('Additional Expenses') }}</div>
-        <button class="btn btn-neutral btn-addon" type="button">{{ lang('Add New Expense') }}</button>
+        <template v-for="(item,index) in expense['additional_expense']">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="md-form input-group">
+                        <input type="text" class="form-control" v-model="expense['additional_expense['+index+'.expense]']">
+                        <label>{{ lang('Expense') }}</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="md-form input-group">
+                        <input type="text" class="form-control" v-model="expense['additional_expense['+index+'.amount]']">
+                        <label>{{ lang('Ammount') }}</label>
+                        <span class="input-group-addon">{{ lang('Kn') }}</span>
+                    </div>
+                </div>
+            </div>
+        </template>
+        <button class="btn btn-neutral btn-addon" type="button" v-on:click="addExpense">{{ lang('Add New Expense') }}</button>
 
 
         <!-- Textarea -->
@@ -311,7 +327,7 @@
                 return this.$deepModel('proposition.proposition.production_expense');
             },
             total: function() {
-                return ( Number(this.expense.text_price) * Number(this.expense.text_price_amount) ) +
+                let sum = ( Number(this.expense.text_price) * Number(this.expense.text_price_amount) ) +
                     ( Number(this.expense.lecture) * Number(this.expense.lecture_amount) ) +
                     ( Number(this.expense.correction) * Number(this.expense.correction_amount) ) +
                     ( Number(this.expense.proofreading) * Number(this.expense.proofreading_amount) ) +
@@ -324,6 +340,8 @@
                     Number(this.expense.expert_report) + Number(this.expense.copyright) +
                     Number(this.expense.copyright_mediator) + Number(this.expense.methodical_instrumentarium) +
                     Number(this.expense.selection) + Number(this.expense.powerpoint_presentation);
+                let additional = _.sumBy(this.expense.additional_expense, (o) => {return Number(o.amount)});
+                return sum + additional;
 
             }
         },
@@ -346,7 +364,11 @@
                     _float + currency;
             },
         },
-        methods: {},
+        methods: {
+            addExpense: function() {
+                this.$store.commit('proposition/pushToArray', {group: 'production_expense', key:'additional_expense', value: {expense:'', amount: ''} } );
+            }
+        },
         mounted: function() {
             this.$store.commit('proposition/updateProposition', {key: 'step', value: 6});
         }

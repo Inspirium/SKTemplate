@@ -96,7 +96,8 @@ export default {
                 copyright_mediator: '',
                 selection: '',
                 powerpoint_presentation: '',
-                methodical_instrumentarium: ''
+                methodical_instrumentarium: '',
+                additional_expense: []
             },
             marketing_expense: [
                     {
