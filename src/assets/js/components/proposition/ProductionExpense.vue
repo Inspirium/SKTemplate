@@ -4,7 +4,7 @@
         <!-- Circulation Number -->
         <div class="col-md-12 mb-3">
             <h6 class="text-center no-border display-e">{{ lang('Circulation') }}</h6>
-            <h1 class="text-center display-2">52.354 kn</h1>
+            <h1 class="text-center display-2">{{ total | flexCurrency(' kn', 2) }}</h1>
         </div>
 
         <div class="row">
@@ -33,7 +33,7 @@
                             <div class="col-md-3">
                                 <div >
                                     <label>{{ lang('Total') }}</label>
-                                    <div class="total-sty color-nav-sub">{{ expense['text_price'] * expense['text_price_amount'] }} kn</div>
+                                    <div class="total-sty color-nav-sub">{{ expense['text_price'] * expense['text_price_amount'] | flexCurrency( ' kn', 2 ) }}</div>
                                 </div>
                             </div>
                         </div>
@@ -73,7 +73,7 @@
                             <div class="col-md-3">
                                 <div class="">
                                     <label>{{ lang('Total') }}</label>
-                                    <div class="total-sty color-nav-sub">{{ expense['lecture'] * expense['lecture_amount'] }} kn</div>
+                                    <div class="total-sty color-nav-sub">{{ expense['lecture'] * expense['lecture_amount'] | flexCurrency( ' kn', 2 ) }}</div>
                                 </div>
                             </div>
                         </div>
@@ -96,7 +96,7 @@
                             <div class="col-md-3">
                                 <div class="">
                                     <label>{{ lang('Total') }}</label>
-                                    <div class="total-sty color-nav-sub">{{ expense['correction'] * expense['correction_amount'] }} kn</div>
+                                    <div class="total-sty color-nav-sub">{{ expense['correction'] * expense['correction_amount'] | flexCurrency( ' kn', 2 ) }}</div>
                                 </div>
                             </div>
                         </div>
@@ -119,7 +119,7 @@
                             <div class="col-md-3">
                                 <div class="">
                                     <label>{{ lang('Total') }}</label>
-                                    <div class="total-sty color-nav-sub">{{ expense['proofreading'] * expense['proofreading_amount'] }} kn</div>
+                                    <div class="total-sty color-nav-sub">{{ expense['proofreading'] * expense['proofreading_amount'] | flexCurrency( ' kn', 2 ) }}</div>
                                 </div>
                             </div>
                         </div>
@@ -142,7 +142,7 @@
                             <div class="col-md-3">
                                 <div class="">
                                     <label>{{ lang('Total') }}</label>
-                                    <div class="total-sty color-nav-sub">{{ expense['translation'] * expense['translation_amount'] }} kn</div>
+                                    <div class="total-sty color-nav-sub">{{ expense['translation'] * expense['translation_amount'] | flexCurrency( ' kn', 2 ) }}</div>
                                 </div>
                             </div>
                         </div>
@@ -165,13 +165,13 @@
                             <div class="col-md-3">
                                 <div class="">
                                     <label>{{ lang('Total') }}</label>
-                                    <div class="total-sty color-nav-sub">{{ expense['index'] * expense['index_amount'] }} kn</div>
+                                    <div class="total-sty color-nav-sub">{{ expense['index'] * expense['index_amount'] | flexCurrency( ' kn', 2 ) }}</div>
                                 </div>
                             </div>
                         </div>
                         <div class="md-form input-group">
-                            <input type="text" id="reviews2" class="form-control" v-model="expense['reviews2']">
-                            <label for="reviews2" class="">{{ lang('Reviews') }}</label>
+                            <input type="text" id="epilogue" class="form-control" v-model="expense['epilogue']">
+                            <label for="epilogue" class="">{{ lang('Epilogue') }}</label>
                             <span class="input-group-addon">{{ lang('Kn') }}</span>
                         </div>
 
@@ -198,7 +198,7 @@
                             <div class="col-md-3">
                                 <div class="">
                                     <label>{{ lang('Total') }}</label>
-                                    <div class="total-sty color-nav-sub">{{ expense['photos'] * expense['photos_amount'] }} kn</div>
+                                    <div class="total-sty color-nav-sub">{{ expense['photos'] * expense['photos_amount'] | flexCurrency( ' kn', 2 ) }}</div>
                                 </div>
                             </div>
                         </div>
@@ -221,7 +221,7 @@
                             <div class="col-md-3">
                                 <div class="">
                                     <label>{{ lang('Total') }}</label>
-                                    <div class="total-sty color-nav-sub">{{ expense['illustrations'] * expense['illustrations_amount'] }} kn</div>
+                                    <div class="total-sty color-nav-sub">{{ expense['illustrations'] * expense['illustrations_amount'] | flexCurrency( ' kn', 2 ) }}</div>
                                 </div>
                             </div>
                         </div>
@@ -244,7 +244,7 @@
                             <div class="col-md-3">
                                 <div class="">
                                     <label>{{ lang('Total') }}</label>
-                                    <div class="total-sty color-nav-sub">{{ expense['technical_drawings'] * expense['technical_drawings_amount'] }} kn</div>
+                                    <div class="total-sty color-nav-sub">{{ expense['technical_drawings'] * expense['technical_drawings_amount'] | flexCurrency( ' kn', 2 ) }}</div>
                                 </div>
                             </div>
                         </div>
@@ -308,8 +308,43 @@
         },
         computed: {
             expense() {
-                return this.$deepModel('proposition.proposition.print.production_expense');
+                return this.$deepModel('proposition.proposition.production_expense');
+            },
+            total: function() {
+                return ( Number(this.expense.text_price) * Number(this.expense.text_price_amount) ) +
+                    ( Number(this.expense.lecture) * Number(this.expense.lecture_amount) ) +
+                    ( Number(this.expense.correction) * Number(this.expense.correction_amount) ) +
+                    ( Number(this.expense.proofreading) * Number(this.expense.proofreading_amount) ) +
+                    ( Number(this.expense.translation) * Number(this.expense.translation_amount) ) +
+                    ( Number(this.expense.index) * Number(this.expense.index_amount) ) +
+                    ( Number(this.expense.photos) * Number(this.expense.photos_amount) ) +
+                    ( Number(this.expense.illustrations) * Number(this.expense.illustrations_amount) ) +
+                    ( Number(this.expense.technical_drawings) * Number(this.expense.technical_drawings_amount) ) +
+                    Number(this.expense.accontation) + Number(this.expense.reviews) + Number(this.expense.epilogue) +
+                    Number(this.expense.expert_report) + Number(this.expense.copyright) +
+                    Number(this.expense.copyright_mediator) + Number(this.expense.methodical_instrumentarium) +
+                    Number(this.expense.selection) + Number(this.expense.powerpoint_presentation);
+
             }
+        },
+        filters: {
+            flexCurrency (value, currency, decimals) {
+                const digitsRE = /(\d{3})(?=\d)/g;
+                value = parseFloat(value);
+                if (!isFinite(value) || (!value && value !== 0)) return '0.00 kn';
+                currency = currency !== null ? currency : '$';
+                let stringified = Math.abs(value).toFixed(decimals);
+                let _int = stringified.slice(0, -1 - decimals);
+                let i = _int.length % 3;
+                let head = i > 0
+                    ? (_int.slice(0, i) + (_int.length > 3 ? ',' : ''))
+                    : '';
+                let _float = stringified.slice(-1 - decimals);
+                let sign = value < 0 ? '-' : '';
+                return sign + head +
+                    _int.slice(i).replace(digitsRE, '$1,') +
+                    _float + currency;
+            },
         },
         methods: {},
         mounted: function() {
