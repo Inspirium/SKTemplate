@@ -214,43 +214,44 @@
                             marketing_expense: {
                                 enabled: true,
                                 title: 'Marketing Expense',
-                                path: '/proposition/marketing_expense', //component: true
+                                path: '/proposition/marketing_expense',
+                                component: true
                             },
                             distribution_expense: {
                                 enabled: true,
                                 title: 'Distribution Expense',
                                 path: '/proposition/distribution_expense',
-                              //  component: true
+                                component: true
                             },
                             layout_expense: {
                                 enabled: true,
                                 title: 'Layout Expense',
                                 path: '/proposition/layout_expense',
-                              //  component: true
+                                component: true
                             },
                             deadline: {
                                 enabled: true,
                                 title: 'Deadline',
                                 path: '/proposition/deadline',
-                              //  component: true
+                                component: true
                             },
                             precalculation: {
                                 enabled: true,
                                 title: 'Precalculation',
                                 path: '/proposition/precalculation',
-                              //  component: true
+                                component: true
                             },
                             calculation: {
                                 enabled: true,
                                 title: 'Calculation',
                                 path: '/proposition/calculation',
-                               // component: true
+                                component: true
                             },
                             work_order: {
                                 enabled: true,
                                 title: 'Work Order',
                                 path: '/proposition/word_order',
-                              //  component: true
+                                component: true
                             }
                         }
                     }

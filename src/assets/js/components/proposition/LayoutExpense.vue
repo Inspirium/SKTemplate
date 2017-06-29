@@ -65,7 +65,7 @@
                 </div>
                 <!-- TeAxtarea -->
                 <div class="md-form">
-                    <textarea type="text" id="form76" class="md-textarea"></textarea>
+                    <textarea id="form76" class="md-textarea"></textarea>
                     <label for="form76">{{ lang('Note') }}</label>
                 </div>
             </div>
@@ -100,7 +100,7 @@
                 </div>
                 <!-- Textarea -->
                 <div class="md-form">
-                    <textarea type="text" id="form76" class="md-textarea"></textarea>
+                    <textarea id="form76" class="md-textarea"></textarea>
                     <label for="form76">{{ lang('Note') }}</label>
                 </div>
             </div>
@@ -115,7 +115,11 @@
         data: function () {
             return {}
         },
-        computed: {},
+        computed: {
+            layout() {
+                return this.$deepModel('proposition.proposition.layout_expense');
+            }
+        },
         components: {
             'footer-buttons' : FooterButtons
         },

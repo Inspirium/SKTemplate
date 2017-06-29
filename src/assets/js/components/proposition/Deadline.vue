@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-md-5">
                     <div class="md-form">
-                        <input placeholder="Selected date" type="text" id="date-picker-example" class="form-control datepicker btn-white">
+                        <input placeholder="Selected date" type="text" id="date-picker-example" class="form-control datepicker btn-white" v-model="deadline.date">
                         <label for="date-picker-example">{{ lang('Select Date') }}</label>
                     </div>
                 </div>
@@ -19,15 +19,15 @@
             <div class="page-name-m">{{ lang('Priority') }}</div>
             <div class="form-inline mb-3">
                 <fieldset class="form-group">
-                    <input name="sex" type="radio" id="radio11" value="High" required>
+                    <input name="sex" type="radio" id="radio11" value="High" v-model="deadline.priority">
                     <label for="radio11">{{ lang('High') }}</label>
                 </fieldset>
                 <fieldset class="form-group">
-                    <input name="sex" type="radio" id="radio21" value="Medium" required>
+                    <input name="sex" type="radio" id="radio21" value="Medium" v-model="deadline.priority">
                     <label for="radio21">{{ lang('Medium') }}</label>
                 </fieldset>
                 <fieldset class="form-group">
-                    <input name="sex" type="radio" id="radio31" value="Low" required>
+                    <input name="sex" type="radio" id="radio31" value="Low" v-model="deadline.priority">
                     <label for="radio31">{{ lang('Low') }}</label>
                 </fieldset>
             </div>
@@ -37,7 +37,7 @@
 
                     <!-- Textarea -->
                     <div class="md-form">
-                        <textarea type="text" id="form76" class="md-textarea"></textarea>
+                        <textarea id="form76" class="md-textarea" v-model="deadline.note"></textarea>
                         <label for="form76">{{ lang('Note') }}</label>
                     </div>
                 </div>
@@ -53,13 +53,17 @@
         data: function () {
             return {}
         },
-        computed: {},
+        computed: {
+            deadline() {
+                return this.$deepModel('proposition.proposition.deadline');
+            }
+        },
         components: {
             'footer-buttons' : FooterButtons
         },
         methods: {},
         mounted: function() {
-            $('.mdb-select').material_select();
+            $('.datepicker').pickadate();
             this.$store.commit('proposition/updateProposition', {key: 'step', value: 10});
         }
     }

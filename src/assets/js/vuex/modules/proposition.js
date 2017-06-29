@@ -98,10 +98,22 @@ export default {
                 powerpoint_presentation: 0,
                 methodical_instrumentarium: 0
             },
-            marketing_expense: {},
-            distribution_expense: {},
+            marketing_expense: [
+                    {
+                        ammount: 0,
+                        note: ''
+                    }
+                ],
+            distribution_expense: {
+                note: '',
+                margin: ''
+            },
             layout_expense: {},
-            deadline: {},
+            deadline: {
+                date: '',
+                priority: '',
+                note: ''
+            },
             precalculation: {},
             calculation: {},
             work_order: {},

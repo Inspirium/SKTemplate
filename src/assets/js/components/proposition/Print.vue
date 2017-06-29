@@ -19,7 +19,7 @@
                             <div class="col-md-6 mx-auto">
                                 <!-- Input field -->
                                 <div class="md-form d-flex">
-                                    <input type="text" class="form-control" v-bind:placeholder="lang('In Kn')" v-bind:value="offer.price" v-on:input="changeInput($event, 'price', key)">
+                                    <input type="text" class="form-control" v-bind:placeholder="lang('In Kn')" v-model="offers[key+'[price]']">
                                     <label>{{ lang('Print offer') }}</label>
                                     <span class="d-flex">
                                         <button class="btn btn-neutral btn-addon" type="button" v-on:click="saveOffer">{{ lang('Save') }}</button>
@@ -204,9 +204,11 @@
         components: {
             'footer-buttons' : FooterButtons
         },
-        computed: mapState({
-            offers: state => state.proposition.proposition.print.offers
-        }),
+        computed: {
+            offers() {
+                return this.$deepModel('proposition.proposition.print.offers');
+            }
+        },
         methods: {
             switchTab: function(e) {
                 $(e.target).tab('show');
@@ -218,8 +220,6 @@
                 //TODO: make request to download offer, probably save first :)
             },
             changeInput: function(e, field, id) {
-                console.log(id);
-                console.log(this.$store.state.proposition.proposition.print.offers[id]);
                 this.$store.commit('proposition/updateOffer', {id: id, field: field, value: e.target.value})
             }
         },
