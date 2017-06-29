@@ -24,8 +24,10 @@ export default {
             },
             categorization: {
                 supergroup: 0,
+                supergroup_text: '',
+                supergroup_coef: 0,
                 upgroup: 0,
-                group: 0,
+                group_text: '',
                 note: '',
                 book_type_group: 0,
                 book_type: 0,
@@ -109,7 +111,14 @@ export default {
                 note: '',
                 margin: ''
             },
-            layout_expense: {},
+            layout_expense: {
+                layout_complexity: '',
+                layout_include: '',
+                layout_note: '',
+                design_complexity: '',
+                design_include: '',
+                design_note: ''
+            },
             deadline: {
                 date: '',
                 priority: '',
