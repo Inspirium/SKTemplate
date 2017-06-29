@@ -25,8 +25,8 @@ export default {
             categorization: {
                 supergroup: 0,
                 supergroup_text: '',
-                supergroup_coef: 0,
                 upgroup: 0,
+                upgroup_coef: 0,
                 group_text: '',
                 note: '',
                 book_type_group: 0,

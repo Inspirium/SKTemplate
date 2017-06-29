@@ -132,7 +132,7 @@
                 return this.$deepModel('proposition.proposition.layout_expense');
             },
             number_of_hours() {
-                let category = this.$store.state.proposition.proposition.categorization.supergroup_coef / 60,
+                let category = this.$store.state.proposition.proposition.categorization.upgroup_coef / 60,
                     pages = this.technical.number_of_pages,
                     photos = this.production.photos_amount / 30,
                     illustrations = this.production.illustrations_amount / 30,

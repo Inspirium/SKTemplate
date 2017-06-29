@@ -258,7 +258,7 @@
                     set(value) {
                         this.$store.commit('proposition/updateProposition', {key: 'upgroup', group: 'categorization', value: value});
                         this.$store.commit('proposition/updateProposition', {key: 'group', group: 'categorization', value: 0});
-                        this.$store.commit('proposition/updateProposition', {key: 'group_text', group: 'categorization', value: ''});
+                        this.$store.commit('proposition/updateProposition', {key: 'upgroup_coef', group: 'categorization', value: this.categories[this.supergroup].groups[value].coefficient});
                     }
             },
             group: {
