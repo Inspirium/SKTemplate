@@ -19,7 +19,7 @@
                             <div class="col-md-6 mx-auto">
                                 <!-- Input field -->
                                 <div class="md-form d-flex">
-                                    <input type="text" class="form-control" v-bind:placeholder="lang('In Kn')" v-model="offers[key+'[price]']">
+                                    <input type="text" class="form-control" v-bind:placeholder="lang('In Kn')" v-model="offers[key+'[print_offer]']">
                                     <label>{{ lang('Print offer') }}</label>
                                     <span class="d-flex">
                                         <button class="btn btn-neutral btn-addon" type="button" v-on:click="saveOffer">{{ lang('Save') }}</button>

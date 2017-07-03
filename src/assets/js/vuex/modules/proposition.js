@@ -5,6 +5,7 @@ export default {
     namespaced: true,
     state: {
         proposition: {
+            loaded: false,
             assigned: {
                 departments: [],
                 employees: []
@@ -125,7 +126,9 @@ export default {
                 note: ''
             },
             precalculation: {},
-            calculation: {},
+            calculation: {
+                options: {}
+            },
             work_order: {},
 
             step: 0,
@@ -202,6 +205,15 @@ export default {
         }
     },
     actions: {
+        initProposition({commit, state}, payload) {
+            axios.get('/api/proposition/'+payload.id)
+                .then((res) => {
+                    commit('initProposition', res.data);
+                })
+                .catch((err) => {
+
+                });
+        },
         saveProposition({commit, state}) {
             //TODO: make request
             if (!state.proposition.id) {
@@ -232,7 +244,7 @@ export default {
                         let offer = {
                             title: o.title,
                             note: '',
-                            price: '',
+                            print_offer: '',
                             cover_type: state.proposition.technical_data.cover_type,
                             colors: state.proposition.technical_data.colors,
                             colors_first_page: state.proposition.technical_data.colors_first_page,
@@ -243,7 +255,12 @@ export default {
                             cover_plastification: state.proposition.technical_data.cover_plastification,
                             film_print: state.proposition.technical_data.film_print,
                             blind_print: state.proposition.technical_data.blind_print,
-                            uv_print: state.proposition.technical_data.uv_film
+                            uv_print: state.proposition.technical_data.uv_film,
+                            number_of_pages: state.proposition.technical_data.number_of_pages,
+
+                            total_cost: 0,
+                            direct_cost_cover: 0,
+                            complete_cost_cover: 0,
                         };
                         commit('pushToObject', {
                             id: o.id,
