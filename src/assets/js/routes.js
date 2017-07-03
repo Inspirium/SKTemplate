@@ -12,6 +12,7 @@ import Deadline from './components/proposition/Deadline.vue'
 import Precalculation from './components/proposition/Precalculation.vue'
 import Calculation from './components/proposition/Calculation.vue'
 import WorkOrder from './components/proposition/WorkOrder.vue'
+import PriceSales from './components/proposition/PriceSales.vue'
 
 
 export const routes = [
@@ -25,6 +26,7 @@ export const routes = [
     { path: '/proposition/marketing_expense', component: MarketingExpense},
     { path: '/proposition/distribution_expense', component: DistributionExpense},
     { path: '/proposition/layout_expense', component: LayoutExpense},
+    { path: '/proposition/price_sales', component: PriceSales},
     { path: '/proposition/deadline', component: Deadline},
     { path: '/proposition/precalculation', component: Precalculation},
     { path: '/proposition/calculation', component: Calculation},

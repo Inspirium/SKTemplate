@@ -55,7 +55,7 @@
         }),
         methods: {
             addExpense: function(id) {
-                this.$store.commit('proposition/pushToArray', {})
+                //TODO:
             }
         },
         mounted: function() {

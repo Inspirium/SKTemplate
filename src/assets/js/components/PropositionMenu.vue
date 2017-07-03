@@ -229,6 +229,12 @@
                                 path: '/proposition/layout_expense',
                                 component: true
                             },
+                            price_sales: {
+                                enabled: true,
+                                title: 'Price and Sales',
+                                path: '/proposition/price_sales',
+                                component: true
+                            },
                             deadline: {
                                 enabled: true,
                                 title: 'Deadline',
@@ -250,7 +256,7 @@
                             work_order: {
                                 enabled: true,
                                 title: 'Work Order',
-                                path: '/proposition/word_order',
+                                path: '/proposition/work_order',
                                 component: true
                             }
                         }

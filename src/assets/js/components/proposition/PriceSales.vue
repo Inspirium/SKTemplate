@@ -9,7 +9,7 @@
         computed: {},
         methods: {},
         mounted: function() {
-            this.$store.commit('proposition/updateProposition', {key: 'step', value: 14});
+            this.$store.commit('proposition/updateProposition', {key: 'step', value: 10});
         }
     }
 </script>

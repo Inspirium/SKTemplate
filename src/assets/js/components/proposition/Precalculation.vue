@@ -76,7 +76,7 @@
         },
         methods: {},
         mounted: function() {
-            this.$store.commit('proposition/updateProposition', {key: 'step', value: 11});
+            this.$store.commit('proposition/updateProposition', {key: 'step', value: 12});
         }
     }
 </script>

@@ -141,6 +141,7 @@ export default {
             '/proposition/marketing_expense',
             '/proposition/distribution_expense',
             '/proposition/layout_expense',
+            '/proposition/price_sales',
             '/proposition/deadline',
             '/proposition/precalculation',
             '/proposition/calculation',

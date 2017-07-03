@@ -27,7 +27,7 @@
                 <h3 class="mb-1 text-white">{{ supergroup_text }}</h3>
             </div>
             <div class="col-md-2">
-                <h6 class="white-label">{{ lang('Što još...') }}</h6>
+                <h6 class="white-label">{{ lang('Group') }}</h6>
                 <h3 class="mb-1 text-white">{{ group_text }}</h3>
             </div>
         </div>
@@ -54,11 +54,11 @@
                     <div class="page-name-m mt-2">{{ lang('Include Layout Expense') }}</div>
                     <div class="form-inline mb-3 ">
                         <fieldset class="form-group">
-                            <input name="layout-expense-1" type="radio" id="layout-expense-y" v-model="layout['layout_include']">
+                            <input name="layout-expense" type="radio" id="layout-expense-y" value="yes" v-model="layout['layout_include']">
                             <label for="layout-expense-y">{{ lang('Yes') }}</label>
                         </fieldset>
                         <fieldset class="form-group">
-                            <input name="layout-expense-1" type="radio" id="layout-expense-n" v-model="layout['layout_include']">
+                            <input name="layout-expense" type="radio" id="layout-expense-n" value="no" v-model="layout['layout_include']">
                             <label for="layout-expense-n">{{ lang('No') }}</label>
                         </fieldset>
                     </div>
@@ -89,11 +89,11 @@
                     <div class="page-name-m mt-2">{{ lang('Include Design Expense') }}</div>
                     <div class="form-inline mb-3 ">
                         <fieldset class="form-group">
-                            <input name="layout-expense-2" type="radio" id="design-expense-y" v-model="layout['design_include']">
+                            <input name="design-expense" type="radio" id="design-expense-y" value="yes" v-model="layout['design_include']">
                             <label for="design-expense-y">{{ lang('Yes') }}</label>
                         </fieldset>
                         <fieldset class="form-group">
-                            <input name="layout-expense-2" type="radio" id="design-expense-n" v-model="layout['design_include']">
+                            <input name="design-expense" type="radio" id="design-expense-n"  value="no" v-model="layout['design_include']">
                             <label for="design-expense-n">{{ lang('No') }}</label>
                         </fieldset>
                     </div>

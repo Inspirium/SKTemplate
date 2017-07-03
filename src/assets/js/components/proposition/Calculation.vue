@@ -348,7 +348,7 @@
         mounted: function() {
             $('.mdb-select').material_select('destroy');
             $('.mdb-select').material_select();
-            this.$store.commit('proposition/updateProposition', {key: 'step', value: 12});
+            this.$store.commit('proposition/updateProposition', {key: 'step', value: 13});
         }
     }
 </script>
