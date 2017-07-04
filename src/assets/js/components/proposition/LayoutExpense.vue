@@ -54,11 +54,11 @@
                     <div class="page-name-m mt-2">{{ lang('Include Layout Expense') }}</div>
                     <div class="form-inline mb-3 ">
                         <fieldset class="form-group">
-                            <input name="layout-expense" type="radio" id="layout-expense-y" value="yes" v-model="layout['layout_include']">
+                            <input name="layout-expense" type="radio" id="layout-expense-y" value="1" v-model="layout['layout_include']">
                             <label for="layout-expense-y">{{ lang('Yes') }}</label>
                         </fieldset>
                         <fieldset class="form-group">
-                            <input name="layout-expense" type="radio" id="layout-expense-n" value="no" v-model="layout['layout_include']">
+                            <input name="layout-expense" type="radio" id="layout-expense-n" value="0" v-model="layout['layout_include']">
                             <label for="layout-expense-n">{{ lang('No') }}</label>
                         </fieldset>
                     </div>
@@ -89,11 +89,11 @@
                     <div class="page-name-m mt-2">{{ lang('Include Design Expense') }}</div>
                     <div class="form-inline mb-3 ">
                         <fieldset class="form-group">
-                            <input name="design-expense" type="radio" id="design-expense-y" value="yes" v-model="layout['design_include']">
+                            <input name="design-expense" type="radio" id="design-expense-y" value="1" v-model="layout['design_include']">
                             <label for="design-expense-y">{{ lang('Yes') }}</label>
                         </fieldset>
                         <fieldset class="form-group">
-                            <input name="design-expense" type="radio" id="design-expense-n"  value="no" v-model="layout['design_include']">
+                            <input name="design-expense" type="radio" id="design-expense-n"  value="0" v-model="layout['design_include']">
                             <label for="design-expense-n">{{ lang('No') }}</label>
                         </fieldset>
                     </div>

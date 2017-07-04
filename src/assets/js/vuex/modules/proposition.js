@@ -17,7 +17,7 @@ export default {
                 concept: '',
                 note: '',
                 possible_products: [],
-                dotation: '',
+                dotation: 0,
                 dotation_amount: '',
                 dotation_origin: '',
                 manuscript: '',
@@ -59,9 +59,9 @@ export default {
                 cover_paper_type: '',
                 cover_colors: '',
                 cover_plastification: '',
-                film_print: '',
-                blind_print: '',
-                uv_film: '',
+                film_print: 0,
+                blind_print: 0,
+                uv_film: 0,
                 note: ''
             },
             print: {
@@ -220,7 +220,6 @@ export default {
                 step: state.steps[state.proposition.step],
                 data: state.proposition[state.steps[state.proposition.step]]
             };
-            console.log(data);
             if (!state.proposition.id) {
                 axios.post('/api/proposition', data)
                     .then((res) => {
@@ -260,11 +259,7 @@ export default {
                             film_print: state.proposition.technical_data.film_print,
                             blind_print: state.proposition.technical_data.blind_print,
                             uv_print: state.proposition.technical_data.uv_film,
-                            number_of_pages: state.proposition.technical_data.number_of_pages,
-
-                            total_cost: 0,
-                            direct_cost_cover: 0,
-                            complete_cost_cover: 0,
+                            number_of_pages: state.proposition.technical_data.number_of_pages
                         };
                         commit('pushToObject', {
                             id: o.id,

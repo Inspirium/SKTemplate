@@ -138,11 +138,11 @@
                             <div class="page-name-m">{{ lang('Film Print') }}</div>
                             <div class="form-inline mb-3">
                                 <fieldset class="form-group">
-                                    <input v-bind:name="'film_print'+index" type="radio" id="film_print_no" value="no" v-bind:checked="offer.film_print === 'no'" v-on:change="changeInput($event, 'film_print', key)">
+                                    <input v-bind:name="'film_print'+index" type="radio" id="film_print_no" value="0" v-bind:checked="offer.film_print === 0" v-on:change="changeInput($event, 'film_print', key)">
                                     <label for="film_print_no">{{ lang('No') }}</label>
                                 </fieldset>
                                 <fieldset class="form-group">
-                                    <input v-bind:name="'film_print'+index" type="radio" id="film_print_yes" value="yes" v-bind:checked="offer.film_print === 'yes'" v-on:change="changeInput($event, 'film_print', key)">
+                                    <input v-bind:name="'film_print'+index" type="radio" id="film_print_yes" value="1" v-bind:checked="offer.film_print === 1" v-on:change="changeInput($event, 'film_print', key)">
                                     <label for="film_print_yes">{{ lang('Yes') }}</label>
                                 </fieldset>
                             </div>
@@ -150,11 +150,11 @@
                             <div class="page-name-m">{{ lang('Blind Print') }}</div>
                             <div class="form-inline mb-3">
                                 <fieldset class="form-group">
-                                    <input v-bind:name="'blind_print'+index" type="radio" id="blind_print_no" value="no" v-bind:checked="offer.blind_print === 'no'" v-on:change="changeInput($event, 'blind_print', key)">
+                                    <input v-bind:name="'blind_print'+index" type="radio" id="blind_print_no" value="0" v-bind:checked="offer.blind_print === 0" v-on:change="changeInput($event, 'blind_print', key)">
                                     <label for="blind_print_no">{{ lang('No') }}</label>
                                 </fieldset>
                                 <fieldset class="form-group">
-                                    <input v-bind:name="'blind_print'+index" type="radio" id="blind_print_yes" value="yes" v-bind:checked="offer.blind_print === 'yes'" v-on:change="changeInput($event, 'blind_print', key)">
+                                    <input v-bind:name="'blind_print'+index" type="radio" id="blind_print_yes" value="1" v-bind:checked="offer.blind_print === 1" v-on:change="changeInput($event, 'blind_print', key)">
                                     <label for="blind_print_yes">{{ lang('Yes') }}</label>
                                 </fieldset>
                             </div>
@@ -162,11 +162,11 @@
                             <div class="page-name-m">{{ lang('UV Film') }}</div>
                             <div class="form-inline mb-3">
                                 <fieldset class="form-group">
-                                    <input v-bind:name="'uv_print'+index" type="radio" id="uv_print_no" value="no" v-bind:checked="offer.uv_print === 'no'" v-on:change="changeInput($event, 'uv_print', key)">
+                                    <input v-bind:name="'uv_print'+index" type="radio" id="uv_print_no" value="0" v-bind:checked="offer.uv_print === 0" v-on:change="changeInput($event, 'uv_print', key)">
                                     <label for="uv_print_no">{{ lang('No') }}</label>
                                 </fieldset>
                                 <fieldset class="form-group">
-                                    <input v-bind:name="'uv_print'+index" type="radio" id="uv_print_yes" value="yes" v-bind:checked="offer.uv_print === 'yes'" v-on:change="changeInput($event, 'uv_print', key)">
+                                    <input v-bind:name="'uv_print'+index" type="radio" id="uv_print_yes" value="1" v-bind:checked="offer.uv_print === 1" v-on:change="changeInput($event, 'uv_print', key)">
                                     <label for="uv_print_yes">{{ lang('Yes') }}</label>
                                 </fieldset>
                             </div>
