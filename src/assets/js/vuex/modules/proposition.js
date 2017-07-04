@@ -134,21 +134,21 @@ export default {
             step: 0,
         },
         steps: [
-            '/proposition/basic_data',
-            '/proposition/categorization',
-            '/proposition/market_potential',
-            '/proposition/technical_data',
-            '/proposition/print',
-            '/proposition/authors_expense',
-            '/proposition/production_expense',
-            '/proposition/marketing_expense',
-            '/proposition/distribution_expense',
-            '/proposition/layout_expense',
-            '/proposition/price_sales',
-            '/proposition/deadline',
-            '/proposition/precalculation',
-            '/proposition/calculation',
-            '/proposition/word_order',
+            'basic_data',
+            'categorization',
+            'market_potential',
+            'technical_data',
+            'print',
+            'authors_expense',
+            'production_expense',
+            'marketing_expense',
+            'distribution_expense',
+            'layout_expense',
+            'price_sales',
+            'deadline',
+            'precalculation',
+            'calculation',
+            'work_order',
         ],
         error: ''
     },
@@ -216,18 +216,22 @@ export default {
         },
         saveProposition({commit, state}) {
             //TODO: make request
+            let data = {
+                step: state.steps[state.proposition.step],
+                data: state.proposition[state.steps[state.proposition.step]]
+            };
+            console.log(data);
             if (!state.proposition.id) {
-                axios.post('/api/proposition', state.proposition)
+                axios.post('/api/proposition', data)
                     .then((res) => {
-                        //commit('updateProposition', {key: 'id', value: res.data.id});
-                       // commit('stepIncrement');
+                        commit('updateProposition', {key: 'id', value: res.data.id});
                     })
                     .catch((err) => {
                         commit('error', 'There was an error saving proposition. Please try again.');
                     });
             }
             else {
-                axios.patch('/api/proposition/' + parseInt(state.proposition.id), state.proposition)
+                axios.patch('/api/proposition/' + parseInt(state.proposition.id), data)
                     .then((res) => {
                         //commit('stepIncrement');
                     })

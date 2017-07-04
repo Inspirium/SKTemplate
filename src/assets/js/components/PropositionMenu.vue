@@ -169,94 +169,99 @@
                         order: 2,
                         key: 'proposition',
                         children : {
+                            propositions: {
+                                enabled: true,
+                                path: '/propositions',
+                                title: 'Propositions'
+                            },
                             basic_data: {
                                 enabled: true,
                                 title: 'Basic Data',
-                                path: '/proposition/basic_data',
+                                path: '/proposition/'+((typeof(this.$route.params.id) !== 'undefined')?this.$route.params.id+'/':'')+'basic_data',
                                 component: true
                             },
                             categorization: {
                                 enabled: true,
                                 title: 'Categorization',
-                                path: '/proposition/categorization',
+                                path: '/proposition/'+((typeof(this.$route.params.id) !== 'undefined')?this.$route.params.id+'/':'')+'categorization',
                                 component: true
                             },
                             market_potential: {
                                 enabled: true,
                                 title: 'Market Potential',
-                                path: '/proposition/market_potential',
+                                path: '/proposition/'+((typeof(this.$route.params.id) !== 'undefined')?this.$route.params.id+'/':'')+'market_potential',
                                 component: true
                             },
                             technical_data: {
                                 enabled: true,
                                 title: 'Technical Data',
-                                path: '/proposition/technical_data',
+                                path: '/proposition/'+((typeof(this.$route.params.id) !== 'undefined')?this.$route.params.id+'/':'')+'technical_data',
                                 component: true
                             },
                             print: {
                                 enabled: true,
                                 title: 'Print',
-                                path: '/proposition/print',
+                                path: '/proposition/'+((typeof(this.$route.params.id) !== 'undefined')?this.$route.params.id+'/':'')+'print',
                                 component: true
                             },
                             authors_expense: {
                                 enabled: true,
                                 title: 'Authors Expense',
-                                path: '/proposition/authors_expense',
+                                path: '/proposition/'+((typeof(this.$route.params.id) !== 'undefined')?this.$route.params.id+'/':'')+'authors_expense',
                                 component: true
                             },
                             production_expense: {
                                 enabled: true,
                                 title: 'Production Expense',
-                                path: '/proposition/production_expense',
+                                path: '/proposition/'+((typeof(this.$route.params.id) !== 'undefined')?this.$route.params.id+'/':'')+'production_expense',
                                 component: true
                             },
                             marketing_expense: {
                                 enabled: true,
                                 title: 'Marketing Expense',
-                                path: '/proposition/marketing_expense',
+                                path: '/proposition/'+((typeof(this.$route.params.id) !== 'undefined')?this.$route.params.id+'/':'')+'marketing_expense',
                                 component: true
                             },
                             distribution_expense: {
                                 enabled: true,
                                 title: 'Distribution Expense',
-                                path: '/proposition/distribution_expense',
+                                path: '/proposition/'+((typeof(this.$route.params.id) !== 'undefined')?this.$route.params.id+'/':'')+'distribution_expense',
                                 component: true
                             },
                             layout_expense: {
                                 enabled: true,
                                 title: 'Layout Expense',
-                                path: '/proposition/layout_expense',
+                                path: '/proposition/'+((typeof(this.$route.params.id) !== 'undefined')?this.$route.params.id+'/':'')+'layout_expense',
                                 component: true
                             },
                             price_sales: {
                                 enabled: true,
                                 title: 'Price and Sales',
-                                path: '/proposition/price_sales',
+                                path: '/proposition/'+((typeof(this.$route.params.id) !== 'undefined')?this.$route.params.id+'/':'')+'price_sales',
                                 component: true
                             },
                             deadline: {
                                 enabled: true,
                                 title: 'Deadline',
-                                path: '/proposition/deadline',
+                                path: '/proposition/'+((typeof(this.$route.params.id) !== 'undefined')?this.$route.params.id+'/':'')+'deadline',
                                 component: true
                             },
                             precalculation: {
                                 enabled: true,
                                 title: 'Precalculation',
-                                path: '/proposition/precalculation',
+                                path: '/proposition/'+((typeof(this.$route.params.id) !== 'undefined')?this.$route.params.id+'/':'')+'precalculation',
                                 component: true
                             },
                             calculation: {
                                 enabled: true,
                                 title: 'Calculation',
-                                path: '/proposition/calculation',
+                                path: '/proposition/'+((typeof(this.$route.params.id) !== 'undefined')?this.$route.params.id+'/':'')+'calculation',
                                 component: true
                             },
                             work_order: {
                                 enabled: true,
                                 title: 'Work Order',
-                                path: '/proposition/work_order',
+                                path: '/proposition/'+((typeof(this.$route.params.id) !== 'undefined')?this.$route.params.id+'/':'')+'work_order',
                                 component: true
                             }
                         }

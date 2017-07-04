@@ -107,7 +107,7 @@
             saveProposition: function() {
                 this.$store.dispatch('proposition/saveProposition');
                 this.$router.push({
-                    path: this.$store.state.proposition.steps[this.$store.state.proposition.proposition.step+1]
+                    path: '/proposition/'+((typeof(this.$route.params.id) !== 'undefined')?this.$route.params.id+'/':'')+this.$store.state.proposition.steps[this.$store.state.proposition.proposition.step+1]
                 });
             },
             assignModalOpen: function() {
