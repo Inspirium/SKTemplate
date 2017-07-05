@@ -202,6 +202,9 @@ export default {
         },
         updateOffer(state, payload) {
             state.proposition.print.offers[payload.id][payload.field] = payload.value;
+        },
+        deletePrintOffer(state, payload) {
+            delete(state.proposition.print.offers[payload.id]);
         }
     },
     actions: {
@@ -258,7 +261,7 @@ export default {
                             cover_plastification: state.proposition.technical_data.cover_plastification,
                             film_print: state.proposition.technical_data.film_print,
                             blind_print: state.proposition.technical_data.blind_print,
-                            uv_print: state.proposition.technical_data.uv_film,
+                            uv_print: state.proposition.technical_data.uv_print,
                             number_of_pages: state.proposition.technical_data.number_of_pages
                         };
                         commit('pushToObject', {

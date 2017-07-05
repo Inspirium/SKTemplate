@@ -220,6 +220,7 @@
         methods: {
             deleteCirculation: function(value) {
                 this.$store.commit('proposition/removeFromObjectArray', {key:'circulations', group: 'technical_data', value: value});
+                this.$store.commit('proposition/deletePrintOffer', {id: value});
             },
             deleteAddition: function(value) {
                 this.$store.commit('proposition/removeFromObjectArray', {key: 'additions', group:'technical_data', value: value});
