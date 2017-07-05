@@ -71,11 +71,11 @@
             <div class="page-name-m mt-2">{{ lang('Dotation') }}</div>
             <div class="form-inline mb-2">
                 <fieldset class="form-group">
-                    <input name="dotation" type="radio" id="dot-yes" value="1" v-model="basic_data['dotation']">
+                    <input name="dotation" type="radio" id="dot-yes" value="yes" v-model="basic_data['dotation']">
                     <label for="dot-yes">{{ lang('Yes') }}</label>
                 </fieldset>
                 <fieldset class="form-group">
-                    <input name="dotation" type="radio" id="dot-no" value="0" v-model="basic_data['dotation']">
+                    <input name="dotation" type="radio" id="dot-no" value="no" v-model="basic_data['dotation']">
                     <label for="dot-no">{{ lang('No') }}</label>
                 </fieldset>
             </div>

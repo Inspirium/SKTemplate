@@ -76,11 +76,11 @@
             <div class="page-name-m">{{ lang('Lektira') }}</div>
             <div class="form-inline">
                 <fieldset class="form-group">
-                    <input name="sex" type="radio" id="radio01" value="1"  v-model="categorization['school_assignment']">
+                    <input name="sex" type="radio" id="radio01" value="yes"  v-model="categorization['school_assignment']">
                     <label for="radio01">{{ lang('Da') }}</label>
                 </fieldset>
                 <fieldset class="form-group">
-                    <input name="sex" type="radio" id="radio02" value="0"  v-model="categorization['school_assignment']">
+                    <input name="sex" type="radio" id="radio02" value="no"  v-model="categorization['school_assignment']">
                     <label for="radio02">{{ lang('Ne') }}</label>
                 </fieldset>
             </div>

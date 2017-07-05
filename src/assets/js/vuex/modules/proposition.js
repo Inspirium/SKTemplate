@@ -17,7 +17,7 @@ export default {
                 concept: '',
                 note: '',
                 possible_products: [],
-                dotation: 0,
+                dotation: 'no',
                 dotation_amount: '',
                 dotation_origin: '',
                 manuscript: '',
@@ -61,7 +61,7 @@ export default {
                 cover_plastification: '',
                 film_print: 0,
                 blind_print: 0,
-                uv_film: 0,
+                uv_print: 0,
                 note: ''
             },
             print: {

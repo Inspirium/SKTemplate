@@ -153,11 +153,11 @@
                     <div class="page-name-m">{{ lang('Film Print') }}</div>
                     <div class="form-inline mb-3">
                         <fieldset class="form-group">
-                            <input name="film" type="radio" id="film11" value="0" v-model="technical_data['film_print']">
+                            <input name="film" type="radio" id="film11" value="no" v-model="technical_data['film_print']">
                             <label for="film11">{{ lang('No') }}</label>
                         </fieldset>
                         <fieldset class="form-group">
-                            <input name="film" type="radio" id="film21" value="1" v-model="technical_data['film_print']">
+                            <input name="film" type="radio" id="film21" value="yes" v-model="technical_data['film_print']">
                             <label for="film21">{{ lang('Yes') }}</label>
                         </fieldset>
                     </div>
@@ -165,11 +165,11 @@
                     <div class="page-name-m">{{ lang('Blind Print') }}</div>
                     <div class="form-inline mb-3">
                         <fieldset class="form-group">
-                            <input name="blind" type="radio" id="blind11" value="0" v-model="technical_data['blind_print']">
+                            <input name="blind" type="radio" id="blind11" value="no" v-model="technical_data['blind_print']">
                             <label for="blind11">{{ lang('No') }}</label>
                         </fieldset>
                         <fieldset class="form-group">
-                            <input name="blind" type="radio" id="blind21" value="1" v-model="technical_data['blind_print']">
+                            <input name="blind" type="radio" id="blind21" value="yes" v-model="technical_data['blind_print']">
                             <label for="blind21">{{ lang('Yes') }}</label>
                         </fieldset>
                     </div>
@@ -177,11 +177,11 @@
                     <div class="page-name-m">{{ lang('UV Film') }}</div>
                     <div class="form-inline mb-3">
                         <fieldset class="form-group">
-                            <input name="uv" type="radio" id="uv11" value="0" v-model="technical_data['uv_film']">
+                            <input name="uv" type="radio" id="uv11" value="no" v-model="technical_data['uv_print']">
                             <label for="uv11">{{ lang('No') }}</label>
                         </fieldset>
                         <fieldset class="form-group">
-                            <input name="uv" type="radio" id="uv21" value="1" v-model="technical_data['uv_film']">
+                            <input name="uv" type="radio" id="uv21" value="yes" v-model="technical_data['uv_print']">
                             <label for="uv21">{{ lang('Yes') }}</label>
                         </fieldset>
                     </div>
