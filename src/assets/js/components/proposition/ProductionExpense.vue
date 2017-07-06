@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="page-name-xl mb-3">{{ lang('Production Expense') }}</div>
+        <div class="page-name-xl mb-2">{{ lang('Production Expense') }}</div>
         <!-- Circulation Number -->
         <div class="col-md-12 mb-3">
             <h6 class="text-center no-border display-e">{{ lang('Circulation') }}</h6>
@@ -13,8 +13,6 @@
                 <!-- First column -->
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="page-name-l mb-2">{{ lang('Book Block') }}</div>
-
                         <!-- Input fileds Expenses Calculation -->
                         <div class="row">
                             <div class="col-md-5">
@@ -178,7 +176,6 @@
                     </div>
                     <!-- Second column -->
                     <div class="col-md-6">
-                        <div class="page-name-l mb-2">{{ lang('Cover') }}</div>
 
                         <!-- Input fileds Expenses Calculation -->
                         <div class="row">
@@ -289,7 +286,7 @@
             </div>
         </div>
 
-        <div class="page-name-l mb-1">{{ lang('Additional Expenses') }}</div>
+        <div class="page-name-l mb-2">{{ lang('Additional Expenses') }}</div>
         <template v-for="(item,index) in expense['additional_expense']">
             <div class="row">
                 <div class="col-md-6">
@@ -311,10 +308,12 @@
 
 
         <!-- Textarea -->
-        <div class="md-form mt-3">
+        <div class="md-form mt-5">
             <textarea id="form76" class="md-textarea" v-model="expense['note']"></textarea>
             <label for="form76">{{ lang('Note') }}</label>
         </div>
+        <footer-buttons></footer-buttons>
+
     </div>
 </template>
 <script>

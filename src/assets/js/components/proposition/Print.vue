@@ -39,6 +39,19 @@
                                 <input type="text" class="form-control" v-bind:value="offer.paper_type" v-on:input="changeInput($event, 'paper_type', key)">
                                 <label>{{ lang('Paper Type') }}</label>
                             </div>
+                            
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <select class="mdb-select" v-bind:value="offer.book_binding"  v-on:change="changeInput($event, 'book_binding', key)">
+                                        <option disabled >{{ lang('Book binding') }}</option>
+                                        <option value="none">{{ lang('None') }}</option>
+                                        <option value="hard">{{ lang('Hard book binding') }}</option>
+                                        <option value="soft">{{ lang('Soft book binding') }}</option>
+                                        <option value="both">{{ lang('Spiral book binding') }}</option>
+                                    </select>
+                                    <label>{{ lang('Book bindingr') }}</label>
+                                </div>
+                            </div>
 
                             <div class="row">
                                 <div class="col-md-12">

@@ -60,11 +60,25 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- Dropdown menu -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <select class="mdb-select" v-model="technical_data['book_binding']">
+                                <option disabled >{{ lang('Book binding') }}</option>
+                                <option value="none">{{ lang('None') }}</option>
+                                <option value="hard">{{ lang('Hard book binding') }}</option>
+                                <option value="soft">{{ lang('Soft book binding') }}</option>
+                                <option value="both">{{ lang('Spiral book binding') }}</option>
+                            </select>
+                            <label>{{ lang('Book bindingr') }}</label>
+                        </div>
+                    </div>
 
                     <!-- Input fileds -->
                     <div class="md-form">
-                        <input type="text" id="form6" class="form-control" v-model="technical_data['paper_type']">
-                        <label for="form6" class="">{{ lang('Paper Type') }}</label>
+                        <input type="text" class="form-control" v-model="technical_data['paper_type']">
+                        <label>{{ lang('Paper Type') }}</label>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
