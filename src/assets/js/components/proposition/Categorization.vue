@@ -249,7 +249,7 @@
                     this.$store.commit('proposition/updateProposition', {key: 'supergroup_text', group: 'categorization', value: this.categories[value].name});
                     this.$store.commit('proposition/updateProposition', {key: 'upgroup', group: 'categorization', value: 0});
                     this.$store.commit('proposition/updateProposition', {key: 'group', group: 'categorization', value: 0});
-                    this.$store.commit('proposition/updateProposition', {key: 'group_text', group: 'categorization', value: ''});
+
 
                 }
             },
@@ -258,14 +258,19 @@
                     set(value) {
                         this.$store.commit('proposition/updateProposition', {key: 'upgroup', group: 'categorization', value: value});
                         this.$store.commit('proposition/updateProposition', {key: 'group', group: 'categorization', value: 0});
-                        this.$store.commit('proposition/updateProposition', {key: 'upgroup_coef', group: 'categorization', value: this.categories[this.supergroup].groups[value].coefficient});
                     }
             },
             group: {
                 get() { return this.$store.state.proposition.proposition.categorization.group; },
                 set(value) {
                     this.$store.commit('proposition/updateProposition', {key: 'group', group: 'categorization', value: value});
-                 this.$store.commit('proposition/updateProposition', {key: 'group_text', group: 'categorization', value: this.categories[this.supergroup]['groups'][this.upgroup]['groups'][value].name})
+                    if (value) {
+                        this.$store.commit('proposition/updateProposition', {
+                            key: 'group_text',
+                            group: 'categorization',
+                            value: this.categories[this.supergroup]['groups'][this.upgroup]['groups'][value].name
+                        })
+                    }
                 }
             },
 

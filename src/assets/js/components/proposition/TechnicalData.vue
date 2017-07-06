@@ -60,7 +60,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Dropdown menu -->
                     <div class="row">
                         <div class="col-md-12">
@@ -71,7 +71,7 @@
                                 <option value="soft">{{ lang('Soft book binding') }}</option>
                                 <option value="both">{{ lang('Spiral book binding') }}</option>
                             </select>
-                            <label>{{ lang('Book bindingr') }}</label>
+                            <label>{{ lang('Book binding') }}</label>
                         </div>
                     </div>
 

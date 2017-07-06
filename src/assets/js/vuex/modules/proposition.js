@@ -62,6 +62,7 @@ export default {
                 film_print: 0,
                 blind_print: 0,
                 uv_print: 0,
+                book_binding: '',
                 note: ''
             },
             print: {
@@ -144,7 +145,6 @@ export default {
             'marketing_expense',
             'distribution_expense',
             'layout_expense',
-            'price_sales',
             'deadline',
             'precalculation',
             'calculation',
@@ -251,6 +251,8 @@ export default {
                             title: o.title,
                             note: '',
                             print_offer: '',
+                            book_bindind: state.proposition.technical_data.book_binding,
+                            paper_type: state.proposition.technical_data.paper_type,
                             cover_type: state.proposition.technical_data.cover_type,
                             colors: state.proposition.technical_data.colors,
                             colors_first_page: state.proposition.technical_data.colors_first_page,

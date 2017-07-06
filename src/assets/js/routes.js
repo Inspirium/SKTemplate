@@ -12,10 +12,11 @@ import Deadline from './components/proposition/Deadline.vue'
 import Precalculation from './components/proposition/Precalculation.vue'
 import Calculation from './components/proposition/Calculation.vue'
 import WorkOrder from './components/proposition/WorkOrder.vue'
-import PriceSales from './components/proposition/PriceSales.vue'
+import PropositionStart from './components/proposition/PropositionStart.vue'
 
 
 export const routes = [
+    { path: '/proposition/:id', component: PropositionStart },
     { path: '/proposition/basic_data', component: BasicData },
     { path: '/proposition/:id/basic_data', component: BasicData },
     { path: '/proposition/categorization', component: Categorization },
@@ -36,8 +37,6 @@ export const routes = [
     { path: '/proposition/:id/distribution_expense', component: DistributionExpense},
     { path: '/proposition/layout_expense', component: LayoutExpense},
     { path: '/proposition/:id/layout_expense', component: LayoutExpense},
-    { path: '/proposition/price_sales', component: PriceSales},
-    { path: '/proposition/:id/price_sales', component: PriceSales},
     { path: '/proposition/deadline', component: Deadline},
     { path: '/proposition/:id/deadline', component: Deadline},
     { path: '/proposition/precalculation', component: Precalculation},

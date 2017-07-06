@@ -3,7 +3,7 @@
     <div class="row tabs-wrapper">
         <ul class="col nav classic-tabs tabs-cyan" id="tabs" role="tablist">
             <li class="nav-item" v-for="(offer, key, index) in offers">
-                <a v-bind:class="['nav-link', !index?'active':'']" data-toggle="tab" v-bind:href="'#panel'+index" v-bind:key="key"  role="tab" v-on:click="switchTab($event)">{{ offer.title }}</a>
+                <a v-bind:class="['nav-link', !index?'active':'']" data-toggle="tab" v-bind:href="'#panel'+index" v-bind:key="key"  role="tab" v-on:click="switchTab($event)">{{ offers[key+'[title]'] }}</a>
             </li>
         </ul>
     </div>
@@ -13,7 +13,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h6 class="text-center no-border display-e">{{ lang('Circulation') }}</h6>
-                    <h1 class="text-center display-2">{{ offer.title }}</h1>
+                    <h1 class="text-center display-2">{{ offers[key+'[title]'] }}</h1>
                     <div class="print-offer-box mt-2 mb-3">
                         <div class="row">
                             <div class="col-md-6 mx-auto">
@@ -33,16 +33,16 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="page-name-l mb-2">{{ lang('Book Block') }}</div>
-                            
+
                             <!-- Input fileds -->
                             <div class="md-form">
-                                <input type="text" class="form-control" v-bind:value="offer.paper_type" v-on:input="changeInput($event, 'paper_type', key)">
+                                <input type="text" class="form-control" v-model="offers[key+'[paper_type]']">
                                 <label>{{ lang('Paper Type') }}</label>
                             </div>
-                            
+
                             <div class="row">
                                 <div class="col-md-12">
-                                    <select class="mdb-select" v-bind:value="offer.book_binding"  v-on:change="changeInput($event, 'book_binding', key)">
+                                    <select class="mdb-select" v-model="offers[key+'[book_binding]']">
                                         <option disabled >{{ lang('Book binding') }}</option>
                                         <option value="none">{{ lang('None') }}</option>
                                         <option value="hard">{{ lang('Hard book binding') }}</option>
@@ -55,7 +55,7 @@
 
                             <div class="row">
                                 <div class="col-md-12">
-                                    <select class="mdb-select" v-bind:value="offer.colors" v-on:change="changeInput($event, 'colors', key)">
+                                    <select class="mdb-select" v-model="offers[key+'[colors]']">
                                         <option disabled >{{ lang('Choose Colors') }}</option>
                                         <option v-for="(color, index) in option_colors" v-bind:value="index+1">{{ lang(color) }}</option>
                                     </select>
@@ -64,7 +64,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <select class="mdb-select" v-bind:value="offer.colors_first_page" v-on:change="changeInput($event, 'color_first_page', key)">
+                                    <select class="mdb-select" v-model="offers[key+'[colors_first_page]']">
                                         <option disabled >{{ lang('Colors - First Pages') }}</option>
                                         <option v-for="(color, index) in option_colors" v-bind:value="index+1">{{ lang(color) }}</option>
                                     </select>
@@ -73,7 +73,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <select class="mdb-select" v-bind:value="offer.colors_last_page" v-on:change="changeInput($event, 'color_last_page', key)">
+                                    <select class="mdb-select" v-model="offers[key+'[colors_last_page]']">
                                         <option disabled >{{ lang('Colors - Last Pages') }}</option>
                                         <option v-for="(color, index) in option_colors" v-bind:value="index+1">{{ lang(color) }}</option>
                                     </select>
@@ -81,7 +81,7 @@
                                 </div>
                             </div>
                             <div class="md-form">
-                                <input type="text" id="form1" class="form-control" v-bind:value="offer.additional_work" v-on:input="changeInput($event, 'additional_work', key)">
+                                <input type="text" id="form1" class="form-control" v-model="offers[key+'[additional_work]']">
                                 <label for="form1" class="">{{ lang('Additional Work') }}</label>
                             </div>
                         </div>
@@ -89,11 +89,11 @@
                         <!-- Second column -->
                         <div class="col-md-6">
                             <div class="page-name-l mb-2">{{ lang('Cover') }}</div>
-                            
+
                             <!-- Dropdown menu -->
                             <div class="row">
                                 <div class="col-md-12">
-                                    <select class="mdb-select" v-bind:value="offer.cover_type"  v-on:change="changeInput($event, 'cover_type', key)">
+                                    <select class="mdb-select" v-model="offers[key+'[cover_type]']">
                                         <option disabled >{{ lang('Hard/Soft Cover') }}</option>
                                         <option value="none" >{{ lang('None') }}</option>
                                         <option value="hard" >{{ lang('Hard Cover') }}</option>
@@ -107,15 +107,15 @@
                             <!-- Show depent on selection above -->
                             <!-- Input fileds -->
                             <div class="row">
-                                <div class="col-md-6" v-if="offer.cover_type === 'soft' || offer.cover_type === 'both'" >
+                                <div class="col-md-6" v-if="offers[key+'[cover_type]'] === 'soft' || offers[key+'[cover_type]'] === 'both'" >
                                     <div class="md-form">
-                                        <input type="text" class="form-control" v-bind:value="offer.soft_cover_circulation" v-on:input="changeInput($event, 'soft_cover_circulation', key)">
+                                        <input type="text" class="form-control" v-model="offers[key+'[soft_cover_circulation]']">
                                         <label >{{ lang('Soft Cover Circulation') }}</label>
                                     </div>
                                 </div>
-                                <div class="col-md-6"v-if="offer.cover_type === 'hard' || offer.cover_type === 'both'">
+                                <div class="col-md-6"v-if="offers[key+'[cover_type]'] === 'hard' || offers+[key+'[cover_type]'] === 'both'">
                                     <div class="md-form">
-                                        <input type="text" class="form-control" v-bind:value="offer.soft_cover_circulation" v-on:input="changeInput($event, 'hard_cover_circulation', key)">
+                                        <input type="text" class="form-control" v-model="offers[key+'[hard_cover_circulation]']">
                                         <label>{{ lang('Hard Cover Circulation') }}</label>
                                     </div>
                                 </div>
@@ -124,14 +124,14 @@
 
                             <!-- Input fileds -->
                             <div class="md-form">
-                                <input type="text" class="form-control" v-bind:value="offer.cover_paper_type" v-on:input="changeInput($event, 'cover_paper_type', key)">
+                                <input type="text" class="form-control" v-model="offers[key+'[cover_paper_type]']">
                                 <label>{{ lang('Paper Type') }}</label>
                             </div>
 
                             <!-- Input fileds -->
                             <div class="row">
                                 <div class="col-md-12">
-                                    <select class="mdb-select" v-bind:value="offer.cover_colors" v-on:change="changeInput($event, 'cover_colors', key)">
+                                    <select class="mdb-select" v-model="offers[key+'[cover_colors]']">
                                         <option disabled >{{ lang('Choose Colors') }}</option>
                                         <option v-for="(color, index) in option_colors" v-bind:value="index+1">{{ lang(color) }}</option>
                                     </select>
@@ -140,7 +140,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <select class="mdb-select" v-bind:value="offer.cover_plastification" v-on:change="changeInput($event, 'cover_plastification', key)">
+                                    <select class="mdb-select" v-model="offers[key+'[cover_plastification]']">
                                         <option disabled >{{ lang('Plastification') }}</option>
                                         <option value="none">{{ lang('None') }}</option>
                                         <option value="glossy">{{ lang('Glossy plastification') }}</option>
@@ -154,11 +154,11 @@
                             <div class="page-name-m">{{ lang('Film Print') }}</div>
                             <div class="form-inline mb-3">
                                 <fieldset class="form-group">
-                                    <input v-bind:name="'film_print'+index" type="radio" v-bind:id="'film_print_no'+index" value="no" v-bind:checked="offer.film_print === 'no'" v-on:change="changeInput($event, 'film_print', key)">
+                                    <input v-bind:name="'film_print'+index" type="radio" v-bind:id="'film_print_no'+index" value="no" v-model="offers[key+'[film_print]']">
                                     <label v-bind:for="'film_print_no'+index">{{ lang('No') }}</label>
                                 </fieldset>
                                 <fieldset class="form-group">
-                                    <input v-bind:name="'film_print'+index" type="radio" v-bind:id="'film_print_yes'+index" value="yes" v-bind:checked="offer.film_print === 'yes'" v-on:change="changeInput($event, 'film_print', key)">
+                                    <input v-bind:name="'film_print'+index" type="radio" v-bind:id="'film_print_yes'+index" value="yes" v-model="offers[key+'[film_print]']">
                                     <label v-bind:for="'film_print_yes'+index">{{ lang('Yes') }}</label>
                                 </fieldset>
                             </div>
@@ -166,11 +166,11 @@
                             <div class="page-name-m">{{ lang('Blind Print') }}</div>
                             <div class="form-inline mb-3">
                                 <fieldset class="form-group">
-                                    <input v-bind:name="'blind_print'+index" type="radio" v-bind:id="'blind_print_no'+index" value="no" v-bind:checked="offer.blind_print === 'no'" v-on:change="changeInput($event, 'blind_print', key)">
+                                    <input v-bind:name="'blind_print'+index" type="radio" v-bind:id="'blind_print_no'+index" value="no" v-model="offers[key+'[blind_print]']">
                                     <label v-bind:for="'blind_print_no'+index">{{ lang('No') }}</label>
                                 </fieldset>
                                 <fieldset class="form-group">
-                                    <input v-bind:name="'blind_print'+index" type="radio" v-bind:id="'blind_print_yes'+index" value="yes" v-bind:checked="offer.blind_print === 'yes'" v-on:change="changeInput($event, 'blind_print', key)">
+                                    <input v-bind:name="'blind_print'+index" type="radio" v-bind:id="'blind_print_yes'+index" value="yes" v-model="offers[key+'[blind_print]']">
                                     <label v-bind:for="'blind_print_yes'+index">{{ lang('Yes') }}</label>
                                 </fieldset>
                             </div>
@@ -178,11 +178,11 @@
                             <div class="page-name-m">{{ lang('UV Film') }}</div>
                             <div class="form-inline mb-3">
                                 <fieldset class="form-group">
-                                    <input v-bind:name="'uv_print'+index" type="radio" v-bind:id="'uv_print_no'+index" value="no" v-bind:checked="offer.uv_print === 'no'" v-on:change="changeInput($event, 'uv_print', key)">
+                                    <input v-bind:name="'uv_print'+index" type="radio" v-bind:id="'uv_print_no'+index" value="no" v-model="offers[key+'[uv_print]']">
                                     <label v-bind:for="'uv_print_no'+index">{{ lang('No') }}</label>
                                 </fieldset>
                                 <fieldset class="form-group">
-                                    <input v-bind:name="'uv_print'+index" type="radio" v-bind:id="'uv_print_yes'+index" value="yes" v-bind:checked="offer.uv_print === 'yes'" v-on:change="changeInput($event, 'uv_print', key)">
+                                    <input v-bind:name="'uv_print'+index" type="radio" v-bind:id="'uv_print_yes'+index" value="yes" v-model="offers[key+'[uv_print]']">
                                     <label v-bind:for="'uv_print_yes'+index">{{ lang('Yes') }}</label>
                                 </fieldset>
                             </div>
@@ -193,7 +193,7 @@
 
             <!-- Textarea -->
             <div class="md-form mt-3">
-                <textarea id="form76" class="md-textarea" v-bind:value="offer.note" v-on:input="changeInput($event, 'note', key)"></textarea>
+                <textarea id="form76" class="md-textarea" v-model="offers[key+'[note]']"></textarea>
                 <label for="form76">{{ lang('Note') }}</label>
             </div>
 
