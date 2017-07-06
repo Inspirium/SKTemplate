@@ -1,13 +1,13 @@
 <template>
 <div>
-    <div class="page-name-xl mb-2">{{ lang('Print Offers') }}</div>
     <div class="row tabs-wrapper">
-    <ul class="col nav classic-tabs tabs-cyan" id="tabs" role="tablist">
-        <li class="nav-item" v-for="(offer, key, index) in offers">
-            <a v-bind:class="['nav-link', !index?'active':'']" data-toggle="tab" v-bind:href="'#panel'+index" v-bind:key="key"  role="tab" v-on:click="switchTab($event)">{{ offer.title }}</a>
-        </li>
-    </ul>
+        <ul class="col nav classic-tabs tabs-cyan" id="tabs" role="tablist">
+            <li class="nav-item" v-for="(offer, key, index) in offers">
+                <a v-bind:class="['nav-link', !index?'active':'']" data-toggle="tab" v-bind:href="'#panel'+index" v-bind:key="key"  role="tab" v-on:click="switchTab($event)">{{ offer.title }}</a>
+            </li>
+        </ul>
     </div>
+    <div class="page-name-xl mb-2 mt-2">{{ lang('Print Offers') }}</div>
     <div class="tab-content">
         <div v-bind:class="['tab-pane', 'fade', !index?'active in show':'']" v-bind:id="'panel'+index" role="tabpanel" v-for="(offer, key, index) in offers" v-bind:key="key">
             <div class="row">
@@ -22,7 +22,7 @@
                                     <input type="text" class="form-control" v-bind:placeholder="lang('In Kn')" v-model="offers[key+'[print_offer]']">
                                     <label>{{ lang('Print offer') }}</label>
                                     <span class="d-flex">
-                                        <button class="btn btn-neutral btn-addon" type="button" v-on:click="saveOffer">{{ lang('Save') }}</button>
+                                        <button class="btn btn-neutral btn-addon p-1 ml-1" type="button" v-on:click="saveOffer">{{ lang('Save') }}</button>
                                     </span>
                                 </div>
                             </div>
@@ -33,38 +33,12 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="page-name-l mb-2">{{ lang('Book Block') }}</div>
-
-                            <!-- Dropdown menu -->
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <select class="mdb-select" v-bind:value="offer.cover_type"  v-on:change="changeInput($event, 'cover_type', key)">
-                                        <option disabled >{{ lang('Hard/Soft Cover') }}</option>
-                                        <option value="none" >{{ lang('None') }}</option>
-                                        <option value="hard" >{{ lang('Hard Cover') }}</option>
-                                        <option value="soft" >{{ lang('Soft Cover') }}</option>
-                                        <option value="both" >{{ lang('Hard and Soft Cover') }}</option>
-                                    </select>
-                                    <label>{{ lang('Hard/Soft Cover') }}</label>
-                                </div>
-                            </div>
-
-                            <!-- Show depent on selection above -->
+                            
                             <!-- Input fileds -->
-                            <div class="row">
-                                <div class="col-md-6" v-if="offer.cover_type === 'soft' || offer.cover_type === 'both'" >
-                                    <div class="md-form">
-                                        <input type="text" class="form-control" v-bind:value="offer.soft_cover_circulation" v-on:input="changeInput($event, 'soft_cover_circulation', key)">
-                                        <label >{{ lang('Soft Cover Circulation') }}</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6"v-if="offer.cover_type === 'hard' || offer.cover_type === 'both'">
-                                    <div class="md-form">
-                                        <input type="text" class="form-control" v-bind:value="offer.soft_cover_circulation" v-on:input="changeInput($event, 'hard_cover_circulation', key)">
-                                        <label>{{ lang('Hard Cover Circulation') }}</label>
-                                    </div>
-                                </div>
+                            <div class="md-form">
+                                <input type="text" class="form-control" v-bind:value="offer.paper_type" v-on:input="changeInput($event, 'paper_type', key)">
+                                <label>{{ lang('Paper Type') }}</label>
                             </div>
-                            <!-- Show depent on selection above -->
 
                             <div class="row">
                                 <div class="col-md-12">
@@ -102,14 +76,43 @@
                         <!-- Second column -->
                         <div class="col-md-6">
                             <div class="page-name-l mb-2">{{ lang('Cover') }}</div>
-
+                            
                             <!-- Dropdown menu -->
                             <div class="row">
                                 <div class="col-md-12">
-                                    <label>{{ lang('Paper Type') }}</label>
-                                    <input type="text"  class="form-control" v-bind:value="offer.cover_paper_type" v-on:input="changeInput($event, 'cover_paper_type', key)">
-
+                                    <select class="mdb-select" v-bind:value="offer.cover_type"  v-on:change="changeInput($event, 'cover_type', key)">
+                                        <option disabled >{{ lang('Hard/Soft Cover') }}</option>
+                                        <option value="none" >{{ lang('None') }}</option>
+                                        <option value="hard" >{{ lang('Hard Cover') }}</option>
+                                        <option value="soft" >{{ lang('Soft Cover') }}</option>
+                                        <option value="both" >{{ lang('Hard and Soft Cover') }}</option>
+                                    </select>
+                                    <label>{{ lang('Hard/Soft Cover') }}</label>
                                 </div>
+                            </div>
+
+                            <!-- Show depent on selection above -->
+                            <!-- Input fileds -->
+                            <div class="row">
+                                <div class="col-md-6" v-if="offer.cover_type === 'soft' || offer.cover_type === 'both'" >
+                                    <div class="md-form">
+                                        <input type="text" class="form-control" v-bind:value="offer.soft_cover_circulation" v-on:input="changeInput($event, 'soft_cover_circulation', key)">
+                                        <label >{{ lang('Soft Cover Circulation') }}</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6"v-if="offer.cover_type === 'hard' || offer.cover_type === 'both'">
+                                    <div class="md-form">
+                                        <input type="text" class="form-control" v-bind:value="offer.soft_cover_circulation" v-on:input="changeInput($event, 'hard_cover_circulation', key)">
+                                        <label>{{ lang('Hard Cover Circulation') }}</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Show depent on selection above -->
+
+                            <!-- Input fileds -->
+                            <div class="md-form">
+                                <input type="text" class="form-control" v-bind:value="offer.cover_paper_type" v-on:input="changeInput($event, 'cover_paper_type', key)">
+                                <label>{{ lang('Paper Type') }}</label>
                             </div>
 
                             <!-- Input fileds -->

@@ -16,11 +16,6 @@
     }
 }
 
-.content { //TODO: remove this
-    padding-left: 15px;
-    padding-top: 15px;
-}
-
 //h1::selection,
 //h2::selection,
 //h3::selection,
@@ -1114,7 +1109,6 @@ input.md-form.addon {
     width: 30%;
     padding-bottom: 18px;
     padding-top: 18px;
-    top: -2px;
 }
 
 
@@ -1137,11 +1131,6 @@ input.md-form.addon {
 .btn .fa.left {
     margin-right: 10px;
     margin-top: 0;
-}
-
-.btn-addon {
-    flex-grow: 3;
-    border-radius: 7px;
 }
 
 

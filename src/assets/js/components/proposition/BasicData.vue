@@ -10,19 +10,17 @@
                 <label for="title" class="">{{ lang('Title') }}</label>
             </div>
             <div class="row">
-                <div class="col-md-10">
+                <div class="col-md-12">
                     <div class="md-form d-flex addon">
                         <input type="text" id="author" class="form-control mdb-autocomplete" name="author" v-bind:placeholder="lang('Author')" v-model="author" v-on:keyup="autocomplete($event)">
                         <ul class="mdb-autocomplete-wrap" v-if="suggestions.length">
                             <li v-for="(item, index) in suggestions" v-on:click="autocomplete_select(index)">{{ item.first_name }} {{ item.last_name }}</li>
                         </ul>
                         <label for="author" class="">{{ lang('Author') }}</label>
-                        <span class="d-flex">
-                            <button class="btn btn-neutral btn-addon" type="button">{{ lang('Add') }}</button>
-                        </span>
                     </div>
                 </div>
             </div>
+            <button class="btn btn-neutral btn-addon mb-2" type="button">{{ lang('Add Author') }}</button>
             <div class="chip mb-3" v-for="(author, index) in basic_data['authors']" v-on:chip.delete="author_delete">
                 <img v-bind:src="author.image"> {{ author.name }}<i class="close fa fa-times"></i>
             </div>

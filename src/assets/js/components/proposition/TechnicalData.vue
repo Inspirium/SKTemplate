@@ -11,7 +11,7 @@
                         <input type="number" id="form1" class="form-control" v-bind:placeholder="lang('Circulation')" v-model.number="circulation" step="1" min="1" v-on:keydown.13="addCirculation">
                         <label for="form1" class="">{{ lang('Circulation') }}</label>
                         <span class="d-flex">
-                            <button class="btn btn-neutral btn-addon" type="button" v-on:click="addCirculation">{{ lang('Add') }}</button>
+                            <button class="btn btn-neutral btn-addon p-1 ml-1" type="button" v-on:click="addCirculation">{{ lang('Add') }}</button>
                         </span>
                     </div>
                 </div>
@@ -27,7 +27,7 @@
                         <input type="text" id="form2" class="form-control" v-bind:placeholder="lang('Additions')" v-model="addition" v-on:keydown.13="addAddition">
                         <label for="form2" class="">{{ lang('Additions') }}</label>
                         <span class="d-flex">
-                            <button class="btn btn-neutral btn-addon" type="button" v-on:click="addAddition">{{ lang('Add') }}</button>
+                            <button class="btn btn-neutral btn-addon p-1 ml-1" type="button" v-on:click="addAddition">{{ lang('Add') }}</button>
                         </span>
                     </div>
                 </div>
@@ -118,13 +118,10 @@
                         </div>
                     </div>
 
-                    <!-- Dropdown menu -->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <label>{{ lang('Paper Type') }}</label>
-                            <input type="text" v-model="technical_data['cover_paper_type']" class="form-control">
-
-                        </div>
+                    <!-- Input fileds -->
+                    <div class="md-form">
+                        <input type="text" id="form6" class="form-control" v-model="technical_data['cover_paper_type']">
+                        <label for="form6" class="">{{ lang('Paper Type') }}</label>
                     </div>
 
                     <!-- Input fileds -->

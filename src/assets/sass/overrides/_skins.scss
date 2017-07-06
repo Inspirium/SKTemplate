@@ -18,6 +18,13 @@ $sk-skin-btn-primary: #309e9e;
 $sk-skin-btn-secondary: #324f7b;
 $sk-skin-btn-default: #293756;
 .sk-skin {
+    .view {
+        margin-left: -15px;
+        margin-right: -15px;
+        padding-left: 30px;
+        padding-right: 15px;
+        padding-top: 15px;
+    }
     .gradient {
         background: $sk-skin-gradient-start;
         /* Old browsers */
@@ -187,6 +194,13 @@ $sk-skin-btn-default: #293756;
     .btn {
         font-family: $font-family-sans-serif;
         cursor: pointer;
+        margin: 2px;
+    }
+    .btn-addon {
+        flex-grow: 3;
+        border-radius: 56px;
+        top: 3px;
+        position: relative;
     }
     .btn-primary {
         background: $sk-skin-btn-primary;
@@ -232,6 +246,7 @@ $sk-skin-btn-default: #293756;
     }
     input[type="email"],
     input[type="search"],
+    input[type="number"],
     textarea.md-textarea,
     input[type="text"],
     input[type="password"],
@@ -245,6 +260,7 @@ $sk-skin-btn-default: #293756;
     input[type="search"]:focus:not([readonly]),
     textarea.md-textarea:focus:not([readonly]),
     input[type="text"]:focus:not([readonly]),
+    input[type="number"]:focus:not([readonly]),
     input[type="password"]:focus:not([readonly]),
     textarea.md-textarea:focus:not([readonly]) {
         border: 1px solid $sk-skin-accent;
@@ -320,6 +336,14 @@ $sk-skin-btn-default: #293756;
                 color: $sk-skin-accent;
             }
         }
+        .mdb-autocomplete-wrap {
+            top: 60px;
+            border-radius: 4px; 
+            color: #6FBAD5;
+                li {
+                    font-size: 1.2rem;
+            }
+        }
     }
     input[type="radio"]:checked + label:after {
         border: 2px solid $sk-skin-accent;
@@ -341,6 +365,9 @@ $sk-skin-btn-default: #293756;
             font-weight: 300;
             box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.06), 0 2px 10px 0 rgba(0, 0, 0, 0.02);
         }
+    }
+    .multiple-select-dropdown li [type="checkbox"] + label {
+        height: 18px;
     }
     /* Select colors */
     .dropdown-content {
@@ -381,6 +408,11 @@ $sk-skin-btn-default: #293756;
             color: $sk-skin-primary-color;
         }
     }
+    /* Tabs */
+    .tabs-wrapper {
+        margin-top: -15px;
+    }
+    
     /* Modal */
     .modal {
         .modal-content {
