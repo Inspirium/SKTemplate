@@ -20,7 +20,7 @@
                     </div>
                 </div>
             </div>
-            <button class="btn btn-neutral btn-addon mb-2" type="button">{{ lang('Add Author') }}</button>
+            <button class="btn btn-neutral btn-addon mb-2" type="button" v-on:click="centralModalAuthors">{{ lang('Add Author') }}</button>
             <div class="chip mb-3" v-for="(author, index) in basic_data['authors']" v-on:chip.delete="author_delete">
                 <img v-bind:src="author.image"> {{ author.name }}<i class="close fa fa-times"></i>
             </div>
@@ -127,13 +127,81 @@
                     <label for="products-short">{{ lang('Short Edition') }}</label>
                 </fieldset>
             </div>
-
-
         </div>
 
         <upload-modal action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" v-on:fileDelete="fileDelete" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave"></upload-modal>
     </div>
-        <footer-buttons></footer-buttons>
+    
+    <!-- Central Modal Medium Authors -->
+    <div class="modal fade" id="centralModalAuthors" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-notify modal-warning" role="document">
+            <!--Content-->
+            <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header flex-column px-3 pt-3">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="white-text">&times;</span>
+                    </button>
+                    <div class="d-flex">
+                        <i class="fa fa-user-circle-o fa-4x mb-1 animated rotateInDownLeft"></i>
+                        <h1 class="modal-title w-100 text-center">@Lang('Add new Author')</h1>
+                    </div>
+                    <h6 class="w-100 text-center">@Lang('Enter basic information about new Author')</h6>
+                </div>
+
+                <!--Body-->
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="md-form">
+                                        <input type="text" id="form_author_name" class="form-control" required v-model="new_author['name']">
+                                        <label for="form_author_name" class="">@lang('First Name')</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="md-form">
+                                        <input type="text" id="form_author_lastname" class="form-control" required v-model="new_author['last_name']">
+                                        <label for="form_author_lastname" class="">@lang('Last Name')</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="md-form">
+                                        <input type="text" id="form_author_title" class="form-control" required v-model="new_author['title']">
+                                        <label for="form_author_title" class="">@lang('Title')</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="md-form">
+                                        <input type="text" id="form_author_occupation" class="form-control" required v-model="new_author['occupation']">
+                                        <label for="form_author_occupation" class="">@lang('Occupation')</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="md-form">
+                                <input type="text" id="form_author_work" class="form-control" required v-model="new_author['work']">
+                                <label for="form1" class="">@lang('Working in')</label>
+                            </div>
+                            <button class="btn btn-neutral btn-addon mb-2" type="button">@lang('Add Additional Information')</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Footer-->
+                <div class="modal-footer btn-footer">
+                    <button type="button" class="btn btn-lg btn-cancel" data-dismiss="modal">@lang('Cancel')</button>
+                    <button type="button" class="btn btn-lg btn-save" v-on:click="fileUpload">@lang('Save')</button>
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+    <!-- Central Modal Medium Authors--> 
+    
+    <footer-buttons></footer-buttons>
     </div>
 </template>
 
