@@ -69,7 +69,8 @@ export default {
                 offers : {}
             },
             authors_expense: {
-                expenses: {}
+                expenses: {},
+                note: ''
             },
             production_expense: {
                 text_price: '',
@@ -251,7 +252,7 @@ export default {
                             title: o.title,
                             note: '',
                             print_offer: '',
-                            book_bindind: state.proposition.technical_data.book_binding,
+                            book_binding: state.proposition.technical_data.book_binding,
                             paper_type: state.proposition.technical_data.paper_type,
                             cover_type: state.proposition.technical_data.cover_type,
                             colors: state.proposition.technical_data.colors,
@@ -264,7 +265,18 @@ export default {
                             film_print: state.proposition.technical_data.film_print,
                             blind_print: state.proposition.technical_data.blind_print,
                             uv_print: state.proposition.technical_data.uv_print,
-                            number_of_pages: state.proposition.technical_data.number_of_pages
+                            number_of_pages: state.proposition.technical_data.number_of_pages,
+                            hard_cover_circulation: 0,
+                            soft_cover_circulation: 0,
+                            total_cost: 0,
+                            direct_cost_cover: 0,
+                            complete_cost_cover: 0,
+                            authors_total: 0,
+                            authors_advance: 0,
+                            authors_other: 0,
+                            compensation: 0,
+                            indirect_expenses:0,
+                            complete_expense: 0
                         };
                         commit('pushToObject', {
                             id: o.id,
@@ -279,15 +291,23 @@ export default {
         },
         initAuthorExpenses({state, commit}) {
             _.forEach(state.proposition.basic_data.authors, function (a) {
+                let id = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                    let r = Math.random()*16|0, v = c === 'x' ? r : (r&0x3|0x8);
+                    return v.toString(16);
+                })
                 commit('pushToObject', {
                     group: 'authors_expense',
                     key: 'expenses',
                     id: a.id,
-                    value: {
-                        expenses: [],
-                        note: ''
-                    }
+                    value: [
+                          {amount: '', percentage: '', accontation: '', id: id}
+                    ]
                 });
+            });
+        },
+        initPrecalculation({state, commit}) {
+            _.forEach(state.proposition.print.offers, function(o) {
+
             });
         }
     }

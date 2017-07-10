@@ -47,11 +47,324 @@
             </template>
         </div>
         <div class="tab-pane fade" v-bind:id="'panel'+(index+1)" role="tabpanel" v-for="(option, key, index) in options" v-bind:key="key">
-            <div class="profile-head pt-3 pb-2 d-flex flex-column justify-content-center align-items-center">
-                <h6 class="text-center no-border display-e text-white">{{ lang('Total Cost') }}</h6>
-                <h1 class="text-center display-2 mb-2 text-white">215.000 kn</h1>
+            <div class="profile-head">
+                <div class="row text-white d-flex justify-content-center text-center">
+                    <div class="col-md-4">
+                        <div class="page-name-l-white text-center border-white">{{ lang('Direct Cost Cover') }}</div>
+                        <div>
+                            <h6 class="no-border text-white">{{ lang('Number of Sold Copies') }}</h6>
+                            <h3 class="mb-2">{{ option.direct_cost_cover }}</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="page-name-l-white text-center">{{ lang('Complete Cost Cover') }}</div>
+                        <div>
+                            <h6 class="no-border text-white">{{ lang('Number of Sold Copies') }}</h6>
+                            <h3 class="mb-2">{{ option.complete_cost_cover }}</h3>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+            <div class="">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="page-name-xl mb-2 mt-2">{{ option.title }}</div>
+
+                        <!-- First column -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="page-name-l mb-2">{{ lang('Book Block') }}</div>
+
+                                <!-- Dropdown menu -->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <select class="mdb-select" disabled>
+                                            <option disabled >{{ lang('Hard/Soft Cover') }}</option>
+                                            <option value="none" >{{ lang('None') }}</option>
+                                            <option value="hard" >{{ lang('Hard Cover') }}</option>
+                                            <option value="soft" >{{ lang('Soft Cover') }}</option>
+                                            <option value="both" >{{ lang('Hard and Soft Cover') }}</option>
+                                        </select>
+                                        <label>{{ lang('Hard/Soft Cover') }}</label>
+                                    </div>
+                                </div>
+
+                                <!-- Input fileds -->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="md-form">
+                                            <input type="text" class="form-control" disabled v-bind:value="option.soft_cover_circulation">
+                                            <label for="form1" class="">{{ lang('Soft Cover Circulation') }}</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="md-form">
+                                            <input type="text" class="form-control" disabled v-bind:value="option.hard_cover_circulation">
+                                            <label for="form1" class="">{{ lang('Hard Cover Circulation') }}</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <select class="mdb-select" disabled v-bind:value="option.colors">
+                                            <option v-for="(color, index) in option_colors" v-bind:value="index+1">{{ lang(color) }}</option>
+                                        </select>
+                                        <label>{{ lang('Colors') }}</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <select class="mdb-select" disabled v-bind:value="option.colors_first_page">
+                                            <option v-for="(color, index) in option_colors" v-bind:value="index+1">{{ lang(color) }}</option>
+                                        </select>
+                                        <label>{{ lang('Colors - First Pages') }}</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <select class="mdb-select" disabled v-bind:value="option.colors_last_page">
+                                            <option v-for="(color, index) in option_colors" v-bind:value="index+1">{{ lang(color) }}</option>
+                                        </select>
+                                        <label>{{ lang('Colors - Last Pages') }}</label>
+                                    </div>
+                                </div>
+                                <div class="md-form">
+                                    <input type="text" class="form-control" disabled v-bind:value="option.additional_work">
+                                    <label class="">{{ lang('Additional Work') }}</label>
+                                </div>
+                            </div>
+
+                            <!-- Second column -->
+                            <div class="col-md-6">
+                                <div class="page-name-l mb-2">{{ lang('Cover') }}</div>
+
+                                <!-- Dropdown menu -->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="md-form">
+                                        <input class="form-control" disabled v-bind:value="option.cover_paper_type">
+                                        <label>{{ lang('Paper Type') }}</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Input fileds -->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <select class="mdb-select" disabled v-bind:value="option.cover_colors">
+                                            <option v-for="(color, index) in option_colors" v-bind:value="index+1">{{ lang(color) }}</option>
+                                        </select>
+                                        <label>{{ lang('Colors') }}</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <select class="mdb-select" disabled v-bind:value="option.cover_plastification">
+                                            <option value="none">{{ lang('None') }}</option>
+                                            <option value="glossy">{{ lang('Glossy plastification') }}</option>
+                                            <option value="mat">{{ lang('Mat plastification') }}</option>
+                                        </select>
+                                        <label>{{ lang('Plastification') }}</label>
+                                    </div>
+                                </div>
+
+                                <!--/. Checkbox -->
+                                <div class="page-name-m">{{ lang('Film Print') }}</div>
+                                <div class="form-inline mb-3">
+                                    <fieldset class="form-group">
+                                        <input name="film_print" type="radio" id="radio11" value="no" disabled v-bind:value="option.film_print">
+                                        <label for="radio11">{{ lang('No') }}</label>
+                                    </fieldset>
+                                    <fieldset class="form-group">
+                                        <input name="film_print" type="radio" id="radio21" value="ye" disabled v-bind:value="option.film_print">
+                                        <label for="radio21">{{ lang('Yes') }}</label>
+                                    </fieldset>
+                                </div>
+
+                                <div class="page-name-m">{{ lang('Blind Print') }}</div>
+                                <div class="form-inline mb-3">
+                                    <fieldset class="form-group">
+                                        <input name="blind_print" type="radio" id="radio11" value="no" disabled v-bind:value="option.blind_print">
+                                        <label for="radio11">{{ lang('No') }}</label>
+                                    </fieldset>
+                                    <fieldset class="form-group">
+                                        <input name="blind_print" type="radio" id="radio21" value="yes" disabled v-bind:value="option.blind_print">
+                                        <label for="radio21">{{ lang('Yes') }}</label>
+                                    </fieldset>
+                                </div>
+
+                                <div class="page-name-m">{{ lang('UV Film') }}</div>
+                                <div class="form-inline mb-3">
+                                    <fieldset class="form-group">
+                                        <input name="uv_print" type="radio" id="radio11" value="no" disabled v-bind:value="option.uv_print">
+                                        <label for="radio11">{{ lang('No') }}</label>
+                                    </fieldset>
+                                    <fieldset class="form-group">
+                                        <input name="uv_print" type="radio" id="radio21" value="yes" disabled v-bind:value="option.uv_print">
+                                        <label for="radio21">{{ lang('Yes') }}</label>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Table -->
+                <div class="page-name-xl mb-1">{{ lang('Calculation') }}</div>
+                <table class="table">
+                    <thead class="thead-inverse">
+                    <tr>
+                        <th>#</th>
+                        <th>{{ lang('Expense') }}</th>
+                        <th>{{ lang('Precentage') }}</th>
+                        <th>{{ lang('Expense Total') }}</th>
+                        <th>{{ lang('Expense Per Unit') }}</th>
+                    </tr>
+                    </thead>
+                    <tbody class="white">
+                    <tr class="table-display-1">
+                        <th scope="row">1</th>
+                        <td>Autorski honorar ukupno</td>
+                        <td></td>
+                        <td>{{ option.authors_total | flexCurrency('', 2) }}</td>
+                        <td>{{ option.authors_total / option.title | flexCurrency(' kn', 2) }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1.1</th>
+                        <td>Autorski honorar ukupno</td>
+                        <td></td>
+                        <td>{{ option.authors_advance | flexCurrency('', 2) }}</td>
+                        <td>{{ option.authors_advance / option.title | flexCurrency(' kn', 2) }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1.2</th>
+                        <td>Ostali autorski ugovori</td>
+                        <td></td>
+                        <td>{{ option.authors_other | flexCurrency('', 2) }}</td>
+                        <td>{{ option.authors_other | flexCurrency(' kn', 2) }}</td>
+                    </tr>
+                    <tr class="table-display-2">
+                        <th scope="row">2</th>
+                        <td>Tiskarski troškovi</td>
+                        <td></td>
+                        <td>{{ option.print_offer | flexCurrency( '', 2) }}</td>
+                        <td>{{ option.print_offer/option.title | flexCurrency( ' kn', 2) }}</td>
+                    </tr>
+                    <tr class="table-display-2">
+                        <th scope="row">3</th>
+                        <td>Ukupno 1 i 2</td>
+                        <td></td>
+                        <td>{{ option.authors_total + option.print_offer | flexCurrency( '', 2) }}</td>
+                        <td>{{ (option.authors_total + option.print_offer) / option.title | flexCurrency( ' kn', 2) }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">4</th>
+                        <td>Plaće izdavačkog sektora</td>
+                        <td></td>
+                        <td>{{ option.compensation | flexCurrency( '', 2) }}</td>
+                        <td>{{ option.compensation / option.title | flexCurrency( ' kn', 2) }}</td>
+                    </tr>
+                    <tr class="table-display-1">
+                        <th scope="row">5</th>
+                        <td>Direktni troškovi</td>
+                        <td></td>
+                        <td>{{ option.authors_total + option.print_offer + option.compensation | flexCurrency( '', 2) }}</td>
+                        <td>{{ (option.authors_total + option.print_offer + option.compensation) / option.title | flexCurrency( ' kn', 2) }}</td>
+                    </tr>
+                    <tr class="table-display-1">
+                        <th scope="row">6</th>
+                        <td>Indirektni troškovi</td>
+                        <td></td>
+                        <td>{{ option.indirect_expenses | flexCurrency( '', 2) }}</td>
+                        <td>{{ option.indirect_expenses / option.title | flexCurrency( ' kn', 2) }}</td>
+                    </tr>
+                    <tr class="table-display-2">
+                        <th scope="row">7</th>
+                        <td>Direktni + Indirektni</td>
+                        <td></td>
+                        <td>{{ option.authors_total + option.print_offer + option.compensation + option.indirect_expenses | flexCurrency( '', 2) }}</td>
+                        <td>{{ (option.authors_total + option.print_offer + option.compensation + option.indirect_expenses) / option.title | flexCurrency( ' kn', 2) }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">8</th>
+                        <td>Ostatak AH ugovorenog po prodaji</td>
+                        <td></td>
+                        <td>{{ 0 | flexCurrency( '', 2) }}</td>
+                        <td>{{ 0 / option.title | flexCurrency( ' kn', 2) }}</td>
+                    </tr>
+                    <tr class="table-display-2">
+                        <th scope="row">9</th>
+                        <td>Ukupno pokrivanje troška</td>
+                        <td></td>
+                        <td>{{ option.complete_expense | flexCurrency( '', 2) }}</td>
+                        <td>{{ option.complete_expense / option.title | flexCurrency( ' kn', 2) }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">10</th>
+                        <td>Dotacija</td>
+                        <td></td>
+                        <td>{{ dotation | flexCurrency( '', 2) }}</td>
+                        <td>{{ dotation / option.title | flexCurrency( ' kn', 2) }}</td>
+                    </tr>
+                    <tr class="table-display-1">
+                        <th scope="row">11</th>
+                        <td>Ukupno pokrivanje troška - dotacije</td>
+                        <td></td>
+                        <td>{{ option.complete_expense - dotation | flexCurrency( '', 2) }}</td>
+                        <td>{{ (option.complete_expense - dotation) / option.title | flexCurrency( ' kn', 2) }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">12</th>
+                        <td>Ukalkulirana dobit</td>
+                        <td class="table-editable text-center">15%</td>
+                        <td>{{ 0 | flexCurrency( '', 2) }}</td>
+                        <td>{{ 0 / option.title | flexCurrency( ' kn', 2) }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">13</th>
+                        <td>Prodajna cijena proizvođača</td>
+                        <td></td>
+                        <td>{{ 0 | flexCurrency( '', 2) }}</td>
+                        <td>{{ 0 / option.title | flexCurrency( ' kn', 2) }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">14</th>
+                        <td>Udio trgovine</td>
+                        <td class="table-editable text-center">15%</td>
+                        <td>{{ 0 | flexCurrency( '', 2) }}</td>
+                        <td>{{ 0 / option.title | flexCurrency( ' kn', 2) }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">15</th>
+                        <td>Maloprodajna cijena</td>
+                        <td></td>
+                        <td>{{ 0 | flexCurrency( '', 2) }}</td>
+                        <td>{{ 0 / option.title | flexCurrency( ' kn', 2) }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">16</th>
+                        <td>PDV</td>
+                        <td class="table-editable text-center">15%</td>
+                        <td>{{ 0 | flexCurrency( '', 2) }}</td>
+                        <td>{{ 0 / option.title | flexCurrency( ' kn', 2) }}</td>
+                    </tr>
+                    <tr>
+                    <tr class="table-display-3">
+                        <th scope="row">17</th>
+                        <td>MPC + PDV</td>
+                        <td></td>
+                        <td>{{ 0 | flexCurrency( '', 2) }}</td>
+                        <td>{{ 0 / option.title | flexCurrency( ' kn', 2) }}</td>
+                    </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+
+
+            </div>
     </div>
 
     <footer-buttons></footer-buttons>
@@ -61,7 +374,10 @@
     import FooterButtons from './partials/FooterButtons.vue'
     export default {
         data: function () {
-            return {}
+            return {
+                option_colors: ['One Colour', 'Two Colours', 'Three Colours', 'Full Colour', 'Fifth Colour'],
+                dotation: this.$store.state.proposition.proposition.basic_data.dotation_amount
+            }
         },
         computed: {
             options() {
@@ -78,6 +394,8 @@
         },
         mounted: function() {
             this.$store.commit('proposition/updateProposition', {key: 'step', value: 12});
+            $('.mdb-select').material_select('destroy');
+            $('.mdb-select').material_select();
         }
     }
 </script>

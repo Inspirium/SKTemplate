@@ -47,9 +47,9 @@
                                         <option value="none">{{ lang('None') }}</option>
                                         <option value="hard">{{ lang('Hard book binding') }}</option>
                                         <option value="soft">{{ lang('Soft book binding') }}</option>
-                                        <option value="both">{{ lang('Spiral book binding') }}</option>
+                                        <option value="spiral">{{ lang('Spiral book binding') }}</option>
                                     </select>
-                                    <label>{{ lang('Book bindingr') }}</label>
+                                    <label>{{ lang('Book binding') }}</label>
                                 </div>
                             </div>
 
