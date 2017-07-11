@@ -312,37 +312,6 @@ export default {
                     });
                 }
             });
-        },
-        initPrecalculation({state, commit}) {
-            _.forEach(state.proposition.print.offers, function(o, key) {
-                commit('updateOffer', {
-                    id: o.id,
-                    field: 'authors_total',
-                    value: _.sumBy(Object.keys(state.proposition.authors_expense.expenses), (key) => {
-                        let e = state.proposition.authors_expense.expenses[key];
-                        let additional = _.sumBy(e.additional_expenses, (a) => {
-                            return a.amount;
-                        });
-                        return Number(e.amount) + Number(additional);
-                    })
-                });
-                commit('updateOffer', {
-                    id: o.id,
-                    field: 'authors_advance',
-                    value: _.sumBy(Object.keys(state.proposition.authors_expense.expenses), (key) => {
-                        return state.proposition.authors_expense.expenses[key].accontation;
-                    })
-                });
-                commit('updateOffer', {
-                    id: o.id,
-                    field: 'authors_other',
-                    value: _.sumBy(Object.keys(state.proposition.authors_expense.expenses), (key) => {
-                        return _.sumBy(state.proposition.authors_expense.expenses[key].additional_expenses, (a) => {
-                            return a.amount;
-                        });
-                    })
-                });
-            });
         }
     }
 }

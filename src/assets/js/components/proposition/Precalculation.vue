@@ -29,14 +29,14 @@
                             <div class=" page-name-l-white border-white">{{ lang('Direct Cost Cover') }}</div>
                             <div>
                                 <h6 class="no-border text-white">{{ lang('Number of Sold Copies') }}</h6>
-                                <h3 class="">{{ totals[key].direct_cost / option.price_proposal | flexCurrency('', 0) }}</h3>
+                                <h3 v-if="typeof(totals[key]) !== 'undefined'">{{ totals[key].direct_cost / option.price_proposal | flexCurrency('', 0) }}</h3>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class=" page-name-l-white">{{ lang('Complete Cost Cover') }}</div>
                             <div>
                                 <h6 class="no-border text-white">{{ lang('Number of Sold Copies') }}</h6>
-                                <h3 class="">{{ totals[key].cost_coverage / option.price_proposal | flexCurrency('', 0) }}</h3>
+                                <h3 v-if="typeof(totals[key]) !== 'undefined'">{{ totals[key].cost_coverage / option.price_proposal | flexCurrency('', 0) }}</h3>
                             </div>
                         </div>
                         <div class="col-md-1">
@@ -490,7 +490,6 @@
         },
         mounted: function() {
             this.$store.commit('proposition/updateProposition', {key: 'step', value: 11});
-            this.$store.dispatch('proposition/initPrecalculation');
             $('.mdb-select').material_select('destroy');
             $('.mdb-select').material_select();
         }
