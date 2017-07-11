@@ -485,7 +485,6 @@
                 return field === this.activeEdit
             },
             closeEdit: function() {
-                console.log("close");
                 this.activeEdit = '';
             }
         },
