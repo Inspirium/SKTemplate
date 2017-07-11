@@ -113,7 +113,7 @@
                                         <label >{{ lang('Soft Cover Circulation') }}</label>
                                     </div>
                                 </div>
-                                <div class="col-md-6"v-if="offers[key+'[cover_type]'] === 'hard' || offers+[key+'[cover_type]'] === 'both'">
+                                <div class="col-md-6" v-if="offers[key+'[cover_type]'] === 'hard' || offers[key+'[cover_type]'] === 'both'">
                                     <div class="md-form">
                                         <input type="text" class="form-control" v-model="offers[key+'[hard_cover_circulation]']">
                                         <label>{{ lang('Hard Cover Circulation') }}</label>
