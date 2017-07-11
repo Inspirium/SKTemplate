@@ -16,7 +16,6 @@ import PropositionStart from './components/proposition/PropositionStart.vue'
 
 
 export const routes = [
-    { path: '/proposition/:id', component: PropositionStart },
     { path: '/proposition/basic_data', component: BasicData },
     { path: '/proposition/:id/basic_data', component: BasicData },
     { path: '/proposition/categorization', component: Categorization },
