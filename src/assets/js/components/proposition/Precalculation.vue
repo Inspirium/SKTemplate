@@ -29,14 +29,14 @@
                             <div class=" page-name-l-white border-white">{{ lang('Direct Cost Cover') }}</div>
                             <div>
                                 <h6 class="no-border text-white">{{ lang('Number of Sold Copies') }}</h6>
-                                <h3 v-if="typeof(totals[key]) !== 'undefined'">{{ totals[key].direct_cost / option.price_proposal | flexCurrency('', 0) }}</h3>
+                                <h3>{{ totals[option.id].direct_cost / option.price_proposal | flexCurrency('', 0) }}</h3>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class=" page-name-l-white">{{ lang('Complete Cost Cover') }}</div>
                             <div>
                                 <h6 class="no-border text-white">{{ lang('Number of Sold Copies') }}</h6>
-                                <h3 v-if="typeof(totals[key]) !== 'undefined'">{{ totals[key].cost_coverage / option.price_proposal | flexCurrency('', 0) }}</h3>
+                                <h3>{{ totals[option.id].cost_coverage / option.price_proposal | flexCurrency('', 0) }}</h3>
                             </div>
                         </div>
                         <div class="col-md-1">
@@ -63,14 +63,14 @@
                         <div class="page-name-l-white text-center border-white">{{ lang('Direct Cost Cover') }}</div>
                         <div>
                             <h6 class="no-border text-white">{{ lang('Number of Sold Copies') }}</h6>
-                            <h3 class="mb-2">{{ totals[key].direct_cost / option.price_proposal | flexCurrency('', 0) }}</h3>
+                            <h3 class="mb-2">{{ totals[option.id].direct_cost / option.price_proposal | flexCurrency('', 0) }}</h3>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="page-name-l-white text-center">{{ lang('Complete Cost Cover') }}</div>
                         <div>
                             <h6 class="no-border text-white">{{ lang('Number of Sold Copies') }}</h6>
-                            <h3 class="mb-2">{{ totals[key].cost_coverage / option.price_proposal | flexCurrency('', 0) }}</h3>
+                            <h3 class="mb-2">{{ totals[option.id].cost_coverage / option.price_proposal | flexCurrency('', 0) }}</h3>
                         </div>
                     </div>
                 </div>
