@@ -33,7 +33,6 @@
 
     <!-- Input field -->
     <div class="page-name-l mb-1">{{ lang('Additional Expenses') }}</div>
-    <template v-if="">
         <div class="row" v-for="(a, i) in expenses.additional_expense" v-bind:key="i">
             <div class="col-md-4">
                 <div class="md-form d-flex addon">
@@ -51,7 +50,6 @@
                 <button class="btn btn-danger" v-on:click="deleteExpense(i)">{{ lang('Delete Expense') }}</button>
             </div>
         </div>
-    </template>
     <button class="btn btn-neutral btn-addon" type="button" v-on:click="addExpense">{{ lang('Add New Expense') }}</button>
 
     <footer-buttons></footer-buttons>

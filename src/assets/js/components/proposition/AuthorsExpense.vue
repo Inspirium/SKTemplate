@@ -61,7 +61,24 @@
 
     <!-- Add new item -->
     <div class="page-name-l mb-1">{{ lang('Other Expenses') }}</div>
-    <button class="btn btn-neutral btn-addon" type="button">{{ lang('Add New Author Expense') }}</button>
+    <div class="row" v-for="(a, i) in expenses.other" v-bind:key="i">
+        <div class="col-md-4">
+            <div class="md-form d-flex addon">
+                <input type="text" class="form-control" v-bind:placeholder="lang('Expense Name')" v-model="expenses['additional_expense['+i+'].expense']">
+                <label>{{ lang('Expense Name') }}</label>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="md-form d-flex addon">
+                <input type="text" class="form-control" v-bind:placeholder="lang('Amount')" v-model="expenses['additional_expense['+i+'].amount']">
+                <label>{{ lang('Amount') }}</label>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-danger" v-on:click="deleteOtherExpense(i)">{{ lang('Delete Expense') }}</button>
+        </div>
+    </div>
+    <button class="btn btn-neutral btn-addon" type="button" v-on:click="addOtherExpense">{{ lang('Add New Author Expense') }}</button>
 
     <footer-buttons></footer-buttons>
 </div>
@@ -90,6 +107,12 @@
             },
             deleteExpense: function(author, index) {
                 this.$store.commit('proposition/deleteAuthorExpense', { author: author, index: index });
+            },
+            addOtherExpense: function() {
+                this.$store.commit('proposition/pushToArray', {group:'authors_expense', key: 'other', value: {expense: '', amount: ''} });
+            },
+            deleteOtherExpense: function(index) {
+                this.$store.commit('proposition/removeFromArray', {group:'authors_expense', key: 'other',  index: index });
             }
         },
         mounted: function() {

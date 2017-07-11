@@ -424,7 +424,7 @@
                         return a.amount;
                     });
                     return Number(e.amount) + Number(additional);
-                })
+                }) + _.sumBy(this.$store.state.proposition.proposition.authors_expense.other, (o) => {return Number(o.amount)});
             },
             authors_advance() {
                 return _.sumBy(Object.keys(this.$store.state.proposition.proposition.authors_expense.expenses), (key) => {
