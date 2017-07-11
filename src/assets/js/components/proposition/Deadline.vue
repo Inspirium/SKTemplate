@@ -64,7 +64,7 @@
         methods: {},
         mounted: function() {
             $('.datepicker').pickadate();
-            this.$store.commit('proposition/updateProposition', {key: 'step', value: 11});
+            this.$store.commit('proposition/updateProposition', {key: 'step', value: 10});
         }
     }
 </script>

@@ -206,6 +206,12 @@ export default {
         },
         deletePrintOffer(state, payload) {
             delete(state.proposition.print.offers[payload.id]);
+        },
+        addAuthorExpense(state, payload) {
+            state.proposition.authors_expense.expenses[payload.author].additional_expenses.push({expense:'', amount:0});
+        },
+        deleteAuthorExpense(state, payload) {
+            state.proposition.authors_expense.expenses[payload.author].additional_expenses.splice(payload.index, 1);
         }
     },
     actions: {
@@ -271,12 +277,14 @@ export default {
                             total_cost: 0,
                             direct_cost_cover: 0,
                             complete_cost_cover: 0,
-                            authors_total: 0,
-                            authors_advance: 0,
-                            authors_other: 0,
                             compensation: 0,
                             indirect_expenses:0,
-                            complete_expense: 0
+                            complete_expense: 0,
+                            remainder_after_sales: 0,
+                            price_proposal: 0,
+                            calculated_profit_percent: 18,
+                            shop_percent: 20,
+                            vat_percent: 5,
                         };
                         commit('pushToObject', {
                             id: o.id,
@@ -290,24 +298,50 @@ export default {
             });
         },
         initAuthorExpenses({state, commit}) {
+            let expenses = state.proposition.authors_expense.expenses;
             _.forEach(state.proposition.basic_data.authors, function (a) {
-                let id = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-                    let r = Math.random()*16|0, v = c === 'x' ? r : (r&0x3|0x8);
-                    return v.toString(16);
-                })
-                commit('pushToObject', {
-                    group: 'authors_expense',
-                    key: 'expenses',
-                    id: a.id,
-                    value: [
-                          {amount: '', percentage: '', accontation: '', id: id}
-                    ]
-                });
+                if (typeof(expenses[a.id]) === 'undefined') {
+                    commit('pushToObject', {
+                        group: 'authors_expense',
+                        key: 'expenses',
+                        id: a.id,
+                        value: {
+                            amount: '', percentage: '', accontation: '',
+                            additional_expenses: []
+                        }
+                    });
+                }
             });
         },
         initPrecalculation({state, commit}) {
-            _.forEach(state.proposition.print.offers, function(o) {
-
+            _.forEach(state.proposition.print.offers, function(o, key) {
+                commit('updateOffer', {
+                    id: o.id,
+                    field: 'authors_total',
+                    value: _.sumBy(Object.keys(state.proposition.authors_expense.expenses), (key) => {
+                        let e = state.proposition.authors_expense.expenses[key];
+                        let additional = _.sumBy(e.additional_expenses, (a) => {
+                            return a.amount;
+                        });
+                        return Number(e.amount) + Number(additional);
+                    })
+                });
+                commit('updateOffer', {
+                    id: o.id,
+                    field: 'authors_advance',
+                    value: _.sumBy(Object.keys(state.proposition.authors_expense.expenses), (key) => {
+                        return state.proposition.authors_expense.expenses[key].accontation;
+                    })
+                });
+                commit('updateOffer', {
+                    id: o.id,
+                    field: 'authors_other',
+                    value: _.sumBy(Object.keys(state.proposition.authors_expense.expenses), (key) => {
+                        return _.sumBy(state.proposition.authors_expense.expenses[key].additional_expenses, (a) => {
+                            return a.amount;
+                        });
+                    })
+                });
             });
         }
     }

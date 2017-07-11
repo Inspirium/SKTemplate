@@ -29,14 +29,14 @@
                             <div class=" page-name-l-white border-white">{{ lang('Direct Cost Cover') }}</div>
                             <div>
                                 <h6 class="no-border text-white">{{ lang('Number of Sold Copies') }}</h6>
-                                <h3 class="">{{ option.direct_cost_cover }}</h3>
+                                <h3 class="">{{ totals[key].direct_cost / option.price_proposal | flexCurrency('', 0) }}</h3>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class=" page-name-l-white">{{ lang('Complete Cost Cover') }}</div>
                             <div>
                                 <h6 class="no-border text-white">{{ lang('Number of Sold Copies') }}</h6>
-                                <h3 class="">{{ option.complete_cost_cover }}</h3>
+                                <h3 class="">{{ totals[key].cost_coverage / option.price_proposal | flexCurrency('', 0) }}</h3>
                             </div>
                         </div>
                         <div class="col-md-1">
@@ -48,19 +48,29 @@
         </div>
         <div class="tab-pane fade" v-bind:id="'panel'+(index+1)" role="tabpanel" v-for="(option, key, index) in options" v-bind:key="key">
             <div class="profile-head">
+                <div class="row">
+                    <div class="col-md-4 offset-md-4">
+                        <div class="md-form">
+                            <input type="text" class="form-control" v-model="options[key+'[price_proposal]']">
+                            <label>{{ lang('Price proposal') }}</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-head">
                 <div class="row text-white d-flex justify-content-center text-center">
                     <div class="col-md-4">
                         <div class="page-name-l-white text-center border-white">{{ lang('Direct Cost Cover') }}</div>
                         <div>
                             <h6 class="no-border text-white">{{ lang('Number of Sold Copies') }}</h6>
-                            <h3 class="mb-2">{{ option.direct_cost_cover }}</h3>
+                            <h3 class="mb-2">{{ totals[key].direct_cost / option.price_proposal | flexCurrency('', 0) }}</h3>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="page-name-l-white text-center">{{ lang('Complete Cost Cover') }}</div>
                         <div>
                             <h6 class="no-border text-white">{{ lang('Number of Sold Copies') }}</h6>
-                            <h3 class="mb-2">{{ option.complete_cost_cover }}</h3>
+                            <h3 class="mb-2">{{ totals[key].cost_coverage / option.price_proposal | flexCurrency('', 0) }}</h3>
                         </div>
                     </div>
                 </div>
@@ -209,7 +219,6 @@
                         </div>
                     </div>
                 </div>
-
                 <!-- Table -->
                 <div class="page-name-xl mb-1">{{ lang('Calculation') }}</div>
                 <table class="table">
@@ -227,22 +236,22 @@
                         <th scope="row">1</th>
                         <td>Autorski honorar ukupno</td>
                         <td></td>
-                        <td>{{ option.authors_total | flexCurrency('', 2) }}</td>
-                        <td>{{ option.authors_total / option.title | flexCurrency(' kn', 2) }}</td>
+                        <td>{{ authors_total | flexCurrency('', 2) }}</td>
+                        <td>{{ authors_total / option.title | flexCurrency(' kn', 2) }}</td>
                     </tr>
                     <tr>
                         <th scope="row">1.1</th>
                         <td>Autorski honorar ukupno</td>
                         <td></td>
-                        <td>{{ option.authors_advance | flexCurrency('', 2) }}</td>
-                        <td>{{ option.authors_advance / option.title | flexCurrency(' kn', 2) }}</td>
+                        <td>{{ authors_advance | flexCurrency('', 2) }}</td>
+                        <td>{{ authors_advance / option.title | flexCurrency(' kn', 2) }}</td>
                     </tr>
                     <tr>
                         <th scope="row">1.2</th>
                         <td>Ostali autorski ugovori</td>
                         <td></td>
-                        <td>{{ option.authors_other | flexCurrency('', 2) }}</td>
-                        <td>{{ option.authors_other | flexCurrency(' kn', 2) }}</td>
+                        <td>{{ authors_other | flexCurrency('', 2) }}</td>
+                        <td>{{ authors_other | flexCurrency(' kn', 2) }}</td>
                     </tr>
                     <tr class="table-display-2">
                         <th scope="row">2</th>
@@ -255,50 +264,60 @@
                         <th scope="row">3</th>
                         <td>Ukupno 1 i 2</td>
                         <td></td>
-                        <td>{{ option.authors_total + option.print_offer | flexCurrency( '', 2) }}</td>
-                        <td>{{ (option.authors_total + option.print_offer) / option.title | flexCurrency( ' kn', 2) }}</td>
+                        <td>{{ Number(authors_total) + Number(option.print_offer) | flexCurrency( '', 2) }}</td>
+                        <td>{{ (Number(authors_total) + Number(option.print_offer)) / option.title | flexCurrency( ' kn', 2) }}</td>
                     </tr>
                     <tr>
                         <th scope="row">4</th>
                         <td>Plaće izdavačkog sektora</td>
                         <td></td>
-                        <td>{{ option.compensation | flexCurrency( '', 2) }}</td>
+                        <template v-if="currentEdit('compensation')">
+                            <td><input type="text" class="form-control" v-model="options[key+'[compensation]']" v-on:keyup.enter="closeEdit" autofocus></td>
+                        </template>
+                        <template v-else>
+                            <td class="table-editable text-center" v-on:click="editField('compensation')">{{ option.compensation | flexCurrency('', 2) }}</td>
+                        </template>
                         <td>{{ option.compensation / option.title | flexCurrency( ' kn', 2) }}</td>
                     </tr>
                     <tr class="table-display-1">
                         <th scope="row">5</th>
                         <td>Direktni troškovi</td>
                         <td></td>
-                        <td>{{ option.authors_total + option.print_offer + option.compensation | flexCurrency( '', 2) }}</td>
-                        <td>{{ (option.authors_total + option.print_offer + option.compensation) / option.title | flexCurrency( ' kn', 2) }}</td>
+                        <td>{{ totals[option.id].direct_cost | flexCurrency( '', 2) }}</td>
+                        <td>{{ totals[option.id].direct_cost / option.title | flexCurrency( ' kn', 2) }}</td>
                     </tr>
                     <tr class="table-display-1">
                         <th scope="row">6</th>
                         <td>Indirektni troškovi</td>
                         <td></td>
-                        <td>{{ option.indirect_expenses | flexCurrency( '', 2) }}</td>
+                        <template v-if="currentEdit('indirect_expenses')">
+                            <td><input type="text" size="3" class="form-control" v-model="options[key+'[indirect_expenses]']" v-on:keyup.enter="closeEdit" autofocus></td>
+                        </template>
+                        <template v-else>
+                            <td class="table-editable text-center" v-on:click="editField('indirect_expenses')">{{ option.indirect_expenses | flexCurrency( '', 2) }}</td>
+                        </template>
                         <td>{{ option.indirect_expenses / option.title | flexCurrency( ' kn', 2) }}</td>
                     </tr>
                     <tr class="table-display-2">
                         <th scope="row">7</th>
                         <td>Direktni + Indirektni</td>
                         <td></td>
-                        <td>{{ option.authors_total + option.print_offer + option.compensation + option.indirect_expenses | flexCurrency( '', 2) }}</td>
-                        <td>{{ (option.authors_total + option.print_offer + option.compensation + option.indirect_expenses) / option.title | flexCurrency( ' kn', 2) }}</td>
+                        <td>{{ Number(totals[option.id].direct_cost) + Number(option.indirect_expenses) | flexCurrency( '', 2) }}</td>
+                        <td>{{ (Number(totals[option.id].direct_cost) + Number(option.indirect_expenses)) / option.title | flexCurrency( ' kn', 2) }}</td>
                     </tr>
                     <tr>
                         <th scope="row">8</th>
                         <td>Ostatak AH ugovorenog po prodaji</td>
                         <td></td>
-                        <td>{{ 0 | flexCurrency( '', 2) }}</td>
-                        <td>{{ 0 / option.title | flexCurrency( ' kn', 2) }}</td>
+                        <td>{{ totals[option.id].remainder_after_sales | flexCurrency( '', 2) }}</td>
+                        <td>{{ totals[option.id].remainder_after_sales / option.title | flexCurrency( ' kn', 2) }}</td>
                     </tr>
                     <tr class="table-display-2">
                         <th scope="row">9</th>
                         <td>Ukupno pokrivanje troška</td>
                         <td></td>
-                        <td>{{ option.complete_expense | flexCurrency( '', 2) }}</td>
-                        <td>{{ option.complete_expense / option.title | flexCurrency( ' kn', 2) }}</td>
+                        <td>{{ totals[option.id].complete_expense | flexCurrency( '', 2) }}</td>
+                        <td>{{ totals[option.id].complete_expense / option.title | flexCurrency( ' kn', 2) }}</td>
                     </tr>
                     <tr>
                         <th scope="row">10</th>
@@ -311,51 +330,66 @@
                         <th scope="row">11</th>
                         <td>Ukupno pokrivanje troška - dotacije</td>
                         <td></td>
-                        <td>{{ option.complete_expense - dotation | flexCurrency( '', 2) }}</td>
-                        <td>{{ (option.complete_expense - dotation) / option.title | flexCurrency( ' kn', 2) }}</td>
+                        <td>{{ totals[option.id].cost_coverage | flexCurrency( '', 2) }}</td>
+                        <td>{{ totals[option.id].cost_coverage / option.title | flexCurrency( ' kn', 2) }}</td>
                     </tr>
                     <tr>
                         <th scope="row">12</th>
                         <td>Ukalkulirana dobit</td>
-                        <td class="table-editable text-center">15%</td>
-                        <td>{{ 0 | flexCurrency( '', 2) }}</td>
-                        <td>{{ 0 / option.title | flexCurrency( ' kn', 2) }}</td>
+                        <template v-if="currentEdit('calculated_profit_percent')">
+                            <td><input type="text" size="3" class="form-control" v-model="options[key+'[calculated_profit_percent]']" v-on:keyup.enter="closeEdit" autofocus></td>
+                        </template>
+                        <template v-else>
+                            <td class="table-editable text-center" v-on:click="editField('calculated_profit_percent')">{{ option.calculated_profit_percent | percent }}</td>
+                        </template>
+                        <td>{{ totals[option.id].cost_coverage * (option.calculated_profit_percent) / 100 | flexCurrency( '', 2) }}</td>
+                        <td>{{ totals[option.id].cost_coverage * (option.calculated_profit_percent) / 100 / option.title | flexCurrency( ' kn', 2) }}</td>
                     </tr>
                     <tr>
                         <th scope="row">13</th>
                         <td>Prodajna cijena proizvođača</td>
                         <td></td>
-                        <td>{{ 0 | flexCurrency( '', 2) }}</td>
-                        <td>{{ 0 / option.title | flexCurrency( ' kn', 2) }}</td>
+                        <td>{{ totals[option.id].manufacturer_price | flexCurrency( '', 2) }}</td>
+                        <td>{{ totals[option.id].manufacturer_price / option.title | flexCurrency( ' kn', 2) }}</td>
                     </tr>
                     <tr>
                         <th scope="row">14</th>
                         <td>Udio trgovine</td>
-                        <td class="table-editable text-center">15%</td>
-                        <td>{{ 0 | flexCurrency( '', 2) }}</td>
-                        <td>{{ 0 / option.title | flexCurrency( ' kn', 2) }}</td>
+                        <template v-if="currentEdit('shop_percent')">
+                            <td><input type="text" size="3" class="form-control" v-model="options[key+'[shop_percent]']" v-on:keyup.enter="closeEdit" autofocus></td>
+                        </template>
+                        <template v-else>
+                            <td class="table-editable text-center" v-on:click="editField('shop_percent')">{{ option.shop_percent | percent }}</td>
+                        </template>
+                        <td>{{ totals[option.id].manufacturer_price * option.shop_percent / 100  | flexCurrency( '', 2) }}</td>
+                        <td>{{ totals[option.id].manufacturer_price * option.shop_percent / 100 / option.title | flexCurrency( ' kn', 2) }}</td>
                     </tr>
                     <tr>
                         <th scope="row">15</th>
                         <td>Maloprodajna cijena</td>
                         <td></td>
-                        <td>{{ 0 | flexCurrency( '', 2) }}</td>
-                        <td>{{ 0 / option.title | flexCurrency( ' kn', 2) }}</td>
+                        <td>{{ totals[option.id].price | flexCurrency( '', 2) }}</td>
+                        <td>{{ totals[option.id].price / option.title | flexCurrency( ' kn', 2) }}</td>
                     </tr>
                     <tr>
                         <th scope="row">16</th>
                         <td>PDV</td>
-                        <td class="table-editable text-center">15%</td>
-                        <td>{{ 0 | flexCurrency( '', 2) }}</td>
-                        <td>{{ 0 / option.title | flexCurrency( ' kn', 2) }}</td>
+                        <template v-if="currentEdit('vat_percent')">
+                            <td><input type="text" size="3" class="form-control" v-model="options[key+'[vat_percent]']" v-on:keyup.enter="closeEdit" autofocus></td>
+                        </template>
+                        <template v-else>
+                            <td class="table-editable text-center" v-on:click="editField('vat_percent')">{{ option.vat_percent | percent }}</td>
+                        </template>
+                        <td>{{ totals[option.id].price * option.vat_percent / 100 | flexCurrency( '', 2) }}</td>
+                        <td>{{ totals[option.id].price * option.vat_percent / 100 / option.title | flexCurrency( ' kn', 2) }}</td>
                     </tr>
                     <tr>
                     <tr class="table-display-3">
                         <th scope="row">17</th>
                         <td>MPC + PDV</td>
                         <td></td>
-                        <td>{{ 0 | flexCurrency( '', 2) }}</td>
-                        <td>{{ 0 / option.title | flexCurrency( ' kn', 2) }}</td>
+                        <td>{{ totals[option.id].price * (100 + Number(option.vat_percent)) / 100 | flexCurrency( '', 2) }}</td>
+                        <td>{{ totals[option.id].price * (100 + Number(option.vat_percent)) / 100 / option.title | flexCurrency( ' kn', 2) }}</td>
                     </tr>
 
                     </tbody>
@@ -371,29 +405,93 @@
 </div>
 </template>
 <script>
-    import FooterButtons from './partials/FooterButtons.vue'
+    import FooterButtons from './partials/FooterButtons.vue';
+    import { directive as onClickaway } from 'vue-clickaway';
+
     export default {
         data: function () {
             return {
                 option_colors: ['One Colour', 'Two Colours', 'Three Colours', 'Full Colour', 'Fifth Colour'],
-                dotation: this.$store.state.proposition.proposition.basic_data.dotation_amount
+                dotation: this.$store.state.proposition.proposition.basic_data.dotation_amount,
+                activeEdit: '',
             }
         },
         computed: {
+            authors_total() {
+                return _.sumBy(Object.keys(this.$store.state.proposition.proposition.authors_expense.expenses), (key) => {
+                    let e = this.$store.state.proposition.proposition.authors_expense.expenses[key];
+                    let additional = _.sumBy(e.additional_expenses, (a) => {
+                        return a.amount;
+                    });
+                    return Number(e.amount) + Number(additional);
+                })
+            },
+            authors_advance() {
+                return _.sumBy(Object.keys(this.$store.state.proposition.proposition.authors_expense.expenses), (key) => {
+                    return this.$store.state.proposition.proposition.authors_expense.expenses[key].accontation;
+                })
+            },
+            authors_other() {
+                _.sumBy(Object.keys(this.$store.state.proposition.proposition.authors_expense.expenses), (key) => {
+                    return _.sumBy(this.$store.state.proposition.proposition.authors_expense.expenses[key].additional_expenses, (a) => {
+                        return a.amount;
+                    });
+                })
+            },
             options() {
-                return  this.$deepModel('proposition.proposition.print.offers');
+                return this.$deepModel('proposition.proposition.print.offers');
+            },
+            totals() {
+                let options = {};
+                _.forEach(this.options, (option) => {
+                    let remainder = _.sumBy(Object.keys(this.$store.state.proposition.proposition.authors_expense.expenses), (key) => {
+                        let e = this.$store.state.proposition.proposition.authors_expense.expenses[key];
+                            return e.percentage * option.title * option.price_proposal - Number(e.accontation);
+                        }),
+                        complete = (Number(this.authors_total) + Number(option.print_offer) + Number(option.compensation) + Number(option.indirect_expenses) - Number(remainder)),
+                        mprice = (Number(complete) - Number(this.dotation)) * (100 + Number(option.calculated_profit_percent)) / 100;
+                    options[option.id] = {
+                        direct_cost : Number(this.authors_total) + Number(option.print_offer) + Number(option.compensation),
+                        remainder_after_sales: remainder,
+                        complete_expense: complete,
+                        cost_coverage: (Number(complete) - Number(this.dotation)),
+                        manufacturer_price: mprice,
+                        price: mprice * (100 + Number(option.shop_percent)) / 100
+                    };
+                });
+                return options;
             }
         },
         components: {
             'footer-buttons' : FooterButtons
         },
+        filters: {
+            percent: function(value) {
+                if (!isFinite(value) || (!value && value !== 0)) return '0 %';
+                return parseFloat(value) + ' %';
+            }
+        },
+        directives: {
+            onClickaway: onClickaway,
+        },
         methods: {
             switchTab: function(e) {
                 $(e.target).tab('show');
             },
+            editField: function(field) {
+                this.activeEdit = field;
+            },
+            currentEdit: function(field) {
+                return field === this.activeEdit
+            },
+            closeEdit: function() {
+                console.log("close");
+                this.activeEdit = '';
+            }
         },
         mounted: function() {
-            this.$store.commit('proposition/updateProposition', {key: 'step', value: 12});
+            this.$store.commit('proposition/updateProposition', {key: 'step', value: 11});
+            this.$store.dispatch('proposition/initPrecalculation');
             $('.mdb-select').material_select('destroy');
             $('.mdb-select').material_select();
         }

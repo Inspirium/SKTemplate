@@ -89,8 +89,8 @@
                     </div>
                     <div class="col-md-6">
                         <div class="md-form">
-                            <input type="text" id="dot-ammount" class="form-control" name="dotation-ammount" v-model="basic_data['dotation_ammount']">
-                            <label for="dot-ammount" class="">{{ lang('Amount') }}</label>
+                            <input type="text" id="dot-amount" class="form-control" name="dotation-ammount" v-model="basic_data['dotation_amount']">
+                            <label for="dot-amount">{{ lang('Amount') }}</label>
                         </div>
                     </div>
                 </div>

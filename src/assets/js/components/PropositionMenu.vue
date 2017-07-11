@@ -234,12 +234,6 @@
                                 path: '/proposition/'+((typeof(this.$route.params.id) !== 'undefined')?this.$route.params.id+'/':'')+'layout_expense',
                                 component: true
                             },
-                            price_sales: {
-                                enabled: true,
-                                title: 'Price and Sales',
-                                path: '/proposition/'+((typeof(this.$route.params.id) !== 'undefined')?this.$route.params.id+'/':'')+'price_sales',
-                                component: true
-                            },
                             deadline: {
                                 enabled: true,
                                 title: 'Deadline',
@@ -248,12 +242,12 @@
                             },
                             precalculation: {
                                 enabled: true,
-                                title: 'Precalculation',
+                                title: 'Calculation',
                                 path: '/proposition/'+((typeof(this.$route.params.id) !== 'undefined')?this.$route.params.id+'/':'')+'precalculation',
                                 component: true
                             },
                             calculation: {
-                                enabled: true,
+                                enabled: false,
                                 title: 'Calculation',
                                 path: '/proposition/'+((typeof(this.$route.params.id) !== 'undefined')?this.$route.params.id+'/':'')+'calculation',
                                 component: true

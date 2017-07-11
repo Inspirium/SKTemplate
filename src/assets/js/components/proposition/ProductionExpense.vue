@@ -333,17 +333,18 @@
                 let sum = ( Number(this.expense.text_price) * Number(this.expense.text_price_amount) ) +
                     ( Number(this.expense.lecture) * Number(this.expense.lecture_amount) ) +
                     ( Number(this.expense.correction) * Number(this.expense.correction_amount) ) +
-                    ( Number(this.expense.proofreading) * Number(this.expense.proofreading_amount) ) +
+                    ( Number(this.expense.proofreading) * Number(this.expense.proofreading_amount) )  +
                     ( Number(this.expense.translation) * Number(this.expense.translation_amount) ) +
                     ( Number(this.expense.index) * Number(this.expense.index_amount) ) +
                     ( Number(this.expense.photos) * Number(this.expense.photos_amount) ) +
                     ( Number(this.expense.illustrations) * Number(this.expense.illustrations_amount) ) +
-                    ( Number(this.expense.technical_drawings) * Number(this.expense.technical_drawings_amount) ) +
+                    ( Number(this.expense.technical_drawings) * Number(this.expense.technical_drawings_amount) )  +
                     Number(this.expense.accontation) + Number(this.expense.reviews) + Number(this.expense.epilogue) +
                     Number(this.expense.expert_report) + Number(this.expense.copyright) +
                     Number(this.expense.copyright_mediator) + Number(this.expense.methodical_instrumentarium) +
                     Number(this.expense.selection) + Number(this.expense.powerpoint_presentation);
                 let additional = _.sumBy(this.expense.additional_expense, (o) => {return Number(o.amount)});
+                console.log(sum);
                 return sum + additional;
 
             }
