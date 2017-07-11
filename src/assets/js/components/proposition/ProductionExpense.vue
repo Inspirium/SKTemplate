@@ -344,7 +344,6 @@
                     Number(this.expense.copyright_mediator) + Number(this.expense.methodical_instrumentarium) +
                     Number(this.expense.selection) + Number(this.expense.powerpoint_presentation);
                 let additional = _.sumBy(this.expense.additional_expense, (o) => {return Number(o.amount)});
-                console.log(sum);
                 return sum + additional;
 
             }

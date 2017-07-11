@@ -166,7 +166,6 @@ export default {
             state.proposition[payload.group][payload.key] = {...state.proposition[payload.group][payload.key], [payload.id] :  payload.value};
         },
         pushToArray(state, payload) {
-            console.log(state.proposition['marketing_expense']);
             state.proposition[payload.group][payload.key].push(payload.value);
         },
         removeFromArray(state, payload) {

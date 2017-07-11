@@ -568,7 +568,6 @@
       }
 
       select.siblings('input.select-dropdown').val(value)
-        console.log(value);
     }
   }
 }(jQuery));
