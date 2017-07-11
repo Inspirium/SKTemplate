@@ -70,7 +70,8 @@ export default {
             },
             authors_expense: {
                 expenses: {},
-                note: ''
+                note: '',
+                other: []
             },
             production_expense: {
                 text_price: '',
@@ -104,12 +105,11 @@ export default {
                 methodical_instrumentarium: '',
                 additional_expense: []
             },
-            marketing_expense: [
-                    {
-                        ammount: 0,
-                        note: ''
-                    }
-                ],
+            marketing_expense: {
+                expense: '',
+                note: '',
+                additional_expenses: []
+            },
             distribution_expense: {
                 note: '',
                 margin: ''
@@ -166,6 +166,7 @@ export default {
             state.proposition[payload.group][payload.key] = {...state.proposition[payload.group][payload.key], [payload.id] :  payload.value};
         },
         pushToArray(state, payload) {
+            console.log(state.proposition['marketing_expense']);
             state.proposition[payload.group][payload.key].push(payload.value);
         },
         removeFromArray(state, payload) {
