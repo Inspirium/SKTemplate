@@ -1,6 +1,7 @@
 @extends('sktemplate::layout')
 
 @section('content')
+    <div class="content">
     <form method="post" action="{{ url('hr/employee/edit/'.$employee->id) }}" enctype="multipart/form-data">
         {{ csrf_field() }}
     <div class="page-name-xl mb-3">@lang('Name And Surname')</div>
@@ -127,4 +128,5 @@
         <button type="button" class="btn btn-lg btn-cancel">@lang('Cancel')</button>
     </div>
     </form>
+    </div>
 @endsection

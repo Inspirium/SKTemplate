@@ -9,7 +9,6 @@ import MarketingExpense from './components/proposition/MarketingExpense.vue'
 import DistributionExpense from './components/proposition/DistributionExpense.vue'
 import LayoutExpense from './components/proposition/LayoutExpense.vue'
 import Deadline from './components/proposition/Deadline.vue'
-import Precalculation from './components/proposition/Precalculation.vue'
 import Calculation from './components/proposition/Calculation.vue'
 import WorkOrder from './components/proposition/WorkOrder.vue'
 import PropositionStart from './components/proposition/PropositionStart.vue'
@@ -39,8 +38,6 @@ export const routes = [
     { path: '/proposition/:id/layout_expense', component: LayoutExpense},
     { path: '/proposition/deadline', component: Deadline},
     { path: '/proposition/:id/deadline', component: Deadline},
-    { path: '/proposition/precalculation', component: Precalculation},
-    { path: '/proposition/:id/precalculation', component: Precalculation},
     { path: '/proposition/calculation', component: Calculation},
     { path: '/proposition/:id/calculation', component: Calculation},
     { path: '/proposition/work_order', component: WorkOrder},

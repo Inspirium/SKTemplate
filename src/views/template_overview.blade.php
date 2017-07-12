@@ -1,8 +1,7 @@
 @extends('sktemplate::layout')
 
 @section('content')
-    
-</div>
+
 <div class="profile-head pt-3 pb-2 d-flex flex-column justify-content-center align-items-center">
     <h1 class="display-3 text-white text-center">Ime task</h1>
 </div>
@@ -32,11 +31,11 @@
             <h6 class="white-label">@lang('Deadline / Priority')<span class="badge badge-danger display-d mt-1 float-right">@lang('High')</span></h6>
             <h3 class="mb-1 text-white">25.9.</h3>
        </div>
-    </div>    
-    
+    </div>
+
     <!-- Activity Stream -->
-    <div class="page-name-xl mb-1 mt-2">@lang('Activity Stream')</div>     
-    <h4 class="activity-day weight-700 text-uppercase">@lang('Today')</h4>     
+    <div class="page-name-xl mb-1 mt-2">@lang('Activity Stream')</div>
+    <h4 class="activity-day weight-700 text-uppercase">@lang('Today')</h4>
     <div class="activity align-items-center mt-1">
         <div class="activity-label mx-1 tasktype-1">Nešto
         </div>
@@ -50,7 +49,7 @@
             <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi fugit vel quisquam.</h5>
             <div class="activity-time"><span>4 </span>@lang('hours')</div>
         </div>
-    </div>     
+    </div>
     <div class="activity align-items-center">
         <div class="activity-label mx-1 tasktype-1">Nešto
         </div>
@@ -65,7 +64,7 @@
             <div class="activity-time"><span>4 </span>@lang('hours')</div>
         </div>
     </div>
-    
+
     <!-- Highlighted input filed -->
     <div class="print-offer-box mt-2 mb-3">
         <div class="row">
@@ -81,10 +80,10 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Activity Stream Pop-up -->
     <div class="activity-box mt-1">
-        <a class="activity-item file-box-sty p-2 text-center d-block">@lang('Show All')</a>   
+        <a class="activity-item file-box-sty p-2 text-center d-block">@lang('Show All')</a>
         <div class="activity-item align-items-center d-flex">
             <div class="activity-avatar file-box-sty d-flex align-items-center">
                 <a href="">
@@ -113,11 +112,11 @@
                 <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi fugit vel quisquam.</h5>
             </div>
         </div>
-    </div>     
+    </div>
 
-    
-    
-    
+
+
+
 
     <!-- File/document table -->
     <div class="files mt-2 mb-2">
@@ -141,9 +140,9 @@
         </div>
     </div>
 
-    
+
     <!-- File/document table -->
-    <div class="page-name-xl mb-1">@lang('Documents')</div>     
+    <div class="page-name-xl mb-1">@lang('Documents')</div>
     <div class="files mt-2">
         <div class="file-box file-box-l d-flex align-items-center">
             <a href="http://homestead.app/images/profile.pdf" class="file-icon">Fizika i društvo.doc</a>
@@ -170,9 +169,9 @@
             <div class="file-box-sty">24.07.2017.</div>
             <div class="file-box-sty icon icon-approval-yes">@lang('Approved')</div>
         </div>
-    </div>   
-  
-   
+    </div>
+
+
     <!-- Circulation Number -->
     <div class="col-md-12">
         <h6 class="text-center no-border display-e">@lang('Circulation')</h6>
@@ -491,10 +490,10 @@
     <div class="chip mb-3">
         <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg" alt="Contact Person"> Jane Doe<i class="close fa fa-times"></i>
     </div>
-    
-    
 
-    
+
+
+
     <!-- Modal -->
     <div class="modal fade" id="centralModalSuccess" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -521,7 +520,7 @@
         </div>
     </div>
     <!-- Modal -->
-             
+
     <!-- Central Modal Medium Warning -->
     <div class="modal fade" id="centralModalWarning" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-notify modal-warning" role="document">
@@ -555,8 +554,8 @@
             <!--/.Content-->
         </div>
     </div>
-    <!-- Central Modal Medium Warning-->   
-              
+    <!-- Central Modal Medium Warning-->
+
     <!-- Central Modal Medium Assign -->
     <div class="modal fade" id="centralModalAssign" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-notify modal-warning" role="document">
@@ -611,8 +610,8 @@
             <!--/.Content-->
         </div>
     </div>
-    <!-- Central Modal Medium Assign-->  
-    
+    <!-- Central Modal Medium Assign-->
+
     <!-- Central Modal Medium Authors -->
     <div class="modal fade" id="centralModalAuthors" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-notify modal-warning" role="document">
@@ -680,8 +679,8 @@
             <!--/.Content-->
         </div>
     </div>
-    <!-- Central Modal Medium Authors-->  
-                
+    <!-- Central Modal Medium Authors-->
+
     <!-- Central Modal Medium Assign Tab -->
     <div class="modal fade" id="centralModalAssignTab" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-notify modal-warning" role="document">
@@ -698,9 +697,9 @@
                     </div>
                     <h6 class="w-100 text-center">@Lang('Assign department or directly employee')</h6>
                 </div>
-                
+
                 <!-- Nav tabs -->
-                <div class="tabs-wrapper"> 
+                <div class="tabs-wrapper">
                     <ul class="nav classic-tabs tabs-cyan tab-full" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link waves-light active" data-toggle="tab" href="#panel51" role="tab">Department</a>
@@ -710,7 +709,7 @@
                         </li>
                     </ul>
                 </div>
-                
+
                 <!-- Tab panels -->
                 <div class="tab-content">
 
@@ -718,7 +717,7 @@
                     <div class="modal-body tab-pane fade in show active" id="panel51" role="tabpanel">
                         <div class="row">
                             <div class="col-md-12">
-                                
+
                                 <div class="md-form">
                                     <input type="search" id="form-autocomplete" class="form-control mdb-autocomplete">
                                     <button class="mdb-autocomplete-clear">
@@ -764,7 +763,7 @@
         </div>
     </div>
     <!-- Central Modal Medium Assign tab-->
-                
+
                          <div class="md-form">
                                     <input type="search" id="form-autocomplete" class="form-control mdb-autocomplete">
                                     <button class="mdb-autocomplete-clear">
@@ -774,10 +773,10 @@
                                         </svg>
                                     </button>
                                     <label for="form-autocomplete" class="active">What is your favorite US state?</label>
-                                </div>                          
-                                                                    
-                                                                                                      
-                                                    
+                                </div>
+
+
+
     <!-- Button trigger modal -->
     <div class="btn-footer mt-2 mb-5 flex-column flex-md-row d-flex p-2">
         <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#centralModalSuccess">Launch demo modal</button>
@@ -787,12 +786,12 @@
         <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#centralModalAuthors">Launch author  modal</button>
     </div>
 
-                
-                                            
-    
-    
-    
-    
+
+
+
+
+
+
 
 
 

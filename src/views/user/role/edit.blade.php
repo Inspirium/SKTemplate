@@ -1,7 +1,7 @@
 @extends('sktemplate::layout')
 
 @section('content')
-
+    <div class="content">
     <form action="{{ url('administration/user/role/edit/'.$role->id) }}" method="post">
         {{ csrf_field() }}
         <div class="page-name-xl mb-3">@lang("Roles")</div>
@@ -21,4 +21,5 @@
     </div>
     <!--/. Footer buttons -->
     </form>
+    </div>
 @endsection

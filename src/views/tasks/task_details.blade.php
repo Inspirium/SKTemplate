@@ -1,7 +1,7 @@
 @extends('sktemplate::layout')
 
 @section('content')
-</div>
+
 <div class="profile-head pt-3 pb-2 d-flex flex-column justify-content-center align-items-center">
     <h1 class="display-3 text-white text-center">Ime task</h1>
 </div>
@@ -32,7 +32,7 @@
             <h3 class="mb-1 text-white">25.9.</h3>
        </div>
     </div>
-    
+
     <!-- Highlighted input filed -->
     <div class="page-name-xl mt-2">@lang('Task Completion Time')</div>
     <div class="grey-box mb-3 pt-3 px-1 mx-auto">
@@ -56,9 +56,9 @@
             </div>
         </div>
     </div>
-    
 
-    <!-- Task description -->   
+
+    <!-- Task description -->
     <div class="showdata-box row">
         <div class="col-md-9">
             <div class="page-name-l mt-2 mb-1">@lang('Task Description')</div>
@@ -106,7 +106,7 @@
     </div>
 
     <!-- File/document table -->
-    <div class="page-name-xl mb-1">@lang('Documents')</div>     
+    <div class="page-name-xl mb-1">@lang('Documents')</div>
     <div class="files mt-2 mb-2">
         <div class="file-box file-box-l d-flex align-items-center">
             <a src="" href="http://homestead.app/images/profile.pdf" class="file-icon">Fizika i društvo.doc</a>
@@ -117,7 +117,7 @@
             <div class="file-box-sty icon icon-download">Preuzmi</div>
             <div class="file-box-sty icon icon-cancel">Obriši</div>
         </div>
-    </div>   
+    </div>
     <button class="btn btn-neutral d-block mx-auto btn-addon" type="button">@lang('Upload')</button>
 
     <!-- Footer buttons -->
@@ -126,7 +126,7 @@
     </div>
 
     <!-- File/document table -->
-    <div class="page-name-xl mb-1">@lang('Documents')</div>     
+    <div class="page-name-xl mb-1">@lang('Documents')</div>
     <div class="files mt-2">
         <div class="file-box file-box-l d-flex align-items-center">
             <a src="" href="http://homestead.app/images/profile.pdf" class="file-icon">Fizika i društvo.doc</a>
@@ -153,7 +153,7 @@
             <div class="file-box-sty">24.07.2017.</div>
             <div class="file-box-sty icon icon-approval-yes">@lang('Approved')</div>
         </div>
-    </div>     
+    </div>
 
 
 

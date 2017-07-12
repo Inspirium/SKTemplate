@@ -1,7 +1,7 @@
 @extends('sktemplate::layout')
 
 @section('content')
-
+    <div class="content">
 
     <div class="page-name-xl mb-3">@lang('New department')</div>
     <div class="row">
@@ -10,7 +10,7 @@
     </div>
     <form action="{{ url('hr/department/edit/'.$department->id) }}" method="post">
         <div class="row">
-            <div class="col col-md-5 mx-auto">      
+            <div class="col col-md-5 mx-auto">
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label for="name">@lang("Name")</label>
@@ -18,11 +18,12 @@
                 </div>
             </div>
         </div>
-        <!-- Footer buttons --> 
+        <!-- Footer buttons -->
         <div class="btn-footer mt-2 mb-5 d-flex p-2">
             <button type="submit" class="btn btn-lg btn-save">@lang('Submit')</button>
             <button type="submit" class="btn btn-lg btn-cancel">@lang('Cancel')</button>
         </div>
         <!--/. Footer buttons -->
     </form>
+    </div>
 @endsection

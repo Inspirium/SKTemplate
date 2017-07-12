@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="content">
         <div class="page-name-xl mb-2">{{ lang('Production Expense') }}</div>
         <!-- Circulation Number -->
         <div class="col-md-12 mb-3">

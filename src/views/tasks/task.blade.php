@@ -1,7 +1,7 @@
 @extends('sktemplate::layout')
 
 @section('content')
-
+    <div class="content">
     <div class="justify-content-center mt-1 mb-2 flex-column flex-md-row d-flex p-2">
         <button type="submit" class="btn btn-lg btn-blank btn-plus-icon">@lang('Create new')</button>
     </div>
@@ -159,5 +159,5 @@
         </tbody>
     </table>
 
-
+    </div>
 @endsection

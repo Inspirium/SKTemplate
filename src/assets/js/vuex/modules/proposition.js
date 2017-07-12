@@ -149,7 +149,6 @@ export default {
             'distribution_expense',
             'layout_expense',
             'deadline',
-            'precalculation',
             'calculation',
             'work_order',
         ],

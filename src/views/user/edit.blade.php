@@ -1,6 +1,7 @@
 @extends('sktemplate::layout')
 
 @section('content')
+    <div class="content">
 <div class="page-name-xl mb-3">@lang('Edit User')</div>
 <form action="{{ url('administration/user/edit/'.$user->id) }}" method="post">
     <div class="row">
@@ -39,6 +40,7 @@
     </div>
     <!--/. Footer buttons -->
 </form>
+    </div>
 @endsection
 
 

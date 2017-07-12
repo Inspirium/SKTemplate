@@ -30,13 +30,11 @@
     @if (Auth::check())
         @component('sktemplate::components.header')@endcomponent
         <div class="container-fluid">
-            <div class="content">
     @endif
 
     @yield('content')
 
     @if (Auth::check())
-            </div>
         </div>
     @endif
 </div>

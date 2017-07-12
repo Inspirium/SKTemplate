@@ -1,5 +1,5 @@
 <template>
-<div>
+    <div class="content">
     <div class="row tabs-wrapper">
         <ul class="col nav classic-tabs tabs-cyan" id="tabs" role="tablist">
             <li class="nav-item" v-for="(offer, key, index) in offers">

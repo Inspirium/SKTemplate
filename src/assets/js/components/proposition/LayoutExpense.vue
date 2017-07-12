@@ -3,7 +3,7 @@
     <div class="profile-head row pt-3 pb-2 d-flex flex-column justify-content-center align-items-center">
         <h1 class="display-3 text-white text-center">{{ lang('Layout and Design') }}</h1>
     </div>
-
+    <div class="content">
     <!-- Display fileds -->
         <div class="profile-head pb-2 row">
             <div class="col-md-2">
@@ -107,6 +107,7 @@
         </div>
 
     <footer-buttons></footer-buttons>
+    </div>
 </div>
 </template>
 <script>

@@ -1,6 +1,7 @@
 @extends('sktemplate::layout')
 
 @section('content')
+    <div class="content">
 <div class="page-name-xl mb-3">@lang('User Roles')</div>
 <div class="row">
     <div class="col-md-6">
@@ -29,4 +30,5 @@
     </div>
     <!--/. Footer buttons -->
 </form>
+    </div>
 @endsection

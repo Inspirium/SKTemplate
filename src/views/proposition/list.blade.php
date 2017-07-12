@@ -1,7 +1,7 @@
 @extends('sktemplate::layout')
 
 @section('content')
-
+    <div class="content">
 <!-- Display fileds -->
     <div class="row">
         <div class="col-md-12">
@@ -198,6 +198,6 @@
     </div>
 
 
-
+    </div>
 
 @endsection

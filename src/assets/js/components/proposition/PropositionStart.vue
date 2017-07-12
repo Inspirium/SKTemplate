@@ -20,12 +20,12 @@
         </div>
 
         <!-- Notification -->
-      <!-- <div class="notification-bar btn-attention d-flex flex-md-row flex-column justify-content-start align-items-center mt-2">
+       <div class="notification-bar btn-attention d-flex flex-md-row flex-column justify-content-start align-items-center mt-2">
             <div class="file-box-sty text-white btn-clock-icon">{{ lang('Task Sent') }}</div>
             <div class="file-box-sty text-white">{{ lang('Publisher Director') }}</div>
             <div class="file-box-sty text-white">{{ lang('25.11.2017.') }}</div>
             <div class="file-box-sty text-white">{{ lang('Waiting time') }} : 2 days 15 hours</div>
-        </div>-->
+        </div>
 
         <!-- Buttons -->
         <div class="btn-footer mt-2 mb-5 flex-column flex-md-row d-flex p-2">

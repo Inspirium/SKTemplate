@@ -1,7 +1,7 @@
 @extends('sktemplate::layout')
 
 @section('content')
-</div>
+
 <div class="profile-head pt-3 pb-2 d-flex flex-column justify-content-center align-items-center">
     <h1 class="display-3 text-white text-center">Ime task</h1>
 </div>

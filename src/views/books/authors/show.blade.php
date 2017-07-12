@@ -2,7 +2,6 @@
 
 @section('content')
 
-</div>
 <div class="profile-head py-5 d-flex flex-column justify-content-center align-items-center">
     <h1 class="display-3 text-white">{{ $author->name }}</h1>
 </div>

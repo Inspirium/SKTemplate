@@ -1,5 +1,5 @@
 <template>
-<div>
+    <div class="content">
     <div class="page-name-xl mb-3">{{ lang('Categorization') }}</div>
     <div class="page-name-l mb-2">{{ lang('Basic Categorization') }}</div>
     <div class="row">
