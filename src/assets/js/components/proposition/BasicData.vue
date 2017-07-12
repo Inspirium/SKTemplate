@@ -22,7 +22,7 @@
             </div>
             <button class="btn btn-neutral btn-addon mb-2" type="button" v-on:click="openAuthorModal">{{ lang('Add Author') }}</button>
             <div class="chip mb-3" v-for="(author, index) in basic_data['authors']">
-                <img v-bind:src="author.image"> {{ author.name }}<i class="close fa fa-times" v-on:click="authorDelete(author.id)"></i>
+                <img v-bind:src="author.image"> {{ author.name }}<i class="close fa fa-times" v-on:click="authorDelete(index)"></i>
             </div>
 
             <!-- Textarea -->
@@ -168,8 +168,8 @@
                 this.documents.splice(index, 1);
                 //TODO: make request
             },
-            authorDelete: function(id) {
-                this.$store.commit('proposition/removeFromObjectArray', {key: 'authors', group: 'basic_data', value: id})
+            authorDelete: function(index) {
+                this.$store.commit('proposition/removeFromArray', {key: 'authors', group: 'basic_data', index: index})
             },
             fileDelete: function (id) {
                 _.remove(this.documents, {
@@ -206,7 +206,7 @@
                 }
             },
             autocompleteSelect: function(index) {
-                this.$store.commit('proposition/addToObjectArray',{key: 'authors', group: 'basic_data', value: this.suggestions[index]});
+                this.$store.commit('proposition/pushToArray',{key: 'authors', group: 'basic_data', value: this.suggestions[index]});
                 this.suggestions = [];
                 this.author = '';
             },
