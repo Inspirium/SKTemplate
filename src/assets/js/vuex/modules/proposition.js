@@ -228,7 +228,10 @@ export default {
                 });
         },
         saveProposition({commit, state}) {
-            //TODO: make request
+            let step = state.proposition.step;
+            if (step === 11){
+                step = 4;
+            }
             let data = {
                 step: state.steps[state.proposition.step],
                 data: state.proposition[state.steps[state.proposition.step]]
