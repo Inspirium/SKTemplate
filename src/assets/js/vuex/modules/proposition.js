@@ -13,7 +13,7 @@ export default {
             id: 0,
             basic_data: {
                 title: '',
-                authors: [],
+                authors: {},
                 concept: '',
                 note: '',
                 possible_products: [],
@@ -190,13 +190,14 @@ export default {
             state.proposition.step++;
         },
         addToObjectArray(state, payload) {
-            state.proposition[payload.group][payload.key].push({
-                title: payload.value,
-                id: 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+            let object = payload.value;
+            if (typeof(object.id) === 'undefined') {
+                object.id = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
                     let r = Math.random()*16|0, v = c === 'x' ? r : (r&0x3|0x8);
                     return v.toString(16);
                 })
-            });
+            }
+            state.proposition[payload.group][payload.key].push(object);
         },
         removeFromObjectArray(state, payload) {
             state.proposition[payload.group][payload.key] = _.filter(state.proposition[payload.group][payload.key], (o) => {

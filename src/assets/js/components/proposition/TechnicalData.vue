@@ -238,13 +238,13 @@
             },
             addCirculation: function() {
                 if (this.circulation && !isNaN(parseFloat(this.circulation)) && isFinite(this.circulation)) {
-                    this.$store.commit('proposition/addToObjectArray', {key:'circulations', group: 'technical_data', value: this.circulation});
+                    this.$store.commit('proposition/addToObjectArray', {key:'circulations', group: 'technical_data', value: {title: this.circulation}});
                     this.circulation = '';
                 }
             },
             addAddition: function() {
                 if (this.addition) {
-                    this.$store.commit('proposition/addToObjectArray', {key:'additions', group: 'technical_data', value: this.addition});
+                    this.$store.commit('proposition/addToObjectArray', {key:'additions', group: 'technical_data', value: {title: this.addition}});
                     this.addition = '';
                 }
             }
