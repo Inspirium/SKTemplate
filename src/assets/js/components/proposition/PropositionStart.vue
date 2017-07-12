@@ -30,7 +30,7 @@
         <!-- Buttons -->
         <div class="btn-footer mt-2 mb-5 flex-column flex-md-row d-flex p-2">
             <button data-toggle="tooltip" v-bind:title="lang('You need to finish your proposition first')" type="submit" class="btn btn-lg btn-save" disabled>{{ lang('Send on Approval') }}</button>
-            <button type="submit" class="btn btn-lg btn-cancel">{{ lang('Delete') }}</button>
+            <button type="button" class="btn btn-lg btn-cancel" v-on:click="propDelete">{{ lang('Delete') }}</button>
         </div>
         <!--/. Footer buttons -->
     </div>
@@ -46,7 +46,14 @@
                 return this.$deepModel('proposition.proposition');
             }
         },
-        methods: {},
+        methods: {
+            propDelete: function() {
+                axios.delete('/api/proposition/'+this.proposition.id)
+                    .then((res) => {
+                        window.location.href = '/propositions';
+                    });
+            }
+        },
         mounted: function() {
             if (this.$route.params.id && !this.$store.state.proposition.proposition.loaded) {
                 this.$store.dispatch('proposition/initProposition', {id: this.$route.params.id});

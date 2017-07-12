@@ -55,7 +55,7 @@
                 @foreach($unfinished as $prop)
                 <tr>
                     <th scope="row">{{ $loop->iteration }}</th>
-                    <td class="table-title"><a href="{{ url('proposition/'.$prop->id.'/start') }}">{{ $prop->title }}</a></td>
+                    <td class="table-title"><a href="{{ url('proposition/'.$prop->id.'/basic_data') }}">{{ $prop->title }}</a></td>
                     <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-1" src="{{ $prop->owner->image }}">{{ $prop->owner->name }}</a></td>
                     <td>{{ $prop->created_at }}</td>
                 </tr>
@@ -117,6 +117,35 @@
                 </tbody>
             </table>
             <button class="btn btn-neutral btn-addon d-block ml-auto" type="button">@lang('Show More')</button>
+
+            <!-- Table -->
+            <div class="page-name-xl mb-2 mt-3"> Deleted Propositions
+                <span class="tag tag-neutral text-white">{{ $deleted->count() }}</span>
+            </div>
+            <table class="table table-hover">
+                <thead class="thead-inverse">
+                <tr>
+                    <th>#</th>
+                    <th>@lang('Title')</th>
+                    <th>@lang('Author')</th>
+                    <th>@lang('Creation Date')</th>
+                    <th>@lang('Rejected')</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($deleted as $prop)
+                    <tr>
+                        <th scope="row">{{ $loop->iteration }}</th>
+                        <td class="table-title">{{ $prop->title }}</td>
+                        <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-1" src="{{ $prop->owner->image }}">{{ $prop->owner->name }}</a></td>
+                        <td>{{ $prop->created_at }}</td>
+                        <td></td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+            <button class="btn btn-neutral btn-addon d-block ml-auto" type="button">@lang('Show More')</button>
+
 
             <!-- Table -->
             <div class="page-name-xl mb-2 mt-3">Proposition Archive
