@@ -174,6 +174,12 @@
                                 path: '/propositions',
                                 title: 'Propositions'
                             },
+                            start: {
+                                enabled: (typeof(this.$route.params.id) !== 'undefined'),
+                                path: '/proposition/'+this.$route.params.id+'/start',
+                                title: 'Start',
+                                component: true
+                            },
                             basic_data: {
                                 enabled: true,
                                 title: 'Basic Data',
