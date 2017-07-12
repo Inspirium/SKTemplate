@@ -28,8 +28,7 @@ Vue.prototype.lang= function (key) {
 
 Vue.component('inspirium-tablesearch', require('./components/TableSearch.vue'));
 Vue.component('inspirium-notifications', require('./components/Notifications.vue'));
-Vue.component('proposition-edit', require('./components/PropositionEdit.vue'));
-Vue.component('proposition-menu', require('./components/PropositionMenu.vue'));
+Vue.component('inspirium-menu', require('./components/Menu.vue'));
 
 Vue.use(VueMoment);
 Vue.use(VueRouter);

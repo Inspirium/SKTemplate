@@ -9,7 +9,7 @@
         <!--/. Logo -->
         <!-- Side navigation links -->
         <li class="nav nav-pills flex-column sidebar-menu">
-            <proposition-menu path="{{ Request::path() }}"></proposition-menu>
+            <inspirium-menu path="{{ Request::path() }}"></inspirium-menu>
         </li>
         <!--/. Side navigation links -->
     </ul>
