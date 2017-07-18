@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="profile-head pt-3 pb-2 d-flex flex-column justify-content-center align-items-center">
-            <h1 class="display-3 text-white text-center">Ime task</h1>
+            <h1 class="display-3 text-white text-center">{{ lang('Task') }}</h1>
         </div>
 
         <!-- Display fileds -->
@@ -11,22 +11,22 @@
                     <a href="#">
                         <img class="profile-m-2 mr-1 float-left" src="/images/profile.jpg">
                         <h6 class="white-label">{{ lang('Assigner') }}</h6>
-                        <h3 class="mb-1 text-white">Jelena Lončarić</h3>
+                        <h3 class="mb-1 text-white">{{ task.assigner.name }}</h3>
                     </a>
                 </div>
                 <div class="col-md-3">
                     <a href="#">
                         <img class="profile-m-2 mr-1 float-left" src="/images/profile.jpg">
                         <h6 class="white-label">{{ lang('Assign to') }}</h6>
-                        <h3 class="mb-1 text-white">Unknown</h3>
+                        <h3 class="mb-1 text-white">{{ task.user.name }}</h3>
                     </a>
                 </div>
                 <div class="col-md-3">
                     <h6 class="white-label">{{ lang('Task Sent') }}</h6>
-                    <h3 class="mb-1 text-white">22.09.</h3>
+                    <h3 class="mb-1 text-white">{{ task.created_at | moment("dd.MM.") }}</h3>
                 </div>
                 <div class="col-md-3">
-                    <h6 class="white-label">{{ lang('Deadline / Priority')<span class="badge badge-danger display-d mt-1 float-right">{{ lang('High') }} }}</span></h6>
+                    <h6 class="white-label">{{ lang('Deadline / Priority')<span class="badge badge-danger display-d mt-1 float-right">{{ lang(priorities[task.priority]) }} }}</span></h6>
                     <h3 class="mb-1 text-white">25.9.</h3>
                 </div>
             </div>
@@ -61,13 +61,13 @@
                 <div class="col-md-9">
                     <div class="page-name-l mt-2 mb-1">{{ lang('Task Description') }}</div>
                     <div>
-                        <h4 class="mb-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt rerum accusamus, tenetur, similique quam eum quia porro commodi odit cum autem ut, alias optio dolor odio velit maxime, aliquid molestias.</h4>
+                        <h4 class="mb-1">{{ task.description }}</h4>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="page-name-l mt-2 mb-1">{{ lang('Task Type') }}</div>
                     <div>
-                        <h4 class="mb-1">Project</h4>
+                        <h4 class="mb-1">{{ task.type }}</h4>
                     </div>
                 </div>
             </div>
@@ -126,13 +126,13 @@
             <!-- File/document table -->
             <div class="page-name-xl mb-1">{{ lang('Documents') }}</div>
             <div class="files mt-2">
-                <div class="file-box file-box-l d-flex align-items-center">
-                    <a href="http://homestead.app/images/profile.pdf" class="file-icon">Fizika i društvo.doc</a>
+                <div class="file-box file-box-l d-flex align-items-center" v-for="document in task.documents" v-key="document.id">
+                    <a v-bind:href="document.link" class="file-icon">{{ document.title }}</a>
                     <div class="file-box-sty ml-auto d-flex">
-                        <a href=""><img class="profile-m-1 mr-1 align-self-center" src="/images/profile.jpg">Stjepan Drmić</a>
+                        <a href=""><img class="profile-m-1 mr-1 align-self-center" v-bind:src="document.owner.image">{{ document.owner.name }}</a>
                     </div>
-                    <div class="file-box-sty">24.07.2017.</div>
-                    <div class="file-box-sty icon icon-approval-pending">{{ lang('Approval Pending...') }}</div>
+                    <div class="file-box-sty">{{ document.created_at | moment( "dd.MM.YYYY." ) }}</div>
+                    <div v-bind:class="['file-box-sty icon', this.statuses[document.status].className ]">{{ lang(this.statuses[document.status].title) }}</div>
                 </div>
                 <div class="file-box file-box-l d-flex align-items-center">
                     <a href="http://homestead.app/images/profile.pdf" class="file-icon">Fizika i društvo.doc</a>
@@ -158,9 +158,38 @@
 <script>
     export default {
         data: function () {
-            return {}
+            return {
+                task: {},
+                document_statuses : {
+                    pending: {
+                        className : 'icon-approval-pending',
+                        title : 'Approval Pending...'
+                    },
+                    denied: {
+                        className : 'icon-approval-no',
+                        title : 'Approval Denied'
+                    },
+                    approved: {
+                        className : 'icon-approval-yes',
+                        title : 'Approved'
+                    }
+                },
+                priorities: {
+                    high: 'High',
+                    medium: 'Medium',
+                    low: 'Low'
+                }
+            }
         },
         computed: {},
-        methods: {}
+        methods: {},
+        mounted: function() {
+            let id = this.$router.params.id;
+            axios.get('/api/task/' + id)
+                .then((res) => {
+                    this.task = res.data;
+                })
+                .catch((err) => {});
+        }
     }
 </script>

@@ -13,22 +13,22 @@
             <div class="col-md-6">
                 <!-- Input field -->
                 <div class="md-form">
-                    <input type="text" id="form1" class="form-control">
-                    <label for="form1" class="">{{ lang('Task Name') }}</label>
+                    <input type="text" id="name" class="form-control" v-model="task.name">
+                    <label for="name">{{ lang('Task Name') }}</label>
                 </div>
                 <!--/. Input field -->
 
                 <!-- Input field -->
                 <div class="md-form d-flex addon">
-                    <input type="text" id="form1" class="form-control">
-                    <label for="form1" class="">{{ lang('Assign Person') }}</label>
+                    <input type="text" id="users" class="form-control" v-model="user">
+                    <label for="users" class="">{{ lang('Assign Person') }}</label>
                 </div>
-                <div class="chip mb-3">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg" alt="Contact Person"> Jane Doe<i class="close fa fa-times"></i>
+                <div class="chip mb-3" v-for="user in task.users" v-bind:key="user.id">
+                    <img v-bind:src="user.image"> {{ user.name }}<i class="close fa fa-times"></i>
                 </div>
 
                 <div class="md-form d-flex addon">
-                    <input type="text" id="form1" class="form-control">
+                    <input type="text" id="form1" class="form-control" v-model="department">
                     <label for="form1" class="">{{ lang('Assign Department') }}</label>
                 </div>
                 <div class="chip mb-3">
@@ -41,7 +41,7 @@
                 <div class="row">
                     <div class="col-md-5">
                         <div class="md-form">
-                            <input placeholder="Selected date" type="text" id="date-picker-example" class="form-control datepicker btn-white">
+                            <input placeholder="Selected date" type="text" id="date-picker-example" class="form-control datepicker btn-white" v-model="task.deadline">
                             <label for="date-picker-example">{{ lang('Select Date') }}</label>
                         </div>
                     </div>
@@ -50,15 +50,15 @@
                 <div class="page-name-m">{{ lang('Priority') }}</div>
                 <div class="form-inline mb-3">
                     <fieldset class="form-group">
-                        <input name="priority" type="radio" id="radio11" value="high">
+                        <input name="priority" type="radio" id="radio11" value="high" v-model="task.priority">
                         <label for="radio11">{{ lang('High') }}</label>
                     </fieldset>
                     <fieldset class="form-group">
-                        <input name="priority" type="radio" id="radio21" value="medium">
+                        <input name="priority" type="radio" id="radio21" value="medium" v-model="task.priority">
                         <label for="radio21">{{ lang('Medium') }}</label>
                     </fieldset>
                     <fieldset class="form-group">
-                        <input name="priority" type="radio" id="radio31" value="low">
+                        <input name="priority" type="radio" id="radio31" value="low" v-model="task.priority">
                         <label for="radio31">{{ lang('Low') }}</label>
                     </fieldset>
                 </div>
@@ -66,7 +66,7 @@
 
                 <!-- Textarea -->
                 <div class="md-form">
-                    <textarea id="form76" class="md-textarea"></textarea>
+                    <textarea id="form76" class="md-textarea" v-model="task.description"></textarea>
                     <label for="form76">{{ lang('Task description') }}</label>
                 </div>
             </div>
@@ -78,21 +78,12 @@
 
         <!-- File/document table -->
         <div class="files mt-2 mb-2">
-            <div class="file-box file-box-l d-flex align-items-center">
-                <a href="http://homestead.app/images/profile.pdf" class="file-icon">Fizika i društvo.doc</a>
+            <div class="file-box file-box-l d-flex align-items-center" v-for="document in task.documents">
+                <a v-bind:href="document.link" class="file-icon">{{ document.name }}</a>
                 <div class="file-box-sty ml-auto d-flex">
-                    <img class="profile-m-1 mr-3 float-left align-self-center" src="/images/profile.jpg">Jelena Lončarić
+                    <img class="profile-m-1 mr-3 float-left align-self-center" v-bind:src="document.owner.image">{{ document.owner.name }}
                 </div>
-                <div class="file-box-sty">19.07.2017.</div>
-                <div class="file-box-sty icon icon-download">Preuzmi</div>
-                <div class="file-box-sty icon icon-cancel">Obriši</div>
-            </div>
-            <div class="file-box file-box-l d-flex align-items-center">
-                <a href="http://homestead.app/images/profile.pdf" class="file-icon">Fizika i društvo.doc</a>
-                <div class="file-box-sty ml-auto d-flex">
-                    <img class="profile-m-1 mr-3 float-left align-self-center" src="/images/profile.jpg">Jelena Lončarić
-                </div>
-                <div class="file-box-sty">19.07.2017.</div>
+                <div class="file-box-sty">{{ document.created_at | moment("dd.MM.YYYY.") }}</div>
                 <div class="file-box-sty icon icon-download">Preuzmi</div>
                 <div class="file-box-sty icon icon-cancel">Obriši</div>
             </div>
@@ -109,9 +100,27 @@
 <script>
     export default {
         data: function () {
-            return {}
+            return {
+                user: '',
+                department: '',
+                task: {
+                    name: '',
+                    description: '',
+                    users: [],
+                    priority: '',
+                    deadline: '',
+                    documents: []
+                }
+            }
         },
         computed: {},
-        methods: {}
+        methods: {},
+        mounted: function() {
+            if (typeof(this.$router.params.id) !== 'undefined') {
+                axios.get('/api/task/' + this.$router.params.id)
+                    .then((res) => {})
+                    .catch((err) => {});
+            }
+        }
     }
 </script>

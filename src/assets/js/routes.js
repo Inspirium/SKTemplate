@@ -48,5 +48,5 @@ export const routes = [
 
     { path: '/tasks', component: Tasks },
     { path: '/task/edit/:id(\\d+)?', component: TaskEdit },
-    { path: '/task/show/:id(\\d+)', component: TaskEdit }
+    { path: '/task/show/:id(\\d+)', component: TaskShow }
 ];
