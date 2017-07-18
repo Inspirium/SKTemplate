@@ -13,6 +13,8 @@ import Calculation from './components/proposition/Calculation.vue'
 import WorkOrder from './components/proposition/WorkOrder.vue'
 import PropositionStart from './components/proposition/PropositionStart.vue'
 
+import Tasks from './components/tasks/Tasks.vue'
+
 
 export const routes = [
     { path: '/proposition/basic_data', component: BasicData },
@@ -41,4 +43,6 @@ export const routes = [
     { path: '/proposition/calculation', component: Calculation},
     { path: '/proposition/:id/calculation', component: Calculation},
     { path: '/proposition/work_order', component: WorkOrder},
+
+    { path: '/tasks', component: Tasks}
 ];

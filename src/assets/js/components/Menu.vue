@@ -124,7 +124,8 @@
                             view: {
                                 enabled: true,
                                 path: '/tasks',
-                                title: 'Tasks'
+                                title: 'Tasks',
+                                component: true
                             }
                         }
                     },
