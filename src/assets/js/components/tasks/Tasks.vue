@@ -1,7 +1,7 @@
 <template>
     <div class="content">
         <div class="justify-content-center mt-1 mb-2 flex-column flex-md-row d-flex p-2">
-            <button type="submit" class="btn btn-lg btn-blank btn-plus-icon">{{ lang('Create new') }}</button>
+            <button type="submit" v-on:click="$router.push('/task/edit')" class="btn btn-lg btn-blank btn-plus-icon">{{ lang('Create new') }}</button>
         </div>
         <div class="page-name-xl mb-1 mt-2">{{ lang('New Task') }}
             <span class="tag tag-neutral text-white">154</span>

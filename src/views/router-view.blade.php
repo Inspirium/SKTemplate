@@ -2,7 +2,7 @@
 
 @section('content')
     <router-view
-            class="view"
+            class="router-view"
             transition
             transition-mode="out-in">
     </router-view>

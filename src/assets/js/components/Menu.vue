@@ -94,6 +94,21 @@
                                 enabled: true,
                                 title: 'Add new',
                                 path: '/proposition/basic_data'
+                            },
+                            design: {
+                                enabled: true,
+                                path: '/propositions/design',
+                                title: 'Design'
+                            },
+                            layout: {
+                                enabled: true,
+                                path: '/propositions/layout',
+                                title: 'Layout'
+                            },
+                            proofreading: {
+                                enabled: true,
+                                path: '/propositions/proofreading',
+                                title: 'Proofreading'
                             }
                         }
                     },
