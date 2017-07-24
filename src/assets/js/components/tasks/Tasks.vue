@@ -55,12 +55,12 @@
             <draggable class="white" v-model="old_tasks" v-bind:element="'tbody'">
                 <tr v-for="(element, index) in old_tasks" :key="element.id">
                     <td><div class="icon icon-handler"></div></td>
-                    <th class="display-e w-30" scope="row">{{ element.id }}</th>
-                    <td class="table-title">{{ element.title }}</td>
+                    <th class="display-e w-30">{{ element.id }}</th>
+                    <td class="table-title"><a v-bind:href="'/task/show/'+element.id">{{ element.name }}</a></td>
                     <td><div v-bind:class="task_types[element.type].className">{{ task_types[element.type].title }}</div></td>
                     <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-1" src="/images/profile.jpg">Jelena Lončarić</a></td>
-                    <td>21.09.</td>
-                    <td>25.09.</td>
+                    <td>{{ element.created_at | moment('DD.MM.') }}</td>
+                    <td>{{ element.deadline | moment('DD.MM.') }}</td>
                     <td>4 h</td>
                     <td class="text-right"><div class="file-box-sty icon icon-assign">{{ lang('Assign') }}</div></td>
                 </tr>
@@ -122,23 +122,22 @@
                     }
                 },
                 new_tasks: [
-                    { id: 1, title: 'Fizika', type: 1 },
-                    { id: 2, title: 'Kemija', type: 2 },
-                    { id: 3, title: 'Biologija', type: 1 },
                 ],
                 old_tasks: [
-                    { id: 1, title: 'Fizika', type: 1 },
-                    { id: 2, title: 'Kemija', type: 2 },
-                    { id: 3, title: 'Biologija', type: 1 },
                 ],
                 waiting_tasks: [
-                    { id: 1, title: 'Fizika', type: 1 },
-                    { id: 2, title: 'Kemija', type: 2 },
-                    { id: 3, title: 'Biologija', type: 1 },
                 ]
             }
         },
         computed: {},
-        methods: {}
+        methods: {
+
+        },
+        mounted: function() {
+            axios.get('api/tasks')
+                .then((res) => {
+                    this.old_tasks = res.data.tasks;
+                })
+        }
     }
 </script>

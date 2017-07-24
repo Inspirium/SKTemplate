@@ -20,7 +20,10 @@
 
                 <!-- Input field -->
                 <div class="md-form d-flex addon">
-                    <input type="text" id="users" class="form-control" v-model="user">
+                    <input type="text" id="users" class="form-control mdb-autocomplete" v-model="user" v-on:keyup="userComplete($event)">
+                    <ul class="mdb-autocomplete-wrap" v-if="suggestions.length">
+                        <li v-for="(item, index) in suggestions" v-on:click="userCompleteSelect(index)">{{ item.first_name }} {{ item.last_name }}</li>
+                    </ul>
                     <label for="users" class="">{{ lang('Assign Person') }}</label>
                 </div>
                 <div class="chip mb-3" v-for="user in task.users" v-bind:key="user.id">
@@ -31,8 +34,8 @@
                     <input type="text" id="form1" class="form-control" v-model="department">
                     <label for="form1" class="">{{ lang('Assign Department') }}</label>
                 </div>
-                <div class="chip mb-3">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg" alt="Contact Person"> Jane Doe<i class="close fa fa-times"></i>
+                <div class="chip mb-3" v-for="department in task.departments" v-bind:key="department.id">
+                    {{ department.name }}<i class="close fa fa-times"></i>
                 </div>
             </div>
 
@@ -91,7 +94,7 @@
 
         <!-- Footer buttons -->
         <div class="btn-footer mt-2 mb-5 flex-column flex-md-row d-flex p-2">
-            <button type="submit" class="btn btn-lg btn-save">{{ lang('Submit') }}</button>
+            <button type="submit" class="btn btn-lg btn-save" v-on:click="submitTask">{{ lang('Submit') }}</button>
         </div>
         <!--/. Footer buttons -->
     </div>
@@ -103,10 +106,12 @@
             return {
                 user: '',
                 department: '',
+                suggestions: [],
                 task: {
                     name: '',
                     description: '',
                     users: [],
+                    departments: [],
                     priority: '',
                     deadline: '',
                     documents: []
@@ -114,10 +119,60 @@
             }
         },
         computed: {},
-        methods: {},
+        methods: {
+            userComplete: function(event) {
+                if (this.cancel) {
+                    this.cancel();
+                    this.cancel = false;
+                }
+                let CancelToken = axios.CancelToken;
+                if (this.user.length > 2) {
+                    axios.get('/api/human_resources/employee/search/' + this.user, {
+                        cancelToken: new CancelToken((c) => {
+                            this.cancel = c;
+                        })
+                    })
+                        .then((response) => {
+                            this.suggestions = response.data;
+                        })
+                        .catch((error) => {});
+                }
+            },
+            userCompleteSelect: function(index) {
+                this.task.users.push(this.suggestions[index]);
+                this.suggestions = [];
+                this.user = '';
+            },
+            submitTask() {
+                if (typeof(this.$route.params.id) !== 'undefined') {
+                    axios.put('/api/task/' + this.$route.params.id, this.task)
+                        .then((res) => {
+                            this.$router.push('/tasks');
+                        })
+                        .catch((err) => {})
+                }
+                else {
+                    axios.post('/api/task', this.task)
+                        .then((res) => {
+                            this.$router.push('/tasks');
+                        })
+                        .catch((err) => {});
+                }
+
+            }
+        },
         mounted: function() {
-            if (typeof(this.$router.params.id) !== 'undefined') {
-                axios.get('/api/task/' + this.$router.params.id)
+            $('.datepicker').pickadate({
+                format: 'dd. mm. yyyy.',
+                onSet: (context) => {
+                    let date = new Date(context.select);
+                    date = this.$options.filters.moment(date, 'DD. MM. YYYY.');
+                    this.task.deadline = date;
+                    //this.vuexSet('proposition.proposition.deadline.date', date);
+                }
+            });
+            if (typeof(this.$route.params.id) !== 'undefined') {
+                axios.get('/api/task/' + this.$route.params.id)
                     .then((res) => {})
                     .catch((err) => {});
             }

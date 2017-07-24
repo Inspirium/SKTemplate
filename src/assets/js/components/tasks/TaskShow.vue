@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="profile-head pt-3 pb-2 d-flex flex-column justify-content-center align-items-center">
-            <h1 class="display-3 text-white text-center">{{ lang('Task') }}</h1>
+            <h1 class="display-3 text-white text-center">{{ task.name }}</h1>
         </div>
 
         <!-- Display fileds -->
@@ -18,16 +18,16 @@
                     <a href="#">
                         <img class="profile-m-2 mr-1 float-left" src="/images/profile.jpg">
                         <h6 class="white-label">{{ lang('Assign to') }}</h6>
-                        <h3 class="mb-1 text-white">{{ task.user.name }}</h3>
+                        <h3 class="mb-1 text-white">{{ }}</h3>
                     </a>
                 </div>
                 <div class="col-md-3">
                     <h6 class="white-label">{{ lang('Task Sent') }}</h6>
-                    <h3 class="mb-1 text-white">{{ task.created_at | moment("dd.MM.") }}</h3>
+                    <h3 class="mb-1 text-white">{{ task.created_at | moment("DD.MM.") }}</h3>
                 </div>
                 <div class="col-md-3">
-                    <h6 class="white-label">{{ lang('Deadline / Priority')<span class="badge badge-danger display-d mt-1 float-right">{{ lang(priorities[task.priority]) }} }}</span></h6>
-                    <h3 class="mb-1 text-white">25.9.</h3>
+                    <h6 class="white-label">{{ lang('Deadline / Priority') }}<span class="badge badge-danger display-d mt-1 float-right">{{ lang(priorities[task.priority]) }}</span></h6>
+                    <h3 class="mb-1 text-white">{{ task.deadline | moment("DD.MM.") }}</h3>
                 </div>
             </div>
 
@@ -72,7 +72,7 @@
                 </div>
             </div>
 
-
+            <template v-if="documents">
             <!-- File/document table -->
             <div class="page-name-l mb-1 mt-2">{{ lang('Documents') }}</div>
             <div class="files mt-2 mb-2">
@@ -152,6 +152,14 @@
                     <div class="file-box-sty icon icon-approval-yes">{{ lang('Approved') }}</div>
                 </div>
             </div>
+            </template>
+
+            <!-- Footer buttons -->
+            <div class="btn-footer mt-2 mb-2 flex-column flex-md-row d-flex p-2">
+                <button type="submit" class="btn btn-lg btn-save">{{ lang('Accept') }}</button>
+                <button type="submit" class="btn btn-lg btn-cancel">{{ lang('Reject') }}</button>
+                <button type="submit" class="btn btn-lg btn-assign btn-assign-icon">{{ lang('Assign to...') }}</button>
+            </div>
         </div>
     </div>
 </template>
@@ -159,7 +167,16 @@
     export default {
         data: function () {
             return {
-                task: {},
+                documents: false,
+                task: {
+                    id: '',
+                    assigner: {
+                        name: ''
+                    },
+                    user: {
+                        name: ''
+                    }
+                },
                 document_statuses : {
                     pending: {
                         className : 'icon-approval-pending',
@@ -184,10 +201,10 @@
         computed: {},
         methods: {},
         mounted: function() {
-            let id = this.$router.params.id;
+            let id = this.$route.params.id;
             axios.get('/api/task/' + id)
                 .then((res) => {
-                    this.task = res.data;
+                    this.task = res.data.task;
                 })
                 .catch((err) => {});
         }
