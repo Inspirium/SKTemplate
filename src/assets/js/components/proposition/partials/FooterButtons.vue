@@ -47,7 +47,9 @@
                                             <li v-for="(item, index) in d_suggestions" v-on:click="autocomplete_select(index, 'department')">{{ item.name }}</li>
                                         </ul>
                                     </div>
-
+                                    <div class="chip mb-1" v-for="department in departments">
+                                        {{ department.name }}<i class="close fa fa-times"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -66,7 +68,7 @@
                                         <button class="btn btn-neutral btn-addon" type="button">{{ lang('Add') }}</button>
                                     </span>
                                     </div>
-                                    <div class="chip mb-1" v-for="employee in assigned['employees']">
+                                    <div class="chip mb-1" v-for="employee in employees">
                                         <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg">{{ employee.name }}<i class="close fa fa-times"></i>
                                     </div>
                                 </div>
@@ -78,7 +80,7 @@
                     <!--Footer-->
                     <div class="modal-footer btn-footer">
                         <button type="button" class="btn btn-lg btn-cancel" data-dismiss="modal">{{ lang('Cancel') }}</button>
-                        <button type="button" class="btn btn-lg btn-save" data-dismiss="modal">{{ lang('Assign') }}</button>
+                        <button type="button" class="btn btn-lg btn-save" data-dismiss="modal" v-on:click="assignValues">{{ lang('Assign') }}</button>
                     </div>
                 </div>
                 <!--/.Content-->
@@ -95,13 +97,12 @@
                 e_suggestions: [],
                 department: '',
                 d_suggestions: [],
+                employees: [],
+                departments: [],
                 cancel: false
             }
         },
         computed: {
-            assigned () {
-                return this.$deepModel('proposition.proposition.assigned');
-            }
         },
         methods: {
             saveProposition: function() {
@@ -144,19 +145,27 @@
             autocomplete_select: function(index, type) {
                 if (type === 'department') {
                     //this.$store.commit('proposition/pushToArray', {key: 'departments', group: 'assigned', value: this.d_suggestions[index]});
-                    this.assigned['departments'] = this.d_suggestions[index];
+                    this.departments.push(this.d_suggestions[index]);
                     this.d_suggestions = [];
                     this.department = '';
                 }
                 else {
                     //this.$store.commit('proposition/pushToArray', {key: 'employees', group: 'assigned', value: this.e_suggestions[index]});
-                    this.assigned['employees'] = this.e_suggestions[index];
+                    this.employees.push(this.e_suggestions[index]);
                     this.e_suggestions = [];
                     this.employee = '';
                 }
 
+            },
+            assignValues: function() {
+                axios.post('/api/proposition/assign/'+this.$route.params.id, {employees: this.employees, departments: this.departments})
+                    .then((res) => {
+                    })
+                    .catch((err) => {
+                    })
             }
         },
-        mounted: function() {}
+        mounted: function() {
+        }
     }
 </script>

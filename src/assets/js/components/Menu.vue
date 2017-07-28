@@ -140,7 +140,7 @@
                                 enabled: true,
                                 path: '/tasks',
                                 title: 'Tasks',
-                                component: true
+                                component: false
                             }
                         }
                     },

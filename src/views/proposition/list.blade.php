@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="justify-content-center mt-1 mb-2 flex-column flex-md-row d-flex p-2">
-                <button type="submit" class="btn btn-lg btn-blank btn-plus-icon">@lang('Create new')</button>
+                <a href="/proposition/basic_data" class="btn btn-lg btn-blank btn-plus-icon">@lang('Create new')</a>
             </div>
             <div class="page-name-xl mb-2 mt-2">Propositions On Approval
                 <span class="tag tag-neutral text-white">{{ $approval->count() }}</span>

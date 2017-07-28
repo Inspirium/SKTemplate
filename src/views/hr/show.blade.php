@@ -10,7 +10,7 @@
 <div class="content">
     <div class="row">
         <div class="col-md-4">
-            <img src="{{ asset('images/profile.jpg') }}" class="profile-xl mt-2">
+            <img src="{{ $employee->image }}" class="profile-xl mt-2">
         </div>
         <div class="col-md-8 showdata-box">
             <div class="page-name-l mb-2">@lang('Basic Info')</div>
@@ -60,7 +60,7 @@
     </div>
     <!-- Footer buttons -->
     <div class="btn-footer mt-2 mb-5 d-flex p-2">
-        <button type="submit" class="btn btn-lg btn-neutral">@lang('Edit')</button>
+        <a href="/human_resources/employee/edit/{{ $employee->id }}" class="btn btn-lg btn-neutral">@lang('Edit')</a>
     </div>
     <!--/. Footer buttons -->
 </div>

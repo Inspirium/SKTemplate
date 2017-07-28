@@ -20,9 +20,9 @@
 
                 <!-- Input field -->
                 <div class="md-form d-flex addon">
-                    <input type="text" id="users" class="form-control mdb-autocomplete" v-model="user" v-on:keyup="userComplete($event)">
+                    <input type="text" id="users" class="form-control mdb-autocomplete" v-model="user" v-on:keyup="employeeComplete($event)">
                     <ul class="mdb-autocomplete-wrap" v-if="suggestions.length">
-                        <li v-for="(item, index) in suggestions" v-on:click="userCompleteSelect(index)">{{ item.first_name }} {{ item.last_name }}</li>
+                        <li v-for="(item, index) in suggestions" v-on:click="employeeCompleteSelect(index)">{{ item.first_name }} {{ item.last_name }}</li>
                     </ul>
                     <label for="users" class="">{{ lang('Assign Person') }}</label>
                 </div>
@@ -31,7 +31,10 @@
                 </div>
 
                 <div class="md-form d-flex addon">
-                    <input type="text" id="form1" class="form-control" v-model="department">
+                    <input type="text" id="form1" class="form-control" v-model="department" v-on:keyup="departmentComplete($event)">
+                    <ul class="mdb-autocomplete-wrap" v-if="suggestions.length">
+                        <li v-for="(item, index) in suggestions" v-on:click="departmentCompleteSelect(index)">{{ item.title }}</li>
+                    </ul>
                     <label for="form1" class="">{{ lang('Assign Department') }}</label>
                 </div>
                 <div class="chip mb-3" v-for="department in task.departments" v-bind:key="department.id">
@@ -120,7 +123,7 @@
         },
         computed: {},
         methods: {
-            userComplete: function(event) {
+            employeeComplete: function(event) {
                 if (this.cancel) {
                     this.cancel();
                     this.cancel = false;
@@ -138,10 +141,33 @@
                         .catch((error) => {});
                 }
             },
-            userCompleteSelect: function(index) {
+            employeeCompleteSelect: function(index) {
                 this.task.users.push(this.suggestions[index]);
                 this.suggestions = [];
                 this.user = '';
+            },
+            departmentComplete: function(event) {
+                if (this.cancel) {
+                    this.cancel();
+                    this.cancel = false;
+                }
+                let CancelToken = axios.CancelToken;
+                if (this.user.length > 2) {
+                    axios.get('/api/human_resources/department/search/' + this.department, {
+                        cancelToken: new CancelToken((c) => {
+                            this.cancel = c;
+                        })
+                    })
+                        .then((response) => {
+                            this.suggestions = response.data;
+                        })
+                        .catch((error) => {});
+                }
+            },
+            departmentCompleteSelect: function(index) {
+                this.task.departments.push(this.suggestions[index]);
+                this.suggestions = [];
+                this.department = '';
             },
             submitTask() {
                 if (typeof(this.$route.params.id) !== 'undefined') {

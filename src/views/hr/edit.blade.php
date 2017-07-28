@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="content">
-    <form method="post" action="{{ url('hr/employee/edit/'.$employee->id) }}" enctype="multipart/form-data">
+    <form method="post" action="{{ url('human_resources/employee/edit/'.$employee->id) }}" enctype="multipart/form-data">
         {{ csrf_field() }}
     <div class="page-name-xl mb-3">@lang('Name And Surname')</div>
     <div class="row">
