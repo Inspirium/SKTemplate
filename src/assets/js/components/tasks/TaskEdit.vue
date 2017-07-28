@@ -21,8 +21,8 @@
                 <!-- Input field -->
                 <div class="md-form d-flex addon">
                     <input type="text" id="users" class="form-control mdb-autocomplete" v-model="user" v-on:keyup="employeeComplete($event)">
-                    <ul class="mdb-autocomplete-wrap" v-if="suggestions.length">
-                        <li v-for="(item, index) in suggestions" v-on:click="employeeCompleteSelect(index)">{{ item.first_name }} {{ item.last_name }}</li>
+                    <ul class="mdb-autocomplete-wrap" v-if="e_suggestions.length">
+                        <li v-for="(item, index) in e_suggestions" v-on:click="employeeCompleteSelect(index)">{{ item.first_name }} {{ item.last_name }}</li>
                     </ul>
                     <label for="users" class="">{{ lang('Assign Person') }}</label>
                 </div>
@@ -32,8 +32,8 @@
 
                 <div class="md-form d-flex addon">
                     <input type="text" id="form1" class="form-control" v-model="department" v-on:keyup="departmentComplete($event)">
-                    <ul class="mdb-autocomplete-wrap" v-if="suggestions.length">
-                        <li v-for="(item, index) in suggestions" v-on:click="departmentCompleteSelect(index)">{{ item.title }}</li>
+                    <ul class="mdb-autocomplete-wrap" v-if="d_suggestions.length">
+                        <li v-for="(item, index) in d_suggestions" v-on:click="departmentCompleteSelect(index)">{{ item.title }}</li>
                     </ul>
                     <label for="form1" class="">{{ lang('Assign Department') }}</label>
                 </div>
@@ -109,7 +109,8 @@
             return {
                 user: '',
                 department: '',
-                suggestions: [],
+                e_suggestions: [],
+                d_suggestions: [],
                 task: {
                     name: '',
                     description: '',
@@ -136,14 +137,14 @@
                         })
                     })
                         .then((response) => {
-                            this.suggestions = response.data;
+                            this.e_suggestions = response.data;
                         })
                         .catch((error) => {});
                 }
             },
             employeeCompleteSelect: function(index) {
-                this.task.users.push(this.suggestions[index]);
-                this.suggestions = [];
+                this.task.users.push(this.e_suggestions[index]);
+                this.e_suggestions = [];
                 this.user = '';
             },
             departmentComplete: function(event) {
@@ -159,14 +160,14 @@
                         })
                     })
                         .then((response) => {
-                            this.suggestions = response.data;
+                            this.d_suggestions = response.data;
                         })
                         .catch((error) => {});
                 }
             },
             departmentCompleteSelect: function(index) {
-                this.task.departments.push(this.suggestions[index]);
-                this.suggestions = [];
+                this.task.departments.push(this.d_suggestions[index]);
+                this.d_suggestions = [];
                 this.department = '';
             },
             submitTask() {
