@@ -62,12 +62,13 @@
                     <div class="page-name-l mt-2 mb-1">{{ lang('Task Description') }}</div>
                     <div>
                         <h4 class="mb-1">{{ task.description }}</h4>
+                        <a v-bind:href="task.related_link" v-if="task.related_link">{{ lang('View') }}</a>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="page-name-l mt-2 mb-1">{{ lang('Task Type') }}</div>
                     <div>
-                        <h4 class="mb-1">{{ task.type }}</h4>
+                        <h4 v-bind:class="['mb-1', task_types[task.type].className]">{{ task_types[task.type].title }}</h4>
                     </div>
                 </div>
             </div>
@@ -167,6 +168,16 @@
     export default {
         data: function () {
             return {
+                task_types: {
+                    1: {
+                        title: 'Project',
+                        className: 'tasktype-1'
+                    },
+                    2: {
+                        title: 'Assignment',
+                        className: 'tasktype-2'
+                    }
+                },
                 documents: false,
                 task: {
                     id: '',
