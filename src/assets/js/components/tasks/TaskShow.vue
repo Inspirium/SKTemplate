@@ -157,7 +157,7 @@
 
             <!-- Footer buttons -->
             <div class="btn-footer mt-2 mb-2 flex-column flex-md-row d-flex p-2">
-                <button type="submit" class="btn btn-lg btn-save">{{ lang('Accept') }}</button>
+                <button v-if="task.status === 'new'" type="submit" class="btn btn-lg btn-save" v-on:click="acceptTask">{{ lang('Accept') }}</button>
                 <button type="submit" class="btn btn-lg btn-cancel">{{ lang('Reject') }}</button>
                 <button type="submit" class="btn btn-lg btn-assign btn-assign-icon">{{ lang('Assign to...') }}</button>
             </div>
@@ -186,7 +186,8 @@
                     },
                     user: {
                         name: ''
-                    }
+                    },
+                    status : ''
                 },
                 document_statuses : {
                     pending: {
@@ -210,7 +211,15 @@
             }
         },
         computed: {},
-        methods: {},
+        methods: {
+            acceptTask: function() {
+                axios.post('/api/task/' + this.task.id + '/accept')
+                    .then((res) => {
+                    this.task.status = 'old';
+                    })
+                    .catch((err) => {});
+            }
+        },
         mounted: function() {
             let id = this.$route.params.id;
             axios.get('/api/task/' + id)
