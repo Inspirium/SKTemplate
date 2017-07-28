@@ -13,7 +13,7 @@ export default {
             id: 0,
             basic_data: {
                 title: '',
-                authors: {},
+                authors: [],
                 concept: '',
                 note: '',
                 possible_products: [],

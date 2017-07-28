@@ -78,7 +78,7 @@
             <div class="page-name-l mb-1 mt-2">{{ lang('Documents') }}</div>
             <div class="files mt-2 mb-2">
                 <div class="file-box file-box-l d-flex align-items-center">
-                    <a src="" href="http://homestead.app/images/profile.pdf" class="file-icon">Fizika i društvo.doc</a>
+                    <a href="http://homestead.app/images/profile.pdf" class="file-icon">Fizika i društvo.doc</a>
                     <div class="file-box-sty ml-auto d-flex">
                         <a href=""><img class="profile-m-1 mr-1 align-self-center" src="/images/profile.jpg">Jelena Lončarić
                         </a></div>
