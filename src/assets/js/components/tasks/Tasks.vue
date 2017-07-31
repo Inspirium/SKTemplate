@@ -3,8 +3,9 @@
         <div class="justify-content-center mt-1 mb-2 flex-column flex-md-row d-flex p-2">
             <button type="submit" v-on:click="$router.push('/task/edit')" class="btn btn-lg btn-blank btn-plus-icon">{{ lang('Create new') }}</button>
         </div>
+        <template v-if="new_tasks.length">
         <div class="page-name-xl mb-1 mt-2">{{ lang('New Task') }}
-            <span class="tag tag-neutral text-white">154</span>
+            <span class="tag tag-neutral text-white">{{ new_tasks.length }}</span>
         </div>
         <!-- Table -->
         <table class="table">
@@ -26,7 +27,6 @@
                     <th class="display-e w-30" scope="row">{{ index+1 }}</th>
                     <td class="table-title"><a v-bind:href="'/task/show/'+element.id">{{ element.name }}</a></td>
                     <td><div v-bind:class="task_types[element.type].className">{{ task_types[element.type].title }}</div></td>
-                    <td><div v-bind:class="task_types[element.type].className">{{ task_types[element.type].title }}</div></td>
                     <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-1" v-bind:src="element.assigner.image">{{ element.assigner.name }}</a></td>
                     <td>{{ element.created_at | moment('DD.MM.') }}</td>
                     <td>{{ element.deadline | moment('DD.MM.') }}</td>
@@ -34,10 +34,11 @@
                 </tr>
             </draggable>
         </table>
+        </template>
 
-        <!-- Table -->
+        <template v-if="old_tasks.length">
         <div class="page-name-xl mb-1 mt-2">{{ lang('Task') }}
-            <span class="tag tag-neutral text-white">154</span>
+            <span class="tag tag-neutral text-white">{{ old_tasks.length }}</span>
         </div>
         <table class="table">
             <thead class="thead-inverse">
@@ -53,7 +54,7 @@
                 <th class="">{{ lang('Assign to') }}</th>
             </tr>
             </thead>
-            <draggable class="white" v-model="old_tasks" v-bind:element="'tbody'">
+            <draggable class="white" v-model="old_tasks" v-bind:element="'tbody'" v-on:end="endDrag">
                 <tr v-for="(element, index) in old_tasks" :key="element.id">
                     <td><div class="icon icon-handler"></div></td>
                     <th class="display-e w-30">{{ index+1 }}</th>
@@ -68,6 +69,8 @@
             </draggable>
         </table>
         <button class="btn btn-neutral d-block mx-auto btn-addon" type="button">{{ lang('Show all') }}</button>
+        </template>
+
 
         <!-- Table -->
         <div class="page-name-xl mb-1 mt-2">{{ lang('Waiting For Approval') }}
@@ -132,10 +135,17 @@
         },
         computed: {},
         methods: {
-
+            endDrag: function(event) {
+                let data = _.map(this.old_tasks, (o) => {
+                    return o.id;
+                });
+                axios.post('/api/tasks/updateOrder', {tasks: data})
+                    .then((res) => {})
+                    .catch((err) => {});
+            }
         },
         mounted: function() {
-            axios.get('api/tasks')
+            axios.get('/api/tasks')
                 .then((res) => {
                     this.new_tasks = res.data.new_tasks;
                     this.old_tasks = res.data.old_tasks;
