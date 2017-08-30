@@ -34,23 +34,37 @@
             </div>
         </div>
     </div>
+        <upload-modal action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" dir="manuscripts" v-on:fileDelete="fileDelete" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave"></upload-modal>
         <footer-buttons></footer-buttons>
     </div>
 </template>
 
 <script>
     import FooterButtons from './partials/FooterButtons.vue'
+    import uploadModal from '../general/UploadModal.vue';
     export default {
         data: function() {
             return {}
         },
         components: {
-            'footer-buttons' : FooterButtons
+            'footer-buttons' : FooterButtons,
+            'upload-modal' : uploadModal
         },
         computed: {
             market_potential() {
                 return this.$deepModel('proposition.proposition.market_potential');
             }
+        },
+        methods: {
+            fileDelete: function (id) {
+                this.$store.dispatch('proposition/deleteFile', {group:'market_potential', key:'market_potential_documents', id: id});
+            },
+            fileAdd: function(file) {
+                this.$store.commit('proposition/addFile', {group:'market_potential', key:'market_potential_documents', file: file})
+            },
+            fileNameSave: function(id, title) {
+                this.$store.dispatch('proposition/fileNameSave', {group:'market_potential', key:'market_potential_documents', id:id, title:title});
+            },
         },
         mounted: function() {
             this.$store.commit('proposition/updateProposition', {key: 'step', value: 2});

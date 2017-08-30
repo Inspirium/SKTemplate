@@ -51,13 +51,13 @@
                 <!-- File/document table -->
                 <div class="files mt-2 mb-2">
                     <div class="file-box file-box-l d-flex align-items-center" v-for="(document,index) in basic_data['manuscript_documents']">
-                        <a href="http://homestead.app/images/profile.pdf" class="file-icon">{{ document.title }}</a>
+                        <a v-bind:href="document.location" class="file-icon">{{ document.title }}</a>
                         <div class="file-box-sty ml-auto d-flex">
-                            <a href=""><img class="profile-m-1 mr-1 align-self-center" v-bind:src="document.author.image">
-                                {{ document.author.name }}
+                            <a href=""><img class="profile-m-1 mr-1 align-self-center" v-bind:src="document.owner.image">
+                                {{ document.owner.name }}
                             </a></div>
                         <div class="file-box-sty">{{ document.date }}</div>
-                        <div class="file-box-sty icon icon-download" v-on:click="documentDownload(index)">{{ lang('Download') }}</div>
+                        <div class="file-box-sty icon icon-download" v-on:click="documentDownload(document.link)">{{ lang('Download') }}</div>
                         <div class="file-box-sty icon icon-cancel" v-on:click="documentDelete(index)">{{ lang('Delete') }}</div>
                     </div>
                 </div>
@@ -129,7 +129,7 @@
             </div>
         </div>
 
-        <upload-modal action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" v-on:fileDelete="fileDelete" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave"></upload-modal>
+        <upload-modal action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" dir="manuscripts" v-on:fileDelete="fileDelete" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave"></upload-modal>
     </div>
 
     <authors-modal v-on:authorAdded="authorAdded"></authors-modal>
@@ -161,8 +161,8 @@
             documentAdd: function() {
                 jQuery('#upload-modal').modal('show');
             },
-            documentDownload: function(index) {
-                window.open(this.documents[index].link, "_blank");
+            documentDownload: function(link) {
+                window.open(link, "_blank");
             },
             documentDelete: function(index) {
                 this.documents.splice(index, 1);
@@ -172,20 +172,13 @@
                 this.$store.commit('proposition/removeFromObjectArray', {key: 'authors', group: 'basic_data', value: id})
             },
             fileDelete: function (id) {
-                _.remove(this.documents, {
-                    id: id
-                });
-                //TODO: make request
+                this.$store.dispatch('proposition/deleteFile', {group:'basic_data', key:'manuscript_documents', id: id});
             },
             fileAdd: function(file) {
-                this.documents.push(file);
+                this.$store.commit('proposition/addFile', {group:'basic_data', key:'manuscript_documents', file: file})
             },
             fileNameSave: function(id, title) {
-                _.forEach(this.documents, (file, key) => {
-                    if (file.id === id) {
-                        this.documents[key].title = title;
-                    }
-                });
+                this.$store.dispatch('proposition/fileNameSave', {group:'basic_data', key:'manuscript_documents', id:id, title:title});
             },
             autocomplete: function(event) {
                 if (this.cancel) {

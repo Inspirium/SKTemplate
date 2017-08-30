@@ -1,5 +1,6 @@
 <template>
     <div class="content">
+        <div class="page-name-xl mb-3">{{ lang('Authors Expenses') }}</div>
     <div class="row">
         <div class="col-md-12">
             <template v-for="author in authors">

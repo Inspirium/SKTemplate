@@ -141,6 +141,12 @@
                                 path: '/tasks',
                                 title: 'Tasks',
                                 component: false
+                            },
+                            design: {
+                                enabled: true,
+                                path: '/tasks/department/71',
+                                title: 'Design',
+                                component: false
                             }
                         }
                     },

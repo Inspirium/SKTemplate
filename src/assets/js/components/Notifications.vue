@@ -14,9 +14,9 @@
                         </a>
                     </div>
                     <div class="activity-content">
-                        <div class="activity-label tasktype-1">{{ item.tasktype }}</div>
+                        <div class="activity-label tasktype-1">{{ item.data.tasktype }}</div>
                         <div class="activity-time">{{ item.created_at | moment("from", "now") }}</div>
-                        <h4 class="activitiy-user"><span>Jozo Jozić</span> poslao(la) je novu<span><a href=""> poruku</a></span></h4>
+                        <h4 class="activitiy-user"><a v-bind:href="item.data.link">{{ item.data.message }}</a></h4>
                         <h5>{{ item.message }}</h5>
                     </div>
                 </div>
@@ -30,16 +30,6 @@
         data: function() {
             return {
                 notifications: [
-                    {
-                        tasktype: 'message',
-                        created_at: "2017-05-27 22:00:00.000",
-                        message: 'Moramo nešto završiti'
-                    },
-                    {
-                        tasktype: 'message',
-                        created_at: "2017-05-27 22:00:00.000",
-                        message: 'Moramo nešto završiti'
-                    }
                 ]
             }
         },
@@ -47,7 +37,7 @@
             window.axios.get('/api/user/notifications')
                 .then(response => {
                 // get body data
-                //this.notifications = response.body;
+                this.notifications = response.data;
             }, response => {
                 // error callback
             });

@@ -19,22 +19,22 @@
 
                     <!-- File/document table -->
                     <div class="files mt-2 mb-2" v-if="files.length">
-                        <template v-for="(file, index) in files">
+                        <div v-for="(file, index) in files" v-bind:key="file.id">
                         <div class="file-box file-box-s d-flex align-items-center">
                             <template v-if="file.edit">
                                 <input type="text" class="form-control" v-model="file.title">
-                                <div class="file-box-sty icon icon-approval-yes" v-on:click="fileNameSave(index, $event)">{{ lang( 'Save' ) }}</div>
+                                <div class="file-box-sty icon icon-approval-yes" v-on:click="fileNameSave(file.id, $event)">{{ lang( 'Save' ) }}</div>
                             </template>
                             <template v-else>
-                                <a v-bind:href="file.link" class="file-icon mr-auto" v-on:click="fileNameEdit(index, $event)">{{ file.title }}</a>
-                                <div class="file-box-sty icon icon-edit" v-on:click="fileNameEdit(index)">{{ lang( 'Edit' ) }}</div>
+                                <a v-bind:href="file.link" class="file-icon mr-auto" v-on:click="fileNameEdit(file.id, $event)">{{ file.title }}</a>
+                                <div class="file-box-sty icon icon-edit" v-on:click="fileNameEdit(file.id)">{{ lang( 'Edit' ) }}</div>
                             </template>
-                            <div class="file-box-sty icon icon-cancel" v-on:click="fileDelete(index)">{{ lang('Delete') }}</div>
+                            <div class="file-box-sty icon icon-cancel" v-on:click="fileDelete(file.id)">{{ lang('Delete') }}</div>
                         </div>
                         <div class="progress" v-if="file.progress">
                             <div class="progress-bar info-color" role="progressbar" v-bind:style="{width: file.progress+'%'}"></div>
                         </div>
-                        </template>
+                        </div>
                     </div>
                     <div class="text-center mb-1">
                         <button type="button" class="btn btn-addon info-color" v-on:click="addFiles">{{ lang('Add files') }}</button>
@@ -69,6 +69,8 @@
                 type: String,
                 required: true
             },
+            disk: String,
+            dir: String,
             accept: String
         },
         data: function() {
@@ -81,30 +83,35 @@
             addFiles: function() {
                 this.$refs.fileInput.click();
             },
-            fileNameEdit: function(index, event) {
+            fileNameEdit: function(id, event) {
+                console.log(id);
                 if (event) event.preventDefault();
-                if (this.files[index].id) {
-                    this.files[index].edit = true;
-                }
+                _.forEach(this.files, (f) => {
+                    if (f.id === id) {
+                        f.edit = true;
+                    }
+                })
             },
-            fileNameSave: function(index, event) {
+            fileNameSave: function(id, event) {
                 if (event) event.preventDefault();
+                let f = _.first(_.filter(this.files, (f) => { return f.id === id }));
                 let data = {
-                    title : this.files[index].title
+                    title : f.title
                 };
-                axios.patch(this.action + '/'+this.files[index].id, data)
+                /*axios.patch(this.action + '/'+id, data)
                     .then(function(res) {
                         this.files[index].message = res.message;
                         this.$emit('fileNameSave', this.files[index].id, data.title);
                     }.bind(this))
                     .catch(function(err){
                         this.files[index].message = err.message;
-                    }.bind(this));
-                this.files[index].edit = false;
+                    }.bind(this));*/
+                f.edit = false;
+
             },
             fileDelete: function(index) {
-                this.files.splice(index, 1);
                 this.$emit('fileDelete', this.files[index].id);
+                this.files.splice(index, 1);
             },
             fileInputChange: function() {
                 _.forEach(this.$refs.fileInput.files, function(file) {
@@ -125,20 +132,22 @@
                 let data = new FormData();
                 data.append('title', file.name);
                 data.append('file', file);
+                data.append('disk', this.disk);
+                data.append('dir', this.dir);
                 let config = {
                     onUploadProgress : function (progressEvent) {
                         this.files[index].progress = Math.round( (progressEvent.loaded * 100) / progressEvent.total );
                     }.bind(this)
                 };
                 axios.post(this.action, data, config)
-                    .then(function (res) {
-                        this.files[index].id = res.data.data.id;
-                        this.$emit('fileAdd', this.files[index]);
-                    }.bind(this))
-                    .catch(function (err) {
+                    .then((res) => {
+                        this.$emit('fileAdd', res.data.data);
+                        this.files.$set(index, res.data.data);
+                    })
+                    .catch( (err) => {
                         this.files[index].message = err.message;
                         //TODO: more error stuff
-                    }.bind(this));
+                    });
             },
             fileDragEnter: function() {
                 this.showOverlay = true;

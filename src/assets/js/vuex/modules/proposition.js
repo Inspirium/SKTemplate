@@ -214,6 +214,21 @@ export default {
         },
         deleteAuthorExpense(state, payload) {
             state.proposition.authors_expense.expenses[payload.author].additional_expenses.splice(payload.index, 1);
+        },
+        addFile(state, payload) {
+            state.proposition[payload.group][payload.key].push(payload.file);
+        },
+        removeFile(state, payload) {
+            _.remove(state.proposition[payload.group][payload.key], (o) => {
+                return o.id === payload.id;
+            })
+        },
+        fileNameSave(state, payload) {
+            _.forEach(state.proposition[payload.group][payload.key], (o) => {
+                if (o.id === payload.id) {
+                    o.title = payload.title;
+                }
+            });
         }
     },
     actions: {
@@ -317,6 +332,14 @@ export default {
                     });
                 }
             });
+        },
+        deleteFile({commit}, payload) {
+            commit('removeFile', payload);
+            //make request to remove from system
+        },
+        fileNameSave({commit}, payload) {
+            commit('fileNameSave', payload);
+            //make request to change in system
         }
     }
 }

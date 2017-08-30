@@ -16,18 +16,19 @@ import PropositionStart from './components/proposition/PropositionStart.vue'
 import Tasks from './components/tasks/Tasks.vue'
 import TaskEdit from './components/tasks/TaskEdit.vue'
 import TaskShow from './components/tasks/TaskShow.vue'
+import DepartmentTasks from './components/tasks/DepartmentTasks.vue'
 
 
 export const routes = [
-    { path: '/proposition/basic_data', component: BasicData },
+    { path: '/proposition/basic_data', component: BasicData, name: 'basic_data' },
     { path: '/proposition/:id(\\d+)/start', component: PropositionStart },
-    { path: '/proposition/:id(\\d+)/basic_data', component: BasicData },
+    { path: '/proposition/:id(\\d+)/basic_data', component: BasicData, name: 'basic_data' },
     { path: '/proposition/categorization', component: Categorization },
     { path: '/proposition/:id(\\d+)/categorization', component: Categorization },
     { path: '/proposition/market_potential', component: MarketPotential },
     { path: '/proposition/:id(\\d+)/market_potential', component: MarketPotential },
-    { path: '/proposition/technical_data', component: TechnicalData },
-    { path: '/proposition/:id(\\d+)/technical_data', component: TechnicalData },
+    { path: '/proposition/technical_data', component: TechnicalData, name: 'technical_data' },
+    { path: '/proposition/:id(\\d+)/technical_data', component: TechnicalData, name: 'technical_data' },
     { path: '/proposition/print', component: Print },
     { path: '/proposition/:id(\\d+)/print', component: Print },
     { path: '/proposition/authors_expense', component: AuthorsExpense },
@@ -48,5 +49,6 @@ export const routes = [
 
     { path: '/tasks', component: Tasks },
     { path: '/task/edit/:id(\\d+)?', component: TaskEdit },
-    { path: '/task/show/:id(\\d+)', component: TaskShow }
+    { path: '/task/show/:id(\\d+)', component: TaskShow },
+    { path: '/tasks/department/:id(\\d+)', component: DepartmentTasks }
 ];

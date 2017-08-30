@@ -64,7 +64,7 @@
                     <td>{{ element.created_at | moment('DD.MM.') }}</td>
                     <td>{{ element.deadline | moment('DD.MM.') }}</td>
                     <td>4 h</td>
-                    <td v-if="authority" class="text-right"><div class="file-box-sty icon icon-assign">{{ lang('Assign') }}</div></td>
+                    <td v-if="is_assigned(element)" class="text-right"><div class="file-box-sty icon icon-assign">{{ lang('Assign') }}</div></td>
                 </tr>
             </draggable>
         </table>
@@ -81,7 +81,7 @@
         },
         data: function () {
             return {
-                authority: false,
+                authority: true,
                 task_types: {
                     1: {
                         title: 'Project',
@@ -102,6 +102,9 @@
         },
         computed: {},
         methods: {
+            is_assigned: function(task) {
+                return (this.authority && task.employees.length)
+            },
             endDrag: function(event) {
                 let data = _.map(this.old_tasks, (o) => {
                     return o.id;
@@ -112,7 +115,7 @@
             }
         },
         mounted: function() {
-            axios.get('/api/tasks')
+            axios.get('/api/tasks/department/'+this.$route.params.id)
                 .then((res) => {
                     this.new_tasks = res.data.new_tasks;
                     this.old_tasks = res.data.old_tasks;
