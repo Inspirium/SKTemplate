@@ -51,14 +51,14 @@
                 <!-- File/document table -->
                 <div class="files mt-2 mb-2">
                     <div class="file-box file-box-l d-flex align-items-center" v-for="(document,index) in basic_data['manuscript_documents']">
-                        <a v-bind:href="document.location" class="file-icon">{{ document.title }}</a>
+                        <a v-bind:href="document.link" v-on:click.prevent="documentDownload(document.link)" class="file-icon">{{ document.title }}</a>
                         <div class="file-box-sty ml-auto d-flex">
                             <a href=""><img class="profile-m-1 mr-1 align-self-center" v-bind:src="document.owner.image">
                                 {{ document.owner.name }}
                             </a></div>
                         <div class="file-box-sty">{{ document.date }}</div>
                         <div class="file-box-sty icon icon-download" v-on:click="documentDownload(document.link)">{{ lang('Download') }}</div>
-                        <div class="file-box-sty icon icon-cancel" v-on:click="documentDelete(index)">{{ lang('Delete') }}</div>
+                        <div class="file-box-sty icon icon-cancel" v-on:click="fileDelete(document.id)">{{ lang('Delete') }}</div>
                     </div>
                 </div>
                 <!-- Show only if "Delivered"  -->
@@ -163,10 +163,10 @@
             },
             documentDownload: function(link) {
                 window.open(link, "_blank");
+                return false;
             },
             documentDelete: function(index) {
-                this.documents.splice(index, 1);
-                //TODO: make request
+                this.$store.dispatch('proposition/deleteFile', {group:'basic_data', key:'manuscript_documents', id: this.files[index].id});
             },
             authorDelete: function(id) {
                 this.$store.commit('proposition/removeFromObjectArray', {key: 'authors', group: 'basic_data', value: id})

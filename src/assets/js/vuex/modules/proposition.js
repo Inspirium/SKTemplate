@@ -219,9 +219,7 @@ export default {
             state.proposition[payload.group][payload.key].push(payload.file);
         },
         removeFile(state, payload) {
-            _.remove(state.proposition[payload.group][payload.key], (o) => {
-                return o.id === payload.id;
-            })
+            state.proposition[payload.group][payload.key].splice(_.findIndex(state.proposition[payload.group][payload.key], { 'id': payload.id }), 1);
         },
         fileNameSave(state, payload) {
             _.forEach(state.proposition[payload.group][payload.key], (o) => {
@@ -336,6 +334,7 @@ export default {
         deleteFile({commit}, payload) {
             commit('removeFile', payload);
             //make request to remove from system
+            axios.delete('/api/file/'+payload.id);
         },
         fileNameSave({commit}, payload) {
             commit('fileNameSave', payload);
