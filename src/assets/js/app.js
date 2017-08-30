@@ -21,18 +21,24 @@ import * as VueDeepSet from 'vue-deepset'
 import store from './vuex/store'
 import { routes } from './routes'
 import { sync } from 'vuex-router-sync'
+//import { VuexValidator } from "vuex-validator";
+//import validators from "./vuex/validators";
 
 Vue.prototype.lang= function (key) {
     return _.get(window.translations, key, key);
 };
 
-Vue.component('inspirium-tablesearch', require('./components/TableSearch.vue'));
-Vue.component('inspirium-notifications', require('./components/Notifications.vue'));
-Vue.component('inspirium-menu', require('./components/Menu.vue'));
+Vue.component('inspirium-tablesearch', require('./components/TableSearch.vue').default);
+Vue.component('inspirium-notifications', require('./components/Notifications.vue').default);
+Vue.component('inspirium-menu', require('./components/Menu.vue').default);
 
 Vue.use(VueMoment);
 Vue.use(VueRouter);
 Vue.use(VueDeepSet);
+/*
+Vue.use(VuexValidator, {
+    validators
+})*/
 
 const router = new VueRouter({
     mode: 'history',

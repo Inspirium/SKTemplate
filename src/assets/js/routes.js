@@ -16,7 +16,6 @@ import PropositionStart from './components/proposition/PropositionStart.vue'
 import Tasks from './components/tasks/Tasks.vue'
 import TaskEdit from './components/tasks/TaskEdit.vue'
 import TaskShow from './components/tasks/TaskShow.vue'
-import DepartmentTasks from './components/tasks/DepartmentTasks.vue'
 
 
 export const routes = [
@@ -49,6 +48,5 @@ export const routes = [
 
     { path: '/tasks', component: Tasks },
     { path: '/task/edit/:id(\\d+)?', component: TaskEdit },
-    { path: '/task/show/:id(\\d+)', component: TaskShow },
-    { path: '/tasks/department/:id(\\d+)', component: DepartmentTasks }
+    { path: '/task/show/:id(\\d+)', component: TaskShow }
 ];

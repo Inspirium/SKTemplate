@@ -269,13 +269,13 @@
                                 component: true
                             },
                             precalculation: {
-                                enabled: true,
+                                enabled: false,
                                 title: 'Calculation',
                                 path: '/proposition/'+((typeof(this.$route.params.id) !== 'undefined')?this.$route.params.id+'/':'')+'precalculation',
                                 component: true
                             },
                             calculation: {
-                                enabled: false,
+                                enabled: true,
                                 title: 'Calculation',
                                 path: '/proposition/'+((typeof(this.$route.params.id) !== 'undefined')?this.$route.params.id+'/':'')+'calculation',
                                 component: true
