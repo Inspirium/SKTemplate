@@ -184,36 +184,36 @@
                                 <div class="form-inline mb-3">
                                     {{  }}
                                     <fieldset class="form-group">
-                                        <input name="film_print" type="radio" id="film_print_no" value="no" disabled v-model="option.film_print">
-                                        <label for="film_print_no">{{ lang('No') }}</label>
+                                        <input v-bind:name="'film_print'+index" type="radio" v-bind:id="'film_print_no'+index" value="no" disabled v-model="option.film_print">
+                                        <label v-bind:for="'film_print_no'+index">{{ lang('No') }}</label>
                                     </fieldset>
                                     <fieldset class="form-group">
-                                        <input name="film_print" type="radio" id="film_print_yes" value="yes" disabled v-model="option.film_print">
-                                        <label for="film_print_yes">{{ lang('Yes') }}</label>
+                                        <input v-bind:name="'film_print'+index" type="radio" v-bind:id="'film_print_yes'+index" value="yes" disabled v-model="option.film_print">
+                                        <label v-bind:for="'film_print_yes'+index">{{ lang('Yes') }}</label>
                                     </fieldset>
                                 </div>
 
                                 <div class="page-name-m">{{ lang('Blind Print') }}</div>
                                 <div class="form-inline mb-3">
                                     <fieldset class="form-group">
-                                        <input name="blind_print" type="radio" id="blind_print_no" value="no" disabled v-model="option.blind_print">
-                                        <label for="blind_print_no">{{ lang('No') }}</label>
+                                        <input v-bind:name="'blind_print'+index" type="radio" v-bind:id="'blind_print_no'+index" value="no" disabled v-model="option.blind_print">
+                                        <label v-bind:for="'blind_print_no'+index">{{ lang('No') }}</label>
                                     </fieldset>
                                     <fieldset class="form-group">
-                                        <input name="blind_print" type="radio" id="blind_print_yes" value="yes" disabled v-model="option.blind_print">
-                                        <label for="blind_print_yes">{{ lang('Yes') }}</label>
+                                        <input v-bind:name="'blind_print'+index" type="radio" v-bind:id="'blind_print_yes'+index" value="yes" disabled v-model="option.blind_print">
+                                        <label v-bind:for="'blind_print_yes'+index">{{ lang('Yes') }}</label>
                                     </fieldset>
                                 </div>
 
                                 <div class="page-name-m">{{ lang('UV Film') }}</div>
                                 <div class="form-inline mb-3">
                                     <fieldset class="form-group">
-                                        <input name="uv_print" type="radio" id="uv_film_no" value="no" disabled v-model="option.uv_print">
-                                        <label for="uv_film_no">{{ lang('No') }}</label>
+                                        <input v-bind:name="'uv_print'+index" type="radio" v-bind:id="'uv_film_no'+index" value="no" disabled v-model="option.uv_print">
+                                        <label v-bind:for="'uv_film_no'+index">{{ lang('No') }}</label>
                                     </fieldset>
                                     <fieldset class="form-group">
-                                        <input name="uv_print" type="radio" id="uv_film_yes" value="yes" disabled v-model="option.uv_print">
-                                        <label for="uv_film_yes">{{ lang('Yes') }}</label>
+                                        <input v-bind:name="'uv_print'+index" type="radio" v-bind:id="'uv_film_yes'+index" value="yes" disabled v-model="option.uv_print">
+                                        <label v-bind:for="'uv_film_yes'+index">{{ lang('Yes') }}</label>
                                     </fieldset>
                                 </div>
                             </div>
@@ -523,7 +523,7 @@
                         price = mprice * (100 + Number(option.shop_percent)) / 100;
 
                     options[option.id] = {
-                        direct_cost : Number(this.authors_total) + Number(option.print_offer) + Number(option.compensation),
+                        direct_cost : Number(this.authors_total) + Number(option.print_offer) + Number(option.compensation)+Number(this.marketing_expense) + Number(this.production_expense) + Number(this.design_layout_expense),
                         remainder_after_sales: remainder,
                         complete_expense: complete,
                         cost_coverage: (Number(complete) - Number(this.dotation)),
