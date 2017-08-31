@@ -23,7 +23,7 @@
                         </div>
                         <div class="col-md-3">
                             <h6 class="no-border display-b text-white">{{ lang('Total Cost') }}</h6>
-                            <h1 class="mb-1 text-white">{{ option.total_cost | flexCurrency(' kn', 2) }}</h1>
+                            <h1 class="mb-1 text-white">{{ totals[option.id].total_cost | flexCurrency(' kn', 2) }}</h1>
                         </div>
                         <div class="col-md-2">
                             <div class=" page-name-l-white border-white">{{ lang('Direct Cost Cover') }}</div>
@@ -51,7 +51,7 @@
                 <div class="row">
                     <div class="col-md-4 offset-md-4">
                         <div class="md-form">
-                            <input type="text" class="form-control" v-model="options[key].price_proposal">
+                            <input type="text" class="form-control" v-model="option.price_proposal">
                             <label>{{ lang('Price proposal') }}</label>
                         </div>
                     </div>
@@ -519,14 +519,17 @@
                             return e.percentage * option.title * option.price_proposal / 100;
                         }),
                         complete = (Number(this.authors_total) + Number(option.print_offer) + Number(option.compensation) + Number(option.indirect_expenses) + Number(remainder)),
-                        mprice = (Number(complete) - Number(this.dotation)) * (100 + Number(option.calculated_profit_percent)) / 100;
+                        mprice = (Number(complete) - Number(this.dotation)) * (100 + Number(option.calculated_profit_percent)) / 100,
+                        price = mprice * (100 + Number(option.shop_percent)) / 100;
+
                     options[option.id] = {
                         direct_cost : Number(this.authors_total) + Number(option.print_offer) + Number(option.compensation),
                         remainder_after_sales: remainder,
                         complete_expense: complete,
                         cost_coverage: (Number(complete) - Number(this.dotation)),
                         manufacturer_price: mprice,
-                        price: mprice * (100 + Number(option.shop_percent)) / 100
+                        price: price,
+                        total_cost: price * (100 + Number(option.vat_percent)) / 100
                     };
                 });
                 return options;

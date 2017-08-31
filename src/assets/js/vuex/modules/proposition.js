@@ -249,8 +249,8 @@ export default {
                 step = 4;
             }
             let data = {
-                step: state.steps[state.proposition.step],
-                data: state.proposition[state.steps[state.proposition.step]]
+                step: state.steps[step],
+                data: state.proposition[state.steps[step]]
             };
             if (!state.proposition.id) {
                 axios.post('/api/proposition', data)
