@@ -118,7 +118,10 @@
         },
         mounted: function() {
             if (this.$route.params.id && !this.$store.state.proposition.proposition.loaded) {
-                this.$store.dispatch('proposition/initProposition', {id: this.$route.params.id});
+                this.$store.dispatch('proposition/initProposition', {id: this.$route.params.id})
+                    .then(() => {
+                        this.$store.dispatch('proposition/initAuthorExpenses');
+                    })
             }
             this.$store.commit('proposition/updateProposition', {key: 'step', value: 5});
             this.$store.dispatch('proposition/initAuthorExpenses');
