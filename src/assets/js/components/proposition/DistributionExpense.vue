@@ -46,6 +46,9 @@
         },
         methods: {},
         mounted: function() {
+            if (this.$route.params.id && !this.$store.state.proposition.proposition.loaded) {
+                this.$store.dispatch('proposition/initProposition', {id: this.$route.params.id});
+            }
             this.$store.commit('proposition/updateProposition', {key: 'step', value: 8});
         }
     }

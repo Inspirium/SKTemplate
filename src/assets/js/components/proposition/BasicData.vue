@@ -53,7 +53,7 @@
                     <div class="file-box file-box-l d-flex align-items-center" v-for="(document,index) in basic_data['manuscript_documents']">
                         <a v-bind:href="document.link" v-on:click.prevent="documentDownload(document.link)" class="file-icon">{{ document.title }}</a>
                         <div class="file-box-sty ml-auto d-flex">
-                            <a href=""><img class="profile-m-1 mr-1 align-self-center" v-bind:src="document.owner.image">
+                            <a v-bind:href="'human_resources/employee/show/'+document.owner.id"><img class="profile-m-1 mr-1 align-self-center" v-bind:src="document.owner.image">
                                 {{ document.owner.name }}
                             </a></div>
                         <div class="file-box-sty">{{ document.date }}</div>
@@ -164,9 +164,6 @@
             documentDownload: function(link) {
                 window.open(link, "_blank");
                 return false;
-            },
-            documentDelete: function(index) {
-                this.$store.dispatch('proposition/deleteFile', {group:'basic_data', key:'manuscript_documents', id: this.files[index].id});
             },
             authorDelete: function(id) {
                 this.$store.commit('proposition/removeFromObjectArray', {key: 'authors', group: 'basic_data', value: id})

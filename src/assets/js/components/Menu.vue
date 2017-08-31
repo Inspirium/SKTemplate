@@ -197,7 +197,7 @@
                                 title: 'Propositions'
                             },
                             start: {
-                                enabled: (typeof(this.$route.params.id) !== 'undefined'),
+                                enabled: true,
                                 path: '/proposition/'+this.$route.params.id+'/start',
                                 title: 'Start',
                                 component: true

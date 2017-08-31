@@ -6,22 +6,22 @@
             <template v-for="author in authors">
             <!-- Input field -->
             <div class="page-name-l mt-1 mb-2">{{ author.name }}</div>
-            <div class="row">
+            <div class="row" v-if="Object.keys(expenses['expenses']).length">
                 <div class="col-md-12">
                     <div class="md-form d-flex addon">
-                        <input type="text" id="form1" class="form-control" v-bind:placeholder="lang('Amount')" v-model="expenses['expenses['+author.id+'[amount]]']">
+                        <input type="text" id="form1" class="form-control" v-bind:placeholder="lang('Amount')" v-model="expenses['expenses'][author.id].amount">
                         <label for="form1">{{ lang('Amount') }}</label>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="md-form d-flex addon">
-                        <input type="text" id="form2" class="form-control" v-bind:placeholder="lang('Precentage')" v-model="expenses['expenses['+author.id+'[percentage]]']">
+                        <input type="text" id="form2" class="form-control" v-bind:placeholder="lang('Precentage')" v-model="expenses['expenses'][author.id].percentage">
                         <label for="form2">{{ lang('Percentage') }}</label>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="md-form d-flex addon">
-                        <input type="text" id="form3" class="form-control" v-bind:placeholder="lang('Accontation')" v-model="expenses['expenses['+author.id+'[accontation]]']">
+                        <input type="text" id="form3" class="form-control" v-bind:placeholder="lang('Accontation')" v-model="expenses['expenses'][author.id].accontation">
                         <label for="form3">{{ lang('Accontation') }}</label>
                     </div>
                 </div>
@@ -30,13 +30,13 @@
                 <div class="row" v-for="(a, i) in expenses.expenses[author.id].additional_expenses" v-bind:key="i">
                     <div class="col-md-4">
                         <div class="md-form d-flex addon">
-                            <input type="text" class="form-control" v-bind:placeholder="lang('Expense Name')" v-model="expenses['expenses['+author.id+'[additional_expenses['+i+'].expense]]']">
+                            <input type="text" class="form-control" v-bind:placeholder="lang('Expense Name')" v-model="expenses['expenses'][author.id]['additional_expenses'][i]['expense']">
                             <label>{{ lang('Expense Name') }}</label>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="md-form d-flex addon">
-                            <input type="text" class="form-control" v-bind:placeholder="lang('Amount')" v-model="expenses['expenses['+author.id+'[additional_expenses['+i+'].amount]]']">
+                            <input type="text" class="form-control" v-bind:placeholder="lang('Amount')" v-model="expenses['expenses'][author.id]['additional_expenses'][i]['amount']">
                             <label>{{ lang('Amount') }}</label>
                         </div>
                     </div>
@@ -65,13 +65,13 @@
     <div class="row" v-for="(a, i) in expenses.other" v-bind:key="i">
         <div class="col-md-4">
             <div class="md-form d-flex addon">
-                <input type="text" class="form-control" v-bind:placeholder="lang('Expense Name')" v-model="expenses['additional_expense['+i+'].expense']">
+                <input type="text" class="form-control" v-bind:placeholder="lang('Expense Name')" v-model="expenses['additional_expense'][i]['expense']">
                 <label>{{ lang('Expense Name') }}</label>
             </div>
         </div>
         <div class="col-md-4">
             <div class="md-form d-flex addon">
-                <input type="text" class="form-control" v-bind:placeholder="lang('Amount')" v-model="expenses['additional_expense['+i+'].amount']">
+                <input type="text" class="form-control" v-bind:placeholder="lang('Amount')" v-model="expenses['additional_expense'][i]['amount']">
                 <label>{{ lang('Amount') }}</label>
             </div>
         </div>
@@ -117,6 +117,9 @@
             }
         },
         mounted: function() {
+            if (this.$route.params.id && !this.$store.state.proposition.proposition.loaded) {
+                this.$store.dispatch('proposition/initProposition', {id: this.$route.params.id});
+            }
             this.$store.commit('proposition/updateProposition', {key: 'step', value: 5});
             this.$store.dispatch('proposition/initAuthorExpenses');
         }

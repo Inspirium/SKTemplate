@@ -181,6 +181,7 @@ export default {
             _.forEach(payload, (value, key) => {
                 state.proposition[key] = value;
             });
+            state.proposition.loaded = true;
         },
         error(state, error) {
             state.error = error;

@@ -10,5 +10,5 @@ export default new Vuex.Store({
         'proposition':proposition
     },
     mutations: VueDeepSet.extendMutation({}),
-    strict: process.env.NODE_ENV !== 'production'
+    strict: false
 })

@@ -15,7 +15,7 @@
             <div class="page-name-xl mb-1">{{ lang('Precalculation') }}</div>
             <template v-for="(option, key, index) in options">
                 <div class="page-name-l mb-1 mt-2">{{ lang('Option '+(index+1)) }}</div>
-                <a v-bind:href="'#panel'+(index+1)" class="hoverable d-block" v-on:click="switchTab($event)">
+                <a v-bind:href="'#panel'+(index+1)" class="hoverable d-block" data-toggle="tab" v-on:click="switchTab($event)">
                     <div class="row text-white btn-sub2 d-flex py-2">
                         <div class="col-md-3">
                             <h6 class="no-border display-b text-white">{{ lang('Circulation') }}</h6>
@@ -51,7 +51,7 @@
                 <div class="row">
                     <div class="col-md-4 offset-md-4">
                         <div class="md-form">
-                            <input type="text" class="form-control" v-model="options[key+'[price_proposal]']">
+                            <input type="text" class="form-control" v-model="options[key].price_proposal">
                             <label>{{ lang('Price proposal') }}</label>
                         </div>
                     </div>
@@ -272,7 +272,7 @@
                         <td>Plaće izdavačkog sektora</td>
                         <td></td>
                         <template v-if="currentEdit('compensation')">
-                            <td><input type="text" class="form-control" v-model="options[key+'[compensation]']" v-on:keyup.enter="closeEdit" autofocus></td>
+                            <td><input type="text" class="form-control" v-model="options[key].compensation" v-on:keyup.enter="closeEdit" autofocus></td>
                         </template>
                         <template v-else>
                             <td class="table-editable text-center" v-on:click="editField('compensation')">{{ option.compensation | flexCurrency('', 2) }}</td>
@@ -291,7 +291,7 @@
                         <td>Indirektni troškovi</td>
                         <td></td>
                         <template v-if="currentEdit('indirect_expenses')">
-                            <td><input type="text" size="3" class="form-control" v-model="options[key+'[indirect_expenses]']" v-on:keyup.enter="closeEdit" autofocus></td>
+                            <td><input type="text" size="3" class="form-control" v-model="options[key].indirect_expenses" v-on:keyup.enter="closeEdit" autofocus></td>
                         </template>
                         <template v-else>
                             <td class="table-editable text-center" v-on:click="editField('indirect_expenses')">{{ option.indirect_expenses | flexCurrency( '', 2) }}</td>
@@ -337,7 +337,7 @@
                         <th scope="row">12</th>
                         <td>Ukalkulirana dobit</td>
                         <template v-if="currentEdit('calculated_profit_percent')">
-                            <td><input type="text" size="3" class="form-control" v-model="options[key+'[calculated_profit_percent]']" v-on:keyup.enter="closeEdit" autofocus></td>
+                            <td><input type="text" size="3" class="form-control" v-model="options[key].calculated_profit_percent" v-on:keyup.enter="closeEdit" autofocus></td>
                         </template>
                         <template v-else>
                             <td class="table-editable text-center" v-on:click="editField('calculated_profit_percent')">{{ option.calculated_profit_percent | percent }}</td>
@@ -489,6 +489,9 @@
             }
         },
         mounted: function() {
+            if (this.$route.params.id && !this.$store.state.proposition.proposition.loaded) {
+                this.$store.dispatch('proposition/initProposition', {id: this.$route.params.id});
+            }
             this.$store.commit('proposition/updateProposition', {key: 'step', value: 11});
             $('.mdb-select').material_select('destroy');
             $('.mdb-select').material_select();

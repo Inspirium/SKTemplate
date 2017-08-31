@@ -20,6 +20,7 @@ import TaskShow from './components/tasks/TaskShow.vue'
 
 export const routes = [
     { path: '/proposition/basic_data', component: BasicData, name: 'basic_data' },
+    { path: '/proposition/start', component: PropositionStart },
     { path: '/proposition/:id(\\d+)/start', component: PropositionStart },
     { path: '/proposition/:id(\\d+)/basic_data', component: BasicData, name: 'basic_data' },
     { path: '/proposition/categorization', component: Categorization },

@@ -66,6 +66,9 @@
             vuexSet: vuexSet
         },
         mounted: function() {
+            if (this.$route.params.id && !this.$store.state.proposition.proposition.loaded) {
+                this.$store.dispatch('proposition/initProposition', {id: this.$route.params.id});
+            }
             $('.datepicker').pickadate({
                 format: 'dd. mm. yyyy.',
                 onSet: (context) => {
