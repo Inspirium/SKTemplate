@@ -232,13 +232,16 @@ export default {
     },
     actions: {
         initProposition({commit, state}, payload) {
-            axios.get('/api/proposition/'+payload.id)
-                .then((res) => {
-                    commit('initProposition', res.data);
-                })
-                .catch((err) => {
+            return new Promise((resolve, reject) => {
+                axios.get('/api/proposition/' + payload.id)
+                    .then((res) => {
+                        commit('initProposition', res.data);
+                        resolve();
+                    })
+                    .catch((err) => {
 
-                });
+                    });
+            });
         },
         saveProposition({commit, state}) {
             let step = state.proposition.step;

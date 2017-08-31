@@ -446,7 +446,7 @@
                 _.forEach(this.options, (option) => {
                     let remainder = _.sumBy(Object.keys(this.$store.state.proposition.proposition.authors_expense.expenses), (key) => {
                         let e = this.$store.state.proposition.proposition.authors_expense.expenses[key];
-                            return e.percentage * option.title * option.price_proposal;
+                            return e.percentage * option.title * option.price_proposal / 100;
                         }),
                         complete = (Number(this.authors_total) + Number(option.print_offer) + Number(option.compensation) + Number(option.indirect_expenses) + Number(remainder)),
                         mprice = (Number(complete) - Number(this.dotation)) * (100 + Number(option.calculated_profit_percent)) / 100;
@@ -490,7 +490,11 @@
         },
         mounted: function() {
             if (this.$route.params.id && !this.$store.state.proposition.proposition.loaded) {
-                this.$store.dispatch('proposition/initProposition', {id: this.$route.params.id});
+                this.$store.dispatch('proposition/initProposition', {id: this.$route.params.id})
+                    .then(() => {
+                        $('.mdb-select').material_select('destroy');
+                        $('.mdb-select').material_select();
+                    });
             }
             this.$store.commit('proposition/updateProposition', {key: 'step', value: 11});
             $('.mdb-select').material_select('destroy');
