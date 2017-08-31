@@ -46,22 +46,6 @@ const router = new VueRouter({
     routes
 });
 
-router.beforeEach((to, from, next) => {
-    if (from.name === 'basic_data') {
-        if (!store.state.proposition.proposition.basic_data.authors.length) {
-            alert('Authors missing');
-            return false;
-        }
-    }
-    if (from.name === 'technical_data') {
-        if (!store.state.proposition.proposition.technical_data.circulations.length) {
-            alert('Please enter some circulations');
-            return false;
-        }
-    }
-    next();
-});
-
 sync(store, router);
 window.vueRouter = router;
 
