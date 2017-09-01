@@ -518,7 +518,7 @@
                         let e = this.$store.state.proposition.proposition.authors_expense.expenses[key];
                             return e.percentage * option.title * option.price_proposal / 100;
                         }),
-                        complete = (Number(this.authors_total) + Number(option.print_offer) + Number(option.compensation) + Number(option.indirect_expenses) + Number(remainder)),
+                        complete = (Number(this.authors_total) + Number(option.print_offer) + Number(option.compensation) + Number(option.indirect_expenses) + Number(remainder) + Number(this.marketing_expense) + Number(this.production_expense) + Number(this.design_layout_expense)),
                         mprice = (Number(complete) - Number(this.dotation)) * (100 + Number(option.calculated_profit_percent)) / 100,
                         price = mprice * (100 + Number(option.shop_percent)) / 100;
 
