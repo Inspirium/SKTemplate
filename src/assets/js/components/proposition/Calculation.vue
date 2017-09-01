@@ -399,7 +399,7 @@
                         <th scope="row">19</th>
                         <td>PDV</td>
                         <template v-if="currentEdit('vat_percent')">
-                            <td><input type="text" size="3" class="form-control" v-model="options[key+'[vat_percent]']" v-on:keyup.enter="closeEdit" autofocus></td>
+                            <td><input type="text" size="3" class="form-control" v-model="option.vat_percent" v-on:keyup.enter="closeEdit" autofocus></td>
                         </template>
                         <template v-else>
                             <td class="table-editable text-center" v-on:click="editField('vat_percent')">{{ option.vat_percent | percent }}</td>

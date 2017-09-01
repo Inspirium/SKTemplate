@@ -244,10 +244,10 @@
                 this.$store.dispatch('proposition/initProposition', {id: this.$route.params.id});
             }
             this.$store.commit('proposition/updateProposition', {key: 'step', value: 4});
-            this.$store.dispatch('proposition/initOffers').then(function() {
+            //this.$store.dispatch('proposition/initOffers').then(function() {
                 $('.mdb-select').material_select('destroy');
                 $('.mdb-select').material_select();
-            });
+            //});
         }
     }
 </script>
