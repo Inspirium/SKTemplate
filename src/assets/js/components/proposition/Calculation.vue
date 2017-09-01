@@ -19,7 +19,7 @@
                     <div class="row text-white btn-sub2 d-flex py-2">
                         <div class="col-md-3">
                             <h6 class="no-border display-b text-white">{{ lang('Circulation') }}</h6>
-                            <h1 class="mb-1 text-white weight-700">{{ option.number_of_pages }}</h1>
+                            <h1 class="mb-1 text-white weight-700">{{ option.title }}</h1>
                         </div>
                         <div class="col-md-3">
                             <h6 class="no-border display-b text-white">{{ lang('Total Cost') }}</h6>
