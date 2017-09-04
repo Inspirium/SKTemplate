@@ -107,14 +107,6 @@
         methods: {
             saveProposition: function() {
                 this.$store.dispatch('proposition/saveProposition');
-                /*if (this.$store.state.proposition.proposition.step === 11) {
-                    window.location.href= '/propositions';
-                }
-                else {
-                    this.$router.push({
-                        path: '/proposition/' + ((typeof(this.$route.params.id) !== 'undefined') ? this.$route.params.id + '/' : '') + this.$store.state.proposition.steps[this.$store.state.proposition.proposition.step + 1]
-                    });
-                }*/
             },
             assignModalOpen: function() {
                 jQuery('#centralModalAssign').modal('show');

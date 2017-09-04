@@ -3,7 +3,7 @@
     <div class="row tabs-wrapper">
         <ul class="col nav classic-tabs tabs-cyan" id="tabs" role="tablist">
             <li class="nav-item" v-for="(offer, key, index) in offers">
-                <a v-bind:class="['nav-link', !index?'active':'']" data-toggle="tab" v-bind:href="'#panel'+index" v-bind:key="key"  role="tab" v-on:click="switchTab($event)">{{ offers[key].title }}</a>
+                <a v-bind:class="['nav-link', !index?'active':'']" data-toggle="tab" v-bind:href="'#panel'+index" v-bind:key="key"  role="tab" v-on:click="switchTab($event)">{{ offer.title }}</a>
             </li>
         </ul>
     </div>
@@ -13,7 +13,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h6 class="text-center no-border display-e">{{ lang('Circulation') }}</h6>
-                    <h1 class="text-center display-2">{{ offers[key].title }}</h1>
+                    <h1 class="text-center display-2">{{ offer.title }}</h1>
                     <div class="print-offer-box mt-2 mb-3">
                         <div class="row">
                             <div class="col-md-6 mx-auto">
@@ -230,7 +230,7 @@
                 $(e.target).tab('show');
             },
             saveOffer: function() {
-                this.offers = this.local_offers;
+                this.$store.dispatch('proposition/saveProposition');
             },
             downloadOffer: function(index, type) {
                 //TODO: make request to download offer, probably save first :)
