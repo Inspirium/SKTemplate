@@ -44,8 +44,7 @@
                 </div>
                 <!--Footer-->
                 <div class="modal-footer btn-footer">
-                    <button type="button" class="btn btn-lg btn-cancel" data-dismiss="modal">{{ lang('Close') }}</button>
-                    <button type="button" class="btn btn-lg btn-save" v-on:click="fileUpload">{{ lang('Upload') }}</button>
+                    <button type="button" class="btn btn-lg btn-cancel" v-on:click="closeModal">{{ lang('Close') }}</button>
                 </div>
 
                 <!--Drag and Drop Overlay-->
@@ -98,14 +97,6 @@
                 let data = {
                     title : f.title
                 };
-                /*axios.patch(this.action + '/'+id, data)
-                    .then(function(res) {
-                        this.files[index].message = res.message;
-                        this.$emit('fileNameSave', this.files[index].id, data.title);
-                    }.bind(this))
-                    .catch(function(err){
-                        this.files[index].message = err.message;
-                    }.bind(this));*/
                 f.edit = false;
 
             },
@@ -114,7 +105,7 @@
                 this.files.splice(index, 1);
             },
             fileInputChange: function() {
-                _.forEach(this.$refs.fileInput.files, function(file) {
+                _.forEach(this.$refs.fileInput.files, (file, index) => {
                     this.files.push({
                         title: file.name,
                         link: file.name,
@@ -124,9 +115,11 @@
                         message: '',
                         id: 0
                     });
-
                     this.fileUpload(file, this.files.length-1);
-                }.bind(this));
+                    if (index === this.$refs.fileInput.files.length-1) {
+                        this.$refs.fileInput.value = [];
+                    }
+                });
             },
             fileUpload: function(file, index) {
                 let data = new FormData();
@@ -170,6 +163,10 @@
                     this.fileUpload(file, this.files.length-1);
                 }.bind(this));
                 this.showOverlay = false;
+            },
+            closeModal() {
+                this.files = [];
+                jQuery('#upload-modal').modal('hide');
             }
         }
     }
