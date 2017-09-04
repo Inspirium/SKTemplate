@@ -445,7 +445,7 @@
                 return _.sumBy(Object.keys(this.$store.state.proposition.proposition.authors_expense.expenses), (key) => {
                     let e = this.$store.state.proposition.proposition.authors_expense.expenses[key];
                     let additional = _.sumBy(e.additional_expenses, (a) => {
-                        return a.amount;
+                        return Number(a.amount);
                     });
                     return Number(e.amount) + Number(additional);
                 }) + _.sumBy(this.$store.state.proposition.proposition.authors_expense.other, (o) => {return Number(o.amount)});
