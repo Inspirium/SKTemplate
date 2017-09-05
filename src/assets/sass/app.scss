@@ -1,24 +1,9 @@
-/*!
- * Bootstrap v4.0.0-alpha.6 (https://getbootstrap.com)
- * Copyright 2011-2017 The Bootstrap Authors
- * Copyright 2011-2017 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- */
-
 @import "variables";
 
-// Core variables and mixins
+@import "node_modules/bootstrap/scss/functions";
 @import "node_modules/bootstrap/scss/variables";
 @import "node_modules/bootstrap/scss/mixins";
-
-// load our bootstrap variables
-
-
-// Reset and dependencies
-@import "node_modules/bootstrap/scss/normalize";
 @import "node_modules/bootstrap/scss/print";
-
-// Core CSS
 @import "node_modules/bootstrap/scss/reboot";
 @import "node_modules/bootstrap/scss/type";
 @import "node_modules/bootstrap/scss/images";
@@ -27,8 +12,6 @@
 @import "node_modules/bootstrap/scss/tables";
 @import "node_modules/bootstrap/scss/forms";
 @import "node_modules/bootstrap/scss/buttons";
-
-// Components
 @import "node_modules/bootstrap/scss/transitions";
 @import "node_modules/bootstrap/scss/dropdown";
 @import "node_modules/bootstrap/scss/button-group";
@@ -45,88 +28,108 @@
 @import "node_modules/bootstrap/scss/progress";
 @import "node_modules/bootstrap/scss/media";
 @import "node_modules/bootstrap/scss/list-group";
-@import "node_modules/bootstrap/scss/responsive-embed";
 @import "node_modules/bootstrap/scss/close";
-
-// Components w/ JavaScript
 @import "node_modules/bootstrap/scss/modal";
 @import "node_modules/bootstrap/scss/tooltip";
 @import "node_modules/bootstrap/scss/popover";
-//@import "node_modules/bootstrap/scss/carousel";
-
-// Utility classes
+@import "node_modules/bootstrap/scss/carousel";
 @import "node_modules/bootstrap/scss/utilities";
 
 
 // MDB Framework //
 
 //load all MDB Framework and add overrides as needed
-
+@import "node_modules/mdb-pro/sass/mdb/free/data/functions";
 // Mixins
 @import "node_modules/mdb-pro/sass/mdb/free/data/prefixer";
 @import "node_modules/mdb-pro/sass/mdb/free/data/mixins";
 
 // Variables
-@import "overrides/colors";
-//@import "node_modules/mdb-pro/sass/mdb/free/data/variables-b4";
+@import "overrides/colors"; //TODO: check if more changes
+@import "node_modules/mdb-pro/sass/mdb/free/data/colors";
+
+
 @import "node_modules/mdb-pro/sass/mdb/free/data/variables";
 
 //Global
 @import "node_modules/mdb-pro/sass/mdb/free/global";
 
 // MDB Free
-@import "overrides/typography";
+//@import "overrides/typography";//TODO: removed from mdb check for details
 @import "node_modules/mdb-pro/sass/mdb/free/animations";
-@import "node_modules/mdb-pro/sass/mdb/free/waves";
 @import "node_modules/mdb-pro/sass/mdb/free/helpers";
+@import "node_modules/mdb-pro/sass/mdb/free/typography";
 @import "node_modules/mdb-pro/sass/mdb/free/buttons";
-@import "node_modules/mdb-pro/sass/mdb/free/forms-basic";
 @import "node_modules/mdb-pro/sass/mdb/free/cards-basic";
-@import "node_modules/mdb-pro/sass/mdb/free/navbars";
-@import "node_modules/mdb-pro/sass/mdb/free/hover-effects";
+@import "node_modules/mdb-pro/sass/mdb/free/dropdowns";
+@import "node_modules/mdb-pro/sass/mdb/free/navbar";
+@import "node_modules/mdb-pro/sass/mdb/free/pagination";
+@import "node_modules/mdb-pro/sass/mdb/free/badge";
+@import "node_modules/mdb-pro/sass/mdb/free/breadcrumb";
+@import "node_modules/mdb-pro/sass/mdb/free/modals";
+@import "node_modules/mdb-pro/sass/mdb/free/progress";
+@import "node_modules/mdb-pro/sass/mdb/free/carousel-basic";
+@import "node_modules/mdb-pro/sass/mdb/free/collapse";
+@import "node_modules/mdb-pro/sass/mdb/free/jumbotron";
+@import "node_modules/mdb-pro/sass/mdb/free/masks";
+@import "node_modules/mdb-pro/sass/mdb/free/waves";
+@import "node_modules/mdb-pro/sass/mdb/free/forms-basic";
+@import "node_modules/mdb-pro/sass/mdb/free/msc";
 @import "node_modules/mdb-pro/sass/mdb/free/footer";
-//@import "node_modules/mdb-pro/sass/mdb/free/carousels-basic";
+@import "node_modules/mdb-pro/sass/mdb/free/list-group";
+@import "node_modules/mdb-pro/sass/mdb/free/tables";
 
 // MDB Premium
-@import "node_modules/mdb-pro/sass/mdb/pro/forms-pro";
-@import "node_modules/mdb-pro/sass/mdb/pro/tabs";
-@import "node_modules/mdb-pro/sass/mdb/pro/msc";
-@import "node_modules/mdb-pro/sass/mdb/pro/progress";
-@import "node_modules/mdb-pro/sass/mdb/pro/accordion";
+@import "node_modules/mdb-pro/sass/mdb/pro/variables-pro";
+@import "node_modules/mdb-pro/sass/mdb/free/deprecated";
+@import "node_modules/mdb-pro/sass/mdb/pro/deprecated";
 @import "node_modules/mdb-pro/sass/mdb/pro/buttons-pro";
 @import "node_modules/mdb-pro/sass/mdb/pro/social-buttons";
+@import "node_modules/mdb-pro/sass/mdb/pro/tabs";
 @import "node_modules/mdb-pro/sass/mdb/pro/cards-pro";
 @import "node_modules/mdb-pro/sass/mdb/pro/dropdowns-pro";
-@import "node_modules/mdb-pro/sass/mdb/pro/light-box";
-@import "node_modules/mdb-pro/sass/mdb/pro/side-nav";
 @import "node_modules/mdb-pro/sass/mdb/pro/navbars-pro";
-//@import "node_modules/mdb-pro/sass/mdb/pro/carousels-pro";
-@import "node_modules/mdb-pro/sass/mdb/pro/modals-pro";
-@import "node_modules/mdb-pro/sass/mdb/pro/toasts";
-//@import "node_modules/mdb-pro/sass/mdb/pro/scrollspy";
-@import "node_modules/mdb-pro/sass/mdb/pro/charts-pro";
-@import "node_modules/mdb-pro/sass/mdb/pro/animations-pro";
-@import "node_modules/mdb-pro/sass/mdb/pro/scrollbar";
-//@import "node_modules/mdb-pro/sass/mdb/pro/ecommerce";
-@import "overrides/skins";
+@import "node_modules/mdb-pro/sass/mdb/pro/scrollspy";
+@import "node_modules/mdb-pro/sass/mdb/pro/light-box";
 @import "node_modules/mdb-pro/sass/mdb/pro/chips";
-//@import "node_modules/mdb-pro/sass/mdb/pro/parallax";
-//@import "node_modules/mdb-pro/sass/mdb/pro/stepper";
+@import "node_modules/mdb-pro/sass/mdb/pro/msc";
+@import "node_modules/mdb-pro/sass/mdb/pro/radio";
+@import "node_modules/mdb-pro/sass/mdb/pro/checkbox";
+@import "node_modules/mdb-pro/sass/mdb/pro/material-select";
+@import "node_modules/mdb-pro/sass/mdb/pro/switch";
+@import "node_modules/mdb-pro/sass/mdb/pro/file-input";
+@import "node_modules/mdb-pro/sass/mdb/pro/range";
+@import "node_modules/mdb-pro/sass/mdb/pro/input-group";
+@import "node_modules/mdb-pro/sass/mdb/pro/autocomplete";
+@import "node_modules/mdb-pro/sass/mdb/pro/parallax";
+@import "node_modules/mdb-pro/sass/mdb/pro/side-nav";
+@import "node_modules/mdb-pro/sass/mdb/pro/ecommerce";
+@import "node_modules/mdb-pro/sass/mdb/pro/carousels-pro";
+@import "node_modules/mdb-pro/sass/mdb/pro/stepper";
+@import "node_modules/mdb-pro/sass/mdb/pro/blog";
+@import "node_modules/mdb-pro/sass/mdb/pro/toasts";
+@import "node_modules/mdb-pro/sass/mdb/pro/animations-pro";
+@import "node_modules/mdb-pro/sass/mdb/pro/charts-pro";
+@import "node_modules/mdb-pro/sass/mdb/pro/progress";
+@import "node_modules/mdb-pro/sass/mdb/pro/scrollbar";
+//@import "node_modules/mdb-pro/sass/mdb/pro/skins"; // TODO: compare changes
+@import "overrides/skins";
 
-// DATE & TIME PICKERS
-@import "node_modules/mdb-pro/sass/mdb/pro/date_picker/default.scss";
-@import "node_modules/mdb-pro/sass/mdb/pro/date_picker/default.date.scss";
-@import "node_modules/mdb-pro/sass/mdb/pro/date_picker/default.time.scss";
+@import "node_modules/mdb-pro/sass/mdb/pro/date_picker/default";
+@import "node_modules/mdb-pro/sass/mdb/pro/date_picker/default.time";
+@import "node_modules/mdb-pro/sass/mdb/pro/date_picker/default.date";
 
-// SECTIONS
-//@import "node_modules/mdb-pro/sass/mdb/pro/sections/blog";
-//@import "node_modules/mdb-pro/sass/mdb/pro/sections/magazine";
-//@import "node_modules/mdb-pro/sass/mdb/pro/sections/pricing";
-//@import "node_modules/mdb-pro/sass/mdb/pro/sections/testimonials";
-//@import "node_modules/mdb-pro/sass/mdb/pro/sections/features";
-//@import "node_modules/mdb-pro/sass/mdb/pro/sections/team";
+@import "node_modules/mdb-pro/sass/mdb/pro/sections";
 @import "node_modules/mdb-pro/sass/mdb/pro/sections/templates";
-//@import "node_modules/mdb-pro/sass/mdb/pro/sections/social";
+@import "node_modules/mdb-pro/sass/mdb/pro/sections/features";
+@import "node_modules/mdb-pro/sass/mdb/pro/sections/social";
+@import "node_modules/mdb-pro/sass/mdb/pro/sections/blog";
+@import "node_modules/mdb-pro/sass/mdb/pro/sections/team";
+@import "node_modules/mdb-pro/sass/mdb/pro/sections/testimonials";
+@import "node_modules/mdb-pro/sass/mdb/pro/sections/projects";
+@import "node_modules/mdb-pro/sass/mdb/pro/sections/magazine";
+@import "node_modules/mdb-pro/sass/mdb/pro/sections/pricing";
+@import "node_modules/mdb-pro/sass/mdb/pro/sections/contacts";
 
 
 @import "custom";
