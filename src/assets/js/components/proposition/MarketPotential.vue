@@ -18,23 +18,23 @@
 
             <!-- Documents upload -->
             <div class="page-name-m mt-2">{{ lang('Documents') }}</div>
-            <button class="btn btn-neutral btn-addon" type="button">{{ lang('Add Documents') }}</button>
+            <button class="btn btn-neutral btn-addon" type="button" v-on:click="documentAdd">{{ lang('Add Documents') }}</button>
 
             <!-- File/document table -->
             <div class="files mt-2 mb-2">
-                <div class="file-box file-box-l d-flex align-items-center" v-for="item in market_potential['market_potential_documents']">
-                    <a href="http://homestead.app/images/profile.pdf" class="file-icon">{{ item.title }}</a>
+                <div class="file-box file-box-l d-flex align-items-center" v-for="item in market_potential.market_potential_documents">
+                    <a v-bind:href="item.link" class="file-icon" v-on:click.prevent="documentDownload(item.link)">{{ item.title }}</a>
                     <div class="file-box-sty ml-auto d-flex">
-                        <a href=""><img class="profile-m-1 mr-1 align-self-center" src="/images/profile.jpg" href="#">{{ item.author }}
+                        <a v-bind:href="'human_resources/employee/show/'+item.owner.id"><img class="profile-m-1 mr-1 align-self-center" v-bind:src="item.owner.image">{{ item.owner.name }}
                         </a></div>
                     <div class="file-box-sty">{{ item.created_at | moment("d.m.Y") }}</div>
-                    <div class="file-box-sty icon icon-download">Preuzmi</div>
-                    <div class="file-box-sty icon icon-cancel">Obriši</div>
+                    <div class="file-box-sty icon icon-download" v-on:click="documentDownload(item.link)">Preuzmi</div>
+                    <div class="file-box-sty icon icon-cancel" v-on:click="fileDelete(item.id)">Obriši</div>
                 </div>
             </div>
         </div>
     </div>
-        <upload-modal action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" dir="manuscripts" v-on:fileDelete="fileDelete" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave"></upload-modal>
+        <upload-modal action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" dir="market_potential" v-on:fileDelete="fileDelete" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave"></upload-modal>
         <footer-buttons></footer-buttons>
     </div>
 </template>
@@ -56,6 +56,13 @@
             }
         },
         methods: {
+            documentAdd: function() {
+                jQuery('#upload-modal').modal('show');
+            },
+            documentDownload: function(link) {
+                window.open(link, "_blank");
+                return false;
+            },
             fileDelete: function (id) {
                 this.$store.dispatch('proposition/deleteFile', {group:'market_potential', key:'market_potential_documents', id: id});
             },
