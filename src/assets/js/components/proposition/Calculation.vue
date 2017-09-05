@@ -466,7 +466,7 @@
                 return this.$deepModel('proposition.proposition.print.offers');
             },
             marketing_expense() {
-                return Number(this.$store.state.proposition.proposition.marketing_expense.expense) +  _.sumBy(this.$store.state.proposition.proposition.marketing_expense.additional_expenses, function(o) { return Number(o.amount) });
+                return Number(this.$store.state.proposition.proposition.marketing_expense.expense) +  _.sumBy(this.$store.state.proposition.proposition.marketing_expense.additional_expense, function(o) { return Number(o.amount) });
             },
             production_expense() {
                 let expense = this.$store.state.proposition.proposition.production_expense;
