@@ -1,5 +1,5 @@
 <template>
-    <div class="content">
+    <div class="content change">
     <div class="page-name-xl mb-1">{{ lang('Deadline') }}</div>
     <div class="row">
         <div class="col-md-12">
@@ -19,7 +19,7 @@
             <div class="page-name-m">{{ lang('Priority') }}</div>
             <div class="form-inline mb-3">
                 <fieldset class="form-group">
-                    <input name="sex" type="radio" id="radio11" value="High" v-model="deadline['priority']">
+                    <input name="sex" type="radio" id="razzzdio11" value="High" v-model="deadline['priority']">
                     <label for="radio11">{{ lang('High') }}</label>
                 </fieldset>
                 <fieldset class="form-group">
