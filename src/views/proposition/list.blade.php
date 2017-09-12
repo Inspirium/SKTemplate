@@ -81,7 +81,7 @@
                 @foreach($active as $prop)
                 <tr>
                     <th scope="row">{{ $loop->iteration }}</th>
-                    <td class="table-title">{{ $prop->title }}</td>
+                    <td class="table-title"><a href="{{ url('proposition/'.$prop->id.'/start') }}">{{ $prop->title }}</a></td>
                     <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-2" src="{{ $prop->owner->image }}">{{ $prop->owner->name }}</a></td>
                     <td>{{ $prop->created_at }}</td>
                     <td></td>
@@ -108,7 +108,7 @@
                 @foreach($rejected as $prop)
                 <tr>
                     <th scope="row">{{ $loop->iteration }}</th>
-                    <td class="table-title">{{ $prop->title }}</td>
+                    <td class="table-title"><a href="{{ url('proposition/'.$prop->id.'/start') }}">{{ $prop->title }}</a></td>
                     <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-2" src="{{ $prop->owner->image }}">{{ $prop->owner->name }}</a></td>
                     <td>{{ $prop->created_at }}</td>
                     <td></td>
@@ -136,7 +136,7 @@
                 @foreach($deleted as $prop)
                     <tr>
                         <th scope="row">{{ $loop->iteration }}</th>
-                        <td class="table-title">{{ $prop->title }}</td>
+                        <td class="table-title"><a href="{{ url('proposition/'.$prop->id.'/start') }}">{{ $prop->title }}</a></td>
                         <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-2" src="{{ $prop->owner->image }}">{{ $prop->owner->name }}</a></td>
                         <td>{{ $prop->created_at }}</td>
                         <td></td>

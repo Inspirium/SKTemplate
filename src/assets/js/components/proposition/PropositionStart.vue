@@ -30,7 +30,14 @@
         <!-- Buttons -->
         <div class="btn-footer mt-2 mb-5 flex-column flex-md-row d-flex p-2">
             <button data-toggle="tooltip" v-bind:title="lang('You need to finish your proposition first')" type="submit" class="btn btn-lg btn-save" disabled>{{ lang('Send on Approval') }}</button>
-            <button type="button" class="btn btn-lg btn-cancel" v-on:click="propDelete">{{ lang('Delete') }}</button>
+            <template v-if="proposition.deleted_at">
+                <button type="button" class="btn btn-lg btn-cancel" v-on:click="propRestore">{{ lang('Restore') }}</button>
+            </template>
+            <template v-else>
+                <button type="button" class="btn btn-lg btn-cancel" v-on:click="propDelete">{{ lang('Delete') }}</button>
+            </template>
+
+
         </div>
         <!--/. Footer buttons -->
     </div>
@@ -51,6 +58,12 @@
                 axios.delete('/api/proposition/'+this.proposition.id)
                     .then((res) => {
                         window.location.href = '/propositions';
+                    });
+            },
+            propRestore: function() {
+                axios.post('/api/proposition/restore/'+this.proposition.id)
+                    .then((res) => {
+                        window.location.href = '/proposition/'+this.proposition.id+'/start';
                     });
             }
         },
