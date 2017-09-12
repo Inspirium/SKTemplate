@@ -1,6 +1,6 @@
 <template>
     <div>
-    <div class="page-name-xl mb-2">{{ lang( strings['title'] ) }}</div>
+    <div class="page-name-xl mb-2 mt-3">{{ lang( strings['title'] ) }}</div>
         <div class="md-form input-group search-big">
             <input type="search" class="form-control" v-model="filterKey" v-bind:placeholder="lang('Search...')">
         </div>

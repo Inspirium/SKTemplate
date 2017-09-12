@@ -5,10 +5,10 @@
 <!-- Display fileds -->
     <div class="row">
         <div class="col-md-12">
-            <div class="justify-content-center mt-1 mb-2 flex-column flex-md-row d-flex p-2">
+            <div class="justify-content-center mt-4 flex-column flex-md-row d-flex p-2">
                 <a href="/proposition/basic_data" class="btn btn-lg btn-blank btn-plus-icon">@lang('Create new')</a>
             </div>
-            <div class="page-name-xl mb-2 mt-2">Propositions On Approval
+            <div class="page-name-xl mb-2 mt-4 mt-2">Propositions On Approval
                 <span class="tag tag-neutral text-white">{{ $approval->count() }}</span>
             </div>
 
@@ -29,7 +29,7 @@
                 <tr>
                     <th scope="row">{{ $loop->iteration }}</th>
                     <td class="table-title">{{ $prop->title }}</td>
-                    <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-1" src="{{ $prop->owner->image }}">{{ $prop->owner->name }}</a></td>
+                    <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-2" src="{{ $prop->owner->image }}">{{ $prop->owner->name }}</a></td>
                     <td>{{ $prop->created_at }}</td>
                     <td></td>
                 </tr>
@@ -39,7 +39,7 @@
 
 
             <!-- Table -->
-            <div class="page-name-xl mb-2 mt-3">Unfinished Propositions
+            <div class="page-name-xl mb-2 mt-5">Unfinished Propositions
                 <span class="tag tag-neutral text-white">{{ $unfinished->count() }}</span>
             </div>
             <table class="table table-hover">
@@ -56,7 +56,7 @@
                 <tr>
                     <th scope="row">{{ $loop->iteration }}</th>
                     <td class="table-title"><a href="{{ url('proposition/'.$prop->id.'/start') }}">{{ $prop->title }}</a></td>
-                    <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-1" src="{{ $prop->owner->image }}">{{ $prop->owner->name }}</a></td>
+                    <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-2" src="{{ $prop->owner->image }}">{{ $prop->owner->name }}</a></td>
                     <td>{{ $prop->created_at }}</td>
                 </tr>
                 @endforeach
@@ -64,7 +64,7 @@
             </table>
 
             <!-- Table -->
-            <div class="page-name-xl mb-2 mt-3">Active Propositions
+            <div class="page-name-xl mb-2 mt-5">Active Propositions
                 <span class="tag tag-neutral text-white">{{ $active->count() }}</span>
             </div>
             <table class="table table-hover">
@@ -82,7 +82,7 @@
                 <tr>
                     <th scope="row">{{ $loop->iteration }}</th>
                     <td class="table-title">{{ $prop->title }}</td>
-                    <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-1" src="{{ $prop->owner->image }}">{{ $prop->owner->name }}</a></td>
+                    <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-2" src="{{ $prop->owner->image }}">{{ $prop->owner->name }}</a></td>
                     <td>{{ $prop->created_at }}</td>
                     <td></td>
                 </tr>
@@ -91,7 +91,7 @@
             </table>
 
             <!-- Table -->
-            <div class="page-name-xl mb-2 mt-3"> Rejected Propositions
+            <div class="page-name-xl mb-2 mt-5"> Rejected Propositions
                 <span class="tag tag-neutral text-white">{{ $rejected->count() }}</span>
             </div>
             <table class="table table-hover">
@@ -109,7 +109,7 @@
                 <tr>
                     <th scope="row">{{ $loop->iteration }}</th>
                     <td class="table-title">{{ $prop->title }}</td>
-                    <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-1" src="{{ $prop->owner->image }}">{{ $prop->owner->name }}</a></td>
+                    <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-2" src="{{ $prop->owner->image }}">{{ $prop->owner->name }}</a></td>
                     <td>{{ $prop->created_at }}</td>
                     <td></td>
                 </tr>
@@ -119,7 +119,7 @@
             <button class="btn btn-neutral btn-addon d-block ml-auto" type="button">@lang('Show More')</button>
 
             <!-- Table -->
-            <div class="page-name-xl mb-2 mt-3"> Deleted Propositions
+            <div class="page-name-xl mb-2 mt-5"> Deleted Propositions
                 <span class="tag tag-neutral text-white">{{ $deleted->count() }}</span>
             </div>
             <table class="table table-hover">
@@ -137,7 +137,7 @@
                     <tr>
                         <th scope="row">{{ $loop->iteration }}</th>
                         <td class="table-title">{{ $prop->title }}</td>
-                        <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-1" src="{{ $prop->owner->image }}">{{ $prop->owner->name }}</a></td>
+                        <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-2" src="{{ $prop->owner->image }}">{{ $prop->owner->name }}</a></td>
                         <td>{{ $prop->created_at }}</td>
                         <td></td>
                     </tr>
@@ -148,7 +148,7 @@
 
 
             <!-- Table -->
-            <div class="page-name-xl mb-2 mt-3">Proposition Archive
+            <div class="page-name-xl mb-2 mt-5">Proposition Archive
                 <span class="tag tag-neutral text-white">154</span>
             </div>
             <table class="table table-hover">

@@ -1,6 +1,6 @@
 <template>
     <div class="content">
-    <div class="page-name-xl mb-1">{{ lang('Marketing Budget') }}</div>
+    <div class="page-name-xl mt-3 mb-1">{{ lang('Marketing Budget') }}</div>
     <div class="row">
         <div class="col-md-12">
             <!-- Circulation Number -->
@@ -22,7 +22,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <!-- Textarea -->
-                    <div class="md-form mt-1">
+                    <div class="md-form mt-3">
                         <textarea id="form76" class="md-textarea" v-model="expenses['note']"></textarea>
                         <label for="form76">{{ lang('Note') }}</label>
                     </div>

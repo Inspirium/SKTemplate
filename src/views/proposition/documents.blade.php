@@ -40,7 +40,7 @@
 
     <div class="row">
         <div class="col-md-12 mt-4 mx-auto">
-            <div class="page-name-xl mb-2">@lang('Final Documents')</div>
+            <div class="page-name-xl mb-2 mt-3">@lang('Final Documents')</div>
         </div>
     </div>
 

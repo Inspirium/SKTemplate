@@ -7,7 +7,7 @@
             </li>
         </ul>
     </div>
-    <div class="page-name-xl mb-2 mt-2">{{ lang('Print Offers') }}</div>
+    <div class="page-name-xl mb-2 mt-3 mt-2">{{ lang('Print Offers') }}</div>
     <div class="tab-content">
         <div v-bind:class="['tab-pane', 'fade', !index?'active in show':'']" v-bind:id="'panel'+index" role="tabpanel" v-for="(offer, key, index) in offers" v-bind:key="key">
             <div class="row">

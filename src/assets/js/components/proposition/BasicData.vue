@@ -26,7 +26,7 @@
             </div>
 
             <!-- Textarea -->
-            <div class="md-form mt-2">
+            <div class="md-form mt-4">
                 <textarea id="concept" name="concept" class="md-textarea" v-model="basic_data['concept']"></textarea>
                 <label for="concept">{{ lang('Concept') }}</label>
             </div>
@@ -80,7 +80,7 @@
             <template v-if="basic_data['dotation'] === 'yes'">
                 <!-- Show only if "Yes"  -->
                 <!-- Input field -->
-                <div class="row">
+                <div class="row  mt-3">
                     <div class="col-md-6">
                         <div class="md-form">
                             <input type="text" id="dot-origin" class="form-control" name="dotation-origin" v-model="basic_data['dotation_origin']">

@@ -61,8 +61,8 @@
     </div>
 
     <!-- Add new item -->
-    <div class="page-name-l mb-4">{{ lang('Other Expenses') }}</div>
-    <div class="row" v-for="(a, i) in expenses.other" v-bind:key="i">
+    <div class="page-name-l mb-3">{{ lang('Other Expenses') }}</div>
+    <div class="row mt-4" v-for="(a, i) in expenses.other" v-bind:key="i">
         <div class="col-md-4">
             <div class="md-form d-flex addon">
                 <input type="text" class="form-control" v-bind:placeholder="lang('Expense Name')" v-model="expenses.other[i].expense">

@@ -43,6 +43,9 @@ $sk-skin-btn-default: #293756;
     }
     .navbar {
         background-color: $sk-skin-navbar;
+        padding-top: 0;
+        padding-bottom: 0;
+        padding-right: 0;
         .navbar-nav {
             .nav-item {
                 .dropdown-menu a {
@@ -151,7 +154,7 @@ $sk-skin-btn-default: #293756;
                 height: 60px;
                 text-transform: uppercase;
                 white-space: nowrap;
-                padding: .5em 1em;
+                padding: .75rem 1rem;
                 &:hover {
                     background-color: lighten($color-sidebar, 3%);
                 }
@@ -295,6 +298,7 @@ $sk-skin-btn-default: #293756;
         font-weight: 300;
         font-size: 1.4rem;
         background-color: transparent;
+        border: none;
     }
     span.caret {
         color: initial;
@@ -335,7 +339,7 @@ $sk-skin-btn-default: #293756;
         }
     }
     .md-form {
-        &input-group {
+        &.input-group {
             padding-left: 0;
         }
         .prefix {
@@ -426,6 +430,10 @@ $sk-skin-btn-default: #293756;
             background-color: $sk-skin-background;
             border: none;
             .modal-header {
+                background-color: $sk-skin-background;
+                .fa {
+                    color: $color-body_text;
+                }
                 .close {
                     position: absolute;
                     right: 0px;
@@ -572,6 +580,7 @@ $sk-skin-btn-default: #293756;
     .dropdown-menu {
         padding: 0;
         margin: 0;
+        border: none;
     }
     .dropdown-box {
         background-color: $white;
@@ -660,7 +669,7 @@ $sk-skin-btn-default: #293756;
         position: relative;
         a {
             font-size: .85rem;
-            color: $sk-skin-grey;
+            color: $sk-skin-grey !important;
             padding: 1rem;
             display: block;
             position: static;

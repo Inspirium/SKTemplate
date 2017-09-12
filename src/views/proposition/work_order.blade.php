@@ -32,7 +32,7 @@
 
     <div class="row">
         <div class="col-md-6 mt-3 mx-auto">
-            <div class="page-name-xl mb-2">@lang('Project Code')</div>
+            <div class="page-name-xl mb-2 mt-3">@lang('Project Code')</div>
 
             <!-- Input field -->
             <div class="md-form">

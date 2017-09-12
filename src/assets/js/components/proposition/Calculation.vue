@@ -78,7 +78,7 @@
             <div class="">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="page-name-xl mb-2 mt-2">{{ option.title }}</div>
+                        <div class="page-name-xl mb-2 mt-3 mt-2">{{ option.title }}</div>
 
                         <!-- First column -->
                         <div class="row">

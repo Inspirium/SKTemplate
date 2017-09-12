@@ -342,7 +342,7 @@
     <!--/. Table -->
 
     <!-- Table -->
-            <div class="page-name-xl mb-2 mt-3">Proposition Archive
+            <div class="page-name-xl mb-2 mt-3 mt-3">Proposition Archive
                 <span class="tag tag-neutral text-white">154</span>
             </div>
             <table class="table table-hover">

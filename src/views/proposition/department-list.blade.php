@@ -13,7 +13,7 @@
             </div>
            
             <!-- Table -->
-            <div class="page-name-xl mb-2 mt-2"> Projects in Department
+            <div class="page-name-xl mb-2 mt-3 mt-2"> Projects in Department
             </div>
             <table class="table table-hover">
                 <thead class="thead-inverse">

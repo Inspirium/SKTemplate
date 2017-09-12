@@ -1,6 +1,6 @@
 <template>
     <div class="content change">
-    <div class="page-name-xl mb-1">{{ lang('Deadline') }}</div>
+    <div class="page-name-xl mb-1 mt-3">{{ lang('Deadline') }}</div>
     <div class="row">
         <div class="col-md-12">
 
@@ -36,7 +36,7 @@
                 <div class="col-md-12">
 
                     <!-- Textarea -->
-                    <div class="md-form">
+                    <div class="md-form mt-4">
                         <textarea id="form76" class="md-textarea" v-model="deadline['note']"></textarea>
                         <label for="form76">{{ lang('Note') }}</label>
                     </div>

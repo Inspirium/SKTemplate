@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div class="profile-head row pt-3 pb-2 d-flex flex-column justify-content-center align-items-center">
+    <div class="profile-head row py-4 d-flex flex-column justify-content-center align-items-center">
         <h1 class="display-3 text-white text-center">{{ lang('Layout and Design') }}</h1>
     </div>
     <div class="content">
@@ -37,7 +37,7 @@
             <div class="col-md-6 mt-2">
                 <h6 class="text-center no-border display-e">{{ lang('Layout Expense') }}</h6>
                 <h1 class="text-center display-2">{{ layout_total | flexCurrency(' kn', 2) }}</h1>
-                <div class="col-md-6 mx-auto mt-3">
+                <div class="col-md-6 mx-auto mt-4">
                     <!-- Dropdown menu -->
                     <div class="pos-rel">
                         <select class="mdb-select" v-model="layout['layout_complexity']">
@@ -50,18 +50,6 @@
                         </select>
                         <label>{{ lang('Layout Complexity') }}</label>
                     </div>
-                    <!--/. Checkbox -->
-                    <div class="page-name-m mt-2">{{ lang('Include Layout Expense') }}</div>
-                    <div class="form-inline mb-3 ">
-                        <fieldset class="form-group">
-                            <input name="layout-expense" type="radio" id="layout-expense-y" value="yes" v-model="layout['layout_include']">
-                            <label for="layout-expense-y">{{ lang('Yes') }}</label>
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <input name="layout-expense" type="radio" id="layout-expense-n" value="no" v-model="layout['layout_include']">
-                            <label for="layout-expense-n">{{ lang('No') }}</label>
-                        </fieldset>
-                    </div>
                 </div>
                 <!-- TeAxtarea -->
                 <div class="md-form">
@@ -72,7 +60,7 @@
             <div class="col-md-6 mt-2">
                 <h6 class="text-center no-border display-e">{{ lang('Design Expense') }}</h6>
                 <h1 class="text-center display-2">{{ design_total | flexCurrency(' kn', 2) }}</h1>
-                <div class="col-md-6 mx-auto mt-3">
+                <div class="col-md-6 mx-auto mt-4">
                     <!-- Dropdown menu -->
                     <div class="pos-rel">
                         <select class="mdb-select" name="department_id" v-model="layout['design_complexity']">
@@ -84,18 +72,6 @@
                             <option value="5">{{ lang('5 - Very Demanding') }}</option>
                         </select>
                         <label>{{ lang('Design Complexity') }}</label>
-                    </div>
-                    <!--/. Checkbox -->
-                    <div class="page-name-m mt-2">{{ lang('Include Design Expense') }}</div>
-                    <div class="form-inline mb-3 ">
-                        <fieldset class="form-group">
-                            <input name="design-expense" type="radio" id="design-expense-y" value="yes" v-model="layout['design_include']">
-                            <label for="design-expense-y">{{ lang('Yes') }}</label>
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <input name="design-expense" type="radio" id="design-expense-n"  value="no" v-model="layout['design_include']">
-                            <label for="design-expense-n">{{ lang('No') }}</label>
-                        </fieldset>
                     </div>
                 </div>
                 <!-- Textarea -->

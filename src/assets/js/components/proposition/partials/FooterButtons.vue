@@ -18,7 +18,7 @@
                             <i class="fa fa-user-circle-o fa-4x mb-1 animated rotateInDownLeft"></i>
                             <h1 class="modal-title w-100 text-center">{{ lang('Assign to...') }}</h1>
                         </div>
-                        <h6 class="w-100 text-center">{{ lang('Assign department or directly employee') }}</h6>
+                        <h6 class="w-100 text-center mb-4">{{ lang('Assign department or directly employee') }}</h6>
                     </div>
 
                     <!-- Nav tabs -->

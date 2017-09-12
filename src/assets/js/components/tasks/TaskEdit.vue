@@ -8,7 +8,7 @@
     <div class="content">
 
         <!-- Input fields -->
-        <div class="page-name-xl mb-2 mt-2">{{ lang('Task Details') }}</div>
+        <div class="page-name-xl mb-2 mt-3 mt-2">{{ lang('Task Details') }}</div>
         <div class="row">
             <div class="col-md-6">
                 <!-- Input field -->

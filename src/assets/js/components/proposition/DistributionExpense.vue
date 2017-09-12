@@ -18,7 +18,7 @@
                 <div class="col-md-12">
 
                     <!-- Textarea -->
-                    <div class="md-form mt-1">
+                    <div class="md-form mt-3">
                         <textarea id="form76" class="md-textarea" v-model="distribution.note"></textarea>
                         <label for="form76">{{ lang('Note') }}</label>
                     </div>
