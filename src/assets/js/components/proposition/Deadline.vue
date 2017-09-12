@@ -5,7 +5,7 @@
         <div class="col-md-12">
 
             <!-- Date Picker -->
-            <div class="page-name-l mt-1 mb-2">{{ lang('Desired Publishing Date') }}</div>
+            <div class="page-name-l mt-1 mb-4">{{ lang('Desired Publishing Date') }}</div>
             <div class="row">
                 <div class="col-md-5">
                     <div class="md-form">

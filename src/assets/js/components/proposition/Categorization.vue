@@ -1,7 +1,7 @@
 <template>
     <div class="content">
-    <div class="page-name-xl mb-3">{{ lang('Categorization') }}</div>
-    <div class="page-name-l mb-2">{{ lang('Basic Categorization') }}</div>
+    <div class="page-name-xl mb-4 mt-3">{{ lang('Categorization') }}</div>
+    <div class="page-name-l mb-4">{{ lang('Basic Categorization') }}</div>
     <div class="row">
         <div class="col-md-12">
             <select class="mdb-select" id="supergroup" v-model="supergroup">
@@ -37,7 +37,7 @@
         </div>
     </div>
 
-    <div class="page-name-l mt-1 mb-2">{{ lang('Book Type') }}</div>
+    <div class="page-name-l mt-1 mb-4">{{ lang('Book Type') }}</div>
     <div class="row">
         <!-- Dropdown menu -->
         <div class="col-md-6">
@@ -61,7 +61,7 @@
         </div>
     </div>
 
-    <div class="page-name-l mt-1 mb-2">{{ lang('School') }}</div>
+    <div class="page-name-l mt-1 mb-4">{{ lang('School') }}</div>
     <div class="row">
         <!-- Dropdown menu -->
         <div class="col-md-6">
@@ -150,7 +150,7 @@
 
 
 
-    <div class="page-name-l mt-2 mb-2">{{ lang('Subjects') }}</div>
+    <div class="page-name-l mt-4 mb-4">{{ lang('Subjects') }}</div>
     <div class="row">
         <!-- Dropdown menu -->
         <div class="col-md-6">
@@ -173,7 +173,7 @@
         </div>
     </div>
 
-    <div class="page-name-l mt-1 mb-2">{{ lang('Bibliography') }}</div>
+    <div class="page-name-l mt-1 mb-4">{{ lang('Bibliography') }}</div>
     <div class="row">
         <!-- Dropdown menu -->
         <div class="col-md-6">

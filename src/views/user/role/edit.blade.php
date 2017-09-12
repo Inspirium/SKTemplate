@@ -4,7 +4,7 @@
     <div class="content">
     <form action="{{ url('administration/user/role/edit/'.$role->id) }}" method="post">
         {{ csrf_field() }}
-        <div class="page-name-xl mb-3">@lang("Roles")</div>
+        <div class="page-name-xl mb-4 mt-3">@lang("Roles")</div>
         <div class="col-md-5 mx-auto">
             <div class="form-group">
                 <label for="name">@lang("Name")</label>

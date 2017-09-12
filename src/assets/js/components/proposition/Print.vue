@@ -32,7 +32,7 @@
                     <!-- First column -->
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="page-name-l mb-2">{{ lang('Book Block') }}</div>
+                            <div class="page-name-l mb-4">{{ lang('Book Block') }}</div>
 
                             <!-- Input fileds -->
                             <div class="md-form">
@@ -88,7 +88,7 @@
 
                         <!-- Second column -->
                         <div class="col-md-6">
-                            <div class="page-name-l mb-2">{{ lang('Cover') }}</div>
+                            <div class="page-name-l mb-4">{{ lang('Cover') }}</div>
 
                             <!-- Dropdown menu -->
                             <div class="row">

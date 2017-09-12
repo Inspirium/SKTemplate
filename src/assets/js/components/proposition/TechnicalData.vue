@@ -1,6 +1,6 @@
 <template>
     <div class="content">
-        <div class="page-name-xl mb-3">{{ lang('Technical Data') }}</div>
+        <div class="page-name-xl mb-4 mt-3">{{ lang('Technical Data') }}</div>
     <div class="row">
         <div class="col-md-12">
 
@@ -40,7 +40,7 @@
             <!-- First column -->
             <div class="row">
                 <div class="col-md-6">
-                    <div class="page-name-l mb-2">{{ lang('Book Block') }}</div>
+                    <div class="page-name-l mb-4">{{ lang('Book Block') }}</div>
                     <!-- Input fileds -->
                     <div class="md-form">
                         <input type="text" id="form3" class="form-control" v-model="technical_data['number_of_pages']">
@@ -116,7 +116,7 @@
 
                 <!-- Second column -->
                 <div class="col-md-6">
-                    <div class="page-name-l mb-2">{{ lang('Cover') }}</div>
+                    <div class="page-name-l mb-4">{{ lang('Cover') }}</div>
 
                     <!-- Dropdown menu -->
                     <div class="row">

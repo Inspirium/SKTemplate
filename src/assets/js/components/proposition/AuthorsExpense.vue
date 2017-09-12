@@ -1,11 +1,11 @@
 <template>
     <div class="content">
-        <div class="page-name-xl mb-3">{{ lang('Authors Expenses') }}</div>
+        <div class="page-name-xl mb-4 mt-3">{{ lang('Authors Expenses') }}</div>
     <div class="row">
         <div class="col-md-12">
             <template v-for="author in authors">
             <!-- Input field -->
-            <div class="page-name-l mt-1 mb-2">{{ author.name }}</div>
+            <div class="page-name-l mt-1 mb-4">{{ author.name }}</div>
             <div class="row" v-if="Object.keys(expenses['expenses']).length">
                 <div class="col-md-12">
                     <div class="md-form d-flex addon">
@@ -61,7 +61,7 @@
     </div>
 
     <!-- Add new item -->
-    <div class="page-name-l mb-1">{{ lang('Other Expenses') }}</div>
+    <div class="page-name-l mb-4">{{ lang('Other Expenses') }}</div>
     <div class="row" v-for="(a, i) in expenses.other" v-bind:key="i">
         <div class="col-md-4">
             <div class="md-form d-flex addon">
@@ -76,7 +76,7 @@
             </div>
         </div>
         <div class="col-md-4">
-            <button class="btn btn-danger" v-on:click="deleteOtherExpense(i)">{{ lang('Delete Expense') }}</button>
+            <button class="btn btn-danger btn-addon" v-on:click="deleteOtherExpense(i)">{{ lang('Delete Expense') }}</button>
         </div>
     </div>
     <button class="btn btn-neutral btn-addon" type="button" v-on:click="addOtherExpense">{{ lang('Add New Author Expense') }}</button>

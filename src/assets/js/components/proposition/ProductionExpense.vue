@@ -286,7 +286,7 @@
             </div>
         </div>
 
-        <div class="page-name-l mb-2">{{ lang('Additional Expenses') }}</div>
+        <div class="page-name-l mb-4">{{ lang('Additional Expenses') }}</div>
         <template v-for="(item,index) in expense['additional_expense']">
             <div class="row">
                 <div class="col-md-6">

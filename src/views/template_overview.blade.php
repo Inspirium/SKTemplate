@@ -241,7 +241,7 @@
             <img src="http://homestead.app/images/profile.jpg" class="profile-xl mt-2">
         </div>
         <div class="col-md-8 showdata-box">
-            <div class="page-name-l mb-2">@lang('Basic Info')</div>
+            <div class="page-name-l mb-4">@lang('Basic Info')</div>
             <div>
                 <h6 class="no-border">@lang('Email')</h6>
                 <h3 class="mb-1">stjepan@drmic.com</h3>
@@ -390,10 +390,10 @@
 
 
     <!-- Input fields -->
-    <div class="page-name-xl mb-3">@lang('Name And Surname')</div>
+    <div class="page-name-xl mb-4 mt-3">@lang('Name And Surname')</div>
     <div class="row">
         <div class="col-md-6">
-            <div class="page-name-l mb-2">@lang('First and Last Name')</div>
+            <div class="page-name-l mb-4">@lang('First and Last Name')</div>
 
             <!-- Input field -->
             <div class="md-form">

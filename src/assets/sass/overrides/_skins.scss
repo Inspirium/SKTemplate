@@ -25,6 +25,9 @@ $sk-skin-btn-default: #293756;
         padding-right: 15px;
         padding-top: 15px;
     }
+    .router-view {
+        padding-left: 15px;
+    }
     .gradient {
         background: $sk-skin-gradient-start;
         /* Old browsers */
@@ -198,9 +201,10 @@ $sk-skin-btn-default: #293756;
     }
     .btn-addon {
         flex-grow: 3;
-        border-radius: 56px;
-        top: 3px;
+        border-radius: 6px;
+        top: 5px;
         position: relative;
+        box-shadow: none;
     }
     .btn-primary {
         background: $sk-skin-btn-primary;
@@ -331,6 +335,9 @@ $sk-skin-btn-default: #293756;
         }
     }
     .md-form {
+        &input-group {
+            padding-left: 0;
+        }
         .prefix {
             &.active {
                 color: $sk-skin-accent;

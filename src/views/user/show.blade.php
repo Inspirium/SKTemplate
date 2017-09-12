@@ -11,12 +11,12 @@
         </div>
         <div class="col-md-8 showdata-box">
             <div class="data-section-l">
-                <div class="page-name-l mb-2">@lang('Basic Info')</div>
+                <div class="page-name-l mb-4">@lang('Basic Info')</div>
                 <h6 class="no-border">@lang('Email')</h6>
                 <h5 class="mb-1">{{ $user->email }}</h5>
             </div>
             <div class="data-section-l">
-                <div class="page-name-l mb-2">@lang('User Roles')</div>
+                <div class="page-name-l mb-4">@lang('User Roles')</div>
                 <div class="row">
                     <div class="col-md-12">
                 @foreach($user->roles as $role)

@@ -9,7 +9,7 @@
                 <h1 class="text-center display-2">{{ total }} kn</h1>
             </div>
             <!-- Input field -->
-            <div class="page-name-l mt-1 mb-2">{{ lang('Marketing Budget') }}</div>
+            <div class="page-name-l mt-1 mb-4">{{ lang('Marketing Budget') }}</div>
             <div class="row">
                 <div class="col-md-5">
                     <div class="md-form input-group d-flex addon">

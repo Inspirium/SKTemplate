@@ -16,7 +16,7 @@
     <!-- First column -->
     <div class="row">
         <div class="col-md-6">
-            <div class="page-name-l mb-2">@lang('Book Block')</div>
+            <div class="page-name-l mb-4">@lang('Book Block')</div>
 
             <!-- Input fileds Expenses Calculation -->
             <div class="row">
@@ -174,7 +174,7 @@
 
         <!-- Second column -->
         <div class="col-md-6">
-            <div class="page-name-l mb-2">@lang('Cover')</div>
+            <div class="page-name-l mb-4">@lang('Cover')</div>
 
             <!-- Input fileds Expenses Calculation -->
             <div class="row">
@@ -259,7 +259,7 @@
 
             <div class="md-form">
                 <input type="text" id="form1" class="form-control" name="first_name" placeholder="@lang('')" required>
-                <label for="form1" class="">@lang('Metodički Instrumentarij')</label>
+                <label for="form1" class="">@lang('Metodi??ki Instrumentarij')</label>
             </div>
 
             <div class="md-form">
@@ -290,7 +290,7 @@
 
 
             <!-- Input field -->
-            <div class="page-name-l mt-1 mb-2">@lang('First and Last Name')---Ovdje povlači sve autore koje smo naveli na basic_data.php</div>
+            <div class="page-name-l mt-1 mb-4">@lang('First and Last Name')---Ovdje povla??i sve autore koje smo naveli na basic_data.php</div>
             <div class="row">
                 <div class="col-md-6">
                     <div class="md-form d-flex addon">
@@ -309,7 +309,7 @@
             <button class="btn btn-neutral btn-addon mb-3" type="button">@lang('Add New Expense')</button>
 
             <!-- Input field -->
-            <div class="page-name-l mt-1 mb-2">Vladimir Paar</div>
+            <div class="page-name-l mt-1 mb-4">Vladimir Paar</div>
             <div class="row">
                 <div class="col-md-6">
                     <div class="md-form d-flex addon">
