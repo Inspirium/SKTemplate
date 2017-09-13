@@ -11,15 +11,6 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                
-<!--                Ovo je novi pretraživi dropdown-->
-                    <select class="mdb-select" multiple searchable="Search here..">
-                        <option value="">example 1</option>
-                        <option value="">example 2</option>
-                        <option value="">example 3</option>
-                    </select>
-                    <label>{{ lang('Author') }}</label>
-                    
                     <div class="md-form d-flex addon">
                         <input type="text" id="author" class="form-control mdb-autocomplete" name="author" v-bind:placeholder="lang('Author')" v-model="author" v-on:keyup="autocomplete($event)">
                         <ul class="mdb-autocomplete-wrap" v-if="suggestions.length">
@@ -182,8 +173,8 @@
             fileAdd: function(file) {
                 this.$store.commit('proposition/addFile', {group:'basic_data', key:'manuscript_documents', file: file})
             },
-            fileNameSave: function(id, title) {
-                this.$store.dispatch('proposition/fileNameSave', {group:'basic_data', key:'manuscript_documents', id:id, title:title});
+            fileNameSave: function(f) {
+                this.$store.dispatch('proposition/fileNameSave', {group:'basic_data', key:'manuscript_documents', id:f.id, title:f.title});
             },
             autocomplete: function(event) {
                 if (this.cancel) {

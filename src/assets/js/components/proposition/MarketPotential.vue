@@ -69,8 +69,8 @@
             fileAdd: function(file) {
                 this.$store.commit('proposition/addFile', {group:'market_potential', key:'market_potential_documents', file: file})
             },
-            fileNameSave: function(id, title) {
-                this.$store.dispatch('proposition/fileNameSave', {group:'market_potential', key:'market_potential_documents', id:id, title:title});
+            fileNameSave: function(f) {
+                this.$store.dispatch('proposition/fileNameSave', {group:'market_potential', key:'market_potential_documents', id:f.id, title:f.title});
             },
         },
         mounted: function() {

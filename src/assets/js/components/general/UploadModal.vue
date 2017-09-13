@@ -83,21 +83,21 @@
                 this.$refs.fileInput.click();
             },
             fileNameEdit: function(id, event) {
-                console.log(id);
                 if (event) event.preventDefault();
-                _.forEach(this.files, (f) => {
+                _.forEach(this.files, (f, index) => {
                     if (f.id === id) {
-                        f.edit = true;
+                        this.$set(this.files[index], 'edit', true);
                     }
                 })
             },
             fileNameSave: function(id, event) {
                 if (event) event.preventDefault();
-                let f = _.first(_.filter(this.files, (f) => { return f.id === id }));
-                let data = {
-                    title : f.title
-                };
-                f.edit = false;
+                _.forEach(this.files, (f, index) => {
+                    if (f.id === id) {
+                        this.$emit('fileNameSave', f);
+                        this.$set(this.files[index], 'edit', false);
+                    }
+                });
 
             },
             fileDelete: function(index) {
@@ -135,7 +135,7 @@
                 axios.post(this.action, data, config)
                     .then((res) => {
                         this.$emit('fileAdd', res.data.data);
-                        this.files.$set(index, res.data.data);
+                        this.$set(this.files, index, res.data.data);
                     })
                     .catch( (err) => {
                         this.files[index].message = err.message;
