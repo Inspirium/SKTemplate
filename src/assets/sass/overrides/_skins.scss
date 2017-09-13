@@ -315,6 +315,25 @@ $sk-skin-btn-default: #293756;
         margin-top: .2rem;
         border-radius: .5rem;
     }
+    .multiple-select-dropdown {
+        padding-bottom: .7rem;
+        .search-wrap {
+            width: 100%;
+            padding: 1rem 1rem;
+        }
+        li [type="checkbox"] + label {
+            height: 15px;
+            left: 10px;
+            margin-right: .2rem;
+        }
+    }
+    .select-wrapper + label {
+        text-indent: .1rem;
+        text-transform: uppercase;
+        color: #757575;
+        top: -1.2rem;
+    }
+
     input[type=checkbox]:checked {
         &+label {
             &:before {
@@ -376,9 +395,6 @@ $sk-skin-btn-default: #293756;
             font-weight: 300;
             box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.06), 0 2px 10px 0 rgba(0, 0, 0, 0.02);
         }
-    }
-    .multiple-select-dropdown li [type="checkbox"] + label {
-        height: 18px;
     }
     /* Select colors */
     .dropdown-content {

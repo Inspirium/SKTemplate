@@ -65,11 +65,10 @@
     <div class="row">
         <!-- Dropdown menu -->
         <div class="col-md-6">
-            <select class="mdb-select" v-model="categorization['school_type']" multiple>
-                <option disabled >{{ lang('Choose Category') }}</option>
+            <select class="mdb-select" v-model="categorization['school_type']" multiple searchable="Search here..">
                 <option v-for="(item, key) in school_types" v-bind:value="key">{{ item.name }}</option>
             </select>
-            <label>{{ lang('School Type') }}</label>
+            <label>{{ lang('School type') }}</label>
             <!-- Checkbox -->
         </div>
         <div class="col-md-6 mb-1">

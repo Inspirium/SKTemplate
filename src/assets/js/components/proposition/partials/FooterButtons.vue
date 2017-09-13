@@ -40,7 +40,6 @@
                         <div class="modal-body tab-pane fade in show active" id="panel51" role="tabpanel">
                             <div class="row">
                                 <div class="col-md-12">
-
                                     <div class="md-form">
                                         <input type="text" class="form-control" name="department"  v-model="department" v-on:keyup="autocomplete($event, 'department')">
                                         <ul class="mdb-autocomplete-wrap" v-if="d_suggestions.length">
