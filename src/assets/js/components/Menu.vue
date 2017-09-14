@@ -1,5 +1,6 @@
 <template>
     <ul class="collapsible collapsible-accordion">
+        <li v-if="editing_proposition"><router-link :to="'/propositions'"> &lt; Povratak</router-link></li>
         <li v-for="route_group in this.lroutes" v-if="route_group.enabled">
             <a href="#" v-bind:class="[ 'collapsible-header', 'nav-link', isGroupActive(route_group.key)?'active':'']">{{ lang(route_group.title) }}</a>
             <div class="collapsible-body" v-if="Object.keys(route_group.children).length">
@@ -21,7 +22,6 @@
     export default {
         data: function () {
             return {
-
             }
         },
         computed: {
@@ -32,170 +32,15 @@
                 return this.active[1] === 'proposition';
             },
             lroutes:function() {
-                let routes = {
-                    administration: {
-                        enabled: true,
-                        title: 'Administration',
-                        order: 0,
-                        key: 'administration',
-                        children: {
-                            users: {
-                                enabled: true,
-                                path: '/administration/users',
-                                title: 'Users'
-                            },
-                            add_user: {
-                                enabled: true,
-                                path: '/administration/users/edit',
-                                title: 'Add User'
-                            },
-                            roles: {
-                                enabled: true,
-                                path: '/administration/roles',
-                                title: 'Roles'
-                            },
-                            add_role: {
-                                enabled: true,
-                                path: '/administration/roles/edit',
-                                title: 'Add Role'
-                            }
-                        }
-                    },
-                    human_resources: {
-                        enabled: true,
-                        title: 'Human Resources',
-                        order: 1,
-                        key: 'human_resources',
-                        children: {
-                            employees: {
-                                enabled: true,
-                                path: '/human_resources/employees',
-                                title: 'Employees'
-                            },
-                            departments: {
-                                enabled: true,
-                                path: '/human_resources/departments',
-                                title: 'Departments'
-                            }
-                        }
-                    },
-                    propositions: {
-                        enabled: true,
-                        title: 'Propositions',
-                        order: 2,
-                        key: 'propositions',
-                        children: {
-                            propositions: {
-                                enabled: true,
-                                path: '/propositions',
-                                title: 'Propositions'
-                            },
-                            add_new: {
-                                enabled: true,
-                                title: 'Add new',
-                                path: '/proposition/basic_data'
-                            },
-                            design: {
-                                enabled: true,
-                                path: '/propositions/design',
-                                title: 'Design'
-                            },
-                            layout: {
-                                enabled: true,
-                                path: '/propositions/layout',
-                                title: 'Layout'
-                            },
-                            proofreading: {
-                                enabled: true,
-                                path: '/propositions/proofreading',
-                                title: 'Proofreading'
-                            }
-                        }
-                    },
-                    books: {
-                        enabled: true,
-                        title: 'Books',
-                        order: 3,
-                        key: 'books',
-                        children: {
-                            books: {
-                                enabled: true,
-                                path: '/books',
-                                title: 'Books'
-                            },
-                            authors: {
-                                enabled: true,
-                                path: '/books/authors',
-                                title: 'Authors'
-                            }
-                        }
-                    },
-                    tasks: {
-                        enabled: true,
-                        title: 'Task Management',
-                        order: 4,
-                        key: 'tasks',
-                        children: {
-                            view: {
-                                enabled: true,
-                                path: '/tasks',
-                                title: 'Tasks',
-                                component: false
-                            },
-                            design: {
-                                enabled: true,
-                                path: '/tasks/department/71',
-                                title: 'Design',
-                                component: false
-                            }
-                        }
-                    },
-                    notifications: {
-                        enabled: true,
-                        title: 'Notifications',
-                        order: 5,
-                        key: 'notifications',
-                        children: {
-                            view: {
-                                enabled: true,
-                                path: '/notifications',
-                                title: 'Notifications'
-                            }
-                        }
-                    },
-                    messages: {
-                        enabled: true,
-                        title: 'Messages',
-                        order: 6,
-                        key: 'messages',
-                        children: {
-                            view: {
-                                enabled: true,
-                                path: '/messages',
-                                title: 'Messages'
-                            },
-                            add: {
-                                enabled: true,
-                                path: '/messages/new',
-                                title: 'New Message'
-                            }
-                        }
-                    }
-                };
-
+                let routes;
                 if (this.editing_proposition) {
-                    delete(routes.propositions);
-                    routes.proposition = {
-                        enabled: true,
-                        title: 'Propositions',
-                        order: 2,
-                        key: 'proposition',
-                        children : {
-                            propositions: {
-                                enabled: true,
-                                path: '/propositions',
-                                title: 'Propositions'
-                            },
+                    routes = {
+                        proposition: {
+                            enabled: true,
+                            title: 'Proposition',
+                            order: 0,
+                            key: 'proposition',
+                            children : {
                             start: {
                                 enabled: true,
                                 path: '/proposition/'+this.$route.params.id+'/start',
@@ -205,91 +50,458 @@
                             basic_data: {
                                 enabled: true,
                                 title: 'Basic Data',
-                                path: '/proposition/'+((typeof(this.$route.params.id) !== 'undefined')?this.$route.params.id+'/':'')+'basic_data',
+                                path: '/proposition/'+this.$route.params.id+'/edit/basic_data',
                                 component: true
                             },
                             categorization: {
                                 enabled: true,
                                 title: 'Categorization',
-                                path: '/proposition/'+((typeof(this.$route.params.id) !== 'undefined')?this.$route.params.id+'/':'')+'categorization',
+                                path: '/proposition/'+this.$route.params.id+'/edit/categorization',
                                 component: true
                             },
                             market_potential: {
                                 enabled: true,
                                 title: 'Market Potential',
-                                path: '/proposition/'+((typeof(this.$route.params.id) !== 'undefined')?this.$route.params.id+'/':'')+'market_potential',
+                                path: '/proposition/'+this.$route.params.id+'/edit/market_potential',
                                 component: true
                             },
                             technical_data: {
                                 enabled: true,
                                 title: 'Technical Data',
-                                path: '/proposition/'+((typeof(this.$route.params.id) !== 'undefined')?this.$route.params.id+'/':'')+'technical_data',
+                                path: '/proposition/'+this.$route.params.id+'/edit/technical_data',
                                 component: true
                             },
                             print: {
                                 enabled: true,
                                 title: 'Print',
-                                path: '/proposition/'+((typeof(this.$route.params.id) !== 'undefined')?this.$route.params.id+'/':'')+'print',
+                                path: '/proposition/'+this.$route.params.id+'/edit/print',
                                 component: true
                             },
                             authors_expense: {
                                 enabled: true,
                                 title: 'Authors Expense',
-                                path: '/proposition/'+((typeof(this.$route.params.id) !== 'undefined')?this.$route.params.id+'/':'')+'authors_expense',
+                                path: '/proposition/'+this.$route.params.id+'/edit/authors_expense',
                                 component: true
                             },
                             production_expense: {
                                 enabled: true,
                                 title: 'Production Expense',
-                                path: '/proposition/'+((typeof(this.$route.params.id) !== 'undefined')?this.$route.params.id+'/':'')+'production_expense',
+                                path: '/proposition/'+this.$route.params.id+'/edit/production_expense',
                                 component: true
                             },
                             marketing_expense: {
                                 enabled: true,
                                 title: 'Marketing Expense',
-                                path: '/proposition/'+((typeof(this.$route.params.id) !== 'undefined')?this.$route.params.id+'/':'')+'marketing_expense',
+                                path: '/proposition/'+this.$route.params.id+'/edit/marketing_expense',
                                 component: true
                             },
                             distribution_expense: {
                                 enabled: true,
                                 title: 'Distribution Expense',
-                                path: '/proposition/'+((typeof(this.$route.params.id) !== 'undefined')?this.$route.params.id+'/':'')+'distribution_expense',
+                                path: '/proposition/'+this.$route.params.id+'/edit/distribution_expense',
                                 component: true
                             },
                             layout_expense: {
                                 enabled: true,
                                 title: 'Layout Expense',
-                                path: '/proposition/'+((typeof(this.$route.params.id) !== 'undefined')?this.$route.params.id+'/':'')+'layout_expense',
+                                path: '/proposition/'+this.$route.params.id+'/edit/layout_expense',
                                 component: true
                             },
                             deadline: {
                                 enabled: true,
                                 title: 'Deadline',
-                                path: '/proposition/'+((typeof(this.$route.params.id) !== 'undefined')?this.$route.params.id+'/':'')+'deadline',
+                                path: '/proposition/'+this.$route.params.id+'/edit/deadline',
                                 component: true
                             },
                             precalculation: {
                                 enabled: false,
                                 title: 'Calculation',
-                                path: '/proposition/'+((typeof(this.$route.params.id) !== 'undefined')?this.$route.params.id+'/':'')+'precalculation',
+                                path: '/proposition/'+this.$route.params.id+'/edit/precalculation',
                                 component: true
                             },
                             calculation: {
                                 enabled: true,
                                 title: 'Calculation',
-                                path: '/proposition/'+((typeof(this.$route.params.id) !== 'undefined')?this.$route.params.id+'/':'')+'calculation',
-                                component: true
-                            },
-                            work_order: {
-                                enabled: true,
-                                title: 'Work Order',
-                                path: '/proposition/'+((typeof(this.$route.params.id) !== 'undefined')?this.$route.params.id+'/':'')+'work_order',
+                                path: '/proposition/'+this.$route.params.id+'/edit/calculation',
                                 component: true
                             }
                         }
-                    }
+                        },
+                        expenses: {
+                            enabled: true,
+                            title: 'Expenses',
+                            order: 2,
+                            key: 'expenses',
+                            children : {
+                                authors_expense: {
+                                    enabled: true,
+                                    title: 'Authors Expense',
+                                    path: '/proposition/'+this.$route.params.id+'/expenses/authors_expense',
+                                    component: true
+                                },
+                                production_expense: {
+                                    enabled: true,
+                                    title: 'Production Expense',
+                                    path: '/proposition/'+this.$route.params.id+'/expenses/production_expense',
+                                    component: true
+                                },
+                                marketing_expense: {
+                                    enabled: true,
+                                    title: 'Marketing Expense',
+                                    path: '/proposition/'+this.$route.params.id+'/expenses/marketing_expense',
+                                    component: true
+                                },
+                                distribution_expense: {
+                                    enabled: true,
+                                    title: 'Distribution Expense',
+                                    path: '/proposition/'+this.$route.params.id+'/expenses/distribution_expense',
+                                    component: true
+                                },
+                                layout_expense: {
+                                    enabled: true,
+                                    title: 'Layout Expense',
+                                    path: '/proposition/'+this.$route.params.id+'/expenses/layout_expense',
+                                    component: true
+                                },
+                                compare: {
+                                    enabled: true,
+                                    title: 'Compare',
+                                    path: '/proposition/'+this.$route.params.id+'/expenses/compare',
+                                    component: true
+                                }
+                            }
+                        },
+                        text_preparation: {
+                            enabled: true,
+                            title: 'Text Preparation',
+                            order: 1,
+                            key: 'text_preparation',
+                            children : {
+                                translation: {
+                                    enabled: true,
+                                    title: 'Translation',
+                                    path: '/proposition/'+this.$route.params.id+'/preparation/translation',
+                                    component: true
+                                },
+                                technical_preparation: {
+                                    enabled: true,
+                                    title: 'Technical Preparation',
+                                    path: '/proposition/'+this.$route.params.id+'/preparation/technical_preparation',
+                                    component: true
+                                },
+                                proofreading: {
+                                    enabled: true,
+                                    title: 'Proofreading',
+                                    path: '/proposition/'+this.$route.params.id+'/preparation/proofreading',
+                                    component: true
+                                },
+                                additional_materials: {
+                                    enabled: true,
+                                    title: 'Additional Materials',
+                                    path: '/proposition/'+this.$route.params.id+'/preparation/additional_materials',
+                                    component: true
+                                },
+                                reviews: {
+                                    enabled: true,
+                                    title: 'Reviews',
+                                    path: '/proposition/'+this.$route.params.id+'/preparation/reviews',
+                                    component: true
+                                },
+                                lecture: {
+                                    enabled: true,
+                                    title: 'Lecture',
+                                    path: '/proposition/'+this.$route.params.id+'/preparation/lecture',
+                                    component: true
+                                },
+                                technical_correction: {
+                                    enabled: true,
+                                    title: 'Technical Correction',
+                                    path: '/proposition/'+this.$route.params.id+'/preparation/technical_correction',
+                                    component: true
+                                },
+                                final_review: {
+                                    enabled: true,
+                                    title: 'Final Review',
+                                    path: '/proposition/'+this.$route.params.id+'/preparation/final_review',
+                                    component: true
+                                },
+                            }
+                        },
+                        design: {
+                            enabled: true,
+                            title: 'Design',
+                            order: 3,
+                            key: 'design',
+                            children : {
+                                cover_design: {
+                                    enabled: true,
+                                    title: 'Cover Design',
+                                    path: '/proposition/'+this.$route.params.id+'/design/cover_design',
+                                    component: true
+                                },
+                                layout_design: {
+                                    enabled: true,
+                                    title: 'Layout Design',
+                                    path: '/proposition/'+this.$route.params.id+'/design/layout_design',
+                                    component: true
+                                },
+                            }
+                        },
+                        layout: {
+                            enabled: true,
+                            title: 'Layout',
+                            order: 4,
+                            key: 'layout',
+                            children : {
+                                first_block_layout: {
+                                    enabled: true,
+                                    title: 'First Block Layout',
+                                    path: '/proposition/'+this.$route.params.id+'/layout/first_block_layout',
+                                    component: true
+                                },
+                                cover: {
+                                    enabled: true,
+                                    title: 'Cover',
+                                    path: '/proposition/'+this.$route.params.id+'/layout/cover',
+                                    component: true
+                                },
+                                layout: {
+                                    enabled: true,
+                                    title: 'Layout',
+                                    path: '/proposition/'+this.$route.params.id+'/layout/layout',
+                                    component: true
+                                },
+                                first_revision: {
+                                    enabled: true,
+                                    title: 'First Revision',
+                                    path: '/proposition/'+this.$route.params.id+'/layout/first_revision',
+                                    component: true
+                                },
+                                correction: {
+                                    enabled: true,
+                                    title: 'Correction',
+                                    path: '/proposition/'+this.$route.params.id+'/layout/correction',
+                                    component: true
+                                },
+                                correction_input: {
+                                    enabled: true,
+                                    title: 'Correction Input',
+                                    path: '/proposition/'+this.$route.params.id+'/layout/correction_input',
+                                    component: true
+                                },
+                                revisions: {
+                                    enabled: true,
+                                    title: 'Revisions',
+                                    path: '/proposition/'+this.$route.params.id+'/layout/revisions',
+                                    component: true
+                                },
+                            }
+                        },
+                        final_price: {
+                            enabled: true,
+                            title: 'Final Price',
+                            order: 5,
+                            key: 'final_price',
+                            children : {
+                                price_definition: {
+                                    enabled: true,
+                                    title: 'Price Definition',
+                                    path: '/proposition/'+this.$route.params.id+'/final_price/price_definition',
+                                    component: true
+                                },
+                            }
+                        },
+                        prepress: {
+                            enabled: true,
+                            title: 'Prepress',
+                            order: 6,
+                            key: 'prepress',
+                            children : {
+                                print_proof: {
+                                    enabled: true,
+                                    title: 'Print Proof',
+                                    path: '/proposition/'+this.$route.params.id+'/prepress/print_proof',
+                                    component: true
+                                },
+                                print_proof_correction: {
+                                    enabled: true,
+                                    title: 'Print Proof Correction',
+                                    path: '/proposition/'+this.$route.params.id+'/prepress/print_proof_correction',
+                                    component: true
+                                },
+                                print: {
+                                    enabled: true,
+                                    title: 'Print',
+                                    path: '/proposition/'+this.$route.params.id+'/prepress/print',
+                                    component: true
+                                },
+                                warehouse: {
+                                    enabled: true,
+                                    title: 'Warehouse',
+                                    path: '/proposition/'+this.$route.params.id+'/prepress/warehouse',
+                                    component: true
+                                },
+                            }
+                        },
+                        additionals: {
+                            enabled: true,
+                            title: 'Additionals',
+                            order: 7,
+                            key: 'additionals',
+                            children : {
+                                multimedia: {
+                                    enabled: true,
+                                    title: 'Multimedia',
+                                    path: '/proposition/'+this.$route.params.id+'/additionals/multimedia',
+                                    component: true
+                                },
+                                marketing: {
+                                    enabled: true,
+                                    title: 'Marketing',
+                                    path: '/proposition/'+this.$route.params.id+'/additionals/marketing',
+                                    component: true
+                                },
+                            }
+                        },
+                    };
                 }
-
+                else {
+                    routes = {
+                        administration: {
+                            enabled: true,
+                            title: 'Administration',
+                            order: 0,
+                            key: 'administration',
+                            children: {
+                                users: {
+                                    enabled: true,
+                                    path: '/administration/users',
+                                    title: 'Users'
+                                },
+                                add_user: {
+                                    enabled: true,
+                                    path: '/administration/users/edit',
+                                    title: 'Add User'
+                                },
+                                roles: {
+                                    enabled: true,
+                                    path: '/administration/roles',
+                                    title: 'Roles'
+                                },
+                                add_role: {
+                                    enabled: true,
+                                    path: '/administration/roles/edit',
+                                    title: 'Add Role'
+                                }
+                            }
+                        },
+                        human_resources: {
+                            enabled: true,
+                            title: 'Human Resources',
+                            order: 1,
+                            key: 'human_resources',
+                            children: {
+                                employees: {
+                                    enabled: true,
+                                    path: '/human_resources/employees',
+                                    title: 'Employees'
+                                },
+                                departments: {
+                                    enabled: true,
+                                    path: '/human_resources/departments',
+                                    title: 'Departments'
+                                }
+                            }
+                        },
+                        propositions: {
+                            enabled: true,
+                            title: 'Propositions',
+                            order: 2,
+                            key: 'propositions',
+                            children: {
+                                propositions: {
+                                    enabled: true,
+                                    path: '/propositions',
+                                    title: 'Propositions'
+                                },
+                                add_new: {
+                                    enabled: true,
+                                    title: 'Add new',
+                                    path: '/proposition/basic_data'
+                                }
+                            }
+                        },
+                        books: {
+                            enabled: true,
+                            title: 'Books',
+                            order: 3,
+                            key: 'books',
+                            children: {
+                                books: {
+                                    enabled: true,
+                                    path: '/books',
+                                    title: 'Books'
+                                },
+                                authors: {
+                                    enabled: true,
+                                    path: '/books/authors',
+                                    title: 'Authors'
+                                }
+                            }
+                        },
+                        tasks: {
+                            enabled: true,
+                            title: 'Task Management',
+                            order: 4,
+                            key: 'tasks',
+                            children: {
+                                view: {
+                                    enabled: true,
+                                    path: '/tasks',
+                                    title: 'Tasks',
+                                    component: false
+                                },
+                                design: {
+                                    enabled: true,
+                                    path: '/tasks/department/71',
+                                    title: 'Design',
+                                    component: false
+                                }
+                            }
+                        },
+                        notifications: {
+                            enabled: true,
+                            title: 'Notifications',
+                            order: 5,
+                            key: 'notifications',
+                            children: {
+                                view: {
+                                    enabled: true,
+                                    path: '/notifications',
+                                    title: 'Notifications'
+                                }
+                            }
+                        },
+                        messages: {
+                            enabled: true,
+                            title: 'Messages',
+                            order: 6,
+                            key: 'messages',
+                            children: {
+                                view: {
+                                    enabled: true,
+                                    path: '/messages',
+                                    title: 'Messages'
+                                },
+                                add: {
+                                    enabled: true,
+                                    path: '/messages/new',
+                                    title: 'New Message'
+                                }
+                            }
+                        }
+                    };
+                }
                 return _.sortBy(routes, ['order']);
             }
         },

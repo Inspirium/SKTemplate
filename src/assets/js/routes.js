@@ -1,51 +1,88 @@
-import BasicData from './components/proposition/BasicData.vue'
-import Categorization from './components/proposition/Categorization.vue'
-import MarketPotential from './components/proposition/MarketPotential.vue'
-import TechnicalData from './components/proposition/TechnicalData.vue'
-import AuthorsExpense from './components/proposition/AuthorsExpense.vue'
-import Print from './components/proposition/Print.vue'
-import ProductionExpense from './components/proposition/ProductionExpense.vue'
-import MarketingExpense from './components/proposition/MarketingExpense.vue'
-import DistributionExpense from './components/proposition/DistributionExpense.vue'
-import LayoutExpense from './components/proposition/LayoutExpense.vue'
-import Deadline from './components/proposition/Deadline.vue'
-import Calculation from './components/proposition/Calculation.vue'
-import WorkOrder from './components/proposition/WorkOrder.vue'
-import PropositionStart from './components/proposition/PropositionStart.vue'
+import Proposition from './components/proposition/Proposition'
+import BasicData from './components/proposition/BasicData'
+import Categorization from './components/proposition/Categorization'
+import MarketPotential from './components/proposition/MarketPotential'
+import TechnicalData from './components/proposition/TechnicalData'
+import AuthorsExpense from './components/proposition/AuthorsExpense'
+import Print from './components/proposition/Print'
+import ProductionExpense from './components/proposition/ProductionExpense'
+import MarketingExpense from './components/proposition/MarketingExpense'
+import DistributionExpense from './components/proposition/DistributionExpense'
+import LayoutExpense from './components/proposition/LayoutExpense'
+import Deadline from './components/proposition/Deadline'
+import Calculation from './components/proposition/Calculation'
+import PropositionStart from './components/proposition/PropositionStart'
+import Compare from './components/proposition/Compare'
+import UploadDocument from './components/proposition/UploadDocument'
+import Revisions from './components/proposition/Revisions'
+import PriceDefinition from './components/proposition/PriceDefinition'
+import Warehouse from './components/proposition/Warehouse'
+import Marketing from './components/proposition/Marketing'
+import Multimedia from './components/proposition/Multimedia'
 
-import Tasks from './components/tasks/Tasks.vue'
-import TaskEdit from './components/tasks/TaskEdit.vue'
-import TaskShow from './components/tasks/TaskShow.vue'
 
+import Tasks from './components/tasks/Tasks'
+import TaskEdit from './components/tasks/TaskEdit'
+import TaskShow from './components/tasks/TaskShow'
+import PropositionList from './components/proposition/PropositionList';
 
 export const routes = [
-    { path: '/proposition/basic_data', component: BasicData, name: 'basic_data' },
-    { path: '/proposition/start', component: PropositionStart },
-    { path: '/proposition/:id(\\d+)/start', component: PropositionStart },
-    { path: '/proposition/:id(\\d+)/basic_data', component: BasicData, name: 'basic_data' },
-    { path: '/proposition/categorization', component: Categorization },
-    { path: '/proposition/:id(\\d+)/categorization', component: Categorization },
-    { path: '/proposition/market_potential', component: MarketPotential },
-    { path: '/proposition/:id(\\d+)/market_potential', component: MarketPotential },
-    { path: '/proposition/technical_data', component: TechnicalData, name: 'technical_data' },
-    { path: '/proposition/:id(\\d+)/technical_data', component: TechnicalData, name: 'technical_data' },
-    { path: '/proposition/print', component: Print },
-    { path: '/proposition/:id(\\d+)/print', component: Print },
-    { path: '/proposition/authors_expense', component: AuthorsExpense },
-    { path: '/proposition/:id(\\d+)/authors_expense', component: AuthorsExpense },
-    { path: '/proposition/production_expense', component: ProductionExpense },
-    { path: '/proposition/:id(\\d+)/production_expense', component: ProductionExpense },
-    { path: '/proposition/marketing_expense', component: MarketingExpense },
-    { path: '/proposition/:id(\\d+)/marketing_expense', component: MarketingExpense },
-    { path: '/proposition/distribution_expense', component: DistributionExpense },
-    { path: '/proposition/:id(\\d+)/distribution_expense', component: DistributionExpense },
-    { path: '/proposition/layout_expense', component: LayoutExpense },
-    { path: '/proposition/:id(\\d+)/layout_expense', component: LayoutExpense },
-    { path: '/proposition/deadline', component: Deadline },
-    { path: '/proposition/:id(\\d+)/deadline', component: Deadline },
-    { path: '/proposition/calculation', component: Calculation },
-    { path: '/proposition/:id(\\d+)/calculation', component: Calculation },
-    { path: '/proposition/work_order', component: WorkOrder },
+    { path: '/proposition/:id(\\d+)', component: Proposition,
+        children: [
+            { path: 'start', component: PropositionStart },
+            { path: 'edit/basic_data', component: BasicData },
+            { path: 'edit/categorization', component: Categorization },
+            { path: 'edit/market_potential', component: MarketPotential },
+            { path: 'edit/technical_data', component: TechnicalData },
+            { path: 'edit/print', component: Print },
+            { path: 'edit/authors_expense', component: AuthorsExpense },
+            { path: 'edit/production_expense', component: ProductionExpense },
+            { path: 'edit/marketing_expense', component: MarketingExpense },
+            { path: 'edit/distribution_expense', component: DistributionExpense },
+            { path: 'edit/layout_expense', component: LayoutExpense },
+            { path: 'edit/deadline', component: Deadline },
+            { path: 'edit/calculation', component: Calculation },
+
+            { path: 'preparation/translation', component: UploadDocument },
+            { path: 'preparation/technical_preparation', component: UploadDocument },
+            { path: 'preparation/proofreading', component: UploadDocument },
+            { path: 'preparation/additional_materials', component: UploadDocument },
+            { path: 'preparation/reviews', component: UploadDocument },
+            { path: 'preparation/lecture', component: UploadDocument },
+            { path: 'preparation/technical_correction', component: UploadDocument },
+            { path: 'preparation/final_review', component: UploadDocument },
+
+            { path: 'expenses/authors_expense', component: AuthorsExpense },
+            { path: 'expenses/production_expense', component: ProductionExpense },
+            { path: 'expenses/marketing_expense', component: MarketingExpense },
+            { path: 'expenses/distribution_expense', component: DistributionExpense },
+            { path: 'expenses/layout_expense', component: LayoutExpense },
+            { path: 'expenses/compare', component: Compare },
+
+            { path: 'design/cover_design', component: UploadDocument },
+            { path: 'design/layout_design', component: UploadDocument },
+
+            { path: 'layout/first_block_layout', component: UploadDocument },
+            { path: 'layout/cover', component: UploadDocument },
+            { path: 'layout/layout', component: UploadDocument },
+            { path: 'layout/first_revision', component: UploadDocument },
+            { path: 'layout/correction', component: UploadDocument },
+            { path: 'layout/correction_input', component: UploadDocument },
+            { path: 'layout/revisions', component: Revisions },
+
+            { path: 'final_price/price_definition', component: PriceDefinition },
+
+            { path: 'prepress/print_proof', component: UploadDocument },
+            { path: 'prepress/print_proof_correction', component: UploadDocument },
+            { path: 'prepress/print', component: UploadDocument },
+            { path: 'prepress/warehouse', component: Warehouse },
+
+            { path: 'additionals/multimedia', component: Multimedia },
+            { path: 'additionals/marketing', component: Marketing },
+
+        ]
+    },
+    { path: '/propositions', component: PropositionList },
 
     { path: '/tasks', component: Tasks },
     { path: '/task/edit/:id(\\d+)?', component: TaskEdit },
