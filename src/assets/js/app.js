@@ -21,7 +21,6 @@ import * as VueDeepSet from 'vue-deepset'
 import store from './vuex/store'
 import { routes } from './routes'
 import { sync } from 'vuex-router-sync'
-import Vuetiful from 'vuetiful/src/main'
 //import { VuexValidator } from "vuex-validator";
 //import validators from "./vuex/validators";
 
@@ -36,7 +35,7 @@ Vue.component('inspirium-menu', require('./components/Menu.vue').default);
 Vue.use(VueMoment);
 Vue.use(VueRouter);
 Vue.use(VueDeepSet);
-Vue.use(Vuetiful);
+
 /*
 Vue.use(VuexValidator, {
     validators
