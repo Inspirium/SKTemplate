@@ -36,11 +36,6 @@ Vue.use(VueMoment);
 Vue.use(VueRouter);
 Vue.use(VueDeepSet);
 
-/*
-Vue.use(VuexValidator, {
-    validators
-})*/
-
 const router = new VueRouter({
     mode: 'history',
     linkActiveClass: 'active',
