@@ -213,8 +213,7 @@ h6 {
         width: 500px;
         border-radius: 2.5rem;
         background-color: $color-mainpanel;
-        padding-left: 0;
-        padding-right: 0;
+        padding: 1.5rem;
 
         .form-header {
             margin-top: 0;
@@ -650,6 +649,7 @@ table td a:first-child {
 .table th  {
     vertical-align: middle;
     border-bottom: 1px solid #eceeef;
+    font-weight: normal;
 }
 
 
@@ -941,15 +941,6 @@ input.md-form.addon {
 }
 
 
-.select-wrapper + label {
-    text-indent: .1rem;
-    text-transform: uppercase;
-    color: #757575;
-    top: -1rem;
-}
-
-
-
 
 
 .profile-xl {
@@ -1118,7 +1109,7 @@ input.md-form.addon {
 
 .btn-footer {
     justify-content: center;
-    border-top: 1px solid darken($color-mainpanel, 15%);
+    border-top: 1px solid darken($color-mainpanel, 10%);
 }
 
 .btn-header {

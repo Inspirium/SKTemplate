@@ -27,7 +27,7 @@
                 </div>
 
                 <div class="text-center">
-                    <button type="submit" class="btn btn-lg btn-neutral">Login</button>
+                    <button type="submit" class="btn btn-lg btn-neutral mb-4">Login</button>
                 </div>
                 </form>
             </div>
