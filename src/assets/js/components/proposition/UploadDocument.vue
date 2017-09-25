@@ -27,16 +27,16 @@
             <div class="justify-content-center d-flex mb-4">
                 <button type="button" class="btn btn-neutral" data-dismiss="modal">{{ lang('Upload') }}</button>
             </div>
-        <div class="modal-footer btn-footer">
-            <button type="button" class="btn btn-lg btn-save" data-dismiss="modal">{{ lang('Done') }}</button>
-        </div>
-        <div class="page-name-xl mb-4 mt-5">{{ lang('Završni dokument') }}</div>
-            <div class="justify-content-center d-flex mb-4">
-                <button type="button" class="btn btn-neutral" data-dismiss="modal">{{ lang('Upload') }}</button>
+            <div class="modal-footer btn-footer">
+                <button type="button" class="btn btn-lg btn-save" data-dismiss="modal">{{ lang('Done') }}</button>
             </div>
-        <div class="modal-footer btn-footer">
-            <button type="button" class="btn btn-lg btn-save" data-dismiss="modal">{{ lang('Done') }}</button>
-        </div>
+            <div class="page-name-xl mb-4 mt-5">{{ lang('Završni dokument') }}</div>
+                <div class="justify-content-center d-flex mb-4">
+                    <button type="button" class="btn btn-neutral" data-dismiss="modal">{{ lang('Upload') }}</button>
+                </div>
+            <div class="modal-footer btn-footer">
+                <button type="button" class="btn btn-lg btn-save" data-dismiss="modal">{{ lang('Done') }}</button>
+            </div>
         
         
         
