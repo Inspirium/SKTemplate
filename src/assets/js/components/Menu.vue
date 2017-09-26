@@ -1,6 +1,6 @@
 <template>
     <ul class="collapsible collapsible-accordion">
-        <li v-if="editing_proposition"><router-link :to="'/propositions'"> &lt; Povratak</router-link></li>
+        <li v-if="editing_proposition"><router-link :to="'/propositions'">Povratak</router-link></li>
         <li v-for="route_group in this.lroutes" v-if="route_group.enabled">
             <a href="#" v-bind:class="[ 'collapsible-header', 'nav-link', isGroupActive(route_group.key)?'active':'']">{{ lang(route_group.title) }}</a>
             <div class="collapsible-body" v-if="Object.keys(route_group.children).length">

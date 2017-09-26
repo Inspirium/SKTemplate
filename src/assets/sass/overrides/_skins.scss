@@ -130,7 +130,7 @@ $sk-skin-btn-default: #293756;
                     top: 1px;
                     margin-right: .7rem;
                     box-shadow: 0 0 0 0;
-                    background: none; 
+                    background: none;                     
                     }
                 }
             }
@@ -179,6 +179,23 @@ $sk-skin-btn-default: #293756;
                     background: none;
                 }
             }
+        }
+        // Back button on side menu
+        .collapsible > li:first-child a[href*="propositions"] {
+            background-color: #151515;
+                font-size: 0.8rem;
+                padding-left: 1.8rem;
+                &:before {
+                    font-family: FontAwesome;
+                    font-size: 2.5rem;
+                    line-height: 2.3rem;
+                    position: relative;
+                    top: 8px;
+                    margin-right: 0.8rem;
+                    content: "\f104";
+                    background-color: #151515;
+                    box-shadow: 0 0 0 1px #151515;
+                }
         }
         .fa {
             color: #fff;
