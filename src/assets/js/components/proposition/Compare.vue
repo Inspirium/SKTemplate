@@ -42,7 +42,7 @@
             <tbody class="white">
             <tr>
                 <th scope="row">1</th>
-                <td>Lektura</td>
+                <td>Author 1</td>
                 <td>10.000 kn</td>
                 <td>15.500 kn</td>
                 <td>5.500 kn</td>
@@ -50,7 +50,15 @@
             </tr>
             <tr>
                 <th scope="row">2</th>
-                <td>Lektura</td>
+                <td>Author 1</td>
+                <td>10%</td>
+                <td>15%</td>
+                <td>5%</td>
+                <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
+            </tr>
+            <tr>
+                <th scope="row">1</th>
+                <td>Author 2</td>
                 <td>10.000 kn</td>
                 <td>15.500 kn</td>
                 <td>5.500 kn</td>
@@ -74,7 +82,7 @@
             <tbody class="white">
             <tr>
                 <th scope="row">1</th>
-                <td>Lektura</td>
+                <td>Text</td>
                 <td>10.000 kn</td>
                 <td>15.500 kn</td>
                 <td>5.500 kn</td>
@@ -82,12 +90,141 @@
             </tr>
             <tr>
                 <th scope="row">2</th>
-                <td>Lektura</td>
+                <td>Reviews</td>
                 <td>10.000 kn</td>
                 <td>15.500 kn</td>
                 <td>5.500 kn</td>
                 <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
             </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Lecture</td>
+                <td>10.000 kn</td>
+                <td>15.500 kn</td>
+                <td>5.500 kn</td>
+                <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Correction</td>
+                <td>10.000 kn</td>
+                <td>15.500 kn</td>
+                <td>5.500 kn</td>
+                <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Proofreading</td>
+                <td>10.000 kn</td>
+                <td>15.500 kn</td>
+                <td>5.500 kn</td>
+                <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Translation</td>
+                <td>10.000 kn</td>
+                <td>15.500 kn</td>
+                <td>5.500 kn</td>
+                <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Index</td>
+                <td>10.000 kn</td>
+                <td>15.500 kn</td>
+                <td>5.500 kn</td>
+                <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Epilogue</td>
+                <td>10.000 kn</td>
+                <td>15.500 kn</td>
+                <td>5.500 kn</td>
+                <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Photos</td>
+                <td>10.000 kn</td>
+                <td>15.500 kn</td>
+                <td>5.500 kn</td>
+                <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>illustrations</td>
+                <td>10.000 kn</td>
+                <td>15.500 kn</td>
+                <td>5.500 kn</td>
+                <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Tehnical drawings</td>
+                <td>10.000 kn</td>
+                <td>15.500 kn</td>
+                <td>5.500 kn</td>
+                <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Expert report</td>
+                <td>10.000 kn</td>
+                <td>15.500 kn</td>
+                <td>5.500 kn</td>
+                <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Copyright</td>
+                <td>10.000 kn</td>
+                <td>15.500 kn</td>
+                <td>5.500 kn</td>
+                <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Copyright mediator</td>
+                <td>10.000 kn</td>
+                <td>15.500 kn</td>
+                <td>5.500 kn</td>
+                <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>METHODICAL INSTRUMENTARIUM</td>
+                <td>10.000 kn</td>
+                <td>15.500 kn</td>
+                <td>5.500 kn</td>
+                <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Selection</td>
+                <td>10.000 kn</td>
+                <td>15.500 kn</td>
+                <td>5.500 kn</td>
+                <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Powerpoint presentation</td>
+                <td>10.000 kn</td>
+                <td>15.500 kn</td>
+                <td>5.500 kn</td>
+                <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Additional expenses ?!?!?!</td>
+                <td>10.000 kn</td>
+                <td>15.500 kn</td>
+                <td>5.500 kn</td>
+                <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
+            </tr>
+
             </tbody>
         </table>
         
@@ -106,63 +243,15 @@
             <tbody class="white">
             <tr>
                 <th scope="row">1</th>
-                <td>Lektura</td>
+                <td>Marketing budget</td>
                 <td>10.000 kn</td>
                 <td>15.500 kn</td>
                 <td>5.500 kn</td>
                 <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
             </tr>
-            </tbody>
-        </table>
-        
-        <div class="page-name-xl mb-3 mt-3">{{ lang('Distribution Expenses') }}</div>
-        <table class="table">
-            <thead class="thead-inverse">
-            <tr>
-                <th>#</th>
-                <th>{{ lang('Item') }}</th>
-                <th>{{ lang('Budget') }}</th>
-                <th>{{ lang('Expense Total') }}</th>
-                <th>{{ lang('Difference') }}</th>
-                <th>{{ lang('Cost Approval') }}</th>
-            </tr>
-            </thead>
-            <tbody class="white">
             </tbody>
         </table>   
              
-        <div class="page-name-xl mb-3 mt-3">{{ lang('Layout Expenses') }}</div>
-        <table class="table">
-            <thead class="thead-inverse">
-            <tr>
-                <th>#</th>
-                <th>{{ lang('Item') }}</th>
-                <th>{{ lang('Budget') }}</th>
-                <th>{{ lang('Expense Total') }}</th>
-                <th>{{ lang('Difference') }}</th>
-                <th>{{ lang('Cost Approval') }}</th>
-            </tr>
-            </thead>
-            <tbody class="white">
-            <tr>
-                <th scope="row">1</th>
-                <td>Design</td>
-                <td>10.000 kn</td>
-                <td>15.500 kn</td>
-                <td>5.500 kn</td>
-                <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Layout</td>
-                <td>10.000 kn</td>
-                <td>15.500 kn</td>
-                <td>5.500 kn</td>
-                <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
-            </tr>
-            </tbody>
-            </tbody>
-        </table>        
     </div>
  
 </template>
