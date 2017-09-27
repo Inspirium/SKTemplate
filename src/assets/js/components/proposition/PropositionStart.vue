@@ -1,5 +1,11 @@
 <template>
-    <div>
+    <div class="content">
+        <div class="row profile-head py-4 d-flex flex-column justify-content-center align-items-center">
+            <div class="col-md-12">
+                <h1 class="display-3 text-white text-center">{{ lang('New project') }}</h1>
+            </div>
+        </div>
+       
         <!-- Header -->
         <div class="profile-head pb-2 row">
             <div class="col-md-4">
@@ -20,11 +26,46 @@
         </div>
 
         <!-- Notification -->
-       <div class="notification-bar btn-attention d-flex flex-md-row flex-column justify-content-start align-items-center mt-2">
+       <div class="notification-bar btn-attention d-flex flex-md-row flex-column justify-content-start align-items-center mt-3">
             <div class="file-box-sty text-white btn-clock-icon">{{ lang('Task Sent') }}</div>
             <div class="file-box-sty text-white">{{ lang('Publisher Director') }}</div>
             <div class="file-box-sty text-white">{{ lang('25.11.2017.') }}</div>
             <div class="file-box-sty text-white">{{ lang('Waiting time') }} : 2 days 15 hours</div>
+        </div>
+        
+        <!-- First row -->
+        <div class="page-name-l my-4">{{ lang('Project data') }}</div>
+        <div class="row">
+            <div class="col-md-4">
+                <!-- Input fileds -->
+                <div class="md-form">
+                    <input type="text" id="form1" class="form-control" name="retail" placeholder="" required>
+                    <label for="retail" class="">{{ lang('Project name') }}</label>
+                </div>
+            </div>  
+            <div class="col-md-4">
+                <!-- Input fileds -->
+                <div class="md-form">
+                    <input type="text" id="form1" class="form-control" name="retail" placeholder="" required>
+                    <label for="retail" class="">{{ lang('Project number') }}</label>
+                </div>
+            </div> 
+            <div class="col-md-4">
+                <!-- Input fileds -->
+                <div class="md-form">
+                    <input type="text" id="form1" class="form-control" name="retail" placeholder="" required>
+                    <label for="retail" class="">{{ lang('Additional project number') }}</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+            <!-- Textarea -->
+                <div class="md-form mt-1">
+                    <textarea id="form76" class="md-textarea"></textarea>
+                    <label for="form76">{{ lang('Note') }}</label>
+                </div>
+            </div>
         </div>
 
         <!-- Buttons -->
