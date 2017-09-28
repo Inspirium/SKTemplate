@@ -5,7 +5,7 @@
         <!-- Textarea -->
         <div class="md-form mt-5">
             <textarea id="note" name="note" class="md-textarea"></textarea>
-            <label for="note">{{ lang('webshop description') }}</label>
+            <label for="note">{{ lang('Webshop Description') }}</label>
         </div>
         
         <div class="page-name-l mb-3 mt-1">{{ lang('Cover - JPG format') }}</div>

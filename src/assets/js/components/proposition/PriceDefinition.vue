@@ -1,6 +1,6 @@
 <template>
     <div class="content">
-        <div class="page-name-xl mb-4 mt-3">@lang('Circulation')</div>
+        <div class="page-name-xl mb-4 mt-3">{{ lang('Circulation') }}</div>
         
         <!-- First column -->
         <div class="row">
@@ -91,7 +91,7 @@
             </div>
         </div>
         
-        <div class="page-name-xl mb-4 mt-3">@lang('Retail price definition')</div>
+        <div class="page-name-xl mb-4 mt-3">{{ lang('Retail price definition') }}</div>
         <div class="md-form">
             <input type="text" id="form15" class="form-control" name="final_price" placeholder="" required>
             <label for="form1" class="">{{ lang('Retail price') }}</label>

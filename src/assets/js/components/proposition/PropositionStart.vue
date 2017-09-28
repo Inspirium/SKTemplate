@@ -2,7 +2,7 @@
     <div class="content">
         <div class="row profile-head py-4 d-flex flex-column justify-content-center align-items-center">
             <div class="col-md-12">
-                <h1 class="display-3 text-white text-center">{{ lang('New project') }}</h1>
+                <h1 class="display-3 text-white text-center">{{ lang('New Project') }}</h1>
             </div>
         </div>
        
@@ -28,7 +28,7 @@
         <!-- Notification -->
        <div class="notification-bar btn-attention d-flex flex-md-row flex-column justify-content-start align-items-center mt-3">
             <div class="file-box-sty text-white btn-clock-icon">{{ lang('Task Sent') }}</div>
-            <div class="file-box-sty text-white">{{ lang('Publisher Director') }}</div>
+            <div class="file-box-sty text-white">{{ lang('Publishing Director') }}</div>
             <div class="file-box-sty text-white">{{ lang('25.11.2017.') }}</div>
             <div class="file-box-sty text-white">{{ lang('Waiting time') }} : 2 days 15 hours</div>
         </div>

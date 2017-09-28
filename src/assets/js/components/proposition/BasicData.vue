@@ -20,7 +20,7 @@
                     </div>
                 </div>
             </div>
-            <button class="btn btn-neutral btn-addon mb-4 mr-5" type="button" v-on:click="openAuthorModal">{{ lang('Add Author') }}</button>
+            <button class="btn btn-neutral btn-addon mb-4 mr-5" type="button" v-on:click="openAuthorModal">{{ lang('Add New Author') }}</button>
             <div class="chip mb-3" v-for="(author, index) in basic_data['authors']" v-bind:key="author.id">
                 <img v-bind:src="author.image"> {{ author.name }}<i class="close fa fa-times" v-on:click="authorDelete(author.id)"></i>
             </div>
@@ -66,8 +66,8 @@
 
 
             <!--/. Checkbox -->
-            <div class="page-name-m mt-4">{{ lang('Dotation') }}</div>
-            <div class="form-inline mb-3">
+            <div class="page-name-m mt-3">{{ lang('Dotation') }}</div>
+            <div class="form-inline mb-4">
                 <fieldset class="form-group">
                     <input name="dotation" type="radio" id="dot-yes" value="yes" v-model="basic_data['dotation']">
                     <label for="dot-yes">{{ lang('Yes') }}</label>
@@ -80,7 +80,7 @@
             <template v-if="basic_data['dotation'] === 'yes'">
                 <!-- Show only if "Yes"  -->
                 <!-- Input field -->
-                <div class="row  mt-3">
+                <div class="row  mt-4">
                     <div class="col-md-6">
                         <div class="md-form">
                             <input type="text" id="dot-origin" class="form-control" name="dotation-origin" v-model="basic_data['dotation_origin']">
