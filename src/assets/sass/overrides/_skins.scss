@@ -805,6 +805,65 @@ $sk-skin-btn-default: #293756;
             }
         }
     }
+    .quick-box {
+        width: 100%;
+        min-height: 35vh;
+        background-image: url(images/book_index.jpg);
+        background-position: bottom;
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: flex;
+        .quick-links {
+            align-items: flex-end;
+            width: 100%;
+            margin-top: auto;
+            .quick-links-title {
+                font-family: $font-family-base;
+                font-size: 1.7rem;
+                color: $white;
+                text-transform: uppercase;
+                font-weight: 600;
+                text-align: center;
+                padding-bottom: .5rem;
+            }
+            .quick-links-box {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                .quick-links-item {
+                    background-color: rgba(0, 0, 0, 0.3);
+                    height: 125px;
+                    width: 125px;
+                    margin: 0 .5rem;
+                    justify-content: center;
+                    align-items: center;
+                    display: flex;
+                    flex-direction: column;
+                    border: 1px solid $white;
+                    .quick-item-icon {
+                        width: 52px;
+                        display: block;
+                        margin: 0 auto;
+                        transition: .1s;
+                        &:hover {
+                            width: 72px;
+                            transition: .3s;
+                        }
+                    }
+                }
+                .quick-item-title {
+                    font-family: $font-family-base;
+                    font-size: .8rem;
+                    margin-top: 0.5rem;
+                    color: $white;
+                    text-transform: uppercase;
+                    font-weight: normal;
+                    text-align: center;
+                    padding-bottom: 1rem;
+                }
+            }
+        }
+    }
 }
 
 

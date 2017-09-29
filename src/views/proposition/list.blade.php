@@ -8,7 +8,7 @@
             <div class="justify-content-center mt-4 flex-column flex-md-row d-flex p-2">
                 <a href="/proposition/basic_data" class="btn btn-lg btn-blank btn-plus-icon">@lang('Create new')</a>
             </div>
-            <div class="page-name-xl mb-2 mt-4 mt-2">Propositions On Approval
+            <div class="page-name-xl mb-2 mt-4 mt-2">@lang('Propositions On Approval')
                 <span class="tag tag-neutral text-white">{{ $approval->count() }}</span>
             </div>
 
@@ -39,7 +39,7 @@
 
 
             <!-- Table -->
-            <div class="page-name-xl mb-2 mt-5">Unfinished Propositions
+            <div class="page-name-xl mb-2 mt-5">@lang('Unfinished Propositions')
                 <span class="tag tag-neutral text-white">{{ $unfinished->count() }}</span>
             </div>
             <table class="table table-hover">
@@ -64,7 +64,7 @@
             </table>
 
             <!-- Table -->
-            <div class="page-name-xl mb-2 mt-5">Active Propositions
+            <div class="page-name-xl mb-2 mt-5">@lang('Active Propositions')
                 <span class="tag tag-neutral text-white">{{ $active->count() }}</span>
             </div>
             <table class="table table-hover">
@@ -91,7 +91,7 @@
             </table>
 
             <!-- Table -->
-            <div class="page-name-xl mb-2 mt-5"> Rejected Propositions
+            <div class="page-name-xl mb-2 mt-5">@lang('Rejected Propositions')
                 <span class="tag tag-neutral text-white">{{ $rejected->count() }}</span>
             </div>
             <table class="table table-hover">
@@ -119,7 +119,7 @@
             <button class="btn btn-neutral btn-addon d-block ml-auto" type="button">@lang('Show More')</button>
 
             <!-- Table -->
-            <div class="page-name-xl mb-2 mt-5"> Deleted Propositions
+            <div class="page-name-xl mb-2 mt-5">@lang('Deleted Propositions')
                 <span class="tag tag-neutral text-white">{{ $deleted->count() }}</span>
             </div>
             <table class="table table-hover">
@@ -148,7 +148,7 @@
 
 
             <!-- Table -->
-            <div class="page-name-xl mb-2 mt-5">Proposition Archive
+            <div class="page-name-xl mb-2 mt-5">@lang('Proposition Archive')
                 <span class="tag tag-neutral text-white">154</span>
             </div>
             <table class="table table-hover">
