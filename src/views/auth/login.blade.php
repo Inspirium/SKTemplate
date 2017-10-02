@@ -16,7 +16,7 @@
                 <!--Body-->
                 <div class="md-form">
                     <i class="fa fa-envelope prefix"></i>
-                    <input type="email" id="form2" name="email" class="form-control" required>
+                    <input type="email" id="form2" name="email" class="form-control" required value="{{ old('email') }}">
                     <label for="form2">Email</label>
                 </div>
 
