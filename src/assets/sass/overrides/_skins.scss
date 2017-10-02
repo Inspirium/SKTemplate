@@ -130,7 +130,7 @@ $sk-skin-btn-default: #293756;
                     top: 1px;
                     margin-right: .7rem;
                     box-shadow: 0 0 0 0;
-                    background: none;                     
+                    background: none;
                     }
                 }
             }
@@ -164,7 +164,7 @@ $sk-skin-btn-default: #293756;
                 &.active:before {
                     content: "";
                     box-shadow: 0 0 0 0;
-                    background: none;    
+                    background: none;
                 }
             }
             .collapsible-body .menu-subsection-title {
@@ -309,7 +309,7 @@ $sk-skin-btn-default: #293756;
     input.select-dropdown:disabled,
     input[type="text"]:disabled {
         background-color: $color-mainpanel;
-        border-bottom: 1px solid lighten($color-sidebar, 70%);    
+        border-bottom: 1px solid lighten($color-sidebar, 70%);
     }
     .input-group-addon {
         font-weight: 300;
@@ -385,7 +385,7 @@ $sk-skin-btn-default: #293756;
         }
         .mdb-autocomplete-wrap {
             top: 60px;
-            border-radius: 4px; 
+            border-radius: 4px;
             color: #6FBAD5;
                 li {
                     font-size: 1.2rem;
@@ -456,7 +456,7 @@ $sk-skin-btn-default: #293756;
     .tabs-wrapper {
         margin-top: -15px;
     }
-    
+
     /* Modal */
     .modal {
         .modal-content {
@@ -510,13 +510,13 @@ $sk-skin-btn-default: #293756;
             }
             .file-icon {
                 font-size: 0.85rem;
-                text-transform: uppercase;    
+                text-transform: uppercase;
                 &:before {
                     font-size: 2rem;
                 }
             }
             .file-box-sty {
-                 font-size: 0.75rem;   
+                 font-size: 0.75rem;
             }
         }
         .dragdrop {
@@ -554,7 +554,7 @@ $sk-skin-btn-default: #293756;
     /* Activity stream */
     .activity {
         margin-top: .2rem;
-        display: flex; 
+        display: flex;
         width: 100%;
         height: 110px;
         background-color: #fff;
@@ -674,7 +674,7 @@ $sk-skin-btn-default: #293756;
                 font-weight: 600;
                 color: $sk-skin-accent;
                 padding-left: 0;
-            } 
+            }
         }
         h5 {
             font-size: .65rem;
@@ -730,7 +730,7 @@ $sk-skin-btn-default: #293756;
             }
         }
     }
-    
+
     /* Date Picker */
     .picker__box {
         border: none;
@@ -808,7 +808,7 @@ $sk-skin-btn-default: #293756;
     .quick-box {
         width: 100%;
         min-height: 35vh;
-        background-image: url(images/book_index.jpg);
+       /* background-image: url(images/book_index.jpg);*/
         background-position: bottom;
         background-size: cover;
         background-repeat: no-repeat;
