@@ -75,7 +75,7 @@
                 });
             },
             saveFiles: function() {
-                axios.post('/api/proposition/' + this.$route.params.id + '/files/' + this.$route.meta.dir, {files:this.files})
+                axios.post('/api/proposition/' + this.$route.params.id + '/files/' + this.$route.meta.dir, {initila:this.files, final: this.final})
                     .then((res) => {
 
                     });
