@@ -27,7 +27,8 @@
             <div class="modal-footer btn-footer">
                 <button type="button" class="btn btn-lg btn-save" v-on:click="saveFiles">{{ lang('Save') }}</button>
             </div>
-        <upload-modal action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" v-bind:dir="$route.meta.dir" v-on:fileDelete="fileDelete" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave"></upload-modal>
+        <upload-modal id="initial-documents" action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" v-bind:dir="$route.meta.dir" v-on:fileDelete="fileDelete" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave"></upload-modal>
+        <upload-modal id="final-document" action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" v-bind:dir="$route.meta.dir" v-on:fileDelete="fileDelete" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave" v-bind:isFinal="true"></upload-modal>
     </div>
 </template>
 <script>
@@ -35,7 +36,8 @@
     export default {
         data: function () {
             return {
-                files: []
+                files: [],
+                final: []
             }
         },
         components: {
@@ -53,13 +55,22 @@
             fileDelete: function (id) {
                 this.$store.dispatch('proposition/deleteFile', {group:'basic_data', key:'manuscript_documents', id: id});
             },
-            fileAdd: function(file) {
-                this.files.push(file);
+            fileAdd: function(data) {
+                if (data.isFinal) {
+                    this.final.push(data.file);
+                }
+                else {
+                    this.files.push(data.file);
+                }
             },
-            fileNameSave: function(f) {
-                _.forEach(this.files, (o) => {
+            fileNameSave: function(data) {
+                let files = this.files;
+                if (data.isFinal) {
+                    files = this.final;
+                }
+                _.forEach(files, (o) => {
                     if (o.id === payload.id) {
-                        o.title = f.title;
+                        o.title = data.file.title;
                     }
                 });
             },

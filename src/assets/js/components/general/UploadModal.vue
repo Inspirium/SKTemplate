@@ -1,5 +1,5 @@
 <template>
-    <div class="modal fade" id="upload-modal" tabindex="-1" role="dialog" aria-hidden="true" v-on:dragenter.prevent="fileDragEnter" v-on:drop.prevent="fileDrop($event)">
+    <div class="modal fade" v-bind:id="id" tabindex="-1" role="dialog" aria-hidden="true" v-on:dragenter.prevent="fileDragEnter" v-on:drop.prevent="fileDrop($event)">
         <div class="modal-dialog" role="document" v-on:dragenter.prevent="fileDragEnter">
             <!--Content-->
             <div class="modal-content">
@@ -70,7 +70,15 @@
             },
             disk: String,
             dir: String,
-            accept: String
+            accept: String,
+            isFinal: {
+                type: Boolean,
+                default: false
+            },
+            id: {
+                type: String,
+                default: 'upload-module'
+            }
         },
         data: function() {
             return {
@@ -94,7 +102,7 @@
                 if (event) event.preventDefault();
                 _.forEach(this.files, (f, index) => {
                     if (f.id === id) {
-                        this.$emit('fileNameSave', f);
+                        this.$emit('fileNameSave', { file: f, isFinal: this.isFinal });
                         this.$set(this.files[index], 'edit', false);
                     }
                 });
@@ -134,7 +142,7 @@
                 };
                 axios.post(this.action, data, config)
                     .then((res) => {
-                        this.$emit('fileAdd', res.data.data);
+                        this.$emit('fileAdd', { file: res.data.data, isFinal: this.isFinal });
                         this.$set(this.files, index, res.data.data);
                     })
                     .catch( (err) => {

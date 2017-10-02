@@ -242,7 +242,9 @@
 <script>
     export default {
         data: function () {
-            return {}
+            return {
+                author_expenses: {}
+            }
         },
         computed: {
             authors() {

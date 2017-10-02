@@ -66,11 +66,11 @@
             fileDelete: function (id) {
                 this.$store.dispatch('proposition/deleteFile', {group:'market_potential', key:'market_potential_documents', id: id});
             },
-            fileAdd: function(file) {
-                this.$store.commit('proposition/addFile', {group:'market_potential', key:'market_potential_documents', file: file})
+            fileAdd: function(data) {
+                this.$store.commit('proposition/addFile', {group:'market_potential', key:'market_potential_documents', file: data.file})
             },
-            fileNameSave: function(f) {
-                this.$store.dispatch('proposition/fileNameSave', {group:'market_potential', key:'market_potential_documents', id:f.id, title:f.title});
+            fileNameSave: function(data) {
+                this.$store.dispatch('proposition/fileNameSave', {group:'market_potential', key:'market_potential_documents', id:data.file.id, title:data.file.title});
             },
         },
         mounted: function() {

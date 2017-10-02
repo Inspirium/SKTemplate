@@ -170,11 +170,11 @@
             fileDelete: function (id) {
                 this.$store.dispatch('proposition/deleteFile', {group:'basic_data', key:'manuscript_documents', id: id});
             },
-            fileAdd: function(file) {
-                this.$store.commit('proposition/addFile', {group:'basic_data', key:'manuscript_documents', file: file})
+            fileAdd: function(data) {
+                this.$store.commit('proposition/addFile', {group:'basic_data', key:'manuscript_documents', file: data.file})
             },
-            fileNameSave: function(f) {
-                this.$store.dispatch('proposition/fileNameSave', {group:'basic_data', key:'manuscript_documents', id:f.id, title:f.title});
+            fileNameSave: function(data) {
+                this.$store.dispatch('proposition/fileNameSave', {group:'basic_data', key:'manuscript_documents', id:data.file.id, title:data.file.title});
             },
             autocomplete: function(event) {
                 if (this.cancel) {
