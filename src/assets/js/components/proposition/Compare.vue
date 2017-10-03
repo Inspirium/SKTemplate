@@ -331,12 +331,17 @@
             </tbody>
         </table>
 
+        <div class="btn-footer mt-4 mb-5 flex-column flex-md-row d-flex p-2">
+            <button class="btn btn-lg btn-save" v-on:click="saveExpenses">{{ lang('Save') }}</button>
+
+        </div>
+
     </div>
 
 </template>
 <script>
     import _ from 'lodash'
-
+    import FooterButtons from './partials/FooterButtons.vue';
     export default {
         data: function () {
             return {
@@ -364,6 +369,9 @@
                 activeEdit: '',
             }
         },
+        components: {
+            'footer-buttons': FooterButtons
+        },
         computed: {
             authors() {
                 return this.$deepModel('proposition.proposition.basic_data.authors');
@@ -380,7 +388,7 @@
             },
             additional_expense() {
                 return _.sumBy(this.production_expense.additional_expense, (o) => {return Number(o.amount)});
-            }
+            },
         },
         methods: {
             editField: function(field) {
@@ -391,7 +399,23 @@
             },
             closeEdit: function() {
                 this.activeEdit = '';
+            },
+            saveExpenses: function() {
+                axios.post('/api/proposition/' + this.$route.params.id + '/compare', {expenses:this.expenses})
+                    .then((res) => {
+
+                    });
+            },
+            sendForApproval: function() {
+                axios.post('/api/proposition/' + this.$route.params.id + '/approval')
+                    .then((res) => {});
             }
+        },
+        mounted() {
+            axios.get('/api/proposition/' + this.$route.params.id + '/compare')
+                .then((res) => {
+                    this.expenses = res.data;
+                })
         }
     }
 </script>

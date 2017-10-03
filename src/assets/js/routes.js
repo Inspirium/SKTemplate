@@ -27,6 +27,7 @@ import TaskShow from './components/tasks/TaskShow'
 import PropositionList from './components/proposition/PropositionList';
 
 export const routes = [
+    { path: '/proposition/start', component: PropositionStart },
     { path: '/proposition/:id(\\d+)', component: Proposition,
         children: [
             { path: 'start', component: PropositionStart },
@@ -57,7 +58,7 @@ export const routes = [
             { path: 'expenses/marketing_expense', component: MarketingExpense },
             { path: 'expenses/distribution_expense', component: DistributionExpense },
             { path: 'expenses/layout_expense', component: LayoutExpense },
-            { path: 'expenses/compare', component: Compare },
+            { path: 'expenses/compare', component: Compare, meta: {} },
 
             { path: 'design/cover_design', component: UploadDocument, meta: {dir: 'cover_design'} },
             { path: 'design/layout_design', component: UploadDocument, meta: {dir: 'layout_design'} },
@@ -82,7 +83,7 @@ export const routes = [
 
         ]
     },
-    { path: '/propositions', component: PropositionList },
+    /*{ path: '/propositions', component: PropositionList },*/
 
     { path: '/tasks', component: Tasks },
     { path: '/task/edit/:id(\\d+)?', component: TaskEdit },

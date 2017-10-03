@@ -1,6 +1,6 @@
 <template>
     <ul class="collapsible collapsible-accordion">
-        <li v-if="editing_proposition"><router-link :to="'/propositions'">Povratak</router-link></li>
+        <li v-if="editing_proposition"><a href="/propositions">Povratak</a></li>
         <li v-for="route_group in this.lroutes" v-if="route_group.enabled">
             <a href="#" v-bind:class="[ 'collapsible-header', 'nav-link', isGroupActive(route_group.key)?'active':'']">{{ lang(route_group.title) }}</a>
             <div class="collapsible-body" v-if="Object.keys(route_group.children).length">
@@ -28,6 +28,10 @@
             active: function() {
                 return this.$route.path.split('/');
             },
+            id: function() {
+                console.log(this.$store.state.proposition);
+                return this.$store.state.proposition.id;
+            },
             editing_proposition: function() {
                 return this.active[1] === 'proposition';
             },
@@ -43,86 +47,86 @@
                             children : {
                             start: {
                                 enabled: true,
-                                path: '/proposition/'+this.$route.params.id+'/start',
+                                path: '/proposition/'+this.id+'/start',
                                 title: 'Start',
                                 component: true
                             },
                             basic_data: {
                                 enabled: true,
                                 title: 'Basic Data',
-                                path: '/proposition/'+this.$route.params.id+'/edit/basic_data',
+                                path: '/proposition/'+this.id+'/edit/basic_data',
                                 component: true
                             },
                             categorization: {
                                 enabled: true,
                                 title: 'Categorization',
-                                path: '/proposition/'+this.$route.params.id+'/edit/categorization',
+                                path: '/proposition/'+this.id+'/edit/categorization',
                                 component: true
                             },
                             market_potential: {
                                 enabled: true,
                                 title: 'Market Potential',
-                                path: '/proposition/'+this.$route.params.id+'/edit/market_potential',
+                                path: '/proposition/'+this.id+'/edit/market_potential',
                                 component: true
                             },
                             technical_data: {
                                 enabled: true,
                                 title: 'Technical Data',
-                                path: '/proposition/'+this.$route.params.id+'/edit/technical_data',
+                                path: '/proposition/'+this.id+'/edit/technical_data',
                                 component: true
                             },
                             print: {
                                 enabled: true,
                                 title: 'Print',
-                                path: '/proposition/'+this.$route.params.id+'/edit/print',
+                                path: '/proposition/'+this.id+'/edit/print',
                                 component: true
                             },
                             authors_expense: {
                                 enabled: true,
                                 title: 'Authors Expense',
-                                path: '/proposition/'+this.$route.params.id+'/edit/authors_expense',
+                                path: '/proposition/'+this.id+'/edit/authors_expense',
                                 component: true
                             },
                             production_expense: {
                                 enabled: true,
                                 title: 'Production Expense',
-                                path: '/proposition/'+this.$route.params.id+'/edit/production_expense',
+                                path: '/proposition/'+this.id+'/edit/production_expense',
                                 component: true
                             },
                             marketing_expense: {
                                 enabled: true,
                                 title: 'Marketing Expense',
-                                path: '/proposition/'+this.$route.params.id+'/edit/marketing_expense',
+                                path: '/proposition/'+this.id+'/edit/marketing_expense',
                                 component: true
                             },
                             distribution_expense: {
                                 enabled: true,
                                 title: 'Distribution Expense',
-                                path: '/proposition/'+this.$route.params.id+'/edit/distribution_expense',
+                                path: '/proposition/'+this.id+'/edit/distribution_expense',
                                 component: true
                             },
                             layout_expense: {
                                 enabled: true,
                                 title: 'Layout Expense',
-                                path: '/proposition/'+this.$route.params.id+'/edit/layout_expense',
+                                path: '/proposition/'+this.id+'/edit/layout_expense',
                                 component: true
                             },
                             deadline: {
                                 enabled: true,
                                 title: 'Deadline',
-                                path: '/proposition/'+this.$route.params.id+'/edit/deadline',
+                                path: '/proposition/'+this.id+'/edit/deadline',
                                 component: true
                             },
                             precalculation: {
                                 enabled: false,
                                 title: 'Calculation',
-                                path: '/proposition/'+this.$route.params.id+'/edit/precalculation',
+                                path: '/proposition/'+this.id+'/edit/precalculation',
                                 component: true
                             },
                             calculation: {
                                 enabled: true,
                                 title: 'Calculation',
-                                path: '/proposition/'+this.$route.params.id+'/edit/calculation',
+                                path: '/proposition/'+this.id+'/edit/calculation',
                                 component: true
                             }
                         }
@@ -136,37 +140,37 @@
                                 authors_expense: {
                                     enabled: true,
                                     title: 'Authors Expense',
-                                    path: '/proposition/'+this.$route.params.id+'/expenses/authors_expense',
+                                    path: '/proposition/'+this.id+'/expenses/authors_expense',
                                     component: true
                                 },
                                 production_expense: {
                                     enabled: true,
                                     title: 'Production Expense',
-                                    path: '/proposition/'+this.$route.params.id+'/expenses/production_expense',
+                                    path: '/proposition/'+this.id+'/expenses/production_expense',
                                     component: true
                                 },
                                 marketing_expense: {
                                     enabled: true,
                                     title: 'Marketing Expense',
-                                    path: '/proposition/'+this.$route.params.id+'/expenses/marketing_expense',
+                                    path: '/proposition/'+this.id+'/expenses/marketing_expense',
                                     component: true
                                 },
                                 distribution_expense: {
                                     enabled: true,
                                     title: 'Distribution Expense',
-                                    path: '/proposition/'+this.$route.params.id+'/expenses/distribution_expense',
+                                    path: '/proposition/'+this.id+'/expenses/distribution_expense',
                                     component: true
                                 },
                                 layout_expense: {
                                     enabled: true,
                                     title: 'Layout Expense',
-                                    path: '/proposition/'+this.$route.params.id+'/expenses/layout_expense',
+                                    path: '/proposition/'+this.id+'/expenses/layout_expense',
                                     component: true
                                 },
                                 compare: {
                                     enabled: true,
                                     title: 'Compare',
-                                    path: '/proposition/'+this.$route.params.id+'/expenses/compare',
+                                    path: '/proposition/'+this.id+'/expenses/compare',
                                     component: true
                                 }
                             }
@@ -180,49 +184,49 @@
                                 translation: {
                                     enabled: true,
                                     title: 'Translation',
-                                    path: '/proposition/'+this.$route.params.id+'/preparation/translation',
+                                    path: '/proposition/'+this.id+'/preparation/translation',
                                     component: true
                                 },
                                 technical_preparation: {
                                     enabled: true,
                                     title: 'Technical Preparation',
-                                    path: '/proposition/'+this.$route.params.id+'/preparation/technical_preparation',
+                                    path: '/proposition/'+this.id+'/preparation/technical_preparation',
                                     component: true
                                 },
                                 proofreading: {
                                     enabled: true,
                                     title: 'Proofreading',
-                                    path: '/proposition/'+this.$route.params.id+'/preparation/proofreading',
+                                    path: '/proposition/'+this.id+'/preparation/proofreading',
                                     component: true
                                 },
                                 additional_materials: {
                                     enabled: true,
                                     title: 'Additional Materials',
-                                    path: '/proposition/'+this.$route.params.id+'/preparation/additional_materials',
+                                    path: '/proposition/'+this.id+'/preparation/additional_materials',
                                     component: true
                                 },
                                 reviews: {
                                     enabled: true,
                                     title: 'Reviews',
-                                    path: '/proposition/'+this.$route.params.id+'/preparation/reviews',
+                                    path: '/proposition/'+this.id+'/preparation/reviews',
                                     component: true
                                 },
                                 lecture: {
                                     enabled: true,
                                     title: 'Lecture',
-                                    path: '/proposition/'+this.$route.params.id+'/preparation/lecture',
+                                    path: '/proposition/'+this.id+'/preparation/lecture',
                                     component: true
                                 },
                                 technical_correction: {
                                     enabled: true,
                                     title: 'Technical Correction',
-                                    path: '/proposition/'+this.$route.params.id+'/preparation/technical_correction',
+                                    path: '/proposition/'+this.id+'/preparation/technical_correction',
                                     component: true
                                 },
                                 final_review: {
                                     enabled: true,
                                     title: 'Final Review',
-                                    path: '/proposition/'+this.$route.params.id+'/preparation/final_review',
+                                    path: '/proposition/'+this.id+'/preparation/final_review',
                                     component: true
                                 },
                             }
@@ -236,13 +240,13 @@
                                 cover_design: {
                                     enabled: true,
                                     title: 'Cover Design',
-                                    path: '/proposition/'+this.$route.params.id+'/design/cover_design',
+                                    path: '/proposition/'+this.id+'/design/cover_design',
                                     component: true
                                 },
                                 layout_design: {
                                     enabled: true,
                                     title: 'Layout Design',
-                                    path: '/proposition/'+this.$route.params.id+'/design/layout_design',
+                                    path: '/proposition/'+this.id+'/design/layout_design',
                                     component: true
                                 },
                             }
@@ -256,43 +260,43 @@
                                 first_block_layout: {
                                     enabled: true,
                                     title: 'First Block Layout',
-                                    path: '/proposition/'+this.$route.params.id+'/layout/first_block_layout',
+                                    path: '/proposition/'+this.id+'/layout/first_block_layout',
                                     component: true
                                 },
                                 cover: {
                                     enabled: true,
                                     title: 'Cover',
-                                    path: '/proposition/'+this.$route.params.id+'/layout/cover',
+                                    path: '/proposition/'+this.id+'/layout/cover',
                                     component: true
                                 },
                                 layout: {
                                     enabled: true,
                                     title: 'Layout',
-                                    path: '/proposition/'+this.$route.params.id+'/layout/layout',
+                                    path: '/proposition/'+this.id+'/layout/layout',
                                     component: true
                                 },
                                 first_revision: {
                                     enabled: true,
                                     title: 'First Revision',
-                                    path: '/proposition/'+this.$route.params.id+'/layout/first_revision',
+                                    path: '/proposition/'+this.id+'/layout/first_revision',
                                     component: true
                                 },
                                 correction: {
                                     enabled: true,
                                     title: 'Correction',
-                                    path: '/proposition/'+this.$route.params.id+'/layout/correction',
+                                    path: '/proposition/'+this.id+'/layout/correction',
                                     component: true
                                 },
                                 correction_input: {
                                     enabled: true,
                                     title: 'Correction Input',
-                                    path: '/proposition/'+this.$route.params.id+'/layout/correction_input',
+                                    path: '/proposition/'+this.id+'/layout/correction_input',
                                     component: true
                                 },
                                 revisions: {
                                     enabled: true,
                                     title: 'Revisions',
-                                    path: '/proposition/'+this.$route.params.id+'/layout/revisions',
+                                    path: '/proposition/'+this.id+'/layout/revisions',
                                     component: true
                                 },
                             }
@@ -306,7 +310,7 @@
                                 price_definition: {
                                     enabled: true,
                                     title: 'Price Definition',
-                                    path: '/proposition/'+this.$route.params.id+'/final_price/price_definition',
+                                    path: '/proposition/'+this.id+'/final_price/price_definition',
                                     component: true
                                 },
                             }
@@ -320,25 +324,25 @@
                                 print_proof: {
                                     enabled: true,
                                     title: 'Print Proof',
-                                    path: '/proposition/'+this.$route.params.id+'/prepress/print_proof',
+                                    path: '/proposition/'+this.id+'/prepress/print_proof',
                                     component: true
                                 },
                                 print_proof_correction: {
                                     enabled: true,
                                     title: 'Print Proof Correction',
-                                    path: '/proposition/'+this.$route.params.id+'/prepress/print_proof_correction',
+                                    path: '/proposition/'+this.id+'/prepress/print_proof_correction',
                                     component: true
                                 },
                                 print: {
                                     enabled: true,
                                     title: 'Print',
-                                    path: '/proposition/'+this.$route.params.id+'/prepress/print',
+                                    path: '/proposition/'+this.id+'/prepress/print',
                                     component: true
                                 },
                                 warehouse: {
                                     enabled: true,
                                     title: 'Warehouse',
-                                    path: '/proposition/'+this.$route.params.id+'/prepress/warehouse',
+                                    path: '/proposition/'+this.id+'/prepress/warehouse',
                                     component: true
                                 },
                             }
@@ -352,13 +356,13 @@
                                 multimedia: {
                                     enabled: true,
                                     title: 'Multimedia',
-                                    path: '/proposition/'+this.$route.params.id+'/additionals/multimedia',
+                                    path: '/proposition/'+this.id+'/additionals/multimedia',
                                     component: true
                                 },
                                 marketing: {
                                     enabled: true,
                                     title: 'Marketing',
-                                    path: '/proposition/'+this.$route.params.id+'/additionals/marketing',
+                                    path: '/proposition/'+this.id+'/additionals/marketing',
                                     component: true
                                 },
                             }

@@ -1,9 +1,17 @@
 import axios from 'axios';
 import _ from 'lodash';
 
+import basic_data from './proposition/basic_data'
+import start from './proposition/start'
+
 export default {
     namespaced: true,
+    modules: {
+        start: start,
+        basic_data : basic_data
+    },
     state: {
+        id: 0,
         proposition: {
             loaded: false,
             assigned: {
@@ -155,6 +163,10 @@ export default {
         error: ''
     },
     mutations: {
+        setId(state, id) {
+            state.id = id;
+        },
+
         updateProposition(state, payload) {
             if (payload.group) {
                 state.proposition[payload.group][payload.key] = payload.value;
