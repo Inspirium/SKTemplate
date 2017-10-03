@@ -45,115 +45,119 @@
                 </div>
             </div>
         </div>
-        
-        <div class="page-name-xl mb-1 mt-3">@lang('New Editions')</div>
-        <div class="card-box">
-            <div class="row">
-                <!--/.Card--> 
-                <div class="col-md-3 align-self-end">
-                    <!--Card-->
-                    <a class="card mb-4">
-                        <!--Card image-->
-                        <img class="img-fluid" src="images/061809.jpg" alt="Card image cap">
 
-                        <!--Card content-->
-                        <div class="card-body">
-                            <!--Title-->
-                            <h4 class="card-title">Alfabetist</h4>
-                            <!--Text-->
-                            <div class="card-text"><span class="font-weight-bold">Autor: </span>Torsten Petterson</div>
-                            <div class="card-text"><span class="font-weight-bold">Završeno: </span>21. 11. 2017.</div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-name-xl mb-1 mt-3">@lang('New Editions')</div>
+                <div class="card-box">
+                    <div class="row">
+                        <!--/.Card--> 
+                        <div class="col-md-3 align-self-end">
+                            <!--Card-->
+                            <a class="card mb-4">
+                                <!--Card image-->
+                                <img class="img-fluid" src="images/061809.jpg" alt="Card image cap">
+
+                                <!--Card content-->
+                                <div class="card-body">
+                                    <!--Title-->
+                                    <h4 class="card-title">Alfabetist</h4>
+                                    <!--Text-->
+                                    <div class="card-text"><span class="font-weight-bold">Autor: </span>Torsten Petterson</div>
+                                    <div class="card-text"><span class="font-weight-bold">Završeno: </span>21. 11. 2017.</div>
+                                </div>
+                            </a>
                         </div>
-                    </a>
-                </div>
-                <!--/.Card--> 
-                <div class="col-md-3 align-self-end">
-                    <!--Card-->
-                    <a class="card mb-4">
-                        <!--Card image-->
-                        <img class="img-fluid" src="images/061756.jpg" alt="Card image cap">
+                        <!--/.Card--> 
+                        <div class="col-md-3 align-self-end">
+                            <!--Card-->
+                            <a class="card mb-4">
+                                <!--Card image-->
+                                <img class="img-fluid" src="images/061756.jpg" alt="Card image cap">
 
-                        <!--Card content-->
-                        <div class="card-body">
-                            <!--Title-->
-                            <h4 class="card-title">Alfabetist</h4>
-                            <!--Text-->
-                            <div class="card-text"><span class="font-weight-bold">Autor: </span>Torsten Petterson</div>
-                            <div class="card-text"><span class="font-weight-bold">Završeno: </span>21. 11. 2017.</div>
+                                <!--Card content-->
+                                <div class="card-body">
+                                    <!--Title-->
+                                    <h4 class="card-title">Alfabetist</h4>
+                                    <!--Text-->
+                                    <div class="card-text"><span class="font-weight-bold">Autor: </span>Torsten Petterson</div>
+                                    <div class="card-text"><span class="font-weight-bold">Završeno: </span>21. 11. 2017.</div>
+                                </div>
+                            </a>
                         </div>
-                    </a>
-                </div>
-                <!--/.Card--> 
-                <div class="col-md-3 align-self-end">
-                    <!--Card-->
-                    <a class="card mb-4">
-                        <!--Card image-->
-                        <img class="img-fluid" src="images/061735.jpg" alt="Card image cap">
+                        <!--/.Card--> 
+                        <div class="col-md-3 align-self-end">
+                            <!--Card-->
+                            <a class="card mb-4">
+                                <!--Card image-->
+                                <img class="img-fluid" src="images/061735.jpg" alt="Card image cap">
 
-                        <!--Card content-->
-                        <div class="card-body">
-                            <!--Title-->
-                            <h4 class="card-title">Alfabetist</h4>
-                            <!--Text-->
-                            <div class="card-text"><span class="font-weight-bold">Autor: </span>Torsten Petterson</div>
-                            <div class="card-text"><span class="font-weight-bold">Završeno: </span>21. 11. 2017.</div>
+                                <!--Card content-->
+                                <div class="card-body">
+                                    <!--Title-->
+                                    <h4 class="card-title">Alfabetist</h4>
+                                    <!--Text-->
+                                    <div class="card-text"><span class="font-weight-bold">Autor: </span>Torsten Petterson</div>
+                                    <div class="card-text"><span class="font-weight-bold">Završeno: </span>21. 11. 2017.</div>
+                                </div>
+                            </a>
                         </div>
-                    </a>
-                </div>
-                <!--/.Card--> 
-                <div class="col-md-3 align-self-end">
-                    <!--Card-->
-                    <a class="card mb-4">
-                        <!--Card image-->
-                        <img class="img-fluid" src="images/061809.jpg" alt="Card image cap">
+                        <!--/.Card--> 
+                        <div class="col-md-3 align-self-end">
+                            <!--Card-->
+                            <a class="card mb-4">
+                                <!--Card image-->
+                                <img class="img-fluid" src="images/061809.jpg" alt="Card image cap">
 
-                        <!--Card content-->
-                        <div class="card-body">
-                            <!--Title-->
-                            <h4 class="card-title">Alfabetist</h4>
-                            <!--Text-->
-                            <div class="card-text"><span class="font-weight-bold">Autor: </span>Torsten Petterson</div>
-                            <div class="card-text"><span class="font-weight-bold">Završeno: </span>21. 11. 2017.</div>
+                                <!--Card content-->
+                                <div class="card-body">
+                                    <!--Title-->
+                                    <h4 class="card-title">Alfabetist</h4>
+                                    <!--Text-->
+                                    <div class="card-text"><span class="font-weight-bold">Autor: </span>Torsten Petterson</div>
+                                    <div class="card-text"><span class="font-weight-bold">Završeno: </span>21. 11. 2017.</div>
+                                </div>
+                            </a>
                         </div>
-                    </a>
-                </div>
-                <!--/.Card--> 
-                <div class="col-md-3 align-self-end">
-                    <!--Card-->
-                    <a class="card mb-4">
-                        <!--Card image-->
-                        <img class="img-fluid" src="images/061756.jpg" alt="Card image cap">
+                        <!--/.Card--> 
+                        <div class="col-md-3 align-self-end">
+                            <!--Card-->
+                            <a class="card mb-4">
+                                <!--Card image-->
+                                <img class="img-fluid" src="images/061756.jpg" alt="Card image cap">
 
-                        <!--Card content-->
-                        <div class="card-body">
-                            <!--Title-->
-                            <h4 class="card-title">Alfabetist</h4>
-                            <!--Text-->
-                            <div class="card-text"><span class="font-weight-bold">Autor: </span>Torsten Petterson</div>
-                            <div class="card-text"><span class="font-weight-bold">Završeno: </span>21. 11. 2017.</div>
+                                <!--Card content-->
+                                <div class="card-body">
+                                    <!--Title-->
+                                    <h4 class="card-title">Alfabetist</h4>
+                                    <!--Text-->
+                                    <div class="card-text"><span class="font-weight-bold">Autor: </span>Torsten Petterson</div>
+                                    <div class="card-text"><span class="font-weight-bold">Završeno: </span>21. 11. 2017.</div>
+                                </div>
+                            </a>
                         </div>
-                    </a>
-                </div>
-                <!--/.Card--> 
-                <div class="col-md-3 align-self-end">
-                    <!--Card-->
-                    <a class="card mb-4">
-                        <!--Card image-->
-                        <img class="img-fluid" src="images/061735.jpg" alt="Card image cap">
+                        <!--/.Card--> 
+                        <div class="col-md-3 align-self-end">
+                            <!--Card-->
+                            <a class="card mb-4">
+                                <!--Card image-->
+                                <img class="img-fluid" src="images/061735.jpg" alt="Card image cap">
 
-                        <!--Card content-->
-                        <div class="card-body">
-                            <!--Title-->
-                            <h4 class="card-title">Alfabetist</h4>
-                            <!--Text-->
-                            <div class="card-text"><span class="font-weight-bold">Autor: </span>Torsten Petterson</div>
-                            <div class="card-text"><span class="font-weight-bold">Završeno: </span>21. 11. 2017.</div>
+                                <!--Card content-->
+                                <div class="card-body">
+                                    <!--Title-->
+                                    <h4 class="card-title">Alfabetist</h4>
+                                    <!--Text-->
+                                    <div class="card-text"><span class="font-weight-bold">Autor: </span>Torsten Petterson</div>
+                                    <div class="card-text"><span class="font-weight-bold">Završeno: </span>21. 11. 2017.</div>
+                                </div>
+                            </a>
                         </div>
-                    </a>
+
+
+
+                    </div>
                 </div>
-                
-
-
             </div>
         </div>
     </div>

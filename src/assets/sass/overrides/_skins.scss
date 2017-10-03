@@ -25,8 +25,12 @@ $sk-skin-btn-default: #293756;
         padding-right: 15px;
         padding-top: 15px;
     }
-    .router-view {
-        padding-left: 15px;
+    .container-fluid {
+        padding-left: 260px;
+        padding-right: 0;
+        .content {
+            padding: 0 15px;
+        }
     }
     .gradient {
         background: $sk-skin-gradient-start;
@@ -817,13 +821,13 @@ $sk-skin-btn-default: #293756;
         }
     }
     .quick-box {
-        width: 100%;
         min-height: 35vh;
         background-image: url(images/book_index.jpg);
         background-position: bottom;
         background-size: cover;
         background-repeat: no-repeat;
         display: flex;
+        margin: 0 -15px;
         .quick-links {
             align-items: flex-end;
             width: 100%;
