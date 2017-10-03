@@ -51,7 +51,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <!-- Textarea -->
-                    <div class="md-form">
+                    <div class="md-form mt-4">
                         <textarea id="form76" class="md-textarea" v-bind:value="expenses.note"></textarea>
                         <label for="form76">{{ lang('Note') }}</label>
                     </div>

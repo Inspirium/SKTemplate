@@ -464,6 +464,7 @@ $sk-skin-btn-default: #293756;
             border: none;
             .modal-header {
                 background-color: $sk-skin-background;
+                box-shadow: none;
                 .fa {
                     color: $color-body_text;
                 }
@@ -476,6 +477,8 @@ $sk-skin-btn-default: #293756;
                     padding: 5px 15px 5px 15px;
                     color: $sk-skin-background;
                     text-shadow: none;
+                    cursor: pointer;
+                    
                 }
             }
         }
@@ -861,6 +864,17 @@ $sk-skin-btn-default: #293756;
                     text-align: center;
                     padding-bottom: 1rem;
                 }
+            }
+        }
+    }
+    #toast-container > div {
+        top: 75px;
+    }
+    .card-box {
+        padding: 30px;
+        .card-title {
+            &:hover {
+                color: $info-color;
             }
         }
     }

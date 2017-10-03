@@ -1,7 +1,7 @@
 <template>
     <div>
     <div class="btn-footer mt-4 mb-5 flex-column flex-md-row d-flex p-2">
-        <button class="btn btn-lg btn-save" v-on:click="saveProposition">{{ lang('Save') }}</button>
+        <button onclick="toastr.info('Hi! I am info message.');" class="btn btn-lg btn-save" v-on:click="saveProposition">{{ lang('Save') }}</button>
         <button class="btn btn-lg btn-assign btn-assign-icon" v-on:click="assignModalOpen">{{ lang('Assign to...') }}</button>
     </div>
         <!-- Central Modal Medium Assign Tab -->
