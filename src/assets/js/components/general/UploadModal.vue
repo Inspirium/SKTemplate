@@ -174,7 +174,7 @@
             },
             closeModal() {
                 this.files = [];
-                jQuery('#'+id).modal('hide');
+                jQuery('#'+this.id).modal('hide');
             }
         }
     }
