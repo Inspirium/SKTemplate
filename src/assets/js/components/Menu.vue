@@ -29,7 +29,6 @@
                 return this.$route.path.split('/');
             },
             id: function() {
-                console.log(this.$store.state.proposition);
                 return this.$store.state.proposition.id;
             },
             editing_proposition: function() {
@@ -431,7 +430,7 @@
                                 add_new: {
                                     enabled: true,
                                     title: 'Add new',
-                                    path: '/proposition/basic_data'
+                                    path: '/proposition/start'
                                 }
                             }
                         },

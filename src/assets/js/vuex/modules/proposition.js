@@ -194,6 +194,7 @@ export default {
                 state.proposition[key] = value;
             });
             state.proposition.loaded = true;
+            state.id = payload.id;
         },
         error(state, error) {
             state.error = error;
