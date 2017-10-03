@@ -48,8 +48,9 @@
         </div>
         <div class="tab-pane fade" v-bind:id="'panel'+(index+1)" role="tabpanel" v-for="(option, key, index) in options" v-bind:key="key">
             <div class="profile-head">
-                <div class="row">
-                    <div class="col-md-4 offset-md-4">
+                <div class="row justify-content-center pt-4">
+                    <div class="col-md-4">
+                        <div class=" page-name-l-white border-white text-white mb-3 text-center">{{ lang('Direct Cost Cover') }}</div>
                         <div class="md-form">
                             <input type="text" class="form-control" v-model="option.price_proposal">
                             <label>{{ lang('Price proposal') }}</label>
@@ -76,150 +77,6 @@
                 </div>
             </div>
             <div class="">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="page-name-xl mb-2 mt-3 mt-2">{{ option.title }}</div>
-
-                        <!-- First column -->
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="page-name-l mb-4">{{ lang('Book Block') }}</div>
-
-                                <!-- Dropdown menu -->
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <select class="mdb-select" disabled>
-                                            <option disabled >{{ lang('Hard/Soft Cover') }}</option>
-                                            <option value="none" >{{ lang('None') }}</option>
-                                            <option value="hard" >{{ lang('Hard Cover') }}</option>
-                                            <option value="soft" >{{ lang('Soft Cover') }}</option>
-                                            <option value="both" >{{ lang('Hard and Soft Cover') }}</option>
-                                        </select>
-                                        <label>{{ lang('Hard/Soft Cover') }}</label>
-                                    </div>
-                                </div>
-
-                                <!-- Input fileds -->
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="md-form">
-                                            <input type="text" class="form-control" id="soft-cover" disabled v-bind:value="option.soft_cover_circulation">
-                                            <label for="soft-cover" class="">{{ lang('Soft Cover Circulation') }}</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="md-form">
-                                            <input type="text" class="form-control" id="hard-cover" disabled v-bind:value="option.hard_cover_circulation">
-                                            <label for="hard-cover" class="">{{ lang('Hard Cover Circulation') }}</label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <select class="mdb-select" disabled v-bind:value="option.colors">
-                                            <option v-for="(color, index) in option_colors" v-bind:value="index+1">{{ lang(color) }}</option>
-                                        </select>
-                                        <label>{{ lang('Colors') }}</label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <select class="mdb-select" disabled v-bind:value="option.colors_first_page">
-                                            <option v-for="(color, index) in option_colors" v-bind:value="index+1">{{ lang(color) }}</option>
-                                        </select>
-                                        <label>{{ lang('Colors - First Pages') }}</label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <select class="mdb-select" disabled v-bind:value="option.colors_last_page">
-                                            <option v-for="(color, index) in option_colors" v-bind:value="index+1">{{ lang(color) }}</option>
-                                        </select>
-                                        <label>{{ lang('Colors - Last Pages') }}</label>
-                                    </div>
-                                </div>
-                                <div class="md-form">
-                                    <input type="text" class="form-control" disabled v-bind:value="option.additional_work">
-                                    <label class="">{{ lang('Additional Work') }}</label>
-                                </div>
-                            </div>
-
-                            <!-- Second column -->
-                            <div class="col-md-6">
-                                <div class="page-name-l mb-4">{{ lang('Cover') }}</div>
-
-                                <!-- Dropdown menu -->
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="md-form">
-                                        <input class="form-control" disabled v-bind:value="option.cover_paper_type">
-                                        <label>{{ lang('Paper Type') }}</label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Input fileds -->
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <select class="mdb-select" disabled v-bind:value="option.cover_colors">
-                                            <option v-for="(color, index) in option_colors" v-bind:value="index+1">{{ lang(color) }}</option>
-                                        </select>
-                                        <label>{{ lang('Colors') }}</label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <select class="mdb-select" disabled v-bind:value="option.cover_plastification">
-                                            <option value="none">{{ lang('None') }}</option>
-                                            <option value="glossy">{{ lang('Glossy plastification') }}</option>
-                                            <option value="mat">{{ lang('Mat plastification') }}</option>
-                                        </select>
-                                        <label>{{ lang('Plastification') }}</label>
-                                    </div>
-                                </div>
-
-                                <!--/. Checkbox -->
-                                <div class="page-name-m">{{ lang('Film Print') }}</div>
-                                <div class="form-inline mb-3">
-                                    {{  }}
-                                    <fieldset class="form-group">
-                                        <input v-bind:name="'film_print'+index" type="radio" v-bind:id="'film_print_no'+index" value="no" disabled v-model="option.film_print">
-                                        <label v-bind:for="'film_print_no'+index">{{ lang('No') }}</label>
-                                    </fieldset>
-                                    <fieldset class="form-group">
-                                        <input v-bind:name="'film_print'+index" type="radio" v-bind:id="'film_print_yes'+index" value="yes" disabled v-model="option.film_print">
-                                        <label v-bind:for="'film_print_yes'+index">{{ lang('Yes') }}</label>
-                                    </fieldset>
-                                </div>
-
-                                <div class="page-name-m">{{ lang('Blind Print') }}</div>
-                                <div class="form-inline mb-3">
-                                    <fieldset class="form-group">
-                                        <input v-bind:name="'blind_print'+index" type="radio" v-bind:id="'blind_print_no'+index" value="no" disabled v-model="option.blind_print">
-                                        <label v-bind:for="'blind_print_no'+index">{{ lang('No') }}</label>
-                                    </fieldset>
-                                    <fieldset class="form-group">
-                                        <input v-bind:name="'blind_print'+index" type="radio" v-bind:id="'blind_print_yes'+index" value="yes" disabled v-model="option.blind_print">
-                                        <label v-bind:for="'blind_print_yes'+index">{{ lang('Yes') }}</label>
-                                    </fieldset>
-                                </div>
-
-                                <div class="page-name-m">{{ lang('UV Film') }}</div>
-                                <div class="form-inline mb-3">
-                                    <fieldset class="form-group">
-                                        <input v-bind:name="'uv_print'+index" type="radio" v-bind:id="'uv_film_no'+index" value="no" disabled v-model="option.uv_print">
-                                        <label v-bind:for="'uv_film_no'+index">{{ lang('No') }}</label>
-                                    </fieldset>
-                                    <fieldset class="form-group">
-                                        <input v-bind:name="'uv_print'+index" type="radio" v-bind:id="'uv_film_yes'+index" value="yes" disabled v-model="option.uv_print">
-                                        <label v-bind:for="'uv_film_yes'+index">{{ lang('Yes') }}</label>
-                                    </fieldset>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <!-- Table -->
                 <div class="page-name-xl mb-1">{{ lang('Calculation') }}</div>
                 <table class="table">
@@ -419,6 +276,150 @@
                     </tbody>
                 </table>
 
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="page-name-xl mb-2 mt-3 mt-2">{{ option.title }}</div>
+
+                        <!-- First column -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="page-name-l mb-4">{{ lang('Book Block') }}</div>
+
+                                <!-- Dropdown menu -->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <select class="mdb-select" disabled>
+                                            <option disabled >{{ lang('Hard/Soft Cover') }}</option>
+                                            <option value="none" >{{ lang('None') }}</option>
+                                            <option value="hard" >{{ lang('Hard Cover') }}</option>
+                                            <option value="soft" >{{ lang('Soft Cover') }}</option>
+                                            <option value="both" >{{ lang('Hard and Soft Cover') }}</option>
+                                        </select>
+                                        <label>{{ lang('Hard/Soft Cover') }}</label>
+                                    </div>
+                                </div>
+
+                                <!-- Input fileds -->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="md-form">
+                                            <input type="text" class="form-control" id="soft-cover" disabled v-bind:value="option.soft_cover_circulation">
+                                            <label for="soft-cover" class="">{{ lang('Soft Cover Circulation') }}</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="md-form">
+                                            <input type="text" class="form-control" id="hard-cover" disabled v-bind:value="option.hard_cover_circulation">
+                                            <label for="hard-cover" class="">{{ lang('Hard Cover Circulation') }}</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <select class="mdb-select" disabled v-bind:value="option.colors">
+                                            <option v-for="(color, index) in option_colors" v-bind:value="index+1">{{ lang(color) }}</option>
+                                        </select>
+                                        <label>{{ lang('Colors') }}</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <select class="mdb-select" disabled v-bind:value="option.colors_first_page">
+                                            <option v-for="(color, index) in option_colors" v-bind:value="index+1">{{ lang(color) }}</option>
+                                        </select>
+                                        <label>{{ lang('Colors - First Pages') }}</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <select class="mdb-select" disabled v-bind:value="option.colors_last_page">
+                                            <option v-for="(color, index) in option_colors" v-bind:value="index+1">{{ lang(color) }}</option>
+                                        </select>
+                                        <label>{{ lang('Colors - Last Pages') }}</label>
+                                    </div>
+                                </div>
+                                <div class="md-form">
+                                    <input type="text" class="form-control" disabled v-bind:value="option.additional_work">
+                                    <label class="">{{ lang('Additional Work') }}</label>
+                                </div>
+                            </div>
+
+                            <!-- Second column -->
+                            <div class="col-md-6">
+                                <div class="page-name-l mb-4">{{ lang('Cover') }}</div>
+
+                                <!-- Dropdown menu -->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="md-form">
+                                        <input class="form-control" disabled v-bind:value="option.cover_paper_type">
+                                        <label>{{ lang('Paper Type') }}</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Input fileds -->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <select class="mdb-select" disabled v-bind:value="option.cover_colors">
+                                            <option v-for="(color, index) in option_colors" v-bind:value="index+1">{{ lang(color) }}</option>
+                                        </select>
+                                        <label>{{ lang('Colors') }}</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <select class="mdb-select" disabled v-bind:value="option.cover_plastification">
+                                            <option value="none">{{ lang('None') }}</option>
+                                            <option value="glossy">{{ lang('Glossy plastification') }}</option>
+                                            <option value="mat">{{ lang('Mat plastification') }}</option>
+                                        </select>
+                                        <label>{{ lang('Plastification') }}</label>
+                                    </div>
+                                </div>
+
+                                <!--/. Checkbox -->
+                                <div class="page-name-m">{{ lang('Film Print') }}</div>
+                                <div class="form-inline mb-3">
+                                    {{  }}
+                                    <fieldset class="form-group">
+                                        <input v-bind:name="'film_print'+index" type="radio" v-bind:id="'film_print_no'+index" value="no" disabled v-model="option.film_print">
+                                        <label v-bind:for="'film_print_no'+index">{{ lang('No') }}</label>
+                                    </fieldset>
+                                    <fieldset class="form-group">
+                                        <input v-bind:name="'film_print'+index" type="radio" v-bind:id="'film_print_yes'+index" value="yes" disabled v-model="option.film_print">
+                                        <label v-bind:for="'film_print_yes'+index">{{ lang('Yes') }}</label>
+                                    </fieldset>
+                                </div>
+
+                                <div class="page-name-m">{{ lang('Blind Print') }}</div>
+                                <div class="form-inline mb-3">
+                                    <fieldset class="form-group">
+                                        <input v-bind:name="'blind_print'+index" type="radio" v-bind:id="'blind_print_no'+index" value="no" disabled v-model="option.blind_print">
+                                        <label v-bind:for="'blind_print_no'+index">{{ lang('No') }}</label>
+                                    </fieldset>
+                                    <fieldset class="form-group">
+                                        <input v-bind:name="'blind_print'+index" type="radio" v-bind:id="'blind_print_yes'+index" value="yes" disabled v-model="option.blind_print">
+                                        <label v-bind:for="'blind_print_yes'+index">{{ lang('Yes') }}</label>
+                                    </fieldset>
+                                </div>
+
+                                <div class="page-name-m">{{ lang('UV Film') }}</div>
+                                <div class="form-inline mb-3">
+                                    <fieldset class="form-group">
+                                        <input v-bind:name="'uv_print'+index" type="radio" v-bind:id="'uv_film_no'+index" value="no" disabled v-model="option.uv_print">
+                                        <label v-bind:for="'uv_film_no'+index">{{ lang('No') }}</label>
+                                    </fieldset>
+                                    <fieldset class="form-group">
+                                        <input v-bind:name="'uv_print'+index" type="radio" v-bind:id="'uv_film_yes'+index" value="yes" disabled v-model="option.uv_print">
+                                        <label v-bind:for="'uv_film_yes'+index">{{ lang('Yes') }}</label>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
 

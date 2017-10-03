@@ -46,7 +46,7 @@
                 </div>
                 </template>
             <!-- Add new item -->
-            <button class="btn btn-neutral btn-addon mb-3" type="button" v-on:click="addExpense(author.id)">{{ lang('Add New Expense') }}</button>
+            <button class="btn btn-neutral btn-addon mb-5" type="button" v-on:click="addExpense(author.id)">{{ lang('Add New Expense') }}</button>
             </template>
             <div class="row">
                 <div class="col-md-12">

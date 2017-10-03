@@ -456,6 +456,14 @@ $sk-skin-btn-default: #293756;
     .tabs-wrapper {
         margin-top: -15px;
     }
+    .classic-tabs {
+        li {
+            a {
+                font-size: 1.3rem;
+                padding-top: 32px;
+            }
+        }
+    }
 
     /* Modal */
     .modal {
@@ -811,7 +819,7 @@ $sk-skin-btn-default: #293756;
     .quick-box {
         width: 100%;
         min-height: 35vh;
-       /* background-image: url(images/book_index.jpg);*/
+        background-image: url(images/book_index.jpg);
         background-position: bottom;
         background-size: cover;
         background-repeat: no-repeat;
