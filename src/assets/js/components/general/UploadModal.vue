@@ -77,7 +77,7 @@
             },
             id: {
                 type: String,
-                default: 'upload-module'
+                default: 'upload-modal'
             }
         },
         data: function() {
@@ -174,7 +174,7 @@
             },
             closeModal() {
                 this.files = [];
-                jQuery('#upload-modal').modal('hide');
+                jQuery('#'+id).modal('hide');
             }
         }
     }

@@ -15,14 +15,26 @@
             </div>
 
             <div class="justify-content-center d-flex mb-4">
-                <button type="button" class="btn btn-neutral" v-on:click="documentAdd">{{ lang('Upload') }}</button>
+                <button type="button" class="btn btn-neutral" v-on:click="documentAdd('initial-documents')">{{ lang('Upload') }}</button>
             </div>
             <div class="modal-footer btn-footer">
                 <button type="button" class="btn btn-lg btn-save" v-on:click="saveFiles">{{ lang('Save') }}</button>
             </div>
+
             <div class="page-name-xl mb-4 mt-5">{{ lang('Final Document') }}</div>
+        <div class="files mt-2 mb-2">
+            <div class="file-box file-box-l d-flex align-items-center" v-for="file in final">
+                <a v-bind:href="file.link" v-on:click.prevent="documentDownload(file.link)" class="file-icon">{{ file.title }}</a>
+                <div class="file-box-sty ml-auto d-flex">
+                    <a v-bind:href="'human_resources/employee/show/'+file.owner.id"><img class="profile-m-1 mr-1 align-self-center" v-bind:src="file.owner.image">{{ file.owner.name }}</a>
+                </div>
+                <div class="file-box-sty">{{ file.created_at.date | moment('DD.MM.YYYY.') }}</div>
+                <div class="file-box-sty icon icon-download" v-on:click="documentDownload(file.link)">Preuzmi</div>
+                <div class="file-box-sty icon icon-cancel" v-on:click="fileDelete(file.id)">Obriši</div>
+            </div>
+        </div>
                 <div class="justify-content-center d-flex mb-4">
-                    <button type="button" class="btn btn-neutral" v-on:click="documentAdd">{{ lang('Upload') }}</button>
+                    <button type="button" class="btn btn-neutral" v-on:click="documentAdd('final-document')">{{ lang('Upload') }}</button>
                 </div>
             <div class="modal-footer btn-footer">
                 <button type="button" class="btn btn-lg btn-save" v-on:click="saveFiles">{{ lang('Save') }}</button>
@@ -45,8 +57,8 @@
         },
         computed: {},
         methods: {
-            documentAdd: function() {
-                jQuery('#upload-modal').modal('show');
+            documentAdd: function(modal) {
+                jQuery('#'+modal).modal('show');
             },
             documentDownload: function(link) {
                 window.open(link, "_blank");
@@ -75,7 +87,7 @@
                 });
             },
             saveFiles: function() {
-                axios.post('/api/proposition/' + this.$route.params.id + '/files/' + this.$route.meta.dir, {initila:this.files, final: this.final})
+                axios.post('/api/proposition/' + this.$route.params.id + '/files/' + this.$route.meta.dir, {initial:this.files, final: this.final})
                     .then((res) => {
 
                     });
@@ -85,6 +97,7 @@
             axios.get('/api/proposition/' + this.$route.params.id + '/files/' + this.$route.meta.dir)
                 .then((res) => {
                 this.files = res.data.files;
+                this.final = res.data.final;
                 })
         }
     }
