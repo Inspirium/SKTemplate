@@ -10,19 +10,19 @@
         <div class="profile-head pb-2 row">
            <div class="col-md-3">
                 <h6 class="white-label">{{ lang('Budget') }}</h6>
-                <h3 class="mb-1 text-white">123.450 kn</h3>
+                <h3 class="mb-1 text-white">{{ total_budget }} kn</h3>
            </div>
            <div class="col-md-3">
                 <h6 class="white-label">{{ lang('Expenses') }}</h6>
-                <h3 class="mb-1 text-white">155.446 kn</h3>
+                <h3 class="mb-1 text-white">{{ total_expenses }} kn</h3>
            </div>
            <div class="col-md-3">
                 <h6 class="white-label">{{ lang('Difference') }}</h6>
-                <h3 class="mb-1 text-white">22.985 kn</h3>
+                <h3 class="mb-1 text-white">{{ total_difference }} kn</h3>
            </div>
            <div class="col-md-3">
                 <h6 class="white-label">{{ lang('Difference in precentage') }}</h6>
-                <h3 class="mb-1 text-white">18%</h3>
+                <h3 class="mb-1 text-white">{{ total_percent_difference }}%</h3>
            </div>
         </div>
 
@@ -43,7 +43,7 @@
             <tr v-for="author in authors">
                 <th scope="row">1</th>
                 <td>{{ author.name }}</td>
-                <td>{{ author_expenses }} kn</td>
+                <td>{{ author_expenses[author.id] }} kn</td>
                 <td>15.500 kn</td>
                 <td>5.500 kn</td>
                 <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
@@ -377,7 +377,11 @@
                 return this.$deepModel('proposition.proposition.basic_data.authors');
             },
             author_expenses() {
-                this.$deepModel('proposition.proposition.authors_expense');
+                _.mapValues(this.$store.state.proposition.proposition.authors_expense, (a) => {
+                    return Number(a.amount) + Number(_.sumBy(a.additional_expenses, (a) => {
+                        return Number(a.amount);
+                    }) );
+                });
             },
             production_expense() {
                 return this.$deepModel('proposition.proposition.production_expense');
@@ -389,6 +393,39 @@
             additional_expense() {
                 return _.sumBy(this.production_expense.additional_expense, (o) => {return Number(o.amount)});
             },
+            total_budget() {
+                let total_authors = 0;
+                if (this.author_expenses) {
+                    total_authors = Object.values(this.author_expenses).reduce((a, b) => a + b);
+                }
+                return total_authors + this.production_expense.text_price * this.production_expense.text_price_amount +
+                    this.production_expense.reviews +
+                    this.production_expense.lecture * this.production_expense.lecture_amount +
+                    this.production_expense.correction * this.production_expense.correction_amount +
+                    this.production_expense.proofreading * this.production_expense.proofreading_amount +
+                    this.production_expense.translation * this.production_expense.translation_amount +
+                    this.production_expense.index * this.production_expense.index_amount +
+                    this.production_expense.epilogue +
+                    this.production_expense.photos * this.production_expense.photos_amount +
+                    this.production_expense.illustrations * this.production_expense.illustrations_amount +
+                    this.production_expense.technical_drawings * this.production_expense.technical_drawings_amount +
+                    this.production_expense.expert_report +
+                    this.production_expense.copyright +
+                    this.production_expense.copyright_mediator +
+                    this.production_expense.methodical_instrumentarium +
+                    this.production_expense.selection +
+                    this.production_expense.powerpoint_presentation +
+                    this.additional_expense + this.marketing_expense;
+            },
+            total_expenses() {
+                return Object.values(this.expenses).reduce((a, b) => a + b);
+            },
+            total_difference() {
+                return this.total_budget - this.total_expenses;
+            },
+            total_percent_difference() {
+                return Math.round( this.total_difference / this.total_budget * 100 );
+            }
         },
         methods: {
             editField: function(field) {
