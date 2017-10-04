@@ -101,6 +101,7 @@
     
 </template>
 <script>
+    import FooterButtons from './partials/FooterButtons.vue'
     export default {
         data: function () {
             return {}

@@ -41,7 +41,7 @@
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <button class="btn btn-danger" v-on:click="deleteExpense(author.id, i)">{{ lang('Delete Expense') }}</button>
+                        <button class="btn btn-danger btn-addon" v-on:click="deleteExpense(author.id, i)">{{ lang('Delete Expense') }}</button>
                     </div>
                 </div>
                 </template>
@@ -76,7 +76,7 @@
             </div>
         </div>
         <div class="col-md-4">
-            <button class="btn btn-danger btn-addon" v-on:click="deleteOtherExpense(i)">{{ lang('Delete Expense') }}</button>
+            <button class="btn btn-danger btn-addon btn-addon" v-on:click="deleteOtherExpense(i)">{{ lang('Delete Expense') }}</button>
         </div>
     </div>
     <button class="btn btn-neutral btn-addon" type="button" v-on:click="addOtherExpense">{{ lang('Add New Author Expense') }}</button>

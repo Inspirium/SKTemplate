@@ -32,6 +32,11 @@ $sk-skin-btn-default: #293756;
             padding: 0 15px;
         }
     }
+    @media only screen and (max-width : 1440px) {
+        header, .container-fluid, .main-content {
+            padding-left: 0;
+        }
+    }
     .gradient {
         background: $sk-skin-gradient-start;
         /* Old browsers */
@@ -143,6 +148,7 @@ $sk-skin-btn-default: #293756;
                     line-height: 45px;
                     font-size: 0.8rem;
                     height: 45px;
+                    padding-left: 16px;
                     &.active {
                         background-color: lighten($sk-skin-flat, 7%);
                     }
@@ -510,7 +516,8 @@ $sk-skin-btn-default: #293756;
                 text-align: left;
             }
         }
-        &#upload-modal {
+        &#upload-modal,
+        &#initial-documents {
             input[type="text"] {
                 background-color: transparent;
                 border: none;
@@ -880,7 +887,6 @@ $sk-skin-btn-default: #293756;
         }
     }
     #toast-container > div {
-        top: 75px;
     }
     .card-box {
         padding: 30px;

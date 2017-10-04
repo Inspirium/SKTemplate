@@ -33,7 +33,7 @@
 
     <!-- Input field -->
     <div class="page-name-l mb-1">{{ lang('Additional Expenses') }}</div>
-        <div class="row" v-for="(a, i) in expenses.additional_expense" v-bind:key="i">
+        <div class="row mt-4" v-for="(a, i) in expenses.additional_expense" v-bind:key="i">
             <div class="col-md-4">
                 <div class="md-form d-flex addon">
                     <input type="text" class="form-control" v-bind:placeholder="lang('Expense Name')" v-model="expenses.additional_expense[i].expense">
@@ -47,7 +47,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <button class="btn btn-danger" v-on:click="deleteExpense(i)">{{ lang('Delete Expense') }}</button>
+                <button class="btn btn-danger btn-addon" v-on:click="deleteExpense(i)">{{ lang('Delete Expense') }}</button>
             </div>
         </div>
     <button class="btn btn-neutral btn-addon" type="button" v-on:click="addExpense">{{ lang('Add New Expense') }}</button>

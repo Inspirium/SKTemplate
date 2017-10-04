@@ -50,10 +50,9 @@
             <div class="profile-head">
                 <div class="row justify-content-center pt-4">
                     <div class="col-md-4">
-                        <div class=" page-name-l-white border-white text-white mb-3 text-center">{{ lang('Direct Cost Cover') }}</div>
+                        <div class=" page-name-l-white border-white text-white mb-3 text-center">{{ lang('Price Proposal') }}</div>
                         <div class="md-form">
                             <input type="text" class="form-control" v-model="option.price_proposal">
-                            <label>{{ lang('Price proposal') }}</label>
                         </div>
                     </div>
                 </div>
@@ -78,7 +77,7 @@
             </div>
             <div class="">
                 <!-- Table -->
-                <div class="page-name-xl mb-1">{{ lang('Calculation') }}</div>
+                <div class="page-name-xl mb-1 mt-4">{{ lang('Calculation') }}</div>
                 <table class="table">
                     <thead class="thead-inverse">
                     <tr>
@@ -278,7 +277,7 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="page-name-xl mb-2 mt-3 mt-2">{{ option.title }}</div>
+                        <div class="page-name-xl mb-2 mt-3 mt-2">{{ lang('Circulation — ') }}{{ option.title }}</div>
 
                         <!-- First column -->
                         <div class="row">
