@@ -463,14 +463,10 @@ $sk-skin-btn-default: #293756;
         }
     }
     /* Tabs */
-    .tabs-wrapper {
-        margin-top: -15px;
-    }
     .classic-tabs {
         li {
             a {
                 font-size: 1.3rem;
-                padding-top: 32px;
             }
         }
     }
@@ -887,6 +883,7 @@ $sk-skin-btn-default: #293756;
         }
     }
     #toast-container > div {
+        opacity: .95;
     }
     .card-box {
         padding: 30px;

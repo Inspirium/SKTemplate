@@ -1,6 +1,8 @@
 <template>
     <div>
     <div class="btn-footer mt-4 mb-5 flex-column flex-md-row d-flex p-2">
+           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-warning">Upozorenje modal</button>
+
         <button onclick="toastr.warning('Došlo je do problema. Pokušajte ponovno');" class="btn btn-lg btn-save" v-on:click="saveProposition">{{ lang('warning') }}</button>
         <button onclick="toastr.success('Uspješno obavljeno');" class="btn btn-lg btn-save" v-on:click="saveProposition">{{ lang('Save') }}</button>
         <button class="btn btn-lg btn-assign btn-assign-icon" v-on:click="assignModalOpen">{{ lang('Assign to...') }}</button>
@@ -19,7 +21,7 @@
                             <i class="fa fa-user-circle-o fa-4x mb-1 animated rotateInDownLeft"></i>
                             <h1 class="modal-title w-100 text-center">{{ lang('Assign to...') }}</h1>
                         </div>
-                        <h6 class="w-100 text-center mb-4">{{ lang('Assign department or directly employee') }}</h6>
+                        <h6 class="w-100 text-center mb-2">{{ lang('Assign department or directly employee') }}</h6>
                     </div>
 
                     <!-- Nav tabs -->
@@ -87,6 +89,42 @@
             </div>
         </div>
         <!-- Central Modal Medium Assign tab-->
+        
+        <!-- Success Modal -->
+        <div class="modal fade" id="modal-warning" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <!--Content-->
+            <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header flex-column px-3 pt-3">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                    <div class="d-flex">
+                        <i class="fa fa-exclamation-triangle fa-4x animated flash"></i>
+                        <h1 class="modal-title w-100 text-center">{{ lang('Warning') }}</h1>
+                    </div>
+                    <h4 class="w-100 text-center mt-5">{{ lang('Are you sure you want to proceed?') }}</h4>
+                </div>
+                <!--Body-->
+                <div class="modal-body">
+                    <div class="text-center mb-1">
+                    </div>
+                </div>
+                <!--Footer-->
+                <div class="modal-footer btn-footer">
+                    <button type="button" class="btn btn-lg btn-save" v-on:click="closeModal">{{ lang('Yes') }}</button>
+                    <button type="button" class="btn btn-lg btn-cancel" v-on:click="closeModal">{{ lang('No') }}</button>
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+        
+        
+        
+        
+        
     </div>
 </template>
 <script>
