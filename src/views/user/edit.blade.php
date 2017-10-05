@@ -8,7 +8,7 @@
         <div class="col-md-4 order-sm-first">
             <div class="d-flex flex-column align-items-center">
                 <img src="https://www.gravatar.com/avatar/{{ md5( $user->email ) }}?s=300&d=wavatar" href="#" class="profile-xl">
-                <button type="button" class="btn btn-neutral mt-1">@lang('Upload New Image')</button>
+                <button type="button" class="btn btn-neutral btn-addon mt-1">@lang('Upload New Image')</button>
             </div>
         </div>
         <div class="col-md-8">

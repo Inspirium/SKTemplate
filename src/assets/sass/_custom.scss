@@ -813,6 +813,12 @@ label {
     margin-bottom: 0;
 }
 
+form .form-group {
+    label {
+        font-size: .8rem;
+    }
+}
+
 .form-control:focus {
     border-color: $color-table-th;
 }
