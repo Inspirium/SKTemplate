@@ -289,23 +289,28 @@
         <div class="page-name-l mb-4">{{ lang('Additional Expenses') }}</div>
         <template v-for="(item,index) in expense['additional_expense']">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="md-form input-group">
                         <input type="text" class="form-control" v-model="expense['additional_expense['+index+'.expense]']">
                         <label>{{ lang('Expense') }}</label>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="md-form input-group">
                         <input type="text" class="form-control" v-model="expense['additional_expense['+index+'.amount]']">
                         <label>{{ lang('Ammount') }}</label>
                         <span class="input-group-addon">{{ lang('Kn') }}</span>
                     </div>
                 </div>
+                <div class="col-md-4">
+                    <button class="btn btn-danger btn-addon" v-on:click="deleteExpense(index)">{{ lang('Delete Expense') }}</button>
+                </div>
             </div>
         </template>
         <button class="btn btn-neutral btn-addon" type="button" v-on:click="addExpense">{{ lang('Add New Expense') }}</button>
 
+               
+        
 
         <!-- Textarea -->
         <div class="md-form mt-5">

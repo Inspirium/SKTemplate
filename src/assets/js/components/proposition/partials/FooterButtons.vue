@@ -74,6 +74,11 @@
                                     <div class="chip mb-1" v-for="employee in employees">
                                         <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg">{{ employee.name }}<i class="close fa fa-times"></i>
                                     </div>
+                                    <!-- Textarea -->
+                                    <div class="md-form mt-2 mb-2">
+                                        <textarea id="form76" class="md-textarea"></textarea>
+                                        <label for="form76">{{ lang('Task Description') }}</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>

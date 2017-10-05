@@ -18,6 +18,9 @@ $sk-skin-btn-primary: #309e9e;
 $sk-skin-btn-secondary: #324f7b;
 $sk-skin-btn-default: #293756;
 .sk-skin {
+    .file-box a {
+        color: $sk-skin-grey;
+    }
     table.table a {
         color: $sk-skin-grey;
         &:hover {
@@ -404,7 +407,7 @@ $sk-skin-btn-default: #293756;
         &.input-group {
             padding-left: 0;
             .form-control {
-                padding-top: 0;
+                padding-top: 5px;
             }
         }
         .prefix {
@@ -921,6 +924,59 @@ $sk-skin-btn-default: #293756;
             margin-bottom: 4rem;
             border-bottom: 1px dashed lighten($color-sidebar, 70%);
             }
+    }
+    ///Document-File table
+    .file-box {
+        background-color: $white;
+        &> * {
+           margin-right: 1rem; 
+        }
+        .file-box-sty {
+            color: $color-body_text;
+            font-size: .85rem;
+            text-transform: uppercase;
+            border-bottom: none;
+            font-weight: 600;
+            white-space: nowrap;
+            i {
+                font-size: 1.4rem;
+                vertical-align: middle;
+                margin-right: 0.5rem;
+                position: relative;
+                top: -2px;
+            }
+        }
+    }
+    .file-box-l {
+        height: 5.5rem;
+        padding: .7rem;
+        margin-top: .2rem;
+        & > * {
+            border-left: 1px solid $color-mainpanel;
+            line-height: 5.5rem;
+            padding-left: 1rem;
+        }
+        & > *:first-child {
+            border-left: 0;
+            padding-left: 0;
+        }
+    }
+    .file-box-s {
+        height: 3.6rem;
+        padding: .3rem;
+        margin-top: .2rem;
+        & > * {
+            border-left: 1px solid $color-mainpanel;
+            line-height: 3.6rem;
+            padding-left: 1.2rem;
+        }
+        & > *:first-child {
+            border-left: 0;
+            padding-left: 0;
+        }
+    }
+    .files .file-box:first-child {
+        margin-top: 1rem;
     }
 }
 

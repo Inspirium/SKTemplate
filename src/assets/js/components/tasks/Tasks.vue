@@ -27,7 +27,7 @@
                     <th class="display-e w-30">{{ index+1 }}</th>
                     <td class="table-title"><a v-bind:href="'/task/show/'+element.id">{{ element.name }}</a></td>
                     <td><div v-bind:class="task_types[element.type].className">{{ task_types[element.type].title }}</div></td>
-                    <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-1" v-bind:src="element.assigner.image">{{ element.assigner.name }}</a></td>
+                    <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-2" v-bind:src="element.assigner.image">{{ element.assigner.name }}</a></td>
                     <td>{{ element.created_at | moment('DD.MM.') }}</td>
                     <td>{{ element.deadline | moment('DD.MM.') }}</td>
                     <td v-if="authority" class="text-right"><div class="file-box-sty icon icon-assign">{{ lang('Assign') }}</div></td>
@@ -60,7 +60,7 @@
                     <th class="display-e w-30">{{ index+1 }}</th>
                     <td class="table-title"><a v-bind:href="'/task/show/'+element.id">{{ element.name }}</a></td>
                     <td><div v-bind:class="task_types[element.type].className">{{ task_types[element.type].title }}</div></td>
-                    <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-1" v-bind:src="element.assigner.image">{{ element.assigner.name }}</a></td>
+                    <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-2" v-bind:src="element.assigner.image">{{ element.assigner.name }}</a></td>
                     <td>{{ element.created_at | moment('DD.MM.') }}</td>
                     <td>{{ element.deadline | moment('DD.MM.') }}</td>
                     <td>4 h</td>

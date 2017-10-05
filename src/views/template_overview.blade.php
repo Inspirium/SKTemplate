@@ -359,28 +359,28 @@
                 <tr>
                     <th scope="row">1</th>
                     <td class="table-title">Fizika oko nas — udžbenik za fiziku </td>
-                    <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-1" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
+                    <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
                     <td>9444,96</td>
                     <td>12.12.2017.</td>
                 </tr>
                 <tr>
                     <th scope="row">2</th>
                     <td class="table-title">Fizika oko nas — udžbenik za fiziku </td>
-                    <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-1" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
+                    <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
                     <td>9444,96</td>
                     <td> 12.12.2017.</td>
                 </tr>
                 <tr>
                     <th scope="row">1</th>
                     <td class="table-title">Fizika oko nas — udžbenik za fiziku </td>
-                    <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-1" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
+                    <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
                     <td>9444,96</td>
                     <td>12.12.2017.</td>
                 </tr>
                 <tr>
                     <th scope="row">2</th>
                     <td class="table-title">Fizika oko nas — udžbenik za fiziku </td>
-                    <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-1" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
+                    <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
                     <td>9444,96</td>
                     <td>12.12.2017.</td>
                 </tr>

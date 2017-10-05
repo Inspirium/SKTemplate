@@ -39,13 +39,13 @@
                         <!-- Input field -->
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="md-form input-group">
+                                <div class="md-form">
                                     <input type="text" id="form1" class="form-control">
                                     <label for="form1" class="">{{ lang('Hours') }}</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="md-form input-group">
+                                <div class="md-form">
                                     <input type="text" id="form1" class="form-control">
                                     <label for="form1" class="">{{ lang('Minutes') }}</label>
                                 </div>

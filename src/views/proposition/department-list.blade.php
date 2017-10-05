@@ -30,7 +30,7 @@
                 <tr>
                     <th scope="row">1</th>
                     <td class="table-title">Fizika oko nas — udžbenik za fiziku </td>
-                    <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-1" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
+                    <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
                     <td>22.9.2017.</td>
                     <td>5.11.2017.</td>
                     <td>1 day</td>
@@ -38,7 +38,7 @@
                 <tr>
                     <th scope="row">2</th>
                     <td class="table-title">Fizika oko nas — udžbenik za fiziku </td>
-                    <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-1" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
+                    <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
                     <td>22.9.2017.</td>
                     <td>5.11.2017.</td>
                     <td>3 days</td>
@@ -46,7 +46,7 @@
                 <tr>
                     <th scope="row">1</th>
                     <td class="table-title">Fizika oko nas — udžbenik za fiziku </td>
-                    <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-1" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
+                    <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
                     <td>22.9.2017.</td>
                     <td>5.11.2017.</td>
                     <td>4 days</td>
@@ -54,7 +54,7 @@
                 <tr>
                     <th scope="row">2</th>
                     <td class="table-title">Fizika oko nas — udžbenik za fiziku </td>
-                    <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-1" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
+                    <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
                     <td>22.9.2017.</td>
                     <td class="color-cancel weight-700 animated flash infinite">5.11.2017.</td>
                     <td>22 days</td>
