@@ -43,13 +43,18 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="md-form">
-                                        <input type="text" class="form-control" name="department" placeholder="Pretraži odjele" v-model="department" v-on:keyup="autocomplete($event, 'department')">
+                                        <input type="text" class="form-control" name="department" placeholder="Pronađi odjel" v-model="department" v-on:keyup="autocomplete($event, 'department')">
                                         <ul class="mdb-autocomplete-wrap" v-if="d_suggestions.length">
                                             <li v-for="(item, index) in d_suggestions" v-on:click="autocomplete_select(index, 'department')">{{ item.name }}</li>
                                         </ul>
                                     </div>
-                                    <div class="chip mb-1" v-for="department in departments">
+                                    <div class="chip mb-4" v-for="department in departments">
                                         {{ department.name }}<i class="close fa fa-times"></i>
+                                    </div>
+                                    <!-- Textarea -->
+                                    <div class="md-form mt-2 mb-2">
+                                        <textarea id="form76" class="md-textarea"></textarea>
+                                        <label for="form76">{{ lang('Task Description') }}</label>
                                     </div>
                                 </div>
                             </div>
@@ -61,7 +66,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="md-form d-flex addon">
-                                        <input type="text" class="form-control" name="employee" placeholder="Pretraži osobe" v-model="employee" v-on:keyup="autocomplete($event, 'employee')">
+                                        <input type="text" class="form-control" name="employee" placeholder="Pronađi osobu" v-model="employee" v-on:keyup="autocomplete($event, 'employee')">
                                         <ul class="mdb-autocomplete-wrap" v-if="e_suggestions.length">
                                             <li v-for="(item, index) in e_suggestions" v-on:click="autocomplete_select(index, 'employee')">{{ item.name }}</li>
                                         </ul>

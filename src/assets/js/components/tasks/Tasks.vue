@@ -4,7 +4,7 @@
             <button v-on:click="$router.push('/task/edit')" class="btn btn-lg btn-blank btn-plus-icon">{{ lang('Create new') }}</button>
         </div>
         <template v-if="new_tasks.length">
-        <div class="page-name-xl mb-1 mt-2">{{ lang('New Task') }}
+        <div class="page-name-xl mb-3 mt-2">{{ lang('New Task') }}
             <span class="tag tag-neutral text-white">{{ new_tasks.length }}</span>
         </div>
         <!-- Table -->

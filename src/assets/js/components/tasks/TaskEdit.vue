@@ -8,7 +8,7 @@
     <div class="content">
 
         <!-- Input fields -->
-        <div class="page-name-xl mb-2 mt-3 mt-2">{{ lang('Task Details') }}</div>
+        <div class="page-name-xl mb-4 mt-3">{{ lang('Task Details') }}</div>
         <div class="row">
             <div class="col-md-6">
                 <!-- Input field -->
@@ -19,8 +19,8 @@
                 <!--/. Input field -->
 
                 <!-- Input field -->
-                <div class="md-form d-flex addon">
-                    <input type="text" id="users" class="form-control mdb-autocomplete" v-model="user" v-on:keyup="employeeComplete($event)">
+                <div class="md-form d-flex mt-5 addon">
+                    <input type="text" id="users" class="form-control mdb-autocomplete" placeholder="Pronađi osobu" v-model="user" v-on:keyup="employeeComplete($event)">
                     <ul class="mdb-autocomplete-wrap" v-if="e_suggestions.length">
                         <li v-for="(item, index) in e_suggestions" v-on:click="employeeCompleteSelect(index)">{{ item.first_name }} {{ item.last_name }}</li>
                     </ul>
@@ -30,8 +30,8 @@
                     <img v-bind:src="user.image"> {{ user.name }}<i class="close fa fa-times"></i>
                 </div>
 
-                <div class="md-form d-flex addon">
-                    <input type="text" id="form1" class="form-control" v-model="department" v-on:keyup="departmentComplete($event)">
+                <div class="md-form d-flex mt-5 addon">
+                    <input type="text" id="form1" class="form-control" placeholder="Pronađi odjeljenje" v-model="department" v-on:keyup="departmentComplete($event)">
                     <ul class="mdb-autocomplete-wrap" v-if="d_suggestions.length">
                         <li v-for="(item, index) in d_suggestions" v-on:click="departmentCompleteSelect(index)">{{ item.title }}</li>
                     </ul>
@@ -71,9 +71,9 @@
                 <!--/. Checkbox -->
 
                 <!-- Textarea -->
-                <div class="md-form">
+                <div class="md-form mt-5">
                     <textarea id="form76" class="md-textarea" v-model="task.description"></textarea>
-                    <label for="form76">{{ lang('Task description') }}</label>
+                    <label for="form76">{{ lang('Task Description') }}</label>
                 </div>
             </div>
         </div>

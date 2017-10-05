@@ -6,11 +6,6 @@
     display: flex;
 }
 
-@media only screen and (max-width : 1440px) {
-    header, .container-fluid, .main-content {
-        padding-left: 0; //TODO: move to main
-    }
-}
 
 //h1::selection,
 //h2::selection,
@@ -104,17 +99,7 @@ h6 {
     padding-top: 9px;
 }
 
-.total-sty {
-    font-weight: 400;
-    font-size: 1.35rem;
-}
 
-@media only screen and (max-width: 768px) {
-    .total-sty {
-        margin-bottom: 4rem;
-        border-bottom: 1px dashed lighten($color-sidebar, 70%);
-        }
-}
 
 .showdata-box h4 {
     line-height: 2rem;

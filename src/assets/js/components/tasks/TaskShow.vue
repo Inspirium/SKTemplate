@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="profile-head pt-3 pb-2 d-flex flex-column justify-content-center align-items-center">
+        <div class="profile-head py-4 d-flex flex-column justify-content-center align-items-center">
             <h1 class="display-3 text-white text-center">{{ task.name }}</h1>
         </div>
 
@@ -32,8 +32,8 @@
             </div>
 
             <!-- Highlighted input filed -->
-            <div class="page-name-xl mt-2">{{ lang('Task Completion Time') }}</div>
-            <div class="grey-box mb-3 pt-3 px-1 mx-auto">
+            <div class="page-name-xl mt-4">{{ lang('Task Completion Time') }}</div>
+            <div class="grey-box mb-5 pt-5 pb-3 px-3 mx-auto">
                 <div class="row">
                     <div class="col-md-6 mx-auto">
                         <!-- Input field -->
@@ -62,7 +62,7 @@
                     <div class="page-name-l mt-2 mb-1">{{ lang('Task Description') }}</div>
                     <div>
                         <h4 class="mb-1">{{ task.description }}</h4>
-                        <a v-bind:href="task.related_link" v-if="task.related_link">{{ lang('View') }}</a>
+                        <button type="button" class="btn btn-neutral btn-addon mb-4 mr-5" v-bind:href="task.related_link" v-if="task.related_link">{{ lang('Go To Project') }}</button>
                     </div>
                 </div>
                 <div class="col-md-3">
