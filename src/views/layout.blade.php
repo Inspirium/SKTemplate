@@ -12,7 +12,6 @@
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin-ext" rel="stylesheet">
     <script src="https://use.fontawesome.com/b494914ae1.js"></script>
-    <script src="toastr.js"></script>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">

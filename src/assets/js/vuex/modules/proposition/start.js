@@ -5,13 +5,15 @@ export default {
     state: {
         project_number: '',
         project_name: '',
-        additional_project_number: ''
+        additional_project_number: '',
+        note: ''
     },
     mutations: {
         initData(state, payload) {
             state.project_number = payload.project_number;
             state.additional_project_number = payload.additional_project_number;
             state.project_name = payload.project_name;
+            state.note = payload.note;
         }
     },
     actions: {

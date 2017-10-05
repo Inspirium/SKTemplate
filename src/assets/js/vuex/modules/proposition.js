@@ -3,12 +3,14 @@ import _ from 'lodash';
 
 import basic_data from './proposition/basic_data'
 import start from './proposition/start'
+import categorization from './proposition/categorization'
 
 export default {
     namespaced: true,
     modules: {
         start: start,
-        basic_data : basic_data
+        basic_data : basic_data,
+        categorization : categorization
     },
     state: {
         id: 0,

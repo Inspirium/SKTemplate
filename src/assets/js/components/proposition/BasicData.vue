@@ -210,14 +210,13 @@
         },
         computed: {
             basic_data() {
-                return this.$deepModel('proposition.proposition.basic_data');
+                return this.$deepModel('proposition.basic_data');
             }
         },
         mounted: function() {
-            if (this.$route.params.id && !this.$store.state.proposition.proposition.loaded) {
-                this.$store.dispatch('proposition/initProposition', {id: this.$route.params.id});
+            if (this.$route.params.id) {
+                this.$store.dispatch('proposition/basic_data/getData', this.$route.params.id);
             }
-            this.$store.commit('proposition/updateProposition', {key: 'step', value: 0});
         }
     }
 </script>

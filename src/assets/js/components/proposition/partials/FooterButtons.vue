@@ -95,7 +95,7 @@
             </div>
         </div>
         <!-- Central Modal Medium Assign tab-->
-        
+
         <!-- Success Modal -->
         <div class="modal fade" id="modal-warning" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -119,18 +119,18 @@
                 </div>
                 <!--Footer-->
                 <div class="modal-footer btn-footer">
-                    <button type="button" class="btn btn-lg btn-save" v-on:click="closeModal">{{ lang('Yes') }}</button>
-                    <button type="button" class="btn btn-lg btn-cancel" v-on:click="closeModal">{{ lang('No') }}</button>
+                    <button type="button" class="btn btn-lg btn-save">{{ lang('Yes') }}</button>
+                    <button type="button" class="btn btn-lg btn-cancel">{{ lang('No') }}</button>
                 </div>
             </div>
             <!--/.Content-->
         </div>
     </div>
-        
-        
-        
-        
-        
+
+
+
+
+
     </div>
 </template>
 <script>
