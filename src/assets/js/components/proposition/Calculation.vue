@@ -49,7 +49,7 @@
         <div class="tab-pane fade" v-bind:id="'panel'+(index+1)" role="tabpanel" v-for="(option, key, index) in options" v-bind:key="key">
             <div class="profile-head">
                 <div class="row justify-content-center pt-4">
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-sm-10">
                         <div class=" page-name-l-white border-white text-white mb-3 text-center">{{ lang('Price Proposal') }}</div>
                         <div class="md-form">
                             <input type="text" class="form-control" v-model="option.price_proposal">
@@ -352,7 +352,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="md-form">
-                                        <input class="form-control" disabled v-bind:value="option.cover_paper_type">
+                                        <input type="text" class="form-control" disabled v-bind:value="option.cover_paper_type">
                                         <label>{{ lang('Paper Type') }}</label>
                                         </div>
                                     </div>

@@ -395,6 +395,9 @@ $sk-skin-btn-default: #293756;
     .md-form {
         &.input-group {
             padding-left: 0;
+            .form-control {
+                padding-top: 0;
+            }
         }
         .prefix {
             &.active {
@@ -417,12 +420,10 @@ $sk-skin-btn-default: #293756;
     .search-big {
         width: 50%;
         margin: 0 auto;
-
         input::placeholder {
             font-size: 2rem;
             font-family: $font-family-base;
         }
-
         .form-control {
             height: 3rem;
             border-radius: 3rem;
