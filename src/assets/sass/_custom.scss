@@ -21,12 +21,6 @@
 
 //////////Misc
 
-.profile-head {
-    background-color: $color-nav-sub2;
-    margin-top: -15px;
-    margin-right: -15px;
-}
-
 //TODO: move to profile section
 .showdata-box .no-border,
 .no-border {
@@ -622,8 +616,11 @@ td .color-grey .fa-pencil:hover {
     color: $color-select;
 }
 
-table td a:first-child {
-    margin-left: 0;
+table td .color-grey {
+    margin-left: .8rem;
+        &:first-child {
+        margin-left: 0;
+    }
 }
 
 .table td,

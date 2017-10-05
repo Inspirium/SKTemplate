@@ -78,6 +78,14 @@ $sk-skin-btn-default: #293756;
     .page-footer {
         background-color: $sk-skin-navbar;
     }
+    .profile-head {
+        background-color: $color-nav-sub2;
+        margin-top: -15px;
+        margin-right: -15px;
+    }
+    .profile-head-clear {
+        background-color: $color-nav-sub2;
+    }
     .side-nav {
         background-color: $sk-skin-flat;
         width: 260px;

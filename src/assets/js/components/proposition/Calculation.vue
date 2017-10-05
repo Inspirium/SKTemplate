@@ -47,7 +47,7 @@
             </template>
         </div>
         <div class="tab-pane fade" v-bind:id="'panel'+(index+1)" role="tabpanel" v-for="(option, key, index) in options" v-bind:key="key">
-            <div class="profile-head">
+            <div class="profile-head-clear">
                 <div class="row justify-content-center pt-4">
                     <div class="col-md-4 col-sm-10">
                         <div class=" page-name-l-white border-white text-white mb-3 text-center">{{ lang('Price Proposal') }}</div>
@@ -57,7 +57,7 @@
                     </div>
                 </div>
             </div>
-            <div class="profile-head">
+            <div class="profile-head-clear">
                 <div class="row text-white d-flex justify-content-center text-center">
                     <div class="col-md-4">
                         <div class="page-name-l-white text-center border-white">{{ lang('Direct Cost Cover') }}</div>
