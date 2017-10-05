@@ -1,9 +1,8 @@
 <template>
     <div>
     <div class="btn-footer mt-4 mb-5 flex-column flex-md-row d-flex p-2">
-           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-warning">Upozorenje modal</button>
-
-        <button onclick="toastr.warning('Došlo je do problema. Pokušajte ponovno');" class="btn btn-lg btn-save" v-on:click="saveProposition">{{ lang('warning') }}</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-warning">Upozorenje modal</button>
+        <button onclick="toastr.error('Došlo je do problema. Pokušajte ponovno');" class="btn btn-lg btn-cancel" v-on:click="saveProposition">{{ lang('Error') }}</button>
         <button onclick="toastr.success('Uspješno obavljeno');" class="btn btn-lg btn-save" v-on:click="saveProposition">{{ lang('Save') }}</button>
         <button class="btn btn-lg btn-assign btn-assign-icon" v-on:click="assignModalOpen">{{ lang('Assign to...') }}</button>
     </div>
@@ -28,10 +27,10 @@
                     <div class="tabs-wrapper">
                         <ul class="nav classic-tabs tabs-cyan tab-full" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link waves-light active" data-toggle="tab" href="#panel51" role="tab">Department</a>
+                                <a class="nav-link waves-light active" data-toggle="tab" href="#panel51" role="tab">{{ lang('Department') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link waves-light" data-toggle="tab" href="#panel52" role="tab">EMPLOYEE</a>
+                                <a class="nav-link waves-light" data-toggle="tab" href="#panel52" role="tab">{{ lang('Employee') }}</a>
                             </li>
                         </ul>
                     </div>
@@ -44,7 +43,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="md-form">
-                                        <input type="text" class="form-control" name="department"  v-model="department" v-on:keyup="autocomplete($event, 'department')">
+                                        <input type="text" class="form-control" name="department" placeholder="Pretraži odjele" v-model="department" v-on:keyup="autocomplete($event, 'department')">
                                         <ul class="mdb-autocomplete-wrap" v-if="d_suggestions.length">
                                             <li v-for="(item, index) in d_suggestions" v-on:click="autocomplete_select(index, 'department')">{{ item.name }}</li>
                                         </ul>
@@ -62,13 +61,10 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="md-form d-flex addon">
-                                        <input type="text" class="form-control" name="employee" v-model="employee" v-on:keyup="autocomplete($event, 'employee')">
+                                        <input type="text" class="form-control" name="employee" placeholder="Pretraži osobe" v-model="employee" v-on:keyup="autocomplete($event, 'employee')">
                                         <ul class="mdb-autocomplete-wrap" v-if="e_suggestions.length">
                                             <li v-for="(item, index) in e_suggestions" v-on:click="autocomplete_select(index, 'employee')">{{ item.name }}</li>
                                         </ul>
-                                        <span class="d-flex">
-                                        <button class="btn btn-neutral btn-addon" type="button">{{ lang('Add') }}</button>
-                                    </span>
                                     </div>
                                     <div class="chip mb-1" v-for="employee in employees">
                                         <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg">{{ employee.name }}<i class="close fa fa-times"></i>
