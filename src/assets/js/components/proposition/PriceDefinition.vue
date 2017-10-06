@@ -34,7 +34,7 @@
                 </div>
                 <!-- Checkbox -->
                 <div class="page-name-m mt-4">{{ lang('Total') }}</div>
-                <div class="form-inline mb-3 display-4">505</div>
+                <div class="form-inline mb-3 display-4">{{ total | flexCurrency(' kn', 2) }}</div>
             </div>
             
 
@@ -70,7 +70,7 @@
                 </div>
                 <!-- Checkbox -->
                 <div class="page-name-m mt-4">{{ lang('Total') }}</div>
-                <div class="form-inline mb-3 display-4">3105</div>
+                <div class="form-inline mb-3 display-4">{{ total | flexCurrency(' kn', 2) }}</div>
             </div>
         </div>
         

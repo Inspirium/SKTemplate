@@ -64,6 +64,7 @@ $sk-skin-btn-default: #293756;
         padding-top: 0;
         padding-bottom: 0;
         padding-right: 0;
+        font-weight: normal;
         .navbar-nav {
             .nav-item {
                 .dropdown-menu a {
@@ -712,8 +713,11 @@ $sk-skin-btn-default: #293756;
             margin-top: 0.05rem;
             a {
                 font-weight: 600;
-                color: $sk-skin-accent;
+                color: $sk-skin-grey !important;
                 padding-left: 0;
+                &:hover {
+                    color: $sk-skin-accent !important;
+                }
             }
         }
         h5 {
@@ -978,6 +982,58 @@ $sk-skin-btn-default: #293756;
     .files .file-box:first-child {
         margin-top: 1rem;
     }
+    .tab-content {
+        padding: 0;
+    }
+    
+    
+    
+    
+    
+    
+    @media only screen and (max-width: 768px) {
+        table 
+        .table,
+        tbody {
+            display: block;
+            width: 100%;
+        }
+        .table, table {
+            tbody {
+                background-color: transparent;
+            }
+            td {
+                border-top: none;
+                border-bottom: none;
+                margin-bottom: 0.4rem;
+            }
+            th {
+                display: none;
+            }
+        }
+        thead, th { 
+            display: none;
+        }
+        table tr,
+        table th,
+        table td {
+            display: block;
+            padding: 0;
+            text-align: left;
+            white-space: normal;
+        }
+        table tr {
+            border-bottom: 1px solid lighten($color-sidebar, 70%);
+            padding-bottom: 11px;
+            margin-bottom: 11px;
+        }
+    }
+    
+    
+    
+    
+    
+    
 }
 
 
