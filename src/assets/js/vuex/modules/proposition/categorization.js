@@ -3,6 +3,7 @@ import axios from 'axios';
 export default {
     namespaced: true,
     state: {
+        id: 0,
         supergroup: 0,
         upgroup: 0,
         group: 0,
@@ -33,23 +34,26 @@ export default {
         }
     },
     actions: {
-        getData({commit}, id) {
-            axios.get('/api/proposition/' + id + '/categorization')
-                .then((res) => {
-                    commit('initData', res.data);
-                });
-
+        getData({commit, state}, payload) {
+            if (!state.id || state.id !== payload.id || payload.force) {
+                //retrieve data only we don't have it or we need to refresh it
+                axios.get('/api/proposition/' + id + '/categorization')
+                    .then((res) => {
+                        commit('initData', res.data);
+                    });
+            }
         },
         saveData({state, commit}, id) {
             if (id) {
                 axios.post('/api/proposition/' + id + '/categorization', state)
-                    .then((res) => {});
+                    .then((res) => {
+                    });
             }
             else {
                 axios.post('/api/proposition/categorization', state)
                     .then((res) => {
                         if (res.data.id) {
-                            commit('proposition/setId', res.data.id, {root:true});
+                            commit('proposition/setId', res.data.id, {root: true});
                         }
                     });
             }

@@ -94,19 +94,19 @@
         },
         computed: {
             supergroup_text() {
-                  return this.$store.state.proposition.proposition.categorization.supergroup_text;
+                  return this.$store.state.proposition.categorization.supergroup_text;
             },
             group_text() {
-                return this.$store.state.proposition.proposition.categorization.group_text;
+                return this.$store.state.proposition.categorization.group_text;
             },
             technical() {
-                return this.$deepModel('proposition.proposition.technical_data');
+                return this.$deepModel('proposition.technical_data');
             },
             production() {
-                return this.$deepModel('proposition.proposition.production_expense');
+                return this.$deepModel('proposition.production_expense');
             },
             layout() {
-                return this.$deepModel('proposition.proposition.layout_expense');
+                return this.$deepModel('proposition.layout_expense');
             },
             number_of_hours() {
                 let category = this.$store.state.proposition.proposition.categorization.upgroup_coef / 60,
@@ -144,11 +144,9 @@
         },
         methods: {},
         mounted: function() {
-            if (this.$route.params.id && !this.$store.state.proposition.proposition.loaded) {
-                this.$store.dispatch('proposition/initProposition', {id: this.$route.params.id});
+            if (this.$route.params.id) {
+                this.$store.dispatch('proposition/layout_expense/getData', {id: this.$route.params.id});
             }
-            $('.mdb-select').material_select();
-            this.$store.commit('proposition/updateProposition', {key: 'step', value: 9});
         }
     }
 </script>

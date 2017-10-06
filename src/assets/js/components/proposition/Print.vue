@@ -222,7 +222,7 @@
         },
         computed: {
             offers() {
-                return this.$deepModel('proposition.proposition.print.offers');
+                return this.$deepModel('proposition.print.offers');
             }
         },
         methods: {
@@ -240,14 +240,12 @@
             }
         },
         mounted: function() {
-            if (this.$route.params.id && !this.$store.state.proposition.proposition.loaded) {
-                this.$store.dispatch('proposition/initProposition', {id: this.$route.params.id});
+            if (this.$route.params.id) {
+                this.$store.dispatch('proposition/print/getData', {id: this.$route.params.id});
             }
-            this.$store.commit('proposition/updateProposition', {key: 'step', value: 4});
-            //this.$store.dispatch('proposition/initOffers').then(function() {
                 $('.mdb-select').material_select('destroy');
                 $('.mdb-select').material_select();
-            //});
+
         }
     }
 </script>

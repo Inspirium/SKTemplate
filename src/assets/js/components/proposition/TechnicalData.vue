@@ -16,7 +16,7 @@
                     </div>
                 </div>
             </div>
-            <div class="chip mb-3" v-for="item in technical_data['circulations']" v-bind:key="item.id">
+            <div class="chip mb-3" v-for="item in technical_data.circulations" v-bind:key="item.id">
                 {{ item.title }}
                 <i class="close fa fa-times" v-on:click="deleteCirculation(item.id)"></i>
             </div>
@@ -32,7 +32,7 @@
                     </div>
                 </div>
             </div>
-            <div class="chip mb-3" v-for="item in technical_data['additions']" v-bind:key="item.id">
+            <div class="chip mb-3" v-for="item in technical_data.additions" v-bind:key="item.id">
                 {{ item.title }}
                 <i class="close fa fa-times" v-on:click="deleteAddition(item.id)"></i>
             </div>
@@ -43,19 +43,19 @@
                     <div class="page-name-l mb-4">{{ lang('Book Block') }}</div>
                     <!-- Input fileds -->
                     <div class="md-form">
-                        <input type="text" id="form3" class="form-control" v-model="technical_data['number_of_pages']">
+                        <input type="text" id="form3" class="form-control" v-model="technical_data.number_of_pages">
                         <label for="form3" class="">{{ lang('Number of Pages') }}</label>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="md-form">
-                                <input type="text" id="form4" class="form-control" v-model="technical_data['width']" v-bind:placeholder="lang('mm')">
+                                <input type="text" id="form4" class="form-control" v-model="technical_data.width" v-bind:placeholder="lang('mm')">
                                 <label for="form4" class="">{{ lang('Width') }}</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="md-form">
-                                <input type="text" id="form5" class="form-control" v-model="technical_data['height']" v-bind:placeholder="lang('mm')">
+                                <input type="text" id="form5" class="form-control" v-model="technical_data.height" v-bind:placeholder="lang('mm')">
                                 <label for="form5" class="">{{ lang('Height') }}</label>
                             </div>
                         </div>
@@ -64,7 +64,7 @@
                     <!-- Dropdown menu -->
                     <div class="row">
                         <div class="col-md-12">
-                            <select class="mdb-select" v-model="technical_data['book_binding']">
+                            <select class="mdb-select" v-model="technical_data.book_binding">
                                 <option disabled >{{ lang('Book binding') }}</option>
                                 <option value="none">{{ lang('None') }}</option>
                                 <option value="hard">{{ lang('Hard book binding') }}</option>
@@ -77,12 +77,12 @@
 
                     <!-- Input fileds -->
                     <div class="md-form">
-                        <input type="text" class="form-control" v-model="technical_data['paper_type']">
+                        <input type="text" class="form-control" v-model="technical_data.paper_type">
                         <label>{{ lang('Paper Type') }}</label>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <select class="mdb-select" v-model="technical_data['colors']">
+                            <select class="mdb-select" v-model="technical_data.colors">
                                 <option disabled >{{ lang('Choose Colors') }}</option>
                                 <option v-for="(color, index) in option_colors" v-bind:value="index+1">{{ lang(color) }}</option>
 
@@ -92,7 +92,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <select class="mdb-select" v-model="technical_data['colors_first_page']">
+                            <select class="mdb-select" v-model="technical_data.colors_first_page">
                                 <option disabled >{{ lang('Colors - First Pages') }}</option>
                                 <option v-for="(color, index) in option_colors" v-bind:value="index+1">{{ lang(color) }}</option>
                             </select>
@@ -101,7 +101,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <select class="mdb-select" v-model="technical_data['colors_last_page']">
+                            <select class="mdb-select" v-model="technical_data.colors_last_page">
                                 <option disabled >{{ lang('Colors - Last Pages') }}</option>
                                 <option v-for="(color, index) in option_colors" v-bind:value="index+1">{{ lang(color) }}</option>
                             </select>
@@ -109,7 +109,7 @@
                         </div>
                     </div>
                     <div class="md-form">
-                        <input type="text" id="form7" class="form-control" v-model="technical_data['additional_work']">
+                        <input type="text" id="form7" class="form-control" v-model="technical_data.additional_work">
                         <label for="form7" class="">{{ lang('Additional Work') }}</label>
                     </div>
                 </div>
@@ -121,7 +121,7 @@
                     <!-- Dropdown menu -->
                     <div class="row">
                         <div class="col-md-12">
-                            <select class="mdb-select" v-model="technical_data['cover_type']">
+                            <select class="mdb-select" v-model="technical_data.cover_type">
                                 <option disabled >{{ lang('Hard/Soft Cover') }}</option>
                                 <option value="none">{{ lang('None') }}</option>
                                 <option value="hard">{{ lang('Hard Cover') }}</option>
@@ -134,14 +134,14 @@
 
                     <!-- Input fileds -->
                     <div class="md-form">
-                        <input type="text" id="form6" class="form-control" v-model="technical_data['cover_paper_type']">
+                        <input type="text" id="form6" class="form-control" v-model="technical_data.cover_paper_type">
                         <label for="form6" class="">{{ lang('Paper Type') }}</label>
                     </div>
 
                     <!-- Input fileds -->
                     <div class="row">
                         <div class="col-md-12">
-                            <select class="mdb-select" v-model="technical_data['cover_colors']">
+                            <select class="mdb-select" v-model="technical_data.cover_colors">
                                 <option disabled >{{ lang('Choose Colors') }}</option>
                                 <option v-for="(color, index) in option_colors" v-bind:value="index+1">{{ lang(color) }}</option>
                             </select>
@@ -150,7 +150,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <select class="mdb-select" v-model="technical_data['cover_plastification']">
+                            <select class="mdb-select" v-model="technical_data.cover_plastification">
                                 <option disabled >{{ lang('Plastification') }}</option>
                                 <option value="none">{{ lang('None') }}</option>
                                 <option value="glossy">{{ lang('Glossy plastification') }}</option>
@@ -164,11 +164,11 @@
                     <div class="page-name-m">{{ lang('Film Print') }}</div>
                     <div class="form-inline mb-3">
                         <fieldset class="form-group">
-                            <input name="film" type="radio" id="film11" value="no" v-model="technical_data['film_print']">
+                            <input name="film" type="radio" id="film11" value="no" v-model="technical_data.film_print">
                             <label for="film11">{{ lang('No') }}</label>
                         </fieldset>
                         <fieldset class="form-group">
-                            <input name="film" type="radio" id="film21" value="yes" v-model="technical_data['film_print']">
+                            <input name="film" type="radio" id="film21" value="yes" v-model="technical_data.film_print">
                             <label for="film21">{{ lang('Yes') }}</label>
                         </fieldset>
                     </div>
@@ -176,11 +176,11 @@
                     <div class="page-name-m">{{ lang('Blind Print') }}</div>
                     <div class="form-inline mb-3">
                         <fieldset class="form-group">
-                            <input name="blind" type="radio" id="blind11" value="no" v-model="technical_data['blind_print']">
+                            <input name="blind" type="radio" id="blind11" value="no" v-model="technical_data.blind_print">
                             <label for="blind11">{{ lang('No') }}</label>
                         </fieldset>
                         <fieldset class="form-group">
-                            <input name="blind" type="radio" id="blind21" value="yes" v-model="technical_data['blind_print']">
+                            <input name="blind" type="radio" id="blind21" value="yes" v-model="technical_data.blind_print">
                             <label for="blind21">{{ lang('Yes') }}</label>
                         </fieldset>
                     </div>
@@ -188,11 +188,11 @@
                     <div class="page-name-m">{{ lang('UV Film') }}</div>
                     <div class="form-inline mb-3">
                         <fieldset class="form-group">
-                            <input name="uv" type="radio" id="uv11" value="no" v-model="technical_data['uv_print']">
+                            <input name="uv" type="radio" id="uv11" value="no" v-model="technical_data.uv_print">
                             <label for="uv11">{{ lang('No') }}</label>
                         </fieldset>
                         <fieldset class="form-group">
-                            <input name="uv" type="radio" id="uv21" value="yes" v-model="technical_data['uv_print']">
+                            <input name="uv" type="radio" id="uv21" value="yes" v-model="technical_data.uv_print">
                             <label for="uv21">{{ lang('Yes') }}</label>
                         </fieldset>
                     </div>
@@ -203,7 +203,7 @@
 
     <!-- Textarea -->
     <div class="md-form mt-2">
-        <textarea id="form76" class="md-textarea" v-model="technical_data['note']"></textarea>
+        <textarea id="form76" class="md-textarea" v-model="technical_data.note"></textarea>
         <label for="form76">{{ lang('Note') }}</label>
     </div>
         <footer-buttons></footer-buttons>
@@ -225,7 +225,7 @@
         },
         computed: {
             technical_data() {
-                return this.$deepModel('proposition.proposition.technical_data');
+                return this.$deepModel('proposition.technical_data');
             }
         },
         methods: {
@@ -250,12 +250,11 @@
             }
         },
         mounted: function() {
-            if (this.$route.params.id && !this.$store.state.proposition.proposition.loaded) {
-                this.$store.dispatch('proposition/initProposition', {id: this.$route.params.id});
+            if (this.$route.params.id) {
+                this.$store.dispatch('proposition/technical_data/getData', {id: this.$route.params.id});
             }
             $('.mdb-select').material_select('destroy');
             $('.mdb-select').material_select();
-            this.$store.commit('proposition/updateProposition', {key: 'step', value: 3});
         }
     }
 </script>

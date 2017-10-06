@@ -2,6 +2,7 @@ import axios from 'axios';
 
 export default {
     state: {
+        id: 0,
         title: '',
         authors: [],
         concept: '',
@@ -28,11 +29,14 @@ export default {
         }
     },
     actions: {
-        getData({commit}, id) {
-            axios.get('/api/proposition/'+id+'/basic_data')
-                .then((res) => {
-                    commit('initData', res.data);
-                })
+        getData({commit, state}, payload) {
+            if (!state.id || state.id !== payload.id || payload.force) {
+                //retrieve data only we don't have it or we need to refresh it
+                axios.get('/api/proposition/' + id + '/basic_data')
+                    .then((res) => {
+                        commit('initData', res.data);
+                    })
+            }
         },
         saveData({state, commit}, id) {
             if (id) {
@@ -44,7 +48,7 @@ export default {
                 axios.post('/api/proposition/basic_data', state)
                     .then((res) => {
                         if (res.data.id) {
-                            commit('proposition/setId', res.data.id, {root:true});
+                            commit('proposition/setId', res.data.id, {root: true});
                         }
                     });
             }

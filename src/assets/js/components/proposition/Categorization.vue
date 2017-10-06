@@ -207,7 +207,7 @@
         },
         mounted: function() {
             if (this.$route.params.id) {
-                this.$store.dispatch('proposition/categorization/getData', this.$route.params.id);
+                this.$store.dispatch('proposition/categorization/getData', {id: this.$route.params.id});
             }
             this.$store.dispatch('categorization/getData');
         },

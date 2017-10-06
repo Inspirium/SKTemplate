@@ -96,10 +96,10 @@
         },
         computed: {
             expenses() {
-                return this.$deepModel('proposition.proposition.authors_expense');
+                return this.$deepModel('proposition.authors_expense');
             },
             authors() {
-                return this.$deepModel('proposition.proposition.basic_data.authors');
+                return this.$deepModel('proposition.basic_data.authors');
             }
         },
         methods: {
@@ -117,14 +117,9 @@
             }
         },
         mounted: function() {
-            if (this.$route.params.id && !this.$store.state.proposition.proposition.loaded) {
-                this.$store.dispatch('proposition/initProposition', {id: this.$route.params.id})
-                    .then(() => {
-                        this.$store.dispatch('proposition/initAuthorExpenses');
-                    })
+            if (this.$route.params.id) {
+                this.$store.dispatch('proposition/authors_expense/getData', {id: this.$route.params.id});
             }
-            this.$store.commit('proposition/updateProposition', {key: 'step', value: 5});
-            this.$store.dispatch('proposition/initAuthorExpenses');
         }
     }
 </script>

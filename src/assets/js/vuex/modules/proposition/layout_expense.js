@@ -1,28 +1,28 @@
-import axios from 'axios';
+import axios from "axios/index";
 
 export default {
     namespaced: true,
     state: {
         id: 0,
-        project_number: '',
-        project_name: '',
-        additional_project_number: '',
-        note: ''
+        layout_complexity: '',
+        layout_include: '',
+        layout_note: '',
+        design_complexity: '',
+        design_include: '',
+        design_note: ''
     },
     mutations: {
         initData(state, payload) {
-
-            state.project_number = payload.project_number;
-            state.additional_project_number = payload.additional_project_number;
-            state.project_name = payload.project_name;
-            state.note = payload.note;
+            for (let i in Object.keys(state)) {
+                state[i] = payload[i];
+            }
         }
     },
     actions: {
         getData({commit, state}, payload) {
             if (!state.id || state.id !== payload.id || payload.force) {
                 //retrieve data only we don't have it or we need to refresh it
-                axios.get('/api/proposition/' + id + '/start')
+                axios.get('/api/proposition/' + id + '/layout_expense')
                     .then((res) => {
                         commit('initData', res.data);
                     });
@@ -30,12 +30,12 @@ export default {
         },
         saveData({state, commit}, id) {
             if (id) {
-                axios.post('/api/proposition/' + id + '/start', state)
+                axios.post('/api/proposition/' + id + '/layout_expense', state)
                     .then((res) => {
                     });
             }
             else {
-                axios.post('/api/proposition/start', state)
+                axios.post('/api/proposition/layout_expense', state)
                     .then((res) => {
                         if (res.data.id) {
                             commit('proposition/setId', res.data.id, {root: true});

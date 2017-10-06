@@ -11,8 +11,8 @@
         computed: {},
         methods: {},
         mounted() {
-            if (this.$route.params.id && !this.$store.state.proposition.proposition.loaded) {
-                this.$store.dispatch('proposition/initProposition', {id: this.$route.params.id});
+            if (this.$route.params.id) {
+                this.$store.dispatch('proposition/start/getData', {id: this.$route.params.id});
             }
         }
     }

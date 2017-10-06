@@ -38,7 +38,7 @@
         },
         computed: {
             distribution() {
-                return this.$deepModel('proposition.proposition.distribution_expense');
+                return this.$deepModel('proposition.distribution_expense');
             }
         },
         components: {
@@ -46,10 +46,9 @@
         },
         methods: {},
         mounted: function() {
-            if (this.$route.params.id && !this.$store.state.proposition.proposition.loaded) {
-                this.$store.dispatch('proposition/initProposition', {id: this.$route.params.id});
+            if (this.$route.params.id) {
+                this.$store.dispatch('proposition/distribution_expense/getData', {id: this.$route.params.id});
             }
-            this.$store.commit('proposition/updateProposition', {key: 'step', value: 8});
         }
     }
 </script>

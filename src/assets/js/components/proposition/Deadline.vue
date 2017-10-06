@@ -19,15 +19,15 @@
             <div class="page-name-m">{{ lang('Priority') }}</div>
             <div class="form-inline mb-3">
                 <fieldset class="form-group">
-                    <input name="sex" type="radio" id="radio11" value="High" v-model="deadline['priority']">
+                    <input name="sex" type="radio" id="radio11" value="High" v-model="deadline.priority">
                     <label for="radio11">{{ lang('High') }}</label>
                 </fieldset>
                 <fieldset class="form-group">
-                    <input name="sex" type="radio" id="radio21" value="Medium" v-model="deadline['priority']">
+                    <input name="sex" type="radio" id="radio21" value="Medium" v-model="deadline.priority">
                     <label for="radio21">{{ lang('Medium') }}</label>
                 </fieldset>
                 <fieldset class="form-group">
-                    <input name="sex" type="radio" id="radio31" value="Low" v-model="deadline['priority']">
+                    <input name="sex" type="radio" id="radio31" value="Low" v-model="deadline.priority">
                     <label for="radio31">{{ lang('Low') }}</label>
                 </fieldset>
             </div>
@@ -37,7 +37,7 @@
 
                     <!-- Textarea -->
                     <div class="md-form mt-4">
-                        <textarea id="form76" class="md-textarea" v-model="deadline['note']"></textarea>
+                        <textarea id="form76" class="md-textarea" v-model="deadline.note"></textarea>
                         <label for="form76">{{ lang('Note') }}</label>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
         },
         computed: {
             deadline() {
-                return this.$deepModel('proposition.proposition.deadline');
+                return this.$deepModel('proposition.deadline');
             }
         },
         components: {
@@ -66,18 +66,18 @@
             vuexSet: vuexSet
         },
         mounted: function() {
-            if (this.$route.params.id && !this.$store.state.proposition.proposition.loaded) {
-                this.$store.dispatch('proposition/initProposition', {id: this.$route.params.id});
+            if (this.$route.params.id) {
+                this.$store.dispatch('proposition/deadline/getData', {id: this.$route.params.id});
             }
             $('.datepicker').pickadate({
                 format: 'dd. mm. yyyy.',
                 onSet: (context) => {
                     let date = new Date(context.select);
                     date = this.$options.filters.moment(date, 'DD. MM. YYYY.');
-                    this.vuexSet('proposition.proposition.deadline.date', date);
+                    this.vuexSet('proposition.deadline.date', date);//TODO
                 }
             });
-            this.$store.commit('proposition/updateProposition', {key: 'step', value: 10});
+
         }
     }
 </script>

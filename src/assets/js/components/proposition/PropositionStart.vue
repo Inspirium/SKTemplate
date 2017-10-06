@@ -114,7 +114,7 @@
         },
         mounted: function() {
             if (this.$route.params.id) {
-                this.$store.dispatch('proposition/start/getData', this.$route.params.id);
+                this.$store.dispatch('proposition/start/getData', {id: this.$route.params.id});
             }
         }
     }

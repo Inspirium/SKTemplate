@@ -6,13 +6,13 @@
 
             <!-- Input field -->
             <div class="md-form">
-                <input type="text" id="form1" class="form-control" v-model="market_potential['main_target']" v-bind:placeholder="lang('Title')">
+                <input type="text" id="form1" class="form-control" v-model="market_potential.main_target" v-bind:placeholder="lang('Title')">
                 <label for="form1">{{ lang('Main Target') }}</label>
             </div>
 
             <!-- Textarea -->
             <div class="md-form mt-3">
-                <textarea id="form76" class="md-textarea" v-model="market_potential['note']"></textarea>
+                <textarea id="form76" class="md-textarea" v-model="market_potential.note"></textarea>
                 <label for="form76">{{ lang('Note') }}</label>
             </div>
 
@@ -52,7 +52,7 @@
         },
         computed: {
             market_potential() {
-                return this.$deepModel('proposition.proposition.market_potential');
+                return this.$deepModel('proposition.market_potential');
             }
         },
         methods: {
@@ -74,10 +74,9 @@
             },
         },
         mounted: function() {
-            if (this.$route.params.id && !this.$store.state.proposition.proposition.loaded) {
-                this.$store.dispatch('proposition/initProposition', {id: this.$route.params.id});
+            if (this.$route.params.id) {
+                this.$store.dispatch('proposition/market_potential/getData', {id: this.$route.params.id});
             }
-            this.$store.commit('proposition/updateProposition', {key: 'step', value: 2});
         }
     }
 </script>
