@@ -150,7 +150,7 @@
         },
         methods: {
             saveProposition: function() {
-                this.$store.dispatch('proposition/saveProposition');
+                this.$store.dispatch('proposition/' + this.$route.meta.save + '/saveData', this.$route.params.id);
             },
             assignModalOpen: function() {
                 jQuery('#centralModalAssign').modal('show');

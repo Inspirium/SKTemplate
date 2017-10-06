@@ -6,7 +6,7 @@
 
             <!-- Input field -->
             <div class="md-form">
-                <input type="text" id="title" class="form-control" name="title" v-bind:placeholder="lang('Title')" required v-model="basic_data['title']">
+                <input type="text" id="title" class="form-control" name="title" v-bind:placeholder="lang('Title')" required v-model="basic_data.title">
                 <label for="title" class="">{{ lang('Title') }}</label>
             </div>
             <div class="row">
@@ -21,13 +21,13 @@
                 </div>
             </div>
             <button class="btn btn-neutral btn-addon mb-4 mr-5" type="button" v-on:click="openAuthorModal">{{ lang('Add New Author') }}</button>
-            <div class="chip mb-3" v-for="(author, index) in basic_data['authors']" v-bind:key="author.id">
+            <div class="chip mb-3" v-for="(author, index) in basic_data.authors" v-bind:key="author.id">
                 <img v-bind:src="author.image"> {{ author.name }}<i class="close fa fa-times" v-on:click="authorDelete(author.id)"></i>
             </div>
 
             <!-- Textarea -->
             <div class="md-form mt-4">
-                <textarea id="concept" name="concept" class="md-textarea" v-model="basic_data['concept']"></textarea>
+                <textarea id="concept" name="concept" class="md-textarea" v-model="basic_data.concept"></textarea>
                 <label for="concept">{{ lang('Concept') }}</label>
             </div>
 
@@ -35,22 +35,22 @@
             <div class="page-name-m">{{ lang('Manuscript') }}</div>
             <div class="form-inline">
                 <fieldset class="form-group">
-                    <input name="manuscript" type="radio" id="ordered" value="ordered" v-model="basic_data['manuscript']">
+                    <input name="manuscript" type="radio" id="ordered" value="ordered" v-model="basic_data.manuscript">
                     <label for="ordered">{{ lang('Ordered') }}</label>
                 </fieldset>
                 <fieldset class="form-group">
-                    <input name="manuscript" type="radio" id="delivered" value="delivered" v-model="basic_data['manuscript']">
+                    <input name="manuscript" type="radio" id="delivered" value="delivered" v-model="basic_data.manuscript">
                     <label for="delivered">{{ lang('Delivered') }}</label>
                 </fieldset>
             </div>
-            <template v-if="basic_data['manuscript'] === 'delivered'">
+            <template v-if="basic_data.manuscript === 'delivered'">
                 <!-- Show only if "Delivered"  -->
                 <!-- Documents upload -->
                 <button class="btn btn-neutral btn-addon mt-2" type="button" v-on:click="documentAdd">{{ lang('Add Documents') }}</button>
 
                 <!-- File/document table -->
                 <div class="files mt-2 mb-2">
-                    <div class="file-box file-box-l d-flex align-items-center" v-for="(document,index) in basic_data['manuscript_documents']">
+                    <div class="file-box file-box-l d-flex align-items-center" v-for="(document,index) in basic_data.manuscript_documents">
                         <a v-bind:href="document.link" v-on:click.prevent="documentDownload(document.link)" class="file-icon">{{ document.title }}</a>
                         <div class="file-box-sty ml-auto d-flex">
                             <a v-bind:href="'human_resources/employee/show/'+document.owner.id"><img class="profile-m-1 mr-1 align-self-center" v-bind:src="document.owner.image">
@@ -69,27 +69,27 @@
             <div class="page-name-m mt-3">{{ lang('Dotation') }}</div>
             <div class="form-inline mb-4">
                 <fieldset class="form-group">
-                    <input name="dotation" type="radio" id="dot-yes" value="yes" v-model="basic_data['dotation']">
+                    <input name="dotation" type="radio" id="dot-yes" value="yes" v-model="basic_data.dotation">
                     <label for="dot-yes">{{ lang('Yes') }}</label>
                 </fieldset>
                 <fieldset class="form-group">
-                    <input name="dotation" type="radio" id="dot-no" value="no" v-model="basic_data['dotation']">
+                    <input name="dotation" type="radio" id="dot-no" value="no" v-model="basic_data.dotation">
                     <label for="dot-no">{{ lang('No') }}</label>
                 </fieldset>
             </div>
-            <template v-if="basic_data['dotation'] === 'yes'">
+            <template v-if="basic_data.dotation === 'yes'">
                 <!-- Show only if "Yes"  -->
                 <!-- Input field -->
                 <div class="row  mt-4">
                     <div class="col-md-6">
                         <div class="md-form">
-                            <input type="text" id="dot-origin" class="form-control" name="dotation-origin" v-model="basic_data['dotation_origin']">
+                            <input type="text" id="dot-origin" class="form-control" name="dotation-origin" v-model="basic_data.dotation_origin">
                             <label for="dot-origin" class="">{{ lang('Dotation Origin') }}</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="md-form">
-                            <input type="text" id="dot-amount" class="form-control" name="dotation-ammount" v-model="basic_data['dotation_amount']">
+                            <input type="text" id="dot-amount" class="form-control" name="dotation-ammount" v-model="basic_data.dotation_amount">
                             <label for="dot-amount">{{ lang('Amount') }}</label>
                         </div>
                     </div>
@@ -101,29 +101,29 @@
             <div class="page-name-m mt-2">{{ lang('Possible Products') }}</div>
             <div class="form-inline">
                 <fieldset class="form-group">
-                    <input name="products" type="checkbox" id="products-ebook" value="ebook" v-model="basic_data['possible_products']">
+                    <input name="products" type="checkbox" id="products-ebook" value="ebook" v-model="basic_data.possible_products">
                     <label for="products-ebook">{{ lang('E-book') }}</label>
                 </fieldset>
                 <fieldset class="form-group">
-                    <input name="products" type="checkbox" id="products-website" value="website" v-model="basic_data['possible_products']">
+                    <input name="products" type="checkbox" id="products-website" value="website" v-model="basic_data.possible_products">
                     <label for="products-website">{{ lang('Website') }}</label>
                 </fieldset>
                 <fieldset class="form-group">
-                    <input name="products" type="checkbox" id="products-app" value="app" v-model="basic_data['possible_products']">
+                    <input name="products" type="checkbox" id="products-app" value="app" v-model="basic_data.possible_products">
                     <label for="products-app">{{ lang('App') }}</label>
                 </fieldset>
                 <fieldset class="form-group">
-                    <input name="products" type="checkbox" id="products-lang" value="language" v-model="basic_data['possible_products']">
+                    <input name="products" type="checkbox" id="products-lang" value="language" v-model="basic_data.possible_products">
                     <label for="products-lang">{{ lang('Additional Language') }}</label>
                 </fieldset>
                 <fieldset class="form-group">
-                    <input name="products" type="checkbox" id="products-short" value="short" v-model="basic_data['possible_products']">
+                    <input name="products" type="checkbox" id="products-short" value="short" v-model="basic_data.possible_products">
                     <label for="products-short">{{ lang('Short Edition') }}</label>
                 </fieldset>
             </div>
             <!-- Textarea -->
             <div class="md-form mt-5">
-                <textarea id="note" name="note" v-model="basic_data['basic_data_note']" class="md-textarea"></textarea>
+                <textarea id="note" name="note" v-model="basic_data.note" class="md-textarea"></textarea>
                 <label for="note">{{ lang('Note') }}</label>
             </div>
         </div>

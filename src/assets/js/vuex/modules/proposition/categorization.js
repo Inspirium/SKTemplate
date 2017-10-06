@@ -18,17 +18,17 @@ export default {
     },
     mutations: {
         initData(state, payload) {
-            state.supergroup = payload.supergroup;
-            state.upgroup = payload.upgroup;
-            state.group = payload.group;
-            state.book_type_group = payload.book_type_group;
-            state.book_type = payload.book_type;
-            state.school_type = payload.school_type;
+            state.supergroup = payload.group.parent.parent.id;
+            state.upgroup = payload.group.parent.id;
+            state.group = payload.group.id;
+            state.book_type_group = payload.book_type.parent_id;
+            state.book_type = payload.book_type.id;
+            state.school_type = payload.school_type.id;
             state.school_level = payload.school_level;
             state.school_assignment = payload.school_assignment;
-            state.school_subject = payload.school_subject;
-            state.school_subject_detailed = payload.school_subject_detailed;
-            state.biblioteca = payload.biblioteca;
+            state.school_subject = payload.school_subject.parent_id;
+            state.school_subject_detailed = payload.school_subject.id;
+            state.biblioteca = payload.biblioteca.id;
             state.note = payload.note;
         }
     },
