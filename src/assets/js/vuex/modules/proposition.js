@@ -4,13 +4,31 @@ import _ from 'lodash';
 import basic_data from './proposition/basic_data'
 import start from './proposition/start'
 import categorization from './proposition/categorization'
+import authors_expense from './proposition/authors_expense'
+import deadline from './proposition/deadline'
+import distribution_expense from './proposition/distribution_expense'
+import layout_expense from './proposition/layout_expense'
+import market_potential from './proposition/market_potential'
+import marketing_expense from './proposition/marketing_expense'
+import print from './proposition/print'
+import production_expense from './proposition/production_expense'
+import technical_data from './proposition/technical_data'
+
 
 export default {
     namespaced: true,
     modules: {
         start: start,
         basic_data : basic_data,
-        categorization : categorization
+        categorization : categorization,
+        deadline : deadline,
+        distribution_expense : distribution_expense,
+        layout_expense : layout_expense,
+        market_potential : market_potential,
+        marketing_expense : marketing_expense,
+        print : print,
+        production_expense : production_expense,
+        technical_data : technical_data
     },
     state: {
         id: 0,
@@ -21,131 +39,6 @@ export default {
                 employees: []
             },
             id: 0,
-            basic_data: {
-                title: '',
-                authors: [],
-                concept: '',
-                note: '',
-                possible_products: [],
-                dotation: 'no',
-                dotation_amount: '',
-                dotation_origin: '',
-                manuscript: '',
-                manuscript_documents: [],
-            },
-            categorization: {
-                supergroup: 0,
-                supergroup_text: '',
-                upgroup: 0,
-                upgroup_coef: 0,
-                group_text: '',
-                note: '',
-                book_type_group: 0,
-                book_type: 0,
-                school_type: [],
-                school_level: [],
-                school_assignment: '',
-                school_subject: '',
-                school_subject_detailed: '',
-                biblioteca:'',
-            },
-            market_potential: {
-                main_target: '',
-                note: '',
-                market_potential_documents: [],
-            },
-            technical_data: {
-                circulations: [],
-                additions: [],
-                number_of_pages: 0,
-                width: 0,
-                height: 0,
-                paper_type: '',
-                additional_work: '',
-                colors: '',
-                colors_first_page: '',
-                colors_last_page: '',
-                cover_type: '',
-                cover_paper_type: '',
-                cover_colors: '',
-                cover_plastification: '',
-                film_print: 0,
-                blind_print: 0,
-                uv_print: 0,
-                book_binding: '',
-                note: ''
-            },
-            print: {
-                offers : {}
-            },
-            authors_expense: {
-                expenses: {},
-                note: '',
-                other: []
-            },
-            production_expense: {
-                text_price: '',
-                text_price_amount: '',
-                note: '',
-                accontation: '',
-                netto_price_percentage: '',
-                reviews: '',
-                lecture: '',
-                lecture_amount: '',
-                correction: '',
-                correction_amount: '',
-                proofreading: '',
-                proofreading_amount: '',
-                translation: '',
-                translation_amount: '',
-                index: '',
-                index_amount: '',
-                epilogue: '',
-                photos: '',
-                photos_amount: '',
-                illustrations: '',
-                illustrations_amount: '',
-                technical_drawings: '',
-                technical_drawings_amount: '',
-                expert_report: '',
-                copyright: '',
-                copyright_mediator: '',
-                selection: '',
-                powerpoint_presentation: '',
-                methodical_instrumentarium: '',
-                additional_expense: []
-            },
-            marketing_expense: {
-                expense: '',
-                note: '',
-                additional_expenses: []
-            },
-            distribution_expense: {
-                note: '',
-                margin: ''
-            },
-            layout_expense: {
-                layout_complexity: '',
-                layout_include: '',
-                layout_note: '',
-                design_complexity: '',
-                design_include: '',
-                design_note: ''
-            },
-            deadline: {
-                date: '',
-                priority: '',
-                note: ''
-            },
-            precalculation: {},
-            calculation: {
-                options: {}
-            },
-            work_order: {},
-            owner: {},
-            created_at: 0,
-
-            step: 0,
         },
         steps: [
             'basic_data',
