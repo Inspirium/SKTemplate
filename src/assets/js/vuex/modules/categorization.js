@@ -1,7 +1,9 @@
 import axios from "axios/index";
+import createPersistedState from "vuex-persistedstate";
 
 export default {
     namespaced: true,
+    plugins: [createPersistedState()],
     state: {
         categories: 0,
         types:0,

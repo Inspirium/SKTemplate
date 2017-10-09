@@ -9,19 +9,19 @@
         <!-- Header -->
         <div class="profile-head pb-2 row">
             <div class="col-md-4">
-                <a href="#" v-if="proposition.proposition.owner">
-                    <img class="profile-m-2 mr-1 float-left" v-bind:src="proposition.proposition.owner.image">
+                <a href="#" v-if="proposition.owner">
+                    <img class="profile-m-2 mr-1 float-left" v-bind:src="proposition.owner.image">
                     <h6 class="white-label">{{ lang('Assigner') }}</h6>
-                    <h3 class="mb-1 text-white">{{ proposition.proposition.owner.name }}</h3>
+                    <h3 class="mb-1 text-white">{{ proposition.owner.name }}</h3>
                 </a>
             </div>
             <div class="col-md-4">
                 <h6 class="white-label">{{ lang('Starting Date') }}</h6>
-                <h3 class="mb-1 text-white">{{ proposition.proposition.created_at.date | moment('DD.MM.YYYY.') }}</h3>
+                <h3 class="mb-1 text-white">{{ proposition.created_at.date | moment('DD.MM.YYYY.') }}</h3>
             </div>
             <div class="col-md-4">
                 <h6 class="white-label">{{ lang('Total Time') }}</h6>
-                <h3 class="mb-1 text-white">{{ proposition.proposition.created_at.date | moment("from", true)  }}</h3>
+                <h3 class="mb-1 text-white">{{ proposition.created_at.date | moment("from", true)  }}</h3>
             </div>
         </div>
 

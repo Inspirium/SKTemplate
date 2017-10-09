@@ -12,7 +12,7 @@
         methods: {},
         mounted() {
             if (this.$route.params.id) {
-                this.$store.dispatch('proposition/start/getData', {id: this.$route.params.id});
+                this.$store.dispatch('proposition/initData', {id: this.$route.params.id});
             }
         }
     }

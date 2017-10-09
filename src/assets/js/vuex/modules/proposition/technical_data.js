@@ -27,13 +27,46 @@ export default {
     mutations: {
         initData(state, payload) {
             for (let i in Object.keys(state)) {
-                state[i] = payload[i];
+                let key = Object.keys(state)[i];
+                if (payload[key]) {
+                    state[key] = payload[key];
+                }
             }
+        },
+        addCirculation(state, circulation) {
+            state.circulations.push({
+                title: circulation,
+                id: 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+                    let r = Math.random() * 16 | 0,
+                        v = c === 'x' ? r : (r & 0x3 | 0x8);
+                    return v.toString(16);
+                })
+            })
+        },
+        deleteCirculation(state, id) {
+            state.circulations = _.filter(state.circulations, (c) => {
+                return c.id != id;
+            })
+        },
+        addAddition(state, addition) {
+            state.additions.push({
+                title: addition,
+                id: 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+                    let r = Math.random() * 16 | 0,
+                        v = c === 'x' ? r : (r & 0x3 | 0x8);
+                    return v.toString(16);
+                })
+            })
+        },
+        deleteAddition(state, id) {
+            state.additions = _.filter(state.additions, (a) => {
+                return a.id != id;
+            })
         }
     },
     actions: {
         getData({commit, state}, payload) {
-            if (!state.id || state.id !== payload.id || payload.force) {
+            if (!state.id || state.id != payload.id || payload.force) {
                 //retrieve data only we don't have it or we need to refresh it
                 axios.get('/api/proposition/' + payload.id + '/technical_data')
                     .then((res) => {

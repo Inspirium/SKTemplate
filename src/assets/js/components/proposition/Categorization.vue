@@ -211,10 +211,6 @@
             }
             this.$store.dispatch('categorization/getData');
         },
-        updated: function() {
-            $('.mdb-select').material_select('destroy');
-            $('.mdb-select').material_select();
-        },
         computed: {
             categories() {
                 return this.$store.state.categorization.categories;

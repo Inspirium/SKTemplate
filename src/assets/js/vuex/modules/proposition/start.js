@@ -11,7 +11,6 @@ export default {
     },
     mutations: {
         initData(state, payload) {
-
             state.project_number = payload.project_number;
             state.additional_project_number = payload.additional_project_number;
             state.project_name = payload.project_name;
@@ -20,11 +19,12 @@ export default {
     },
     actions: {
         getData({commit, state}, payload) {
-            if (!state.id || state.id !== payload.id || payload.force) {
+            if (!state.id || state.id != payload.id || payload.force) {
                 //retrieve data only we don't have it or we need to refresh it
-                axios.get('/api/proposition/' + id + '/start')
+                axios.get('/api/proposition/' + payload.id + '/start')
                     .then((res) => {
                         commit('initData', res.data);
+                        commit('proposition/initData', res.data, {root: true});
                     });
             }
         },
@@ -38,7 +38,7 @@ export default {
                 axios.post('/api/proposition/start', state)
                     .then((res) => {
                         if (res.data.id) {
-                            commit('proposition/setId', res.data.id, {root: true});
+                            commit('proposition/initData', res.data, {root: true});
                         }
                     });
             }

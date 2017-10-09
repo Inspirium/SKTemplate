@@ -25,9 +25,9 @@
                 <div class="file-box file-box-l d-flex align-items-center" v-for="item in market_potential.market_potential_documents">
                     <a v-bind:href="item.link" class="file-icon" v-on:click.prevent="documentDownload(item.link)">{{ item.title }}</a>
                     <div class="file-box-sty ml-auto d-flex">
-                        <a v-bind:href="'human_resources/employee/show/'+item.owner.id"><img class="profile-m-1 mr-1 align-self-center" v-bind:src="item.owner.image">{{ item.owner.name }}
+                        <a v-bind:href="'/human_resources/employee/show/'+item.owner.id"><img class="profile-m-1 mr-1 align-self-center" v-bind:src="item.owner.image">{{ item.owner.name }}
                         </a></div>
-                    <div class="file-box-sty">{{ item.created_at | moment("d.m.Y") }}</div>
+                    <div class="file-box-sty">{{ item.created_at | moment("D.M.Y.") }}</div>
                     <div class="file-box-sty icon icon-download" v-on:click="documentDownload(item.link)">Preuzmi</div>
                     <div class="file-box-sty icon icon-cancel" v-on:click="fileDelete(item.id)">Obriši</div>
                 </div>
@@ -64,13 +64,13 @@
                 return false;
             },
             fileDelete: function (id) {
-                this.$store.dispatch('proposition/deleteFile', {group:'market_potential', key:'market_potential_documents', id: id});
+                this.$store.dispatch('proposition/market_potential/deleteFile', id);
             },
             fileAdd: function(data) {
-                this.$store.commit('proposition/addFile', {group:'market_potential', key:'market_potential_documents', file: data.file})
+                this.$store.commit('proposition/market_potential/addFile', data.file)
             },
             fileNameSave: function(data) {
-                this.$store.dispatch('proposition/fileNameSave', {group:'market_potential', key:'market_potential_documents', id:data.file.id, title:data.file.title});
+                this.$store.dispatch('proposition/market_potential/filenameSave', {id:data.file.id, title:data.file.title});
             },
         },
         mounted: function() {

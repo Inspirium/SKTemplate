@@ -11,15 +11,30 @@ export default {
     mutations: {
         initData(state, payload) {
             for (let i in Object.keys(state)) {
-                state[i] = payload[i];
+                state[Object.keys(state)[i]] = payload[i];
             }
+        },
+        addFile(state, file) {
+            state.market_potential_documents.push(file);
+        },
+        deleteFile(state, id) {
+            state.market_potential_documents = _.filter(state.market_potential_documents, (file) => {
+                return file.id != id;
+            })
+        },
+        filenameSave(state, payload) {
+            _.forEach(state.market_potential_documents, (o) => {
+                if (o.id === payload.id) {
+                    o.title = payload.title;
+                }
+            });
         }
     },
     actions: {
         getData({commit, state}, payload) {
-            if (!state.id || state.id !== payload.id || payload.force) {                 
+            if (!state.id || state.id != payload.id || payload.force) {
                 //retrieve data only we don't have it or we need to refresh it
-                axios.get('/api/proposition/' + id + '/market_potential')
+                axios.get('/api/proposition/' + payload.id + '/market_potential')
                     .then((res) => {
                         commit('initData', res.data);
                     });
@@ -39,6 +54,15 @@ export default {
                         }
                     });
             }
+        },
+        deleteFile({commit}, id) {
+            commit('deleteFile', id);
+            //make request to remove from system
+            axios.delete('/api/file/'+id);
+        },
+        filenameSave({commit}, payload) {
+            commit('filenameSave', payload);
+            //TODO: make request to change in system
         }
     }
 }

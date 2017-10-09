@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import * as VueDeepSet from 'vue-deepset'
+
 import proposition from './modules/proposition';
 import categorization from './modules/categorization';
 

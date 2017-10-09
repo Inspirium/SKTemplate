@@ -13,7 +13,7 @@ import marketing_expense from './proposition/marketing_expense'
 import print from './proposition/print'
 import production_expense from './proposition/production_expense'
 import technical_data from './proposition/technical_data'
-
+import owner from './proposition/owner'
 
 export default {
     namespaced: true,
@@ -28,38 +28,30 @@ export default {
         marketing_expense : marketing_expense,
         print : print,
         production_expense : production_expense,
-        technical_data : technical_data
+        technical_data : technical_data,
+        owner: owner
     },
     state: {
         id: 0,
-        proposition: {
-            loaded: false,
-            assigned: {
-                departments: [],
-                employees: []
-            },
-            id: 0,
+        created_at: 0,
+        updated_at: 0,
+        deleted_at: 0,
+        loaded: false,
+        assigned: {
+            departments: [],
+            employees: []
         },
-        steps: [
-            'basic_data',
-            'categorization',
-            'market_potential',
-            'technical_data',
-            'print',
-            'authors_expense',
-            'production_expense',
-            'marketing_expense',
-            'distribution_expense',
-            'layout_expense',
-            'deadline',
-            'calculation',
-            'work_order',
-        ],
         error: ''
     },
     mutations: {
         setId(state, id) {
             state.id = id;
+        },
+        initData(state, payload) {
+            state.id = payload.id;
+            state.created_at = payload.created_at;
+            state.updated_at = payload.updated_at;
+            state.deleted_at = payload.deleted_at;
         },
 
         updateProposition(state, payload) {
@@ -136,9 +128,19 @@ export default {
                     o.title = payload.title;
                 }
             });
-        }
+        },
     },
     actions: {
+        initData({commit, state, dispatch}, payload) {
+            if (!state.id || state.id != payload.id || payload.force) {
+                axios.get('/api/proposition/' + payload.id + '/init')
+                    .then((res) => {
+                        commit('initData', res.data);
+                        commit('proposition/owner/initData', res.data.owner, {root: true});
+                    });
+            }
+        },
+
         initProposition({commit, state}, payload) {
             return new Promise((resolve, reject) => {
                 axios.get('/api/proposition/' + payload.id)

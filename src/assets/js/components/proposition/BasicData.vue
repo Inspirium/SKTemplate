@@ -53,7 +53,7 @@
                     <div class="file-box file-box-l d-flex align-items-center" v-for="(document,index) in basic_data.manuscript_documents">
                         <a v-bind:href="document.link" v-on:click.prevent="documentDownload(document.link)" class="file-icon">{{ document.title }}</a>
                         <div class="file-box-sty ml-auto d-flex">
-                            <a v-bind:href="'human_resources/employee/show/'+document.owner.id"><img class="profile-m-1 mr-1 align-self-center" v-bind:src="document.owner.image">
+                            <a v-bind:href="'/human_resources/employee/show/'+document.owner.id"><img class="profile-m-1 mr-1 align-self-center" v-bind:src="document.owner.image">
                                 {{ document.owner.name }}
                             </a></div>
                         <div class="file-box-sty">{{ document.date }}</div>
@@ -164,17 +164,14 @@
                 window.open(link, "_blank");
                 return false;
             },
-            authorDelete: function(id) {
-                this.$store.commit('proposition/removeFromObjectArray', {key: 'authors', group: 'basic_data', value: id})
-            },
             fileDelete: function (id) {
-                this.$store.dispatch('proposition/deleteFile', {group:'basic_data', key:'manuscript_documents', id: id});
+                this.$store.dispatch('proposition/basic_data/deleteFile', id);
             },
             fileAdd: function(data) {
-                this.$store.commit('proposition/addFile', {group:'basic_data', key:'manuscript_documents', file: data.file})
+                this.$store.commit('proposition/basic_data/addFile', data.file);
             },
             fileNameSave: function(data) {
-                this.$store.dispatch('proposition/fileNameSave', {group:'basic_data', key:'manuscript_documents', id:data.file.id, title:data.file.title});
+                this.$store.dispatch('proposition/basic_data/filenameSave', {id:data.file.id, title:data.file.title});
             },
             autocomplete: function(event) {
                 if (this.cancel) {
@@ -195,15 +192,18 @@
                 }
             },
             autocompleteSelect: function(index) {
-                this.$store.commit('proposition/addToObjectArray',{key: 'authors', group: 'basic_data', value: this.suggestions[index]});
+                this.$store.commit('proposition/basic_data/addAuthor', this.suggestions[index]);
                 this.suggestions = [];
                 this.author = '';
+            },
+            authorDelete: function(id) {
+                this.$store.commit('proposition/basic_data/removeAuthor', id)
             },
             openAuthorModal: function() {
                 jQuery('#centralModalAuthors').modal('show');
             },
             authorAdded: function(user) {
-                this.$store.commit('proposition/pushToArray',{key: 'authors', group: 'basic_data', value: user});
+                this.$store.commit('proposition/basic_data/addAuthor', user);
                 this.suggestions = [];
                 this.author = '';
             }

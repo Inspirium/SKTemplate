@@ -230,21 +230,21 @@
         },
         methods: {
             deleteCirculation: function(value) {
-                this.$store.commit('proposition/removeFromObjectArray', {key:'circulations', group: 'technical_data', value: value});
-                this.$store.commit('proposition/deletePrintOffer', {id: value});
+                this.$store.commit('proposition/technical_data/deleteCirculation', value);
+                //this.$store.commit('proposition/deletePrintOffer', {id: value});
             },
             deleteAddition: function(value) {
-                this.$store.commit('proposition/removeFromObjectArray', {key: 'additions', group:'technical_data', value: value});
+                this.$store.commit('proposition/technical_data/deleteAddition',  value);
             },
             addCirculation: function() {
                 if (this.circulation && !isNaN(parseFloat(this.circulation)) && isFinite(this.circulation)) {
-                    this.$store.commit('proposition/addToObjectArray', {key:'circulations', group: 'technical_data', value: {title: this.circulation}});
+                    this.$store.commit('proposition/technical_data/addCirculation', this.circulation);
                     this.circulation = '';
                 }
             },
             addAddition: function() {
                 if (this.addition) {
-                    this.$store.commit('proposition/addToObjectArray', {key:'additions', group: 'technical_data', value: {title: this.addition}});
+                    this.$store.commit('proposition/technical_data/addAddition', this.addition);
                     this.addition = '';
                 }
             }
@@ -253,8 +253,8 @@
             if (this.$route.params.id) {
                 this.$store.dispatch('proposition/technical_data/getData', {id: this.$route.params.id});
             }
-            $('.mdb-select').material_select('destroy');
-            $('.mdb-select').material_select();
+            /*$('.mdb-select').material_select('destroy');
+            $('.mdb-select').material_select();*/
         }
     }
 </script>
