@@ -62,6 +62,9 @@ export default {
             state.additions = _.filter(state.additions, (a) => {
                 return a.id != id;
             })
+        },
+        setCirculations(state, circulations) {
+            state.circulations = circulations;
         }
     },
     actions: {
@@ -80,11 +83,14 @@ export default {
                 }
             });
         },
-        saveData({state}, id) {
+        saveData({commit, state}, id) {
             return new Promise((resolve, reject) => {
                 if (id) {
                     axios.post('/api/proposition/' + id + '/technical_data', state)
-                        .then(() => { resolve(); })
+                        .then((res) => {
+                            commit('setCirculations', res.data.circulations);
+                            resolve();
+                        })
                         .catch(() => { reject(); });
                 }
                 else {
