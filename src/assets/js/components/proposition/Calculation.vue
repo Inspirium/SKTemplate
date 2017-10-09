@@ -12,12 +12,12 @@
     </div>
     <div class="tab-content">
         <div class="tab-pane fade active in show" id="panel0" role="tabpanel">
-            <div class="page-name-xl mb-1">{{ lang('Precalculation') }}</div>
+            <div class="page-name-xl mb-1 mt-3">{{ lang('Precalculation') }}</div>
             <template v-for="(option, key, index) in options">
                 <div class="page-name-l mb-1 mt-2">{{ lang('Option '+(index+1)) }}</div>
                 <a v-bind:href="'#panel'+(index+1)" class="hoverable d-block" data-toggle="tab" v-on:click="switchTab($event)">
                     <div class="row text-white btn-sub2 d-flex py-2">
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <h6 class="no-border display-b text-white">{{ lang('Circulation') }}</h6>
                             <h1 class="mb-1 text-white weight-700">{{ option.title }}</h1>
                         </div>
@@ -25,7 +25,7 @@
                             <h6 class="no-border display-b text-white">{{ lang('Total Cost') }}</h6>
                             <h1 class="mb-1 text-white">{{ totals[option.id].total_cost | flexCurrency(' kn', 2) }}</h1>
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                             <div class=" page-name-l-white border-white">{{ lang('Direct Cost Cover') }}</div>
                             <div>
                                 <h6 class="no-border text-white">{{ lang('Number of Sold Copies') }}</h6>
@@ -47,7 +47,7 @@
             </template>
         </div>
         <div class="tab-pane fade" v-bind:id="'panel'+(index+1)" role="tabpanel" v-for="(option, key, index) in options" v-bind:key="key">
-            <div class="profile-head-clear">
+            <div class="profile-head-clear mt-3">
                 <div class="row justify-content-center pt-4">
                     <div class="col-md-4 col-sm-10">
                         <div class=" page-name-l-white border-white text-white mb-3 text-center">{{ lang('Price Proposal') }}</div>
@@ -77,7 +77,7 @@
             </div>
             <div class="">
                 <!-- Table -->
-                <div class="page-name-xl mb-1 mt-4">{{ lang('Calculation') }}</div>
+                <div class="page-name-xl mb-3 mt-4">{{ lang('Calculation') }}</div>
                 <table class="table">
                     <thead class="thead-inverse">
                     <tr>
@@ -277,7 +277,7 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="page-name-xl mb-2 mt-3 mt-2">{{ lang('Circulation — ') }}{{ option.title }}</div>
+                        <div class="page-name-xl mb-3 mt-3 mt-2">{{ lang('Circulation — ') }}{{ option.title }}</div>
 
                         <!-- First column -->
                         <div class="row">
