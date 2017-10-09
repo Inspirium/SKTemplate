@@ -4,7 +4,7 @@
     <div class="page-name-l mb-4">{{ lang('Basic Categorization') }}</div>
     <div class="row">
         <div class="col-md-12">
-            <select id="supergroup" class="mdb-select" v-model="categorization.supergroup">
+            <select id="supergroup" class="mdb-select" v-model="supergroup">
                 <option disabled >{{ lang('Choose Category') }}</option>
                 <template v-if="Object.keys(categories).length">
                     <option v-for="(item, key) in categories" v-bind:value="key">{{ item.name }}</option>
@@ -14,20 +14,20 @@
             <div class="row">
 
                <div class="col-md-6">
-                    <select class="mdb-select" v-model="categorization.upgroup">
+                    <select class="mdb-select" v-model="upgroup">
                         <option disabled >{{ lang('Choose Category') }}</option>
                         <template v-if="supergroup && Object.keys(categories).length">
-                        <option v-for="(item, key) in categories[categorization.supergroup]['groups']" v-bind:value="key">{{ item.name }}</option>
+                        <option v-for="(item, key) in categories[supergroup]['groups']" v-bind:value="key">{{ item.name }}</option>
                         </template>
                     </select>
                     <label>{{ lang('Upgroup') }}</label>
                 </div>
 
                 <div class="col-md-6">
-                    <select class="mdb-select" v-model="categorization.group">
+                    <select class="mdb-select" v-model="group">
                         <option disabled >{{ lang('Choose Category') }}</option>
-                        <template v-if="categorization.upgroup && Object.keys(categories).length">
-                        <option v-for="(item, key) in categories[categorization.supergroup]['groups'][categorization.upgroup]['groups']" v-bind:value="key">{{ item.name }}</option>
+                        <template v-if="upgroup && Object.keys(categories).length">
+                        <option v-for="(item, key) in categories[supergroup]['groups'][upgroup]['groups']" v-bind:value="key">{{ item.name }}</option>
                         </template>
                     </select>
                     <label>{{ lang('Group') }}</label>
@@ -41,7 +41,7 @@
     <div class="row">
         <!-- Dropdown menu -->
         <div class="col-md-6">
-            <select class="mdb-select" v-model="categorization.book_type_group">
+            <select class="mdb-select" v-model="book_type_group">
                 <option disabled >{{ lang('Choose Category') }}</option>
                 <option v-for="(item, key) in book_types" v-bind:value="key">{{ item.name }}</option>
             </select>
@@ -52,9 +52,9 @@
         <div class="col-md-6">
             <select class="mdb-select" v-model="categorization.book_type">
                 <option disabled>{{ lang('Choose Category') }}</option>
-                <template v-if="categorization.book_type_group && Object.keys(book_types).length">
+                <template v-if="book_type_group && Object.keys(book_types).length">
 
-                    <option v-for="(item, key) in book_types[categorization.book_type_group].groups" v-bind:value="key">{{ item.name }}</option>
+                    <option v-for="(item, key) in book_types[book_type_group].groups" v-bind:value="key">{{ item.name }}</option>
                 </template>
             </select>
             <label>{{ lang('Group') }}</label>
@@ -153,7 +153,7 @@
     <div class="row">
         <!-- Dropdown menu -->
         <div class="col-md-6">
-            <select class="mdb-select" v-model="categorization.school_subject">
+            <select class="mdb-select" v-model="school_subject">
                 <option disabled >{{ lang('Choose Category') }}</option>
                 <option v-for="(item, key) in school_subjects" v-bind:value="key">{{ item.name }}</option>
             </select>
@@ -164,8 +164,8 @@
         <div class="col-md-6">
             <select class="mdb-select" v-model="categorization.school_subject_detailed">
                 <option disabled >{{ lang('Choose Category') }}</option>
-                <template v-if="categorization.school_subject && Object.keys(school_subjects).length">
-                <option v-for="(item, key) in school_subjects[categorization.school_subject].subjects" v-bind:value="key">{{ item.name }}</option>
+                <template v-if="school_subject && Object.keys(school_subjects).length">
+                <option v-for="(item, key) in school_subjects[school_subject].subjects" v-bind:value="key">{{ item.name }}</option>
                 </template>
             </select>
             <label>{{ lang('Field Detailed') }}</label>
@@ -207,9 +207,16 @@
         },
         mounted: function() {
             if (this.$route.params.id) {
-                this.$store.dispatch('proposition/categorization/getData', {id: this.$route.params.id});
+                Promise.all([
+                        this.$store.dispatch('proposition/categorization/getData', {id: this.$route.params.id}),
+                        this.$store.dispatch('categorization/getData')
+                    ])
+                    .then(() => {
+                        $('.mdb-select').material_select('destroy');
+                        $('.mdb-select').material_select();
+                    });
             }
-            this.$store.dispatch('categorization/getData');
+
         },
         computed: {
             categories() {
@@ -233,24 +240,67 @@
             supergroup: {
                 get() { return this.$store.state.proposition.categorization.supergroup; },
                 set(value) {
-
+                    this.categorization.supergroup = value;
+                    this.categorization.upgroup = 0;
+                    this.categorization.group = 0;
                 }
             },
             upgroup: {
-                    get() { return this.$store.state.proposition.proposition.categorization.upgroup; },
+                    get() { return this.$store.state.proposition.categorization.upgroup; },
                     set(value) {
-                        this.$store.commit('proposition/updateProposition', {key: 'upgroup', group: 'categorization', value: value});
-                        this.$store.commit('proposition/updateProposition', {key: 'group', group: 'categorization', value: 0});
+                        this.categorization.upgroup = value;
+                        this.categorization.group = 0;
                     }
             },
             group: {
-                get() { return this.$store.state.proposition.proposition.categorization.group; },
+                get() { return this.$store.state.proposition.categorization.group; },
                 set(value) {
-
+                    this.categorization.group = value;
                 }
             },
+            book_type_group: {
+                get() { return this.$store.state.proposition.categorization.book_type_group; },
+                set(value) {
+                    this.categorization.book_type_group = value;
+                    this.categorization.book_type = 0;
+                }
+            },
+            school_subject: {
+                get() { return this.$store.state.proposition.categorization.school_subject; },
+                set(value) {
+                    this.categorization.school_subject = value;
+                    this.categorization.school_subject_detailed = 0;
+                }
+            }
         },
         methods: {
+
+        },
+        watch: {
+            supergroup: (v, o) => {
+                setTimeout( () => {
+                    $('.mdb-select').material_select('destroy');
+                    $('.mdb-select').material_select();
+                }, 500);
+            },
+            upgroup: (v,o) => {
+                setTimeout( () => {
+                    $('.mdb-select').material_select('destroy');
+                    $('.mdb-select').material_select();
+                }, 500);
+            },
+            book_type_group: (v,o) => {
+                setTimeout( () => {
+                    $('.mdb-select').material_select('destroy');
+                    $('.mdb-select').material_select();
+                }, 500);
+            },
+            school_subject: (v,o) => {
+                setTimeout( () => {
+                    $('.mdb-select').material_select('destroy');
+                    $('.mdb-select').material_select();
+                }, 500);
+            }
         }
     }
 </script>
