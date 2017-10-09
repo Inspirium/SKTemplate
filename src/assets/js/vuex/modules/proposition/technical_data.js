@@ -66,13 +66,19 @@ export default {
     },
     actions: {
         getData({commit, state}, payload) {
-            if (!state.id || state.id != payload.id || payload.force) {
-                //retrieve data only we don't have it or we need to refresh it
-                axios.get('/api/proposition/' + payload.id + '/technical_data')
-                    .then((res) => {
-                        commit('initData', res.data);
-                    });
-            }
+            return new Promise((resolve, reject) => {
+                if (!state.id || state.id != payload.id || payload.force) {
+                    //retrieve data only we don't have it or we need to refresh it
+                    axios.get('/api/proposition/' + payload.id + '/technical_data')
+                        .then((res) => {
+                            commit('initData', res.data);
+                            resolve();
+                        });
+                }
+                else {
+                    resolve();
+                }
+            });
         },
         saveData({state}, id) {
             return new Promise((resolve, reject) => {

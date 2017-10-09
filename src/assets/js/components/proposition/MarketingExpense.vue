@@ -81,7 +81,7 @@
             }
         },
         mounted: function() {
-            if (this.$route.params.id) {
+            if (this.$route.params.id != 0) {
                 this.$store.dispatch('proposition/marketing_expense/getData', {id: this.$route.params.id});
             }
         }

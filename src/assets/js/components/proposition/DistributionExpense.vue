@@ -46,7 +46,7 @@
         },
         methods: {},
         mounted: function() {
-            if (this.$route.params.id) {
+            if (this.$route.params.id != 0) {
                 this.$store.dispatch('proposition/distribution_expense/getData', {id: this.$route.params.id});
             }
         }

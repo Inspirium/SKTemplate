@@ -66,7 +66,7 @@
             vuexSet: vuexSet
         },
         mounted: function() {
-            if (this.$route.params.id) {
+            if (this.$route.params.id != 0) {
                 this.$store.dispatch('proposition/deadline/getData', {id: this.$route.params.id});
             }
             $('.datepicker').pickadate({

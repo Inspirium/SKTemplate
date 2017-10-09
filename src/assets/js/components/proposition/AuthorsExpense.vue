@@ -117,7 +117,7 @@
             }
         },
         mounted: function() {
-            if (this.$route.params.id) {
+            if (this.$route.params.id != 0) {
                 this.$store.dispatch('proposition/authors_expense/getData', {id: this.$route.params.id});
             }
         }

@@ -240,7 +240,7 @@
             }
         },
         mounted: function() {
-            if (this.$route.params.id) {
+            if (this.$route.params.id != 0) {
                 this.$store.dispatch('proposition/print/getData', {id: this.$route.params.id});
             }
                 $('.mdb-select').material_select('destroy');

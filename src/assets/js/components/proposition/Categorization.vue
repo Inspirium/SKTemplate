@@ -206,7 +206,7 @@
             'footer-buttons': FooterButtons
         },
         mounted: function() {
-            if (this.$route.params.id) {
+            if (this.$route.params.id != 0) {
                 Promise.all([
                         this.$store.dispatch('proposition/categorization/getData', {id: this.$route.params.id}),
                         this.$store.dispatch('categorization/getData')
