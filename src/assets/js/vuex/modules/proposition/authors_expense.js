@@ -4,6 +4,7 @@ export default {
     namespaced: true,
     state: {
         id: 0,
+        authors: [],
         expenses: {},
         note: '',
         other: []
@@ -11,7 +12,8 @@ export default {
     mutations: {
         initData(state, payload) {
             for (let i in Object.keys(state)) {
-                state[Object.keys(state)[i]] = payload[i];
+                let key = Object.keys(state)[i];
+                state[key] = payload[key];
             }
         }
     },

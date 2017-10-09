@@ -29,6 +29,7 @@ export default {
         print : print,
         production_expense : production_expense,
         technical_data : technical_data,
+        authors_expense : authors_expense,
         owner: owner
     },
     state: {
