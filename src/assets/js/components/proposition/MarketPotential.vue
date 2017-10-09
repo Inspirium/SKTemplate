@@ -29,13 +29,13 @@
                         </a></div>
                     <div class="file-box-sty">{{ item.created_at | moment("D.M.Y.") }}</div>
                     <div class="file-box-sty icon icon-download" v-on:click="documentDownload(item.link)">Preuzmi</div>
-                    <div class="file-box-sty icon icon-cancel" v-on:click="fileDelete(item.id)">Obriši</div>
+                    <div class="file-box-sty icon icon-cancel" v-on:click="fileWarning(item.id)">Obriši</div>
                 </div>
             </div>
         </div>
     </div>
         <upload-modal action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" dir="market_potential" v-on:fileDelete="fileDelete" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave"></upload-modal>
-        <footer-buttons></footer-buttons>
+        <footer-buttons v-on:warning="fileDelete"></footer-buttons>
     </div>
 </template>
 
@@ -44,7 +44,9 @@
     import uploadModal from '../general/UploadModal.vue';
     export default {
         data: function() {
-            return {}
+            return {
+                index_to_delete: 0
+            }
         },
         components: {
             'footer-buttons' : FooterButtons,
@@ -63,8 +65,13 @@
                 window.open(link, "_blank");
                 return false;
             },
-            fileDelete: function (id) {
-                this.$store.dispatch('proposition/market_potential/deleteFile', id);
+            fileDelete: function () {
+                this.$store.dispatch('proposition/market_potential/deleteFile', this.index_to_delete);
+                this.index_to_delete = 0;
+            },
+            fileWarning(id) {
+                this.index_to_delete = id;
+                jQuery('#modal-warning').modal('show');
             },
             fileAdd: function(data) {
                 this.$store.commit('proposition/market_potential/addFile', data.file)

@@ -81,7 +81,7 @@
                                 </div>
                             </div>
                             <div class="md-form">
-                                <input type="text" id="form1" class="form-control" v-model="offers[key+'[additional_work]']">
+                                <input type="text" id="form1" class="form-control" v-model="offer.additional_work">
                                 <label for="form1" class="">{{ lang('Additional Work') }}</label>
                             </div>
                         </div>
@@ -107,15 +107,15 @@
                             <!-- Show depent on selection above -->
                             <!-- Input fileds -->
                             <div class="row">
-                                <div class="col-md-6" v-if="offers[key+'[cover_type]'] === 'both'" >
+                                <div class="col-md-6" v-if="offer.cover_type === 'both'" >
                                     <div class="md-form">
-                                        <input type="text" class="form-control" v-model="offers[key+'[soft_cover_circulation]']">
+                                        <input type="text" class="form-control" v-model="offer.soft_cover_circulation">
                                         <label >{{ lang('Soft Cover Circulation') }}</label>
                                     </div>
                                 </div>
-                                <div class="col-md-6" v-if="offers[key+'[cover_type]'] === 'both'">
+                                <div class="col-md-6" v-if="offer.cover_type === 'both'">
                                     <div class="md-form">
-                                        <input type="text" class="form-control" v-model="offers[key+'[hard_cover_circulation]']">
+                                        <input type="text" class="form-control" v-model="offer.hard_cover_circulation">
                                         <label>{{ lang('Hard Cover Circulation') }}</label>
                                     </div>
                                 </div>
@@ -214,7 +214,6 @@
         data: function () {
             return {
                 option_colors: ['One Colour', 'Two Colours', 'Three Colours', 'Full Colour', 'Fifth Colour'],
-                circulations: this.$store.state.proposition.proposition.technical_data.circulations,
             }
         },
         components: {
@@ -241,11 +240,12 @@
         },
         mounted: function() {
             if (this.$route.params.id != 0) {
-                this.$store.dispatch('proposition/print/getData', {id: this.$route.params.id});
+                this.$store.dispatch('proposition/print/getData', {id: this.$route.params.id})
+                    .then(() => {
+                        $('.mdb-select').material_select('destroy');
+                        $('.mdb-select').material_select();
+                    });
             }
-                $('.mdb-select').material_select('destroy');
-                $('.mdb-select').material_select();
-
         }
     }
 </script>
