@@ -1,9 +1,7 @@
 <template>
     <div>
     <div class="btn-footer mt-4 mb-5 flex-column flex-md-row d-flex p-2">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-warning">Upozorenje modal</button>
-        <button onclick="toastr.error('Došlo je do problema. Pokušajte ponovno');" class="btn btn-lg btn-cancel" v-on:click="saveProposition">{{ lang('Error') }}</button>
-        <button onclick="toastr.success('Uspješno obavljeno');" class="btn btn-lg btn-save" v-on:click="saveProposition">{{ lang('Save') }}</button>
+        <button class="btn btn-lg btn-save" v-on:click="saveProposition">{{ lang('Save') }}</button>
         <button class="btn btn-lg btn-assign btn-assign-icon" v-on:click="assignModalOpen">{{ lang('Assign to...') }}</button>
     </div>
         <!-- Central Modal Medium Assign Tab -->
@@ -119,8 +117,8 @@
                 </div>
                 <!--Footer-->
                 <div class="modal-footer btn-footer">
-                    <button type="button" class="btn btn-lg btn-save">{{ lang('Yes') }}</button>
-                    <button type="button" class="btn btn-lg btn-cancel">{{ lang('No') }}</button>
+                    <button type="button" class="btn btn-lg btn-save" v-on:click="$emit('warning')" data-dismiss="modal">{{ lang('Yes') }}</button>
+                    <button type="button" class="btn btn-lg btn-cancel" data-dismiss="modal">{{ lang('No') }}</button>
                 </div>
             </div>
             <!--/.Content-->
@@ -150,7 +148,13 @@
         },
         methods: {
             saveProposition: function() {
-                this.$store.dispatch('proposition/' + this.$route.meta.save + '/saveData', this.$route.params.id);
+                this.$store.dispatch('proposition/' + this.$route.meta.save + '/saveData', this.$route.params.id)
+                    .then(() => {
+                        toastr.success('Uspješno obavljeno');
+                    })
+                    .catch(() => {
+                        toastr.error('Došlo je do problema. Pokušajte ponovno');
+                    });
             },
             assignModalOpen: function() {
                 jQuery('#centralModalAssign').modal('show');

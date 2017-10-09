@@ -58,7 +58,7 @@
                             </a></div>
                         <div class="file-box-sty">{{ document.date }}</div>
                         <div class="file-box-sty icon icon-download" v-on:click="documentDownload(document.link)">{{ lang('Download') }}</div>
-                        <div class="file-box-sty icon icon-cancel" v-on:click="fileDelete(document.id)">{{ lang('Delete') }}</div>
+                        <div class="file-box-sty icon icon-cancel" v-on:click="fileWarning(document.id)">{{ lang('Delete') }}</div>
                     </div>
                 </div>
                 <!-- Show only if "Delivered"  -->
@@ -133,7 +133,7 @@
 
     <authors-modal v-on:authorAdded="authorAdded"></authors-modal>
 
-    <footer-buttons></footer-buttons>
+    <footer-buttons v-on:warning="fileDelete"></footer-buttons>
     </div>
 </template>
 
@@ -148,7 +148,8 @@
             return {
                 cancel: false,
                 author: '',
-                suggestions: []
+                suggestions: [],
+                index_to_delete: 0,
             }
         },
         components: {
@@ -164,8 +165,13 @@
                 window.open(link, "_blank");
                 return false;
             },
-            fileDelete: function (id) {
-                this.$store.dispatch('proposition/basic_data/deleteFile', id);
+            fileWarning(id) {
+                this.index_to_delete = id;
+                jQuery('#modal-warning').modal('show');
+            },
+            fileDelete: function () {
+                this.$store.dispatch('proposition/basic_data/deleteFile', this.index_to_delete);
+                this.index_to_delete = 0;
             },
             fileAdd: function(data) {
                 this.$store.commit('proposition/basic_data/addFile', data.file);

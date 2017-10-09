@@ -29,19 +29,27 @@ export default {
             }
         },
         saveData({state, commit}, id) {
-            if (id) {
-                axios.post('/api/proposition/' + id + '/start', state)
-                    .then((res) => {
-                    });
-            }
-            else {
-                axios.post('/api/proposition/start', state)
-                    .then((res) => {
-                        if (res.data.id) {
-                            commit('proposition/initData', res.data, {root: true});
-                        }
-                    });
-            }
+            return new Promise((resolve, reject) => {
+                if (id) {
+                    axios.post('/api/proposition/' + id + '/start', state)
+                        .then((res) => {
+                            resolve();
+                        });
+                }
+                else {
+                    axios.post('/api/proposition/start', state)
+                        .then((res) => {
+                            if (res.data.id) {
+                                commit('proposition/initData', res.data, {root: true});
+                                resolve();
+                            }
+                            else {
+                                reject();
+                            }
+                        })
+                        .catch(() => { reject(); });
+                }
+            });
         }
     }
 }

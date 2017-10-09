@@ -28,20 +28,17 @@ export default {
                     });
             }
         },
-        saveData({state, commit}, id) {
-            if (id) {
-                axios.post('/api/proposition/' + id + '/layout_expense', state)
-                    .then((res) => {
-                    });
-            }
-            else {
-                axios.post('/api/proposition/layout_expense', state)
-                    .then((res) => {
-                        if (res.data.id) {
-                            commit('proposition/setId', res.data.id, {root: true});
-                        }
-                    });
-            }
+        saveData({state}, id) {
+            return new Promise((resolve, reject) => {
+                if (id) {
+                    axios.post('/api/proposition/' + id + '/layout_expense', state)
+                        .then(() => { resolve(); })
+                        .catch(() => { reject(); });
+                }
+                else {
+                    reject();
+                }
+            });
         }
     }
 }

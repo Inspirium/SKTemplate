@@ -26,19 +26,20 @@ export default {
             }
         },
         saveData({state, commit}, id) {
-            if (id) {
-                axios.post('/api/proposition/' + id + '/deadline', state)
-                    .then((res) => {
-                    });
-            }
-            else {
-                axios.post('/api/proposition/deadline', state)
-                    .then((res) => {
-                        if (res.data.id) {
-                            commit('proposition/setId', res.data.id, {root: true});
-                        }
-                    });
-            }
+            return new Promise((resolve, reject) => {
+                if (id) {
+                    axios.post('/api/proposition/' + id + '/deadline', state)
+                        .then((res) => {
+                            resolve();
+                        })
+                        .catch(() => {
+                            reject()
+                        });
+                }
+                else {
+                    reject();
+                }
+            });
         }
     }
 }
