@@ -4,7 +4,7 @@
     <div class="content">
         <div class="quick-box">
             <div class="quick-links">
-                <div class="quick-links-title">Brzi linkovi</div>
+                <div class="quick-links-title mt-3">Brzi linkovi</div>
                 <div class="quick-links-box">
                     <a href="#" onclick="toastr.info('Hi! I am info message.');">
                         <div class="quick-links-item">

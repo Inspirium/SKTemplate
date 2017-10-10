@@ -40,13 +40,13 @@
                         <div class="modal-body tab-pane fade in show active" id="panel51" role="tabpanel">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="md-form">
+                                    <div class="md-form d-flex addon">
                                         <input type="text" class="form-control" name="department" placeholder="Pronađi odjel" v-model="department" v-on:keyup="autocomplete($event, 'department')">
                                         <ul class="mdb-autocomplete-wrap" v-if="d_suggestions.length">
                                             <li v-for="(item, index) in d_suggestions" v-on:click="autocomplete_select(index, 'department')">{{ item.name }}</li>
                                         </ul>
                                     </div>
-                                    <div class="chip mb-4" v-for="department in departments">
+                                    <div class="chip mb-5" v-for="department in departments">
                                         {{ department.name }}<i class="close fa fa-times"></i>
                                     </div>
                                     <!-- Textarea -->
@@ -54,6 +54,45 @@
                                         <textarea id="form76" class="md-textarea"></textarea>
                                         <label for="form76">{{ lang('Task Description') }}</label>
                                     </div>
+                                    <!-- Date Picker -->
+                                    <div class="row mt-4">
+                                        <div class="col-md-5">
+                                            <div class="md-form">
+                                                <input placeholder="Selected date" type="text" id="date-picker-example" class="form-control datepicker btn-white">
+                                                <label for="date-picker-example">{{ lang('Select Date') }}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/. Checkbox -->
+                                    <div class="page-name-m">{{ lang('Priority') }}</div>
+                                    <div class="form-inline mb-3">
+                                        <fieldset class="form-group">
+                                            <input name="priority" type="radio" id="radio11" value="high" >
+                                            <label for="radio11">{{ lang('High') }}</label>
+                                        </fieldset>
+                                        <fieldset class="form-group">
+                                            <input name="priority" type="radio" id="radio21" value="medium" >
+                                            <label for="radio21">{{ lang('Medium') }}</label>
+                                        </fieldset>
+                                        <fieldset class="form-group">
+                                            <input name="priority" type="radio" id="radio31" value="low" >
+                                            <label for="radio31">{{ lang('Low') }}</label>
+                                        </fieldset>
+                                    </div>
+                                    <!--/. Checkbox -->
+                                    <!-- Checkbox -->
+                                    <div class="page-name-m">{{ lang('Access Level') }}</div>
+                                    <div class="form-inline mb-3">
+                                        <fieldset class="form-group">
+                                            <input checked name="access" type="radio" id="radio51" value="allpage" >
+                                            <label for="radio51">{{ lang('All Proposition Pages') }}</label>
+                                        </fieldset>
+                                        <fieldset class="form-group">
+                                            <input name="access" type="radio" id="radio41" value="onepage" >
+                                            <label for="radio41">{{ lang('Only This Page') }}</label>
+                                        </fieldset>
+                                    </div>
+                                    <!--/. Checkbox -->
                                 </div>
                             </div>
                         </div>
@@ -69,7 +108,7 @@
                                             <li v-for="(item, index) in e_suggestions" v-on:click="autocomplete_select(index, 'employee')">{{ item.name }}</li>
                                         </ul>
                                     </div>
-                                    <div class="chip mb-1" v-for="employee in employees">
+                                    <div class="chip mb-5" v-for="employee in employees">
                                         <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg">{{ employee.name }}<i class="close fa fa-times"></i>
                                     </div>
                                     <!-- Textarea -->
@@ -77,6 +116,45 @@
                                         <textarea id="form76" class="md-textarea"></textarea>
                                         <label for="form76">{{ lang('Task Description') }}</label>
                                     </div>
+                                    <!-- Date Picker -->
+                                    <div class="row mt-4">
+                                        <div class="col-md-5">
+                                            <div class="md-form">
+                                                <input placeholder="Selected date" type="text" id="date-picker-example" class="form-control datepicker btn-white">
+                                                <label for="date-picker-example">{{ lang('Select Date') }}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/. Checkbox -->
+                                    <div class="page-name-m">{{ lang('Priority') }}</div>
+                                    <div class="form-inline mb-3">
+                                        <fieldset class="form-group">
+                                            <input name="priority1" type="radio" id="radio61" value="high" >
+                                            <label for="radio61">{{ lang('High') }}</label>
+                                        </fieldset> 
+                                        <fieldset class="form-group">
+                                            <input name="priority1" type="radio" id="radio71" value="medium" >
+                                            <label for="radio71">{{ lang('Medium') }}</label>
+                                        </fieldset>
+                                        <fieldset class="form-group">
+                                            <input name="priority1" type="radio" id="radio81" value="low" >
+                                            <label for="radio81">{{ lang('Low') }}</label>
+                                        </fieldset>
+                                    </div>
+                                    <!--/. Checkbox -->
+                                    <!-- Checkbox -->
+                                    <div class="page-name-m">{{ lang('Access Level') }}</div>
+                                    <div class="form-inline mb-3">
+                                        <fieldset class="form-group">
+                                            <input checked name="access1" type="radio" id="radio91" value="allpage" >
+                                            <label for="radio91">{{ lang('All Proposition Pages') }}</label>
+                                        </fieldset>
+                                        <fieldset class="form-group">
+                                            <input name="access1" type="radio" id="radio101" value="onepage" >
+                                            <label for="radio101">{{ lang('Only This Page') }}</label>
+                                        </fieldset>
+                                    </div>
+                                    <!--/. Checkbox -->
                                 </div>
                             </div>
                         </div>

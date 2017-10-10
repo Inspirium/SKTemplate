@@ -30,7 +30,20 @@
                     <h3 class="mb-1 text-white">{{ task.deadline | moment("DD.MM.") }}</h3>
                 </div>
             </div>
-
+        
+            <!-- Stopwatch -->
+            <div class="stopwatch">
+                <div class="stopwatch-counter">
+                    
+                </div>
+                <div class="stopwatch-controls">
+                    <div class="modal-footer btn-footer">
+                        <button class="btn btn-lg btn-blank btn-start-icon">{{ lang('Play') }}</button>
+                        <button class="btn btn-lg btn-blank btn-stop-icon">{{ lang('Stop') }}</button>
+                    </div>
+                </div>
+            </div>
+           
             <!-- Highlighted input filed -->
             <div class="page-name-xl mt-4">{{ lang('Task Completion Time') }}</div>
             <div class="grey-box mb-5 pt-5 pb-3 px-3 mx-auto">

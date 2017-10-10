@@ -28,9 +28,11 @@
         </div>
         <inspirium-notifications></inspirium-notifications>
 
+<!--
         <a href="#" class="nav-item nav-link-icon d-flex">
             <i class="fa fa-search"></i>
         </a>
+-->
         <!-- Breadcrumb -->
         <ol class="breadcrumb d-flex align-items-center">
             <li class="breadcrumb-item"><a href="#">Home</a></li>

@@ -636,13 +636,6 @@ table td .color-grey {
 
 
 
-///Remove columns for mobile
-
-@media only screen and (max-width : 768px) {
-    .file-box .file-box-sty:nth-child(n+2) {
-        display: none;
-    }
-}
 
 .file-icon {
     white-space: nowrap;
@@ -937,7 +930,6 @@ input.md-form.addon {
 
 .chip {
     position: relative;
-    top: -15px;
 }
 
 ////////// Buttons
@@ -1024,6 +1016,18 @@ input.md-form.addon {
 .btn-assign-icon:before {
     @extend .btn-icons;
     content: "\f2bd";
+    font-size: 2.4rem;
+}
+
+.btn-start-icon:before {
+    @extend .btn-icons;
+    content: "\f144";
+    font-size: 2.4rem;
+}
+
+.btn-stop-icon:before {
+    @extend .btn-icons;
+    content: "\f28d";
     font-size: 2.4rem;
 }
 

@@ -16,7 +16,7 @@
                     </div>
                 </div>
             </div>
-            <div class="chip mb-3" v-for="item in technical_data.circulations" v-bind:key="item.id">
+            <div class="chip mb-5" v-for="item in technical_data.circulations" v-bind:key="item.id">
                 {{ item.title }}
                 <i class="close fa fa-times" v-on:click="deleteCirculation(item.id)"></i>
             </div>
@@ -32,7 +32,7 @@
                     </div>
                 </div>
             </div>
-            <div class="chip mb-3" v-for="item in technical_data.additions" v-bind:key="item.id">
+            <div class="chip mb-5" v-for="item in technical_data.additions" v-bind:key="item.id">
                 {{ item.title }}
                 <i class="close fa fa-times" v-on:click="deleteAddition(item.id)"></i>
             </div>
