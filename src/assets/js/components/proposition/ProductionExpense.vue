@@ -291,13 +291,13 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="md-form input-group">
-                        <input type="text" class="form-control" v-model="expense['additional_expense['+index+'.expense]']">
+                        <input type="text" class="form-control" v-model="expense.additional_expense[index].expense">
                         <label>{{ lang('Expense') }}</label>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="md-form input-group">
-                        <input type="text" class="form-control" v-model="expense['additional_expense['+index+'.amount]']">
+                        <input type="text" class="form-control" v-model="expense.additional_expense[index].amount">
                         <label>{{ lang('Ammount') }}</label>
                         <span class="input-group-addon">{{ lang('Kn') }}</span>
                     </div>
@@ -355,7 +355,10 @@
         },
         methods: {
             addExpense: function() {
-                this.$store.commit('proposition/pushToArray', {group: 'production_expense', key:'additional_expense', value: {expense:'', amount: ''} } );
+                this.$store.commit('proposition/production_expense/addExpense');
+            },
+            deleteExpense: function(index) {
+                this.$store.commit('proposition/production_expense/deleteExpense', index);
             }
         },
         mounted: function() {

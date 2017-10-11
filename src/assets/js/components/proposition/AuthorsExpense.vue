@@ -3,40 +3,39 @@
         <div class="page-name-xl mb-4 mt-3">{{ lang('Authors Expenses') }}</div>
     <div class="row">
         <div class="col-md-12">
-            <template v-for="author in authors">
+            <template v-for="author in expenses.authors">
             <!-- Input field -->
             <div class="page-name-l mt-1 mb-4">{{ author.name }}</div>
-            <div class="row" v-if="Object.keys(expenses['expenses']).length">
+            <div class="row">
                 <div class="col-md-12">
                     <div class="md-form d-flex addon">
-                        <input type="text" id="form1" class="form-control" v-bind:placeholder="lang('Amount')" v-model="expenses['expenses'][author.id].amount">
+                        <input type="text" id="form1" class="form-control" v-bind:placeholder="lang('Amount')" v-model="author.expenses[0].amount">
                         <label for="form1">{{ lang('Amount') }}</label>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="md-form d-flex addon">
-                        <input type="text" id="form2" class="form-control" v-bind:placeholder="lang('Precentage')" v-model="expenses['expenses'][author.id].percentage">
+                        <input type="text" id="form2" class="form-control" v-bind:placeholder="lang('Precentage')" v-model="author.expenses[0].percentage">
                         <label for="form2">{{ lang('Percentage') }}</label>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="md-form d-flex addon">
-                        <input type="text" id="form3" class="form-control" v-bind:placeholder="lang('Accontation')" v-model="expenses['expenses'][author.id].accontation">
+                        <input type="text" id="form3" class="form-control" v-bind:placeholder="lang('Accontation')" v-model="author.expenses[0].accontation">
                         <label for="form3">{{ lang('Accontation') }}</label>
                     </div>
                 </div>
             </div>
-                <template v-if="expenses.expenses[author.id]">
-                <div class="row" v-for="(a, i) in expenses.expenses[author.id].additional_expenses" v-bind:key="i">
+                <div class="row" v-for="(a, i) in author.expenses[0].additional_expenses" v-bind:key="i">
                     <div class="col-md-4">
                         <div class="md-form d-flex addon">
-                            <input type="text" class="form-control" v-bind:placeholder="lang('Expense Name')" v-model="expenses['expenses'][author.id]['additional_expenses'][i]['expense']">
+                            <input type="text" class="form-control" v-bind:placeholder="lang('Expense Name')" v-model="author.expenses[0].additional_expenses[i].expense">
                             <label>{{ lang('Expense Name') }}</label>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="md-form d-flex addon">
-                            <input type="text" class="form-control" v-bind:placeholder="lang('Amount')" v-model="expenses['expenses'][author.id]['additional_expenses'][i]['amount']">
+                            <input type="text" class="form-control" v-bind:placeholder="lang('Amount')" v-model="author.expenses[0].additional_expenses[i].amount">
                             <label>{{ lang('Amount') }}</label>
                         </div>
                     </div>
@@ -44,7 +43,6 @@
                         <button class="btn btn-danger btn-addon" v-on:click="deleteExpense(author.id, i)">{{ lang('Delete Expense') }}</button>
                     </div>
                 </div>
-                </template>
             <!-- Add new item -->
             <button class="btn btn-neutral btn-addon mb-5" type="button" v-on:click="addExpense(author.id)">{{ lang('Add New Expense') }}</button>
             </template>
@@ -97,23 +95,20 @@
         computed: {
             expenses() {
                 return this.$deepModel('proposition.authors_expense');
-            },
-            authors() {
-                return this.$deepModel('proposition.basic_data.authors');
             }
         },
         methods: {
             addExpense: function(author) {
-                this.$store.commit('proposition/addAuthorExpense', {author: author});
+                this.$store.commit('proposition/authors_expense/addExpense', author);
             },
             deleteExpense: function(author, index) {
-                this.$store.commit('proposition/deleteAuthorExpense', { author: author, index: index });
+                this.$store.commit('proposition/authors_expense/deleteExpense', { author: author, index: index });
             },
             addOtherExpense: function() {
-                this.$store.commit('proposition/pushToArray', {group:'authors_expense', key: 'other', value: {expense: '', amount: ''} });
+                this.$store.commit('proposition/authors_expense/addOtherExpense');
             },
             deleteOtherExpense: function(index) {
-                this.$store.commit('proposition/removeFromArray', {group:'authors_expense', key: 'other',  index: index });
+                this.$store.commit('proposition/authors_expense/deleteOtherExpense', index);
             }
         },
         mounted: function() {

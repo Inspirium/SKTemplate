@@ -8,27 +8,27 @@
         <div class="profile-head pb-2 row">
             <div class="col-md-2">
                 <h6 class="white-label">{{ lang('Number of Pages') }}</h6>
-                <h3 class="mb-1 text-white">{{ technical['number_of_pages'] }}</h3>
+                <h3 class="mb-1 text-white">{{ data.number_of_pages }}</h3>
             </div>
             <div class="col-md-2">
                 <h6 class="white-label">{{ lang('Photos') }}</h6>
-                <h3 class="mb-1 text-white">{{ production['photos_amount'] }}</h3>
+                <h3 class="mb-1 text-white">{{ data.photos_amount }}</h3>
             </div>
             <div class="col-md-2">
                 <h6 class="white-label">{{ lang('Illustrations') }}</h6>
-                <h3 class="mb-1 text-white">{{ production['illustrations_amount'] }}</h3>
+                <h3 class="mb-1 text-white">{{ data.illustrations_amount }}</h3>
             </div>
             <div class="col-md-2">
                 <h6 class="white-label">{{ lang('Tehnical Drawings') }}</h6>
-                <h3 class="mb-1 text-white">{{ production['technical_drawings_amount'] }}</h3>
+                <h3 class="mb-1 text-white">{{ data.technical_drawings_amount }}</h3>
             </div>
             <div class="col-md-2">
                 <h6 class="white-label">{{ lang('Category') }}</h6>
-                <h3 class="mb-1 text-white">{{ supergroup_text }}</h3>
+                <h3 class="mb-1 text-white" v-if="data.group.parent">{{ data.group.parent.parent.name }}</h3>
             </div>
             <div class="col-md-2">
                 <h6 class="white-label">{{ lang('Group') }}</h6>
-                <h3 class="mb-1 text-white">{{ group_text }}</h3>
+                <h3 class="mb-1 text-white">{{ data.group.name }}</h3>
             </div>
         </div>
 
@@ -40,7 +40,7 @@
                 <div class="col-md-6 mx-auto mt-4">
                     <!-- Dropdown menu -->
                     <div class="pos-rel">
-                        <select class="mdb-select" v-model="layout['layout_complexity']">
+                        <select class="mdb-select" v-model="data.layout_complexity">
                             <option disabled >{{ lang('Choose') }}</option>
                             <option value="1">{{ lang('1 - Very Easy') }}</option>
                             <option value="2">{{ lang('2 - Easy') }}</option>
@@ -53,7 +53,7 @@
                 </div>
                 <!-- TeAxtarea -->
                 <div class="md-form">
-                    <textarea class="md-textarea" v-model="layout['layout_note']"></textarea>
+                    <textarea class="md-textarea" v-model="data.layout_note"></textarea>
                     <label>{{ lang('Note') }}</label>
                 </div>
             </div>
@@ -63,7 +63,7 @@
                 <div class="col-md-6 mx-auto mt-4">
                     <!-- Dropdown menu -->
                     <div class="pos-rel">
-                        <select class="mdb-select" name="department_id" v-model="layout['design_complexity']">
+                        <select class="mdb-select" name="department_id" v-model="data.design_complexity">
                             <option disabled >{{ lang('Choose') }}</option>
                             <option value="1">{{ lang('1 - Very Easy') }}</option>
                             <option value="2">{{ lang('2 - Easy') }}</option>
@@ -76,7 +76,7 @@
                 </div>
                 <!-- Textarea -->
                 <div class="md-form">
-                    <textarea v-model="layout['design_note']"   class="md-textarea"></textarea>
+                    <textarea v-model="data.design_note"   class="md-textarea"></textarea>
                     <label>{{ lang('Note') }}</label>
                 </div>
             </div>
@@ -88,56 +88,19 @@
 </template>
 <script>
     import FooterButtons from './partials/FooterButtons.vue'
+    import { mapGetters } from 'vuex'
     export default {
         data: function () {
             return {}
         },
         computed: {
-            supergroup_text() {
-                  return this.$store.state.proposition.categorization.supergroup_text;
-            },
-            group_text() {
-                return this.$store.state.proposition.categorization.group_text;
-            },
-            technical() {
-                return this.$deepModel('proposition.technical_data');
-            },
-            production() {
-                return this.$deepModel('proposition.production_expense');
-            },
-            layout() {
+            data() {
                 return this.$deepModel('proposition.layout_expense');
             },
-            number_of_hours() {
-                let category = this.$store.state.proposition.proposition.categorization.upgroup_coef / 60,
-                    pages = this.technical.number_of_pages,
-                    photos = this.production.photos_amount / 30,
-                    illustrations = this.production.illustrations_amount / 30,
-                    drawings = this.production.technical_drawings_amount / 30;
-                const complexity = {
-                    1: 0.65,
-                    2: 0.8,
-                    3: 1,
-                    4: 1.2,
-                    5: 1.35
-                };
-                return (category * pages + photos + illustrations + drawings) * complexity[this.layout.layout_complexity];
-            },
-            layout_total() {
-                let price = 8000 / 175;
-                return this.number_of_hours * price;
-            },
-            design_total() {
-                let price = 15000 / 175;
-                const complexity = {
-                    1: 0.4,
-                    2: 0.7,
-                    3: 1,
-                    4: 1.3,
-                    5: 1.6
-                };
-                return this.number_of_hours * price * complexity[this.layout.design_complexity] / 2;
-            }
+            ...mapGetters({
+                layout_total: 'proposition/layout_expense/layout_total',
+                design_total: 'proposition/layout_expense/design_total',
+            })
         },
         components: {
             'footer-buttons' : FooterButtons
@@ -145,8 +108,13 @@
         methods: {},
         mounted: function() {
             if (this.$route.params.id != 0) {
-                this.$store.dispatch('proposition/layout_expense/getData', {id: this.$route.params.id});
+                this.$store.dispatch('proposition/layout_expense/getData', {id: this.$route.params.id})
+                    .then(() => {
+                        $('.mdb-select').material_select('destroy');
+                        $('.mdb-select').material_select();
+                    });
             }
-        }
+        },
+
     }
 </script>

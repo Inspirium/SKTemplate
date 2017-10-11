@@ -74,10 +74,10 @@
         },
         methods: {
             addExpense: function() {
-                this.$store.commit('proposition/pushToArray', {group:'marketing_expense', key: 'additional_expense', value: {expense: '', amount: ''} });
+                this.$store.commit('proposition/marketing_expense/addExpense');
             },
             deleteExpense: function(index) {
-                this.$store.commit('proposition/removeFromArray', {group:'marketing_expense', key: 'additional_expense',  index: index });
+                this.$store.commit('proposition/marketing_expense/deleteExpense', index);
             }
         },
         mounted: function() {

@@ -6,13 +6,20 @@ export default {
         id: 0,
         expense: '',
         note: '',
-        additional_expenses: []
+        additional_expense: []
     },
     mutations: {
         initData(state, payload) {
             for (let i in Object.keys(state)) {
-                state[Object.keys(state)[i]] = payload[i];
+                let key = Object.keys(state)[i];
+                state[key] = payload[key];
             }
+        },
+        addExpense(state) {
+            state.additional_expense.push({expense: '', amount: 0});
+        },
+        deleteExpense(state, index) {
+            state.additional_expense.splice(index, 1);
         }
     },
     actions: {

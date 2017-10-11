@@ -5,7 +5,6 @@ export default {
     state: {
         id: 0,
         authors: [],
-        expenses: {},
         note: '',
         other: []
     },
@@ -15,6 +14,18 @@ export default {
                 let key = Object.keys(state)[i];
                 state[key] = payload[key];
             }
+        },
+        addExpense(state, author) {
+            state.authors[author].expenses[0].additional_expenses.push({expense:'', amount: 0})
+        },
+        deleteExpense(state, payload) {
+            state.authors[payload.author].expenses[0].additional_expenses.splice(payload.index, 1);
+        },
+        addOtherExpense(state) {
+            state.other.push({expense:'', amount: 0});
+        },
+        deleteOtherExpense(state, index) {
+            state.other.splice(index, 1);
         }
     },
     actions: {
