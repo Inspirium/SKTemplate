@@ -48,7 +48,8 @@
             }
         },
         components: {
-            'footer-buttons' : FooterButtons
+            'footer-buttons' : FooterButtons,
+            'upload-modal' : uploadModal
         },
         computed: {},
         methods: {
