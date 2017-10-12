@@ -342,6 +342,8 @@
 <script>
     import _ from 'lodash'
     import FooterButtons from './partials/FooterButtons.vue';
+    import { mapState } from 'vuex'
+    
     export default {
         data: function () {
             return {
