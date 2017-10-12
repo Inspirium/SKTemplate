@@ -46,6 +46,9 @@ $sk-skin-btn-default: #293756;
             padding-left: 0;
         }
     }
+    draggable {
+        background-color: $white;
+    }
     .gradient {
         background: $sk-skin-gradient-start;
         /* Old browsers */
@@ -1085,6 +1088,16 @@ $sk-skin-btn-default: #293756;
         }
         .btn {
             margin: 6px;
+        }
+        .icon-handler {
+            margin: 0 auto;
+            margin-top: 1rem;
+        }
+        draggable {
+            background-color: transparent;
+            img {
+                display: none;
+            }
         }
     }
     

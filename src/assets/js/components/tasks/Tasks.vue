@@ -13,24 +13,24 @@
             <tr>
                 <th class="w-30"></th>
                 <th class="w-30">#</th>
-                <th>{{ lang('Task') }}</th>
-                <th>{{ lang('Task Type') }}</th>
-                <th>{{ lang('Assigner') }}</th>
-                <th>{{ lang('Created') }}</th>
-                <th>{{ lang('Deadline') }}</th>
-                <th v-if="authority" class="text-right">{{ lang('Assign to') }}</th>
+                <th data-title="Task">{{ lang('Task') }}</th>
+                <th data-title="Task Type">{{ lang('Task Type') }}</th>
+                <th data-title="Assigner">{{ lang('Assigner') }}</th>
+                <th data-title="Created">{{ lang('Created') }}</th>
+                <th data-title="Deadline">{{ lang('Deadline') }}</th>
+                <th data-title="Assign to" v-if="authority" class="text-right">{{ lang('Assign to') }}</th>
             </tr>
             </thead>
-            <draggable class="white" v-model="new_tasks" v-bind:element="'tbody'">
+            <draggable v-model="new_tasks" v-bind:element="'tbody'">
                 <tr v-for="(element, index) in new_tasks" v-bind:key="element.id">
                     <td><div class="icon icon-handler"></div></td>
                     <th class="display-e w-30">{{ index+1 }}</th>
-                    <td class="table-title"><a v-bind:href="'/task/show/'+element.id">{{ element.name }}</a></td>
-                    <td><div v-bind:class="task_types[element.type].className">{{ task_types[element.type].title }}</div></td>
-                    <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-2" v-bind:src="element.assigner.image">{{ element.assigner.name }}</a></td>
-                    <td>{{ element.created_at | moment('DD.MM.') }}</td>
-                    <td>{{ element.deadline | moment('DD.MM.') }}</td>
-                    <td v-if="authority" class="text-right"><div class="file-box-sty icon icon-assign">{{ lang('Assign') }}</div></td>
+                    <td data-title="Task" class="table-title"><a v-bind:href="'/task/show/'+element.id">{{ element.name }}</a></td>
+                    <td data-title="Task Type"><div v-bind:class="task_types[element.type].className">{{ task_types[element.type].title }}</div></td>
+                    <td data-title="Assigner"><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-2" v-bind:src="element.assigner.image">{{ element.assigner.name }}</a></td>
+                    <td data-title="Created">{{ element.created_at | moment('DD.MM.') }}</td>
+                    <td data-title="Deadline">{{ element.deadline | moment('DD.MM.') }}</td>
+                    <td data-title="Assign to" v-if="authority" class="text-right"><div class="file-box-sty icon icon-assign">{{ lang('Assign') }}</div></td>
                 </tr>
             </draggable>
         </table>
@@ -45,13 +45,13 @@
             <tr>
                 <th class="w-30"></th>
                 <th class="w-30">#</th>
-                <th>{{ lang('Task') }}</th>
-                <th>{{ lang('Task Type') }}</th>
-                <th>{{ lang('Assigner') }}</th>
-                <th>{{ lang('Created') }}</th>
-                <th>{{ lang('Deadline') }}</th>
-                <th>{{ lang('TCT') }}</th>
-                <th v-if="authority">{{ lang('Assign to') }}</th>
+                <th data-title="Task">{{ lang('Task') }}</th>
+                <th data-title="Task Type">{{ lang('Task Type') }}</th>
+                <th data-title="Assigner">{{ lang('Assigner') }}</th>
+                <th data-title="Created">{{ lang('Created') }}</th>
+                <th data-title="Deadline">{{ lang('Deadline') }}</th>
+                <th data-title="TCT">{{ lang('TCT') }}</th>
+                <th data-title="Assign to" v-if="authority">{{ lang('Assign to') }}</th>
             </tr>
             </thead>
             <draggable class="white" v-model="old_tasks" v-bind:element="'tbody'" v-on:end="endDrag">
