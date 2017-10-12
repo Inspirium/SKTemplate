@@ -355,46 +355,11 @@
             authors() {
                 return this.$deepModel('proposition.proposition.basic_data.authors');
             },
-            author_expenses() {
-                _.mapValues(this.$store.state.proposition.proposition.authors_expense, (a) => {
-                    return Number(a.amount) + Number(_.sumBy(a.additional_expenses, (a) => {
-                        return Number(a.amount);
-                    }) );
-                });
-            },
-            production_expense() {
-                return this.$deepModel('proposition.proposition.production_expense');
-            },
-            marketing_expense() {
-                let marketing_expenses = this.$store.state.proposition.proposition.marketing_expense;
-                return Number(marketing_expenses.expense) +  _.sumBy(marketing_expenses.additional_expense, function(o) { return Number(o.amount) })
-            },
             additional_expense() {
                 return _.sumBy(this.production_expense.additional_expense, (o) => {return Number(o.amount)});
             },
             total_budget() {
-                let total_authors = 0;
-                if (this.author_expenses) {
-                    total_authors = Object.values(this.author_expenses).reduce((a, b) => a + b);
-                }
-                return total_authors + this.production_expense.text_price * this.production_expense.text_price_amount +
-                    this.production_expense.reviews +
-                    this.production_expense.lecture * this.production_expense.lecture_amount +
-                    this.production_expense.correction * this.production_expense.correction_amount +
-                    this.production_expense.proofreading * this.production_expense.proofreading_amount +
-                    this.production_expense.translation * this.production_expense.translation_amount +
-                    this.production_expense.index * this.production_expense.index_amount +
-                    this.production_expense.epilogue +
-                    this.production_expense.photos * this.production_expense.photos_amount +
-                    this.production_expense.illustrations * this.production_expense.illustrations_amount +
-                    this.production_expense.technical_drawings * this.production_expense.technical_drawings_amount +
-                    this.production_expense.expert_report +
-                    this.production_expense.copyright +
-                    this.production_expense.copyright_mediator +
-                    this.production_expense.methodical_instrumentarium +
-                    this.production_expense.selection +
-                    this.production_expense.powerpoint_presentation +
-                    this.additional_expense + this.marketing_expense;
+                return this.total_authors + this.production_expense
             },
             total_expenses() {
                 return Object.values(this.expenses).reduce((a, b) => a + b);
@@ -404,7 +369,10 @@
             },
             total_percent_difference() {
                 return Math.round( this.total_difference / this.total_budget * 100 );
-            }
+            },
+            ...mapState('proposition/compare', [
+                'production_expense', 'marketing_expense'
+            ])
         },
         methods: {
             editField: function(field) {
