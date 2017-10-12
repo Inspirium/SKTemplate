@@ -453,7 +453,7 @@
                         mprice = (Number(complete) - Number(this.dotation)) * (100 + Number(option.calculated_profit_percent)) / 100,
                         price = mprice * (100 + Number(option.shop_percent)) / 100;
                         options[option.id] = {
-                        direct_cost : Number(this.authors_total) + Number(option.print_offer) + Number(option.compensation)+Number(this.marketing_expense) + Number(this.production_expense) + Number(this.design_layout_expense),
+                        direct_cost : Number(this.authors_total) + Number(option.print_offer) + Number(option.compensation)+Number(this.marketing_expense) + Number(this.production_expense) + Number(this.design_layout_expense) - Number(this.dotation),
                         remainder_after_sales: remainder,
                         complete_expense: complete,
                         cost_coverage: (Number(complete) - Number(this.dotation)),

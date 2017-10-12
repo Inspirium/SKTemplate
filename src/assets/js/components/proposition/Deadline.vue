@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-md-5">
                     <div class="md-form">
-                        <input placeholder="Selected date" type="text" id="date-picker-example" class="form-control datepicker btn-white" v-bind:value="deadline.date">
+                        <input v-bind:placeholder="lang('Odaberi datum')" type="text" id="date-picker-example" class="form-control datepicker btn-white" v-bind:value="deadline.date">
                         <label for="date-picker-example">{{ lang('Select Date') }}</label>
                     </div>
                 </div>

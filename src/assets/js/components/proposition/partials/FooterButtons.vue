@@ -280,5 +280,6 @@
         },
         mounted: function() {
         }
+        
     }
 </script>

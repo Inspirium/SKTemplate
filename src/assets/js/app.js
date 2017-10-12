@@ -88,9 +88,13 @@ $(document).ready(function() {
 });
 
 // Data Picker Initialization
-$('.datepicker').pickadate();
+$('.datepicker').pickadate({
+    showMonthsShort: 'false',
+    firstDay: 1
+});
 
 // Tooltip Initialization
 $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 });
+

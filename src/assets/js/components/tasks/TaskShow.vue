@@ -34,7 +34,7 @@
             <!-- Stopwatch -->
             <div class="stopwatch">
                 <div class="stopwatch-counter">
-                    
+                
                 </div>
                 <div class="stopwatch-controls">
                     <div class="modal-footer btn-footer">

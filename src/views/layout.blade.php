@@ -47,6 +47,8 @@
 <script src="{{ asset('js/mdb.js') }}"></script>
 
 <script src="{{ asset('js/app.js') }}"></script>
+
+<script src="/assets/js/libs/jquery.js"></script>
 @endif
 </body>
 </html>
