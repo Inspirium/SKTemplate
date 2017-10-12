@@ -3,16 +3,27 @@ import axios from "axios/index";
 export default {
     namespaced: true,
     state: {
-        id: 0,
-        author_expenses: [],
-        offers: [],
-        authors_total: 0,
-        authors_advance: 0,
-        authors_other: 0,
-        marketing_expense: 0,
-        production_expense: 0,
-        design_layout_expense: 0,
-        dotation: 0,
+        expenses: {
+            text_price: 0,
+            reviews: 0,
+            lecture: 0,
+            correction: 0,
+            proofreading: 0,
+            translation: 0,
+            index: 0,
+            epilogue: 0,
+            photos: 0,
+            illustrations: 0,
+            technical_drawings: 0,
+            expert_report: 0,
+            copyright: 0,
+            copyright_mediator: 0,
+            methodical_instrumentarium: 0,
+            selection: 0,
+            powerpoint_presentation: 0,
+            additional_expense: 0,
+            marketing_expense: 0,
+        },
     },
     mutations: {
         initData(state, payload) {
@@ -23,10 +34,10 @@ export default {
         },
     },
     actions: {
-        getData({commit, state, dispatch}, payload) {
+        getData({commit, state}, payload) {
             if (!state.id || state.id != payload.id || payload.force) {
                 //retrieve data only we don't have it or we need to refresh it
-                axios.get('/api/proposition/' + payload.id + '/calculation')
+                axios.get('/api/proposition/' + payload.id + '/authors_expense')
                     .then((res) => {
                         commit('initData', res.data);
                     });
@@ -35,7 +46,7 @@ export default {
         saveData({state, commit}, id) {
             return new Promise((resolve, reject) => {
                 if (id) {
-                    axios.post('/api/proposition/' + id + '/calculation', state)
+                    axios.post('/api/proposition/' + id + '/authors_expense', state)
                         .then((res) => {
                             resolve();
                         })
@@ -46,8 +57,5 @@ export default {
                 }
             });
         }
-    },
-    getters: {
-
     }
 }

@@ -15,6 +15,7 @@ import production_expense from './proposition/production_expense'
 import technical_data from './proposition/technical_data'
 import owner from './proposition/owner'
 import calculation from './proposition/calculation'
+import compare from './proposition/compare'
 
 export default {
     namespaced: true,
@@ -32,6 +33,7 @@ export default {
         technical_data : technical_data,
         authors_expense : authors_expense,
         calculation : calculation,
+        compare : compare,
         owner: owner
     },
     state: {

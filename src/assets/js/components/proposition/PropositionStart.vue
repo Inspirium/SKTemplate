@@ -109,7 +109,13 @@
                     });
             },
             saveProposition: function() {
-                this.$store.dispatch('proposition/start/saveData', this.$route.params.id);
+                this.$store.dispatch('proposition/start/saveData', this.$route.params.id)
+                    .then(() => {
+                        toastr.success('Uspješno obavljeno');
+                    })
+                    .catch(() => {
+                        toastr.error('Došlo je do problema. Pokušajte ponovno');
+                    });;
             }
         },
         mounted: function() {

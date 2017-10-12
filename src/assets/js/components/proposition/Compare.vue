@@ -345,27 +345,6 @@
     export default {
         data: function () {
             return {
-                expenses: {
-                    text_price: 0,
-                    reviews: 0,
-                    lecture: 0,
-                    correction: 0,
-                    proofreading: 0,
-                    translation: 0,
-                    index: 0,
-                    epilogue: 0,
-                    photos: 0,
-                    illustrations: 0,
-                    technical_drawings: 0,
-                    expert_report: 0,
-                    copyright: 0,
-                    copyright_mediator: 0,
-                    methodical_instrumentarium: 0,
-                    selection: 0,
-                    powerpoint_presentation: 0,
-                    additional_expense: 0,
-                    marketing_expense: 0,
-                },
                 activeEdit: '',
             }
         },
@@ -449,10 +428,10 @@
             }
         },
         mounted() {
-            axios.get('/api/proposition/' + this.$route.params.id + '/compare')
-                .then((res) => {
-                    this.expenses = res.data;
-                })
+            if (this.$route.params.id != 0) {
+                axios.get('/api/proposition/' + this.$route.params.id + '/compare')
+                    .then((res) => {})
+            }
         }
     }
 </script>
