@@ -73,10 +73,10 @@
             },
             fileAdd: function(data) {
                 if (data.isFinal) {
-                    this.final.push(data.file);
+                    this.psd.push(data.file);
                 }
                 else {
-                    this.files.push(data.file);
+                    this.jpg.push(data.file);
                 }
             },
             fileNameSave: function(data) {
