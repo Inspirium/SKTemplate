@@ -4,7 +4,7 @@ export default {
     namespaced: true,
     state: {
         id: 0,
-        authors: [],
+        author_expenses: [],
         offers: [{
             title: 0,
             total_cost: '',

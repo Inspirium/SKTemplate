@@ -5,15 +5,16 @@
             <li class="nav-item">
                 <a class="nav-link active" data-toggle="tab" href="#panel0" role="tab" v-on:click="switchTab($event)">{{ lang('Precalculation') }}</a>
             </li>
-            <li class="nav-item" v-for="(option, key, index) in options">
+            <li class="nav-item" v-for="(option, key, index) in offers">
                 <a class="nav-link" data-toggle="tab" v-bind:href="'#panel'+(index+1)" v-bind:key="key"  role="tab" v-on:click="switchTab($event)">{{ option.title }}</a>
             </li>
         </ul>
     </div>
+
     <div class="tab-content">
         <div class="tab-pane fade active in show" id="panel0" role="tabpanel">
             <div class="page-name-xl mb-1 mt-3">{{ lang('Precalculation') }}</div>
-            <template v-for="(option, key, index) in options">
+            <template v-for="(option, key, index) in offers">
                 <div class="page-name-l mb-1 mt-2">{{ lang('Option '+(index+1)) }}</div>
                 <a v-bind:href="'#panel'+(index+1)" class="hoverable d-block" data-toggle="tab" v-on:click="switchTab($event)">
                     <div class="row text-white btn-sub2 d-flex py-2">
@@ -46,7 +47,7 @@
                 </a>
             </template>
         </div>
-        <div class="tab-pane fade" v-bind:id="'panel'+(index+1)" role="tabpanel" v-for="(option, key, index) in options" v-bind:key="key">
+        <div class="tab-pane fade" v-bind:id="'panel'+(index+1)" role="tabpanel" v-for="(option, key, index) in offers" v-bind:key="key">
             <div class="profile-head-clear mt-3">
                 <div class="row justify-content-center pt-4">
                     <div class="col-md-4 col-sm-10">
@@ -108,7 +109,7 @@
                         <td>Ostali autorski ugovori</td>
                         <td></td>
                         <td>{{ authors_other | flexCurrency('', 2) }}</td>
-                        <td>{{ authors_other | flexCurrency(' kn', 2) }}</td>
+                        <td>{{ authors_other / option.title | flexCurrency(' kn', 2) }}</td>
                     </tr>
                     <tr class="table-display-1">
                         <th scope="row">2</th>
@@ -152,7 +153,7 @@
                         <td>Plaće izdavačkog sektora</td>
                         <td></td>
                         <template v-if="currentEdit('compensation')">
-                            <td><input type="text" class="form-control" v-model="options[key].compensation" v-on:keyup.enter="closeEdit" autofocus></td>
+                            <td><input type="text" class="form-control" v-model="option.compensation" v-on:keyup.enter="closeEdit" autofocus></td>
                         </template>
                         <template v-else>
                             <td class="table-editable text-center" v-on:click="editField('compensation')">{{ option.compensation | flexCurrency('', 2) }}</td>
@@ -171,7 +172,7 @@
                         <td>Indirektni troškovi</td>
                         <td></td>
                         <template v-if="currentEdit('indirect_expenses')">
-                            <td><input type="text" size="3" class="form-control" v-model="options[key].indirect_expenses" v-on:keyup.enter="closeEdit" autofocus></td>
+                            <td><input type="text" size="3" class="form-control" v-model="option.indirect_expenses" v-on:keyup.enter="closeEdit" autofocus></td>
                         </template>
                         <template v-else>
                             <td class="table-editable text-center" v-on:click="editField('indirect_expenses')">{{ option.indirect_expenses | flexCurrency( '', 2) }}</td>
@@ -217,7 +218,7 @@
                         <th scope="row">15</th>
                         <td>Ukalkulirana dobit</td>
                         <template v-if="currentEdit('calculated_profit_percent')">
-                            <td><input type="text" size="3" class="form-control" v-model="options[key].calculated_profit_percent" v-on:keyup.enter="closeEdit" autofocus></td>
+                            <td><input type="text" size="3" class="form-control" v-model="option.calculated_profit_percent" v-on:keyup.enter="closeEdit" autofocus></td>
                         </template>
                         <template v-else>
                             <td class="table-editable text-center" v-on:click="editField('calculated_profit_percent')">{{ option.calculated_profit_percent | percent }}</td>
@@ -236,7 +237,7 @@
                         <th scope="row">17</th>
                         <td>Udio trgovine</td>
                         <template v-if="currentEdit('shop_percent')">
-                            <td><input type="text" size="3" class="form-control" v-model="options[key+'[shop_percent]']" v-on:keyup.enter="closeEdit" autofocus></td>
+                            <td><input type="text" size="3" class="form-control" v-model="option.shop_percent" v-on:keyup.enter="closeEdit" autofocus></td>
                         </template>
                         <template v-else>
                             <td class="table-editable text-center" v-on:click="editField('shop_percent')">{{ option.shop_percent | percent }}</td>
@@ -431,98 +432,27 @@
 <script>
     import FooterButtons from './partials/FooterButtons.vue';
     import { directive as onClickaway } from 'vue-clickaway';
+    import { mapState } from 'vuex'
 
     export default {
         data: function () {
             return {
                 option_colors: ['One Colour', 'Two Colours', 'Three Colours', 'Full Colour', 'Fifth Colour'],
-                dotation: this.$store.state.proposition.basic_data.dotation_amount,
                 activeEdit: '',
             }
         },
         computed: {
-            authors_total() {
-                return _.sumBy(Object.keys(this.$store.state.proposition.authors_expense.expenses), (key) => {
-                    let e = this.$store.state.proposition.authors_expense.expenses[key];
-                    let additional = _.sumBy(e.additional_expenses, (a) => {
-                        return Number(a.amount);
-                    });
-                    return Number(e.amount) + Number(additional);
-                }) + _.sumBy(this.$store.state.proposition.authors_expense.other, (o) => {return Number(o.amount)});
-            },
-            authors_advance() {
-                return _.sumBy(Object.keys(this.$store.state.proposition.authors_expense.expenses), (key) => {
-                    return this.$store.state.proposition.authors_expense.expenses[key].accontation;
-                })
-            },
-            authors_other() {
-                _.sumBy(Object.keys(this.$store.state.proposition.authors_expense.expenses), (key) => {
-                    return _.sumBy(this.$store.state.proposition.authors_expense.expenses[key].additional_expenses, (a) => {
-                        return a.amount;
-                    });
-                })
-            },
-            options() {
-                return this.$deepModel('proposition.print.offers');
-            },
-            marketing_expense() {
-                return Number(this.$store.state.proposition.marketing_expense.expense) +  _.sumBy(this.$store.state.proposition.marketing_expense.additional_expense, function(o) { return Number(o.amount) });
-            },
-            production_expense() {
-                let expense = this.$store.state.proposition.production_expense;
-                let sum = ( Number(expense.text_price) * Number(expense.text_price_amount) ) +
-                    ( Number(expense.lecture) * Number(expense.lecture_amount) ) +
-                    ( Number(expense.correction) * Number(expense.correction_amount) ) +
-                    ( Number(expense.proofreading) * Number(expense.proofreading_amount) )  +
-                    ( Number(expense.translation) * Number(expense.translation_amount) ) +
-                    ( Number(expense.index) * Number(expense.index_amount) ) +
-                    ( Number(expense.photos) * Number(expense.photos_amount) ) +
-                    ( Number(expense.illustrations) * Number(expense.illustrations_amount) ) +
-                    ( Number(expense.technical_drawings) * Number(expense.technical_drawings_amount) )  +
-                    Number(expense.accontation) + Number(expense.reviews) + Number(expense.epilogue) +
-                    Number(expense.expert_report) + Number(expense.copyright) +
-                    Number(expense.copyright_mediator) + Number(expense.methodical_instrumentarium) +
-                    Number(expense.selection) + Number(expense.powerpoint_presentation);
-                let additional = _.sumBy(expense.additional_expense, (o) => {return Number(o.amount)});
-                return sum + additional;
-            },
-            design_layout_expense() {
-                let category = this.$store.state.proposition.categorization.upgroup_coef / 60,
-                    pages = this.$store.state.proposition.technical_data.number_of_pages,
-                    photos = this.$store.state.proposition.production_expense.photos_amount / 30,
-                    illustrations = this.$store.state.proposition.production_expense.illustrations_amount / 30,
-                    drawings = this.$store.state.proposition.production_expense.technical_drawings_amount / 30;
-                const lcomplexity = {
-                    1: 0.65,
-                    2: 0.8,
-                    3: 1,
-                    4: 1.2,
-                    5: 1.35
-                };
-                let number_of_hours = (category * pages + photos + illustrations + drawings) * lcomplexity[this.$store.state.proposition.layout_expense.layout_complexity];
-                let layout_price = number_of_hours * 8000 / 175;
-                const rcomplexity = {
-                    1: 0.4,
-                    2: 0.7,
-                    3: 1,
-                    4: 1.3,
-                    5: 1.6
-                };
-                let design_price = number_of_hours * 15000 / 175 * rcomplexity[this.$store.state.proposition.layout_expense.design_complexity] / 2;
-                return layout_price + design_price;
-            },
             totals() {
                 let options = {};
-                _.forEach(this.options, (option) => {
-                    let remainder = _.sumBy(Object.keys(this.$store.state.proposition.authors_expense.expenses), (key) => {
-                        let e = this.$store.state.proposition.authors_expense.expenses[key];
+                _.forEach(this.offers, (option) => {
+                    let remainder = _.sumBy(Object.keys(this.author_expenses), (key) => {
+                        let e = this.author_expenses[key];
                             return e.percentage * option.title * option.price_proposal / 100;
                         }),
                         complete = (Number(this.authors_total) + Number(option.print_offer) + Number(option.compensation) + Number(option.indirect_expenses) + Number(remainder) + Number(this.marketing_expense) + Number(this.production_expense) + Number(this.design_layout_expense)),
                         mprice = (Number(complete) - Number(this.dotation)) * (100 + Number(option.calculated_profit_percent)) / 100,
                         price = mprice * (100 + Number(option.shop_percent)) / 100;
-
-                    options[option.id] = {
+                        options[option.id] = {
                         direct_cost : Number(this.authors_total) + Number(option.print_offer) + Number(option.compensation)+Number(this.marketing_expense) + Number(this.production_expense) + Number(this.design_layout_expense),
                         remainder_after_sales: remainder,
                         complete_expense: complete,
@@ -533,7 +463,18 @@
                     };
                 });
                 return options;
-            }
+            },
+            ...mapState( 'proposition/calculation', {
+                authors_total: 'authors_total',
+                authors_advance: 'authors_advance',
+                authors_other: 'authors_other',
+                author_expenses: 'author_expenses',
+                marketing_expense: 'marketing_expense',
+                production_expense: 'production_expense',
+                design_layout_expense: 'design_layout_expense',
+                dotation: 'dotation',
+                offers: 'offers'
+            })
         },
         components: {
             'footer-buttons' : FooterButtons
