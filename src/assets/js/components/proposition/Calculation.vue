@@ -491,6 +491,8 @@
         methods: {
             switchTab: function(e) {
                 $(e.target).tab('show');
+                $('.mdb-select').material_select('destroy');
+                $('.mdb-select').material_select();
             },
             editField: function(field) {
                 this.activeEdit = field;
@@ -504,11 +506,11 @@
         },
         mounted: function() {
             if (this.$route.params.id != 0) {
-                this.$store.dispatch('proposition/calculation/getData', {id: this.$route.params.id})
+                this.$store.dispatch('proposition/calculation/getData', {id: this.$route.params.id, force: true})
                     .then(() => {
                         $('.mdb-select').material_select('destroy');
                         $('.mdb-select').material_select();
-                    });;
+                    });
             }
         }
     }

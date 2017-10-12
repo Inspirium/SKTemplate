@@ -55,7 +55,7 @@ export default {
         saveData({state, commit}, id) {
             return new Promise((resolve, reject) => {
                 if (id) {
-                    axios.post('/api/proposition/' + id + '/authors_expense', state)
+                    axios.post('/api/proposition/' + id + '/calculation', state)
                         .then((res) => {
                             resolve();
                         })
