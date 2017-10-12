@@ -436,40 +436,40 @@
         data: function () {
             return {
                 option_colors: ['One Colour', 'Two Colours', 'Three Colours', 'Full Colour', 'Fifth Colour'],
-                dotation: this.$store.state.proposition.proposition.basic_data.dotation_amount,
+                dotation: this.$store.state.proposition.basic_data.dotation_amount,
                 activeEdit: '',
             }
         },
         computed: {
             authors_total() {
-                return _.sumBy(Object.keys(this.$store.state.proposition.proposition.authors_expense.expenses), (key) => {
-                    let e = this.$store.state.proposition.proposition.authors_expense.expenses[key];
+                return _.sumBy(Object.keys(this.$store.state.proposition.authors_expense.expenses), (key) => {
+                    let e = this.$store.state.proposition.authors_expense.expenses[key];
                     let additional = _.sumBy(e.additional_expenses, (a) => {
                         return Number(a.amount);
                     });
                     return Number(e.amount) + Number(additional);
-                }) + _.sumBy(this.$store.state.proposition.proposition.authors_expense.other, (o) => {return Number(o.amount)});
+                }) + _.sumBy(this.$store.state.proposition.authors_expense.other, (o) => {return Number(o.amount)});
             },
             authors_advance() {
-                return _.sumBy(Object.keys(this.$store.state.proposition.proposition.authors_expense.expenses), (key) => {
-                    return this.$store.state.proposition.proposition.authors_expense.expenses[key].accontation;
+                return _.sumBy(Object.keys(this.$store.state.proposition.authors_expense.expenses), (key) => {
+                    return this.$store.state.proposition.authors_expense.expenses[key].accontation;
                 })
             },
             authors_other() {
-                _.sumBy(Object.keys(this.$store.state.proposition.proposition.authors_expense.expenses), (key) => {
-                    return _.sumBy(this.$store.state.proposition.proposition.authors_expense.expenses[key].additional_expenses, (a) => {
+                _.sumBy(Object.keys(this.$store.state.proposition.authors_expense.expenses), (key) => {
+                    return _.sumBy(this.$store.state.proposition.authors_expense.expenses[key].additional_expenses, (a) => {
                         return a.amount;
                     });
                 })
             },
             options() {
-                return this.$deepModel('proposition.proposition.print.offers');
+                return this.$deepModel('proposition.print.offers');
             },
             marketing_expense() {
-                return Number(this.$store.state.proposition.proposition.marketing_expense.expense) +  _.sumBy(this.$store.state.proposition.proposition.marketing_expense.additional_expense, function(o) { return Number(o.amount) });
+                return Number(this.$store.state.proposition.marketing_expense.expense) +  _.sumBy(this.$store.state.proposition.marketing_expense.additional_expense, function(o) { return Number(o.amount) });
             },
             production_expense() {
-                let expense = this.$store.state.proposition.proposition.production_expense;
+                let expense = this.$store.state.proposition.production_expense;
                 let sum = ( Number(expense.text_price) * Number(expense.text_price_amount) ) +
                     ( Number(expense.lecture) * Number(expense.lecture_amount) ) +
                     ( Number(expense.correction) * Number(expense.correction_amount) ) +
@@ -487,11 +487,11 @@
                 return sum + additional;
             },
             design_layout_expense() {
-                let category = this.$store.state.proposition.proposition.categorization.upgroup_coef / 60,
-                    pages = this.$store.state.proposition.proposition.technical_data.number_of_pages,
-                    photos = this.$store.state.proposition.proposition.production_expense.photos_amount / 30,
-                    illustrations = this.$store.state.proposition.proposition.production_expense.illustrations_amount / 30,
-                    drawings = this.$store.state.proposition.proposition.production_expense.technical_drawings_amount / 30;
+                let category = this.$store.state.proposition.categorization.upgroup_coef / 60,
+                    pages = this.$store.state.proposition.technical_data.number_of_pages,
+                    photos = this.$store.state.proposition.production_expense.photos_amount / 30,
+                    illustrations = this.$store.state.proposition.production_expense.illustrations_amount / 30,
+                    drawings = this.$store.state.proposition.production_expense.technical_drawings_amount / 30;
                 const lcomplexity = {
                     1: 0.65,
                     2: 0.8,
@@ -499,7 +499,7 @@
                     4: 1.2,
                     5: 1.35
                 };
-                let number_of_hours = (category * pages + photos + illustrations + drawings) * lcomplexity[this.$store.state.proposition.proposition.layout_expense.layout_complexity];
+                let number_of_hours = (category * pages + photos + illustrations + drawings) * lcomplexity[this.$store.state.proposition.layout_expense.layout_complexity];
                 let layout_price = number_of_hours * 8000 / 175;
                 const rcomplexity = {
                     1: 0.4,
@@ -508,14 +508,14 @@
                     4: 1.3,
                     5: 1.6
                 };
-                let design_price = number_of_hours * 15000 / 175 * rcomplexity[this.$store.state.proposition.proposition.layout_expense.design_complexity] / 2;
+                let design_price = number_of_hours * 15000 / 175 * rcomplexity[this.$store.state.proposition.layout_expense.design_complexity] / 2;
                 return layout_price + design_price;
             },
             totals() {
                 let options = {};
                 _.forEach(this.options, (option) => {
-                    let remainder = _.sumBy(Object.keys(this.$store.state.proposition.proposition.authors_expense.expenses), (key) => {
-                        let e = this.$store.state.proposition.proposition.authors_expense.expenses[key];
+                    let remainder = _.sumBy(Object.keys(this.$store.state.proposition.authors_expense.expenses), (key) => {
+                        let e = this.$store.state.proposition.authors_expense.expenses[key];
                             return e.percentage * option.title * option.price_proposal / 100;
                         }),
                         complete = (Number(this.authors_total) + Number(option.print_offer) + Number(option.compensation) + Number(option.indirect_expenses) + Number(remainder) + Number(this.marketing_expense) + Number(this.production_expense) + Number(this.design_layout_expense)),
@@ -562,16 +562,13 @@
             }
         },
         mounted: function() {
-            if (this.$route.params.id && !this.$store.state.proposition.proposition.loaded) {
-                this.$store.dispatch('proposition/initProposition', {id: this.$route.params.id})
+            if (this.$route.params.id != 0) {
+                this.$store.dispatch('proposition/calculation/getData', {id: this.$route.params.id})
                     .then(() => {
                         $('.mdb-select').material_select('destroy');
                         $('.mdb-select').material_select();
-                    });
+                    });;
             }
-            this.$store.commit('proposition/updateProposition', {key: 'step', value: 11});
-            $('.mdb-select').material_select('destroy');
-            $('.mdb-select').material_select();
         }
     }
 </script>
