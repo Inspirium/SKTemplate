@@ -38,14 +38,16 @@
         <div class="justify-content-center d-flex mb-4">
             <button type="button" class="btn btn-neutral" v-on:click="documentAdd('cover-psd')">{{ lang('Upload') }}</button>
         </div>
-        <footer-buttons></footer-buttons>
+        <div class="modal-footer btn-footer">
+            <button type="button" class="btn btn-lg btn-save" v-on:click="saveFiles">{{ lang('Save') }}</button>
+        </div>
+        
         <upload-modal id="cover-jpg" action="/api/file" accept=".jpg, .jpeg" disk="proposition" dir="multimedia.jpg" v-on:fileDelete="fileDelete" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave"></upload-modal>
         <upload-modal id="cover-psd" action="/api/file" accept=".psd" disk="proposition" dir="multimedia.psd" v-on:fileDelete="fileDelete" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave" v-bind:isFinal="true"></upload-modal>
     </div>
 
 </template>
 <script>
-    import FooterButtons from './partials/FooterButtons'
     import uploadModal from '../general/UploadModal.vue';
     export default {
         data: function () {
@@ -56,7 +58,6 @@
             }
         },
         components: {
-            'footer-buttons' : FooterButtons,
             'upload-modal' : uploadModal
         },
         computed: {},
