@@ -3,14 +3,14 @@
         <div class="page-name-xl mb-4 mt-3">{{ lang('Initial Document') }}</div>
             <!-- File/document table -->
             <div class="files mt-2 mb-2">
-                <div class="file-box file-box-l d-flex align-items-center" v-for="file in files">
+                <div class="file-box file-box-l d-flex align-items-center" v-for="(file, index) in files">
                     <a v-bind:href="file.link" v-on:click.prevent="documentDownload(file.link)" class="file-icon">{{ file.title }}</a>
                     <div class="file-box-sty ml-auto d-flex">
                         <a v-bind:href="'human_resources/employee/show/'+file.owner.id"><img class="profile-m-1 mr-1 align-self-center" v-bind:src="file.owner.image">{{ file.owner.name }}</a>
                     </div>
                     <div class="file-box-sty">{{ file.created_at.date | moment('DD.MM.YYYY.') }}</div>
                     <div class="file-box-sty icon icon-download" v-on:click="documentDownload(file.link)">Preuzmi</div>
-                    <div class="file-box-sty icon icon-cancel" v-on:click="fileDelete(file.id)">Obriši</div>
+                    <div class="file-box-sty icon icon-cancel" v-on:click="fileDelete(index, 'files')">Obriši</div>
                 </div>
             </div>
 
@@ -23,14 +23,14 @@
 
             <div class="page-name-xl mb-4 mt-5">{{ lang('Final Document') }}</div>
         <div class="files mt-2 mb-2">
-            <div class="file-box file-box-l d-flex align-items-center" v-for="file in final">
+            <div class="file-box file-box-l d-flex align-items-center" v-for="(file, index) in final">
                 <a v-bind:href="file.link" v-on:click.prevent="documentDownload(file.link)" class="file-icon">{{ file.title }}</a>
                 <div class="file-box-sty ml-auto d-flex">
                     <a v-bind:href="'human_resources/employee/show/'+file.owner.id"><img class="profile-m-1 mr-1 align-self-center" v-bind:src="file.owner.image">{{ file.owner.name }}</a>
                 </div>
                 <div class="file-box-sty">{{ file.created_at.date | moment('DD.MM.YYYY.') }}</div>
                 <div class="file-box-sty icon icon-download" v-on:click="documentDownload(file.link)">Preuzmi</div>
-                <div class="file-box-sty icon icon-cancel" v-on:click="fileDelete(file.id)">Obriši</div>
+                <div class="file-box-sty icon icon-cancel" v-on:click="fileDelete(index, 'final')">Obriši</div>
             </div>
         </div>
                 <div class="justify-content-center d-flex mb-4">
@@ -64,8 +64,8 @@
                 window.open(link, "_blank");
                 return false;
             },
-            fileDelete: function (id) {
-                this.$store.dispatch('proposition/deleteFile', {group:'basic_data', key:'manuscript_documents', id: id});
+            fileDelete: function (index, type) {
+                this[type].splice(index, 1);
             },
             fileAdd: function(data) {
                 if (data.isFinal) {
