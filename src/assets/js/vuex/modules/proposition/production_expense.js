@@ -33,7 +33,8 @@ export default {
         selection: '',
         powerpoint_presentation: '',
         methodical_instrumentarium: '',
-        additional_expense: []
+        additional_expense: [],
+        placeholders: []
     },
     mutations: {
         initData(state, payload) {
@@ -53,16 +54,26 @@ export default {
         getData({commit, state}, payload) {
             if (!state.id || state.id != payload.id || payload.force) {
                 //retrieve data only we don't have it or we need to refresh it
-                axios.get('/api/proposition/' + payload.id + '/production_expense')
+                let path = '/api/proposition/' + payload.id + '/production_expense';
+                if (payload.type) {
+                    path += payload.type;
+                }
+                axios.get(path)
                     .then((res) => {
                         commit('initData', res.data);
                     });
+
             }
         },
         saveData({state}, id) {
             return new Promise((resolve, reject) => {
                 if (id) {
-                    axios.post('/api/proposition/' + id + '/production_expense', state)
+                    let path = '/api/proposition/' + id + '/production_expense';
+
+                    if (state.placeholders) {
+                        path += '/expense';
+                    }
+                    axios.post(path, state)
                         .then(() => { resolve(); })
                         .catch(() => { reject(); });
                 }

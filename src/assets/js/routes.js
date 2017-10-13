@@ -5,8 +5,10 @@ import MarketPotential from './components/proposition/MarketPotential'
 import TechnicalData from './components/proposition/TechnicalData'
 import AuthorsExpense from './components/proposition/AuthorsExpense'
 import Print from './components/proposition/Print'
+import ExpenseProductionExpense from './components/proposition/expenses/ProductionExpense'
 import ProductionExpense from './components/proposition/ProductionExpense'
 import MarketingExpense from './components/proposition/MarketingExpense'
+import ExpenseMarketingExpense from './components/proposition/expenses/MarketingExpense'
 import DistributionExpense from './components/proposition/DistributionExpense'
 import LayoutExpense from './components/proposition/LayoutExpense'
 import Deadline from './components/proposition/Deadline'
@@ -24,7 +26,6 @@ import Multimedia from './components/proposition/Multimedia'
 import Tasks from './components/tasks/Tasks'
 import TaskEdit from './components/tasks/TaskEdit'
 import TaskShow from './components/tasks/TaskShow'
-import PropositionList from './components/proposition/PropositionList';
 
 export const routes = [
     { path: '/proposition/start', component: PropositionStart },
@@ -54,8 +55,8 @@ export const routes = [
             { path: 'preparation/final_review', component: UploadDocument, meta: {dir: 'final_review'} },
 
             { path: 'expenses/authors_expense', component: AuthorsExpense },
-            { path: 'expenses/production_expense', component: ProductionExpense },
-            { path: 'expenses/marketing_expense', component: MarketingExpense },
+            { path: 'expenses/production_expense', component: ExpenseProductionExpense, meta: {save:'production_expense'} },
+            { path: 'expenses/marketing_expense', component: ExpenseMarketingExpense, meta: { save: 'marketing_expense' } },
             { path: 'expenses/distribution_expense', component: DistributionExpense },
             { path: 'expenses/layout_expense', component: LayoutExpense },
             { path: 'expenses/compare', component: Compare, meta: {} },
