@@ -19,7 +19,7 @@ export default {
                 totals: {}
             }
         },
-        authors_expense : {}
+        authors : []
 
     },
     mutations: {

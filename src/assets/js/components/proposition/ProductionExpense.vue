@@ -348,7 +348,7 @@
                     Number(this.expense.expert_report) + Number(this.expense.copyright) +
                     Number(this.expense.copyright_mediator) + Number(this.expense.methodical_instrumentarium) +
                     Number(this.expense.selection) + Number(this.expense.powerpoint_presentation);
-                let additional = _.sumBy(this.expense.additional_expense, (o) => {return Number(o.amount)});
+                let additional = _.sumBy(this.expense.additional_expenses, (o) => {return Number(o.amount)});
                 return sum + additional;
 
             }

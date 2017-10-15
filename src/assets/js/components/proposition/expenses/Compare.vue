@@ -40,15 +40,15 @@
             </tr>
             </thead>
             <tbody class="white">
-            <!--<tr v-for="author in authors">
+            <tr v-for="author in authors">
                 <th scope="row">1</th>
                 <td>{{ author.name }}</td>
-                <td>{{ author.expenses[0].total | flexCurrency(' kn', 2) }}</td>
+                <td>{{ author.expenses[0].totals | flexCurrency(' kn', 2) }}</td>
 
-                <td>{{ production_expense.expense.totals.authors[author.id] | flexCurrency(' kn', 2) }}</td>
-                <td>{{ author.expenses[0].total - production_expense.expense.totals.authors[author.id] | flexCurrency(' kn', 2) }}</td>
-                <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
-            </tr>-->
+                <td>{{ author.expenses[1].totals | flexCurrency(' kn', 2) }}</td>
+                <td>{{ Math.abs(diff = author.expenses[0].totals - author.expenses[1].totals) | flexCurrency(' kn', 2) }}</td>
+                <td><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
+            </tr>
             </tbody>
         </table>
 
@@ -70,144 +70,144 @@
                 <td>Text</td>
                 <td>{{ production_expense.budget.totals.text_price | flexCurrency(' kn', 2) }}</td>
                 <td>{{ production_expense.expense.totals.text_price | flexCurrency(' kn', 2) }}</td>
-                <td>{{ production_expense.budget.totals.text_price - production_expense.expense.totals.text_price | flexCurrency(' kn', 2) }}</td>
-                <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
+                <td>{{ Math.abs(diff = production_expense.budget.totals.text_price - production_expense.expense.totals.text_price) | flexCurrency(' kn', 2) }}</td>
+                <td><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td>Reviews</td>
                 <td>{{ production_expense.budget.totals.reviews | flexCurrency(' kn', 2) }}</td>
                 <td>{{ production_expense.expense.totals.reviews | flexCurrency(' kn', 2) }}</td>
-                <td>{{ production_expense.budget.totals.reviews - production_expense.expense.totals.reviews | flexCurrency(' kn', 2) }}</td>
-                <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
+                <td>{{ Math.abs(diff = production_expense.budget.totals.reviews - production_expense.expense.totals.reviews) | flexCurrency(' kn', 2) }}</td>
+                <td><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td>Lecture</td>
                 <td>{{ production_expense.budget.totals.lecture | flexCurrency(' kn', 2) }}</td>
                 <td>{{ production_expense.expense.totals.lecture | flexCurrency(' kn', 2) }}</td>
-                <td>{{ production_expense.budget.totals.lecture - production_expense.expense.totals.lecture | flexCurrency(' kn', 2) }}</td>
-                <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
+                <td>{{ Math.abs(diff = production_expense.budget.totals.lecture - production_expense.expense.totals.lecture) | flexCurrency(' kn', 2) }}</td>
+                <td><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td>Correction</td>
                 <td>{{ production_expense.budget.totals.correction | flexCurrency(' kn', 2) }}</td>
                 <td>{{ production_expense.expense.totals.correction | flexCurrency(' kn', 2) }}</td>
-                <td>{{ production_expense.budget.totals.correction - production_expense.expense.totals.correction | flexCurrency(' kn', 2) }}</td>
-                <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
+                <td>{{ Math.abs(diff = production_expense.budget.totals.correction - production_expense.expense.totals.correction) | flexCurrency(' kn', 2) }}</td>
+                <td><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td>Proofreading</td>
                 <td>{{ production_expense.budget.totals.proofreading | flexCurrency(' kn', 2) }}</td>
                 <td>{{ production_expense.expense.totals.proofreading | flexCurrency(' kn', 2) }}</td>
-                <td>{{ production_expense.budget.totals.proofreading - production_expense.expense.totals.proofreading | flexCurrency(' kn', 2) }}</td>
-                <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
+                <td>{{ Math.abs(diff = production_expense.budget.totals.proofreading - production_expense.expense.totals.proofreading) | flexCurrency(' kn', 2) }}</td>
+                <td><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td>Translation</td>
                 <td>{{ production_expense.budget.totals.translation | flexCurrency(' kn', 2) }}</td>
                 <td>{{ production_expense.expense.totals.translation | flexCurrency(' kn', 2) }}</td>
-                <td>{{ production_expense.budget.totals.translation - production_expense.expense.totals.translation | flexCurrency(' kn', 2) }}</td>
-                <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
+                <td>{{ Math.abs(diff = production_expense.budget.totals.translation - production_expense.expense.totals.translation) | flexCurrency(' kn', 2) }}</td>
+                <td><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td>Index</td>
                 <td>{{ production_expense.budget.totals.index | flexCurrency(' kn', 2) }}</td>
                 <td>{{ production_expense.expense.totals.index | flexCurrency(' kn', 2) }}</td>
-                <td>{{ production_expense.budget.totals.index | flexCurrency(' kn', 2) }}</td>
-                <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
+                <td>{{ Math.abs(diff = production_expense.budget.totals.index - production_expense.expense.totals.index) | flexCurrency(' kn', 2) }}</td>
+                <td><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td>Epilogue</td>
                 <td>{{ production_expense.budget.totals.epilogue | flexCurrency(' kn', 2) }}</td>
                 <td>{{ production_expense.expense.totals.epilogue | flexCurrency(' kn', 2) }}</td>
-                <td>{{ production_expense.budget.totals.epilogue - production_expense.expense.totals.epilogue | flexCurrency(' kn', 2) }}</td>
-                <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
+                <td>{{ Math.abs(diff = production_expense.budget.totals.epilogue - production_expense.expense.totals.epilogue) | flexCurrency(' kn', 2) }}</td>
+                <td><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td>Photos</td>
                 <td>{{ production_expense.budget.totals.photos | flexCurrency(' kn', 2) }}</td>
                 <td>{{ production_expense.expense.totals.photos | flexCurrency(' kn', 2) }}</td>
-                <td>{{ production_expense.budget.totals.photos - production_expense.expense.totals.photos | flexCurrency(' kn', 2) }}</td>
-                <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
+                <td>{{ Math.abs(diff = production_expense.budget.totals.photos - production_expense.expense.totals.photos) | flexCurrency(' kn', 2) }}</td>
+                <td><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td>illustrations</td>
                 <td>{{ production_expense.budget.totals.illustrations | flexCurrency(' kn', 2) }}</td>
                 <td>{{ production_expense.expense.totals.illustrations | flexCurrency(' kn', 2) }}</td>
-                <td>{{ production_expense.budget.totals.illustrations - production_expense.expense.totals.illustrations | flexCurrency(' kn', 2) }}</td>
-                <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
+                <td>{{ Math.abs(diff = production_expense.budget.totals.illustrations - production_expense.expense.totals.illustrations) | flexCurrency(' kn', 2) }}</td>
+                <td><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td>Tehnical drawings</td>
                 <td>{{ production_expense.budget.totals.technical_drawings | flexCurrency(' kn', 2) }}</td>
                 <td>{{ production_expense.expense.totals.technical_drawings | flexCurrency(' kn', 2) }}</td>
-                <td>{{ production_expense.budget.totals.technical_drawings - production_expense.expense.totals.technical_drawings | flexCurrency(' kn', 2) }}</td>
-                <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
+                <td>{{ Math.abs(diff = production_expense.budget.totals.technical_drawings - production_expense.expense.totals.technical_drawings) | flexCurrency(' kn', 2) }}</td>
+                <td><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td>Expert report</td>
                 <td>{{ production_expense.budget.totals.expert_report | flexCurrency(' kn', 2) }}</td>
                 <td>{{ production_expense.expense.totals.expert_report | flexCurrency(' kn', 2) }}</td>
-                <td>{{ production_expense.budget.totals.expert_report - production_expense.expense.totals.expert_report | flexCurrency(' kn', 2) }}</td>
-                <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
+                <td>{{ Math.abs(diff = production_expense.budget.totals.expert_report - production_expense.expense.totals.expert_report) | flexCurrency(' kn', 2) }}</td>
+                <td><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td>Copyright</td>
                 <td>{{ production_expense.budget.totals.copyright | flexCurrency(' kn', 2) }}</td>
                 <td>{{ production_expense.expense.totals.copyright | flexCurrency(' kn', 2) }}</td>
-                <td>{{ production_expense.budget.totals.copyright - production_expense.expense.totals.copyright | flexCurrency(' kn', 2) }}</td>
-                <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
+                <td>{{ Math.abs(diff = production_expense.budget.totals.copyright - production_expense.expense.totals.copyright) | flexCurrency(' kn', 2) }}</td>
+                <td><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td>Copyright mediator</td>
                 <td>{{ production_expense.budget.totals.copyright_mediator | flexCurrency(' kn', 2) }}</td>
                 <td>{{ production_expense.expense.totals.copyright_mediator | flexCurrency(' kn', 2) }}</td>
-                <td>{{ production_expense.budget.totals.copyright_mediator - production_expense.expense.totals.copyright_mediator | flexCurrency(' kn', 2) }}</td>
-                <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
+                <td>{{ Math.abs(diff = production_expense.budget.totals.copyright_mediator - production_expense.expense.totals.copyright_mediator) | flexCurrency(' kn', 2) }}</td>
+                <td><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td>METHODICAL INSTRUMENTARIUM</td>
                 <td>{{ production_expense.budget.totals.methodical_instrumentarium | flexCurrency(' kn', 2) }}</td>
                 <td>{{ production_expense.expense.totals.methodical_instrumentarium | flexCurrency(' kn', 2) }}</td>
-                <td>{{ production_expense.budget.totals.methodical_instrumentarium - production_expense.expense.totals.methodical_instrumentarium | flexCurrency(' kn', 2) }}</td>
-                <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
+                <td>{{ Math.abs(diff = production_expense.budget.totals.methodical_instrumentarium - production_expense.expense.totals.methodical_instrumentarium) | flexCurrency(' kn', 2) }}</td>
+                <td><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td>Selection</td>
                 <td>{{ production_expense.budget.totals.selection | flexCurrency(' kn', 2) }}</td>
                 <td>{{ production_expense.expense.totals.selection | flexCurrency(' kn', 2) }}</td>
-                <td>{{ production_expense.budget.totals.selection - production_expense.expense.totals.selection | flexCurrency(' kn', 2) }}</td>
-                <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
+                <td>{{ Math.abs(diff = production_expense.budget.totals.selection - production_expense.expense.totals.selection) | flexCurrency(' kn', 2) }}</td>
+                <td><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td>Powerpoint presentation</td>
                 <td>{{ production_expense.budget.totals.powerpoint_presentation | flexCurrency(' kn', 2) }}</td>
                 <td>{{ production_expense.expense.totals.powerpoint_presentation | flexCurrency(' kn', 2) }}</td>
-                <td>{{ production_expense.budget.totals.powerpoint_presentation - production_expense.expense.totals.powerpoint_presentation | flexCurrency(' kn', 2) }}</td>
-                <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
+                <td>{{ Math.abs(diff = production_expense.budget.totals.powerpoint_presentation - production_expense.expense.totals.powerpoint_presentation) | flexCurrency(' kn', 2) }}</td>
+                <td><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td>Additional expenses</td>
-                <td>{{ additional_expense | flexCurrency(' kn', 2) }}</td>
-                <td>{{ production_expense.expense.totals.additional_expense | flexCurrency(' kn', 2) }}</td>
-                <td>{{ additional_expense - production_expense.expense.totals.additional_expense | flexCurrency(' kn', 2) }}</td>
-                <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
+                <td>{{ production_expense.budget.totals.additional_expenses | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.expense.totals.additional_expenses | flexCurrency(' kn', 2) }}</td>
+                <td>{{ Math.abs(diff = production_expense.budget.totals.additional_expenses - production_expense.expense.totals.additional_expense) | flexCurrency(' kn', 2) }}</td>
+                <td><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
 
             </tbody>
@@ -229,10 +229,10 @@
             <tr>
                 <th scope="row">1</th>
                 <td>Marketing budget</td>
-                <td>{{ marketing_expense | flexCurrency(' kn', 2) }}</td>
-                <td>{{ marketing_expense.expense.totals.expense | flexCurrency(' kn', 2) }}</td>
-                <td>{{ marketing_expense - marketing_expense.expense.totals.expense | flexCurrency(' kn', 2) }}</td>
-                <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
+                <td>{{ marketing_expense.budget?marketing_expense.budget.totals:0 | flexCurrency(' kn', 2) }}</td>
+                <td>{{ marketing_expense.expense?marketing_expense.expense.totals:0 | flexCurrency(' kn', 2) }}</td>
+                <td>{{ Math.abs(diff = marketing_expense.budget.totals - marketing_expense.expense.totals) | flexCurrency(' kn', 2) }}</td>
+                <td><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             </tbody>
         </table>
@@ -247,7 +247,7 @@
 </template>
 <script>
     import _ from 'lodash'
-    import FooterButtons from './partials/FooterButtons.vue';
+    import FooterButtons from '../partials/FooterButtons.vue';
     import { mapState } from 'vuex'
 
     export default {
@@ -260,30 +260,21 @@
             'footer-buttons': FooterButtons
         },
         computed: {
-            authors() {
-                return this.$deepModel('proposition.proposition.basic_data.authors');
-            },
-            additional_expense() {
-                return 0
-                return _.sumBy(this.production_expense.budget.totals.additional_expense, (o) => {return Number(o.amount)});
-            },
             total_budget() {
-                return 0
-                return this.total_authors + this.production_expense + this.marketing_expense;
+                console.log(this.pro);
+                return _.sumBy(this.authors, (a) =>{return Number(a.expenses[0].totals)}) + Number(this.production_expense.budget.totals.total) + Number(this.marketing_expense.budget.totals);
             },
             total_expenses() {
-                return 0
-                return Object.values(this.expenses).reduce((a, b) => a + b);
+                return _.sumBy(this.authors, (a) =>{return Number(a.expenses[1].totals)}) + Number(this.production_expense.expense.totals.total) + Number(this.marketing_expense.expense.totals);
             },
             total_difference() {
-                return 0
                 return this.total_budget - this.total_expenses;
             },
             total_percent_difference() {
                 return Math.round( this.total_difference / this.total_budget * 100 );
             },
             ...mapState('proposition/compare', [
-                'production_expense', 'marketing_expense', 'authors_expense'
+                'production_expense', 'marketing_expense', 'authors'
             ])
         },
         methods: {

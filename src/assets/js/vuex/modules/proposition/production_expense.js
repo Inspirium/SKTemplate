@@ -4,6 +4,7 @@ export default {
     namespaced: true,
     state: {
         id: 0,
+        type: '',
         text_price: '',
         text_price_amount: '',
         note: '',
@@ -66,7 +67,7 @@ export default {
             return new Promise((resolve, reject) => {
                 if (id) {
                     let path = '/api/proposition/' + id + '/production_expense/';
-                    if (state.placeholders) {
+                    if (state.type === 'expense') {
                         path += 'expense';
                     }
                     axios.post(path, state)

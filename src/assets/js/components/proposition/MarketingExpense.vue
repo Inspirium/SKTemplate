@@ -33,16 +33,16 @@
 
     <!-- Input field -->
     <div class="page-name-l mb-1">{{ lang('Additional Expenses') }}</div>
-    <div class="row mt-4" v-for="(a, i) in expenses.additional_expense" v-bind:key="i">
+    <div class="row mt-4" v-for="(a, i) in expenses.additional_expenses" v-bind:key="i">
         <div class="col-md-4">
             <div class="md-form d-flex addon">
-                <input type="text" class="form-control" v-bind:placeholder="lang('Expense Name')" v-model="expenses.additional_expense[i].expense">
+                <input type="text" class="form-control" v-bind:placeholder="lang('Expense Name')" v-model="a.expense">
                 <label>{{ lang('Expense Name') }}</label>
             </div>
         </div>
         <div class="col-md-4">
             <div class="md-form d-flex addon">
-                <input type="text" class="form-control" v-bind:placeholder="lang('Amount')" v-model="expenses.additional_expense[i].amount">
+                <input type="text" class="form-control" v-bind:placeholder="lang('Amount')" v-model="a.amount">
                 <label>{{ lang('Amount') }}</label>
             </div>
         </div>

@@ -4,6 +4,7 @@ export default {
     namespaced: true,
     state: {
         id: 0,
+        type: '',
         authors: [],
         note: '',
         other: [],
@@ -45,7 +46,7 @@ export default {
             return new Promise((resolve, reject) => {
                 if (id) {
                     let path = '/api/proposition/' + id + '/authors_expense/';
-                    if (state.placeholders) {
+                    if (state.type === 'expense') {
                         path += 'expense';
                     }
                     axios.post(path, state)

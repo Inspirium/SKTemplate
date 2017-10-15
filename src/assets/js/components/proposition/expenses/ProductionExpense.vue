@@ -287,7 +287,7 @@
         </div>
 
         <div class="page-name-l mb-4">{{ lang('Additional Expenses') }}</div>
-        <template v-for="(item,index) in expense.additional_expense">
+        <template v-for="(item,index) in expense.additional_expenses">
             <div class="row">
                 <div class="col-md-4">
                     <div class="md-form input-group">

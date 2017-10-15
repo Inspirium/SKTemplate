@@ -4,6 +4,7 @@ export default {
     namespaced: true,
     state: {
         id: 0,
+        type: '',
         note: '',
         margin: ''
     },
@@ -19,7 +20,11 @@ export default {
         getData({commit, state}, payload) {
             if (!state.id || state.id != payload.id || payload.force) {
                 //retrieve data only we don't have it or we need to refresh it
-                axios.get('/api/proposition/' + payload.id + '/distribution_expense')
+                let path = '/api/proposition/' + payload.id + '/distribution_expense/';
+                if (payload.type) {
+                    path += payload.type;
+                }
+                axios.get(path)
                     .then((res) => {
                         commit('initData', res.data);
                     });
@@ -28,7 +33,11 @@ export default {
         saveData({state}, id) {
             return new Promise((resolve, reject) => {
                 if (id) {
-                    axios.post('/api/proposition/' + id + '/distribution_expense', state)
+                    let path = '/api/proposition/' + id + '/distribution_expense/';
+                    if (state.type === 'expense') {
+                        path += 'expense';
+                    }
+                    axios.post(path, state)
                         .then(() => { resolve(); })
                         .catch(() => { reject(); });
                 }

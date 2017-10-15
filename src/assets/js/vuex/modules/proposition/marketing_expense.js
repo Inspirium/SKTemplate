@@ -3,7 +3,7 @@ import axios from "axios/index";
 export default {
     namespaced: true,
     state: {
-        id: 0,
+        type: '',
         expense: '',
         note: '',
         additional_expenses: [],
@@ -17,10 +17,10 @@ export default {
             }
         },
         addExpense(state) {
-            state.additional_expense.push({expense: '', amount: 0});
+            state.additional_expenses.push({expense: '', amount: 0});
         },
         deleteExpense(state, index) {
-            state.additional_expense.splice(index, 1);
+            state.additional_expenses.splice(index, 1);
         }
     },
     actions: {
@@ -40,7 +40,7 @@ export default {
             return new Promise((resolve, reject) => {
                 if (id) {
                     let path = '/api/proposition/' + id + '/marketing_expense/';
-                    if (state.placeholders) {
+                    if (state.type === 'expense') {
                         path += 'expense';
                     }
                     axios.post(path, state)

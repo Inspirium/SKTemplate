@@ -63,13 +63,13 @@
     <div class="row mt-4" v-for="(a, i) in expenses.other" v-bind:key="i">
         <div class="col-md-4">
             <div class="md-form d-flex addon">
-                <input type="text" class="form-control" v-model="a.expense?a.expense:a.parent.expense" v-bind:placeholder="lang('Expense')">
+                <input type="text" class="form-control" v-model="a.expense" v-bind:placeholder="lang('Expense')">
                 <label>{{ lang('Expense Name') }}</label>
             </div>
         </div>
         <div class="col-md-4">
             <div class="md-form d-flex addon">
-                <input type="text" class="form-control" v-bind:placeholder="a.parent.amount" v-model="a.amount">
+                <input type="text" class="form-control" v-bind:placeholder="a.amount" v-model="a.amount">
                 <label>{{ lang('Amount') }}</label>
             </div>
         </div>
