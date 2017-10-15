@@ -40,19 +40,15 @@
             </tr>
             </thead>
             <tbody class="white">
-            <tr v-for="author in authors">
+            <!--<tr v-for="author in authors">
                 <th scope="row">1</th>
                 <td>{{ author.name }}</td>
                 <td>{{ author.expenses[0].total | flexCurrency(' kn', 2) }}</td>
-                <template v-if="currentEdit('authors.'+author.id)">
-                    <td><input type="text" class="form-control" v-model="expenses.authors[author.id]" v-on:keyup.enter="closeEdit" autofocus></td>
-                </template>
-                <template v-else>
-                    <td v-on:click="editField('authors.'+author.id)">{{ expenses.authors[author.id] | flexCurrency(' kn', 2) }}</td>
-                </template>
-                <td>{{ author.expenses[0].total - expenses.authors[author.id] | flexCurrency(' kn', 2) }}</td>
+
+                <td>{{ production_expense.expense.totals.authors[author.id] | flexCurrency(' kn', 2) }}</td>
+                <td>{{ author.expenses[0].total - production_expense.expense.totals.authors[author.id] | flexCurrency(' kn', 2) }}</td>
                 <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
-            </tr>
+            </tr>-->
             </tbody>
         </table>
 
@@ -72,235 +68,145 @@
             <tr>
                 <th scope="row">1</th>
                 <td>Text</td>
-                <td>{{ production_expense.text_price | flexCurrency(' kn', 2) }}</td>
-                <template v-if="currentEdit('text_price')">
-                    <td><input type="text" class="form-control" v-model="expenses.text_price" v-on:keyup.enter="closeEdit" autofocus></td>
-                </template>
-                <template v-else>
-                    <td v-on:click="editField('text_price')">{{ expenses.text_price | flexCurrency(' kn', 2) }}</td>
-                </template>
-                <td>{{ production_expense.text_price - expenses.text_price | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.budget.totals.text_price | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.expense.totals.text_price | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.budget.totals.text_price - production_expense.expense.totals.text_price | flexCurrency(' kn', 2) }}</td>
                 <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td>Reviews</td>
-                <td>{{ production_expense.reviews | flexCurrency(' kn', 2) }}</td>
-                <template v-if="currentEdit('reviews')">
-                    <td><input type="text" class="form-control" v-model="expenses.reviews" v-on:keyup.enter="closeEdit" autofocus></td>
-                </template>
-                <template v-else>
-                    <td v-on:click="editField('reviews')">{{ expenses.reviews | flexCurrency(' kn', 2) }}</td>
-                </template>
-                <td>{{ production_expense.reviews - expenses.reviews | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.budget.totals.reviews | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.expense.totals.reviews | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.budget.totals.reviews - production_expense.expense.totals.reviews | flexCurrency(' kn', 2) }}</td>
                 <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td>Lecture</td>
-                <td>{{ production_expense.lecture | flexCurrency(' kn', 2) }}</td>
-                <template v-if="currentEdit('lecture')">
-                    <td><input type="text" class="form-control" v-model="expenses.lecture" v-on:keyup.enter="closeEdit" autofocus></td>
-                </template>
-                <template v-else>
-                    <td v-on:click="editField('lecture')">{{ expenses.lecture | flexCurrency(' kn', 2) }}</td>
-                </template>
-                <td>{{ production_expense.lecture - expenses.lecture | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.budget.totals.lecture | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.expense.totals.lecture | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.budget.totals.lecture - production_expense.expense.totals.lecture | flexCurrency(' kn', 2) }}</td>
                 <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td>Correction</td>
-                <td>{{ production_expense.correction | flexCurrency(' kn', 2) }}</td>
-                <template v-if="currentEdit('correction')">
-                    <td><input type="text" class="form-control" v-model="expenses.correction" v-on:keyup.enter="closeEdit" autofocus></td>
-                </template>
-                <template v-else>
-                    <td v-on:click="editField('correction')">{{ expenses.correction | flexCurrency(' kn', 2) }}</td>
-                </template>
-                <td>{{ production_expense.correction - expenses.correction | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.budget.totals.correction | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.expense.totals.correction | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.budget.totals.correction - production_expense.expense.totals.correction | flexCurrency(' kn', 2) }}</td>
                 <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td>Proofreading</td>
-                <td>{{ production_expense.proofreading | flexCurrency(' kn', 2) }}</td>
-                <template v-if="currentEdit('proofreading')">
-                    <td><input type="text" class="form-control" v-model="expenses.proofreading" v-on:keyup.enter="closeEdit" autofocus></td>
-                </template>
-                <template v-else>
-                    <td v-on:click="editField('proofreading')">{{ expenses.proofreading | flexCurrency(' kn', 2) }}</td>
-                </template>
-                <td>{{ production_expense.proofreading - expenses.proofreading | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.budget.totals.proofreading | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.expense.totals.proofreading | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.budget.totals.proofreading - production_expense.expense.totals.proofreading | flexCurrency(' kn', 2) }}</td>
                 <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td>Translation</td>
-                <td>{{ production_expense.translation | flexCurrency(' kn', 2) }}</td>
-                <template v-if="currentEdit('translation')">
-                    <td><input type="text" class="form-control" v-model="expenses.translation" v-on:keyup.enter="closeEdit" autofocus></td>
-                </template>
-                <template v-else>
-                    <td v-on:click="editField('translation')">{{ expenses.translation | flexCurrency(' kn', 2) }}</td>
-                </template>
-                <td>{{ production_expense.translation - expenses.translation | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.budget.totals.translation | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.expense.totals.translation | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.budget.totals.translation - production_expense.expense.totals.translation | flexCurrency(' kn', 2) }}</td>
                 <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td>Index</td>
-                <td>{{ production_expense.index | flexCurrency(' kn', 2) }}</td>
-                <template v-if="currentEdit('index')">
-                    <td><input type="text" class="form-control" v-model="expenses.index" v-on:keyup.enter="closeEdit" autofocus></td>
-                </template>
-                <template v-else>
-                    <td v-on:click="editField('index')">{{ expenses.index | flexCurrency(' kn', 2) }}</td>
-                </template>
-                <td>{{ production_expense.index | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.budget.totals.index | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.expense.totals.index | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.budget.totals.index | flexCurrency(' kn', 2) }}</td>
                 <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td>Epilogue</td>
-                <td>{{ production_expense.epilogue | flexCurrency(' kn', 2) }}</td>
-                <template v-if="currentEdit('epilogue')">
-                    <td><input type="text" class="form-control" v-model="expenses.epilogue" v-on:keyup.enter="closeEdit" autofocus></td>
-                </template>
-                <template v-else>
-                    <td v-on:click="editField('epilogue')">{{ expenses.epilogue | flexCurrency(' kn', 2) }}</td>
-                </template>
-                <td>{{ production_expense.epilogue - expenses.epilogue | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.budget.totals.epilogue | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.expense.totals.epilogue | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.budget.totals.epilogue - production_expense.expense.totals.epilogue | flexCurrency(' kn', 2) }}</td>
                 <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td>Photos</td>
-                <td>{{ production_expense.photos | flexCurrency(' kn', 2) }}</td>
-                <template v-if="currentEdit('photos')">
-                    <td><input type="text" class="form-control" v-model="expenses.photos" v-on:keyup.enter="closeEdit" autofocus></td>
-                </template>
-                <template v-else>
-                    <td v-on:click="editField('photos')">{{ expenses.photos | flexCurrency(' kn', 2) }}</td>
-                </template>
-                <td>{{ production_expense.photos - expenses.photos | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.budget.totals.photos | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.expense.totals.photos | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.budget.totals.photos - production_expense.expense.totals.photos | flexCurrency(' kn', 2) }}</td>
                 <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td>illustrations</td>
-                <td>{{ production_expense.illustrations | flexCurrency(' kn', 2) }}</td>
-                <template v-if="currentEdit('illustrations')">
-                    <td><input type="text" class="form-control" v-model="expenses.illustrations" v-on:keyup.enter="closeEdit" autofocus></td>
-                </template>
-                <template v-else>
-                    <td v-on:click="editField('illustrations')">{{ expenses.illustrations | flexCurrency(' kn', 2) }}</td>
-                </template>
-                <td>{{ production_expense.illustrations - expenses.illustrations | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.budget.totals.illustrations | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.expense.totals.illustrations | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.budget.totals.illustrations - production_expense.expense.totals.illustrations | flexCurrency(' kn', 2) }}</td>
                 <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td>Tehnical drawings</td>
-                <td>{{ production_expense.technical_drawings | flexCurrency(' kn', 2) }}</td>
-                <template v-if="currentEdit('technical_drawings')">
-                    <td><input type="text" class="form-control" v-model="expenses.technical_drawings" v-on:keyup.enter="closeEdit" autofocus></td>
-                </template>
-                <template v-else>
-                    <td v-on:click="editField('technical_drawings')">{{ expenses.technical_drawings | flexCurrency(' kn', 2) }}</td>
-                </template>
-                <td>{{ production_expense.technical_drawings - expenses.technical_drawings | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.budget.totals.technical_drawings | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.expense.totals.technical_drawings | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.budget.totals.technical_drawings - production_expense.expense.totals.technical_drawings | flexCurrency(' kn', 2) }}</td>
                 <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td>Expert report</td>
-                <td>{{ production_expense.expert_report | flexCurrency(' kn', 2) }}</td>
-                <template v-if="currentEdit('expert_report')">
-                    <td><input type="text" class="form-control" v-model="expenses.expert_report" v-on:keyup.enter="closeEdit" autofocus></td>
-                </template>
-                <template v-else>
-                    <td v-on:click="editField('expert_report')">{{ expenses.expert_report | flexCurrency(' kn', 2) }}</td>
-                </template>
-                <td>{{ production_expense.expert_report - expenses.expert_report | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.budget.totals.expert_report | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.expense.totals.expert_report | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.budget.totals.expert_report - production_expense.expense.totals.expert_report | flexCurrency(' kn', 2) }}</td>
                 <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td>Copyright</td>
-                <td>{{ production_expense.copyright | flexCurrency(' kn', 2) }}</td>
-                <template v-if="currentEdit('copyright')">
-                    <td><input type="text" class="form-control" v-model="expenses.copyright" v-on:keyup.enter="closeEdit" autofocus></td>
-                </template>
-                <template v-else>
-                    <td v-on:click="editField('copyright')">{{ expenses.copyright | flexCurrency(' kn', 2) }}</td>
-                </template>
-                <td>{{ production_expense.copyright - expenses.copyright | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.budget.totals.copyright | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.expense.totals.copyright | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.budget.totals.copyright - production_expense.expense.totals.copyright | flexCurrency(' kn', 2) }}</td>
                 <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td>Copyright mediator</td>
-                <td>{{ production_expense.copyright_mediator | flexCurrency(' kn', 2) }}</td>
-                <template v-if="currentEdit('copyright_mediator')">
-                    <td><input type="text" class="form-control" v-model="expenses.copyright_mediator" v-on:keyup.enter="closeEdit" autofocus></td>
-                </template>
-                <template v-else>
-                    <td v-on:click="editField('copyright_mediator')">{{ expenses.copyright_mediator | flexCurrency(' kn', 2) }}</td>
-                </template>
-                <td>{{ production_expense.copyright_mediator - expenses.copyright_mediator | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.budget.totals.copyright_mediator | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.expense.totals.copyright_mediator | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.budget.totals.copyright_mediator - production_expense.expense.totals.copyright_mediator | flexCurrency(' kn', 2) }}</td>
                 <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td>METHODICAL INSTRUMENTARIUM</td>
-                <td>{{ production_expense.methodical_instrumentarium | flexCurrency(' kn', 2) }}</td>
-                <template v-if="currentEdit('methodical_instrumentarium')">
-                    <td><input type="text" class="form-control" v-model="expenses.methodical_instrumentarium" v-on:keyup.enter="closeEdit" autofocus></td>
-                </template>
-                <template v-else>
-                    <td v-on:click="editField('methodical_instrumentarium')">{{ expenses.methodical_instrumentarium | flexCurrency(' kn', 2) }}</td>
-                </template>
-                <td>{{ production_expense.methodical_instrumentarium - expenses.methodical_instrumentarium | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.budget.totals.methodical_instrumentarium | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.expense.totals.methodical_instrumentarium | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.budget.totals.methodical_instrumentarium - production_expense.expense.totals.methodical_instrumentarium | flexCurrency(' kn', 2) }}</td>
                 <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td>Selection</td>
-                <td>{{ production_expense.selection | flexCurrency(' kn', 2) }}</td>
-                <template v-if="currentEdit('selection')">
-                    <td><input type="text" class="form-control" v-model="expenses.selection" v-on:keyup.enter="closeEdit" autofocus></td>
-                </template>
-                <template v-else>
-                    <td v-on:click="editField('selection')">{{ expenses.selection | flexCurrency(' kn', 2) }}</td>
-                </template>
-                <td>{{ production_expense.selection - expenses.selection | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.budget.totals.selection | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.expense.totals.selection | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.budget.totals.selection - production_expense.expense.totals.selection | flexCurrency(' kn', 2) }}</td>
                 <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td>Powerpoint presentation</td>
-                <td>{{ production_expense.powerpoint_presentation | flexCurrency(' kn', 2) }}</td>
-                <template v-if="currentEdit('powerpoint_presentation')">
-                    <td><input type="text" class="form-control" v-model="expenses.powerpoint_presentation" v-on:keyup.enter="closeEdit" autofocus></td>
-                </template>
-                <template v-else>
-                <td v-on:click="editField('powerpoint_presentation')">{{ expenses.powerpoint_presentation | flexCurrency(' kn', 2) }}</td>
-                </template>
-                <td>{{ production_expense.powerpoint_presentation - expenses.powerpoint_presentation | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.budget.totals.powerpoint_presentation | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.expense.totals.powerpoint_presentation | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.budget.totals.powerpoint_presentation - production_expense.expense.totals.powerpoint_presentation | flexCurrency(' kn', 2) }}</td>
                 <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td>Additional expenses</td>
                 <td>{{ additional_expense | flexCurrency(' kn', 2) }}</td>
-                <template v-if="currentEdit('additional_expense')">
-                    <td><input type="text" class="form-control" v-model="expenses.additional_expense" v-on:keyup.enter="closeEdit" autofocus></td>
-                </template>
-                <template v-else>
-                    <td v-on:click="editField('additional_expense')">{{ expenses.additional_expense | flexCurrency(' kn', 2) }}</td>
-                </template>
-                <td>{{ additional_expense - expenses.additional_expense | flexCurrency(' kn', 2) }}</td>
+                <td>{{ production_expense.expense.totals.additional_expense | flexCurrency(' kn', 2) }}</td>
+                <td>{{ additional_expense - production_expense.expense.totals.additional_expense | flexCurrency(' kn', 2) }}</td>
                 <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
             </tr>
 
@@ -324,13 +230,8 @@
                 <th scope="row">1</th>
                 <td>Marketing budget</td>
                 <td>{{ marketing_expense | flexCurrency(' kn', 2) }}</td>
-                <template v-if="currentEdit('marketing_expense')">
-                    <td><input type="text" class="form-control" v-model="expenses.marketing_expense" v-on:keyup.enter="closeEdit" autofocus></td>
-                </template>
-                <template v-else>
-                    <td v-on:click="editField('marketing_expense')">{{ expenses.marketing_expense | flexCurrency(' kn', 2) }}</td>
-                </template>
-                <td>{{ marketing_expense - expenses.marketing_expense | flexCurrency(' kn', 2) }}</td>
+                <td>{{ marketing_expense.expense.totals.expense | flexCurrency(' kn', 2) }}</td>
+                <td>{{ marketing_expense - marketing_expense.expense.totals.expense | flexCurrency(' kn', 2) }}</td>
                 <td><div class="file-box-sty icon icon-cost-approval">{{ lang('Send for Approval') }}</div></td>
             </tr>
             </tbody>
@@ -363,22 +264,26 @@
                 return this.$deepModel('proposition.proposition.basic_data.authors');
             },
             additional_expense() {
-                return _.sumBy(this.production_expense.additional_expense, (o) => {return Number(o.amount)});
+                return 0
+                return _.sumBy(this.production_expense.budget.totals.additional_expense, (o) => {return Number(o.amount)});
             },
             total_budget() {
+                return 0
                 return this.total_authors + this.production_expense + this.marketing_expense;
             },
             total_expenses() {
+                return 0
                 return Object.values(this.expenses).reduce((a, b) => a + b);
             },
             total_difference() {
+                return 0
                 return this.total_budget - this.total_expenses;
             },
             total_percent_difference() {
                 return Math.round( this.total_difference / this.total_budget * 100 );
             },
             ...mapState('proposition/compare', [
-                'production_expense', 'marketing_expense', 'expenses', 'authors'
+                'production_expense', 'marketing_expense', 'authors_expense'
             ])
         },
         methods: {

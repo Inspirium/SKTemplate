@@ -33,8 +33,8 @@ export default {
         selection: '',
         powerpoint_presentation: '',
         methodical_instrumentarium: '',
-        additional_expense: [],
-        placeholders: []
+        additional_expenses: [],
+        parent:{}
     },
     mutations: {
         initData(state, payload) {
@@ -44,17 +44,15 @@ export default {
             }
         },
         addExpense(state) {
-            state.additional_expense.push({expense: '', amount: 0});
+            state.additional_expenses.push({expense: '', amount: 0});
         },
         deleteExpense(state, index) {
-            state.additional_expense.splice(index, 1);
+            state.additional_expenses.splice(index, 1);
         }
     },
     actions: {
         getData({commit, state}, payload) {
-            if (!state.id || state.id != payload.id || payload.force) {
-                //retrieve data only we don't have it or we need to refresh it
-                let path = '/api/proposition/' + payload.id + '/production_expense';
+                let path = '/api/proposition/' + payload.id + '/production_expense/';
                 if (payload.type) {
                     path += payload.type;
                 }
@@ -63,18 +61,19 @@ export default {
                         commit('initData', res.data);
                     });
 
-            }
         },
-        saveData({state}, id) {
+        saveData({state, commit}, id) {
             return new Promise((resolve, reject) => {
                 if (id) {
-                    let path = '/api/proposition/' + id + '/production_expense';
-
+                    let path = '/api/proposition/' + id + '/production_expense/';
                     if (state.placeholders) {
-                        path += '/expense';
+                        path += 'expense';
                     }
                     axios.post(path, state)
-                        .then(() => { resolve(); })
+                        .then((res) => {
+                            commit('initData', res.data);
+                            resolve();
+                    })
                         .catch(() => { reject(); });
                 }
                 else {

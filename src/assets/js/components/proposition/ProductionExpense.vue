@@ -287,17 +287,17 @@
         </div>
 
         <div class="page-name-l mb-4">{{ lang('Additional Expenses') }}</div>
-        <template v-for="(item,index) in expense.additional_expense">
+        <template v-for="(item,index) in expense.additional_expenses">
             <div class="row">
                 <div class="col-md-4">
                     <div class="md-form input-group">
-                        <input type="text" class="form-control" v-model="expense.additional_expense[index].expense">
+                        <input type="text" class="form-control" v-model="item.expense">
                         <label>{{ lang('Expense') }}</label>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="md-form input-group">
-                        <input type="text" class="form-control" v-model="expense.additional_expense[index].amount">
+                        <input type="text" class="form-control" v-model="item.amount">
                         <label>{{ lang('Ammount') }}</label>
                         <span class="input-group-addon">{{ lang('Kn') }}</span>
                     </div>
@@ -363,7 +363,7 @@
         },
         mounted: function() {
             if (this.$route.params.id != 0) {
-                this.$store.dispatch('proposition/production_expense/getData', {id: this.$route.params.id});
+                this.$store.dispatch('proposition/production_expense/getData', {id: this.$route.params.id, type:'budget'});
             }
         }
     }

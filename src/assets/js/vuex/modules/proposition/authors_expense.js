@@ -6,7 +6,7 @@ export default {
         id: 0,
         authors: [],
         note: '',
-        other: []
+        other: [],
     },
     mutations: {
         initData(state, payload) {
@@ -16,13 +16,13 @@ export default {
             }
         },
         addExpense(state, author) {
-            state.authors[author].expenses[0].additional_expenses.push({expense:'', amount: 0})
+            state.authors[author].expenses[0].additional_expenses.push({expense:'', amount: 0, id: 0})
         },
         deleteExpense(state, payload) {
             state.authors[payload.author].expenses[0].additional_expenses.splice(payload.index, 1);
         },
         addOtherExpense(state) {
-            state.other.push({expense:'', amount: 0});
+            state.other.push({expense:'', amount: 0, id: 0});
         },
         deleteOtherExpense(state, index) {
             state.other.splice(index, 1);
@@ -31,8 +31,11 @@ export default {
     actions: {
         getData({commit, state}, payload) {
             if (!state.id || state.id != payload.id || payload.force) {
-                //retrieve data only we don't have it or we need to refresh it
-                axios.get('/api/proposition/' + payload.id + '/authors_expense')
+                let path = '/api/proposition/' + payload.id + '/authors_expense/';
+                if (payload.type) {
+                    path += payload.type;
+                }
+                axios.get(path)
                     .then((res) => {
                         commit('initData', res.data);
                     });
@@ -41,9 +44,14 @@ export default {
         saveData({state, commit}, id) {
             return new Promise((resolve, reject) => {
                 if (id) {
-                    axios.post('/api/proposition/' + id + '/authors_expense', state)
+                    let path = '/api/proposition/' + id + '/authors_expense/';
+                    if (state.placeholders) {
+                        path += 'expense';
+                    }
+                    axios.post(path, state)
                         .then((res) => {
-                        resolve();
+                            commit('initData', res.data);
+                            resolve();
                         })
                         .catch(() => { reject(); });
                 }

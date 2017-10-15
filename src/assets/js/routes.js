@@ -4,6 +4,7 @@ import Categorization from './components/proposition/Categorization'
 import MarketPotential from './components/proposition/MarketPotential'
 import TechnicalData from './components/proposition/TechnicalData'
 import AuthorsExpense from './components/proposition/AuthorsExpense'
+import ExpenseAuthorsExpense from './components/proposition/expenses/AuthorsExpense'
 import Print from './components/proposition/Print'
 import ExpenseProductionExpense from './components/proposition/expenses/ProductionExpense'
 import ProductionExpense from './components/proposition/ProductionExpense'
@@ -54,7 +55,7 @@ export const routes = [
             { path: 'preparation/technical_correction', component: UploadDocument, meta: {dir: 'technical_correction'} },
             { path: 'preparation/final_review', component: UploadDocument, meta: {dir: 'final_review'} },
 
-            { path: 'expenses/authors_expense', component: AuthorsExpense },
+            { path: 'expenses/authors_expense', component: ExpenseAuthorsExpense },
             { path: 'expenses/production_expense', component: ExpenseProductionExpense, meta: {save:'production_expense'} },
             { path: 'expenses/marketing_expense', component: ExpenseMarketingExpense, meta: { save: 'marketing_expense' } },
             { path: 'expenses/distribution_expense', component: DistributionExpense },

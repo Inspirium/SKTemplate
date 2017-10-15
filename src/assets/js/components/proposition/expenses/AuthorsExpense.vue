@@ -3,25 +3,25 @@
         <div class="page-name-xl mb-4 mt-3">{{ lang('Authors Expenses') }}</div>
     <div class="row">
         <div class="col-md-12">
-            <template v-for="author in expenses.authors">
+            <template v-for="(author,index) in expenses.authors">
             <!-- Input field -->
             <div class="page-name-l mt-1 mb-4">{{ author.name }}</div>
             <div class="row">
                 <div class="col-md-12">
                     <div class="md-form d-flex addon">
-                        <input type="text" id="form1" class="form-control" v-bind:placeholder="lang('Amount')" v-model="author.expenses[0].amount">
+                        <input type="text" id="form1" class="form-control" v-bind:placeholder="author.expenses[0].parent.amount" v-model="author.expenses[0].amount">
                         <label for="form1">{{ lang('Amount') }}</label>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="md-form d-flex addon">
-                        <input type="text" id="form2" class="form-control" v-bind:placeholder="lang('Precentage')" v-model="author.expenses[0].percentage">
+                        <input type="text" id="form2" class="form-control" v-bind:placeholder="author.expenses[0].parent.percentage" v-model="author.expenses[0].percentage">
                         <label for="form2">{{ lang('Percentage') }}</label>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="md-form d-flex addon">
-                        <input type="text" id="form3" class="form-control" v-bind:placeholder="lang('Accontation')" v-model="author.expenses[0].accontation">
+                        <input type="text" id="form3" class="form-control" v-bind:placeholder="author.expenses[0].parent.accontation" v-model="author.expenses[0].accontation">
                         <label for="form3">{{ lang('Accontation') }}</label>
                     </div>
                 </div>
@@ -29,13 +29,13 @@
                 <div class="row" v-for="(a, i) in author.expenses[0].additional_expenses" v-bind:key="i">
                     <div class="col-md-4">
                         <div class="md-form d-flex addon">
-                            <input type="text" class="form-control" v-bind:placeholder="lang('Expense Name')" v-model="a.expense">
+                            <input type="text" class="form-control" v-bind:placeholder="lang('Expense')" v-model="a.expense?a.expense:a.parent.expense">
                             <label>{{ lang('Expense Name') }}</label>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="md-form d-flex addon">
-                            <input type="text" class="form-control" v-bind:placeholder="lang('Amount')" v-model="a.amount">
+                            <input type="text" class="form-control" v-bind:placeholder="a.parent.amount" v-model="a.amount">
                             <label>{{ lang('Amount') }}</label>
                         </div>
                     </div>
@@ -63,13 +63,13 @@
     <div class="row mt-4" v-for="(a, i) in expenses.other" v-bind:key="i">
         <div class="col-md-4">
             <div class="md-form d-flex addon">
-                <input type="text" class="form-control" v-bind:placeholder="lang('Expense Name')" v-model="a.expense">
+                <input type="text" class="form-control" v-model="a.expense?a.expense:a.parent.expense" v-bind:placeholder="lang('Expense')">
                 <label>{{ lang('Expense Name') }}</label>
             </div>
         </div>
         <div class="col-md-4">
             <div class="md-form d-flex addon">
-                <input type="text" class="form-control" v-bind:placeholder="lang('Amount')" v-model="a.amount">
+                <input type="text" class="form-control" v-bind:placeholder="a.parent.amount" v-model="a.amount">
                 <label>{{ lang('Amount') }}</label>
             </div>
         </div>
@@ -84,7 +84,8 @@
 </template>
 
 <script>
-    import FooterButtons from './partials/FooterButtons.vue'
+    import FooterButtons from '../partials/FooterButtons.vue'
+    import {mapState} from 'vuex'
     export default {
         data: function() {
             return {}
@@ -95,7 +96,8 @@
         computed: {
             expenses() {
                 return this.$deepModel('proposition.authors_expense');
-            }
+            },
+            ...mapState('proposition/authors_expense', ['placeholders'])
         },
         methods: {
             addExpense: function(author) {
@@ -113,7 +115,7 @@
         },
         mounted: function() {
             if (this.$route.params.id != 0) {
-                this.$store.dispatch('proposition/authors_expense/getData', {id: this.$route.params.id});
+                this.$store.dispatch('proposition/authors_expense/getData', {id: this.$route.params.id, type:'expense'});
             }
         }
     }
