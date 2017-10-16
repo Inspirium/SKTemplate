@@ -163,7 +163,7 @@
             <tr>
                 <th scope="row">2</th>
                 <td data-title="@lang('Title')">Copyright</td>
-                <td data-title="@lang('Budget')">>{{ production_expense.budget.totals.copyright | flexCurrency(' kn', 2) }}</td>
+                <td data-title="@lang('Budget')">{{ production_expense.budget.totals.copyright | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.copyright | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.copyright - production_expense.expense.totals.copyright) | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
@@ -171,7 +171,7 @@
             <tr>
                 <th scope="row">2</th>
                 <td data-title="@lang('Title')">Copyright mediator</td>
-                <td data-title="@lang('Budget')">>{{ production_expense.budget.totals.copyright_mediator | flexCurrency(' kn', 2) }}</td>
+                <td data-title="@lang('Budget')">{{ production_expense.budget.totals.copyright_mediator | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.copyright_mediator | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.copyright_mediator - production_expense.expense.totals.copyright_mediator) | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
@@ -179,7 +179,7 @@
             <tr>
                 <th scope="row">2</th>
                 <td data-title="@lang('Title')">METHODICAL INSTRUMENTARIUM</td>
-                <td data-title="@lang('Budget')">>{{ production_expense.budget.totals.methodical_instrumentarium | flexCurrency(' kn', 2) }}</td>
+                <td data-title="@lang('Budget')">{{ production_expense.budget.totals.methodical_instrumentarium | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.methodical_instrumentarium | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.methodical_instrumentarium - production_expense.expense.totals.methodical_instrumentarium) | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
@@ -187,7 +187,7 @@
             <tr>
                 <th scope="row">2</th>
                 <td data-title="@lang('Title')">Selection</td>
-                <td data-title="@lang('Budget')">>{{ production_expense.budget.totals.selection | flexCurrency(' kn', 2) }}</td>
+                <td data-title="@lang('Budget')">{{ production_expense.budget.totals.selection | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.selection | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.selection - production_expense.expense.totals.selection) | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
@@ -195,7 +195,7 @@
             <tr>
                 <th scope="row">2</th>
                 <td data-title="@lang('Title')">Powerpoint presentation</td>
-                <td data-title="@lang('Budget')">>{{ production_expense.budget.totals.powerpoint_presentation | flexCurrency(' kn', 2) }}</td>
+                <td data-title="@lang('Budget')">{{ production_expense.budget.totals.powerpoint_presentation | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.powerpoint_presentation | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.powerpoint_presentation - production_expense.expense.totals.powerpoint_presentation) | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
@@ -203,7 +203,7 @@
             <tr>
                 <th scope="row">2</th>
                 <td data-title="@lang('Title')">Additional expenses</td>
-                <td data-title="@lang('Budget')">>{{ production_expense.budget.totals.additional_expenses | flexCurrency(' kn', 2) }}</td>
+                <td data-title="@lang('Budget')">{{ production_expense.budget.totals.additional_expenses | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.additional_expenses | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.additional_expenses - production_expense.expense.totals.additional_expense) | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
@@ -228,14 +228,14 @@
             <tr>
                 <th scope="row">1</th>
                 <td data-title="@lang('Title')">Layout and Design budget</td>
-                <td data-title="@lang('Budget')">>{{ marketing_expense.budget?marketing_expense.budget.totals:0 | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Expense Total')">{{ marketing_expense.expense?marketing_expense.expense.totals:0 | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Difference')">{{ Math.abs(diff = marketing_expense.budget.totals - marketing_expense.expense.totals) | flexCurrency(' kn', 2) }}</td>
+                <td data-title="@lang('Budget')">{{ production_expense.budget.totals.layout | flexCurrency(' kn', 2) }}</td>
+                <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.layout | flexCurrency(' kn', 2) }}</td>
+                <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.layout - production_expense.expense.totals.layout) | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             </tbody>
         </table>
-        
+
         <div class="page-name-xl mb-3 mt-3">{{ lang('Marketing Expenses') }}</div>
         <table class="table">
             <thead class="thead-inverse">
@@ -252,7 +252,7 @@
             <tr>
                 <th scope="row">1</th>
                 <td data-title="@lang('Title')">Marketing budget</td>
-                <td data-title="@lang('Budget')">>{{ marketing_expense.budget?marketing_expense.budget.totals:0 | flexCurrency(' kn', 2) }}</td>
+                <td data-title="@lang('Budget')">{{ marketing_expense.budget?marketing_expense.budget.totals:0 | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Expense Total')">{{ marketing_expense.expense?marketing_expense.expense.totals:0 | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Difference')">{{ Math.abs(diff = marketing_expense.budget.totals - marketing_expense.expense.totals) | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>

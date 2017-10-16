@@ -3,7 +3,7 @@ import axios from "axios/index";
 export default {
     namespaced: true,
     state: {
-        id: 0,
+        proposition_id: 0,
         layout_complexity: '',
         layout_include: '',
         layout_note: '',
@@ -27,7 +27,7 @@ export default {
     actions: {
         getData({commit, state}, payload) {
             return new Promise((resolve, reject) => {
-            if (!state.id || state.id != payload.id || payload.force) {
+            if (!state.proposition_id || state.proposition_id != payload.id || payload.force) {
                 //retrieve data only we don't have it or we need to refresh it
                 axios.get('/api/proposition/' + payload.id + '/layout_expense')
                     .then((res) => {
