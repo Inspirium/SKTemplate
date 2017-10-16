@@ -46,7 +46,7 @@
                 <td data-title="@lang('Budget')">{{ author.expenses[0].totals | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Expense Total')">{{ author.expenses[1].totals | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Difference')">{{ Math.abs(diff = author.expenses[0].totals - author.expenses[1].totals) | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
+                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             </tbody>
         </table>
@@ -70,7 +70,7 @@
                 <td data-title="@lang('Budget')">{{ production_expense.budget.totals.text_price | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.text_price | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.text_price - production_expense.expense.totals.text_price) | flexCurrency(' kn', 2) }}</td>
-                <td><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
+                <td><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
@@ -78,7 +78,7 @@
                 <td data-title="@lang('Budget')">{{ production_expense.budget.totals.reviews | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.reviews | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.reviews - production_expense.expense.totals.reviews) | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
+                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
@@ -86,7 +86,7 @@
                 <td data-title="@lang('Budget')">{{ production_expense.budget.totals.lecture | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.lecture | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.lecture - production_expense.expense.totals.lecture) | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
+                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
@@ -94,7 +94,7 @@
                 <td data-title="@lang('Budget')">{{ production_expense.budget.totals.correction | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.correction | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.correction - production_expense.expense.totals.correction) | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
+                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
@@ -102,7 +102,7 @@
                 <td data-title="@lang('Budget')">{{ production_expense.budget.totals.proofreading | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.proofreading | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.proofreading - production_expense.expense.totals.proofreading) | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
+                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
@@ -110,7 +110,7 @@
                 <td data-title="@lang('Budget')">{{ production_expense.budget.totals.translation | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.translation | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.translation - production_expense.expense.totals.translation) | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
+                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
@@ -118,7 +118,7 @@
                 <td data-title="@lang('Budget')">{{ production_expense.budget.totals.index | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.index | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.index - production_expense.expense.totals.index) | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
+                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
@@ -126,7 +126,7 @@
                 <td data-title="@lang('Budget')">{{ production_expense.budget.totals.epilogue | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.epilogue | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.epilogue - production_expense.expense.totals.epilogue) | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
+                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
@@ -134,7 +134,7 @@
                 <td data-title="@lang('Budget')">{{ production_expense.budget.totals.photos | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.photos | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.photos - production_expense.expense.totals.photos) | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
+                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
@@ -142,7 +142,7 @@
                 <td data-title="@lang('Budget')">{{ production_expense.budget.totals.illustrations | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.illustrations | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.illustrations - production_expense.expense.totals.illustrations) | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
+                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
@@ -150,7 +150,7 @@
                 <td data-title="@lang('Budget')">{{ production_expense.budget.totals.technical_drawings | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.technical_drawings | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.technical_drawings - production_expense.expense.totals.technical_drawings) | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
+                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
@@ -158,7 +158,7 @@
                 <td data-title="@lang('Budget')">{{ production_expense.budget.totals.expert_report | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.expert_report | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.expert_report - production_expense.expense.totals.expert_report) | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
+                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
@@ -166,7 +166,7 @@
                 <td data-title="@lang('Budget')">{{ production_expense.budget.totals.copyright | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.copyright | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.copyright - production_expense.expense.totals.copyright) | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
+                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
@@ -174,7 +174,7 @@
                 <td data-title="@lang('Budget')">{{ production_expense.budget.totals.copyright_mediator | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.copyright_mediator | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.copyright_mediator - production_expense.expense.totals.copyright_mediator) | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
+                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
@@ -182,7 +182,7 @@
                 <td data-title="@lang('Budget')">{{ production_expense.budget.totals.methodical_instrumentarium | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.methodical_instrumentarium | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.methodical_instrumentarium - production_expense.expense.totals.methodical_instrumentarium) | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
+                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
@@ -190,7 +190,7 @@
                 <td data-title="@lang('Budget')">{{ production_expense.budget.totals.selection | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.selection | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.selection - production_expense.expense.totals.selection) | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
+                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
@@ -198,7 +198,7 @@
                 <td data-title="@lang('Budget')">{{ production_expense.budget.totals.powerpoint_presentation | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.powerpoint_presentation | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.powerpoint_presentation - production_expense.expense.totals.powerpoint_presentation) | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
+                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
@@ -206,7 +206,7 @@
                 <td data-title="@lang('Budget')">{{ production_expense.budget.totals.additional_expenses | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.additional_expenses | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.additional_expenses - production_expense.expense.totals.additional_expense) | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
+                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
 
             </tbody>
@@ -231,7 +231,7 @@
                 <td data-title="@lang('Budget')">{{ production_expense.budget.totals.layout | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.layout | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.layout - production_expense.expense.totals.layout) | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
+                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             </tbody>
         </table>
@@ -255,7 +255,7 @@
                 <td data-title="@lang('Budget')">{{ marketing_expense.budget?marketing_expense.budget.totals:0 | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Expense Total')">{{ marketing_expense.expense?marketing_expense.expense.totals:0 | flexCurrency(' kn', 2) }}</td>
                 <td data-title="@lang('Difference')">{{ Math.abs(diff = marketing_expense.budget.totals - marketing_expense.expense.totals) | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
+                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-if="diff<0" v-on:click="sendForApproval">{{ lang('Send for Approval') }}</div></td>
             </tr>
             </tbody>
         </table>
@@ -264,7 +264,7 @@
             <button class="btn btn-lg btn-save" v-on:click="saveExpenses">{{ lang('Save') }}</button>
 
         </div>
-        
+
         <!-- Central Modal Medium Assign Tab -->
         <div class="modal fade" id="ModalCostApprove" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-notify modal-warning" role="document">
@@ -413,7 +413,7 @@
             </div>
         </div>
         <!-- Central Modal Medium Assign tab-->
-        
+
     </div>
 
 </template>
@@ -425,7 +425,17 @@
     export default {
         data: function () {
             return {
-                activeEdit: '',
+                employee: '',
+                e_suggestions: [],
+                department: '',
+                d_suggestions: [],
+                employees: [],
+                description: '',
+                date: '',
+                access: 0,
+                priority: 0,
+                departments: [],
+                cancel: false
             }
         },
         components: {
@@ -466,8 +476,54 @@
                     });
             },
             sendForApproval: function() {
-                axios.post('/api/proposition/' + this.$route.params.id + '/approval')
-                    .then((res) => {});
+                $('#ModalCostApprove').modal('show');
+                /*axios.post('/api/proposition/' + this.$route.params.id + '/approval')
+                    .then((res) => {});*/
+            },
+            autocomplete: function(event, type) {
+                if (this.cancel) {
+                    this.cancel();
+                    this.cancel = false;
+                }
+                let CancelToken = axios.CancelToken;
+                if (this[type].length > 2) {
+                    axios.get('/api/human_resources/'+type+'/search/' + this[type], {
+                        cancelToken: new CancelToken((c) => {
+                            this.cancel = c;
+                        })
+                    })
+                        .then((response) => {
+                            if (type === 'department') {
+                                this.d_suggestions = response.data;
+                            }
+                            else {
+                                this.e_suggestions = response.data;
+                            }
+                        })
+                        .catch((error) => {});
+                }
+            },
+            autocomplete_select: function(index, type) {
+                if (type === 'department') {
+                    //this.$store.commit('proposition/pushToArray', {key: 'departments', group: 'assigned', value: this.d_suggestions[index]});
+                    this.departments.push(this.d_suggestions[index]);
+                    this.d_suggestions = [];
+                    this.department = '';
+                }
+                else {
+                    //this.$store.commit('proposition/pushToArray', {key: 'employees', group: 'assigned', value: this.e_suggestions[index]});
+                    this.employees.push(this.e_suggestions[index]);
+                    this.e_suggestions = [];
+                    this.employee = '';
+                }
+
+            },
+            assignValues: function() {
+                /*axios.post('/api/proposition/assign/'+this.$route.params.id, {employees: this.employees, departments: this.departments, description: this.description, date: this.date, access:this.access, priority: this.priority, path: window.location.href})
+                    .then((res) => {
+                    })
+                    .catch((err) => {
+                    })*/
             }
         },
         mounted() {
