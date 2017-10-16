@@ -3,7 +3,7 @@ import axios from 'axios';
 export default {
     namespaced: true,
     state: {
-        id: 0,
+        proposition_id: 0,
         project_number: '',
         project_name: '',
         additional_project_number: '',
@@ -19,14 +19,12 @@ export default {
     },
     actions: {
         getData({commit, state}, payload) {
-            if (!state.id || state.id != payload.id || payload.force) {
                 //retrieve data only we don't have it or we need to refresh it
                 axios.get('/api/proposition/' + payload.id + '/start')
                     .then((res) => {
                         commit('initData', res.data);
                         commit('proposition/initData', res.data, {root: true});
                     });
-            }
         },
         saveData({state, commit}, id) {
             return new Promise((resolve, reject) => {
@@ -39,7 +37,7 @@ export default {
                 else {
                     axios.post('/api/proposition/start', state)
                         .then((res) => {
-                            if (res.data.id) {
+                            if (res.data.proposition_id) {
                                 commit('proposition/initData', res.data, {root: true});
                                 resolve();
                             }

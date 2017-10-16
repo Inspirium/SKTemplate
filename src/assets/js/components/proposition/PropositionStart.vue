@@ -17,11 +17,11 @@
             </div>
             <div class="col-md-4">
                 <h6 class="white-label">{{ lang('Starting Date') }}</h6>
-                <h3 class="mb-1 text-white">{{ proposition.created_at.date | moment('DD.MM.YYYY.') }}</h3>
+                <h3 class="mb-1 text-white" v-if="proposition.created_at">{{ proposition.created_at.date | moment('DD.MM.YYYY.') }}</h3>
             </div>
             <div class="col-md-4">
                 <h6 class="white-label">{{ lang('Total Time') }}</h6>
-                <h3 class="mb-1 text-white">{{ proposition.created_at.date | moment("from", true)  }}</h3>
+                <h3 class="mb-1 text-white" v-if="proposition.created_at">{{ proposition.created_at.date | moment("from", true)  }}</h3>
             </div>
         </div>
 
@@ -119,8 +119,11 @@
             }
         },
         mounted: function() {
-            if (this.$route.params.id != 0) {
+            if (typeof (this.$route.params.id) !== 'undefined' && this.$route.params.id != 0) {
                 this.$store.dispatch('proposition/start/getData', {id: this.$route.params.id});
+            }
+            else {
+                this.$store.dispatch('proposition/initData', {force: true, id: 0});
             }
         }
     }

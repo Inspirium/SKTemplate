@@ -29,7 +29,7 @@
                 return this.$route.path.split('/');
             },
             id: function() {
-                return this.$store.state.proposition.id;
+                return this.$store.state.proposition.proposition_id;
             },
             editing_proposition: function() {
                 return this.active[1] === 'proposition';

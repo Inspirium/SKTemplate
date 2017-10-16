@@ -37,7 +37,7 @@ export default {
         owner: owner
     },
     state: {
-        id: 0,
+        proposition_id: 0,
         created_at: 0,
         updated_at: 0,
         deleted_at: 0,
@@ -50,7 +50,7 @@ export default {
     },
     mutations: {
         initData(state, payload) {
-            state.id = payload.id;
+            state.proposition_id = payload.proposition_id;
             state.created_at = payload.created_at;
             state.updated_at = payload.updated_at;
             state.deleted_at = payload.deleted_at;
@@ -58,7 +58,7 @@ export default {
     },
     actions: {
         initData({commit, state}, payload) {
-            if (!state.id || state.id != payload.id || payload.force) {
+            if (!state.proposition_id || state.proposition_id != payload.id || payload.force) {
                 axios.get('/api/proposition/' + payload.id + '/init')
                     .then((res) => {
                         commit('initData', res.data);

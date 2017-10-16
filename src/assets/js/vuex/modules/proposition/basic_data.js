@@ -22,7 +22,7 @@ export default {
             state.authors = payload.authors;
             state.concept = payload.concept;
             state.note = payload.note;
-            state.possible_products = payload.possible_products;
+            state.possible_products = payload.possible_products?payload.possible_products:[];
             state.dotation = payload.dotation;
             state.dotation_amount = payload.dotation_amount;
             state.dotation_origin = payload.dotation_origin;
