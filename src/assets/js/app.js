@@ -42,6 +42,17 @@ const router = new VueRouter({
     routes
 });
 
+router.beforeEach((to, from, next) => {
+    if (typeof (to.meta.validate) !== 'undefined' &&
+        typeof (to.meta.validate.id) !== 'undefined' &&
+        to.params.id === 'undefined') {
+        next('/proposition/start');
+    }
+    else {
+        next();
+    }
+});
+
 sync(store, router);
 window.vueRouter = router;
 

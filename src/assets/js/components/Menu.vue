@@ -42,11 +42,11 @@
                             enabled: true,
                             title: 'Proposition',
                             order: 0,
-                            key: 'proposition',
+                            key: 'edit',
                             children : {
                             start: {
                                 enabled: true,
-                                path: '/proposition/'+this.id+'/start',
+                                path: '/proposition/'+this.id+'/edit/start',
                                 title: 'Start',
                                 component: true
                             },
@@ -178,7 +178,7 @@
                             enabled: true,
                             title: 'Text Preparation',
                             order: 1,
-                            key: 'text_preparation',
+                            key: 'preparation',
                             children : {
                                 translation: {
                                     enabled: true,
@@ -510,7 +510,7 @@
         },
         methods: {
             isGroupActive: function(val) {
-                return this.active[1] === val;
+                return this.active[3] === val;
             },
             isActive: function(group, key) {
                 return this.$route.path === this.lroutes[group].children[key].path;
