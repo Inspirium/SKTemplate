@@ -40,13 +40,13 @@
             </tr>
             </thead>
             <tbody class="white">
-            <tr v-for="author in authors">
+            <tr v-for="(author, i) in authors">
                 <th scope="row">1</th>
-                <td data-title="@lang('Title')">{{ author.name }}</td>
-                <td data-title="@lang('Budget')">{{ author.expenses[0].totals | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Expense Total')">{{ author.expenses[1].totals | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Difference')">{{ Math.abs(diff = author.expenses[0].totals - author.expenses[1].totals) | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
+                <td v-bind:data-title="lang('Title')">{{ author.name }}</td>
+                <td v-bind:data-title="lang('Budget')">{{ author.expenses[0].totals | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Expense Total')">{{ author.expenses[1].totals | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Difference')">{{ Math.abs(diff = author.expenses[0].totals - author.expenses[1].totals) | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval('author_expense.'+i)" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             </tbody>
         </table>
@@ -66,147 +66,147 @@
             <tbody class="white">
             <tr>
                 <th scope="row">1</th>
-                <td data-title="@lang('Title')">Text</td>
-                <td data-title="@lang('Budget')">{{ production_expense.budget.totals.text_price | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.text_price | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.text_price - production_expense.expense.totals.text_price) | flexCurrency(' kn', 2) }}</td>
-                <td><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
+                <td v-bind:data-title="lang('Title')">{{lang('Text')}}</td>
+                <td v-bind:data-title="lang('Budget')">{{ production_expense.budget.totals.text_price | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Expense Total')">{{ production_expense.expense.totals.text_price | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.text_price - production_expense.expense.totals.text_price) | flexCurrency(' kn', 2) }}</td>
+                <td><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval('production_expense.text_price')" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
-                <td data-title="@lang('Title')">Reviews</td>
-                <td data-title="@lang('Budget')">{{ production_expense.budget.totals.reviews | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.reviews | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.reviews - production_expense.expense.totals.reviews) | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
+                <td v-bind:data-title="lang('Title')">{{lang('Reviews')}}</td>
+                <td v-bind:data-title="lang('Budget')">{{ production_expense.budget.totals.reviews | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Expense Total')">{{ production_expense.expense.totals.reviews | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.reviews - production_expense.expense.totals.reviews) | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval('production_expense.reviews')" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
-                <td data-title="@lang('Title')">Lecture</td>
-                <td data-title="@lang('Budget')">{{ production_expense.budget.totals.lecture | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.lecture | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.lecture - production_expense.expense.totals.lecture) | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
+                <td v-bind:data-title="lang('Title')">{{lang('Lecture')}}</td>
+                <td v-bind:data-title="lang('Budget')">{{ production_expense.budget.totals.lecture | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Expense Total')">{{ production_expense.expense.totals.lecture | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.lecture - production_expense.expense.totals.lecture) | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval('production_expense.lecture')" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
-                <td data-title="@lang('Title')">Correction</td>
-                <td data-title="@lang('Budget')">{{ production_expense.budget.totals.correction | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.correction | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.correction - production_expense.expense.totals.correction) | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
+                <td v-bind:data-title="lang('Title')">{{lang('Correction')}}</td>
+                <td v-bind:data-title="lang('Budget')">{{ production_expense.budget.totals.correction | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Expense Total')">{{ production_expense.expense.totals.correction | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.correction - production_expense.expense.totals.correction) | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval('production_expense.correction')" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
-                <td data-title="@lang('Title')">Proofreading</td>
-                <td data-title="@lang('Budget')">{{ production_expense.budget.totals.proofreading | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.proofreading | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.proofreading - production_expense.expense.totals.proofreading) | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
+                <td v-bind:data-title="lang('Title')">{{lang('Proofreading')}}</td>
+                <td v-bind:data-title="lang('Budget')">{{ production_expense.budget.totals.proofreading | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Expense Total')">{{ production_expense.expense.totals.proofreading | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.proofreading - production_expense.expense.totals.proofreading) | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval('production_expense.proofreading')" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
-                <td data-title="@lang('Title')">Translation</td>
-                <td data-title="@lang('Budget')">{{ production_expense.budget.totals.translation | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.translation | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.translation - production_expense.expense.totals.translation) | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
+                <td v-bind:data-title="lang('Title')">{{lang('Translation')}}</td>
+                <td v-bind:data-title="lang('Budget')">{{ production_expense.budget.totals.translation | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Expense Total')">{{ production_expense.expense.totals.translation | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.translation - production_expense.expense.totals.translation) | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval('production_expense.translation')" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
-                <td data-title="@lang('Title')">Index</td>
-                <td data-title="@lang('Budget')">{{ production_expense.budget.totals.index | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.index | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.index - production_expense.expense.totals.index) | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
+                <td v-bind:data-title="lang('Title')">{{lang('Index')}}</td>
+                <td v-bind:data-title="lang('Budget')">{{ production_expense.budget.totals.index | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Expense Total')">{{ production_expense.expense.totals.index | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.index - production_expense.expense.totals.index) | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval('production_expense.index')" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
-                <td data-title="@lang('Title')">Epilogue</td>
-                <td data-title="@lang('Budget')">{{ production_expense.budget.totals.epilogue | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.epilogue | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.epilogue - production_expense.expense.totals.epilogue) | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
+                <td v-bind:data-title="lang('Title')">{{lang('Epilogue')}}</td>
+                <td v-bind:data-title="lang('Budget')">{{ production_expense.budget.totals.epilogue | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Expense Total')">{{ production_expense.expense.totals.epilogue | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.epilogue - production_expense.expense.totals.epilogue) | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval('production_expense.epilogue')" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
-                <td data-title="@lang('Title')">Photos</td>
-                <td data-title="@lang('Budget')">{{ production_expense.budget.totals.photos | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.photos | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.photos - production_expense.expense.totals.photos) | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
+                <td v-bind:data-title="lang('Title')">{{lang('Photos')}}</td>
+                <td v-bind:data-title="lang('Budget')">{{ production_expense.budget.totals.photos | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Expense Total')">{{ production_expense.expense.totals.photos | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.photos - production_expense.expense.totals.photos) | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval('production_expense.photos')" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
-                <td data-title="@lang('Title')">illustrations</td>
-                <td data-title="@lang('Budget')">{{ production_expense.budget.totals.illustrations | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.illustrations | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.illustrations - production_expense.expense.totals.illustrations) | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
+                <td v-bind:data-title="lang('Title')">{{lang('Illustrations')}}</td>
+                <td v-bind:data-title="lang('Budget')">{{ production_expense.budget.totals.illustrations | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Expense Total')">{{ production_expense.expense.totals.illustrations | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.illustrations - production_expense.expense.totals.illustrations) | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval('production_expense.illustrations')" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
-                <td data-title="@lang('Title')">Tehnical drawings</td>
-                <td data-title="@lang('Budget')">{{ production_expense.budget.totals.technical_drawings | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.technical_drawings | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.technical_drawings - production_expense.expense.totals.technical_drawings) | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
+                <td v-bind:data-title="lang('Title')">{{lang('Tehnical drawings')}}</td>
+                <td v-bind:data-title="lang('Budget')">{{ production_expense.budget.totals.technical_drawings | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Expense Total')">{{ production_expense.expense.totals.technical_drawings | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.technical_drawings - production_expense.expense.totals.technical_drawings) | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval('production_expense.technical_drawings')" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
-                <td data-title="@lang('Title')">Expert report</td>
-                <td data-title="@lang('Budget')">{{ production_expense.budget.totals.expert_report | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.expert_report | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.expert_report - production_expense.expense.totals.expert_report) | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
+                <td v-bind:data-title="lang('Title')">{{lang('Expert report')}}</td>
+                <td v-bind:data-title="lang('Budget')">{{ production_expense.budget.totals.expert_report | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Expense Total')">{{ production_expense.expense.totals.expert_report | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.expert_report - production_expense.expense.totals.expert_report) | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval('production_expense.expert_report')" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
-                <td data-title="@lang('Title')">Copyright</td>
-                <td data-title="@lang('Budget')">{{ production_expense.budget.totals.copyright | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.copyright | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.copyright - production_expense.expense.totals.copyright) | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
+                <td v-bind:data-title="lang('Title')">{{lang('Copyright')}}</td>
+                <td v-bind:data-title="lang('Budget')">{{ production_expense.budget.totals.copyright | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Expense Total')">{{ production_expense.expense.totals.copyright | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.copyright - production_expense.expense.totals.copyright) | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval('production_expense.copyright')" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
-                <td data-title="@lang('Title')">Copyright mediator</td>
-                <td data-title="@lang('Budget')">{{ production_expense.budget.totals.copyright_mediator | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.copyright_mediator | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.copyright_mediator - production_expense.expense.totals.copyright_mediator) | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
+                <td v-bind:data-title="lang('Title')">{{lang('Copyright mediator')}}</td>
+                <td v-bind:data-title="lang('Budget')">{{ production_expense.budget.totals.copyright_mediator | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Expense Total')">{{ production_expense.expense.totals.copyright_mediator | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.copyright_mediator - production_expense.expense.totals.copyright_mediator) | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval('production_expense.copyright_mediator')" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
-                <td data-title="@lang('Title')">METHODICAL INSTRUMENTARIUM</td>
-                <td data-title="@lang('Budget')">{{ production_expense.budget.totals.methodical_instrumentarium | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.methodical_instrumentarium | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.methodical_instrumentarium - production_expense.expense.totals.methodical_instrumentarium) | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
+                <td v-bind:data-title="lang('Title')">{{lang('Methodical Instrumentarium')}}</td>
+                <td v-bind:data-title="lang('Budget')">{{ production_expense.budget.totals.methodical_instrumentarium | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Expense Total')">{{ production_expense.expense.totals.methodical_instrumentarium | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.methodical_instrumentarium - production_expense.expense.totals.methodical_instrumentarium) | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval('production_expense.methodical_instrumentarium')" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
-                <td data-title="@lang('Title')">Selection</td>
-                <td data-title="@lang('Budget')">{{ production_expense.budget.totals.selection | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.selection | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.selection - production_expense.expense.totals.selection) | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
+                <td v-bind:data-title="lang('Title')">{{lang('Selection')}}</td>
+                <td v-bind:data-title="lang('Budget')">{{ production_expense.budget.totals.selection | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Expense Total')">{{ production_expense.expense.totals.selection | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.selection - production_expense.expense.totals.selection) | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval('production_expense.selection')" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
-                <td data-title="@lang('Title')">Powerpoint presentation</td>
-                <td data-title="@lang('Budget')">{{ production_expense.budget.totals.powerpoint_presentation | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.powerpoint_presentation | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.powerpoint_presentation - production_expense.expense.totals.powerpoint_presentation) | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
+                <td v-bind:data-title="lang('Title')">{{lang('Powerpoint presentation')}}</td>
+                <td v-bind:data-title="lang('Budget')">{{ production_expense.budget.totals.powerpoint_presentation | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Expense Total')">{{ production_expense.expense.totals.powerpoint_presentation | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.powerpoint_presentation - production_expense.expense.totals.powerpoint_presentation) | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval('production_expense.powerpoint_presentation')" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
-                <td data-title="@lang('Title')">Additional expenses</td>
-                <td data-title="@lang('Budget')">{{ production_expense.budget.totals.additional_expenses | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.additional_expenses | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.additional_expenses - production_expense.expense.totals.additional_expense) | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
+                <td v-bind:data-title="lang('Title')">{{lang('Additional expenses')}}</td>
+                <td v-bind:data-title="lang('Budget')">{{ production_expense.budget.totals.additional_expenses | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Expense Total')">{{ production_expense.expense.totals.additional_expenses | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.additional_expenses - production_expense.expense.totals.additional_expense) | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval('production_expense.additional_expenses')" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
 
             </tbody>
@@ -227,11 +227,11 @@
             <tbody class="white">
             <tr>
                 <th scope="row">1</th>
-                <td data-title="@lang('Title')">{{ lang('Layout and Design budget') }}</td>
-                <td data-title="@lang('Budget')">{{ production_expense.budget.totals.layout | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Expense Total')">{{ production_expense.expense.totals.layout | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.layout - production_expense.expense.totals.layout) | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
+                <td v-bind:data-title="lang('Title')">{{ lang('Layout and Design budget') }}</td>
+                <td v-bind:data-title="lang('Budget')">{{ production_expense.budget.totals.layout | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Expense Total')">{{ production_expense.expense.totals.layout | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.layout - production_expense.expense.totals.layout) | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval('layout_expense')" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
             </tr>
             </tbody>
         </table>
@@ -251,11 +251,11 @@
             <tbody class="white">
             <tr>
                 <th scope="row">1</th>
-                <td data-title="@lang('Title')">Marketing budget</td>
-                <td data-title="@lang('Budget')">{{ marketing_expense.budget?marketing_expense.budget.totals:0 | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Expense Total')">{{ marketing_expense.expense?marketing_expense.expense.totals:0 | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Difference')">{{ Math.abs(diff = marketing_expense.budget.totals - marketing_expense.expense.totals) | flexCurrency(' kn', 2) }}</td>
-                <td data-title="@lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-if="diff<0" v-on:click="sendForApproval">{{ lang('Send for Approval') }}</div></td>
+                <td v-bind:data-title="lang('Title')">Marketing budget</td>
+                <td v-bind:data-title="lang('Budget')">{{ marketing_expense.budget?marketing_expense.budget.totals:0 | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Expense Total')">{{ marketing_expense.expense?marketing_expense.expense.totals:0 | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Difference')">{{ Math.abs(diff = marketing_expense.budget.totals - marketing_expense.expense.totals) | flexCurrency(' kn', 2) }}</td>
+                <td v-bind:data-title="lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-if="diff<0" v-on:click="sendForApproval('marketing_expense')">{{ lang('Send for Approval') }}</div></td>
             </tr>
             </tbody>
         </table>
@@ -282,11 +282,11 @@
                         <h6 class="w-100 text-center mb-2">{{ lang('Assign employee') }}</h6>
                     </div>
 
-                    <div class="modal-body tab-pane fade" id="panel52" role="tabpanel">
+                    <div class="modal-body">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="md-form d-flex addon">
-                                    <input type="text" class="form-control" name="employee" placeholder="Pronađi osobu" v-model="employee" v-on:keyup="autocomplete($event, 'employee')">
+                                    <input type="text" class="form-control" name="employee" v-bind:placeholder="lang('Find employee')" v-model="employee" v-on:keyup="autocomplete($event, 'employee')">
                                     <ul class="mdb-autocomplete-wrap" v-if="e_suggestions.length">
                                         <li v-for="(item, index) in e_suggestions" v-on:click="autocomplete_select(index, 'employee')">{{ item.name }}</li>
                                     </ul>
@@ -307,10 +307,10 @@
                                     </thead>
                                     <tbody class="white">
                                     <tr>
-                                        <td data-title="@lang('Title')">Marketing budget</td>
-                                        <td data-title="@lang('Budget')">{{ marketing_expense.budget?marketing_expense.budget.totals:0 | flexCurrency(' kn', 2) }}</td>
-                                        <td data-title="@lang('Expense Total')">{{ marketing_expense.expense?marketing_expense.expense.totals:0 | flexCurrency(' kn', 2) }}</td>
-                                        <td data-title="@lang('Difference')">{{ Math.abs(diff = marketing_expense.budget.totals - marketing_expense.expense.totals) | flexCurrency(' kn', 2) }}</td>
+                                        <td v-bind:data-title="lang('Title')">{{ lang(line_title) }}</td>
+                                        <td v-bind:data-title="lang('Budget')">{{ line_budget | flexCurrency(' kn', 2) }}</td>
+                                        <td v-bind:data-title="lang('Expense Total')">{{ line_expense | flexCurrency(' kn', 2) }}</td>
+                                        <td v-bind:data-title="lang('Difference')">{{ Math.abs(line_budget-line_expense) | flexCurrency(' kn', 2) }}</td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -324,8 +324,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-
                     <!--Footer-->
                     <div class="modal-footer btn-footer">
                         <button type="button" class="btn btn-lg btn-cancel" data-dismiss="modal">{{ lang('Cancel') }}</button>
@@ -350,15 +348,33 @@
             return {
                 employee: '',
                 e_suggestions: [],
-                department: '',
-                d_suggestions: [],
                 employees: [],
                 description: '',
-                date: '',
-                access: 0,
-                priority: 0,
-                departments: [],
-                cancel: false
+                cancel: false,
+                line_title: '',
+                line_budget: '',
+                line_expense: '',
+                titles: {
+                    text_price : 'Text',
+                    reviews: 'Reviews',
+                    lecture: 'Lecture',
+                    correction: 'Correction',
+                    proofreading: 'Proofreading',
+                    translation: 'Translation',
+                    index: 'Index',
+                    epilogue: 'Epilogue',
+                    photos: 'Photos',
+                    illustrations: 'Illustrations',
+                    technical_drawings : 'Tehnical drawings',
+                    expert_report : 'Expert report',
+                    copyright : 'Copyright',
+                    copyright_mediator : 'Copyright mediator',
+                    methodical_instrumentarium : 'Methodical Instrumentarium',
+                    selection : 'Selection',
+                    powerpoint_presentation : 'Powerpoint presentation',
+                    additional_expenses : 'Additional expenses'
+                },
+                expense: ''
             }
         },
         components: {
@@ -398,10 +414,31 @@
 
                     });
             },
-            sendForApproval: function() {
+            sendForApproval: function(what) {
+                if (what === 'marketing_expense') {
+                    this.line_title = 'Marketing budget';
+                    this.line_budget = this.marketing_expense.budget.totals;
+                    this.line_expense = this.marketing_expense.expense.totals;
+                }
+                if (what === 'layout_expense') {
+                    this.line_title = 'Layout and Design budget';
+                    this.line_budget = this.production_expense.budget.totals.layout;
+                    this.line_expense = this.production_expense.expense.totals.layout;
+                }
+                if (what.includes('production_expense.')) {
+                    let vars = what.split('.');
+                    this.line_title = this.titles[vars[1]];
+                    this.line_budget = this.production_expense.budget.totals[vars[1]];
+                    this.line_expense = this.production_expense.expense.totals[vars[1]];
+                }
+                if (what.includes('author_expense.')) {
+                    let vars = what.split('.');
+                    this.line_title = this.authors[vars[1]].name;
+                    this.line_budget = this.authors[vars[1]].expenses[0].totals;
+                    this.line_expense = this.authors[vars[1]].expenses[1].totals;
+                }
+                this.expense = what;
                 $('#ModalCostApprove').modal('show');
-                /*axios.post('/api/proposition/' + this.$route.params.id + '/approval')
-                    .then((res) => {});*/
             },
             autocomplete: function(event, type) {
                 if (this.cancel) {
@@ -442,11 +479,11 @@
 
             },
             assignValues: function() {
-                /*axios.post('/api/proposition/assign/'+this.$route.params.id, {employees: this.employees, departments: this.departments, description: this.description, date: this.date, access:this.access, priority: this.priority, path: window.location.href})
+                axios.post('/api/proposition/'+this.$route.params.id + '/requestApproval', {employees: this.employees, description: this.description, expense: {expense: this.line_expense, budget: this.line_budget, what: this.expense}})
                     .then((res) => {
                     })
                     .catch((err) => {
-                    })*/
+                    })
             }
         },
         mounted() {
