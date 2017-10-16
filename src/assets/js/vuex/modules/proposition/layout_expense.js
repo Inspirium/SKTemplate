@@ -27,9 +27,11 @@ export default {
     actions: {
         getData({commit, state}, payload) {
             return new Promise((resolve, reject) => {
-            if (!state.proposition_id || state.proposition_id != payload.id || payload.force) {
-                //retrieve data only we don't have it or we need to refresh it
-                axios.get('/api/proposition/' + payload.id + '/layout_expense')
+                let path = '/api/proposition/' + payload.id + '/layout_expense/';
+                if (payload.type) {
+                    path += payload.type;
+                }
+                axios.get(path)
                     .then((res) => {
                         commit('initData', res.data);
                         resolve();
@@ -37,17 +39,17 @@ export default {
                     .catch(() => {
                         reject();
                     });
-            }
-            else {
-                resolve();
-            }
             });
         },
-        saveData({state}, id) {
+        saveData({state, commit}, id) {
             return new Promise((resolve, reject) => {
                 if (id) {
-                    axios.post('/api/proposition/' + id + '/layout_expense', state)
-                        .then(() => { resolve(); })
+                    let path = '/api/proposition/' + payload.id + '/layout_expense/';
+                    if (payload.type) {
+                        path += payload.type;
+                    }
+                    axios.post(path, state)
+                        .then((res) => { commit('initData', res.data); resolve(); })
                         .catch(() => { reject(); });
                 }
                 else {

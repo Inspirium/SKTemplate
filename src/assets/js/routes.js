@@ -11,7 +11,9 @@ import ProductionExpense from './components/proposition/ProductionExpense'
 import MarketingExpense from './components/proposition/MarketingExpense'
 import ExpenseMarketingExpense from './components/proposition/expenses/MarketingExpense'
 import DistributionExpense from './components/proposition/DistributionExpense'
+import ExpenseDistributionExpense from './components/proposition/expenses/DistributionExpense'
 import LayoutExpense from './components/proposition/LayoutExpense'
+import ExpenseLayoutExpense from './components/proposition/expenses/LayoutExpense'
 import Deadline from './components/proposition/Deadline'
 import Calculation from './components/proposition/Calculation'
 import PropositionStart from './components/proposition/PropositionStart'
@@ -58,8 +60,8 @@ export const routes = [
             { path: 'expenses/authors_expense', component: ExpenseAuthorsExpense, meta: {validate: {id:'int'}} },
             { path: 'expenses/production_expense', component: ExpenseProductionExpense, meta: {save:'production_expense',validate: {id:'int'}} },
             { path: 'expenses/marketing_expense', component: ExpenseMarketingExpense, meta: { save: 'marketing_expense',validate: {id:'int'} } },
-            { path: 'expenses/distribution_expense', component: DistributionExpense, meta: {validate: {id:'int'}} },
-            { path: 'expenses/layout_expense', component: LayoutExpense, meta: {validate: {id:'int'}} },
+            { path: 'expenses/distribution_expense', component: ExpenseDistributionExpense, meta: {validate: {id:'int'}} },
+            { path: 'expenses/layout_expense', component: ExpenseLayoutExpense, meta: {validate: {id:'int'}} },
             { path: 'expenses/compare', component: Compare, meta: {validate: {id:'int'}} },
 
             { path: 'design/cover_design', component: UploadDocument, meta: {dir: 'cover_design',validate: {id:'int'}} },
