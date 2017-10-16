@@ -1021,8 +1021,8 @@ $sk-skin-btn-default: #293756;
     
     
     @media only screen and (max-width: 768px) {
-        table.table:not(.picker tbody),
-        tbody:not(.picker tbody) {
+        table.table:not(.picker),
+        tbody:not(.picker) {
             display: block;
             width: 100%;
             background-color: transparent;
@@ -1050,13 +1050,13 @@ $sk-skin-btn-default: #293756;
         }
         table tr,
         table th,
-        table td:not(.picker tbody) {
+        table td:not(.picker) {
             display: block;
             padding: 0;
             text-align: left;
             white-space: normal;
         }
-        table tr:not(.picker tbody) {
+        table tr:not(.picker) {
             border-bottom: 1px solid lighten($color-sidebar, 70%);
             padding-bottom: 11px;
             margin-bottom: 11px;
