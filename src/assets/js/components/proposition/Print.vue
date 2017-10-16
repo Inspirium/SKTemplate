@@ -1,5 +1,6 @@
 <template>
     <div class="content">
+        <template v-if="offers.count()">
     <div class="row tabs-wrapper">
         <ul class="col nav classic-tabs tabs-cyan" id="tabs" role="tablist">
             <li class="nav-item" v-for="(offer, key, index) in offers">
@@ -205,6 +206,10 @@
         </div>
     </div>
     <footer-buttons></footer-buttons>
+        </template>
+        <template v-else>
+            <h1>{{ lang('No print offers created') }}</h1>
+        </template>
 </div>
 </template>
 <script>

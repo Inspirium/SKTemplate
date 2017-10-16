@@ -13,6 +13,9 @@ export default {
         initData(state, payload) {
             for (let i in Object.keys(state)) {
                 let key = Object.keys(state)[i];
+                if (key === 'parent' && !payload.parent) {
+                    continue;
+                }
                 state[key] = payload[key];
             }
         },
