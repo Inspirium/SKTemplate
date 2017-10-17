@@ -19,6 +19,10 @@
                     </div>
                 </div>
             </div>
+            <div class="loading-motion">
+                <div class="spinner"></div>
+                <div class="spinner-text">Učitavam...</div>
+            </div>
             <div class="row">
                 <div class="col-md-12">
                     <!-- Textarea -->

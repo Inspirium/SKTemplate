@@ -25,7 +25,7 @@
                             <div class="col-md-4">
                                 <div class="md-form input-group">
                                     <input type="number" id="text-price-amount" class="form-control" v-model="expense.text_price_amount">
-                                    <label for="text-price-amount">{{ lang('Amount') }}</label>
+                                    <label for="text-price-amount">{{ lang('Quantity') }}</label>
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -65,7 +65,7 @@
                             <div class="col-md-4">
                                 <div class="md-form input-group">
                                     <input type="number" id="lecture-amount" class="form-control" v-model="expense.lecture_amount">
-                                    <label for="lecture-amount" class="">{{ lang('Amount') }}</label>
+                                    <label for="lecture-amount" class="">{{ lang('Quantity') }}</label>
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -88,7 +88,7 @@
                             <div class="col-md-4">
                                 <div class="md-form input-group">
                                     <input type="number" id="correction-amount" class="form-control" v-model="expense.correction_amount">
-                                    <label for="correction-amount" class="">{{ lang('Amount') }}</label>
+                                    <label for="correction-amount" class="">{{ lang('Quantity') }}</label>
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -111,7 +111,7 @@
                             <div class="col-md-4">
                                 <div class="md-form input-group">
                                     <input type="number" id="proofreading-amount" class="form-control" v-model="expense.proofreading_amount">
-                                    <label for="proofreading-amount" class="">{{ lang('Amount') }}</label>
+                                    <label for="proofreading-amount" class="">{{ lang('Quantity') }}</label>
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -134,7 +134,7 @@
                             <div class="col-md-4">
                                 <div class="md-form input-group">
                                     <input type="number" id="translation-amount" class="form-control" v-model="expense.translation_amount">
-                                    <label for="translation-amount">{{ lang('Amount') }}</label>
+                                    <label for="translation-amount">{{ lang('Quantity') }}</label>
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -157,7 +157,7 @@
                             <div class="col-md-4">
                                 <div class="md-form input-group">
                                     <input type="number" id="index-amount" class="form-control" v-model="expense.index_amount">
-                                    <label for="index-amount">{{ lang('Amount') }}</label>
+                                    <label for="index-amount">{{ lang('Quantity') }}</label>
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -189,7 +189,7 @@
                             <div class="col-md-4">
                                 <div class="md-form input-group">
                                     <input type="number" id="photos-amount" class="form-control" v-model="expense.photos_amount">
-                                    <label for="photos-amount" class="">{{ lang('Amount') }}</label>
+                                    <label for="photos-amount" class="">{{ lang('Quantity') }}</label>
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -212,7 +212,7 @@
                             <div class="col-md-4">
                                 <div class="md-form input-group">
                                     <input type="number" id="illustrations-amount" class="form-control" v-model="expense.illustrations_amount">
-                                    <label for="illustrations-amount" class="">{{ lang('Amount') }}</label>
+                                    <label for="illustrations-amount" class="">{{ lang('Quantity') }}</label>
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -235,7 +235,7 @@
                             <div class="col-md-4">
                                 <div class="md-form input-group">
                                     <input type="number" id="technical-drawings-amount" class="form-control" v-model="expense.technical_drawings_amount">
-                                    <label for="technical-drawings-amount">{{ lang('Amount') }}</label>
+                                    <label for="technical-drawings-amount">{{ lang('Quantity') }}</label>
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -298,7 +298,7 @@
                 <div class="col-md-4">
                     <div class="md-form input-group">
                         <input type="number" class="form-control" v-model="item.amount">
-                        <label>{{ lang('Ammount') }}</label>
+                        <label>{{ lang('Amount') }}</label>
                         <span class="input-group-addon">{{ lang('Kn') }}</span>
                     </div>
                 </div>
