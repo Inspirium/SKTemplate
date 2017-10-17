@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="md-form d-flex addon">
-                        <input type="text" id="form1" class="form-control" v-bind:placeholder="lang('Amount')" v-model="author.expenses[0].amount">
+                        <input type="number" id="form1" class="form-control" v-bind:placeholder="lang('Amount')" v-model="author.expenses[0].amount">
                         <label for="form1">{{ lang('Amount') }}</label>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                     </div>
                     <div class="col-md-4">
                         <div class="md-form d-flex addon">
-                            <input type="text" class="form-control" v-bind:placeholder="lang('Amount')" v-model="a.amount">
+                            <input type="number" class="form-control" v-bind:placeholder="lang('Amount')" v-model="a.amount">
                             <label>{{ lang('Amount') }}</label>
                         </div>
                     </div>
@@ -69,7 +69,7 @@
         </div>
         <div class="col-md-4">
             <div class="md-form d-flex addon">
-                <input type="text" class="form-control" v-bind:placeholder="lang('Amount')" v-model="a.amount">
+                <input type="number" class="form-control" v-bind:placeholder="lang('Amount')" v-model="a.amount">
                 <label>{{ lang('Amount') }}</label>
             </div>
         </div>

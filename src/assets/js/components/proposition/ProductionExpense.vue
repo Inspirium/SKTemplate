@@ -17,14 +17,14 @@
                         <div class="row">
                             <div class="col-md-5">
                                 <div class="md-form input-group">
-                                    <input type="text" id="text-price" class="form-control" v-model="expense.text_price">
+                                    <input type="number" id="text-price" class="form-control" v-model="expense.text_price">
                                     <label for="text-price">{{ lang('Text Price') }}</label>
                                     <span class="input-group-addon">{{ lang('Kn') }}</span>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="md-form input-group">
-                                    <input type="text" id="text-price-amount" class="form-control" v-model="expense.text_price_amount">
+                                    <input type="number" id="text-price-amount" class="form-control" v-model="expense.text_price_amount">
                                     <label for="text-price-amount">{{ lang('Amount') }}</label>
                                 </div>
                             </div>
@@ -38,17 +38,17 @@
 
                         <!-- Input fileds -->
                         <div class="md-form input-group">
-                            <input type="text" id="accontation" class="form-control" v-model="expense.accontation">
+                            <input type="number" id="accontation" class="form-control" v-model="expense.accontation">
                             <label for="accontation">{{ lang('Accontation') }}</label>
                             <span class="input-group-addon">{{ lang('Kn') }}</span>
                         </div>
                         <div class="md-form input-group">
-                            <input type="text" id="netto-price-percentage" class="form-control" v-model="expense.netto_price_percentage">
+                            <input type="number" id="netto-price-percentage" class="form-control" v-model="expense.netto_price_percentage">
                             <label for="netto-price-percentage">{{ lang('Netto Price Percentage') }}</label>
                             <span class="input-group-addon">{{ lang('%') }}</span>
                         </div>
                         <div class="md-form input-group">
-                            <input type="text" id="reviews" class="form-control" v-model="expense.reviews">
+                            <input type="number" id="reviews" class="form-control" v-model="expense.reviews">
                             <label for="reviews">{{ lang('Reviews') }}</label>
                             <span class="input-group-addon">{{ lang('Kn') }}</span>
                         </div>
@@ -57,14 +57,14 @@
                         <div class="row">
                             <div class="col-md-5">
                                 <div class="md-form input-group">
-                                    <input type="text" id="lecture" class="form-control" v-model="expense.lecture">
+                                    <input type="number" id="lecture" class="form-control" v-model="expense.lecture">
                                     <label for="lecture" class="">{{ lang('Lecture') }}</label>
                                     <span class="input-group-addon">{{ lang('Kn') }}</span>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="md-form input-group">
-                                    <input type="text" id="lecture-amount" class="form-control" v-model="expense.lecture_amount">
+                                    <input type="number" id="lecture-amount" class="form-control" v-model="expense.lecture_amount">
                                     <label for="lecture-amount" class="">{{ lang('Amount') }}</label>
                                 </div>
                             </div>
@@ -80,14 +80,14 @@
                         <div class="row">
                             <div class="col-md-5">
                                 <div class="md-form input-group">
-                                    <input type="text" id="correction" class="form-control" v-model="expense.correction">
+                                    <input type="number" id="correction" class="form-control" v-model="expense.correction">
                                     <label for="correction" class="">{{ lang('Correction') }}</label>
                                     <span class="input-group-addon">{{ lang('Kn') }}</span>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="md-form input-group">
-                                    <input type="text" id="correction-amount" class="form-control" v-model="expense.correction_amount">
+                                    <input type="number" id="correction-amount" class="form-control" v-model="expense.correction_amount">
                                     <label for="correction-amount" class="">{{ lang('Amount') }}</label>
                                 </div>
                             </div>
@@ -103,14 +103,14 @@
                         <div class="row">
                             <div class="col-md-5">
                                 <div class="md-form input-group">
-                                    <input type="text" id="proofreading" class="form-control" v-model="expense.proofreading">
+                                    <input type="number" id="proofreading" class="form-control" v-model="expense.proofreading">
                                     <label for="proofreading" class="">{{ lang('Proofreading') }}</label>
                                     <span class="input-group-addon">{{ lang('Kn') }}</span>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="md-form input-group">
-                                    <input type="text" id="proofreading-amount" class="form-control" v-model="expense.proofreading_amount">
+                                    <input type="number" id="proofreading-amount" class="form-control" v-model="expense.proofreading_amount">
                                     <label for="proofreading-amount" class="">{{ lang('Amount') }}</label>
                                 </div>
                             </div>
@@ -126,14 +126,14 @@
                         <div class="row">
                             <div class="col-md-5">
                                 <div class="md-form input-group">
-                                    <input type="text" id="translation" class="form-control" v-model="expense.translation">
+                                    <input type="number" id="translation" class="form-control" v-model="expense.translation">
                                     <label for="translation" class="">{{ lang('Translation') }}</label>
                                     <span class="input-group-addon">{{ lang('Kn') }}</span>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="md-form input-group">
-                                    <input type="text" id="translation-amount" class="form-control" v-model="expense.translation_amount">
+                                    <input type="number" id="translation-amount" class="form-control" v-model="expense.translation_amount">
                                     <label for="translation-amount">{{ lang('Amount') }}</label>
                                 </div>
                             </div>
@@ -149,14 +149,14 @@
                         <div class="row">
                             <div class="col-md-5">
                                 <div class="md-form input-group">
-                                    <input type="text" id="index" class="form-control" v-model="expense.index">
+                                    <input type="number" id="index" class="form-control" v-model="expense.index">
                                     <label for="index">{{ lang('Index') }}</label>
                                     <span class="input-group-addon">{{ lang('Kn') }}</span>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="md-form input-group">
-                                    <input type="text" id="index-amount" class="form-control" v-model="expense.index_amount">
+                                    <input type="number" id="index-amount" class="form-control" v-model="expense.index_amount">
                                     <label for="index-amount">{{ lang('Amount') }}</label>
                                 </div>
                             </div>
@@ -168,7 +168,7 @@
                             </div>
                         </div>
                         <div class="md-form input-group">
-                            <input type="text" id="epilogue" class="form-control" v-model="expense.epilogue">
+                            <input type="number" id="epilogue" class="form-control" v-model="expense.epilogue">
                             <label for="epilogue" class="">{{ lang('Epilogue') }}</label>
                             <span class="input-group-addon">{{ lang('Kn') }}</span>
                         </div>
@@ -181,14 +181,14 @@
                         <div class="row">
                             <div class="col-md-5">
                                 <div class="md-form input-group">
-                                    <input type="text" id="photos" class="form-control" v-model="expense.photos">
+                                    <input type="number" id="photos" class="form-control" v-model="expense.photos">
                                     <label for="photos">{{ lang('Photos') }}</label>
                                     <span class="input-group-addon">{{ lang('Kn') }}</span>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="md-form input-group">
-                                    <input type="text" id="photos-amount" class="form-control" v-model="expense.photos_amount">
+                                    <input type="number" id="photos-amount" class="form-control" v-model="expense.photos_amount">
                                     <label for="photos-amount" class="">{{ lang('Amount') }}</label>
                                 </div>
                             </div>
@@ -204,14 +204,14 @@
                         <div class="row">
                             <div class="col-md-5">
                                 <div class="md-form input-group">
-                                    <input type="text" id="illustrations" class="form-control" v-model="expense.illustrations">
+                                    <input type="number" id="illustrations" class="form-control" v-model="expense.illustrations">
                                     <label for="illustrations">{{ lang('Illustrations') }}</label>
                                     <span class="input-group-addon">{{ lang('Kn') }}</span>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="md-form input-group">
-                                    <input type="text" id="illustrations-amount" class="form-control" v-model="expense.illustrations_amount">
+                                    <input type="number" id="illustrations-amount" class="form-control" v-model="expense.illustrations_amount">
                                     <label for="illustrations-amount" class="">{{ lang('Amount') }}</label>
                                 </div>
                             </div>
@@ -227,14 +227,14 @@
                         <div class="row">
                             <div class="col-md-5">
                                 <div class="md-form input-group">
-                                    <input type="text" id="technical-drawings" class="form-control" v-model="expense.technical_drawings">
+                                    <input type="number" id="technical-drawings" class="form-control" v-model="expense.technical_drawings">
                                     <label for="technical-drawings" class="">{{ lang('Technical Drawings') }}</label>
                                     <span class="input-group-addon">{{ lang('Kn') }}</span>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="md-form input-group">
-                                    <input type="text" id="technical-drawings-amount" class="form-control" v-model="expense.technical_drawings_amount">
+                                    <input type="number" id="technical-drawings-amount" class="form-control" v-model="expense.technical_drawings_amount">
                                     <label for="technical-drawings-amount">{{ lang('Amount') }}</label>
                                 </div>
                             </div>
@@ -247,37 +247,37 @@
                         </div>
 
                         <div class="md-form input-group">
-                            <input type="text" id="expert-report" class="form-control" v-model="expense.expert_report">
+                            <input type="number" id="expert-report" class="form-control" v-model="expense.expert_report">
                             <label for="expert-report" class="">{{ lang('Expert Report') }}</label>
                             <span class="input-group-addon">{{ lang('Kn') }}</span>
                         </div>
 
                         <div class="md-form input-group">
-                            <input type="text" id="copyright" class="form-control" v-model="expense.copyright">
+                            <input type="number" id="copyright" class="form-control" v-model="expense.copyright">
                             <label for="copyright">{{ lang('Copyright') }}</label>
                             <span class="input-group-addon">{{ lang('Kn') }}</span>
                         </div>
 
                         <div class="md-form input-group">
-                            <input type="text" id="copyright-mediator" class="form-control" v-model="expense.copyright_mediator">
+                            <input type="number" id="copyright-mediator" class="form-control" v-model="expense.copyright_mediator">
                             <label for="copyright-mediator">{{ lang('Copyright Mediator') }}</label>
                             <span class="input-group-addon">{{ lang('Kn') }}</span>
                         </div>
 
                         <div class="md-form input-group">
-                            <input type="text" id="methodical-instrumentarium" class="form-control" v-model="expense.methodical_instrumentarium">
+                            <input type="number" id="methodical-instrumentarium" class="form-control" v-model="expense.methodical_instrumentarium">
                             <label for="methodical-instrumentarium" class="">{{ lang('Methodical Instrumentarium') }}</label>
                             <span class="input-group-addon">{{ lang('Kn') }}</span>
                         </div>
 
                         <div class="md-form input-group">
-                            <input type="text" id="selection" class="form-control" v-model="expense.selection">
+                            <input type="number" id="selection" class="form-control" v-model="expense.selection">
                             <label for="selection">{{ lang('Selection') }}</label>
                             <span class="input-group-addon">{{ lang('Kn') }}</span>
                         </div>
 
                         <div class="md-form input-group">
-                            <input type="text" id="powerpoint-presentation" class="form-control" v-model="expense.powerpoint_presentation">
+                            <input type="number" id="powerpoint-presentation" class="form-control" v-model="expense.powerpoint_presentation">
                             <label for="powerpoint-presentation">{{ lang('PowerPoint Presentation') }}</label>
                             <span class="input-group-addon">{{ lang('Kn') }}</span>
                         </div>
@@ -291,13 +291,13 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="md-form input-group">
-                        <input type="text" class="form-control" v-model="item.expense">
+                        <input type="number" class="form-control" v-model="item.expense">
                         <label>{{ lang('Expense') }}</label>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="md-form input-group">
-                        <input type="text" class="form-control" v-model="item.amount">
+                        <input type="number" class="form-control" v-model="item.amount">
                         <label>{{ lang('Ammount') }}</label>
                         <span class="input-group-addon">{{ lang('Kn') }}</span>
                     </div>

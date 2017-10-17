@@ -20,11 +20,13 @@
                             <div class="col-md-6 mx-auto">
                                 <!-- Input field -->
                                 <div class="md-form d-flex">
-                                    <input type="text" class="form-control" v-bind:placeholder="lang('In Kn')" v-model="offer.print_offer">
+                                    <input type="number" class="form-control" v-bind:placeholder="lang('In Kn')" v-model="offer.print_offer">
                                     <label>{{ lang('Print offer') }}</label>
+<!--
                                     <span class="d-flex">
                                         <button class="btn btn-neutral btn-addon p-1 ml-1" type="button" v-on:click="saveOffer">{{ lang('Save') }}</button>
                                     </span>
+-->
                                 </div>
                             </div>
                         </div>
