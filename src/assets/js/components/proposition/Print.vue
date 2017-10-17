@@ -1,6 +1,6 @@
 <template>
     <div class="content">
-        <template v-if="offers.length">
+        <template v-if="Object.keys(offers).length">
     <div class="row tabs-wrapper">
         <ul class="col nav classic-tabs tabs-cyan" id="tabs" role="tablist">
             <li class="nav-item" v-for="(offer, key, index) in offers">
