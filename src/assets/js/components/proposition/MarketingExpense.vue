@@ -66,7 +66,7 @@
                 return this.$deepModel('proposition.marketing_expense');
             },
             total: function() {
-                return Number(this.expenses.expense) +  _.sumBy(this.expenses.additional_expense, function(o) { return Number(o.amount) });
+                return Number(this.expenses.expense) +  _.sumBy(this.expenses.additional_expenses, function(o) { return Number(o.amount) });
             }
         },
         components: {
