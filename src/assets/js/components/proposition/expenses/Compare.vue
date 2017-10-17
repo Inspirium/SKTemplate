@@ -479,7 +479,7 @@
 
             },
             assignValues: function() {
-                axios.post('/api/proposition/'+this.$route.params.id + '/requestApproval', {employees: this.employees, description: this.description, expense: {expense: this.line_expense, budget: this.line_budget, what: this.expense}})
+                axios.post('/api/proposition/'+this.$route.params.id + '/request_approval', {requestees: this.employees, description: this.description, expense: this.line_expense, budget: this.line_budget, name: this.line_title, designation: this.expense})
                     .then((res) => {
                     })
                     .catch((err) => {
