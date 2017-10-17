@@ -3,6 +3,7 @@ import axios from "axios/index";
 export default {
     namespaced: true,
     state: {
+        type: '',
         proposition_id: 0,
         layout_complexity: '',
         layout_include: '',
@@ -42,11 +43,12 @@ export default {
             });
         },
         saveData({state, commit}, id) {
+            console.log(id);
             return new Promise((resolve, reject) => {
                 if (id) {
                     let path = '/api/proposition/' + payload.id + '/layout_expense/';
-                    if (payload.type) {
-                        path += payload.type;
+                    if (state.type === 'expense') {
+                        path += 'expense';
                     }
                     axios.post(path, state)
                         .then((res) => { commit('initData', res.data); resolve(); })
