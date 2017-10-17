@@ -55,7 +55,7 @@
                 @foreach($unfinished as $prop)
                 <tr>
                     <th scope="row">{{ $loop->iteration }}</th>
-                    <td data-title="@lang('Title')" class="table-title"><a href="{{ url('proposition/'.$prop->id.'/start') }}">{{ $prop->title }}</a></td>
+                    <td data-title="@lang('Title')" class="table-title"><a href="{{ url('proposition/'.$prop->id.'/edit/start') }}">{{ $prop->title }}</a></td>
                     <td data-title="@lang('Author')"><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-2" src="{{ $prop->owner->image }}">{{ $prop->owner->name }}</a></td>
                     <td data-title="@lang('Waiting Approval')">{{ $prop->created_at }}</td>
                 </tr>
@@ -81,7 +81,7 @@
                 @foreach($active as $prop)
                 <tr>
                     <th scope="row">{{ $loop->iteration }}</th>
-                    <td  data-title="@lang('Title')" class="table-title"><a href="{{ url('proposition/'.$prop->id.'/start') }}">{{ $prop->title }}</a></td>
+                    <td  data-title="@lang('Title')" class="table-title"><a href="{{ url('proposition/'.$prop->id.'/edit/start') }}">{{ $prop->title }}</a></td>
                     <td data-title="@lang('Author')"><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-2" src="{{ $prop->owner->image }}">{{ $prop->owner->name }}</a></td>
                     <td data-title="@lang('Waiting Approval')">{{ $prop->created_at }}</td>
                     <td></td>
@@ -108,7 +108,7 @@
                 @foreach($rejected as $prop)
                 <tr>
                     <th scope="row">{{ $loop->iteration }}</th>
-                    <td  data-title="@lang('Title')" class="table-title"><a href="{{ url('proposition/'.$prop->id.'/start') }}">{{ $prop->title }}</a></td>
+                    <td  data-title="@lang('Title')" class="table-title"><a href="{{ url('proposition/'.$prop->id.'/edit/start') }}">{{ $prop->title }}</a></td>
                     <td data-title="@lang('Author')"><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-2" src="{{ $prop->owner->image }}">{{ $prop->owner->name }}</a></td>
                     <td data-title="@lang('Waiting Approval')">{{ $prop->created_at }}</td>
                     <td></td>
@@ -136,7 +136,7 @@
                 @foreach($deleted as $prop)
                     <tr>
                         <th scope="row">{{ $loop->iteration }}</th>
-                        <td data-title="@lang('Title')" class="table-title"><a href="{{ url('proposition/'.$prop->id.'/start') }}">{{ $prop->title }}</a></td>
+                        <td data-title="@lang('Title')" class="table-title"><a href="{{ url('proposition/'.$prop->id.'/edit/start') }}">{{ $prop->title }}</a></td>
                         <td data-title="@lang('Author')"><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-2" src="{{ $prop->owner->image }}">{{ $prop->owner->name }}</a></td>
                         <td data-title="@lang('Waiting Approval')">{{ $prop->created_at }}</td>
                         <td></td>
