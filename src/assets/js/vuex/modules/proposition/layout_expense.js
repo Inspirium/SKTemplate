@@ -43,10 +43,9 @@ export default {
             });
         },
         saveData({state, commit}, id) {
-            console.log(id);
             return new Promise((resolve, reject) => {
                 if (id) {
-                    let path = '/api/proposition/' + payload.id + '/layout_expense/';
+                    let path = '/api/proposition/' + id + '/layout_expense/';
                     if (state.type === 'expense') {
                         path += 'expense';
                     }
