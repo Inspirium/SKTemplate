@@ -11,7 +11,7 @@
             <div class="col-md-4">
                 <a href="#" v-if="proposition.owner">
                     <img class="profile-m-2 mr-1 float-left" v-bind:src="proposition.owner.image">
-                    <h6 class="white-label">{{ lang('Assigner') }}</h6>
+                    <h6 class="white-label">{{ lang('Proposition Creator') }}</h6>
                     <h3 class="mb-1 text-white">{{ proposition.owner.name }}</h3>
                 </a>
             </div>

@@ -56,7 +56,8 @@
     "Market Potential": "marketinški potencijal",
     "Technical Data": "Tehnički podaci",
     "Print": "Tisak",
-    "Authors Expense": "Autorski troškovi",
+    "Authors Expense": "Autorski trošak",
+    "Authors Expenses": "Autorski troškovi",
     "Production Expense": "Produkcijski troškovi",
     "Distribution Expense": "Distribucijski troškovi",
     "Layout Expense": "Trošak prijeloma",
@@ -318,13 +319,17 @@
     "Task": "Zadatak",
     "Assign Person": "Zaduži osobu",
     "Assign Department": "Zaduži odijeljenje",
-    "Task Completition Time": "Vremenska procjena dovršetka zadatka",
+    "Task Completion Time": "Vremenska procjena dovršetka zadatka",
     "Hours": "Sati",
     "Minutes": "Minuta",
     "Assign to": "Zadužena osoba",
     "Accept": "Prihvaćam",
     "Reject": "Odbijam",
-    "Deadline / Priority": "Rok / Razina prioriteta"
+    "Deadline / Priority": "Rok / Razina prioriteta",
+    "Proposition Creator": "Kreirao propoziciju",
+    "Find employee": "Pronađi osobu",
+    "Cost Rejected": "Trošak odbijen",
+    "Cost Approved": "Trošak odobren"
     
     
     
