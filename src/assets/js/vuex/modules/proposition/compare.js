@@ -19,8 +19,8 @@ export default {
                 totals: {}
             }
         },
-        authors : []
-
+        authors : [],
+        requests: {}
     },
     mutations: {
         initData(state, payload) {

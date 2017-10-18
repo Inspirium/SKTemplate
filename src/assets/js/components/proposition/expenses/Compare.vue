@@ -48,9 +48,9 @@
                 <td class="text-right" v-bind:data-title="lang('Difference')">{{ Math.abs(diff = author.expenses[0].totals - author.expenses[1].totals) | flexCurrency(' kn', 2) }}</td>
                 <td class="text-right" v-bind:data-title="lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval('author_expense.'+i)" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
 <!--
-             Approved 
+             Approved
                 <td v-bind:data-title="lang('Cost Approved')"><div class="file-box-sty icon icon-cost-approved" v-on:click="sendForApproval('author_expense.'+i)" v-if="diff<0">{{ lang('Cost Approved') }}</div></td>
-             Reject 
+             Reject
                 <td v-bind:data-title="lang('Cost Rejected')"><div class="file-box-sty icon icon-cost-rejected" v-on:click="sendForApproval('author_expense.'+i)" v-if="diff<0">{{ lang('') }}</div></td>
 -->
             </tr>
@@ -76,7 +76,18 @@
                 <td class="text-right" v-bind:data-title="lang('Budget')">{{ production_expense.budget.totals.text_price | flexCurrency(' kn', 2) }}</td>
                 <td class="text-right" v-bind:data-title="lang('Expense Total')">{{ production_expense.expense.totals.text_price | flexCurrency(' kn', 2) }}</td>
                 <td class="text-right" v-bind:data-title="lang('Difference')">{{ Math.abs(diff = production_expense.budget.totals.text_price - production_expense.expense.totals.text_price) | flexCurrency(' kn', 2) }}</td>
+                <template v-if="requests['production_expense.text_price'] && requests['production_expense.text_price'][0] && requests['production_expense.text_price'][0].status === 'requested'">
+                    Requested
+                </template>
+                <template v-else-if="requests['production_expense.text_price'] && requests['production_expense.text_price'][0] && requests['production_expense.text_price'][0].status === 'denied'">
+                    Denied
+                </template>
+                <template v-else-if="requests['production_expense.text_price'] && requests['production_expense.text_price'][0] && requests['production_expense.text_price'][0].status === 'approved'">
+                    Approved
+                </template>
+                <template v-else>
                 <td class="text-right" v-bind:data-title="lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval('production_expense.text_price')" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
+                </template>
             </tr>
             <tr>
                 <th scope="row">2</th>
@@ -333,7 +344,7 @@
                     <!--Footer-->
                     <div class="modal-footer btn-footer">
                         <button type="button" class="btn btn-lg btn-cancel" data-dismiss="modal">{{ lang('Cancel') }}</button>
-                        <button type="button" class="btn btn-lg btn-save" data-dismiss="modal" v-on:click="assignValues">{{ lang('Assign') }}</button>
+                        <button type="button" class="btn btn-lg btn-save" v-on:click="assignValues">{{ lang('Assign') }}</button>
                     </div>
                 </div>
                 <!--/.Content-->
@@ -401,7 +412,7 @@
                 return Math.round( this.total_difference / this.total_budget * 100 );
             },
             ...mapState('proposition/compare', [
-                'production_expense', 'marketing_expense', 'authors'
+                'production_expense', 'marketing_expense', 'authors', 'requests'
             ])
         },
         methods: {
@@ -485,11 +496,31 @@
 
             },
             assignValues: function() {
-                axios.post('/api/proposition/'+this.$route.params.id + '/request_approval', {requestees: this.employees, description: this.description, expense: this.line_expense, budget: this.line_budget, name: this.line_title, designation: this.expense})
-                    .then((res) => {
+                if (this.employees.length && this.description && this.expense) {
+                    axios.post('/api/proposition/' + this.$route.params.id + '/request_approval', {
+                        requestees: this.employees,
+                        description: this.description,
+                        expense: this.line_expense,
+                        budget: this.line_budget,
+                        name: this.line_title,
+                        designation: this.expense
                     })
-                    .catch((err) => {
-                    })
+                        .then(() => {
+                            this.employees = [];
+                            this.description = '';
+                            this.line_expense = '';
+                            this.line_budget = '';
+                            this.line_title = '';
+                            this.expense = '';
+                            $('#ModalCostApprove').modal('hide');
+                        })
+                        .catch((err) => {
+                            this.error = 'Error in request. Try again.'
+                        })
+                }
+                else {
+                    this.error = 'Missing data';
+                }
             }
         },
         mounted() {
