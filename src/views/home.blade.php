@@ -46,6 +46,24 @@
             </div>
         </div>
 
+   
+   <div class="chart mt-4">
+       <div class="header">
+           <div class="header__title--style">Naziv grafa</div>
+           <div class="header__desc--style">ovo je opis grafa ako je potreban. Ako nije, nećemo ga pikazati</div>
+       </div>
+       <div class="filter">
+           <div class="filter-chip--style">Tjedan</div>
+           <div class="filter-chip--style">Mjesec</div>
+           <div class="filter-chip--style active">Godina</div>
+       </div>
+       <div class="content mt-3">
+           <div class="ct-chart ct-double-octave"></div>
+       </div>
+   </div>
+   
+    
+       
         <div class="row">
             <div class="col-md-12">
                 <div class="page-name-xl mb-1 mt-3">@lang('New Editions')</div>
@@ -161,4 +179,24 @@
             </div>
         </div>
     </div>
+    
+<script>
+    var data = {
+      labels: ['Propozicija', 'Pro. na odobrenju', 'Priprema teksta', 'Dizajn', 'Prijelom', 'Def. cijene', 'Priprema', 'Tisak'],
+      series: [
+        [23, 7, 16, 3, 11, 6, 5, 4]
+      ]
+    };
+
+    var options = {
+      high: 50,
+      low: 0,
+
+    };
+
+    new Chartist.Bar('.ct-chart', data, options);
+</script>
+
+
+
 @endsection

@@ -12,6 +12,8 @@
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin-ext" rel="stylesheet">
     <script src="https://use.fontawesome.com/b494914ae1.js"></script>
+    <script src="{{ asset('js/chartist.js')  }}"></script>
+
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -45,7 +47,6 @@
 
 <script src="{{ asset('js/bootstrap.js') }}"></script>
 <script src="{{ asset('js/mdb.js') }}"></script>
-<script src="{{ asset('js/chartist.js')  }}"></script>
 <script src="{{ asset('js/app.js') }}"></script>
 @endif
 </body>

@@ -1014,44 +1014,69 @@ $sk-skin-btn-default: #293756;
     .tab-content {
         padding: 0;
     }
-    ///Spinner
-    .loading-motion {
-
-    }
-    .spinner {
-        width: 40px;
-        height: 40px;
-        background-color: $sk-skin-accent;
-        margin: 0 auto;
-        -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
-        animation: sk-rotateplane 1.2s infinite ease-in-out;
-    }
-    .spinner-text {
-        margin: .5rem auto;
-        text-align: center;
-        text-transform: uppercase;
-        font-size: .85rem;
-    }
-        @-webkit-keyframes sk-rotateplane {
-        0% { -webkit-transform: perspective(120px) }
-        50% { -webkit-transform: perspective(120px) rotateY(180deg) }
-        100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
-    }
-        @keyframes sk-rotateplane {
-        0% { 
-        transform: perspective(120px) rotateX(0deg) rotateY(0deg);
-        -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg) 
-        } 50% { 
-        transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
-        -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg) 
-        } 100% { 
-        transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
-        -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    ///Charts
+    .chart {
+        background-color: $white;
+        border-radius: 1rem;
+        .header {
+            display: flex;
+            align-items: center;
+            background-color: $gray-lighter;
+            min-height: 4rem;
+            border-top-right-radius: 1rem;
+            border-top-left-radius: 1rem;
+            .header__title {
+                &--style {
+                    font-size: 1.1rem;
+                    text-transform: uppercase;
+                    font-weight: normal;
+                    line-height: 1.2rem;
+                    margin: 0 1rem;
+                }
+            }
+            .header__desc {
+                &--style {
+                    font-size: .8rem;
+                    text-transform: uppercase;
+                    text-align: right;
+                    border-left: 1px solid darken($color-mainpanel, 15%);
+                    font-weight: normal;
+                    margin-left: auto;
+                    padding: .5rem 1rem;
+                    line-height: 1rem;
+                }
+            }
+        }
+        .filter {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid $gray-lighter;
+            min-height: 5rem;
+            .filter-chip {
+                &--style {
+                    display: inline-block;
+                    font-size: .8rem;
+                    background-color: lighten($gray-light, 25%);
+                    padding: .3rem 1rem;
+                    margin: 0 .5rem;
+                    text-align: center;
+                    color: $white;
+                    border-radius: 1rem;
+                    text-transform: uppercase;
+                    cursor: pointer;
+                }
+            }
+            .active {
+                background-color: $sk-skin-navbar;
+            }
         }
     }
-    
-    
-    
+    ///Charts--style
+    .ct-series-a .ct-point, .ct-series-a .ct-line, .ct-series-a .ct-bar, .ct-series-a .ct-slice-donut {
+        stroke: $sk-skin-accent;
+        stroke-width: 10%;
+    }
     
     
     @media only screen and (max-width: 768px) {
