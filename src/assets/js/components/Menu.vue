@@ -133,7 +133,7 @@
                         expenses: {
                             enabled: true,
                             title: 'Expenses',
-                            order: 2,
+                            order: 1,
                             key: 'expenses',
                             children : {
                                 authors_expense: {
@@ -177,7 +177,7 @@
                         text_preparation: {
                             enabled: true,
                             title: 'Text Preparation',
-                            order: 1,
+                            order: 2,
                             key: 'preparation',
                             children : {
                                 translation: {

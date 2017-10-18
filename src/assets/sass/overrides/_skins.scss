@@ -1032,6 +1032,7 @@ $sk-skin-btn-default: #293756;
                     font-weight: normal;
                     line-height: 1.2rem;
                     margin: 0 1rem;
+                    width: 50%;
                 }
             }
             .header__desc {
@@ -1071,11 +1072,16 @@ $sk-skin-btn-default: #293756;
                 background-color: $sk-skin-navbar;
             }
         }
+        .content {
+            padding-bottom: 15px;
+        }
     }
     ///Charts--style
     .ct-series-a .ct-point, .ct-series-a .ct-line, .ct-series-a .ct-bar, .ct-series-a .ct-slice-donut {
         stroke: $sk-skin-accent;
-        stroke-width: 10%;
+    }
+    #chart1 .ct-bar {
+        stroke-width: 10%; 
     }
     
     
