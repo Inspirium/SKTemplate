@@ -45,7 +45,7 @@
 
 <script src="{{ asset('js/bootstrap.js') }}"></script>
 <script src="{{ asset('js/mdb.js') }}"></script>
-
+<script src="{{ asset('js/chartist.js')  }}"></script>
 <script src="{{ asset('js/app.js') }}"></script>
 @endif
 </body>

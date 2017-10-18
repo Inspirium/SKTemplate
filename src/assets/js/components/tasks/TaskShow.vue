@@ -1,7 +1,7 @@
 <template>
     <div>
         <template v-if="task.id">
-            <template v-if="task.type===3">
+            <template v-if="task.type==='3'">
 
             </template>
             <template v-else>
