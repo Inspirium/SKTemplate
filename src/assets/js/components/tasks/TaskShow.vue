@@ -1,5 +1,10 @@
 <template>
     <div>
+        <template v-if="task.id">
+            <template v-if="task.type===3">
+
+            </template>
+            <template v-else>
         <div class="profile-head py-4 d-flex flex-column justify-content-center align-items-center">
             <h1 class="display-3 text-white text-center">{{ task.name }}</h1>
         </div>
@@ -30,11 +35,11 @@
                     <h3 class="mb-1 text-white">{{ task.deadline | moment("DD.MM.") }}</h3>
                 </div>
             </div>
-        
+
             <!-- Stopwatch -->
             <div class="stopwatch">
                 <div class="stopwatch-counter">
-                
+
                 </div>
                 <div class="stopwatch-controls">
                     <div class="modal-footer btn-footer">
@@ -43,7 +48,7 @@
                     </div>
                 </div>
             </div>
-           
+
             <!-- Highlighted input filed -->
             <div class="page-name-xl mt-4">{{ lang('Task Completion Time') }}</div>
             <div class="grey-box mb-5 pt-5 pb-3 px-3 mx-auto">
@@ -175,6 +180,11 @@
                 <button type="submit" class="btn btn-lg btn-assign btn-assign-icon">{{ lang('Assign to...') }}</button>
             </div>
         </div>
+            </template>
+        </template>
+        <template v-else>
+            Loading...
+        </template>
     </div>
 </template>
 <script>
@@ -188,6 +198,10 @@
                     },
                     2: {
                         title: 'Assignment',
+                        className: 'tasktype-2'
+                    },
+                    3: {
+                        title: 'Approval Request',
                         className: 'tasktype-2'
                     }
                 },

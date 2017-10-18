@@ -57,11 +57,11 @@ export const routes = [
             { path: 'preparation/technical_correction', component: UploadDocument, meta: {dir: 'technical_correction', validate: {id:'int'}} },
             { path: 'preparation/final_review', component: UploadDocument, meta: {dir: 'final_review', validate: {id:'int'}} },
 
-            { path: 'expenses/authors_expense', component: ExpenseAuthorsExpense, meta: {validate: {id:'int'}} },
+            { path: 'expenses/authors_expense', component: ExpenseAuthorsExpense, meta: {save : 'authors_expense', validate: {id:'int'}} },
             { path: 'expenses/production_expense', component: ExpenseProductionExpense, meta: {save:'production_expense',validate: {id:'int'}} },
             { path: 'expenses/marketing_expense', component: ExpenseMarketingExpense, meta: { save: 'marketing_expense',validate: {id:'int'} } },
-            { path: 'expenses/distribution_expense', component: ExpenseDistributionExpense, meta: {validate: {id:'int'}} },
-            { path: 'expenses/layout_expense', component: ExpenseLayoutExpense, meta: {validate: {id:'int'}} },
+            { path: 'expenses/distribution_expense', component: ExpenseDistributionExpense, meta: {save : 'distribution_expense', validate: {id:'int'}} },
+            { path: 'expenses/layout_expense', component: ExpenseLayoutExpense, meta: {save : 'layout_expense',validate: {id:'int'}} },
             { path: 'expenses/compare', component: Compare, meta: {validate: {id:'int'}} },
 
             { path: 'design/cover_design', component: UploadDocument, meta: {dir: 'cover_design',validate: {id:'int'}} },

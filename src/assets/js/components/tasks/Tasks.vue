@@ -90,6 +90,10 @@
                     2: {
                         title: 'Assignment',
                         className: 'tasktype-2'
+                    },
+                    3: {
+                        title: 'Approval Request',
+                        className: 'tasktype-2'
                     }
                 },
                 new_tasks: [
