@@ -42,6 +42,24 @@
                                 </h4>
                                 <router-link class="btn btn-neutral btn-addon mb-4 mr-5" v-bind:to="task.related_link" v-if="task.related_link">{{ lang('Go To Project') }}</router-link>
                             </div>
+                            <table class="table">
+                                <thead class="thead-inverse">
+                                <tr>
+                                    <th>{{ lang('Item') }}</th>
+                                    <th class="text-right">{{ lang('Budget') }}</th>
+                                    <th class="text-right">{{ lang('Expense Total') }}</th>
+                                    <th class="text-right">{{ lang('Difference') }}</th>
+                                </tr>
+                                </thead>
+                                <tbody class="white">
+                                <tr>
+                                    <td v-bind:data-title="lang('Title')">{{ lang(task.related.name) }}</td>
+                                    <td class="text-right" v-bind:data-title="lang('Budget')">{{ task.related.budget | flexCurrency(' kn', 2) }}</td>
+                                    <td class="text-right" v-bind:data-title="lang('Expense Total')">{{ task.related.expense | flexCurrency(' kn', 2) }}</td>
+                                    <td class="text-right" v-bind:data-title="lang('Difference')">{{ Math.abs(task.related.budget - task.related.expense) | flexCurrency(' kn', 2) }}</td>
+                                </tr>
+                                </tbody>
+                            </table>
                         </div>
                         <div class="col-md-3">
                             <div class="page-name-l mt-2 mb-1">{{ lang('Task Type') }}</div>
@@ -53,8 +71,8 @@
 
                     <!-- Footer buttons -->
                     <div class="btn-footer mt-2 mb-2 flex-column flex-md-row d-flex p-2">
-                        <button v-if="task.status === 'new'" type="submit" class="btn btn-lg btn-save" v-on:click="approveRequest">{{ lang('Approve') }}</button>
-                        <button type="submit" class="btn btn-lg btn-cancel" v-on:click="rejectRequest">{{ lang('Reject') }}</button>
+                        <button v-if="task.related.status === 'pending'" type="submit" class="btn btn-lg btn-save" v-on:click="approveRequest">{{ lang('Approve') }}</button>
+                        <button v-if="task.related.status === 'pending'" type="submit" class="btn btn-lg btn-cancel" v-on:click="rejectRequest">{{ lang('Reject') }}</button>
                     </div>
                 </div>
             </template>
