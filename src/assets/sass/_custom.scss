@@ -714,14 +714,14 @@ table td .color-grey {
 .icon-cost-pending {
     &:hover {color: $color-incomplete;}
     &:hover::before {color: $color-incomplete;}
-    &:before {content: "\f00c";}
+    &:before {content: "\f252";}
     font-weight: 800;
 }
 
 .icon-cost-approved {
     &:hover {color: $success-color;}
     &:hover::before {color: $success-color;}
-    &:before {content: "\f252";}
+    &:before {content: "\f00c";}
     color: $success-color;
     font-weight: 800;
 }
