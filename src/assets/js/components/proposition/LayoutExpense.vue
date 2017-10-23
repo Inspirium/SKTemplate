@@ -1,7 +1,9 @@
 <template>
 <div>
     <div class="profile-head row py-4 d-flex flex-column justify-content-center align-items-center">
-        <h1 class="display-3 text-white text-center">{{ lang('Layout and Design') }}</h1>
+        <div class="col-md-12">
+            <h1 class="display-3 text-white text-center">{{ lang('Layout and Design') }}</h1>
+        </div>
     </div>
     <div class="content">
     <!-- Display fileds -->

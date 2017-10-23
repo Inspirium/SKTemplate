@@ -55,13 +55,13 @@
                 </template>
                 <template v-else-if="requests['author_expense.'+i] && requests['author_expense.'+i][0] && requests['author_expense.'+i][0].status === 'denied'">
                     <td class="text-right" v-bind:data-title="lang('Cost Rejected')">
-                        <div class="file-box-sty icon icon-cost-denied">{{ lang('Trošak odbijen') }}
+                        <div class="file-box-sty icon icon-cost-denied">{{ lang('Cost Rejected') }}
                         </div>
                     </td>
                 </template>
                 <template v-else-if="requests['author_expense.'+i] && requests['author_expense.'+i][0] && requests['author_expense.'+i][0].status === 'accepted'">
                     <td class="text-right" v-bind:data-title="lang('Cost Approved')">
-                        <div class="file-box-sty icon icon-cost-approved">{{ lang('Trošak odobren') }}
+                        <div class="file-box-sty icon icon-cost-approved">{{ lang('Cost Approved') }}
                         </div>
                     </td>
                 </template>
@@ -100,13 +100,13 @@
                 </template>
                 <template v-else-if="requests['production_expense.'+row['designation']] && requests['production_expense.'+row['designation']][0] && requests['production_expense.'+row['designation']][0].status === 'denied'">
                     <td class="text-right" v-bind:data-title="lang('Cost Rejected')">
-                        <div class="file-box-sty icon icon-cost-denied">{{ lang('Trošak odbijen') }}
+                        <div class="file-box-sty icon icon-cost-denied">{{ lang('Cost Rejected') }}
                         </div>
                     </td>
                 </template>
                 <template v-else-if="requests['production_expense.'+row['designation']] && requests['production_expense.'+row['designation']][0] && requests['production_expense.'+row['designation']][0].status === 'accepted'">
                     <td class="text-right" v-bind:data-title="lang('Cost Approved')">
-                        <div class="file-box-sty icon icon-cost-approved">{{ lang('Trošak odobren') }}
+                        <div class="file-box-sty icon icon-cost-approved">{{ lang('Cost Approved') }}
                         </div>
                     </td>
                 </template>
@@ -145,13 +145,13 @@
                 </template>
                 <template v-else-if="requests['layout_expense'] && requests['layout_expense'][0] && requests['layout_expense'][0].status === 'denied'">
                     <td class="text-right" v-bind:data-title="lang('Cost Rejected')">
-                        <div class="file-box-sty icon icon-cost-denied">{{ lang('Trošak odbijen') }}
+                        <div class="file-box-sty icon icon-cost-denied">{{ lang('Cost Rejected') }}
                         </div>
                     </td>
                 </template>
                 <template v-else-if="requests['layout_expense'] && requests['layout_expense'][0] && requests['layout_expense'][0].status === 'accepted'">
                     <td class="text-right" v-bind:data-title="lang('Cost Approved')">
-                        <div class="file-box-sty icon icon-cost-approved">{{ lang('Trošak odobren') }}
+                        <div class="file-box-sty icon icon-cost-approved">{{ lang('Cost Approved') }}
                         </div>
                     </td>
                 </template>
@@ -190,13 +190,13 @@
                 </template>
                 <template v-else-if="requests['marketing_expense'] && requests['marketing_expense'][0] && requests['marketing_expense'][0].status === 'denied'">
                     <td class="text-right" v-bind:data-title="lang('Cost Denied')">
-                        <div class="file-box-sty icon icon-cost-denied">{{ lang('Trošak odbijen') }}
+                        <div class="file-box-sty icon icon-cost-denied">{{ lang('Cost Rejected') }}
                         </div>
                     </td>
                 </template>
                 <template v-else-if="requests['marketing_expense'] && requests['marketing_expense'][0] && requests['marketing_expense'][0].status === 'accepted'">
                     <td class="text-right" v-bind:data-title="lang('Cost Approved')">
-                        <div class="file-box-sty icon icon-cost-approved">{{ lang('Trošak odobren') }}
+                        <div class="file-box-sty icon icon-cost-approved">{{ lang('Cost Approved') }}
                         </div>
                     </td>
                 </template>

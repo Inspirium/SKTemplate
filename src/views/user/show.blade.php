@@ -1,8 +1,10 @@
 @extends('sktemplate::layout')
 
 @section('content')
-    <div class="profile-head py-4 d-flex flex-column justify-content-center align-items-center">
-        <h1 class="display-3 text-white">{{ $user->name }}{{ $user->last_name }}</h1>
+    <div class="profile-head row py-4 d-flex flex-column justify-content-center align-items-center">
+        <div class="col-md-12">
+            <h1 class="display-3 text-white">{{ $user->name }}{{ $user->last_name }}</h1>
+        </div>
     </div>
 <div class="content">
     <div class="row mt-3">

@@ -2,8 +2,10 @@
 
 @section('content')
 </div>
-<div class="profile-head pt-3 pb-2 d-flex flex-column justify-content-center align-items-center">
-    <h1 class="display-3 text-white text-center">@lang('Title name')</h1>
+<div class="profile-head row pt-3 pb-2 d-flex flex-column justify-content-center align-items-center">
+    <div class="col-md-12">
+        <h1 class="display-3 text-white text-center">@lang('Title name')</h1>
+    </div>
 </div>
 
 <div class="content">
