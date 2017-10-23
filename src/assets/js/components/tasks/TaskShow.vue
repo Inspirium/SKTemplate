@@ -134,14 +134,14 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="md-form">
-                                            <input type="text" id="form1" class="form-control">
-                                            <label for="form1" class="">{{ lang('Hours') }}</label>
+                                            <input type="text" id="hours"  class="form-control">
+                                            <label for="hours" class="">{{ lang('Hours') }}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="md-form">
-                                            <input type="text" id="form1" class="form-control">
-                                            <label for="form1" class="">{{ lang('Minutes') }}</label>
+                                            <input type="text" id="minutes" class="form-control">
+                                            <label for="minutes" class="">{{ lang('Minutes') }}</label>
                                         </div>
                                     </div>
                                 </div>
@@ -260,7 +260,7 @@
                 <!-- Modal for rejecting task -->
                 <modal-rejected v-on:rejected="rejectTask"></modal-rejected>
                 <!-- Modal for reassigning task -->
-                <modal-reassign v-on:reassign="assignTask"></modal-reassign>
+                <modal-reassign v-on:reassign="reassignTask"></modal-reassign>
             </template>
         </template>
         <template v-else>
@@ -332,18 +332,21 @@
             acceptTask() {
                 axios.post('/api/task/' + this.task.id + '/accept')
                     .then((res) => {
+                        this.task.status = 'accepted';
                     })
                     .catch((err) => {});
             },
             rejectTask(reason) {
                 axios.post('/api/task/' + this.task.id + '/reject', {reason: reason})
                     .then((res) => {
+                        this.task.status = 'rejected';
                     })
                     .catch((err) => {});
             },
-            assignTask(employees) {
-                axios.post('/api/task/' + this.task.id + '/assign', {employees: employees})
+            reassignTask(employees) {
+                axios.post('/api/task/' + this.task.id + '/reassign', {employees: employees})
                     .then((res) => {
+                        this.task.status = 'assigned';
                     })
                     .catch((err) => {});
             },

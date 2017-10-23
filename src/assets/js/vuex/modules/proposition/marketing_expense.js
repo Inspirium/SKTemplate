@@ -3,6 +3,7 @@ import axios from "axios/index";
 export default {
     namespaced: true,
     state: {
+        proposition_id: 0,
         type: '',
         expense: '',
         note: '',
