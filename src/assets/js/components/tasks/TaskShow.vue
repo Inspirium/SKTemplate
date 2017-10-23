@@ -3,7 +3,7 @@
         <template v-if="task.id">
             <template v-if="task.type==3">
                 <div class="profile-head row py-4 d-flex flex-column justify-content-center align-items-center">
-                    <div class="col-md-12">       
+                    <div class="col-md-12">
                         <h1 class="display-3 text-white text-center">{{ task.name }}</h1>
                     </div>
                 </div>
@@ -80,7 +80,7 @@
             </template>
             <template v-else>
                 <div class="profile-head row py-4 d-flex flex-column justify-content-center align-items-center">
-                    <div class="col-md-12">       
+                    <div class="col-md-12">
                         <h1 class="display-3 text-white text-center">{{ task.name }}</h1>
                     </div>
                 </div>
@@ -252,10 +252,15 @@
                     <!-- Footer buttons -->
                     <div class="btn-footer mt-2 mb-2 flex-column flex-md-row d-flex p-2">
                         <button v-if="task.status === 'new'" type="submit" class="btn btn-lg btn-save" v-on:click="acceptTask">{{ lang('Accept') }}</button>
-                        <button type="submit" class="btn btn-lg btn-cancel">{{ lang('Reject') }}</button>
-                        <button type="submit" class="btn btn-lg btn-assign btn-assign-icon">{{ lang('Assign to...') }}</button>
+                        <button type="submit" class="btn btn-lg btn-cancel" v-on:click="openModal('modal-reject')">{{ lang('Reject') }}</button>
+                        <button type="submit" class="btn btn-lg btn-assign btn-assign-icon" v-on:click="openModal('modal-reassign')">{{ lang('Assign to...') }}</button>
                     </div>
                 </div>
+
+                <!-- Modal for rejecting task -->
+                <modal-rejected v-on:rejected="rejectTask"></modal-rejected>
+                <!-- Modal for reassigning task -->
+                <modal-reassign v-on:reassign="assignTask"></modal-reassign>
             </template>
         </template>
         <template v-else>
@@ -264,6 +269,8 @@
     </div>
 </template>
 <script>
+    import ModalRejected from '../modals/TaskReject'
+    import ModalReassign from '../modals/TaskReassign'
     export default {
         data: function () {
             return {
@@ -313,12 +320,28 @@
                 }
             }
         },
+        components: {
+            ModalReassign,
+            'modal-rejected': ModalRejected,
+            'modal-reassign': ModalReassign
+        },
         computed: {},
         methods: {
             acceptTask() {
                 axios.post('/api/task/' + this.task.id + '/accept')
                     .then((res) => {
-                        this.task.status = 'old';
+                    })
+                    .catch((err) => {});
+            },
+            rejectTask(reason) {
+                axios.post('/api/task/' + this.task.id + '/reject', {reason: reason})
+                    .then((res) => {
+                    })
+                    .catch((err) => {});
+            },
+            assignTask(employees) {
+                axios.post('/api/task/' + this.task.id + '/assign', {employees: employees})
+                    .then((res) => {
                     })
                     .catch((err) => {});
             },
@@ -333,6 +356,9 @@
                     .then(() => {
                     window.location.href='/tasks';
                 });
+            },
+            openModal(modal) {
+                $('#'+modal).modal('show');
             }
         },
         mounted: function() {
