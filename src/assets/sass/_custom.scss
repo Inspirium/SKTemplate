@@ -1127,19 +1127,24 @@ input.md-form.addon {
 
 ////////// Spiner
 
-.spinner {
-    width: 40px;
-    height: 40px;
-    background-color: $sk-skin-accent;
-    margin: 0 auto;
-    -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
-    animation: sk-rotateplane 1.2s infinite ease-in-out;
-}
-.spinner-text {
-    margin: .5rem auto;
-    text-align: center;
-    text-transform: uppercase;
-    font-size: .85rem;
+.loading-motion {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255,255,255,.85);
+    position: absolute;
+    top: 0;
+    margin-left: -15px;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    .spinner {
+        width: 60px;
+        height: 60px;
+        background-color: $sk-skin-accent;
+        margin: 0 auto;
+        -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+        animation: sk-rotateplane 1.2s infinite ease-in-out;
+    }
 }
     @-webkit-keyframes sk-rotateplane {
     0% { -webkit-transform: perspective(120px) }

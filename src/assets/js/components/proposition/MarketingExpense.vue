@@ -1,5 +1,8 @@
 <template>
     <div class="content">
+    <div class="loading-motion">
+        <div class="spinner"></div>
+    </div>
     <div class="page-name-xl mt-3 mb-1">{{ lang('Marketing Budget') }}</div>
     <div class="row">
         <div class="col-md-12">
@@ -18,10 +21,6 @@
                         <span class="input-group-addon">{{ lang('Kn') }}</span>
                     </div>
                 </div>
-            </div>
-            <div class="loading-motion">
-                <div class="spinner"></div>
-                <div class="spinner-text">Učitavam...</div>
             </div>
             <div class="row">
                 <div class="col-md-12">
