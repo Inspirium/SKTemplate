@@ -264,7 +264,9 @@
             </template>
         </template>
         <template v-else>
-            Loading...
+            <div class="loading-motion">
+                <div class="spinner"></div>
+            </div>
         </template>
     </div>
 </template>
