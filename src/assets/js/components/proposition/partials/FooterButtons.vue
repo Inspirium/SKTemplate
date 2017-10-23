@@ -275,7 +275,7 @@
 
             },
             assignValues: function() {
-                axios.post('/api/proposition/assign/'+this.$route.params.id, {employees: this.employees, departments: this.departments, description: this.description, date: this.date, access:this.access, priority: this.priority, path: window.location.href})
+                axios.post('/api/proposition/'+this.$route.params.id + '/assign', {employees: this.employees, departments: this.departments, description: this.description, date: this.date, access:this.access, priority: this.priority, path: window.location.href})
                     .then((res) => {
                     })
                     .catch((err) => {

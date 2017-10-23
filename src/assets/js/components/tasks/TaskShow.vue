@@ -71,8 +71,8 @@
 
                     <!-- Footer buttons -->
                     <div class="btn-footer mt-2 mb-2 flex-column flex-md-row d-flex p-2">
-                        <button v-if="task.related.status === 'pending'" type="submit" class="btn btn-lg btn-save" v-on:click="approveRequest">{{ lang('Approve') }}</button>
-                        <button v-if="task.related.status === 'pending'" type="submit" class="btn btn-lg btn-cancel" v-on:click="rejectRequest">{{ lang('Reject') }}</button>
+                        <button v-if="task.related.status === 'requested'" type="submit" class="btn btn-lg btn-save" v-on:click="approveRequest">{{ lang('Approve') }}</button>
+                        <button v-if="task.related.status === 'requested'" type="submit" class="btn btn-lg btn-cancel" v-on:click="rejectRequest">{{ lang('Reject') }}</button>
                     </div>
                 </div>
             </template>
