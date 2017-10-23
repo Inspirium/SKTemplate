@@ -1090,12 +1090,12 @@ $sk-skin-btn-default: #293756;
         tbody:not(.picker) {
             display: block;
             width: 100%;
-            background-color: transparent;
+//            background-color: transparent;
         }
         .table, table {
-            tbody {
-                background-color: transparent;
-            }
+//            tbody {
+//                background-color: transparent;
+//            }
             td {
                 border-top: none;
                 border-bottom: none;
@@ -1123,12 +1123,11 @@ $sk-skin-btn-default: #293756;
         }
         table tr:not(.picker) {
             border-bottom: 1px solid lighten($color-sidebar, 70%);
-            padding-bottom: 11px;
-            margin-bottom: 11px;
+            padding: 12px;
         }
-        table.table-hover tbody tr:hover {
-            background-color: transparent;
-        }
+//        table.table-hover tbody tr:hover {
+//            background-color: transparent;
+//        }
         table th[data-title]:before,
         table td[data-title]:before {
             content: attr(data-title) ":\00A0";
@@ -1167,6 +1166,21 @@ $sk-skin-btn-default: #293756;
             background-color: transparent;
             img {
                 display: none;
+            }
+        }
+        .activity-box {
+            min-width: 100vw;
+            position: relative;
+            left: 151px;
+            .activity-item:first-child:before {
+                left: inherit;
+                right: 172px; 
+            }
+        }
+        .double-nav .dropdown .dropdown-menu .user-box {
+            a:first-child:before {
+                left: inherit;
+                right: 90px;
             }
         }
     }

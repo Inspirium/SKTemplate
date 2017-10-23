@@ -2,8 +2,10 @@
     <div>
         <template v-if="task.id">
             <template v-if="task.type==3">
-                <div class="profile-head py-4 d-flex flex-column justify-content-center align-items-center">
-                    <h1 class="display-3 text-white text-center">{{ task.name }}</h1>
+                <div class="profile-head row py-4 d-flex flex-column justify-content-center align-items-center">
+                    <div class="col-md-12">       
+                        <h1 class="display-3 text-white text-center">{{ task.name }}</h1>
+                    </div>
                 </div>
 
                 <!-- Display fileds -->
@@ -77,8 +79,10 @@
                 </div>
             </template>
             <template v-else>
-                <div class="profile-head py-4 d-flex flex-column justify-content-center align-items-center">
-                    <h1 class="display-3 text-white text-center">{{ task.name }}</h1>
+                <div class="profile-head row py-4 d-flex flex-column justify-content-center align-items-center">
+                    <div class="col-md-12">       
+                        <h1 class="display-3 text-white text-center">{{ task.name }}</h1>
+                    </div>
                 </div>
 
                 <!-- Display fileds -->

@@ -712,25 +712,23 @@ table td .color-grey {
 }
 
 .icon-cost-pending {
-    &:hover {color: $color-incomplete;}
-    &:hover::before {color: $color-incomplete;}
+    color: $color-incomplete;
+    &:before {color: $color-incomplete;}
     &:before {content: "\f252";}
     font-weight: 800;
 }
 
 .icon-cost-approved {
-    &:hover {color: $success-color;}
-    &:hover::before {color: $success-color;}
+    &:before {color: $success-color;}
     &:before {content: "\f00c";}
     color: $success-color;
     font-weight: 800;
 }
 
 .icon-cost-rejected {
-    &:hover {color: $color-cancel;}
-    &:hover::before {color: $color-cancel;}
-    &:before {content: "\f00d";}
     color: $color-cancel;
+    &:before {color: $color-cancel;}
+    &:before {content: "\f00d";}
     font-weight: 800;
 }
 
