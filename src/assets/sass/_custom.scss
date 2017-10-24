@@ -143,10 +143,8 @@ h6 {
         border-bottom: none;
     }
 }
-
 .switch label input[type=checkbox]:checked + .lever {
     background-color: $color-table-th;
-
     &:after {
     background-color: $color-nav;
     }
@@ -164,15 +162,17 @@ h6 {
     display: inline-block;
     border-radius: .25rem;
 }
-
 .tasktype-1 {
     @extend .tasktype;
     background-color: $color-incomplete;
 }
-
 .tasktype-2 {
     @extend .tasktype;
     background-color: $color-nav-sub;
+}
+.tasktype-3 {
+    @extend .tasktype;
+    background-color: $color-cancel;
 }
 
 ///Login
@@ -1134,7 +1134,7 @@ input.md-form.addon {
     position: absolute;
     top: 0;
     margin-left: -15px;
-    z-index: 99;
+    z-index: 9999;
     display: flex;
     align-items: center;
     .spinner {

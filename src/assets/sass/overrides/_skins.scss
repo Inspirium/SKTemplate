@@ -1086,22 +1086,18 @@ $sk-skin-btn-default: #293756;
     
     
     @media only screen and (max-width: 768px) {
-        table.table:not(.picker),
-        tbody:not(.picker) {
+        table.table,
+        tbody {
             display: block;
             width: 100%;
-//            background-color: transparent;
         }
         .table, table {
-//            tbody {
-//                background-color: transparent;
-//            }
             td {
                 border-top: none;
                 border-bottom: none;
                 margin-bottom: 0.4rem;
             }
-            th:not(.picker__table) {
+            th {
                 display: none;
             }
             a {
@@ -1115,19 +1111,16 @@ $sk-skin-btn-default: #293756;
         }
         table tr,
         table th,
-        table td:not(.picker) {
+        table td {
             display: block;
             padding: 0;
             text-align: left;
             white-space: normal;
         }
-        table tr:not(.picker) {
+        table tr {
             border-bottom: 1px solid lighten($color-sidebar, 70%);
             padding: 12px;
         }
-//        table.table-hover tbody tr:hover {
-//            background-color: transparent;
-//        }
         table th[data-title]:before,
         table td[data-title]:before {
             content: attr(data-title) ":\00A0";
@@ -1135,6 +1128,30 @@ $sk-skin-btn-default: #293756;
             font-size: 0.7rem;
             color: $sk-skin-accent;
             text-transform: uppercase;
+        }
+        //datepicker mobile style
+        table.picker__table {
+            thead {
+                display: table-header-group;
+                tr {
+                    display: table-row;
+                    border-bottom: none;
+                    th {
+                        display: table-cell;
+                    }
+                }
+            }
+            tbody {
+                display: table-row-group;
+                width: inherit;
+                tr {
+                    display: table-row;
+                    border-bottom: none;
+                }
+                td {
+                    display: table-cell;
+                }
+            }
         }
         .double-nav {
             padding-right: 0 !important;

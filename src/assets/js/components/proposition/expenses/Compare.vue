@@ -299,14 +299,14 @@
                     { designation: 'epilogue', title: 'Epilogue'},
                     { designation: 'photos', title: 'Photos'},
                     { designation: 'illustrations', title: 'Illustrations'},
-                    { designation: 'technical_drawings', title: 'Tehnical drawings'},
-                    { designation: 'expert_report', title : 'Expert report'},
+                    { designation: 'technical_drawings', title: 'Tehnical Drawings'},
+                    { designation: 'expert_report', title : 'Expert Report'},
                     { designation: 'copyright', title: 'Copyright'},
-                    { designation: 'copyright_mediator', title: 'Copyright mediator'},
+                    { designation: 'copyright_mediator', title: 'Copyright Mediator'},
                     { designation: 'methodical_instrumentarium', title: 'Methodical Instrumentarium'},
                     { designation: 'selection', title: 'Selection'},
-                    { designation: 'powerpoint_presentation', title: 'Powerpoint presentation'},
-                    { designation: 'additional_expenses', title: 'Additional expenses'}
+                    { designation: 'powerpoint_presentation', title: 'Powerpoint Presentation'},
+                    { designation: 'additional_expenses', title: 'Additional Expenses'}
                     ],
                 employee: '',
                 e_suggestions: [],
@@ -327,14 +327,14 @@
                     epilogue: 'Epilogue',
                     photos: 'Photos',
                     illustrations: 'Illustrations',
-                    technical_drawings : 'Tehnical drawings',
-                    expert_report : 'Expert report',
+                    technical_drawings : 'Tehnical Drawings',
+                    expert_report : 'Expert Report',
                     copyright : 'Copyright',
-                    copyright_mediator : 'Copyright mediator',
+                    copyright_mediator : 'Copyright Mediator',
                     methodical_instrumentarium : 'Methodical Instrumentarium',
                     selection : 'Selection',
-                    powerpoint_presentation : 'Powerpoint presentation',
-                    additional_expenses : 'Additional expenses'
+                    powerpoint_presentation : 'Powerpoint Presentation',
+                    additional_expenses : 'Additional Expenses'
                 },
                 expense: ''
             }
