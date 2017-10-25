@@ -20,8 +20,8 @@
         <!-- Tab panels -->
         <div class="tab-content">
             <div class="tab-pane fade in show active" id="tasks" role="tabpanel">
-                <div class="page-name-xl mb-3 mt-2">{{ lang('Tasks') }}
-                    <span class="tag tag-neutral text-white">{{ tasks.length }}</span>
+                <div class="page-name-xl mb-3 mt-2">{{ lang('New Tasks') }}
+                    <span class="tag tag-neutral text-white">{{ new_tasks.length }}</span>
                 </div>
                 <div class="justify-content-center mt-1 mb-2 flex-column flex-md-row d-flex p-2">
                     <button v-on:click="$router.push('/task/edit')" class="btn btn-lg btn-blank btn-plus-icon">{{ lang('Create new') }}</button>
@@ -39,8 +39,38 @@
                         <th data-title="Assign to" v-if="authority" class="text-right">{{ lang('Assign to') }}</th>
                     </tr>
                     </thead>
-                    <draggable v-model="tasks" v-bind:element="'tbody'">
-                        <tr v-for="(element, index) in tasks" v-bind:key="element.id">
+                    <draggable v-model="new_tasks" v-bind:element="'tbody'">
+                        <tr v-for="(element, index) in new_tasks" v-bind:key="element.id">
+                            <td><div class="icon icon-handler"></div></td>
+                            <th class="display-e w-30">{{ index+1 }}</th>
+                            <td data-title="Task" class="table-title"><a v-bind:href="'/task/show/'+element.id">{{ element.name }}</a></td>
+                            <td data-title="Task Type"><div v-bind:class="task_types[element.type].className">{{ task_types[element.type].title }}</div></td>
+                            <td data-title="Assigner"><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-2" v-bind:src="element.assigner.image">{{ element.assigner.name }}</a></td>
+                            <td data-title="Created">{{ element.created_at | moment('DD.MM.') }}</td>
+                            <td data-title="Deadline">{{ element.deadline | moment('DD.MM.') }}</td>
+                            <td data-title="Assign to" v-if="authority" class="text-right"><div class="file-box-sty icon icon-assign">{{ lang('Assign') }}</div></td>
+                        </tr>
+                    </draggable>
+                </table>
+
+                <div class="page-name-xl mb-3 mt-2">{{ lang('Tasks') }}
+                    <span class="tag tag-neutral text-white">{{ accepted_tasks.length }}</span>
+                </div>
+                <table class="table">
+                    <thead class="thead-inverse">
+                    <tr>
+                        <th class="w-30"></th>
+                        <th class="w-30">#</th>
+                        <th data-title="Task">{{ lang('Task') }}</th>
+                        <th data-title="Task Type">{{ lang('Task Type') }}</th>
+                        <th data-title="Assigner">{{ lang('Assigner') }}</th>
+                        <th data-title="Created">{{ lang('Created') }}</th>
+                        <th data-title="Deadline">{{ lang('Deadline') }}</th>
+                        <th data-title="Assign to" v-if="authority" class="text-right">{{ lang('Assign to') }}</th>
+                    </tr>
+                    </thead>
+                    <draggable v-model="accepted_tasks" v-bind:element="'tbody'">
+                        <tr v-for="(element, index) in accepted_tasks" v-bind:key="element.id">
                             <td><div class="icon icon-handler"></div></td>
                             <th class="display-e w-30">{{ index+1 }}</th>
                             <td data-title="Task" class="table-title"><a v-bind:href="'/task/show/'+element.id">{{ element.name }}</a></td>
@@ -183,8 +213,9 @@
                         className: 'tasktype-2'
                     }
                 },
-                tasks: [
+                new_tasks: [
                 ],
+                accepted_tasks: [],
                 sent_tasks: [
                 ],
                 completed_tasks: [
@@ -206,7 +237,8 @@
         mounted: function() {
             axios.get('/api/tasks')
                 .then((res) => {
-                    this.tasks = res.data.tasks;
+                    this.new_tasks = res.data.new_tasks;
+                    this.accepted_tasks = res.data.accepted_tasks;
                     this.sent_tasks = res.data.sent_tasks;
                     this.completed_tasks = res.data.completed_tasks;
                     this.rejected_tasks = res.data.rejected_tasks;
