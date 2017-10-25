@@ -192,11 +192,16 @@
                     </div>
 
                     <!-- Footer buttons -->
-                    <div class="btn-footer mt-2 mb-2 flex-column flex-md-row d-flex p-2">
-                        <button type="submit" class="btn btn-lg btn-save">{{ lang('Accept') }}</button>
-                        <button type="submit" class="btn btn-lg btn-cancel">{{ lang('Reject') }}</button>
-                        <button type="submit" class="btn btn-lg btn-assign btn-assign-icon">{{ lang('Assign to...') }}</button>
-                    </div>
+                        <template v-if="task.status==='new'">
+                        <div class="btn-footer mt-2 mb-2 flex-column flex-md-row d-flex p-2">
+                            <button type="submit" class="btn btn-lg btn-save">{{ lang('Accept') }}</button>
+                            <button type="submit" class="btn btn-lg btn-cancel">{{ lang('Reject') }}</button>
+                            <button type="submit" class="btn btn-lg btn-assign btn-assign-icon">{{ lang('Assign to...') }}</button>
+                        </div>
+                        </template>
+                        <template v-else>
+
+                        </template>
 
                     <!-- File/document table -->
                     <div class="page-name-xl mb-1">{{ lang('Documents') }}</div>
@@ -252,8 +257,9 @@
                     <!-- Footer buttons -->
                     <div class="btn-footer mt-2 mb-2 flex-column flex-md-row d-flex p-2">
                         <button v-if="task.status === 'new'" type="submit" class="btn btn-lg btn-save" v-on:click="acceptTask">{{ lang('Accept') }}</button>
-                        <button type="submit" class="btn btn-lg btn-cancel" v-on:click="openModal('modal-reject')">{{ lang('Reject') }}</button>
-                        <button type="submit" class="btn btn-lg btn-assign btn-assign-icon" v-on:click="openModal('modal-reassign')">{{ lang('Assign to...') }}</button>
+                        <button v-if="task.status === 'new'" type="submit" class="btn btn-lg btn-cancel" v-on:click="openModal('modal-reject')">{{ lang('Reject') }}</button>
+                        <button v-if="task.status === 'new'" type="submit" class="btn btn-lg btn-assign btn-assign-icon" v-on:click="openModal('modal-reassign')">{{ lang('Assign to...') }}</button>
+                        <button v-if="task.status === 'accepted'" type="submit" class="btn btn-lg btn-assign btn-assign-icon" v-on:click="completeTask">{{ lang('Complete') }}</button>
                     </div>
                 </div>
 
@@ -336,6 +342,13 @@
                     })
                     .catch((err) => {});
             },
+            completeTask() {
+                axios.post('/api/task/' + this.task.id + '/complete')
+                    .then((res) => {
+                        this.$router.push('/tasks')
+                    })
+                    .catch((err) => {});
+            },
             rejectTask(reason) {
                 axios.post('/api/task/' + this.task.id + '/reject', {reason: reason})
                     .then((res) => {
@@ -353,13 +366,13 @@
             approveRequest() {
                 axios.post('/api/task/' + this.task.id + '/accept')
                     .then(() => {
-                        window.location.href='/tasks';
+                        this.$router.push('/tasks')
                     });
             },
             rejectRequest() {
                 axios.post('/api/task/' + this.task.id + '/reject')
                     .then(() => {
-                    window.location.href='/tasks';
+                        this.$router.push('/tasks')
                 });
             },
             openModal(modal) {
