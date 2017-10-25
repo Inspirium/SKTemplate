@@ -84,7 +84,12 @@
                             <td data-title="Created">{{ element.created_at | moment('DD.MM.') }}</td>
                             <td data-title="Deadline">{{ element.deadline | moment('DD.MM.') }}</td>
                             <td data-title="Assign to" v-if="authority" class="text-right"><div class="file-box-sty icon icon-assign">{{ lang('Assign') }}</div></td>
+                            <template v-if="element.status==='completed'">
                             <td data-title="Status" class="icon icon-cost-approved">{{ lang('Finished') }}</td>
+                            </template>
+                            <template v-else>
+                                <td data-title="Status"></td>
+                            </template>
                         </tr>
                     </draggable>
                 </table>
