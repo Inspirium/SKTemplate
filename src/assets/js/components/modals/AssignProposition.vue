@@ -236,8 +236,11 @@
         },
         mounted() {
             $('.datepicker').pickadate({
-                showMonthsShort: 'false',
-                firstDay: 1
+                format: 'dd. mm. yyyy.',
+                onSet: (context) => {
+                    let date = new Date(context.select);
+                    this.date = this.$options.filters.moment(date, 'DD. MM. YYYY.');
+                }
             });
         }
     }
