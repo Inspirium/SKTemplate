@@ -71,6 +71,7 @@
                         <th data-title="Created">{{ lang('Created') }}</th>
                         <th data-title="Deadline">{{ lang('Deadline') }}</th>
                         <th data-title="Assign to" v-if="authority" class="text-right">{{ lang('Assign to') }}</th>
+                        <th data-title="Status">{{ lang('Status') }}</th>
                     </tr>
                     </thead>
                     <draggable v-model="sent_tasks" v-bind:element="'tbody'">
@@ -83,6 +84,7 @@
                             <td data-title="Created">{{ element.created_at | moment('DD.MM.') }}</td>
                             <td data-title="Deadline">{{ element.deadline | moment('DD.MM.') }}</td>
                             <td data-title="Assign to" v-if="authority" class="text-right"><div class="file-box-sty icon icon-assign">{{ lang('Assign') }}</div></td>
+                            <td data-title="Status" class="icon icon-cost-approved">{{ lang('Finished') }}</td>
                         </tr>
                     </draggable>
                 </table>
