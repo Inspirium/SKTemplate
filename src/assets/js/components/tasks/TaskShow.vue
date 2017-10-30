@@ -254,17 +254,24 @@
                     </div>
                     </template>
 
+                    <template v-if="task.thread">
+                        <div v-for="message in task.thread.messages">
+                            <h3>{{ message.sender.name }}</h3>
+                            <p>{{ message.message }}</p>
+                        </div>
+                    </template>
+
                     <!-- Footer buttons -->
                     <div class="btn-footer mt-2 mb-2 flex-column flex-md-row d-flex p-2">
                         <button v-if="task.status === 'new'" type="submit" class="btn btn-lg btn-save" v-on:click="acceptTask">{{ lang('Accept') }}</button>
-                        <button v-if="task.status === 'new'" type="submit" class="btn btn-lg btn-cancel" v-on:click="openModal('modal-reject')">{{ lang('Reject') }}</button>
+                        <button type="submit" class="btn btn-lg btn-default" v-on:click="openModal('modal-comment')">{{ lang('Comment') }}</button>
                         <button v-if="task.status === 'new'" type="submit" class="btn btn-lg btn-assign btn-assign-icon" v-on:click="openModal('modal-reassign')">{{ lang('Assign to...') }}</button>
                         <button v-if="task.status === 'accepted'" type="submit" class="btn btn-lg btn-assign btn-assign-icon" v-on:click="completeTask">{{ lang('Complete') }}</button>
                     </div>
                 </div>
 
                 <!-- Modal for rejecting task -->
-                <modal-rejected v-on:rejected="rejectTask"></modal-rejected>
+                <modal-commented v-on:commented="commentTask"></modal-commented>
                 <!-- Modal for reassigning task -->
                 <modal-reassign v-on:reassign="reassignTask"></modal-reassign>
             </template>
@@ -277,7 +284,7 @@
     </div>
 </template>
 <script>
-    import ModalRejected from '../modals/TaskReject'
+    import ModalCommented from '../modals/Comment'
     import ModalReassign from '../modals/TaskReassign'
     export default {
         data: function () {
@@ -305,7 +312,8 @@
                     user: {
                         name: ''
                     },
-                    status : ''
+                    status : '',
+                    thread: {}
                 },
                 document_statuses : {
                     pending: {
@@ -329,11 +337,8 @@
             }
         },
         components: {
-            ModalReassign,
-            'modal-rejected': ModalRejected,
-            'modal-reassign': ModalReassign
+            ModalReassign, ModalCommented,
         },
-        computed: {},
         methods: {
             acceptTask() {
                 axios.post('/api/task/' + this.task.id + '/accept')
@@ -349,8 +354,8 @@
                     })
                     .catch((err) => {});
             },
-            rejectTask(reason) {
-                axios.post('/api/task/' + this.task.id + '/reject', {reason: reason})
+            commentTask(reason) {
+                axios.post('/api/thread/' + this.task.thread.id + '/message', {message: message})
                     .then((res) => {
                         this.task.status = 'rejected';
                     })

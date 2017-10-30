@@ -8,16 +8,16 @@
             <div class="activity-box">
                 <div class="activity-item file-box-sty p-1 text-center d-block">Show All</div>
                 <div class="activity-item align-items-center d-flex" v-for="item in notifications">
-                    <div class="activity-avatar file-box-sty d-flex align-items-center">
-                        <a href="">
-                            <img class="profile-s mr-1" src="/images/profile.jpg" href="#">
+                    <div class="activity-avatar file-box-sty d-flex align-items-center" v-if="item.data.sender">
+                        <a v-bind:href="item.data.sender.link">
+                            <img class="profile-s mr-1" v-bind:src="item.data.sender.image">
                         </a>
                     </div>
                     <div class="activity-content">
                         <div class="activity-label tasktype-1">{{ item.data.tasktype }}</div>
                         <div class="activity-time">{{ item.created_at | moment("from", "now") }}</div>
-                        <h4 class="activitiy-user"><a v-bind:href="item.data.link">{{ item.data.message }}</a></h4>
-                        <h5>{{ item.message }}</h5>
+                        <h4 class="activitiy-user"><a v-bind:href="item.data.link">{{ lang(item.data.message) }}</a></h4>
+                        <h5>{{ lang(item.message) }}</h5>
                     </div>
                 </div>
             </div>
