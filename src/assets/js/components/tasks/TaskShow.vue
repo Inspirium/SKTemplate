@@ -255,7 +255,7 @@
                     </template>
 
                     <template v-if="task.thread">
-                        <div v-for="message in task.thread[0].messages">
+                        <div v-for="message in task.thread.messages">
                             <h3>{{ message.sender.name }}</h3>
                             <p>{{ message.message }}</p>
                         </div>
@@ -355,9 +355,9 @@
                     .catch((err) => {});
             },
             commentTask(message) {
-                axios.post('/api/thread/' + this.task.thread[0].id + '/message', {message: message})
+                axios.post('/api/thread/' + this.task.thread.id + '/message', {message: message})
                     .then((res) => {
-                        Vue.set(this.task.thread, 0, res.data);
+                        Vue.set(this.task, 'thread', res.data);
                     })
                     .catch((err) => {});
             },
