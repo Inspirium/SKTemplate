@@ -108,8 +108,3 @@ $('.datepicker').pickadate({
 $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 });
-
-// FlipClock Initialization
-var clock = $('.your-clock').FlipClock({
-// ... your options here
-});

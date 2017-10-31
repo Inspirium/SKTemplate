@@ -116,7 +116,7 @@
                             <h3 class="mb-1 text-white">{{ task.deadline | moment("DD.MM.") }}</h3>
                         </div>
                     </div>
-                    
+
                     <!-- Task Completition Time -->
                     <div class="task-c-time row">
                         <h3 class="col-md-5 text-white align-self-center text-md-right my-3;">{{ lang('Task Completion Time') }}
@@ -140,7 +140,7 @@
                     <!-- Stopwatch -->
                     <div class="stopwatch">
                         <div class="stopwatch-counter">
-                            <div class="your-clock"></div>
+                            <div class="clock"></div>
                         </div>
                         <div class="stopwatch-controls">
                             <div class="modal-footer btn-footer">
@@ -166,9 +166,9 @@
                             </div>
                         </div>
                     </div>
-                   
+
                     <!-- Initial Documents -->
-                    <div class="page-name-xl mt-4">{{ lang('Initial Documents') }}</div> 
+                    <div class="page-name-xl mt-4">{{ lang('Initial Documents') }}</div>
 <!-- Izbriši me - samo da provjerim kako izgleda-->
                     <div class="files mt-2 mb-2">
                         <div class="file-box file-box-l d-flex align-items-center">
@@ -181,13 +181,13 @@
                             <div class="file-box-sty icon icon-cancel">Obriši</div>
                         </div>
                     </div>
-                          
+
                     <div class="justify-content-center d-flex mt-2 mb-4">
                         <button type="button" class="btn btn-neutral" v-on:click="documentAdd('cover-jpg')">{{ lang('Upload') }}</button>
                     </div>
-                    
+
                     <!-- Initial Documents -->
-                    <div class="page-name-xl mt-4">{{ lang('Final Documents') }}</div> 
+                    <div class="page-name-xl mt-4">{{ lang('Final Documents') }}</div>
 <!-- Izbriši me - samo da provjerim kako izgleda-->
                     <div class="files mt-2 mb-2">
                         <div class="file-box file-box-l d-flex align-items-center">
@@ -200,7 +200,7 @@
                             <div class="file-box-sty icon icon-cancel">Obriši</div>
                         </div>
                     </div>
-                          
+
                     <div class="justify-content-center d-flex mt-2 mb-4">
                         <button type="button" class="btn btn-neutral" v-on:click="documentAdd('cover-jpg')">{{ lang('Upload') }}</button>
                     </div>
@@ -439,6 +439,9 @@
             axios.get('/api/task/' + id)
                 .then((res) => {
                     this.task = res.data.task;
+                    setTimeout(() => { //TODO: fix
+                        let clock = $('.clock').FlipClock({});
+                    }, 1000);
                 })
                 .catch((err) => {});
         }
