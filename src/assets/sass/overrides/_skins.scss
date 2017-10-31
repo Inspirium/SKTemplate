@@ -1139,6 +1139,19 @@ $sk-skin-btn-default: #293756;
             text-indent: 0;
         }
     }
+    .stopwatch {
+        .stopwatch-counter {
+            display: flex;
+            justify-content: center;
+            .clock {
+                width: auto;
+            }
+            .flip-clock-label {
+                color: $gray;
+                font-size: .8rem;
+            }
+        }
+    }
     
     
     

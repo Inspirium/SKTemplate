@@ -138,14 +138,15 @@
                     </div>
 
                     <!-- Stopwatch -->
-                    <div class="stopwatch">
+                    <div class="page-name-xl mt-2 mb-4">{{ lang('Working Time') }}</div>
+                    <div class="stopwatch mt-3">
                         <div class="stopwatch-counter">
                             <div class="clock"></div>
                         </div>
                         <div class="stopwatch-controls">
-                            <div class="modal-footer btn-footer">
-                                <button id="play"class="btn btn-lg btn-blank btn-start-icon" v-on:click="ime_metode">{{ lang('Play') }}</button>
-                                <button id="stop" class="btn btn-lg btn-blank btn-stop-icon">{{ lang('Stop') }}</button>
+                            <div class="d-flex justify-content-center mt-2">
+                                <button id="play"class="btn btn-lg btn-success btn-start-icon" v-on:click="ime_metode">{{ lang('Play') }}</button>
+                                <button id="stop" class="btn btn-lg btn-danger btn-stop-icon">{{ lang('Stop') }}</button>
                             </div>
                         </div>
                     </div>
