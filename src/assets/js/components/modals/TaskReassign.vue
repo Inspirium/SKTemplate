@@ -34,8 +34,8 @@
                 </div>
                 <!--Footer-->
                 <div class="modal-footer btn-footer">
-                    <button type="button" class="btn btn-lg btn-save" v-on:click="confirm" data-dismiss="modal">{{ lang('Reassign') }}</button>
                     <button type="button" class="btn btn-lg btn-cancel" data-dismiss="modal">{{ lang('Cancel') }}</button>
+                    <button type="button" class="btn btn-lg btn-save" v-on:click="confirm" data-dismiss="modal">{{ lang('Reassign') }}</button>
                 </div>
             </div>
             <!--/.Content-->

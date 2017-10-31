@@ -331,7 +331,14 @@
     "Cost Rejected": "Trošak odbijen",
     "Cost Approved": "Trošak odobren",
     "Cost Approval Pending": "Trošak je na odobrenju",
-    "Finished": "Dovršeno"
+    "Finished": "Dovršeno",
+    "Final Documents": "Finalni dokument",
+    "Initial Documents": "Početni dokumenti",
+    "Comments": "Komentari",
+    "Comment": "Pošalji",
+    "Are you sure you want to proceed?": "Jeste li sigurni da želite nastaviti?",
+    "Reassign": "Ponovno zaduži",
+    "Enter your comment": "Unesi komentar"
     
     
     

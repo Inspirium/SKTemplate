@@ -2,9 +2,11 @@
     <div>
         <template v-if="task.id">
             <template v-if="task.type==3">
-                <div class="profile-head row py-4 d-flex flex-column justify-content-center align-items-center">
-                    <div class="col-md-12">
-                        <h1 class="display-3 text-white text-center">{{ task.name }}</h1>
+                <div class="content">
+                    <div class="profile-head row py-4 d-flex flex-column justify-content-center align-items-center">
+                        <div class="col-md-12">
+                            <h1 class="display-3 text-white text-center">{{ task.name }}</h1>
+                        </div>
                     </div>
                 </div>
 
@@ -79,11 +81,14 @@
                 </div>
             </template>
             <template v-else>
-                <div class="profile-head row py-4 d-flex flex-column justify-content-center align-items-center">
-                    <div class="col-md-12">
-                        <h1 class="display-3 text-white text-center">{{ task.name }}</h1>
+                <div class="content">
+                    <div class="profile-head row py-4 d-flex flex-column justify-content-center align-items-center">
+                        <div class="col-md-12">
+                            <h1 class="display-3 text-white text-center">{{ task.name }}</h1>
+                        </div>
                     </div>
                 </div>
+
 
                 <!-- Display fileds -->
                 <div class="content">
@@ -111,11 +116,31 @@
                             <h3 class="mb-1 text-white">{{ task.deadline | moment("DD.MM.") }}</h3>
                         </div>
                     </div>
+                    
+                    <!-- Task Completition Time -->
+                    <div class="task-c-time row">
+                        <h3 class="col-md-5 text-white align-self-center text-md-right my-3;">{{ lang('Task Completion Time') }}
+                        </h3>
+                        <div class="col-md-3">
+                            <div class="md-form align-self-center">
+                                <input type="number" id="hours"  class="form-control" placeholder="Hours">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="md-form">
+                                <input type="text" id="minutes" class="form-control" placeholder="Minutes">
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="btn-save-small">Save
+                            </div>
+                        </div>
+                    </div>
 
                     <!-- Stopwatch -->
                     <div class="stopwatch">
                         <div class="stopwatch-counter">
-
+                            <div class="your-clock"></div>
                         </div>
                         <div class="stopwatch-controls">
                             <div class="modal-footer btn-footer">
@@ -125,32 +150,7 @@
                         </div>
                     </div>
 
-                    <!-- Highlighted input filed -->
-                    <div class="page-name-xl mt-4">{{ lang('Task Completion Time') }}</div>
-                    <div class="grey-box mb-5 pt-5 pb-3 px-3 mx-auto">
-                        <div class="row">
-                            <div class="col-md-6 mx-auto">
-                                <!-- Input field -->
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="md-form">
-                                            <input type="text" id="hours"  class="form-control">
-                                            <label for="hours" class="">{{ lang('Hours') }}</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="md-form">
-                                            <input type="text" id="minutes" class="form-control">
-                                            <label for="minutes" class="">{{ lang('Minutes') }}</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <!-- Task description -->
+                   <!-- Task description -->
                     <div class="showdata-box row">
                         <div class="col-md-9">
                             <div class="page-name-l mt-2 mb-1">{{ lang('Task Description') }}</div>
@@ -165,6 +165,44 @@
                                 <h4 v-bind:class="['mb-1', task_types[task.type].className]">{{ task_types[task.type].title }}</h4>
                             </div>
                         </div>
+                    </div>
+                   
+                    <!-- Initial Documents -->
+                    <div class="page-name-xl mt-4">{{ lang('Initial Documents') }}</div> 
+<!-- Izbriši me - samo da provjerim kako izgleda-->
+                    <div class="files mt-2 mb-2">
+                        <div class="file-box file-box-l d-flex align-items-center">
+                            <a href="http://homestead.app/images/profile.pdf" class="file-icon">Fizika i društvo.doc</a>
+                            <div class="file-box-sty ml-auto d-flex">
+                                <a href=""><img class="profile-m-1 mr-1 align-self-center" src="/images/profile.jpg">Stjepan Drmić
+                                </a></div>
+                            <div class="file-box-sty">19.07.2017.</div>
+                            <div class="file-box-sty icon icon-download">Preuzmi</div>
+                            <div class="file-box-sty icon icon-cancel">Obriši</div>
+                        </div>
+                    </div>
+                          
+                    <div class="justify-content-center d-flex mt-2 mb-4">
+                        <button type="button" class="btn btn-neutral" v-on:click="documentAdd('cover-jpg')">{{ lang('Upload') }}</button>
+                    </div>
+                    
+                    <!-- Initial Documents -->
+                    <div class="page-name-xl mt-4">{{ lang('Final Documents') }}</div> 
+<!-- Izbriši me - samo da provjerim kako izgleda-->
+                    <div class="files mt-2 mb-2">
+                        <div class="file-box file-box-l d-flex align-items-center">
+                            <a href="http://homestead.app/images/profile.pdf" class="file-icon">Fizika i društvo.doc</a>
+                            <div class="file-box-sty ml-auto d-flex">
+                                <a href=""><img class="profile-m-1 mr-1 align-self-center" src="/images/profile.jpg">Stjepan Drmić
+                                </a></div>
+                            <div class="file-box-sty">19.07.2017.</div>
+                            <div class="file-box-sty icon icon-download">Preuzmi</div>
+                            <div class="file-box-sty icon icon-cancel">Obriši</div>
+                        </div>
+                    </div>
+                          
+                    <div class="justify-content-center d-flex mt-2 mb-4">
+                        <button type="button" class="btn btn-neutral" v-on:click="documentAdd('cover-jpg')">{{ lang('Upload') }}</button>
                     </div>
 
                     <template v-if="documents">
@@ -254,12 +292,24 @@
                     </div>
                     </template>
 
-                    <template v-if="task.thread">
-                        <div v-for="message in task.thread.messages">
-                            <h3>{{ message.sender.name }}</h3>
-                            <p>{{ message.message }}</p>
-                        </div>
-                    </template>
+                    <div class="comments">
+                            <div class="page-name-xl mb-3">{{ lang('Comments') }}</div>
+                            <!-- Textarea -->
+                            <div class="content">
+                                <div class="md-form mb-1">
+                                    <textarea class="md-textarea"></textarea>
+                                </div>
+                            </div>
+                            <div class="justify-content-end d-flex mb-2">
+                                <button type="button" class="btn btn-neutral" v-on:click="documentAdd('cover-jpg')">{{ lang('Send') }}</button>
+                            </div>
+                            <template v-if="task.thread">
+                                <div v-for="message in task.thread.messages">
+                                    <h3 class="page-name-l mb-1"><span>{{ message.sender.name }},</span> 13.05.2017., 13:35</h3>
+                                    <p class="mb-4">{{ message.message }}</p>
+                                </div>
+                            </template>
+                    </div>
 
                     <!-- Footer buttons -->
                     <div class="btn-footer mt-2 mb-2 flex-column flex-md-row d-flex p-2">

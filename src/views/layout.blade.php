@@ -17,6 +17,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/flipclock.css') }}" rel="stylesheet" >
     @if (Auth::check())
     <!-- Scripts -->
     <script>
@@ -44,7 +45,7 @@
 <!-- Scripts -->
 <script src="{{ asset('js/jquery.js') }}"></script>
 <script src="{{ asset('js/popper.js') }}"></script>
-
+<script src="{{ asset('js/flipclock/flipclock.min.js') }}"></script>
 <script src="{{ asset('js/bootstrap.js') }}"></script>
 <script src="{{ asset('js/mdb.js') }}"></script>
 <script src="{{ asset('js/app.js') }}"></script>

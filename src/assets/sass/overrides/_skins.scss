@@ -93,6 +93,14 @@ $sk-skin-btn-default: #293756;
     .profile-head-clear {
         background-color: $color-nav-sub2;
     }
+    .task-c-time {
+        background-color: lighten($color-nav-sub2, 15%);
+        margin-right: -15px;
+        .md-form {
+            margin: 1rem 0;
+        }
+    }
+    
     .side-nav {
         background-color: $sk-skin-flat;
         width: 260px;
@@ -257,6 +265,24 @@ $sk-skin-btn-default: #293756;
         top: 5px;
         position: relative;
         box-shadow: none;
+    }
+    .btn-save-small {
+        cursor: pointer;
+        color: $white;
+        width: 100%;
+        height: 52px;
+        background-color: $color-select;
+        border-radius: 6px;
+        top: 16px;
+        letter-spacing: .1rem;
+        font-size: .8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        position: relative;
+        box-shadow: none;
+        text-align: center;
+        line-height: 48px;
+        display: block;
     }
     .btn-primary {
         background: $sk-skin-btn-primary;
@@ -1083,6 +1109,26 @@ $sk-skin-btn-default: #293756;
     #chart1 .ct-bar {
         stroke-width: 10%; 
     }
+    ///Comments
+    .comments {
+        h3 {
+            font-size: .9rem;
+            span {
+                font-size: 1.1rem;
+                color: $info-color;
+            }
+        }
+        .content {
+            padding-left: 0;
+        }
+        .md-textarea {
+            padding-left: 1rem;
+            text-indent: 0;
+        }
+    }
+    
+    
+    
     
     
     @media only screen and (max-width: 768px) {
@@ -1199,6 +1245,10 @@ $sk-skin-btn-default: #293756;
                 left: inherit;
                 right: 90px;
             }
+        }
+        .task-c-time {
+            padding-top: 1rem;
+            padding-top: 2.5rem;
         }
     }
     
