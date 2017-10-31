@@ -39,7 +39,7 @@
                         <th data-title="Assign to" v-if="authority" class="text-right">{{ lang('Assign to') }}</th>
                     </tr>
                     </thead>
-                    <draggable v-model="new_tasks" v-bind:element="'tbody'">
+                    <draggable v-model="new_tasks" v-bind:element="'tbody'" v-bind:options="{handle:'.icon-handler'}">
                         <tr v-for="(element, index) in new_tasks" v-bind:key="element.id">
                             <td><div class="icon icon-handler"></div></td>
                             <th class="display-e w-30">{{ index+1 }}</th>
@@ -69,7 +69,7 @@
                         <th data-title="Assign to" v-if="authority" class="text-right">{{ lang('Assign to') }}</th>
                     </tr>
                     </thead>
-                    <draggable v-model="accepted_tasks" v-bind:element="'tbody'">
+                    <draggable v-model="accepted_tasks" v-bind:element="'tbody'" v-bind:options="{handle:'.icon-handler'}">
                         <tr v-for="(element, index) in accepted_tasks" v-bind:key="element.id">
                             <td><div class="icon icon-handler"></div></td>
                             <th class="display-e w-30">{{ index+1 }}</th>
@@ -104,7 +104,7 @@
                         <th data-title="Status">{{ lang('Status') }}</th>
                     </tr>
                     </thead>
-                    <draggable v-model="sent_tasks" v-bind:element="'tbody'">
+                    <draggable v-model="sent_tasks" v-bind:element="'tbody'" v-bind:options="{handle:'.icon-handler'}">
                         <tr v-for="(element, index) in sent_tasks" v-bind:key="element.id">
                             <td><div class="icon icon-handler"></div></td>
                             <th class="display-e w-30">{{ index+1 }}</th>
@@ -141,7 +141,7 @@
                         <th data-title="Assign to" v-if="authority" class="text-right">{{ lang('Assign to') }}</th>
                     </tr>
                     </thead>
-                    <draggable v-model="completed_tasks" v-bind:element="'tbody'">
+                    <draggable v-model="completed_tasks" v-bind:element="'tbody'" v-bind:options="{handle:'.icon-handler'}">
                         <tr v-for="(element, index) in completed_tasks" v-bind:key="element.id">
                             <td><div class="icon icon-handler"></div></td>
                             <th class="display-e w-30">{{ index+1 }}</th>
@@ -172,7 +172,7 @@
                         <th data-title="Assign to" v-if="authority" class="text-right">{{ lang('Assign to') }}</th>
                     </tr>
                     </thead>
-                    <draggable v-model="rejected_tasks" v-bind:element="'tbody'">
+                    <draggable v-model="rejected_tasks" v-bind:element="'tbody'" v-bind:options="{handle:'.icon-handler'}">
                         <tr v-for="(element, index) in rejected_tasks" v-bind:key="element.id">
                             <td><div class="icon icon-handler"></div></td>
                             <th class="display-e w-30">{{ index+1 }}</th>
