@@ -338,7 +338,11 @@
     "Comment": "Pošalji",
     "Are you sure you want to proceed?": "Jeste li sigurni da želite nastaviti?",
     "Reassign": "Ponovno zaduži",
-    "Enter your comment": "Unesi komentar"
+    "Enter your comment": "Unesi komentar",
+    "New Tasks": "Novi zadatak",
+    "Sent Tasks": "Poslani zadaci",
+    "Completed Tasks": "Završeni zadaci",
+    "Rejected Tasks": "Odbijeni zadaci"
     
     
     

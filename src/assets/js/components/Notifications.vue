@@ -10,7 +10,7 @@
                 <div class="activity-item align-items-center d-flex" v-for="item in notifications">
                     <div class="activity-avatar file-box-sty d-flex align-items-center" v-if="item.data.sender">
                         <a v-bind:href="item.data.sender.link">
-                            <img class="profile-s mr-1" v-bind:src="item.data.sender.image">
+                            <img class="profile-s mr-2" v-bind:src="item.data.sender.image">
                         </a>
                     </div>
                     <div class="activity-content">

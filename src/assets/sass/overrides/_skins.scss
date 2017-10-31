@@ -96,6 +96,16 @@ $sk-skin-btn-default: #293756;
     .task-c-time {
         background-color: lighten($color-nav-sub2, 15%);
         margin-right: -15px;
+        .tct {
+            &:before {
+                font-family: FontAwesome;
+                content: "\f251";
+                font-size: 2.5rem;
+                margin-right: 1.2rem;
+                margin-left: .3rem;
+                vertical-align: middle;
+            }
+         } 
         .md-form {
             margin: 1rem 0;
         }
@@ -763,7 +773,10 @@ $sk-skin-btn-default: #293756;
             }
         }
         h5 {
-            font-size: .65rem;
+            font-size: .75rem;
+            font-weight: normal;
+            line-height: 1rem;
+            color: $gray-light;
         }
         .activity-time {
             color: lighten($color-sidebar, 55%);
@@ -1222,7 +1235,7 @@ $sk-skin-btn-default: #293756;
         }
         .icon-handler {
             margin: 0 auto;
-            margin-top: 1rem;
+            margin-top: .1rem;
             width: 90px;
         }
         draggable {
@@ -1248,9 +1261,9 @@ $sk-skin-btn-default: #293756;
         }
         .task-c-time {
             padding-top: 1rem;
-            padding-top: 2.5rem;
+            padding-bottom: 2.5rem;
+            }
         }
-    }
     
     
     

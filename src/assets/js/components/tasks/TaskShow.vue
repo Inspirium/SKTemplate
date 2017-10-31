@@ -119,7 +119,7 @@
 
                     <!-- Task Completition Time -->
                     <div class="task-c-time row">
-                        <h3 class="col-md-5 text-white align-self-center text-md-right my-3;">{{ lang('Task Completion Time') }}
+                        <h3 class="tct col-md-5 text-white align-self-center text-sm-center text-md-right my-3">{{ lang('Task Completion Time') }}
                         </h3>
                         <div class="col-md-3">
                             <div class="md-form align-self-center">
@@ -128,7 +128,7 @@
                         </div>
                         <div class="col-md-3">
                             <div class="md-form">
-                                <input type="text" id="minutes" class="form-control" placeholder="Minutes">
+                                <input type="number" id="minutes" class="form-control" placeholder="Minutes">
                             </div>
                         </div>
                         <div class="col-md-1">
@@ -144,8 +144,8 @@
                         </div>
                         <div class="stopwatch-controls">
                             <div class="modal-footer btn-footer">
-                                <button class="btn btn-lg btn-blank btn-start-icon">{{ lang('Play') }}</button>
-                                <button class="btn btn-lg btn-blank btn-stop-icon">{{ lang('Stop') }}</button>
+                                <button id="play"class="btn btn-lg btn-blank btn-start-icon" v-on:click="ime_metode">{{ lang('Play') }}</button>
+                                <button id="stop" class="btn btn-lg btn-blank btn-stop-icon">{{ lang('Stop') }}</button>
                             </div>
                         </div>
                     </div>
