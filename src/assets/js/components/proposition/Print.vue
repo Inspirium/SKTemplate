@@ -202,8 +202,8 @@
 
             <div class="page-name-l text-center">{{ lang('Download as...') }}</div>
             <div class="file-box file-box-l d-flex align-items-center mt-1">
-                <a href="#.pdf" class="file-icon" v-on:click="downloadOffer(index, 'pdf')">.pdf</a>
-                <a href="#.docx" class="file-icon" v-on:click="downloadOffer(index, 'docx')">.docx</a>
+                <a href="#.pdf" class="file-icon" v-on:click.prevent="downloadOffer(offer.id, 'pdf')">.pdf</a>
+                <a href="#.docx" class="file-icon" v-on:click.prevent="downloadOffer(offer.id, 'docx')">.docx</a>
             </div>
         </div>
     </div>
@@ -235,14 +235,8 @@
             switchTab: function(e) {
                 $(e.target).tab('show');
             },
-            saveOffer: function() {
-                this.$store.dispatch('proposition/saveProposition');
-            },
-            downloadOffer: function(index, type) {
-                //TODO: make request to download offer, probably save first :)
-            },
-            changeInput: function(e, field, id) {
-                this.$store.commit('proposition/updateOffer', {id: id, field: field, value: e.target.value})
+            downloadOffer: function(id, type) {
+                window.open('/proposition/'+this.$route.params.id+'/edit/print/'+id+'/'+type,'_blank');
             }
         },
         mounted: function() {
