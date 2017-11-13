@@ -387,6 +387,8 @@ header .dropdown-toggle {
         margin: 0 .3rem;
         border-radius: 50%;
         border: 3px solid $white;
+      max-width: 50px;
+      max-height: 50px;
     }
     &:after {
         content: none;
@@ -537,7 +539,7 @@ header .navbar .breadcrumb {
 
 
 .table tbody {
-    background-color: #fff;   
+    background-color: #fff;
 }
 
 .table thead th {
@@ -1152,13 +1154,13 @@ input.md-form.addon {
     100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
 }
     @keyframes sk-rotateplane {
-    0% { 
+    0% {
     transform: perspective(120px) rotateX(0deg) rotateY(0deg);
-    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg) 
-    } 50% { 
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg)
+    } 50% {
     transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
-    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg) 
-    } 100% { 
+    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg)
+    } 100% {
     transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
     -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
     }

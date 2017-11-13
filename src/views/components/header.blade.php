@@ -17,7 +17,7 @@
     <nav class="col navbar d-flex flex-row-reverse navbar-toggleable-md scrolling-navbar double-nav">
         <div class="dropdown">
             <a class="nav-link dropdown-toggle user-nav" data-toggle="dropdown" href="#" role="button" >{{ Auth::user()->name }}
-                <img src="https://www.gravatar.com/avatar/{{ md5( Auth::user()->email ) }}?s=50&d=wavatar" class="header-profile">
+                <img src="{{ Auth::user()->employee->image }}" class="header-profile">
             </a>
             <div class="dropdown-menu dropdown-ins dropdown-menu-right dropdown-custom-login">
                 <div class="user-box">
