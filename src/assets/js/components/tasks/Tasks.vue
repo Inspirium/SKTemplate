@@ -211,7 +211,11 @@
                     3: {
                         title: 'Approval Request',
                         className: 'tasktype-2'
-                    }
+                    },
+                    4: {
+                        title: 'Assignment',
+                        className: 'tasktype-2'
+                    },
                 },
                 new_tasks: [
                 ],

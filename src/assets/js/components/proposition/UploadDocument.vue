@@ -38,13 +38,16 @@
                 </div>
             <div class="modal-footer btn-footer">
                 <button type="button" class="btn btn-lg btn-save" v-on:click="saveFiles">{{ lang('Save') }}</button>
+                <button class="btn btn-lg btn-assign btn-assign-icon" v-on:click="assignModalOpen">{{ lang('Assign to...') }}</button>
             </div>
         <upload-modal id="initial-documents" action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" v-bind:dir="$route.meta.dir" v-on:fileDelete="fileDelete" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave"></upload-modal>
         <upload-modal id="final-document" action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" v-bind:dir="$route.meta.dir" v-on:fileDelete="fileDelete" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave" v-bind:isFinal="true"></upload-modal>
+        <assign-documents></assign-documents>
     </div>
 </template>
 <script>
-    import uploadModal from '../general/UploadModal.vue';
+    import uploadModal from '../general/UploadModal.vue'
+    import assignDocuments from '../modals/AssignDocuments'
     export default {
         data: function () {
             return {
@@ -53,10 +56,14 @@
             }
         },
         components: {
-            'upload-modal' : uploadModal
+            uploadModal,
+            assignDocuments
         },
         computed: {},
         methods: {
+            assignModalOpen: function() {
+                jQuery('#assign-documents').modal('show');
+            },
             documentAdd: function(modal) {
                 jQuery('#'+modal).modal('show');
             },

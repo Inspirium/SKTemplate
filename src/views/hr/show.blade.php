@@ -23,46 +23,46 @@
             <div class="row">
                 <div class="col-md-6">
                     <h6>@lang('Mobile Phone')</h6>
-                    <h3 class="mb-1">{{ $employee->getMeta('mobile') }}</h3>
+                    <h3 class="mb-1">{{ $employee->mobile }}</h3>
                 </div>
                 <div class="col-md-6">
                     <h6>@lang('VPN Mobile Phone')</h6>
-                    <h3 class="mb-1">{{ $employee->getMeta('mobile_vpn') }}</h3>
+                    <h3 class="mb-1">{{ $employee->mobile_vpn }}</h3>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6">
                     <h6>@lang('Phone')</h6>
-                    <h3 class="mb-1">{{ $employee->getMeta('phone') }}</h3>
+                    <h3 class="mb-1">{{ $employee->phone }}</h3>
                 </div>
                 <div class="col-md-6">
                     <h6>@lang('VPN phone')</h6>
-                    <h3 class="mb-1">{{ $employee->getMeta('phone_vpn') }}</h3>
+                    <h3 class="mb-1">{{ $employee->phone_vpn }}</h3>
                 </div>
             </div>
             <div>
                 <h6>@lang('Office Location')</h6>
-                <h3 class="mb-1">{{ $employee->getMeta('room') }}</h3>
+                <h3 class="mb-1">{{ $employee->room }}</h3>
             </div>
             <div>
                 <h6>@lang('Address')</h6>
-                <h3 class="mb-1">{{ $employee->getMeta('address') }}</h3>
+                <h3 class="mb-1">{{ $employee->address }}</h3>
             </div>
             <div class="row">
                 <div class="col-md-6">
                     <h6>@lang('City')</h6>
-                    <h3 class="mb-1">{{ $employee->getMeta('city') }}</h3>
+                    <h3 class="mb-1">{{ $employee->city }}</h3>
                 </div>
                 <div class="col-md-6">
                     <h6>@lang('Postal Code')</h6>
-                    <h3 class="mb-1">{{ $employee->getMeta('postal_code') }}</h3>
+                    <h3 class="mb-1">{{ $employee->postal_code }}</h3>
                 </div>
             </div>
         </div>
     </div>
     <!-- Footer buttons -->
     <div class="btn-footer mt-2 mb-5 d-flex p-2">
-        <a href="/human_resources/employee/edit/{{ $employee->id }}" class="btn btn-lg btn-neutral">@lang('Edit')</a>
+        <a href="/human_resources/employee/{{ $employee->id }}/edit" class="btn btn-lg btn-neutral">@lang('Edit')</a>
     </div>
     <!--/. Footer buttons -->
 </div>

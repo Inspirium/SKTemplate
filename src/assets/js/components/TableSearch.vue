@@ -27,8 +27,8 @@
                 <template v-if="key === 'name' && links['show']">
                     <a v-bind:href="links['show'] | add_id(entry)">{{entry[key]}}</a>
                 </template>
-                <template v-else-if="item['raw']">
-                    <div v-html="entry[key]"></div>
+                <template v-else-if="item['image']">
+                    <img v-bind:src="entry[key]" class="profile-m-1 mr-1 align-self-center">
                 </template>
                 <template v-else>
                     {{entry[key]}}
@@ -45,6 +45,7 @@
 </template>
 
 <script>
+    import pathToRegexp from 'path-to-regexp'
     export default {
         props: {
             data: Array,
@@ -103,7 +104,12 @@
                 return str.charAt(0).toUpperCase() + str.slice(1)
             },
             add_id: function(str, entry) {
-                return str + '/' + entry['id'];
+                let toPath = pathToRegexp.compile(str);
+                return toPath({id: entry.id});
+            },
+            processRegex: function(str, entry) {
+                console.log(entry);
+                return '<img>'
             }
         },
         methods: {
