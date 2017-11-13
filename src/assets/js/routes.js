@@ -25,6 +25,7 @@ import Warehouse from './components/proposition/Warehouse'
 import Marketing from './components/proposition/Marketing'
 import Multimedia from './components/proposition/Multimedia'
 
+import EditProfile from './components/hr/EditProfile'
 
 import Tasks from './components/tasks/Tasks'
 import TaskEdit from './components/tasks/TaskEdit'
@@ -90,5 +91,9 @@ export const routes = [
 
     { path: '/tasks', component: Tasks },
     { path: '/task/edit/:id(\\d+)?', component: TaskEdit },
-    { path: '/task/show/:id(\\d+)', component: TaskShow }
+    { path: '/task/show/:id(\\d+)', component: TaskShow },
+
+    { path: '/human_resources/employee/new', component: EditProfile},
+    { path: '/human_resources/employee/:id(\\d+)/edit', component: EditProfile},
+    { path: '/human_resources/employee/:id(\\d+)', component: EditProfile}
 ];

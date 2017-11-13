@@ -80,11 +80,11 @@
             </div>
         </div>
 
-        <!-- Documents upload -->
+        <!-- Documents upload
         <div class="page-name-l mb-1">{{ lang('Documents') }}</div>
         <button class="btn btn-neutral btn-addon" type="button">{{ lang('Add Documents') }}</button>
 
-        <!-- File/document table -->
+
         <div class="files mt-2 mb-2">
             <div class="file-box file-box-l d-flex align-items-center" v-for="document in task.documents">
                 <a v-bind:href="document.link" class="file-icon">{{ document.name }}</a>
@@ -95,7 +95,7 @@
                 <div class="file-box-sty icon icon-download">Preuzmi</div>
                 <div class="file-box-sty icon icon-cancel">Obriši</div>
             </div>
-        </div>
+        </div>-->
 
         <!-- Footer buttons -->
         <div class="btn-footer mt-2 mb-5 flex-column flex-md-row d-flex p-2">

@@ -24,7 +24,7 @@
                             <a href="#">
                                 <img class="profile-m-2 mr-1 float-left" src="/images/profile.jpg">
                                 <h6 class="white-label">{{ lang('Assign to') }}</h6>
-                                <h3 class="mb-1 text-white">{{ task.related.requestees[0].name }}</h3>
+                                <h3 class="mb-1 text-white">{{ task.assignee.name }}</h3>
                             </a>
                         </div>
                         <div class="col-md-3">
@@ -95,16 +95,16 @@
                     <div class="profile-head pb-2 row">
                         <div class="col-md-3">
                             <a href="#">
-                                <img class="profile-m-2 mr-1 float-left" src="/images/profile.jpg">
+                                <img class="profile-m-2 mr-1 float-left" v-bind:src="task.assigner.image">
                                 <h6 class="white-label">{{ lang('Assigner') }}</h6>
                                 <h3 class="mb-1 text-white">{{ task.assigner.name }}</h3>
                             </a>
                         </div>
                         <div class="col-md-3">
                             <a href="#">
-                                <img class="profile-m-2 mr-1 float-left" src="/images/profile.jpg">
+                                <img class="profile-m-2 mr-1 float-left" v-bind:src="task.assignee.image">
                                 <h6 class="white-label">{{ lang('Assign to') }}</h6>
-                                <h3 class="mb-1 text-white">{{ }}</h3>
+                                <h3 class="mb-1 text-white">{{ task.assignee.name }}</h3>
                             </a>
                         </div>
                         <div class="col-md-3">
@@ -145,8 +145,8 @@
                         </div>
                         <div class="stopwatch-controls">
                             <div class="d-flex justify-content-center mt-2">
-                                <button id="play"class="btn btn-lg btn-success btn-start-icon" v-on:click="ime_metode">{{ lang('Play') }}</button>
-                                <button id="stop" class="btn btn-lg btn-danger btn-stop-icon">{{ lang('Stop') }}</button>
+                                <button id="play" class="btn btn-lg btn-success btn-start-icon" v-on:click="startClock">{{ lang('Play') }}</button>
+                                <button id="stop" class="btn btn-lg btn-danger btn-stop-icon" v-on:click="stopClock">{{ lang('Stop') }}</button>
                             </div>
                         </div>
                     </div>
@@ -170,40 +170,40 @@
 
                     <!-- Initial Documents -->
                     <div class="page-name-xl mt-4">{{ lang('Initial Documents') }}</div>
-<!-- Izbriši me - samo da provjerim kako izgleda-->
                     <div class="files mt-2 mb-2">
-                        <div class="file-box file-box-l d-flex align-items-center">
-                            <a href="http://homestead.app/images/profile.pdf" class="file-icon">Fizika i društvo.doc</a>
+                        <div class="file-box file-box-l d-flex align-items-center" v-for="document in task.files.initial">
+                            <a v-bind:href="document.link" v-on:click.prevent="documentDownload(document.link)" class="file-icon">{{ document.title }}</a>
                             <div class="file-box-sty ml-auto d-flex">
-                                <a href=""><img class="profile-m-1 mr-1 align-self-center" src="/images/profile.jpg">Stjepan Drmić
+                                <a v-bind:href="'/human_resources/employee/show/'+document.owner.id"><img class="profile-m-1 mr-1 align-self-center" v-bind:src="document.owner.image">
+                                    {{ document.owner.name }}
                                 </a></div>
-                            <div class="file-box-sty">19.07.2017.</div>
-                            <div class="file-box-sty icon icon-download">Preuzmi</div>
-                            <div class="file-box-sty icon icon-cancel">Obriši</div>
+                            <div class="file-box-sty">{{ document.date }}</div>
+                            <div class="file-box-sty icon icon-download" v-on:click="documentDownload(document.link)">{{ lang('Download') }}</div>
+                            <div class="file-box-sty icon icon-cancel" v-on:click="fileWarning(document.id)">{{ lang('Delete') }}</div>
                         </div>
                     </div>
 
                     <div class="justify-content-center d-flex mt-2 mb-4">
-                        <button type="button" class="btn btn-neutral" v-on:click="documentAdd('cover-jpg')">{{ lang('Upload') }}</button>
+                        <button type="button" class="btn btn-neutral" v-on:click="documentAdd('initial-documents')">{{ lang('Upload') }}</button>
                     </div>
 
-                    <!-- Initial Documents -->
+                    <!-- Final Documents -->
                     <div class="page-name-xl mt-4">{{ lang('Final Documents') }}</div>
-<!-- Izbriši me - samo da provjerim kako izgleda-->
                     <div class="files mt-2 mb-2">
-                        <div class="file-box file-box-l d-flex align-items-center">
-                            <a href="http://homestead.app/images/profile.pdf" class="file-icon">Fizika i društvo.doc</a>
+                        <div class="file-box file-box-l d-flex align-items-center" v-for="document in task.files.final">
+                            <a v-bind:href="document.link" v-on:click.prevent="documentDownload(document.link)" class="file-icon">{{ document.title }}</a>
                             <div class="file-box-sty ml-auto d-flex">
-                                <a href=""><img class="profile-m-1 mr-1 align-self-center" src="/images/profile.jpg">Stjepan Drmić
+                                <a v-bind:href="'/human_resources/employee/show/'+document.owner.id"><img class="profile-m-1 mr-1 align-self-center" v-bind:src="document.owner.image">
+                                    {{ document.owner.name }}
                                 </a></div>
-                            <div class="file-box-sty">19.07.2017.</div>
-                            <div class="file-box-sty icon icon-download">Preuzmi</div>
-                            <div class="file-box-sty icon icon-cancel">Obriši</div>
+                            <div class="file-box-sty">{{ document.date }}</div>
+                            <div class="file-box-sty icon icon-download" v-on:click="documentDownload(document.link)">{{ lang('Download') }}</div>
+                            <div class="file-box-sty icon icon-cancel" v-on:click="fileWarning(document.id)">{{ lang('Delete') }}</div>
                         </div>
                     </div>
 
                     <div class="justify-content-center d-flex mt-2 mb-4">
-                        <button type="button" class="btn btn-neutral" v-on:click="documentAdd('cover-jpg')">{{ lang('Upload') }}</button>
+                        <button type="button" class="btn btn-neutral" v-on:click="documentAdd('final-documents')">{{ lang('Upload') }}</button>
                     </div>
 
                     <template v-if="documents">
@@ -265,7 +265,7 @@
                     <!-- File/document table -->
                     <div class="page-name-xl mb-1">{{ lang('Documents') }}</div>
                     <div class="files mt-2">
-                        <div class="file-box file-box-l d-flex align-items-center" v-for="document in task.documents" v-key="document.id">
+                        <div class="file-box file-box-l d-flex align-items-center" v-for="document in task.files" v-key="document.id">
                             <a v-bind:href="document.link" class="file-icon">{{ document.title }}</a>
                             <div class="file-box-sty ml-auto d-flex">
                                 <a href=""><img class="profile-m-1 mr-1 align-self-center" v-bind:src="document.owner.image">{{ document.owner.name }}</a>
@@ -306,7 +306,7 @@
                             </div>
                             <template v-if="task.thread">
                                 <div v-for="message in task.thread.messages">
-                                    <h3 class="page-name-l mb-1"><span>{{ message.sender.name }},</span> 13.05.2017., 13:35</h3>
+                                    <h3 class="page-name-l mb-1"><span>{{ message.sender.name }},</span> {{ message.created_at | moment('DD.MM.YYYY., H:mm:ss') }}</h3>
                                     <p class="mb-4">{{ message.message }}</p>
                                 </div>
                             </template>
@@ -321,10 +321,14 @@
                     </div>
                 </div>
 
+                <upload-modal id="initial-documents" action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" v-bind:dir="task.files.path" v-on:fileDelete="fileDelete" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave"></upload-modal>
+                <upload-modal id="final-documents" action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" v-bind:dir="task.files.path" v-on:fileDelete="fileDelete" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave" v-bind:isFinal="true"></upload-modal>
+
                 <!-- Modal for rejecting task -->
                 <modal-commented v-on:commented="commentTask"></modal-commented>
                 <!-- Modal for reassigning task -->
                 <modal-reassign v-on:reassign="reassignTask"></modal-reassign>
+                <warning-modal v-on:warning="fileDelete"></warning-modal>
             </template>
         </template>
         <template v-else>
@@ -337,9 +341,12 @@
 <script>
     import ModalCommented from '../modals/Comment'
     import ModalReassign from '../modals/TaskReassign'
+    import uploadModal from '../general/UploadModal'
+    import WarningModal from '../modals/WarningModal'
     export default {
         data: function () {
             return {
+                clock: false,
                 task_types: {
                     1: {
                         title: 'Project',
@@ -360,11 +367,22 @@
                     assigner: {
                         name: ''
                     },
+                    assignee: {
+                        name: ''
+                    },
                     user: {
                         name: ''
                     },
                     status : '',
-                    thread: {}
+                    thread: {},
+                    running_elapsed: 0,
+                    is_running: false,
+                    running_from: 0,
+                    files: {
+                        initial: [],
+                        final: [],
+                        path: 'tasks'
+                    }
                 },
                 document_statuses : {
                     pending: {
@@ -388,7 +406,7 @@
             }
         },
         components: {
-            ModalReassign, ModalCommented,
+            ModalReassign, ModalCommented, uploadModal, WarningModal
         },
         methods: {
             acceptTask() {
@@ -408,14 +426,14 @@
             commentTask(message) {
                 axios.post('/api/thread/' + this.task.thread.id + '/message', {message: message})
                     .then((res) => {
-                        Vue.set(this.task, 'thread', res.data);
+                        this.task.thread.messages = res.data;
                     })
                     .catch((err) => {});
             },
             reassignTask(employees) {
                 axios.post('/api/task/' + this.task.id + '/reassign', {employees: employees})
                     .then((res) => {
-                        this.task.status = 'assigned';
+                        this.task = res.data;
                     })
                     .catch((err) => {});
             },
@@ -433,7 +451,60 @@
             },
             openModal(modal) {
                 $('#'+modal).modal('show');
-            }
+            },
+            startClock() {
+                if (!this.task.is_running) {
+                    axios.post('/api/task/'+this.task.id+'/clock/start')
+                        .then(() => {
+                            this.task.is_running = true;
+                            this.clock.start();
+                        })
+                }
+            },
+            stopClock() {
+                if (this.task.is_running) {
+                    axios.post('/api/task/'+this.task.id+'/clock/stop')
+                        .then(() => {
+                            this.task.is_running = false;
+                            this.clock.stop();
+                        })
+                }
+            },
+            documentAdd: function(modal) {
+                jQuery('#'+modal).modal('show');
+            },
+            documentDownload: function(link) {
+                window.open(link, "_blank");
+                return false;
+            },
+            fileDelete: function (index, type) {
+                this[this.type_to_delete].splice(this.index_to_delete, 1);
+            },
+            fileAdd: function(data) {
+                if (data.isFinal) {
+                    this.task.files.final.push(data.file);
+                }
+                else {
+                    this.task.files.initial.push(data.file);
+                }
+                axios.post('/api/task/'+this.$route.params.id+'/file', data)
+                    .then(() => {});
+            },
+            fileNameSave: function(data) {
+                let files = this.task.files.initial;
+                if (data.isFinal) {
+                    files = this.task.files.final;
+                }
+                _.forEach(files, (o) => {
+                    if (o.id === payload.id) {
+                        o.title = data.file.title;
+                    }
+                });
+            },
+            fileWarning(id) {
+                this.index_to_delete = id;
+                jQuery('#modal-warning').modal('show');
+            },
         },
         mounted: function() {
             let id = this.$route.params.id;
@@ -441,7 +512,10 @@
                 .then((res) => {
                     this.task = res.data.task;
                     setTimeout(() => { //TODO: fix
-                        let clock = $('.clock').FlipClock({});
+                        this.clock = new FlipClock( $('.clock'), this.task.running_elapsed, {
+                            autoPlay: this.task.is_running,
+                            autoStart: this.task.is_running
+                        });
                     }, 1000);
                 })
                 .catch((err) => {});
