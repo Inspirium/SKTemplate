@@ -117,7 +117,8 @@
                         </div>
                     </div>
 
-                    <!-- Task Completition Time -->
+<!--
+                     Task Completition Time 
                     <div class="task-c-time row">
                         <h3 class="tct col-md-5 text-white align-self-center text-sm-center text-md-right my-3">{{ lang('Task Completion Time') }}
                         </h3>
@@ -136,6 +137,7 @@
                             </div>
                         </div>
                     </div>
+-->
 
                     <!-- Stopwatch -->
                     <div class="page-name-xl mt-2 mb-4">{{ lang('Working Time') }}</div>

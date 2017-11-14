@@ -559,6 +559,7 @@ $sk-skin-btn-default: #293756;
                     text-shadow: none;
                     cursor: pointer;
                     opacity: 1;
+                    margin: 0;
                 }
                 @media only screen and (max-width: 768px) {
                     .d-flex {
@@ -728,7 +729,7 @@ $sk-skin-btn-default: #293756;
         @extend .dropdown-box;
         min-width: 350px;
         position: relative;
-        left: 143px;
+        left: -133px;
         .tasktype-1 {
             border-radius: 0.1rem;
             padding: 0px 5px;
@@ -1260,7 +1261,7 @@ $sk-skin-btn-default: #293756;
         .activity-box {
             min-width: 100vw;
             position: relative;
-            left: 151px;
+            left: -160px;
             .activity-item:first-child:before {
                 left: inherit;
                 right: 172px; 

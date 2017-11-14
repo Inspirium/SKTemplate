@@ -8,7 +8,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true" class="white-text">&times;</span>
                     </button>
-                    <div class="d-flex">
+                    <div class="d-flex mx-auto">
                         <i class="fa fa-user-circle-o fa-4x mb-1 animated rotateInDownLeft"></i>
                         <h1 class="modal-title w-100 text-center">{{ lang('Assign to...') }}</h1>
                     </div>
