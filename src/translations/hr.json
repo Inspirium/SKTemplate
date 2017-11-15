@@ -28,6 +28,7 @@
     "User Roles" : "Korisnikove role",
     "New department" : "Novo odjeljenje",
     "Basic info" : "Osnovni podaci",
+    "Basic Info" : "Osnovni podaci",
     "Office Location" : "Lokacija ureda",
     "datepicker" : {
         "monthsFull": ["Siječanj", "Veljača", "Ožujak", "Travanj", "Svibanj", "Lipanj", "Srpanj", "Kolovoz", "Rujan", "Listopad", "Studeni", "Prosinac"],
@@ -254,6 +255,7 @@
     "Promotors": "Promotori",
     "Export": "Izvoz",
     "Retail Price": "Maloprodajna cijena",
+    "Retail price definition": "Definiranje maloprodajne cijene",
     "Webshop Description": "Opis za webshop",
     "Cover - JPG format": "Naslovnica - JPG format",
     "Cover - PSD format": "Naslovnica - PSD format",
@@ -362,7 +364,16 @@
     "VPN phone": "VPN telefon",
     "VPN Mobile Phone": "VPN mobitel",
     "M": "M",
-    "F": "Ž"
+    "F": "Ž",
+    "Image": "Fotografija",
+    "Enter basic information about new Author": "Unesite osnovne informacije o autoru",
+    "Occupation": "Profesija",
+    "Add Additional Information": "Unesi dodatne informacije",
+    "Formal title": "Titula",
+    "Working in": "Trenutno zaposlenje",
+    "Assign department or directly employee": "Zaduži odjeljenje ili osobu"
+    
+    
     
     
     

@@ -8,9 +8,9 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true" class="white-text">&times;</span>
                     </button>
-                    <div class="d-flex">
+                    <div class="d-flex mx-auto">
                         <i class="fa fa-user-circle-o fa-4x mb-1 animated rotateInDownLeft"></i>
-                        <h1 class="modal-title w-100 text-center">{{ lang('Add new Author') }}</h1>
+                        <h1 class="modal-title w-100 text-center">{{ lang('Add New Author') }}</h1>
                     </div>
                     <h6 class="w-100 text-center">{{ lang('Enter basic information about new Author') }}</h6>
                 </div>
@@ -37,7 +37,7 @@
                                 <div class="col-md-6">
                                     <div class="md-form">
                                         <input type="text" id="form_author_title" class="form-control" required v-model="title">
-                                        <label for="form_author_title" class="">{{ lang('Title') }}</label>
+                                        <label for="form_author_title" class="">{{ lang('Formal title') }}</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">

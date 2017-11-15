@@ -48,7 +48,7 @@
                                 <div class="row mt-4">
                                     <div class="col-md-5">
                                         <div class="md-form">
-                                            <input placeholder="Selected date" type="text" id="date-picker2" class="form-control datepicker btn-white" v-model="date">
+                                            <input placeholder="Odaberi datum" type="text" id="date-picker2" class="form-control datepicker btn-white" v-model="date">
                                             <label for="date-picker2">{{ lang('Select Date') }}</label>
                                         </div>
                                     </div>

@@ -8,7 +8,7 @@
                     <button type="button" class="close" data-dismiss="modal">
                         <span>&times;</span>
                     </button>
-                    <div class="d-flex">
+                    <div class="d-flex mx-auto">
                         <i class="fa fa-cloud-upload fa-4x animated rubberBand"></i>
                         <h1 class="modal-title w-100 text-center">{{ lang( 'Upload Files' ) }}</h1>
                     </div>

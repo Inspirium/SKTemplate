@@ -106,8 +106,8 @@
             <div class="col-md-6 order-sm-first">
                 <div class="page-name-l mb-4">{{ lang('Image') }}</div>
                 <div class="d-flex flex-column align-items-center">
-                    <div>{{ lang('Upload New Image') }}</div>
                     <img v-bind:src="employee.image" class="profile-xl">
+                    <div>{{ lang('Upload New Image') }}</div>
                     <input type="file" class="btn btn-neutral mt-3" v-on:change="previewImage($event.target)">
                 </div>
             </div>

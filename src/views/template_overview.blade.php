@@ -626,7 +626,7 @@
                     </button>
                     <div class="d-flex">
                         <i class="fa fa-user-circle-o fa-4x mb-1 animated rotateInDownLeft"></i>
-                        <h1 class="modal-title w-100 text-center">@Lang('Add new Author')</h1>
+                        <h1 class="modal-title w-100 text-center">@Lang('Add New Author')</h1>
                     </div>
                     <h6 class="w-100 text-center">@Lang('Enter basic information about new Author')</h6>
                 </div>

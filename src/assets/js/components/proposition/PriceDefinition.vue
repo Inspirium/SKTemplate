@@ -41,7 +41,7 @@
 
             <!-- Second column -->
             <div class="col-md-6">
-                <div class="page-name-l mb-4">{{ lang('12-24 Months') }})</div>
+                <div class="page-name-l mb-4">{{ lang('12-24 Months') }}</div>
 
                 <!-- Input fileds -->
                 <div class="md-form">
@@ -54,11 +54,11 @@
                 </div>
                 <div class="md-form">
                     <input type="text" id="form9" class="form-control" name="field_24" placeholder="" required>
-                    <label for="field_24" class="">{{ lang('Field sales') }}</label>
+                    <label for="field_24" class="">{{ lang('Field Sales') }}</label>
                 </div>
                 <div class="md-form">
                     <input type="text" id="form10" class="form-control" name="direct_24" placeholder="" required>
-                    <label for="direct_24" class="">{{ lang('Direct sales') }}</label>
+                    <label for="direct_24" class="">{{ lang('Direct Sales') }}</label>
                 </div>
                 <div class="md-form">
                     <input type="text" id="form11" class="form-control" name="promotors_24" placeholder="" required>
@@ -94,7 +94,7 @@
         <div class="page-name-xl mb-4 mt-3">{{ lang('Retail price definition') }}</div>
         <div class="md-form">
             <input type="text" id="form15" class="form-control" name="final_price" placeholder="" required>
-            <label for="form1" class="">{{ lang('Retail price') }}</label>
+            <label for="form1" class="">{{ lang('Retail Price') }}</label>
         </div>
         <footer-buttons></footer-buttons> 
     </div>

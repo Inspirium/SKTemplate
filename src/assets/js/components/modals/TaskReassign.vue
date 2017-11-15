@@ -8,7 +8,7 @@
                     <button type="button" class="close" data-dismiss="modal">
                         <span>&times;</span>
                     </button>
-                    <div class="d-flex">
+                    <div class="d-flex mx-auto">
                         <i class="fa fa-exclamation-triangle fa-4x animated flash"></i>
                         <h1 class="modal-title w-100 text-center">{{ lang('Reassign') }}</h1>
                     </div>
