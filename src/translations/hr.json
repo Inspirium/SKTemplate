@@ -313,7 +313,7 @@
     "Expense Name": "Naziv troška",
     "Quantity": "Količina",
     "Actions": "Uređivanje",
-    "Upload New Image": "Ubaci novu fotografiju",
+    "Upload New Image": "Dodaj novu fotografiju",
     "Edit User": "Uredi podatke",
     "New Task": "Novi zadatak",
     "Task": "Zadatak",
@@ -343,7 +343,27 @@
     "Sent Tasks": "Poslani zadaci",
     "Completed Tasks": "Završeni zadaci",
     "Rejected Tasks": "Odbijeni zadaci",
-    "Working Time": "Vrijeme na zadatku"
+    "Working Time": "Vrijeme na zadatku",
+    "Go To Project": "Idi na projekt",
+    "Play": "Kreni",
+    "Stop": "Zaustavi",
+    "Precentage": "Postotak",
+    "Layout and Design Expense": "Trošak dizajna i prijeloma",
+    "Marketing Expenses": "Trošak marketinga",
+    "First and Last Name": "Ime i prezime",
+    "First Name": "Ime",
+    "Last Name": "Prezime",
+    "Area Code": "Pozivni broj",
+    "Address": "Adresa",
+    "Postal Code": "Poštanski broj",
+    "City": "Grad",
+    "Phone": "Telefon",
+    "Mobile Phone": "Mobitel",
+    "VPN phone": "VPN telefon",
+    "VPN Mobile Phone": "VPN mobitel",
+    "M": "M",
+    "F": "Ž"
+    
     
     
     

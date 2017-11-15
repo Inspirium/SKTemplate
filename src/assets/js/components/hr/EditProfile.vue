@@ -1,6 +1,6 @@
 <template>
     <div class="content">
-        <div class="page-name-xl mb-4 mt-3">{{ lang('Name And Surname') }}</div>
+        <div class="page-name-xl mb-4 mt-3">{{ lang('Basic Info') }}</div>
         <div class="row">
             <div class="col-md-6">
                 <div class="page-name-l mb-4">{{ lang('First and Last Name') }}</div>
@@ -13,7 +13,7 @@
                     <label for="form2" class="">{{ lang('Last Name') }}</label>
                 </div>
                 <div class="page-name-m">Spol</div>
-                <div class="form-inline mb-3">
+                <div class="form-inline mb-5">
                     <fieldset class="form-group">
                         <input name="sex" type="radio" id="radio11" value="M" v-model="employee.sex" required>
                         <label for="radio11">{{ lang('M') }}</label>
@@ -103,12 +103,12 @@
                 </div>
             </div>
 
-
             <div class="col-md-6 order-sm-first">
                 <div class="page-name-l mb-4">{{ lang('Image') }}</div>
                 <div class="d-flex flex-column align-items-center">
+                    <div>{{ lang('Upload New Image') }}</div>
                     <img v-bind:src="employee.image" class="profile-xl">
-                    <input type="file" class="btn btn-neutral mt-1" v-on:change="previewImage($event.target)">{{ lang('Upload New Image') }}
+                    <input type="file" class="btn btn-neutral mt-3" v-on:change="previewImage($event.target)">
                 </div>
             </div>
         </div>

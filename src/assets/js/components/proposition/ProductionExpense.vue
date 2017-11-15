@@ -291,7 +291,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="md-form input-group">
-                        <input type="number" class="form-control" v-model="item.expense">
+                        <input type="text" class="form-control" v-model="item.expense">
                         <label>{{ lang('Expense') }}</label>
                     </div>
                 </div>

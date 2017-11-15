@@ -337,6 +337,7 @@ $sk-skin-btn-default: #293756;
         color: #ccc;
     }
     input[type="email"],
+    input[type="tel"],
     input[type="search"],
     input[type="number"],
     textarea.md-textarea,
@@ -355,6 +356,7 @@ $sk-skin-btn-default: #293756;
         height: 3rem;
     }
     input[type="email"]:focus:not([readonly]),
+    input[type="tel"]:focus:not([readonly]),
     input[type="search"]:focus:not([readonly]),
     textarea.md-textarea:focus:not([readonly]),
     input[type="text"]:focus:not([readonly]),
