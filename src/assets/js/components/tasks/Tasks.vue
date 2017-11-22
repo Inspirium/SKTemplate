@@ -216,6 +216,10 @@
                         title: 'Assignment',
                         className: 'tasktype-2'
                     },
+                    5: {
+                        title: 'Approval Request',
+                        className: 'tasktype-2'
+                    },
                 },
                 new_tasks: [
                 ],

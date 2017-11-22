@@ -80,6 +80,67 @@
                     </div>
                 </div>
             </template>
+            <template v-else-if="task.type==5">
+                <div class="content">
+                    <div class="profile-head row py-4 d-flex flex-column justify-content-center align-items-center">
+                        <div class="col-md-12">
+                            <h1 class="display-3 text-white text-center">{{ task.name }}</h1>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Display fileds -->
+                <div class="content">
+                    <div class="profile-head pb-2 row">
+                        <div class="col-md-3">
+                            <a href="#">
+                                <img class="profile-m-2 mr-1 float-left" v-bind:src="task.assigner.image">
+                                <h6 class="white-label">{{ lang('Assigner') }}</h6>
+                                <h3 class="mb-1 text-white">{{ task.assigner.name }}</h3>
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="#">
+                                <img class="profile-m-2 mr-1 float-left" src="/images/profile.jpg">
+                                <h6 class="white-label">{{ lang('Assign to') }}</h6>
+                                <h3 class="mb-1 text-white">{{ task.assignee.name }}</h3>
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <h6 class="white-label">{{ lang('Task Sent') }}</h6>
+                            <h3 class="mb-1 text-white">{{ task.created_at | moment("DD.MM.") }}</h3>
+                        </div>
+                        <div class="col-md-3">
+                        </div>
+                    </div>
+
+                    <!-- Task description -->
+                    <div class="showdata-box row">
+                        <div class="col-md-9">
+                            <div class="page-name-l mt-2 mb-1">{{ lang('Task Description') }}</div>
+                            <div>
+                                <h4 class="mb-1">
+                                    {{ task.assigner.name }} has requested an proposition approval<br>
+                                    {{ task.description }}<br>
+                                </h4>
+                                <router-link class="btn btn-neutral btn-addon mb-4 mr-5" v-bind:to="task.related_link" v-if="task.related_link">{{ lang('Go To Project') }}</router-link>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="page-name-l mt-2 mb-1">{{ lang('Task Type') }}</div>
+                            <div>
+                                <h4 v-bind:class="['mb-1', task_types[task.type].className]">{{ task_types[task.type].title }}</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Footer buttons -->
+                    <div class="btn-footer mt-2 mb-2 flex-column flex-md-row d-flex p-2">
+                        <button v-if="task.related.status === 'requested'" type="submit" class="btn btn-lg btn-save" v-on:click="approveRequest">{{ lang('Approve') }}</button>
+                        <button v-if="task.related.status === 'requested'" type="submit" class="btn btn-lg btn-cancel" v-on:click="rejectRequest">{{ lang('Reject') }}</button>
+                    </div>
+                </div>
+            </template>
             <template v-else>
                 <div class="content">
                     <div class="profile-head row py-4 d-flex flex-column justify-content-center align-items-center">
@@ -118,7 +179,7 @@
                     </div>
 
 <!--
-                     Task Completition Time 
+                     Task Completition Time
                     <div class="task-c-time row">
                         <h3 class="tct col-md-5 text-white align-self-center text-sm-center text-md-right my-3">{{ lang('Task Completion Time') }}
                         </h3>
@@ -364,6 +425,10 @@
                     },
                     4: {
                         title: 'Assignment',
+                        className: 'tasktype-2'
+                    },
+                    5: {
+                        title: 'Approval Request',
                         className: 'tasktype-2'
                     },
                 },

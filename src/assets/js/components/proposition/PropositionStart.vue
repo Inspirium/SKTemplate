@@ -71,7 +71,7 @@
         <!-- Buttons -->
         <div class="btn-footer mt-2 mb-5 flex-column flex-md-row d-flex p-2">
             <button class="btn btn-lg btn-save" v-on:click="saveProposition">{{ lang('Save') }}</button>
-            <button data-toggle="tooltip" v-bind:title="lang('You need to finish your proposition first')" type="submit" class="btn btn-lg btn-save" disabled>{{ lang('Send on Approval') }}</button>
+            <button class="btn btn-lg btn-save" v-on:click="sendForApproval" >{{ lang('Send on Approval') }}</button>
             <template v-if="proposition.deleted_at">
                 <button type="button" class="btn btn-lg btn-cancel" v-on:click="propRestore">{{ lang('Restore') }}</button>
             </template>
@@ -82,10 +82,13 @@
 
         </div>
         <!--/. Footer buttons -->
+        <proposition-approval-modal></proposition-approval-modal>
     </div>
 </template>
 <script>
+    import PropositionApprovalModal from '../modals/PropositionApprovalModal'
     export default {
+        components: {PropositionApprovalModal},
         data: function () {
             return {
             }
@@ -116,6 +119,9 @@
                     .catch(() => {
                         toastr.error('Došlo je do problema. Pokušajte ponovno');
                     });;
+            },
+            sendForApproval() {
+                jQuery('#propositionApprovalModal').modal('show')
             }
         },
         mounted: function() {
