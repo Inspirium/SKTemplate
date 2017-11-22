@@ -76,7 +76,7 @@ export const routes = [
             { path: 'layout/correction_input', component: UploadDocument, meta: {dir: 'correction_input',validate: {id:'int'}} },
             { path: 'layout/revisions', component: Revisions, meta: {validate: {id:'int'}} },
 
-            { path: 'final_price/price_definition', component: PriceDefinition, meta: {validate: {id:'int'}} },
+            { path: 'final_price/price_definition', component: PriceDefinition, meta: {save: 'price_definition', validate: {id:'int'}} },
 
             { path: 'prepress/print_proof', component: UploadDocument, meta: {dir: 'print_proof',validate: {id:'int'}} },
             { path: 'prepress/print_proof_correction', component: UploadDocument, meta: {dir: 'print_proof_correction',validate: {id:'int'}} },

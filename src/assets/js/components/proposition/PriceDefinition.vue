@@ -9,27 +9,27 @@
 
                 <!-- Input fileds -->
                 <div class="md-form">
-                    <input type="text" id="retail" class="form-control" name="retail" v-model="first.retail">
+                    <input type="text" id="retail" class="form-control" name="retail" v-model="price_definition.price_first_year.retail">
                     <label for="retail" class="">{{ lang('Retail') }}</label>
                 </div>
                 <div class="md-form">
-                    <input type="text" id="wholesale" class="form-control" name="wholesale" v-model="first.wholesale">
+                    <input type="text" id="wholesale" class="form-control" name="wholesale" v-model="price_definition.price_first_year.wholesale">
                     <label for="wholesale" class="">{{ lang('Wholesale') }}</label>
                 </div>
                 <div class="md-form">
-                    <input type="text" id="field" class="form-control" name="field" v-model="first.field">
+                    <input type="text" id="field" class="form-control" name="field" v-model="price_definition.price_first_year.field">
                     <label for="field" class="">{{ lang('Field sales') }}</label>
                 </div>
                 <div class="md-form">
-                    <input type="text" id="direct" class="form-control" name="direct" v-model="first.direct">
+                    <input type="text" id="direct" class="form-control" name="direct" v-model="price_definition.price_first_year.direct">
                     <label for="direct" class="">{{ lang('Direct sales') }}</label>
                 </div>
                 <div class="md-form">
-                    <input type="text" id="promotors" class="form-control" name="promotors" v-model="first.promotors">
+                    <input type="text" id="promotors" class="form-control" name="promotors" v-model="price_definition.price_first_year.promotors">
                     <label for="promotors" class="">{{ lang('Promotors') }}</label>
                 </div>
                 <div class="md-form">
-                    <input type="text" id="export" class="form-control" name="export" v-model="first.export">
+                    <input type="text" id="export" class="form-control" name="export" v-model="price_definition.price_first_year.export">
                     <label for="export" class="">{{ lang('Export') }}</label>
                 </div>
                 <!-- Checkbox -->
@@ -45,27 +45,27 @@
 
                 <!-- Input fileds -->
                 <div class="md-form">
-                    <input type="text" id="retail2" class="form-control" name="retail_24" v-model="second.retail">
+                    <input type="text" id="retail2" class="form-control" name="retail_24" v-model="price_definition.price_second_year.retail">
                     <label for="retail2" class="">{{ lang('Retail') }}</label>
                 </div>
                 <div class="md-form">
-                    <input type="text" id="wholesale2" class="form-control" name="wholesale_24" v-model="second.wholesale">
+                    <input type="text" id="wholesale2" class="form-control" name="wholesale_24" v-model="price_definition.price_second_year.wholesale">
                     <label for="wholesale2" class="">{{ lang('Wholesale') }}</label>
                 </div>
                 <div class="md-form">
-                    <input type="text" id="field2" class="form-control" name="field_24" v-model="second.field">
+                    <input type="text" id="field2" class="form-control" name="field_24" v-model="price_definition.price_second_year.field">
                     <label for="field2" class="">{{ lang('Field Sales') }}</label>
                 </div>
                 <div class="md-form">
-                    <input type="text" id="direct2" class="form-control" name="direct_24" v-model="second.direct">
+                    <input type="text" id="direct2" class="form-control" name="direct_24" v-model="price_definition.price_second_year.direct">
                     <label for="direct2" class="">{{ lang('Direct Sales') }}</label>
                 </div>
                 <div class="md-form">
-                    <input type="text" id="promotors2" class="form-control" name="promotors_24" v-model="second.promotors">
+                    <input type="text" id="promotors2" class="form-control" name="promotors_24" v-model="price_definition.price_second_year.promotors">
                     <label for="promotors2" class="">{{ lang('Promotors') }}</label>
                 </div>
                 <div class="md-form">
-                    <input type="text" id="export2" class="form-control" name="export_24" v-model="second.export">
+                    <input type="text" id="export2" class="form-control" name="export_24" v-model="price_definition.price_second_year.export">
                     <label for="export2" class="">{{ lang('Export') }}</label>
                 </div>
                 <!-- Checkbox -->
@@ -80,7 +80,7 @@
                 <div class="page-name-l mt-4 mb-3">{{ lang('Circulation') }}</div>
                 <div class="mb-3">
                     <fieldset class="form-group" v-for="(offer, index) in offers">
-                        <input type="radio" v-bind:id="'cir-' + index" name="circulations" value="1" v-model="offer.is_final">
+                        <input type="radio" v-bind:id="'cir-' + index" name="circulations" v-bind:value="offer.id" v-model="selected_circulation">
                         <label v-bind:for="'cir-' + index">{{ offer.title }}</label>
                     </fieldset>
                 </div>
@@ -89,7 +89,7 @@
 
         <div class="page-name-xl mb-4 mt-3">{{ lang('Retail price definition') }}</div>
         <div class="md-form">
-            <input type="text" id="form15" class="form-control" name="final_price" v-model="">
+            <input type="text" id="form15" class="form-control" name="final_price" v-model="price_definition.retail_price">
             <label for="form15" class="">{{ lang('Retail Price') }}</label>
         </div>
         <footer-buttons></footer-buttons>
@@ -116,21 +116,25 @@
                     field:0,
                     promotors:0,
                     export: 0
-                }
+                },
+                selected_circulation: 0
             }
         },
         components: {
             'footer-buttons' : FooterButtons
         },
         computed: {
+            price_definition() {
+                return this.$deepModel('proposition.price_definition');
+            },
             offers() {
                 return this.$deepModel('proposition.print.offers');
             },
             total() {
-                return Number(this.first.retail) + Number(this.first.wholesale) + Number(this.first.direct) + Number(this.first.field) + Number(this.first.promotors) + Number(this.first.export)
+                return Number(this.price_definition.price_first_year.retail) + Number(this.price_definition.price_first_year.wholesale) + Number(this.price_definition.price_first_year.direct) + Number(this.price_definition.price_first_year.field) + Number(this.price_definition.price_first_year.promotors) + Number(this.price_definition.price_first_year.export)
             },
             total2() {
-                return Number(this.second.retail) + Number(this.second.wholesale) + Number(this.second.direct) + Number(this.second.field) + Number(this.second.promotors) + Number(this.second.export)
+                return Number(this.price_definition.price_second_year.retail) + Number(this.price_definition.price_second_year.wholesale) + Number(this.price_definition.price_second_year.direct) + Number(this.price_definition.price_second_year.field) + Number(this.price_definition.price_second_year.promotors) + Number(this.price_definition.price_second_year.export)
             }
         },
         methods: {
@@ -140,8 +144,15 @@
             if (this.$route.params.id != 0) {
                 this.$store.dispatch('proposition/print/getData', {id: this.$route.params.id})
                     .then(() => {
+                        _.forEach(this.offers, (o) => {
+                            if (o.is_final) {
+                                this.selected_circulation = o.id;
+                            }
+                        });
                     });
+                this.$store.dispatch('proposition/price_definition/getData', {id: this.$route.params.id});
             }
+
         }
     }
 </script>

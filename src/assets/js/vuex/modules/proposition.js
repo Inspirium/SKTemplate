@@ -16,6 +16,7 @@ import technical_data from './proposition/technical_data'
 import owner from './proposition/owner'
 import calculation from './proposition/calculation'
 import compare from './proposition/compare'
+import price_definition from "./proposition/price_definition"
 
 export default {
     namespaced: true,
@@ -34,6 +35,7 @@ export default {
         authors_expense : authors_expense,
         calculation : calculation,
         compare : compare,
+        price_definition: price_definition,
         owner: owner
     },
     state: {
@@ -46,6 +48,7 @@ export default {
             departments: [],
             employees: []
         },
+        retail_price: 0,
         error: ''
     },
     mutations: {
