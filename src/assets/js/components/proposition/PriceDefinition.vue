@@ -34,7 +34,7 @@
                 </div>
                 <!-- Checkbox -->
                 <div class="page-name-m mt-4">{{ lang('Total') }}</div>
-                <div class="form-inline mb-3 display-4">{{ total | flexCurrency(' kn', 2) }}</div>
+                <div class="form-inline mb-3 display-4">{{ total }}</div>
             </div>
 
 
@@ -70,7 +70,7 @@
                 </div>
                 <!-- Checkbox -->
                 <div class="page-name-m mt-4">{{ lang('Total') }}</div>
-                <div class="form-inline mb-3 display-4">{{ total2 | flexCurrency(' kn', 2) }}</div>
+                <div class="form-inline mb-3 display-4">{{ total2 }}</div>
             </div>
         </div>
 
@@ -79,9 +79,9 @@
             <div class="col-md-12">
                 <div class="page-name-l mt-4 mb-3">{{ lang('Circulation') }}</div>
                 <div class="mb-3">
-                    <fieldset class="form-group" v-for="(offer, index) in offers">
-                        <input type="radio" v-bind:id="'cir-' + index" name="circulations" v-bind:value="offer.id" v-model="selected_circulation">
-                        <label v-bind:for="'cir-' + index">{{ offer.title }}</label>
+                    <fieldset class="form-group" v-for="(title, id) in price_definition.offers">
+                        <input type="radio" v-bind:id="'cir-' + id" name="circulations" v-bind:value="id" v-model="price_definition.selected_circulation">
+                        <label v-bind:for="'cir-' + id">{{ title }}</label>
                     </fieldset>
                 </div>
             </div>
@@ -101,23 +101,6 @@
     export default {
         data: function () {
             return {
-                first: {
-                    retail: 0,
-                    wholesale: 0,
-                    direct: 0,
-                    field:0,
-                    promotors:0,
-                    export: 0
-                },
-                second: {
-                    retail: 0,
-                    wholesale: 0,
-                    direct: 0,
-                    field:0,
-                    promotors:0,
-                    export: 0
-                },
-                selected_circulation: 0
             }
         },
         components: {
@@ -126,9 +109,6 @@
         computed: {
             price_definition() {
                 return this.$deepModel('proposition.price_definition');
-            },
-            offers() {
-                return this.$deepModel('proposition.print.offers');
             },
             total() {
                 return Number(this.price_definition.price_first_year.retail) + Number(this.price_definition.price_first_year.wholesale) + Number(this.price_definition.price_first_year.direct) + Number(this.price_definition.price_first_year.field) + Number(this.price_definition.price_first_year.promotors) + Number(this.price_definition.price_first_year.export)
@@ -142,14 +122,6 @@
         },
         mounted() {
             if (this.$route.params.id != 0) {
-                this.$store.dispatch('proposition/print/getData', {id: this.$route.params.id})
-                    .then(() => {
-                        _.forEach(this.offers, (o) => {
-                            if (o.is_final) {
-                                this.selected_circulation = o.id;
-                            }
-                        });
-                    });
                 this.$store.dispatch('proposition/price_definition/getData', {id: this.$route.params.id});
             }
 

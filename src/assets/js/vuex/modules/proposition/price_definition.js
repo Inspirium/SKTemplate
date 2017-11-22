@@ -19,7 +19,9 @@ export default {
             promotors:0,
             export: 0
         },
-        retail_price: 0
+        retail_price: 0,
+        selected_circulation: 0,
+        offers: {}
     },
     mutations: {
         initData(state, payload) {
