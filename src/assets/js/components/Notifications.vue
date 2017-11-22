@@ -41,6 +41,10 @@
             }, response => {
                 // error callback
             });
+            Echo.private('users.' + window.Laravel.userId)
+                .notification((notification) => {
+                    this.notifications.push(notification)
+                });
         },
         methods: {
             timed: function(value){

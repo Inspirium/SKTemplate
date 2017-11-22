@@ -22,6 +22,7 @@
     <script>
         window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),
+            'userId' => Auth::id()
         ]) !!};
         window.translations = {!! Storage::disk('langs')->get(App::getLocale().'.json') !!};
     </script>
