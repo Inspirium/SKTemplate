@@ -16,8 +16,8 @@
 
     <nav class="col navbar d-flex flex-row-reverse navbar-toggleable-md scrolling-navbar double-nav">
         <div class="dropdown">
-            <a class="nav-link dropdown-toggle user-nav" data-toggle="dropdown" href="#" role="button" >{{ Auth::user()->name }}
-                <img src="{{ Auth::user()->employee->image }}" class="header-profile">
+            <a class="nav-link dropdown-toggle user-nav" data-toggle="dropdown" href="#" role="button" >{{ Auth::user()->first_name }}
+                <img src="{{ Auth::user()->image }}" class="header-profile">
             </a>
             <div class="dropdown-menu dropdown-ins dropdown-menu-right dropdown-custom-login">
                 <div class="user-box">
