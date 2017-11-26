@@ -5,7 +5,7 @@
 <div class="profile-head row py-4 d-flex flex-column justify-content-center align-items-center">
     <div class="col-md-12">
         <h1 class="display-3 text-white text-center">{{ $employee->first_name }} {{ $employee->last_name }}</h1>
-        <h4 class="text-white text-center pt-1">{{ $employee->department->name }}</h4>
+        <h4 class="text-white text-center pt-1">{{ $employee->department?$employee->department->name:'' }}</h4>
     </div>
 </div>
 

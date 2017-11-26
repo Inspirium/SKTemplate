@@ -25,7 +25,7 @@
                 </div>
 
                 <div class="pos-rel">
-                    <select class="mdb-select">
+                    <select class="mdb-select" v-model="employee.department_id">
                         <option disabled>{{ lang('Choose Department') }}</option>
                         <option v-for="department in departments" v-bind:value="department.id">{{ department.name }}</option>
                     </select>
@@ -101,6 +101,10 @@
                         </div>
                     </div>
                 </div>
+                <div class="md-form">
+                    <input type="password" class="form-control" name="password" v-model="employee.password">
+                    <label>{{ lang('Password') }}</label>
+                </div>
             </div>
 
             <div class="col-md-6 order-sm-first">
@@ -115,7 +119,7 @@
         <!-- Footer buttons -->
         <div class="btn-footer mt-2 mb-5 d-flex p-2">
             <button type="submit" class="btn btn-lg btn-save" v-on:click="saveEmployee">{{ lang('Save') }}</button>
-            <button type="button" class="btn btn-lg btn-cancel">{{ lang('Cancel') }}</button>
+            <button type="button" class="btn btn-lg btn-cancel" v-on:click="$router.go(-1)">{{ lang('Cancel') }}</button>
         </div>
     </div>
 </template>
@@ -150,9 +154,10 @@
                     postal_code: '',
                     image: '',
                     sex: '',
-                    department: ''
+                    department_id: '',
                 },
-                new_image: false
+                new_image: false,
+                password: ''
             }
         },
         methods: {
@@ -173,7 +178,12 @@
                 for ( let key in this.employee ) {
                     data.append(key, this.employee[key]);
                 }
-                data.append('new_image', this.new_image.files[0], this.new_image.files[0].name);
+                if (this.new_image) {
+                    data.append('new_image', this.new_image.files[0], this.new_image.files[0].name);
+                }
+                if (this.password) {
+                    data.append('password', this.password);
+                }
                 axios.post('/api/human_resources/employee/' + this.$route.params.id, data)
                     .then(() => {
                         toastr.success('Succesfully saved an employee');
@@ -182,11 +192,23 @@
         },
         mounted() {
             if (this.$route.params.id) {
-                axios.get('/api/human_resources/employee/' + this.$route.params.id)
+                axios.get('/api/human_resources/departments')
                     .then((res) => {
-                        this.employee = res.data;
+                        this.departments = res.data;
+                        axios.get('/api/human_resources/employee/' + this.$route.params.id)
+                            .then((res) => {
+                                this.employee = res.data;
+                                setTimeout(() => {
+                                    $('.mdb-select').material_select('destroy');
+                                    $('.mdb-select').material_select();
+                                }, 300);
+
+                            })
+                            .catch(() => {});
                     })
                     .catch(() => {});
+
+
             }
         }
     }
