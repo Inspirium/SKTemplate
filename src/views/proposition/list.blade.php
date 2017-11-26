@@ -28,7 +28,7 @@
                 @foreach($approval as $prop)
                 <tr>
                     <th scope="row">{{ $loop->iteration }}</th>
-                    <td data-title="@lang('Title')" class="table-title">{{ $prop->title }}</td>
+                    <td data-title="@lang('Title')" class="table-title"><a href="{{ url('proposition/'.$prop->id.'/edit/start') }}">{{ $prop->title }}</a></td>
                     <td data-title="@lang('Author')"><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-2" src="{{ $prop->owner->image }}">{{ $prop->owner->name }}</a></td>
                     <td data-title="@lang('Waiting Approval')" data-title="Crea" >{{ $prop->created_at }}</td>
                     <td></td>

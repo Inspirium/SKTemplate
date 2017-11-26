@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="content">
-    <form action="{{ url('administration/user/role/edit/'.$role->id) }}" method="post">
+    <form action="{{ $role->id?url('human_resources/role/'.$role->id.'/edit'):url('human_resources/role/edit') }}" method="post">
         {{ csrf_field() }}
         <div class="page-name-xl mb-4 mt-3">@lang("Roles")</div>
         <div class="col-md-5 mx-auto">

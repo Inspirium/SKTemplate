@@ -22,7 +22,7 @@
                         </div>
                         <div class="col-md-3">
                             <a href="#">
-                                <img class="profile-m-2 mr-1 float-left" src="/images/profile.jpg">
+                                <img class="profile-m-2 mr-1 float-left" v-bind:src="task.assignee.image">
                                 <h6 class="white-label">{{ lang('Assign to') }}</h6>
                                 <h3 class="mb-1 text-white">{{ task.assignee.name }}</h3>
                             </a>
@@ -101,7 +101,7 @@
                         </div>
                         <div class="col-md-3">
                             <a href="#">
-                                <img class="profile-m-2 mr-1 float-left" src="/images/profile.jpg">
+                                <img class="profile-m-2 mr-1 float-left" v-bind:src="task.assignee.image">
                                 <h6 class="white-label">{{ lang('Assign to') }}</h6>
                                 <h3 class="mb-1 text-white">{{ task.assignee.name }}</h3>
                             </a>

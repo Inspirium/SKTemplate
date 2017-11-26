@@ -376,26 +376,6 @@
                             order: 0,
                             key: 'administration',
                             children: {
-                                users: {
-                                    enabled: true,
-                                    path: '/administration/users',
-                                    title: 'Users'
-                                },
-                                add_user: {
-                                    enabled: true,
-                                    path: '/administration/users/edit',
-                                    title: 'Add User'
-                                },
-                                roles: {
-                                    enabled: true,
-                                    path: '/administration/roles',
-                                    title: 'Roles'
-                                },
-                                add_role: {
-                                    enabled: true,
-                                    path: '/administration/roles/edit',
-                                    title: 'Add Role'
-                                }
                             }
                         },
                         human_resources: {
@@ -413,6 +393,11 @@
                                     enabled: true,
                                     path: '/human_resources/departments',
                                     title: 'Departments'
+                                },
+                                roles: {
+                                    enabled: true,
+                                    path: '/human_resources/roles',
+                                    title: 'Roles'
                                 }
                             }
                         },
@@ -504,7 +489,10 @@
         },
         methods: {
             isGroupActive: function(val) {
-                return this.active[3] === val;
+                if (this.editing_proposition) {
+                    return this.active[3] === val;
+                }
+                return this.active[1] === val;
             },
             isActive: function(group, key) {
                 return this.$route.path === this.lroutes[group].children[key].path;

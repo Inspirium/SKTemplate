@@ -71,7 +71,7 @@
         <!-- Buttons -->
         <div class="btn-footer mt-2 mb-5 flex-column flex-md-row d-flex p-2">
             <button class="btn btn-lg btn-save" v-on:click="saveProposition">{{ lang('Save') }}</button>
-            <button class="btn btn-lg btn-save" v-on:click="sendForApproval" >{{ lang('Send on Approval') }}</button>
+            <button v-if="proposition.start.status !== 'requested'" class="btn btn-lg btn-save" v-on:click="sendForApproval" >{{ lang('Send on Approval') }}</button>
             <template v-if="proposition.deleted_at">
                 <button type="button" class="btn btn-lg btn-cancel" v-on:click="propRestore">{{ lang('Restore') }}</button>
             </template>
@@ -100,15 +100,15 @@
         },
         methods: {
             propDelete: function() {
-                axios.delete('/api/proposition/'+this.proposition.id)
+                axios.delete('/api/proposition/'+this.proposition.proposition_id)
                     .then((res) => {
                         window.location.href = '/propositions';
                     });
             },
             propRestore: function() {
-                axios.post('/api/proposition/restore/'+this.proposition.id)
+                axios.post('/api/proposition/'+this.proposition.proposition_id+'/restore')
                     .then((res) => {
-                        window.location.href = '/proposition/'+this.proposition.id+'/start';
+                        window.location.href = '/proposition/'+this.proposition.proposition_id+'/start';
                     });
             },
             saveProposition: function() {

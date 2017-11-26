@@ -7,7 +7,8 @@ export default {
         project_number: '',
         project_name: '',
         additional_project_number: '',
-        note: ''
+        note: '',
+        status: ''
     },
     mutations: {
         initData(state, payload) {
@@ -15,6 +16,7 @@ export default {
             state.additional_project_number = payload.additional_project_number;
             state.project_name = payload.project_name;
             state.note = payload.note;
+            state.status = payload.status;
         }
     },
     actions: {
