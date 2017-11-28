@@ -14,6 +14,9 @@ export default {
                 let key = Object.keys(state)[i];
                 state[key] = payload[key];
             }
+        },
+        saveDate(state, payload) {
+            state.date = payload;
         }
     },
     actions: {

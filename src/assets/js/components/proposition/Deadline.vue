@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-md-5">
                     <div class="md-form">
-                        <input v-bind:placeholder="lang('Odaberi datum')" type="text" id="date-picker-example" class="form-control datepicker btn-white" v-bind:value="deadline.date">
+                        <input v-bind:placeholder="lang('Odaberi datum')" type="text" id="date-picker-example" class="form-control datepicker1 btn-white" v-bind:value="deadline.date">
                         <label for="date-picker-example">{{ lang('Select Date') }}</label>
                     </div>
                 </div>
@@ -69,12 +69,12 @@
             if (this.$route.params.id != 0) {
                 this.$store.dispatch('proposition/deadline/getData', {id: this.$route.params.id});
             }
-            $('.datepicker').pickadate({
+            $('.datepicker1').pickadate({
                 format: 'dd. mm. yyyy.',
                 onSet: (context) => {
                     let date = new Date(context.select);
                     date = this.$options.filters.moment(date, 'DD. MM. YYYY.');
-                    this.vuexSet('proposition.deadline.date', date);//TODO
+                    this.$store.commit('proposition/deadline/saveDate', date);
                 }
             });
 
