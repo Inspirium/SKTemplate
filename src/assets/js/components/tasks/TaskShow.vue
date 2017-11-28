@@ -220,7 +220,7 @@
                             <div class="page-name-l mt-2 mb-1">{{ lang('Task Description') }}</div>
                             <div>
                                 <h4 class="mb-1">{{ task.description }}</h4>
-                                <button type="button" class="btn btn-neutral btn-addon mb-4 mr-5" v-bind:href="task.related_link" v-if="task.related_link">{{ lang('Go To Project') }}</button>
+                                <router-link class="btn btn-neutral btn-addon mb-4 mr-5" v-bind:to="task.related_link" v-if="task.related_link">{{ lang('Go To Project') }}</router-link>
                             </div>
                         </div>
                         <div class="col-md-3">
