@@ -39,21 +39,21 @@
             <div class="col-md-4">
                 <!-- Input fileds -->
                 <div class="md-form">
-                    <input type="text" id="project-name" class="form-control" name="project-name" v-model="proposition.start.project_name">
+                    <input type="text" id="project-name" class="form-control" name="project-name" v-model="start.project_name">
                     <label for="project-name" class="">{{ lang('Project name') }}</label>
                 </div>
             </div>
             <div class="col-md-4">
                 <!-- Input fileds -->
                 <div class="md-form">
-                    <input type="text" id="project-number" class="form-control" name="project-number" v-model="proposition.start.project_number">
+                    <input type="text" id="project-number" class="form-control" name="project-number" v-model="start.project_number">
                     <label for="project-number" class="">{{ lang('Project number') }}</label>
                 </div>
             </div>
             <div class="col-md-4">
                 <!-- Input fileds -->
                 <div class="md-form">
-                    <input type="text" id="additional" class="form-control" name="additional" v-model="proposition.start.additional_project_number">
+                    <input type="text" id="additional" class="form-control" name="additional" v-model="start.additional_project_number">
                     <label for="additional" class="">{{ lang('Additional project number') }}</label>
                 </div>
             </div>
@@ -62,7 +62,7 @@
             <div class="col-md-12">
             <!-- Textarea -->
                 <div class="md-form mt-1">
-                    <textarea id="form76" class="md-textarea" v-model="proposition.start.note"></textarea>
+                    <textarea id="form76" class="md-textarea" v-model="start.note"></textarea>
                     <label for="form76">{{ lang('Note') }}</label>
                 </div>
             </div>
@@ -71,7 +71,7 @@
         <!-- Buttons -->
         <div class="btn-footer mt-2 mb-5 flex-column flex-md-row d-flex p-2">
             <button class="btn btn-lg btn-save" v-on:click="saveProposition">{{ lang('Save') }}</button>
-            <button v-if="proposition.start.status !== 'requested' && proposition.start.status !== 'approved'" class="btn btn-lg btn-save" v-on:click="sendForApproval" >{{ lang('Send on Approval') }}</button>
+            <button v-if="start.status !== 'requested' && start.status !== 'approved'" class="btn btn-lg btn-save" v-on:click="sendForApproval" >{{ lang('Send on Approval') }}</button>
             <template v-if="proposition.deleted_at">
                 <button type="button" class="btn btn-lg btn-cancel" v-on:click="propRestore">{{ lang('Restore') }}</button>
             </template>
@@ -83,30 +83,36 @@
         </div>
         <!--/. Footer buttons -->
         <proposition-approval-modal></proposition-approval-modal>
+        <not-saved-modal v-on:warning="continueNavigation"></not-saved-modal>
     </div>
 </template>
 <script>
     import PropositionApprovalModal from '../modals/PropositionApprovalModal'
+    import NotSavedModal from '../modals/WarningNotSavedModal'
     export default {
-        components: {PropositionApprovalModal},
+        components: {PropositionApprovalModal, NotSavedModal},
         data: function () {
             return {
+                next: false
             }
         },
         computed: {
             proposition() {
                 return this.$deepModel('proposition');
             },
+            start() {
+                return this.$deepModel('proposition.start');
+            },
         },
         methods: {
             propDelete: function() {
-                axios.delete('/api/proposition/'+this.proposition.proposition_id)
+                axios.delete('/api/proposition/'+this.$route.params.id)
                     .then((res) => {
                         window.location.href = '/propositions';
                     });
             },
             propRestore: function() {
-                axios.post('/api/proposition/'+this.proposition.proposition_id+'/restore')
+                axios.post('/api/proposition/'+this.$route.params.id+'/restore')
                     .then((res) => {
                         window.location.href = '/proposition/'+this.proposition.proposition_id+'/start';
                     });
@@ -115,13 +121,18 @@
                 this.$store.dispatch('proposition/start/saveData', this.$route.params.id)
                     .then(() => {
                         toastr.success(this.lang('Uspješno obavljeno'));
+                        this.$store.commit('editedFalse');
                     })
                     .catch(() => {
                         toastr.error(this.lang('Došlo je do problema. Pokušajte ponovno'));
-                    });;
+                    });
             },
             sendForApproval() {
                 jQuery('#propositionApprovalModal').modal('show')
+            },
+            continueNavigation() {
+                this.$store.commit('editedFalse');
+                this.next();
             }
         },
         mounted: function() {
@@ -130,6 +141,15 @@
             }
             else {
                 this.$store.dispatch('proposition/initData', {force: true, id: 0});
+            }
+        },
+        beforeRouteLeave(to, from, next) {
+            if (this.$store.state.edited) {
+                this.next = next;
+                $('#modal-warning-not-saved').modal('show');
+            }
+            else {
+                next();
             }
         }
     }

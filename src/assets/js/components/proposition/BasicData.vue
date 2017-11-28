@@ -223,6 +223,14 @@
             if (this.$route.params.id != 0) {
                 this.$store.dispatch('proposition/basic_data/getData', {id: this.$route.params.id});
             }
+        },
+        beforeRouteLeave(to, from, next) {
+            if (this.$store.state.edited) {
+                alert('data not saved');
+            }
+            else {
+                next();
+            }
         }
     }
 </script>

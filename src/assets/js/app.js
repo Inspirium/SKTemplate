@@ -53,6 +53,12 @@ router.beforeEach((to, from, next) => {
     }
 });
 
+store.subscribe((mutation, state) => {
+    if (mutation.type == 'VUEX_DEEP_SET') {
+        state.edited = true;
+    }
+});
+
 sync(store, router);
 window.vueRouter = router;
 

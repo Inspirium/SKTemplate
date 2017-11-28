@@ -12,6 +12,16 @@ export default new Vuex.Store({
         'proposition': proposition,
         'categorization': categorization
     },
-    mutations: VueDeepSet.extendMutation({}),
+    state: {
+        edited: false
+    },
+    mutations: VueDeepSet.extendMutation({
+        editedFalse(state) {
+            state.edited = false;
+        },
+        editedTrue(state) {
+            state.edited = true;
+        }
+    }),
     strict: false
 })
