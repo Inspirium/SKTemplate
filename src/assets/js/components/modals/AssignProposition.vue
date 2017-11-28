@@ -226,11 +226,11 @@
             assignValues: function() {
                 axios.post('/api/proposition/'+this.$route.params.id + '/assign', {employees: this.employees, departments: this.departments, description: this.description, date: this.date, access:this.access, priority: this.priority, path: window.location.href})
                     .then(() => {
-                        toastr.success(Vue.lang('Uspješno obavljeno'));
+                        toastr.success(this.lang('Uspješno obavljeno'));
                         $('#centralModalAssign').modal('hide');
                     })
                     .catch(() => {
-                        toastr.error(Vue.lang('Došlo je do problema. Pokušajte ponovno'));
+                        toastr.error(this.lang('Došlo je do problema. Pokušajte ponovno'));
                     })
             }
         },
