@@ -35,10 +35,10 @@
             saveProposition: function() {
                 this.$store.dispatch('proposition/' + this.$route.meta.save + '/saveData', this.$route.params.id)
                     .then(() => {
-                        toastr.success('Uspješno obavljeno');
+                        toastr.success(Vue.lang('Uspješno obavljeno'));
                     })
                     .catch(() => {
-                        toastr.error('Došlo je do problema. Pokušajte ponovno');
+                        toastr.error(Vue.lang('Došlo je do problema. Pokušajte ponovno'));
                     });
             },
             assignModalOpen: function() {

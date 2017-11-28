@@ -192,13 +192,13 @@
                 if (this.$route.params.id) {
                     axios.post('/api/human_resources/employee/' + this.$route.params.id, data)
                         .then(() => {
-                            toastr.success('Succesfully saved an employee');
+                            toastr.success(Vue.lang('Succesfully saved an employee'));
                         })
                 }
                 else {
                     axios.post('/api/human_resources/employee', data)
                         .then(() => {
-                            toastr.success('Succesfully saved an employee');
+                            toastr.success(Vue.lang('Succesfully saved an employee'));
                         })
                 }
             }

@@ -105,11 +105,11 @@
             assignValues: function() {
                 axios.post('/api/proposition/'+this.$route.params.id + '/approval', {employees: this.employees, departments: this.departments, description: this.description})
                     .then(() => {
-                        toastr.success('Uspješno obavljeno');
+                        toastr.success(Vue.lang('Uspješno obavljeno'));
                         $('#propositionApprovalModal').modal('hide');
                     })
                     .catch(() => {
-                        toastr.error('Došlo je do problema. Pokušajte ponovno');
+                        toastr.error(Vue.lang('Došlo je do problema. Pokušajte ponovno'));
                     })
             }
         }
