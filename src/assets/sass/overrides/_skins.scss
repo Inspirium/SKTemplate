@@ -105,12 +105,12 @@ $sk-skin-btn-default: #293756;
                 margin-left: .3rem;
                 vertical-align: middle;
             }
-         } 
+         }
         .md-form {
             margin: 1rem 0;
         }
     }
-    
+
     .side-nav {
         background-color: $sk-skin-flat;
         width: 260px;
@@ -400,6 +400,7 @@ $sk-skin-btn-default: #293756;
         top: 20px;
         font-size: 10px;
         z-index: 1;
+        cursor: pointer;
     }
     span.caret.disabled {
         display: none;
@@ -998,7 +999,7 @@ $sk-skin-btn-default: #293756;
     .file-box {
         background-color: $white;
         &> * {
-           margin-right: 1rem; 
+           margin-right: 1rem;
         }
         .file-box-sty {
             color: $color-body_text;
@@ -1123,7 +1124,7 @@ $sk-skin-btn-default: #293756;
         stroke: $sk-skin-accent;
     }
     #chart1 .ct-bar {
-        stroke-width: 10%; 
+        stroke-width: 10%;
     }
     ///Comments
     .comments {
@@ -1155,11 +1156,11 @@ $sk-skin-btn-default: #293756;
             }
         }
     }
-    
-    
-    
-    
-    
+
+
+
+
+
     @media only screen and (max-width: 768px) {
         table.table,
         tbody {
@@ -1181,7 +1182,7 @@ $sk-skin-btn-default: #293756;
                 }
             }
         }
-        thead, th { 
+        thead, th {
             display: none;
         }
         table tr,
@@ -1266,7 +1267,7 @@ $sk-skin-btn-default: #293756;
             left: -160px;
             .activity-item:first-child:before {
                 left: inherit;
-                right: 172px; 
+                right: 172px;
             }
         }
         .double-nav .dropdown .dropdown-menu .user-box {
@@ -1280,12 +1281,12 @@ $sk-skin-btn-default: #293756;
             padding-bottom: 2.5rem;
             }
         }
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
 }
 
 
