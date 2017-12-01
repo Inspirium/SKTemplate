@@ -53,7 +53,7 @@
                     <div class="file-box file-box-l d-flex align-items-center" v-for="(document,index) in basic_data.manuscript_documents">
                         <a v-bind:href="document.link" v-on:click.prevent="documentDownload(document.link)" class="file-icon">{{ document.title }}</a>
                         <div class="file-box-sty ml-auto d-flex">
-                            <a v-bind:href="'/human_resources/employee/show/'+document.owner.id"><img class="profile-m-1 mr-1 align-self-center" v-bind:src="document.owner.image">
+                            <a v-bind:href="'/human_resources/employee/'+document.owner.id+'/show'"><img class="profile-m-1 mr-1 align-self-center" v-bind:src="document.owner.image">
                                 {{ document.owner.name }}
                             </a></div>
                         <div class="file-box-sty">{{ document.date }}</div>
@@ -226,7 +226,8 @@
         },
         beforeRouteLeave(to, from, next) {
             if (this.$store.state.edited) {
-                alert('data not saved');
+                this.next = next;
+                $('#modal-warning-not-saved').modal('show');
             }
             else {
                 next();

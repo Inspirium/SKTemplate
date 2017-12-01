@@ -13,7 +13,7 @@
             <div class="file-box file-box-l d-flex align-items-center" v-for="(file,index) in jpg">
                 <a v-bind:href="file.link" v-on:click.prevent="documentDownload(file.link)" class="file-icon">{{ file.title }}</a>
                 <div class="file-box-sty ml-auto d-flex">
-                    <a v-bind:href="'human_resources/employee/show/'+file.owner.id"><img class="profile-m-1 mr-1 align-self-center" v-bind:src="file.owner.image">{{ file.owner.name }}</a>
+                    <a v-bind:href="'human_resources/employee/'+file.owner.id+'/show/'"><img class="profile-m-1 mr-1 align-self-center" v-bind:src="file.owner.image">{{ file.owner.name }}</a>
                 </div>
                 <div class="file-box-sty">{{ file.created_at.date | moment('DD.MM.YYYY.') }}</div>
                 <div class="file-box-sty icon icon-download" v-on:click="documentDownload(file.link)">Preuzmi</div>
@@ -28,7 +28,7 @@
             <div class="file-box file-box-l d-flex align-items-center" v-for="(file,index) in psd">
                 <a v-bind:href="file.link" v-on:click.prevent="documentDownload(file.link)" class="file-icon">{{ file.title }}</a>
                 <div class="file-box-sty ml-auto d-flex">
-                    <a v-bind:href="'human_resources/employee/show/'+file.owner.id"><img class="profile-m-1 mr-1 align-self-center" v-bind:src="file.owner.image">{{ file.owner.name }}</a>
+                    <a v-bind:href="'human_resources/employee/'+file.owner.id+'/show'"><img class="profile-m-1 mr-1 align-self-center" v-bind:src="file.owner.image">{{ file.owner.name }}</a>
                 </div>
                 <div class="file-box-sty">{{ file.created_at.date | moment('DD.MM.YYYY.') }}</div>
                 <div class="file-box-sty icon icon-download" v-on:click="documentDownload(file.link)">Preuzmi</div>

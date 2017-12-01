@@ -25,7 +25,7 @@
                 <div class="file-box file-box-l d-flex align-items-center" v-for="item in market_potential.market_potential_documents">
                     <a v-bind:href="item.link" class="file-icon" v-on:click.prevent="documentDownload(item.link)">{{ item.title }}</a>
                     <div class="file-box-sty ml-auto d-flex">
-                        <a v-bind:href="'/human_resources/employee/show/'+item.owner.id"><img class="profile-m-1 mr-1 align-self-center" v-bind:src="item.owner.image">{{ item.owner.name }}
+                        <a v-bind:href="'/human_resources/employee/show/'+item.owner.id+'/show'"><img class="profile-m-1 mr-1 align-self-center" v-bind:src="item.owner.image">{{ item.owner.name }}
                         </a></div>
                     <div class="file-box-sty">{{ item.created_at | moment("D.M.Y.") }}</div>
                     <div class="file-box-sty icon icon-download" v-on:click="documentDownload(item.link)">Preuzmi</div>

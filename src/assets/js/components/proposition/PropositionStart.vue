@@ -83,14 +83,13 @@
         </div>
         <!--/. Footer buttons -->
         <proposition-approval-modal></proposition-approval-modal>
-        <not-saved-modal v-on:warning="continueNavigation"></not-saved-modal>
+        <not-saved-modal v-on:warning="next()"></not-saved-modal>
     </div>
 </template>
 <script>
     import PropositionApprovalModal from '../modals/PropositionApprovalModal'
-    import NotSavedModal from '../modals/WarningNotSavedModal'
     export default {
-        components: {PropositionApprovalModal, NotSavedModal},
+        components: {PropositionApprovalModal},
         data: function () {
             return {
                 next: false
