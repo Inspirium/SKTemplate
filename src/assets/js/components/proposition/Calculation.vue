@@ -145,20 +145,22 @@
                         <th scope="row">6</th>
                         <td>Ukupno 1, 2, 3, 4, 5</td>
                         <td class="text-right"></td>
-                        <td class="text-right">{{ Number(authors_total) + Number(option.print_offer) + Number(marketing_expense) + Number(production_expense) + Number(design_layout_expense) | flexCurrency( '', 2) }}</td>
-                        <td class="text-right">{{ (Number(authors_total) + Number(option.print_offer) + Number(marketing_expense) + Number(production_expense) + Number(design_layout_expense)) / option.title | flexCurrency( ' kn', 2) }}</td>
+                        <td class="text-right">{{ totals[option.id].total_expenses | flexCurrency( '', 2) }}</td>
+                        <td class="text-right">{{ totals[option.id].total_expenses / option.title | flexCurrency( ' kn', 2) }}</td>
                     </tr>
                     <tr>
                         <th scope="row">7</th>
                         <td>Plaće izdavačkog sektora</td>
-                        <td></td>
                         <template v-if="currentEdit('compensation')">
-                            <td class="text-right"><input type="text" class="form-control" v-model="option.compensation" v-on:keyup.enter="closeEdit" autofocus></td>
+                            <td class="text-right"><input type="text" size="3" class="form-control" v-model="option.compensation" v-on:keyup.enter="closeEdit" autofocus></td>
                         </template>
                         <template v-else>
-                            <td class="table-editable text-right" v-on:click="editField('compensation')">{{ option.compensation | flexCurrency('', 2) }}</td>
+                            <td class="table-editable text-right" v-on:click="editField('compensation')">{{ option.compensation | percent }}</td>
                         </template>
-                        <td class="text-right">{{ option.compensation / option.title | flexCurrency( ' kn', 2) }}</td>
+                        <td class="text-right">{{ totals[option.id].total_expenses * (option.compensation) / 100 | flexCurrency( '', 2) }}</td>
+                        <td class="text-right">{{ totals[option.id].total_expenses * (option.compensation) / 100 / option.title | flexCurrency( ' kn', 2) }}</td>
+
+
                     </tr>
                     <tr class="table-display-1">
                         <th scope="row">8</th>
@@ -453,14 +455,15 @@
                         mprice = (Number(complete) - Number(this.dotation)) * (100 + Number(option.calculated_profit_percent)) / 100,
                         price = mprice * (100 + Number(option.shop_percent)) / 100;
                         options[option.id] = {
-                        direct_cost : Number(this.authors_total) + Number(option.print_offer) + Number(option.compensation)+Number(this.marketing_expense) + Number(this.production_expense) + Number(this.design_layout_expense),
-                        remainder_after_sales: remainder,
-                        complete_expense: complete,
-                        cost_coverage: (Number(complete) - Number(this.dotation)),
-                        manufacturer_price: mprice,
-                        price: price,
-                        total_cost: price * (100 + Number(option.vat_percent)) / 100
-                    };
+                            direct_cost : Number(this.authors_total) + Number(option.print_offer) + Number(option.compensation)*this.total_expenses/100 +Number(this.marketing_expense) + Number(this.production_expense) + Number(this.design_layout_expense),
+                            remainder_after_sales: remainder,
+                            complete_expense: complete,
+                            cost_coverage: (Number(complete) - Number(this.dotation)),
+                            manufacturer_price: mprice,
+                            price: price,
+                            total_cost: price * (100 + Number(option.vat_percent)) / 100,
+                            total_expenses: Number(this.authors_total) + Number(option.print_offer) + Number(this.marketing_expense) + Number(this.production_expense) + Number(this.design_layout_expense)
+                        };
                 });
                 return options;
             },
