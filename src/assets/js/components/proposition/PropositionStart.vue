@@ -113,7 +113,7 @@
             propRestore: function() {
                 axios.post('/api/proposition/'+this.$route.params.id+'/restore')
                     .then((res) => {
-                        window.location.href = '/proposition/'+this.proposition.proposition_id+'/start';
+                        window.location.href = '/propositions';
                     });
             },
             saveProposition: function() {
