@@ -1,4 +1,4 @@
-@extends('sktemplate::layout')
+    @extends('sktemplate::layout')
 
 @section('content')
     <div class="profile-head row py-4 d-flex flex-column justify-content-center align-items-center">
