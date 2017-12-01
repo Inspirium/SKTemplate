@@ -31,6 +31,8 @@ Vue.prototype.lang= function (key) {
 Vue.component('inspirium-tablesearch', require('./components/TableSearch.vue').default);
 Vue.component('inspirium-notifications', require('./components/Notifications.vue').default);
 Vue.component('inspirium-menu', require('./components/Menu.vue').default);
+Vue.component('not-saved-modal', require('./components/modals/WarningNotSavedModal.vue').default);
+Vue.component('inspirium-warning-modal', require('./components/modals/WarningModal.vue').default);
 
 Vue.use(VueMoment);
 Vue.use(VueRouter);

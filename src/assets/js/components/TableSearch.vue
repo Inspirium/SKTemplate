@@ -14,7 +14,7 @@
             <th v-for="(item, key) in computed_columns"
                 @click="sortBy(key)"
                 :class="{ active: sortKey == key }">
-                {{ lang(item['title']) | capitalize }}
+                {{ lang(item['title']) }}
                 <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'"></span>
             </th>
             <th>Actions</th>
@@ -36,11 +36,12 @@
             </td>
             <td>
                 <a class="color-grey" v-bind:href="links['edit'] | add_id(entry)" v-bind:title="lang('Edit')"><i class="fa fa-pencil"></i></a>
-                <a class="color-grey" v-bind:href="links['delete'] | add_id(entry)" v-bind:title="lang('Delete')"><i class="fa fa-times"></i></a>
+                <a class="color-grey" v-bind:href="links['delete'] | add_id(entry)" v-bind:title="lang('Delete')" v-on:click.prevent="deleteWarning(entry)"><i class="fa fa-times"></i></a>
             </td>
         </tr>
         </tbody>
     </table>
+        <inspirium-warning-modal v-on:warning="deleteUser"></inspirium-warning-modal>
     </div>
 </template>
 
@@ -61,7 +62,8 @@
             return {
                 sortKey: '',
                 sortOrders: sortOrders,
-                filterKey: ''
+                filterKey: '',
+                to_delete: 0
             }
         },
         computed: {
@@ -100,22 +102,27 @@
             }
         },
         filters: {
-            capitalize: function (str) {
-                return str.charAt(0).toUpperCase() + str.slice(1)
-            },
             add_id: function(str, entry) {
                 let toPath = pathToRegexp.compile(str);
                 return toPath({id: entry.id});
-            },
-            processRegex: function(str, entry) {
-                console.log(entry);
-                return '<img>'
             }
         },
         methods: {
             sortBy: function (key) {
                 this.sortKey = key;
                 this.sortOrders[key] = this.sortOrders[key] * -1
+            },
+            deleteWarning(entry) {
+                this.to_delete = entry;
+                $('#modal-warning').modal('show');
+            },
+            deleteUser() {
+                axios.delete(this.$options.filters.add_id(this.links['delete'], this.to_delete))
+                    .then(() => {
+                        this.data = _.filter(this.data, (o) => {
+                            return (o.id !== this.to_delete.id)
+                        })
+                    });
             }
         }
     }
