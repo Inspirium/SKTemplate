@@ -3,10 +3,10 @@
     <div class="row tabs-wrapper">
         <ul class="col nav classic-tabs tabs-cyan" id="tabs" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" data-toggle="tab" href="#panel0" role="tab" v-on:click="switchTab($event)">{{ lang('Precalculation') }}</a>
+                <a class="nav-link active" href="#panel0" id="tab0" role="tab" v-on:click.prevent="switchTab('#tab0')">{{ lang('Precalculation') }}</a>
             </li>
             <li class="nav-item" v-for="(option, key, index) in offers">
-                <a class="nav-link" data-toggle="tab" v-bind:href="'#panel'+(index+1)" v-bind:key="key"  role="tab" v-on:click="switchTab($event)">{{ option.title }}</a>
+                <a class="nav-link" v-bind:id="'tab'+(index+1)" v-bind:href="'#panel'+(index+1)" v-bind:key="key" role="tab" v-on:click.prevent="switchTab('#tab'+(index+1))">{{ option.title }}</a>
             </li>
         </ul>
     </div>
@@ -14,9 +14,9 @@
     <div class="tab-content">
         <div class="tab-pane fade active in show" id="panel0" role="tabpanel">
             <div class="page-name-xl mb-1 mt-3">{{ lang('Precalculation') }}</div>
-            <template v-for="(option, key, index) in offers">
+            <div v-for="(option, key, index) in offers" v-on:click.prevent="switchTab('#tab'+(index+1))">
                 <div class="page-name-l mb-1 mt-2">{{ lang('Option '+(index+1)) }}</div>
-                <a v-bind:href="'#panel'+(index+1)" class="hoverable d-block" data-toggle="tab" v-on:click="switchTab($event)">
+                <a  class="hoverable d-block" >
                     <div class="row text-white btn-sub2 d-flex py-2">
                         <div class="col-md-2">
                             <h6 class="no-border display-b text-white">{{ lang('Circulation') }}</h6>
@@ -45,7 +45,7 @@
                         </div>
                     </div>
                 </a>
-            </template>
+            </div>
         </div>
         <div class="tab-pane fade" v-bind:id="'panel'+(index+1)" role="tabpanel" v-for="(option, key, index) in offers" v-bind:key="key">
             <div class="profile-head-clear mt-3">
@@ -493,7 +493,7 @@
         },
         methods: {
             switchTab: function(e) {
-                $(e.target).tab('show');
+                $(e).tab('show');
                 $('.mdb-select').material_select('destroy');
                 $('.mdb-select').material_select();
             },
