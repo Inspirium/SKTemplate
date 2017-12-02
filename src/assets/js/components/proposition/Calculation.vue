@@ -76,7 +76,7 @@
                     </div>
                 </div>
             </div>
-            <div class="">
+            <div>
                 <!-- Table -->
                 <div class="page-name-xl mb-3 mt-4">{{ lang('Calculation') }}</div>
                 <table class="table">
@@ -172,14 +172,16 @@
                     <tr class="table-display-1">
                         <th scope="row">9</th>
                         <td>Indirektni troškovi</td>
-                        <td class="text-right"></td>
+
                         <template v-if="currentEdit('indirect_expenses')">
                             <td class="text-right"><input type="text" size="3" class="form-control" v-model="option.indirect_expenses" v-on:keyup.enter="closeEdit" autofocus></td>
                         </template>
                         <template v-else>
-                            <td class="table-editable text-right" v-on:click="editField('indirect_expenses')">{{ option.indirect_expenses | flexCurrency( '', 2) }}</td>
+                            <td class="table-editable text-right" v-on:click="editField('indirect_expenses')">{{ option.indirect_expenses | percent }}</td>
                         </template>
-                        <td class="text-right">{{ option.indirect_expenses / option.title | flexCurrency( ' kn', 2) }}</td>
+                        <td class="text-right">{{ totals[option.id].direct_cost * (option.indirect_expenses) / 100 | flexCurrency( '', 2) }}</td>
+                        <td class="text-right">{{ totals[option.id].direct_cost * (option.indirect_expenses) / 100 / option.title | flexCurrency( ' kn', 2) }}</td>
+
                     </tr>
                     <tr class="table-display-2">
                         <th scope="row">10</th>
@@ -454,9 +456,10 @@
                         complete = (Number(this.authors_total) + Number(option.print_offer) + Number(option.compensation) + Number(option.indirect_expenses) + Number(remainder) + Number(this.marketing_expense) + Number(this.production_expense) + Number(this.design_layout_expense)),
                         mprice = (Number(complete) - Number(this.dotation)) * (100 + Number(option.calculated_profit_percent)) / 100,
                         price = mprice * (100 + Number(option.shop_percent)) / 100;
+
                         options[option.id] = {
                             direct_cost : Number(this.authors_total) + Number(option.print_offer) + Number(option.compensation)*this.total_expenses/100 +Number(this.marketing_expense) + Number(this.production_expense) + Number(this.design_layout_expense),
-                            remainder_after_sales: remainder,
+                            remainder_after_sales: remainder-this.authors_advance,
                             complete_expense: complete,
                             cost_coverage: (Number(complete) - Number(this.dotation)),
                             manufacturer_price: mprice,
