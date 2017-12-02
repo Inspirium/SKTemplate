@@ -73,6 +73,25 @@
                         </div>
                     </div>
 
+                    <div class="comments">
+                        <div class="page-name-xl mb-3">{{ lang('Comments') }}</div>
+                        <!-- Textarea -->
+                        <div class="content">
+                            <div class="md-form mb-1">
+                                <textarea class="md-textarea" v-model="comment"></textarea>
+                            </div>
+                        </div>
+                        <div class="justify-content-end d-flex mb-2">
+                            <button type="button" class="btn btn-neutral" v-on:click="commentTask()">{{ lang('Send') }}</button>
+                        </div>
+                        <template v-if="task.thread">
+                            <div v-for="message in task.thread.messages">
+                                <h3 class="page-name-l mb-1"><span>{{ message.sender.name }},</span> {{ message.created_at | moment('DD.MM.YYYY., H:mm:ss') }}</h3>
+                                <p class="mb-4">{{ message.message }}</p>
+                            </div>
+                        </template>
+                    </div>
+
                     <!-- Footer buttons -->
                     <div class="btn-footer mt-2 mb-2 flex-column flex-md-row d-flex p-2">
                         <button v-if="task.related.status === 'requested'" type="submit" class="btn btn-lg btn-save" v-on:click="approveRequest">{{ lang('Approve') }}</button>
@@ -132,6 +151,25 @@
                                 <h4 v-bind:class="['mb-1', task_types[task.type].className]">{{ task_types[task.type].title }}</h4>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="comments">
+                        <div class="page-name-xl mb-3">{{ lang('Comments') }}</div>
+                        <!-- Textarea -->
+                        <div class="content">
+                            <div class="md-form mb-1">
+                                <textarea class="md-textarea" v-model="comment"></textarea>
+                            </div>
+                        </div>
+                        <div class="justify-content-end d-flex mb-2">
+                            <button type="button" class="btn btn-neutral" v-on:click="commentTask()">{{ lang('Send') }}</button>
+                        </div>
+                        <template v-if="task.thread">
+                            <div v-for="message in task.thread.messages">
+                                <h3 class="page-name-l mb-1"><span>{{ message.sender.name }},</span> {{ message.created_at | moment('DD.MM.YYYY., H:mm:ss') }}</h3>
+                                <p class="mb-4">{{ message.message }}</p>
+                            </div>
+                        </template>
                     </div>
 
                     <!-- Footer buttons -->
@@ -361,11 +399,11 @@
                             <!-- Textarea -->
                             <div class="content">
                                 <div class="md-form mb-1">
-                                    <textarea class="md-textarea"></textarea>
+                                    <textarea class="md-textarea" v-model="comment"></textarea>
                                 </div>
                             </div>
                             <div class="justify-content-end d-flex mb-2">
-                                <button type="button" class="btn btn-neutral" v-on:click="documentAdd('cover-jpg')">{{ lang('Send') }}</button>
+                                <button type="button" class="btn btn-neutral" v-on:click="commentTask()">{{ lang('Send') }}</button>
                             </div>
                             <template v-if="task.thread">
                                 <div v-for="message in task.thread.messages">
@@ -378,7 +416,6 @@
                     <!-- Footer buttons -->
                     <div class="btn-footer mt-2 mb-2 flex-column flex-md-row d-flex p-2">
                         <button v-if="task.status === 'new'" type="submit" class="btn btn-lg btn-save" v-on:click="acceptTask">{{ lang('Accept') }}</button>
-                        <button type="submit" class="btn btn-lg btn-default" v-on:click="openModal('modal-comment')">{{ lang('Comment') }}</button>
                         <button v-if="task.status === 'new'" type="submit" class="btn btn-lg btn-assign btn-assign-icon" v-on:click="openModal('modal-reassign')">{{ lang('Assign to...') }}</button>
                         <button v-if="task.status === 'accepted'" type="submit" class="btn btn-lg btn-assign btn-assign-icon" v-on:click="completeTask">{{ lang('Complete') }}</button>
                     </div>
@@ -387,8 +424,7 @@
                 <upload-modal id="initial-documents" action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" v-bind:dir="task.files.path" v-on:fileDelete="fileDelete" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave"></upload-modal>
                 <upload-modal id="final-documents" action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" v-bind:dir="task.files.path" v-on:fileDelete="fileDelete" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave" v-bind:isFinal="true"></upload-modal>
 
-                <!-- Modal for rejecting task -->
-                <modal-commented v-on:commented="commentTask"></modal-commented>
+
                 <!-- Modal for reassigning task -->
                 <modal-reassign v-on:reassign="reassignTask"></modal-reassign>
                 <warning-modal v-on:warning="fileDelete"></warning-modal>
@@ -402,7 +438,6 @@
     </div>
 </template>
 <script>
-    import ModalCommented from '../modals/Comment'
     import ModalReassign from '../modals/TaskReassign'
     import uploadModal from '../general/UploadModal'
     import WarningModal from '../modals/WarningModal'
@@ -473,11 +508,12 @@
                     high: 'High',
                     medium: 'Medium',
                     low: 'Low'
-                }
+                },
+                comment: ''
             }
         },
         components: {
-            ModalReassign, ModalCommented, uploadModal, WarningModal
+            ModalReassign, uploadModal, WarningModal
         },
         methods: {
             acceptTask() {
@@ -494,10 +530,11 @@
                     })
                     .catch((err) => {});
             },
-            commentTask(message) {
-                axios.post('/api/thread/' + this.task.thread.id + '/message', {message: message})
+            commentTask() {
+                axios.post('/api/thread/' + this.task.thread.id + '/message', {message: this.comment})
                     .then((res) => {
                         this.task.thread.messages = res.data;
+                        this.comment = '';
                     })
                     .catch((err) => {});
             },
