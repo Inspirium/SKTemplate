@@ -55,7 +55,7 @@
                 </template>
                 <template v-else-if="requests['author_expense.'+i] && requests['author_expense.'+i][0] && requests['author_expense.'+i][0].status === 'denied'">
                     <td class="text-right" v-bind:data-title="lang('Cost Rejected')">
-                        <div class="file-box-sty icon icon-cost-rejected">{{ lang('Cost Rejected') }}
+                        <div class="file-box-sty icon icon-cost-rejected" v-on:click="sendForApproval('author_expense.'+i)">{{ lang('Cost Rejected') }}
                         </div>
                     </td>
                 </template>
@@ -100,7 +100,7 @@
                 </template>
                 <template v-else-if="requests['production_expense.'+row['designation']] && requests['production_expense.'+row['designation']][0] && requests['production_expense.'+row['designation']][0].status === 'denied'">
                     <td class="text-right" v-bind:data-title="lang('Cost Rejected')">
-                        <div class="file-box-sty icon icon-cost-rejected">{{ lang('Cost Rejected') }}
+                        <div class="file-box-sty icon icon-cost-rejected" v-on:click="sendForApproval('production_expense.'+row['designation'])">{{ lang('Cost Rejected') }}
                         </div>
                     </td>
                 </template>
@@ -145,7 +145,7 @@
                 </template>
                 <template v-else-if="requests['layout_expense'] && requests['layout_expense'][0] && requests['layout_expense'][0].status === 'denied'">
                     <td class="text-right" v-bind:data-title="lang('Cost Rejected')">
-                        <div class="file-box-sty icon icon-cost-rejected">{{ lang('Cost Rejected') }}
+                        <div class="file-box-sty icon icon-cost-rejected" v-on:click="sendForApproval('layout_expense')">{{ lang('Cost Rejected') }}
                         </div>
                     </td>
                 </template>
@@ -190,7 +190,7 @@
                 </template>
                 <template v-else-if="requests['marketing_expense'] && requests['marketing_expense'][0] && requests['marketing_expense'][0].status === 'denied'">
                     <td class="text-right" v-bind:data-title="lang('Cost Denied')">
-                        <div class="file-box-sty icon icon-cost-rejected">{{ lang('Cost Rejected') }}
+                        <div class="file-box-sty icon icon-cost-rejected" v-on:click="sendForApproval('marketing_expense')">{{ lang('Cost Rejected') }}
                         </div>
                     </td>
                 </template>
