@@ -836,8 +836,9 @@ $sk-skin-btn-default: #293756;
     }
 
     /* Date Picker */
-    .picker__box {
+    .picker .picker__box {
         border: none;
+        border-radius: 11px;
         .picker__header {
             .picker__date-display {
                 background-color: $color-nav-sub;
@@ -858,21 +859,21 @@ $sk-skin-btn-default: #293756;
                 &:hover {
                     cursor: pointer;
                     color: $white;
-                    background: $color-table-th;
+                    background: lighten($color-table-th, 50%);
                 }
-                &:before {
-                    border-right: 0.75em solid $white;
-                }
+//                &:before {
+//                    border-right: 0.75em solid $white;
+//                }
             }
             .picker__nav--next {
                 &:hover {
                     cursor: pointer;
                     color: $white;
-                    background: $color-table-th;
+                    background: lighten($color-table-th, 50%);
                 }
                 &:before {
                     border-right: 0;
-                    border-left: 0.75em solid $white;
+//                    border-left: 0.75em solid $white;
                 }
             }
         }

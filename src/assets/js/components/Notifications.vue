@@ -6,7 +6,7 @@
         </a>
         <div class="dropdown-menu dropdown-ins dropdown-menu-right dropdown-custom-login">
             <div class="activity-box">
-                <div class="activity-item file-box-sty p-1 text-center d-block">Show All</div>
+                <div class="activity-item file-box-sty p-1 text-center d-block">Prikaži sve</div>
                 <div class="activity-item align-items-center d-flex" v-for="item in notifications">
                     <div class="activity-avatar file-box-sty d-flex align-items-center" v-if="item.data.sender">
                         <a v-bind:href="item.data.sender.link">
