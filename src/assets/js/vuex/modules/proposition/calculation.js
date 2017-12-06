@@ -48,6 +48,33 @@ export default {
         }
     },
     getters: {
+        totals(state) {
+            let options = {};
+            _.forEach(state.offers, (option) => {
+                let remainder = _.sumBy(Object.keys(state.author_expenses), (key) => {
+                        let e = this.author_expenses[key];
+                        return e.percentage * option.title * option.price_proposal / 100;
+                    }),
+                    complete = (Number(state.authors_total) + Number(option.print_offer) + Number(option.compensation) + Number(option.indirect_expenses) + Number(remainder) + Number(state.marketing_expense) + Number(state.production_expense) + Number(state.design_layout_expense)),
+                    mprice = (Number(complete) - Number(state.dotation)) * (100 + Number(option.calculated_profit_percent)) / 100,
+                    price = mprice * (100 + Number(option.shop_percent)) / 100,
+                    total_expenses = Number(state.authors_total) + Number(option.print_offer) + Number(state.marketing_expense) + Number(state.production_expense) + Number(state.design_layout_expense),
+                    direct_cost = Number(state.authors_total) + Number(option.print_offer) + Number(option.compensation)*total_expenses/100 +Number(state.marketing_expense) + Number(state.production_expense) + Number(state.design_layout_expense),
+                    indirect_expense = direct_cost * option.indirect_expenses / 100;
 
+                options[option.id] = {
+                    direct_cost: direct_cost,
+                    indirect_expense: indirect_expense,
+                    remainder_after_sales: remainder-state.authors_advance,
+                    complete_expense: complete,
+                    cost_coverage: (Number(complete) - Number(state.dotation)),
+                    manufacturer_price: mprice,
+                    price: price,
+                    total_cost: price * (100 + Number(option.vat_percent)) / 100,
+                    total_expenses: total_expenses
+                };
+            });
+            return options;
+        },
     }
 }

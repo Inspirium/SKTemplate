@@ -160,7 +160,6 @@
                         <td class="text-right">{{ totals[option.id].total_expenses * (option.compensation) / 100 | flexCurrency( '', 2) }}</td>
                         <td class="text-right">{{ totals[option.id].total_expenses * (option.compensation) / 100 / option.title | flexCurrency( ' kn', 2) }}</td>
 
-
                     </tr>
                     <tr class="table-display-1">
                         <th scope="row">8</th>
@@ -179,16 +178,16 @@
                         <template v-else>
                             <td class="table-editable text-right" v-on:click="editField('indirect_expenses')">{{ option.indirect_expenses | percent }}</td>
                         </template>
-                        <td class="text-right">{{ totals[option.id].direct_cost * (option.indirect_expenses) / 100 | flexCurrency( '', 2) }}</td>
-                        <td class="text-right">{{ totals[option.id].direct_cost * (option.indirect_expenses) / 100 / option.title | flexCurrency( ' kn', 2) }}</td>
+                        <td class="text-right">{{ totals[option.id].indirect_expense | flexCurrency( '', 2) }}</td>
+                        <td class="text-right">{{ totals[option.id].indirect_expense / option.title | flexCurrency( ' kn', 2) }}</td>
 
                     </tr>
                     <tr class="table-display-2">
                         <th scope="row">10</th>
                         <td>Direktni + Indirektni</td>
                         <td class="text-right"></td>
-                        <td class="text-right">{{ Number(totals[option.id].direct_cost) + Number(option.indirect_expenses) | flexCurrency( '', 2) }}</td>
-                        <td class="text-right">{{ (Number(totals[option.id].direct_cost) + Number(option.indirect_expenses)) / option.title | flexCurrency( ' kn', 2) }}</td>
+                        <td class="text-right">{{ Number(totals[option.id].direct_cost) + Number(totals[option.id].indirect_expense) | flexCurrency( '', 2) }}</td>
+                        <td class="text-right">{{ (Number(totals[option.id].direct_cost) + Number(totals[option.id].indirect_expense)) / option.title | flexCurrency( ' kn', 2) }}</td>
                     </tr>
                     <tr>
                         <th scope="row">11</th>
@@ -436,7 +435,7 @@
 <script>
     import FooterButtons from './partials/FooterButtons.vue';
     import { directive as onClickaway } from 'vue-clickaway';
-    import { mapState } from 'vuex'
+    import { mapState, mapGetters } from 'vuex'
 
     export default {
         data: function () {
@@ -446,30 +445,9 @@
             }
         },
         computed: {
-            totals() {
-                let options = {};
-                _.forEach(this.offers, (option) => {
-                    let remainder = _.sumBy(Object.keys(this.author_expenses), (key) => {
-                        let e = this.author_expenses[key];
-                            return e.percentage * option.title * option.price_proposal / 100;
-                        }),
-                        complete = (Number(this.authors_total) + Number(option.print_offer) + Number(option.compensation) + Number(option.indirect_expenses) + Number(remainder) + Number(this.marketing_expense) + Number(this.production_expense) + Number(this.design_layout_expense)),
-                        mprice = (Number(complete) - Number(this.dotation)) * (100 + Number(option.calculated_profit_percent)) / 100,
-                        price = mprice * (100 + Number(option.shop_percent)) / 100;
-
-                        options[option.id] = {
-                            direct_cost : Number(this.authors_total) + Number(option.print_offer) + Number(option.compensation)*this.total_expenses/100 +Number(this.marketing_expense) + Number(this.production_expense) + Number(this.design_layout_expense),
-                            remainder_after_sales: remainder-this.authors_advance,
-                            complete_expense: complete,
-                            cost_coverage: (Number(complete) - Number(this.dotation)),
-                            manufacturer_price: mprice,
-                            price: price,
-                            total_cost: price * (100 + Number(option.vat_percent)) / 100,
-                            total_expenses: Number(this.authors_total) + Number(option.print_offer) + Number(this.marketing_expense) + Number(this.production_expense) + Number(this.design_layout_expense)
-                        };
-                });
-                return options;
-            },
+            ...mapGetters('proposition/calculation', {
+                totals: 'totals'
+            }),
             ...mapState( 'proposition/calculation', {
                 authors_total: 'authors_total',
                 authors_advance: 'authors_advance',
