@@ -732,7 +732,8 @@ $sk-skin-btn-default: #293756;
         @extend .dropdown-box;
         min-width: 350px;
         position: relative;
-        left: -133px;
+        margin-left: -151px;
+        margin-right: -73px;
         .tasktype-1 {
             border-radius: 0.1rem;
             padding: 0px 5px;
@@ -1263,9 +1264,9 @@ $sk-skin-btn-default: #293756;
             }
         }
         .activity-box {
-            min-width: 100vw;
             position: relative;
-            left: -160px;
+            margin-left: -151px;
+            margin-right: -57px;
             .activity-item:first-child:before {
                 left: inherit;
                 right: 172px;

@@ -20,11 +20,11 @@
         <!-- Tab panels -->
         <div class="tab-content">
             <div class="tab-pane fade in show active" id="tasks" role="tabpanel">
-                <div class="page-name-xl mb-3 mt-2">{{ lang('New Tasks') }}
-                    <span class="tag tag-neutral text-white">{{ new_tasks.length }}</span>
-                </div>
                 <div class="justify-content-center mt-1 mb-2 flex-column flex-md-row d-flex p-2">
                     <button v-on:click="$router.push('/task/edit')" class="btn btn-lg btn-blank btn-plus-icon">{{ lang('Create new') }}</button>
+                </div>
+                <div class="page-name-xl mb-3 mt-2">{{ lang('New Tasks') }}
+                    <span class="tag tag-neutral text-white">{{ new_tasks.length }}</span>
                 </div>
                 <table class="table">
                     <thead class="thead-inverse">

@@ -278,6 +278,7 @@
     "Create new": "Dodaj novu",
     "Add new": "Dodaj novu",
     "Propositions": "Propozicije",
+    "Proposition": "Propozicija",
     "Users": "Korisnici",
     "Add User": "Dodaj korisnika",
     "Add Role": "Dodaj rolu",
@@ -384,5 +385,9 @@
     "Approval Request": "Odobrenje",
     "Production Expenses": "Produkcijski troškovi",
     "Warning": "Upozorenje",
-    "No": "Ne"
+    "No": "Ne",
+    "Data not saved, do you want to continue?": "Podaci nisu spremljeni, želite li ipak nastaviti?",
+    "Add": "Dodaj",
+    "has requested an proposition approval": "je zatražio/la odobrenje",
+    "Send": "Pošalji"
 }
