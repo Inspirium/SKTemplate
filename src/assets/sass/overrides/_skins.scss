@@ -18,13 +18,32 @@ $sk-skin-btn-primary: #309e9e;
 $sk-skin-btn-secondary: #324f7b;
 $sk-skin-btn-default: #293756;
 .sk-skin {
-    .file-box a {
-        color: $sk-skin-grey;
-    }
-    table.table a {
+    .page-name-xl a {
         color: $sk-skin-grey;
         &:hover {
             color: $sk-skin-accent;
+        }
+    }
+    img {
+        transition: .2s;
+        &:hover {
+            border: 2px solid $sk-skin-accent;
+            transition: .3s;
+        }
+    }
+    .file-box a {
+        color: $sk-skin-grey;
+    }
+    table.table { 
+        a {
+            color: $sk-skin-grey;
+            &:hover {
+                color: $sk-skin-accent;
+            }
+        }
+        td {
+            padding-top: 0;
+            padding-bottom: 0;
         }
     }
     .view {
