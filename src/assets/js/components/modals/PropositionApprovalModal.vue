@@ -8,7 +8,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true" class="white-text">&times;</span>
                     </button>
-                    <div class="d-flex">
+                    <div class="d-flex mx-auto">
                         <i class="fa fa-magic fa-4x mb-1 animated rotateInDownLeft"></i>
                         <h1 class="modal-title w-100 text-center">{{ lang('Cost Approve') }}</h1>
                     </div>
@@ -38,8 +38,8 @@
                 </div>
                 <!--Footer-->
                 <div class="modal-footer btn-footer">
-                    <button type="button" class="btn btn-lg btn-cancel" data-dismiss="modal">{{ lang('Cancel') }}</button>
                     <button type="button" class="btn btn-lg btn-save" v-on:click="assignValues">{{ lang('Assign') }}</button>
+                    <button type="button" class="btn btn-lg btn-cancel" data-dismiss="modal">{{ lang('Cancel') }}</button>
                 </div>
             </div>
             <!--/.Content-->
