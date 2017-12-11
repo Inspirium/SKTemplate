@@ -133,13 +133,12 @@
 
     <authors-modal v-on:authorAdded="authorAdded"></authors-modal>
 
-    <footer-buttons v-on:warning="fileDelete"></footer-buttons>
+    <proposition-footer-buttons v-on:warning="fileDelete(false)" v-on:warningSaved="next"></proposition-footer-buttons>
     </div>
 </template>
 
 <script>
     import uploadModal from '../general/UploadModal.vue';
-    import FooterButtons from './partials/FooterButtons.vue';
     import AuthorsModal from './partials/AuthorsModal.vue';
 
     export default {
@@ -150,11 +149,11 @@
                 author: '',
                 suggestions: [],
                 index_to_delete: 0,
+                next: false
             }
         },
         components: {
             'upload-modal' : uploadModal,
-            'footer-buttons' : FooterButtons,
             'authors-modal' : AuthorsModal
         },
         methods: {
@@ -169,8 +168,11 @@
                 this.index_to_delete = id;
                 jQuery('#modal-warning').modal('show');
             },
-            fileDelete: function () {
-                this.$store.dispatch('proposition/basic_data/deleteFile', this.index_to_delete);
+            fileDelete: function (id) {
+                if (!id) {
+                    id = this.index_to_delete;
+                }
+                this.$store.dispatch('proposition/basic_data/deleteFile', id);
                 this.index_to_delete = 0;
             },
             fileAdd: function(data) {

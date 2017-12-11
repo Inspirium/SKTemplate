@@ -29,7 +29,7 @@
                                 <a v-bind:href="file.link" class="file-icon mr-auto" v-on:click="fileNameEdit(file.id, $event)">{{ file.title }}</a>
                                 <div class="file-box-sty icon icon-edit" v-on:click="fileNameEdit(file.id)">{{ lang( 'Edit' ) }}</div>
                             </template>
-                            <div class="file-box-sty icon icon-cancel" v-on:click="fileDelete(file.id)">{{ lang('Delete') }}</div>
+                            <div class="file-box-sty icon icon-cancel" v-on:click="fileDelete(index)">{{ lang('Delete') }}</div>
                         </div>
                         <div class="progress" v-if="file.progress">
                             <div class="progress-bar info-color" role="progressbar" v-bind:style="{width: file.progress+'%'}"></div>
@@ -109,7 +109,7 @@
 
             },
             fileDelete: function(index) {
-                this.$emit('fileDelete', this.files[index].id);
+                this.$emit('fileDelete', this.files[index].id, this.isFinal);
                 this.files.splice(index, 1);
             },
             fileInputChange: function() {

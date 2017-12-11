@@ -53,7 +53,7 @@
             </div>
             <button class="btn btn-neutral btn-addon" type="button" v-on:click="addExpense">{{ lang('Add New Expense') }}</button>
 
-            <footer-buttons></footer-buttons>
+            <proposition-footer-buttons v-on:warningSaved="next"></proposition-footer-buttons>
         </template>
         <template v-else>
             <div class="loading-motion">
@@ -63,10 +63,11 @@
     </div>
 </template>
 <script>
-    import FooterButtons from './partials/FooterButtons.vue'
     export default {
         data: function () {
-            return {}
+            return {
+                next: false
+            }
         },
         computed: {
             expenses() {
@@ -75,9 +76,6 @@
             total: function() {
                 return Number(this.expenses.expense) +  _.sumBy(this.expenses.additional_expenses, function(o) { return Number(o.amount) });
             }
-        },
-        components: {
-            'footer-buttons' : FooterButtons
         },
         methods: {
             addExpense: function() {
@@ -90,6 +88,15 @@
         mounted: function() {
             if (this.$route.params.id != 0) {
                 this.$store.dispatch('proposition/marketing_expense/getData', {id: this.$route.params.id});
+            }
+        },
+        beforeRouteLeave(to, from, next) {
+            if (this.$store.state.edited) {
+                this.next = next;
+                $('#modal-warning-not-saved').modal('show');
+            }
+            else {
+                next();
             }
         }
     }

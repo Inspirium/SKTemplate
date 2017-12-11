@@ -35,7 +35,7 @@
         </div>
     </div>
         <upload-modal action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" dir="market_potential" v-on:fileDelete="fileDelete" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave"></upload-modal>
-        <footer-buttons v-on:warning="fileDelete"></footer-buttons>
+        <proposition-footer-buttons v-on:warningSaved="next" v-on:warning="fileDelete(false)"></proposition-footer-buttons>
     </div>
 </template>
 
@@ -45,7 +45,8 @@
     export default {
         data: function() {
             return {
-                index_to_delete: 0
+                index_to_delete: 0,
+                next: false
             }
         },
         components: {
@@ -65,8 +66,11 @@
                 window.open(link, "_blank");
                 return false;
             },
-            fileDelete: function () {
-                this.$store.dispatch('proposition/market_potential/deleteFile', this.index_to_delete);
+            fileDelete: function (id) {
+                if (!id) {
+                    id = this.index_to_delete;
+                }
+                this.$store.dispatch('proposition/market_potential/deleteFile', id);
                 this.index_to_delete = 0;
             },
             fileWarning(id) {
@@ -83,6 +87,15 @@
         mounted: function() {
             if (this.$route.params.id != 0) {
                 this.$store.dispatch('proposition/market_potential/getData', {id: this.$route.params.id});
+            }
+        },
+        beforeRouteLeave(to, from, next) {
+            if (this.$store.state.edited) {
+                this.next = next;
+                $('#modal-warning-not-saved').modal('show');
+            }
+            else {
+                next();
             }
         }
     }

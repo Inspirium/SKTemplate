@@ -79,18 +79,16 @@
     </div>
     <button class="btn btn-neutral btn-addon" type="button" v-on:click="addOtherExpense">{{ lang('Add New Author Expense') }}</button>
 
-    <footer-buttons></footer-buttons>
+    <proposition-footer-buttons v-on:warningSaved="next"></proposition-footer-buttons>
 </div>
 </template>
 
 <script>
-    import FooterButtons from './partials/FooterButtons.vue'
     export default {
         data: function() {
-            return {}
-        },
-        components: {
-            'footer-buttons': FooterButtons
+            return {
+                next: false
+            }
         },
         computed: {
             expenses() {
@@ -114,6 +112,15 @@
         mounted: function() {
             if (this.$route.params.id != 0) {
                 this.$store.dispatch('proposition/authors_expense/getData', {id: this.$route.params.id});
+            }
+        },
+        beforeRouteLeave(to, from, next) {
+            if (this.$store.state.edited) {
+                this.next = next;
+                $('#modal-warning-not-saved').modal('show');
+            }
+            else {
+                next();
             }
         }
     }

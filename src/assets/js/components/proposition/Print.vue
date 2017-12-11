@@ -207,7 +207,7 @@
             </div>
         </div>
     </div>
-    <footer-buttons></footer-buttons>
+    <proposition-footer-buttons v-on:warningSaved="next"></proposition-footer-buttons>
         </template>
         <template v-else>
             <h1>{{ lang('No print offers created') }}</h1>
@@ -215,16 +215,13 @@
 </div>
 </template>
 <script>
-    import FooterButtons from './partials/FooterButtons.vue'
     import {mapState} from 'vuex'
     export default {
         data: function () {
             return {
+                next: false,
                 option_colors: ['One Colour', 'Two Colours', 'Three Colours', 'Full Colour', 'Fifth Colour'],
             }
-        },
-        components: {
-            'footer-buttons' : FooterButtons
         },
         computed: {
             offers() {
@@ -246,6 +243,15 @@
                         $('.mdb-select').material_select('destroy');
                         $('.mdb-select').material_select();
                     });
+            }
+        },
+        beforeRouteLeave(to, from, next) {
+            if (this.$store.state.edited) {
+                this.next = next;
+                $('#modal-warning-not-saved').modal('show');
+            }
+            else {
+                next();
             }
         }
     }

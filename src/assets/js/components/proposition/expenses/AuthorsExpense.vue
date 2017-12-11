@@ -79,7 +79,7 @@
     </div>
     <button class="btn btn-neutral btn-addon" type="button" v-on:click="addOtherExpense">{{ lang('Add New Author Expense') }}</button>
 
-    <footer-buttons></footer-buttons>
+    <proposition-footer-buttons v-on:warningSaved="next"></proposition-footer-buttons>
 </div>
 </template>
 

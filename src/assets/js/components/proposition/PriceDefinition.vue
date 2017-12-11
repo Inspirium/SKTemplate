@@ -92,19 +92,16 @@
             <input type="text" id="form15" class="form-control" name="final_price" v-model="price_definition.retail_price">
             <label for="form15" class="">{{ lang('Retail Price') }}</label>
         </div>
-        <footer-buttons></footer-buttons>
+        <proposition-footer-buttons v-on:warningSaved="next"></proposition-footer-buttons>
     </div>
 
 </template>
 <script>
-    import FooterButtons from './partials/FooterButtons.vue'
     export default {
         data: function () {
             return {
+                next: false
             }
-        },
-        components: {
-            'footer-buttons' : FooterButtons
         },
         computed: {
             price_definition() {
@@ -125,6 +122,15 @@
                 this.$store.dispatch('proposition/price_definition/getData', {id: this.$route.params.id});
             }
 
+        },
+        beforeRouteLeave(to, from, next) {
+            if (this.$store.state.edited) {
+                this.next = next;
+                $('#modal-warning-not-saved').modal('show');
+            }
+            else {
+                next();
+            }
         }
     }
 </script>

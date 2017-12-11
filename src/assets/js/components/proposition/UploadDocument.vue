@@ -71,8 +71,17 @@
                 window.open(link, "_blank");
                 return false;
             },
-            fileDelete: function (index, type) {
-                this[type].splice(index, 1);
+            fileDelete: function (id, isFinal) {
+                if (isFinal) {
+                    this.final = _.filter(this.final, (file) => {
+                        return file.id !== id;
+                    })
+                }
+                else {
+                    this.files = _.filter(this.files, (file) => {
+                        return file.id !== id;
+                    })
+                }
             },
             fileAdd: function(data) {
                 if (data.isFinal) {

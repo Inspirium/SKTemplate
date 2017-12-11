@@ -44,23 +44,21 @@
             </div>
         </div>
     </div>
-        <footer-buttons></footer-buttons>
+        <proposition-footer-buttons v-on:warningSaved="next"></proposition-footer-buttons>
     </div>
 </template>
 <script>
-    import FooterButtons from './partials/FooterButtons.vue'
     import { vuexSet } from 'vue-deepset'
     export default {
         data: function () {
-            return {}
+            return {
+                next: false
+            }
         },
         computed: {
             deadline() {
                 return this.$deepModel('proposition.deadline');
             }
-        },
-        components: {
-            'footer-buttons' : FooterButtons
         },
         methods: {
             vuexSet: vuexSet
@@ -78,6 +76,15 @@
                 }
             });
 
+        },
+        beforeRouteLeave(to, from, next) {
+            if (this.$store.state.edited) {
+                this.next = next;
+                $('#modal-warning-not-saved').modal('show');
+            }
+            else {
+                next();
+            }
         }
     }
 </script>

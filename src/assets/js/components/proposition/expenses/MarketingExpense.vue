@@ -52,7 +52,7 @@
     </div>
     <button class="btn btn-neutral btn-addon" type="button" v-on:click="addExpense">{{ lang('Add New Expense') }}</button>
 
-    <footer-buttons></footer-buttons>
+    <proposition-footer-buttons v-on:warningSaved="next"></proposition-footer-buttons>
 </div>
 </template>
 <script>

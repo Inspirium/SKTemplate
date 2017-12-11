@@ -35,7 +35,3 @@
         name: "warning-modal"
     }
 </script>
-
-<style scoped>
-
-</style>

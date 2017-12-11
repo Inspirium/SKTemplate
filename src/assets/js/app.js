@@ -33,6 +33,7 @@ Vue.component('inspirium-notifications', require('./components/Notifications.vue
 Vue.component('inspirium-menu', require('./components/Menu.vue').default);
 Vue.component('not-saved-modal', require('./components/modals/WarningNotSavedModal.vue').default);
 Vue.component('inspirium-warning-modal', require('./components/modals/WarningModal.vue').default);
+Vue.component('proposition-footer-buttons', require('./components/proposition/partials/FooterButtons.vue').default);
 
 Vue.use(VueMoment);
 Vue.use(VueRouter);

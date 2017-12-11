@@ -315,7 +315,7 @@
             <textarea id="form76" class="md-textarea" v-model="expense.note"></textarea>
             <label for="form76">{{ lang('Note') }}</label>
         </div>
-        <footer-buttons></footer-buttons>
+        <proposition-footer-buttons v-on:warningSaved="next"></proposition-footer-buttons>
 
     </div>
 </template>

@@ -5,12 +5,14 @@
         <button class="btn btn-lg btn-assign btn-assign-icon" v-on:click="assignModalOpen">{{ lang('Assign to...') }}</button>
     </div>
         <assign-proposition></assign-proposition>
-        <warning-modal></warning-modal>
+        <warning-modal v-on:warning="$emit('warning')"></warning-modal>
+        <warning-not-saved-modal v-on:warning="$emit('warningSaved')"></warning-not-saved-modal>
     </div>
 </template>
 <script>
     import AssignProposition from '../../modals/AssignProposition'
     import WarningModal from '../../modals/WarningModal'
+    import WarningNotSavedModal from "../../modals/WarningNotSavedModal";
 
     export default {
         data: function () {
@@ -29,6 +31,7 @@
             }
         },
         components: {
+            WarningNotSavedModal,
             AssignProposition, WarningModal
         },
         methods: {
@@ -44,10 +47,10 @@
             },
             assignModalOpen: function() {
                 jQuery('#centralModalAssign').modal('show');
-            }
+            },
         },
         mounted: function() {
-        }
+        },
 
     }
 </script>

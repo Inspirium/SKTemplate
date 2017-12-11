@@ -206,22 +206,19 @@
         <textarea id="form76" class="md-textarea" v-model="technical_data.note"></textarea>
         <label for="form76">{{ lang('Note') }}</label>
     </div>
-        <footer-buttons></footer-buttons>
+        <proposition-footer-buttons v-on:warningSaved="next"></proposition-footer-buttons>
     </div>
 </template>
 
 <script>
-    import FooterButtons from './partials/FooterButtons.vue'
     export default {
         data: function() {
             return {
+                next: false,
                 circulation: '',
                 addition: '',
                 option_colors: ['One Colour', 'Two Colours', 'Three Colours', 'Full Colour', 'Fifth Colour'],
             }
-        },
-        components: {
-            'footer-buttons' : FooterButtons
         },
         computed: {
             technical_data() {
@@ -257,6 +254,15 @@
                         $('.mdb-select').material_select('destroy');
                         $('.mdb-select').material_select();
                     });
+            }
+        },
+        beforeRouteLeave(to, from, next) {
+            if (this.$store.state.edited) {
+                this.next = next;
+                $('#modal-warning-not-saved').modal('show');
+            }
+            else {
+                next();
             }
         }
     }

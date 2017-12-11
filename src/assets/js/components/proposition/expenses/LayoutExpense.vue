@@ -84,7 +84,7 @@
             </div>
         </div>
 
-    <footer-buttons></footer-buttons>
+    <proposition-footer-buttons v-on:warningSaved="next"></proposition-footer-buttons>
     </div>
 </div>
 </template>

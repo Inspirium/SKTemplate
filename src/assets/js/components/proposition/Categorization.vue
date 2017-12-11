@@ -191,19 +191,16 @@
         <textarea id="categorization_note" class="md-textarea" v-model="categorization.note"></textarea>
         <label for="categorization_note">{{ lang('Note') }}</label>
     </div>
-    <footer-buttons></footer-buttons>
+    <proposition-footer-buttons v-on:warningSaved="next"></proposition-footer-buttons>
 </div>
 </template>
 
 <script>
-    import FooterButtons from './partials/FooterButtons.vue'
     export default {
         data: function() {
             return {
+                next: false
             }
-        },
-        components: {
-            'footer-buttons': FooterButtons
         },
         mounted: function() {
             if (this.$route.params.id != 0) {
@@ -300,6 +297,15 @@
                     $('.mdb-select').material_select('destroy');
                     $('.mdb-select').material_select();
                 }, 500);
+            }
+        },
+        beforeRouteLeave(to, from, next) {
+            if (this.$store.state.edited) {
+                this.next = next;
+                $('#modal-warning-not-saved').modal('show');
+            }
+            else {
+                next();
             }
         }
     }

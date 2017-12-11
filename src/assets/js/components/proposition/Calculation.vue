@@ -429,11 +429,10 @@
             </div>
     </div>
 
-    <footer-buttons></footer-buttons>
+    <proposition-footer-buttons v-on:warningSaved="next"></proposition-footer-buttons>
 </div>
 </template>
 <script>
-    import FooterButtons from './partials/FooterButtons.vue';
     import { directive as onClickaway } from 'vue-clickaway';
     import { mapState, mapGetters } from 'vuex'
 
@@ -442,6 +441,7 @@
             return {
                 option_colors: ['One Colour', 'Two Colours', 'Three Colours', 'Full Colour', 'Fifth Colour'],
                 activeEdit: '',
+                next: false
             }
         },
         computed: {
@@ -459,9 +459,6 @@
                 dotation: 'dotation',
                 offers: 'offers'
             })
-        },
-        components: {
-            'footer-buttons' : FooterButtons
         },
         filters: {
             percent: function(value) {
@@ -495,6 +492,15 @@
                         $('.mdb-select').material_select('destroy');
                         $('.mdb-select').material_select();
                     });
+            }
+        },
+        beforeRouteLeave(to, from, next) {
+            if (this.$store.state.edited) {
+                this.next = next;
+                $('#modal-warning-not-saved').modal('show');
+            }
+            else {
+                next();
             }
         }
     }
