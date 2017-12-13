@@ -441,5 +441,9 @@
   "New task assigned": "Novi zadatak je dodijeljen",
   ":assigner has assigned you a new task :task": ":assigner ti je dodijelio novi zadatak :task",
   "Task has been marked as completed": "Zadatak je označen kao završen",
-  ":assignee has marked task \":task\" as completed": ":assignee je označio zadatak: \":task\" kao završen"
+  ":assignee has marked task \":task\" as completed": ":assignee je označio zadatak: \":task\" kao završen",
+  "Approval Request has been denied": "",
+  "Approval Request has been accepted": "",
+  ":requestee has denied your request in :related": ":requestee je odbio tvoj zahtjev u :related",
+  ":requestee has accepted your request in :related": ":requestee je odobrio tvoj zahtjev u :related"
 }
