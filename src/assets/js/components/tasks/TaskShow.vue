@@ -85,7 +85,7 @@
                             <button type="button" class="btn btn-neutral" v-on:click="commentTask()">{{ lang('Send') }}</button>
                         </div>
                         <template v-if="task.thread">
-                            <div v-for="message in task.thread.messages">
+                            <div v-for="message in filteredMessages">
                                 <h3 class="page-name-l mb-1"><span>{{ message.sender.name }},</span> {{ message.created_at | moment('DD.MM.YYYY., H:mm:ss') }}</h3>
                                 <p class="mb-4">{{ message.message }}</p>
                             </div>
@@ -165,7 +165,7 @@
                             <button type="button" class="btn btn-neutral" v-on:click="commentTask()">{{ lang('Send') }}</button>
                         </div>
                         <template v-if="task.thread">
-                            <div v-for="message in task.thread.messages">
+                            <div v-for="message in filteredMessages">
                                 <h3 class="page-name-l mb-1"><span>{{ message.sender.name }},</span> {{ message.created_at | moment('DD.MM.YYYY., H:mm:ss') }}</h3>
                                 <p class="mb-4">{{ message.message }}</p>
                             </div>
@@ -215,28 +215,6 @@
                             <h3 class="mb-1 text-white">{{ task.deadline | moment("DD.MM.") }}</h3>
                         </div>
                     </div>
-
-<!--
-                     Task Completition Time
-                    <div class="task-c-time row">
-                        <h3 class="tct col-md-5 text-white align-self-center text-sm-center text-md-right my-3">{{ lang('Task Completion Time') }}
-                        </h3>
-                        <div class="col-md-3">
-                            <div class="md-form align-self-center">
-                                <input type="number" id="hours"  class="form-control" placeholder="Hours">
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="md-form">
-                                <input type="number" id="minutes" class="form-control" placeholder="Minutes">
-                            </div>
-                        </div>
-                        <div class="col-md-1">
-                            <div class="btn-save-small">Save
-                            </div>
-                        </div>
-                    </div>
--->
 
                     <!-- Stopwatch -->
                     <div class="page-name-xl mt-2 mb-4">{{ lang('Working Time') }}</div>
@@ -307,93 +285,6 @@
                         <button type="button" class="btn btn-neutral" v-on:click="documentAdd('final-documents')">{{ lang('Upload') }}</button>
                     </div>
 
-                    <template v-if="documents">
-                    <!-- File/document table -->
-                    <div class="page-name-l mb-1 mt-2">{{ lang('Documents') }}</div>
-                    <div class="files mt-2 mb-2">
-                        <div class="file-box file-box-l d-flex align-items-center">
-                            <a href="http://homestead.app/images/profile.pdf" class="file-icon">Fizika i društvo.doc</a>
-                            <div class="file-box-sty ml-auto d-flex">
-                                <a href=""><img class="profile-m-1 mr-1 align-self-center" src="/images/profile.jpg">Jelena Lončarić
-                                </a></div>
-                            <div class="file-box-sty">19.07.2017.</div>
-                            <div class="file-box-sty icon icon-download">Preuzmi</div>
-                            <div class="file-box-sty icon icon-cancel">Obriši</div>
-                        </div>
-                        <div class="file-box file-box-l d-flex align-items-center">
-                            <a href="http://homestead.app/images/profile.pdf" class="file-icon">Fizika i društvo.doc</a>
-                            <div class="file-box-sty ml-auto d-flex">
-                                <a href=""><img class="profile-m-1 mr-1 align-self-center" src="/images/profile.jpg">Jelena Lončarić
-                                </a></div>
-                            <div class="file-box-sty">19.07.2017.</div>
-                            <div class="file-box-sty icon icon-download">Preuzmi</div>
-                            <div class="file-box-sty icon icon-cancel">Obriši</div>
-                        </div>
-                    </div>
-
-                    <!-- Footer buttons -->
-                        <template v-if="task.status==='new'">
-                        <div class="btn-footer mt-2 mb-2 flex-column flex-md-row d-flex p-2">
-                            <button type="submit" class="btn btn-lg btn-save">{{ lang('Accept') }}</button>
-                            <button type="submit" class="btn btn-lg btn-cancel">{{ lang('Reject') }}</button>
-                            <button type="submit" class="btn btn-lg btn-assign btn-assign-icon">{{ lang('Assign to...') }}</button>
-                        </div>
-                        </template>
-                        <template v-else>
-
-                        </template>
-
-                    <!-- File/document table -->
-                    <div class="page-name-xl mb-1">{{ lang('Documents') }}</div>
-                    <div class="files mt-2 mb-2">
-                        <div class="file-box file-box-l d-flex align-items-center">
-                            <a href="http://homestead.app/images/profile.pdf" class="file-icon">Fizika i društvo.doc</a>
-                            <div class="file-box-sty ml-auto d-flex">
-                                <a href=""><img class="profile-m-1 mr-1 align-self-center" src="/images/profile.jpg">Stjepan Drmić
-                                </a></div>
-                            <div class="file-box-sty">19.07.2017.</div>
-                            <div class="file-box-sty icon icon-download">Preuzmi</div>
-                            <div class="file-box-sty icon icon-cancel">Obriši</div>
-                        </div>
-                    </div>
-                    <button class="btn btn-neutral d-block mx-auto btn-addon" type="button">{{ lang('Upload') }}</button>
-
-                    <!-- Footer buttons -->
-                    <div class="btn-footer mt-2 mb-2 flex-column flex-md-row d-flex p-2">
-                        <button type="submit" class="btn btn-lg btn-attention">{{ lang('Send on Approval') }}</button>
-                    </div>
-
-                    <!-- File/document table -->
-                    <div class="page-name-xl mb-1">{{ lang('Documents') }}</div>
-                    <div class="files mt-2">
-                        <div class="file-box file-box-l d-flex align-items-center" v-for="document in task.files" v-key="document.id">
-                            <a v-bind:href="document.link" class="file-icon">{{ document.title }}</a>
-                            <div class="file-box-sty ml-auto d-flex">
-                                <a href=""><img class="profile-m-1 mr-1 align-self-center" v-bind:src="document.owner.image">{{ document.owner.name }}</a>
-                            </div>
-                            <div class="file-box-sty">{{ document.created_at | moment( "dd.MM.YYYY." ) }}</div>
-                            <div v-bind:class="['file-box-sty icon', this.statuses[document.status].className ]">{{ lang(this.statuses[document.status].title) }}</div>
-                        </div>
-                        <div class="file-box file-box-l d-flex align-items-center">
-                            <a href="http://homestead.app/images/profile.pdf" class="file-icon">Fizika i društvo.doc</a>
-                            <div class="file-box-sty ml-auto d-flex">
-                                <a href=""><img class="profile-m-1 mr-1 align-self-center" src="/images/profile.jpg">Stjepan Drmić</a>
-                            </div>
-                            <div class="file-box-sty">24.07.2017.</div>
-                            <div class="file-box-sty icon icon-approval-comments">{{ lang('Comments') }}</div>
-                            <div class="file-box-sty icon icon-approval-no">{{ lang('Approval Denied') }}</div>
-                        </div>
-                        <div class="file-box file-box-l d-flex align-items-center">
-                            <a href="http://homestead.app/images/profile.pdf" class="file-icon">Fizika i društvo.doc</a>
-                            <div class="file-box-sty ml-auto d-flex">
-                                <a href=""><img class="profile-m-1 mr-1 align-self-center" src="/images/profile.jpg">Stjepan Drmić</a>
-                            </div>
-                            <div class="file-box-sty">24.07.2017.</div>
-                            <div class="file-box-sty icon icon-approval-yes">{{ lang('Approved') }}</div>
-                        </div>
-                    </div>
-                    </template>
-
                     <div class="comments">
                             <div class="page-name-xl mb-3">{{ lang('Comments') }}</div>
                             <!-- Textarea -->
@@ -406,7 +297,7 @@
                                 <button type="button" class="btn btn-neutral" v-on:click="commentTask()">{{ lang('Send') }}</button>
                             </div>
                             <template v-if="task.thread">
-                                <div v-for="message in task.thread.messages">
+                                <div v-for="message in filteredMessages">
                                     <h3 class="page-name-l mb-1"><span>{{ message.sender.name }},</span> {{ message.created_at | moment('DD.MM.YYYY., H:mm:ss') }}</h3>
                                     <p class="mb-4">{{ message.message }}</p>
                                 </div>
@@ -415,9 +306,10 @@
 
                     <!-- Footer buttons -->
                     <div class="btn-footer mt-2 mb-2 flex-column flex-md-row d-flex p-2">
-                        <button v-if="task.status === 'new'" type="submit" class="btn btn-lg btn-save" v-on:click="acceptTask">{{ lang('Accept') }}</button>
-                        <button v-if="task.status === 'new'" type="submit" class="btn btn-lg btn-assign btn-assign-icon" v-on:click="openModal('modal-reassign')">{{ lang('Assign to...') }}</button>
-                        <button v-if="task.status === 'accepted'" type="submit" class="btn btn-lg btn-assign btn-assign-icon" v-on:click="completeTask">{{ lang('Complete') }}</button>
+                        <button v-if="canAccept()" class="btn btn-lg btn-save" v-on:click="acceptTask">{{ lang('Accept') }}</button>
+                        <button v-if="canAssign()" class="btn btn-lg btn-assign btn-assign-icon" v-on:click="openModal('modal-reassign')">{{ lang('Assign to...') }}</button>
+                        <button v-if="canComplete()" class="btn btn-lg btn-assign btn-assign-icon" v-on:click="completeTask">{{ lang('Complete') }}</button>
+                        <button v-if="canDelete()" class="btn btn-lg btn-cancel" v-on:click="taskDelete">{{ lang('Delete') }}</button>
                     </div>
                 </div>
 
@@ -515,7 +407,24 @@
         components: {
             ModalReassign, uploadModal, WarningModal
         },
+        computed: {
+            filteredMessages() {
+                return this.task.thread.messages.reverse();
+            }
+        },
         methods: {
+            canAccept() {
+                return (this.task.status === 'new' && this.task.assignee.id === window.Laravel.userId)
+            },
+            canAssign() {
+                return (this.task.status === 'new' && this.task.assignee.id === window.Laravel.userId)
+            },
+            canComplete: function() {
+                return (this.task.status === 'accepted' && this.task.assignee.id === window.Laravel.userId);
+            },
+            canDelete() {
+                return (this.task.assigner.id === window.Laravel.userId)
+            },
             acceptTask() {
                 axios.post('/api/task/' + this.task.id + '/accept')
                     .then((res) => {
@@ -613,6 +522,12 @@
                 this.index_to_delete = id;
                 jQuery('#modal-warning').modal('show');
             },
+            taskDelete() {
+                axios.delete('/api/task/'+this.task.id)
+                    .then(() => {
+                        this.$router.push('/tasks');
+                    });
+            }
         },
         mounted: function() {
             let id = this.$route.params.id;

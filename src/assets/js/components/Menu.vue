@@ -448,6 +448,24 @@
                                     path: '/tasks',
                                     title: 'Tasks',
                                     component: false
+                                },
+                                graphics: {
+                                    enabled: true,
+                                    path: '/tasks/department/1',
+                                    title: 'Graphics',
+                                    component: true
+                                },
+                                editorial: {
+                                    enabled: true,
+                                    path: '/tasks/department/77',
+                                    title: 'Editorial',
+                                    component: true
+                                },
+                                management: {
+                                    enabled: true,
+                                    path: '/tasks/department/92',
+                                    title: 'Management',
+                                    component: true
                                 }
                             }
                         },

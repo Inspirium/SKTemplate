@@ -145,7 +145,7 @@
                 }
             },
             employeeCompleteSelect: function(index) {
-                this.task.users.push(this.e_suggestions[index]);
+                this.task.users.splice(0,1,this.e_suggestions[index]);
                 this.e_suggestions = [];
                 this.user = '';
             },

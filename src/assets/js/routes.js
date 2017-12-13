@@ -30,6 +30,7 @@ import EditProfile from './components/hr/EditProfile'
 import Tasks from './components/tasks/Tasks'
 import TaskEdit from './components/tasks/TaskEdit'
 import TaskShow from './components/tasks/TaskShow'
+import DepartmentTasks from './components/tasks/DepartmentTasks'
 
 export const routes = [
     { path: '/proposition/start', component: PropositionStart },
@@ -92,6 +93,7 @@ export const routes = [
     { path: '/tasks', component: Tasks },
     { path: '/task/edit/:id(\\d+)?', component: TaskEdit },
     { path: '/task/show/:id(\\d+)', component: TaskShow },
+    { path: '/tasks/department/:id(\\d+)', component: DepartmentTasks },
 
     { path: '/human_resources/employee/new', component: EditProfile},
     { path: '/human_resources/employee/:id(\\d+)/edit', component: EditProfile},
