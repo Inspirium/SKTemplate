@@ -445,5 +445,7 @@
   "Approval Request has been denied": "",
   "Approval Request has been accepted": "",
   ":requestee has denied your request in :related": ":requestee je odbio tvoj zahtjev u :related",
-  ":requestee has accepted your request in :related": ":requestee je odobrio tvoj zahtjev u :related"
+  ":requestee has accepted your request in :related": ":requestee je odobrio tvoj zahtjev u :related",
+  "Task has been deleted": "Zadatak je obrisan",
+  ":user has deleted a task :task": ":user je obrisao zadatak :task"
 }
