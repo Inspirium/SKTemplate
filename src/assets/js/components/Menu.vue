@@ -453,19 +453,19 @@
                                     enabled: true,
                                     path: '/tasks/department/1',
                                     title: 'Graphics',
-                                    component: true
+                                    component: false
                                 },
                                 editorial: {
                                     enabled: true,
                                     path: '/tasks/department/77',
                                     title: 'Editorial',
-                                    component: true
+                                    component: false
                                 },
                                 management: {
                                     enabled: true,
                                     path: '/tasks/department/92',
                                     title: 'Management',
-                                    component: true
+                                    component: false
                                 }
                             }
                         },
