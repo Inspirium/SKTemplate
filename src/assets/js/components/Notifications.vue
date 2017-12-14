@@ -16,7 +16,7 @@
                     <div class="activity-content">
                         <div class="activity-label tasktype-1">{{ item.data.tasktype }}</div>
                         <div class="activity-time">{{ item.created_at | moment("from", "now") }}</div>
-                        <h4 class="activitiy-user"><a v-bind:href="item.data.link" v-on:click="markAsRead(item)">{{ lang(item.data.title) }}</a></h4>
+                        <h4 class="activitiy-user"><a v-bind:href="item.data.link?item.data.link:'#'" v-on:click="markAsRead(item)">{{ lang(item.data.title) }}</a></h4>
                         <h5>{{ lang(item.data.message) }}</h5>
                     </div>
                 </div>
