@@ -7,7 +7,12 @@
     <div class="content">
         <div class="page-name-xl mb-1 mt-2">@lang('Activity Stream')</div>
         <h4 class="activity-day weight-700 text-uppercase">@lang('Today')</h4>
+        @php $today = true; @endphp
         @foreach ($notifications as $notification)
+            @if(!$notification->created_at->isToday() && $today)
+                <h4 class="activity-day weight-700 text-uppercase mt-5">@lang('Older Activity')</h4>
+                @php $today = false; @endphp
+            @endif
         <div class="activity align-items-center mt-1">
             @if(isset($notification->data['tasktype']))
                 <div class="activity-label mx-1 tasktype-1">{{ $notification->data['tasktype'] }}</div>
@@ -26,7 +31,7 @@
         @endforeach
 
 
-        <h4 class="activity-day weight-700 text-uppercase mt-5">@lang('Older Activity')</h4>
+
 
 
     </div>
