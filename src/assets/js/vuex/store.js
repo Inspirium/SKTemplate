@@ -4,13 +4,15 @@ import * as VueDeepSet from 'vue-deepset'
 
 import proposition from './modules/proposition';
 import categorization from './modules/categorization';
+import employee from './modules/employee';
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
     modules: {
         'proposition': proposition,
-        'categorization': categorization
+        'categorization': categorization,
+        'employee' : employee
     },
     state: {
         edited: false

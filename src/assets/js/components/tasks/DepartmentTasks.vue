@@ -6,7 +6,7 @@
             </div>
         </div>
 
-        <template v-for="employee in employees">
+        <template v-for="(employee, ei) in employees">
         <div class="page-name-xl mb-3 mt-2">
             <a v-bind:href="'/human_resources/employee/'+employee.id+'/show'">
                 <img class="profile-m mr-1 my-2" v-bind:src="employee.image">
@@ -19,6 +19,7 @@
             <tr>
                 <th class="w-30"></th>
                 <th class="w-30">#</th>
+                <th class="w-30">#</th>
                 <th data-title="Task">Task</th>
                 <th data-title="Task Type">Task Type</th>
                 <th data-title="Assigner">Assigner</th>
@@ -29,7 +30,8 @@
             <draggable v-model="employee.tasks" v-bind:element="'tbody'">
                 <tr v-for="(task, index) in employee.tasks">
                     <td><div class="icon icon-handler"></div></td>
-                    <th class="display-e w-30">{{ index+1 }}</th>
+                    <th class="display-e w-30">{{ task.order }}</th>
+                    <th v-bind:class="newOrderClass(task)">{{ newOrderValue(task) }}</th>
                     <td data-title="Task" class="table-title"><a>{{ task.name }}</a></td>
                     <td data-title="Task Type"><div>{{ task_types[task.type].title }}</div></td>
                     <td data-title="Assigner"><a class="text-uppercase file-box-sty"><img v-bind:src="task.assigner.image" class="profile-m mr-2">{{ task.assigner.name }}</a></td>
@@ -38,20 +40,24 @@
                 </tr>
             </draggable>
         </table>
-        <button type="button" class="btn btn-neutral btn-addon d-block ml-auto waves-effect waves-light">{{ lang('Save tasks priority') }}</button>
+        <button v-on:click="openModalForApproval(ei)" type="button" class="btn btn-neutral btn-addon d-block ml-auto waves-effect waves-light">{{ lang('Save tasks priority') }}</button>
+        <button v-on:click="approveOrder(ei)" type="button" class="btn btn-neutral btn-addon d-block ml-auto waves-effect waves-light">{{ lang('Approve task priority') }}</button>
         </template>
 
-
+        <task-order-approval v-on:sendForApproval="sendForApproval"></task-order-approval>
     </div>
 </template>
 <script>
     import draggable from 'vuedraggable'
+    import taskOrderApproval from '../modals/TaskOrderApprovalModal'
     export default {
         components: {
-            draggable
+            draggable,
+            taskOrderApproval
         },
         data: function () {
             return {
+                employee_index:0,
                 department: false,
                 employees : false,
                 authority: true,
@@ -63,21 +69,65 @@
                     2: {
                         title: 'Assignment',
                         className: 'tasktype-2'
+                    },
+                    3: {
+                        title: 'Project',
+                        className: 'tasktype-1'
+                    },
+                    4: {
+                        title: 'Assignment',
+                        className: 'tasktype-2'
+                    },
+                    5: {
+                        title: 'Project',
+                        className: 'tasktype-1'
+                    },
+                    6: {
+                        title: 'Assignment',
+                        className: 'tasktype-2'
                     }
                 }
             }
         },
-        computed: {},
         methods: {
-            is_assigned: function(task) {
-                return (this.authority && task.employees.length)
+            newOrderValue(task) {
+                if (task.new_order) {
+                    return Number(task.new_order) - Number(task.order);
+                }
+                return '';
             },
-            endDrag: function(event) {
-                let data = _.map(this.employee.tasks, (o) => {
+            newOrderClass(task) {
+                if (task.new_order) {
+                    let number = Number(task.new_order) - Number(task.order);
+                    if (number === 0) {
+                        return 'new-order';
+                    }
+                    return (number > 0) ? 'new-order new-order--up' : 'new-order new-order--down';
+                }
+                return '';
+            },
+            openModalForApproval(ei) {
+                this.employee_index = ei;
+                $('#taskOrderApprovalModal').modal('show');
+            },
+            sendForApproval(task) {
+                let data = _.map(this.employees[this.employee_index].tasks, (o) => {
                     return o.id;
                 });
-                axios.post('/api/tasks/updateOrder', {tasks: data})
-                    .then((res) => {})
+                axios.post('/api/tasks/requestOrder', {tasks: data, task: task})
+                    .then((res) => {
+                        this.employee_index = 0;
+                    })
+                    .catch((err) => {});
+            },
+            approveOrder(ei) {
+                let data = _.map(this.employees[ei].tasks, (o) => {
+                    return o.id;
+                });
+                axios.post('/api/tasks/updateOrder', {employee: this.employees[ei].id, tasks: data})
+                    .then((res) => {
+                        this.employee_index = 0;
+                    })
                     .catch((err) => {});
             }
         },
