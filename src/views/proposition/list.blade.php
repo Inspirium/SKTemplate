@@ -46,6 +46,7 @@
                 <thead class="thead-inverse">
                 <tr>
                     <th>#</th>
+                    <th class="text-center">@lang('New Order')</th>
                     <th>@lang('Title')</th>
                     <th>@lang('Author')</th>
                     <th>@lang('Creation Date')</th>
@@ -55,6 +56,7 @@
                 @foreach($unfinished as $prop)
                 <tr>
                     <th scope="row">{{ $loop->iteration }}</th>
+                    <th class="new-order new-order--down" scope="row">+1</th>
                     <td data-title="@lang('Title')" class="table-title"><a href="{{ url('proposition/'.$prop->id.'/edit/start') }}">{{ $prop->project_name?$prop->project_name:'untitled' }}</a></td>
                     <td data-title="@lang('Author')"><a href="{{ url('human_resources/employee/'.$prop->owner->id . '/show') }}" class="text-uppercase file-box-sty"><img class="profile-m mr-2" src="{{ $prop->owner->image }}">{{ $prop->owner->name }}</a></td>
                     <td data-title="@lang('Waiting Approval')">{{ $prop->created_at }}</td>
