@@ -36,7 +36,7 @@
             </td>
             <td>
                 <a class="color-grey" v-bind:href="links['edit'] | add_id(entry)" v-bind:title="lang('Edit')"><i class="fa fa-pencil"></i></a>
-                <a class="color-grey" v-bind:href="links['delete'] | add_id(entry)" v-bind:title="lang('Delete')" v-on:click.prevent="deleteWarning(entry)"><i class="fa fa-times"></i></a>
+                <a class="color-grey" href="#" v-bind:title="lang('Delete')" v-on:click.prevent="deleteWarning(entry)"><i class="fa fa-times"></i></a>
             </td>
         </tr>
         </tbody>
@@ -67,11 +67,14 @@
             }
         },
         computed: {
+            computedData() {
+                return this.data;
+            },
             filteredData: function () {
                 let sortKey = this.sortKey;
                 let filterKey = this.filterKey && this.filterKey.toLowerCase();
                 let order = this.sortOrders[sortKey] || 1;
-                let data = this.data;
+                let data = this.computedData;
                 if (filterKey) {
                     data = data.filter(function (row) {
                         return Object.keys(row).some(function (key) {
@@ -119,9 +122,13 @@
             deleteUser() {
                 axios.delete(this.$options.filters.add_id(this.links['delete'], this.to_delete))
                     .then(() => {
-                        this.data = _.filter(this.data, (o) => {
+                        this.computedData = _.filter(this.computedData, (o) => {
                             return (o.id !== this.to_delete.id)
-                        })
+                        });
+                        toastr.success(this.lang('Success'));
+                    })
+                    .catch(() => {
+                        toastr.error(this.lang('Action failed'));
                     });
             }
         }
