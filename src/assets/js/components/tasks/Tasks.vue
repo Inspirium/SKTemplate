@@ -220,6 +220,10 @@
                         title: 'Approval Request',
                         className: 'tasktype-2'
                     },
+                    6: {
+                        title: 'Task Order Request',
+                        className: 'tasktype-2'
+                    },
                 },
                 new_tasks: [
                 ],
@@ -233,14 +237,6 @@
         },
         computed: {},
         methods: {
-            endDrag: function(event) {
-                /*let data = _.map(this.old_tasks, (o) => {
-                    return o.id;
-                });
-                axios.post('/api/tasks/updateOrder', {tasks: data})
-                    .then((res) => {})
-                    .catch((err) => {});*/
-            }
         },
         mounted: function() {
             axios.get('/api/tasks')
