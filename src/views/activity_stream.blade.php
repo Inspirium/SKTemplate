@@ -20,7 +20,7 @@
             <div class="activity-content">
                 <h4 class="activitiy-user"><a href="{{ $notification->data['link'] }}">{{ $notification->data['title'] }}</a></h4>
                 <h5>{{ $notification->data['message'] }}</h5>
-                <div class="activity-time"></div>
+                <div class="activity-time">{{ $notification->created_at->toDateTimeString() }}</div>
             </div>
         </div>
         @endforeach
