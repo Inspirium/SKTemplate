@@ -1192,3 +1192,29 @@ input.md-form.addon {
     }
 }
 
+.spinner-delay-in {
+    animation: spinnerDelayIn .3s 1;
+}
+
+.spinner-delay-out {
+    animation: spinnerDelayOut .3s 1;
+}
+
+.spinner-delay-rotate {
+    animation: spinnerDelayRotate .5s linear infinite;
+}
+
+@keyframes spinnerDelayIn {
+    from {opacity: 0; }
+    to {opacity: 1;}
+}
+
+@keyframes spinnerDelayOut {
+    from {opacity: 1; }
+    to {opacity: 0;}
+}
+
+@keyframes spinnerDelayRotate {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(359deg);}
+}

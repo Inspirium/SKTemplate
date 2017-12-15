@@ -1,7 +1,6 @@
 <template>
     <div>
     <div class="btn-footer mt-4 mb-5 flex-column flex-md-row d-flex p-2">
-        <div id="print"></div>
         <button id="save-btn" class="btn btn-lg btn-save" v-on:click="saveProposition">{{ lang('Save') }}</button>
         <button class="btn btn-lg btn-assign btn-assign-icon" v-on:click="assignModalOpen">{{ lang('Assign to...') }}</button>
     </div>
@@ -37,11 +36,20 @@
         },
         methods: {
             saveProposition: function() {
-                let saveButton = document.getElementById('save-btn').textContent;
-                document.getElementById('print').innerHTML = saveButton;
-
-               /* this.$store.dispatch('proposition/' + this.$route.meta.save + '/saveData', this.$route.params.id)
+                let saveButton = document.getElementById('save-btn');
+                saveButton.setAttribute('style', 'color: #92C100 !important; position: relative');
+                
+                var spinnerClass="<i></i>";
+                var spinner = document.createElement('i');
+                spinner.className = "fa fa-refresh fa-5x fa-fw spinner-delay-in spinner-delay-rotate";
+                spinner.setAttribute('style', 'color: #FFF !important; position: absolute; left: 38%; top: 22%; font-size: 2.5rem');
+                saveButton.appendChild(spinner);      
+                
+	            /* this.$store.dispatch('proposition/' + this.$route.meta.save + '/saveData', this.$route.params.id)
                     .then(() => {
+                        saveButton.setAttribute('style', 'color: #FFFFFF !important');
+                        spinner.className = "fa fa-refresh fa-5x spinner-delay-out";
+                        
                         toastr.success(this.lang('Uspješno obavljeno'));
                         this.$store.commit('editedFalse');
                     })
