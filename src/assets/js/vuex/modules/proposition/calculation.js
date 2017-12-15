@@ -6,6 +6,7 @@ export default {
         id: 0,
         author_expenses: [],
         offers: [],
+        authors_expenses: [],
         authors_total: 0,
         authors_advance: 0,
         authors_other: 0,
@@ -52,7 +53,7 @@ export default {
             let options = {};
             _.forEach(state.offers, (option) => {
                 let remainder = _.sumBy(Object.keys(state.author_expenses), (key) => {
-                        let e = this.author_expenses[key];
+                        let e = state.author_expenses[key];
                         return e.percentage * option.title * option.price_proposal / 100;
                     }),
                     complete = (Number(state.authors_total) + Number(option.print_offer) + Number(option.compensation) + Number(option.indirect_expenses) + Number(remainder) + Number(state.marketing_expense) + Number(state.production_expense) + Number(state.design_layout_expense)),
