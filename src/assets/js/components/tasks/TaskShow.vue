@@ -537,7 +537,8 @@
                     setTimeout(() => { //TODO: fix
                         this.clock = new FlipClock( $('.clock'), this.task.running_elapsed, {
                             autoPlay: this.task.is_running,
-                            autoStart: this.task.is_running
+                            autoStart: this.task.is_running,
+                            language: 'Croatian'
                         });
                     }, 1000);
                 })
