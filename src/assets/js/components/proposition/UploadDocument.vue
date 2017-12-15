@@ -17,9 +17,11 @@
             <div class="justify-content-center d-flex mb-4">
                 <button type="button" class="btn btn-neutral" v-on:click="documentAdd('initial-documents')">{{ lang('Upload') }}</button>
             </div>
+<!--
             <div class="modal-footer btn-footer">
                 <button type="button" class="btn btn-lg btn-save" v-on:click="saveFiles">{{ lang('Save') }}</button>
             </div>
+-->
 
             <div class="page-name-xl mb-4 mt-5">{{ lang('Final Document') }}</div>
         <div class="files mt-2 mb-2">

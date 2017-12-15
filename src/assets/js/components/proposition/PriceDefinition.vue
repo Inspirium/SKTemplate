@@ -18,11 +18,11 @@
                 </div>
                 <div class="md-form">
                     <input type="text" id="field" class="form-control" name="field" v-model="price_definition.price_first_year.field">
-                    <label for="field" class="">{{ lang('Field sales') }}</label>
+                    <label for="field" class="">{{ lang('Field Sales') }}</label>
                 </div>
                 <div class="md-form">
                     <input type="text" id="direct" class="form-control" name="direct" v-model="price_definition.price_first_year.direct">
-                    <label for="direct" class="">{{ lang('Direct sales') }}</label>
+                    <label for="direct" class="">{{ lang('Direct Sales') }}</label>
                 </div>
                 <div class="md-form">
                     <input type="text" id="promotors" class="form-control" name="promotors" v-model="price_definition.price_first_year.promotors">

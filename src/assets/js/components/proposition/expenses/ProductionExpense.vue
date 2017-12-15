@@ -298,7 +298,7 @@
                 <div class="col-md-4">
                     <div class="md-form input-group">
                         <input type="text" class="form-control" v-model="item.amount" v-bind:placeholder="item.parent?item.parent.amount:lang('Amount')">
-                        <label>{{ lang('Ammount') }}</label>
+                        <label>{{ lang('Amount') }}</label>
                         <span class="input-group-addon">{{ lang('Kn') }}</span>
                     </div>
                 </div>

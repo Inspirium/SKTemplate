@@ -1,11 +1,11 @@
 <template>
 <div>
-    <div class="profile-head row py-4 d-flex flex-column justify-content-center align-items-center">
-        <div class="col-md-12">
-            <h1 class="display-3 text-white text-center">{{ lang('Layout and Design') }}</h1>
-        </div>
-    </div>
     <div class="content">
+        <div class="profile-head row py-4 d-flex flex-column justify-content-center align-items-center">
+            <div class="col-md-12">
+                <h1 class="display-3 text-white text-center">{{ lang('Layout and Design') }}</h1>
+            </div>
+        </div>
     <!-- Display fileds -->
         <div class="profile-head pb-2 row">
             <div class="col-md-2">
@@ -53,6 +53,11 @@
                         <label>{{ lang('Layout Complexity') }}</label>
                     </div>
                 </div>
+                <!-- Input fileds -->
+                <div class="md-form">
+                    <input type="number" id="layout-fix-price" class="form-control" name="layout-fix-price" >
+                    <label for="layout-fix-price" class="">{{ lang('Exact Price') }}</label>
+                </div>
                 <!-- TeAxtarea -->
                 <div class="md-form">
                     <textarea class="md-textarea" v-model="data.layout_note"></textarea>
@@ -75,6 +80,11 @@
                         </select>
                         <label>{{ lang('Design Complexity') }}</label>
                     </div>
+                </div>
+                <!-- Input fileds -->
+                <div class="md-form">
+                    <input type="number" id="design-fix-price" class="form-control" name="design-fix-price" >
+                    <label for="design-fix-price" class="">{{ lang('Exact Price') }}</label>
                 </div>
                 <!-- Textarea -->
                 <div class="md-form">
