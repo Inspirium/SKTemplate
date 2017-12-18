@@ -8,39 +8,27 @@
                 <div class="quick-links-box">
                     <a href="#" onclick="toastr.info('Hi! I am info message.');">
                         <div class="quick-links-item">
-                            <img src="images/izdanja.svg" href="#" class="quick-item-icon">
+                            <i class="fa fa-users fa-3x quick-item-icon" aria-hidden="true"></i>
                         </div>
-                        <div class="quick-item-title">Popis izdanja</div>
+                        <div class="quick-item-title">Imenik</div>
                     </a>
                     <a href="#">
                         <div class="quick-links-item">
-                            <img src="images/imenik.svg" class="quick-item-icon">
+                            <i class="fa fa-book fa-3x quick-item-icon" aria-hidden="true"></i>
                         </div>
-                        <div class="quick-item-title">Popis izdanja</div>
+                        <div class="quick-item-title">Izdanja</div>
                     </a>
                     <a href="#">
                         <div class="quick-links-item">
-                            <img src="images/propozicije.svg" class="quick-item-icon">
+                            <i class="fa fa-thumb-tack fa-3x quick-item-icon" aria-hidden="true"></i>
                         </div>
-                        <div class="quick-item-title">Popis izdanja</div>
+                        <div class="quick-item-title">Moji zadaci</div>
                     </a>
                     <a href="#">
                         <div class="quick-links-item">
-                            <img src="images/izdanja.svg" class="quick-item-icon">
+                            <i class="fa fa-comment fa-3x quick-item-icon" aria-hidden="true"></i>
                         </div>
-                        <div class="quick-item-title">Popis izdanja</div>
-                    </a>
-                    <a href="#">
-                        <div class="quick-links-item">
-                            <img src="images/imenik.svg" class="quick-item-icon">
-                        </div>
-                        <div class="quick-item-title">Popis izdanja</div>
-                    </a>
-                    <a href="#">
-                        <div class="quick-links-item">
-                            <img src="images/propozicije.svg" class="quick-item-icon">
-                        </div>
-                        <div class="quick-item-title">Popis izdanja</div>
+                        <div class="quick-item-title">Moje obavijesti</div>
                     </a>
                 </div>
             </div>

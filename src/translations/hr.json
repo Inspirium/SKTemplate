@@ -454,5 +454,10 @@
   "assignment": "zadatak",
   "cost": "trošak",
   "Reject task priority": "Prihvaćam",
-  "Approve task priority": "Ne prihvaćam"
+  "Approve task priority": "Ne prihvaćam",
+  "Today": "Danas",
+  "Graphics": "Grafički odjel",
+  "Editorial": "Urednički odjel",
+  "Management": "Uprava",
+  "Design": "Dizajn odjel"
 }
