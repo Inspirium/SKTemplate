@@ -20,11 +20,11 @@
                 <th class="w-30"></th>
                 <th class="w-30">#</th>
                 <th class="w-30">#</th>
-                <th data-title="Task">{{ Task }}</th>
-                <th data-title="Task Type">{{ Task Type }}</th>
-                <th data-title="Assigner">{{ Assigner }}</th>
-                <th data-title="Created">{{ Created }}</th>
-                <th data-title="Deadline">{{ Deadline }}</th>
+                <th data-title="Task">{{ lang('Task') }}</th>
+                <th data-title="Task Type">{{ lang('Task Type') }}</th>
+                <th data-title="Assigner">{{ lang('Assigner') }}}</th>
+                <th data-title="Created">{{ lang('Created') }}</th>
+                <th data-title="Deadline">{{ lang('Deadline') }}</th>
             </tr>
             </thead>
             <draggable v-model="employee.tasks" v-bind:element="'tbody'">

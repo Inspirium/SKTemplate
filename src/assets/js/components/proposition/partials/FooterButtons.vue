@@ -47,16 +47,14 @@
 	            this.$store.dispatch('proposition/' + this.$route.meta.save + '/saveData', this.$route.params.id)
                     .then(() => {
                         saveButton.setAttribute('style', 'color: #FFFFFF !important');
-                        $( "i.spinner-loader" ).removeClass( "spinner-delay-in" ).addClass( "spinner-delay-out" );
-                        $( "i.spinner-success" ).toggleClass( "hide" );
+                        $( "i.spinner-loader" ).addClass( "hide" );
 
                         toastr.success(this.lang('Uspješno obavljeno'));
                         this.$store.commit('editedFalse');
                     })
                     .catch(() => {
                         toastr.error(this.lang('Došlo je do problema. Pokušajte ponovno'));
-                        $( "i.spinner-loader" ).removeClass( "spinner-delay-in" ).addClass( "spinner-delay-out" );
-                        $( "i.spinner-fail" ).toggleClass( "hide" );
+                        $( "i.spinner-loader" ).addClass( "hide" );
                     });
             },
             assignModalOpen: function() {
