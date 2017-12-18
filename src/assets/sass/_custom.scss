@@ -1192,12 +1192,37 @@ input.md-form.addon {
     }
 }
 
+.btn.btn-lg .fa.spinner-loader {
+    font-size: 3rem !important;
+    top: 11px;
+    left: 36%;
+    position: absolute;
+    opacity: 1;
+}
+
+.btn.btn-lg .fa-check {
+    font-size: 3rem !important;
+    top: 11px;
+    left: 36%;
+    position: absolute;
+}
+
+.show {
+    display: inherit;
+    transition: .5s;
+}
+
+.hide {
+    display: none;
+    transition: .5s;
+}
+
 .spinner-delay-in {
-    animation: spinnerDelayIn .3s 1;
+    animation: spinnerDelayIn .9s 1;
 }
 
 .spinner-delay-out {
-    animation: spinnerDelayOut .3s 1;
+    animation: spinnerDelayOut .9s 1;
 }
 
 .spinner-delay-rotate {

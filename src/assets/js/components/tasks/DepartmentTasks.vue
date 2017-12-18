@@ -20,11 +20,11 @@
                 <th class="w-30"></th>
                 <th class="w-30">#</th>
                 <th class="w-30">#</th>
-                <th data-title="Task">Task</th>
-                <th data-title="Task Type">Task Type</th>
-                <th data-title="Assigner">Assigner</th>
-                <th data-title="Created">Created</th>
-                <th data-title="Deadline">Deadline</th>
+                <th data-title="Task">{{ Task }}</th>
+                <th data-title="Task Type">{{ Task Type }}</th>
+                <th data-title="Assigner">{{ Assigner }}</th>
+                <th data-title="Created">{{ Created }}</th>
+                <th data-title="Deadline">{{ Deadline }}</th>
             </tr>
             </thead>
             <draggable v-model="employee.tasks" v-bind:element="'tbody'">
@@ -40,8 +40,11 @@
                 </tr>
             </draggable>
         </table>
-        <button v-on:click="openModalForApproval(ei)" type="button" class="btn btn-neutral btn-addon d-block ml-auto waves-effect waves-light">{{ lang('Save tasks priority') }}</button>
-        <button v-on:click="approveOrder(ei)" type="button" class="btn btn-neutral btn-addon d-block ml-auto waves-effect waves-light">{{ lang('Approve task priority') }}</button>
+        <div class="d-flex justify-content-end">
+            <button v-on:click="openModalForApproval(ei)" type="button" class="btn btn-neutral btn-addon d-block ml-auto waves-effect waves-light">{{ lang('Save tasks priority') }}</button>
+            <button v-on:click="approveOrder(ei)" type="button" class="btn btn-success btn-addon d-block ml-auto waves-effect waves-light">{{ lang('Approve task priority') }}</button>
+            <button v-on:click="approveOrder(ei)" type="button" class="btn btn-danger btn-addon d-block ml-auto waves-effect waves-light">{{ lang('Reject task priority') }}</button>
+        </div>
         </template>
 
         <task-order-approval v-on:sendForApproval="sendForApproval"></task-order-approval>

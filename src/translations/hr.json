@@ -439,7 +439,7 @@
   "Document uploaded": "Dokument prenesen",
   ":assigner has uploaded a document in :related": ":assigner je prenio dokument u :related",
   "User requested cost approval": "Korisnik je zatražio odobrenje troška",
-  ":assigner has requested cost approval on :related": ":assigner je zatražio odbronje troška na :related",
+  ":assigner has requested cost approval on :related": ":assigner je zatražio odobrenje troška na :related",
   "New task assigned": "Novi zadatak je dodijeljen",
   ":assigner has assigned you a new task :task": ":assigner ti je dodijelio novi zadatak :task",
   "Task has been marked as completed": "Zadatak je označen kao završen",
@@ -449,5 +449,10 @@
   ":requestee has denied your request in :related": ":requestee je odbio tvoj zahtjev u :related",
   ":requestee has accepted your request in :related": ":requestee je odobrio tvoj zahtjev u :related",
   "Task has been deleted": "Zadatak je obrisan",
-  ":user has deleted a task :task": ":user je obrisao zadatak :task"
+  ":user has deleted a task :task": ":user je obrisao zadatak :task",
+  "User assigned you new task": "Korisnik ti je dodijelio novi zadatak",
+  "assignment": "zadatak",
+  "cost": "trošak",
+  "Reject task priority": "Prihvaćam",
+  "Approve task priority": "Ne prihvaćam"
 }
