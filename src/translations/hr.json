@@ -457,9 +457,11 @@
   "Approve task priority": "Ne prihvaćam",
   "Today": "Danas",
   "Graphics": "Grafički odjel",
-  "Editorial": "Urednički odjel",
+  "Editorial-1": "Urednički odjel 1",
+  "Editorial-2": "Urednički odjel 2",
+  "Editorial-3": "Urednički odjel 3",
   "Management": "Uprava",
-  "Design": "Dizajn odjel",
+  "Design Department": "Dizajn odjel",
   "Upload Document": "Unesi datoteku",
   "No print offers created": "Unesite naklade u koraku ranije da biste vidjeli print ponude"
 }

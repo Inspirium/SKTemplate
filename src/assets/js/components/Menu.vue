@@ -450,10 +450,28 @@
                                     title: 'Graphics',
                                     component: false
                                 },
-                                editorial: {
+                                design: {
                                     enabled: this.can('access_department_tasks'),
-                                    path: '/tasks/department/77',
-                                    title: 'Editorial',
+                                    path: '/tasks/department/71',
+                                    title: 'Design Department',
+                                    component: false
+                                },
+                                editorial-1: {
+                                    enabled: this.can('access_department_tasks'),
+                                    path: '/tasks/department/72',
+                                    title: 'Editorial-1',
+                                    component: false
+                                },
+                                editorial-2: {
+                                    enabled: this.can('access_department_tasks'),
+                                    path: '/tasks/department/73',
+                                    title: 'Editorial-2',
+                                    component: false
+                                },
+                                editorial-3: {
+                                    enabled: this.can('access_department_tasks'),
+                                    path: '/tasks/department/74',
+                                    title: 'Editorial-3',
                                     component: false
                                 },
                                 management: {
