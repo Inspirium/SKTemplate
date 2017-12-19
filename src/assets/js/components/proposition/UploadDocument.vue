@@ -39,7 +39,9 @@
                     <button type="button" class="btn btn-neutral" v-on:click="documentAdd('final-document')">{{ lang('Upload') }}</button>
                 </div>
             <div class="modal-footer btn-footer">
-                <button type="button" class="btn btn-lg btn-save" v-on:click="saveFiles">{{ lang('Save') }}</button>
+                <button id="save-btn" type="button" class="btn btn-lg btn-save" v-on:click="saveFiles">{{ lang('Save') }}
+                    <i class="fa fa-refresh fa-5x fa-fw spinner-delay-rotate spinner-loader text-white hide"></i>
+                </button>
                 <button class="btn btn-lg btn-assign btn-assign-icon" v-on:click="assignModalOpen">{{ lang('Assign to...') }}</button>
             </div>
         <upload-modal id="initial-documents" action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" v-bind:dir="$route.meta.dir" v-on:fileDelete="fileDelete" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave"></upload-modal>
@@ -105,9 +107,19 @@
                 });
             },
             saveFiles: function() {
+                let saveButton = document.getElementById('save-btn');
+                saveButton.setAttribute('style', 'color: #92C100 !important; position: relative');
+                $( "i.spinner-loader" ).toggleClass( "hide" );
+                
                 axios.post('/api/proposition/' + this.$route.params.id + '/files/' + this.$route.meta.dir, {initial:this.files, final: this.final})
                     .then((res) => {
-
+                        saveButton.setAttribute('style', 'color: #FFFFFF !important');
+                        $( "i.spinner-loader" ).addClass( "hide" );
+                        toastr.success(this.lang('Uspješno obavljeno'));
+                    });
+                    .catch(() => {
+                        toastr.error(this.lang('Došlo je do problema. Pokušajte ponovno'));
+                        $( "i.spinner-loader" ).addClass( "hide" );
                     });
             }
         },

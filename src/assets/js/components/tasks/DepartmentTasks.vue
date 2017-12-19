@@ -36,7 +36,7 @@
                     <td data-title="Task Type"><div>{{ task_types[task.type].title }}</div></td>
                     <td data-title="Assigner"><a class="text-uppercase file-box-sty"><img v-bind:src="task.assigner.image" class="profile-m mr-2">{{ task.assigner.name }}</a></td>
                     <td data-title="Created">{{ task.created_at | moment('DD.MM.') }}</td>
-                    <td data-title="Deadline">{{ task | moment('DD.MM.') }}</td>
+                    <td data-title="Deadline">{{ task.deadline | moment('DD.MM.') }}</td>
                 </tr>
             </draggable>
         </table>

@@ -49,8 +49,8 @@
                 <div class="row">
                     <div class="col-md-5">
                         <div class="md-form">
-                            <input placeholder="Selected date" type="text" id="date-picker-example" class="form-control datepicker btn-white" v-model="task.deadline">
-                            <label for="date-picker-example">{{ lang('Select Date') }}</label>
+                            <input placeholder="Odaberi datum" type="text" id="date-picker-example" class="form-control datepicker btn-white" v-model="task.deadline">
+                            <label for="date-picker-example">{{ lang('Deadline') }}</label>
                         </div>
                     </div>
                 </div>
@@ -99,7 +99,9 @@
 
         <!-- Footer buttons -->
         <div class="btn-footer mt-2 mb-5 flex-column flex-md-row d-flex p-2">
-            <button type="submit" class="btn btn-lg btn-save" v-on:click="submitTask">{{ lang('Submit') }}</button>
+            <button id="save-btn" type="submit" class="btn btn-lg btn-save" v-on:click="submitTask">{{ lang('Submit') }}
+                <i class="fa fa-refresh fa-5x fa-fw spinner-delay-rotate spinner-loader text-white hide"></i>
+            </button>
         </div>
         <!--/. Footer buttons -->
     </div>
@@ -173,19 +175,36 @@
                 this.department = '';
             },
             submitTask() {
+                let saveButton = document.getElementById('save-btn');
+                saveButton.setAttribute('style', 'color: #92C100 !important; position: relative');
+                $( "i.spinner-loader" ).toggleClass( "hide" );
+                
                 if (typeof(this.$route.params.id) !== 'undefined') {
                     axios.put('/api/task/' + this.$route.params.id, this.task)
                         .then((res) => {
+                            saveButton.setAttribute('style', 'color: #FFFFFF !important');
+                            $( "i.spinner-loader" ).addClass( "hide" );
+                            toastr.success(this.lang('Uspješno obavljeno'));
+                        
                             this.$router.push('/tasks');
                         })
-                        .catch((err) => {})
+                        .catch((err) => {
+                            toastr.error(this.lang('Došlo je do problema. Pokušajte ponovno'));
+                            $( "i.spinner-loader" ).addClass( "hide" );
+                    })
                 }
                 else {
                     axios.post('/api/task', this.task)
-                        .then((res) => {
+                        .then((res) => { 
+                            saveButton.setAttribute('style', 'color: #FFFFFF !important');
+                            $( "i.spinner-loader" ).addClass( "hide" );
+                            toastr.success(this.lang('Zadatak poslan'));
+                        
                             this.$router.push('/tasks');
                         })
-                        .catch((err) => {});
+                        .catch((err) => {
+                            toastr.error(this.lang('Došlo je do problema. Pokušajte ponovno'));
+                    });
                 }
 
             }

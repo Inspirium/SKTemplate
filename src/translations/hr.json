@@ -441,7 +441,7 @@
   "User requested cost approval": "Korisnik je zatražio odobrenje troška",
   ":assigner has requested cost approval on :related": ":assigner je zatražio odobrenje troška na :related",
   "New task assigned": "Novi zadatak je dodijeljen",
-  ":assigner has assigned you a new task :task": ":assigner ti je dodijelio novi zadatak :task",
+  ":assigner has assigned you a new task :task": ":assigner ti je dodijelio novi zadatak - :task",
   "Task has been marked as completed": "Zadatak je označen kao završen",
   ":assignee has marked task \":task\" as completed": ":assignee je označio zadatak: \":task\" kao završen",
   "Approval Request has been denied": "Zahtjev za odobrenje je odbijen",
@@ -463,5 +463,6 @@
   "Management": "Uprava",
   "Design Department": "Dizajn odjel",
   "Upload Document": "Unesi datoteku",
-  "No print offers created": "Unesite naklade u koraku ranije da biste vidjeli print ponude"
+  "No print offers created": "Unesite naklade u koraku ranije da biste vidjeli print ponude",
+  "Task Order Approve": "Prioritizacija zadataka"
 }

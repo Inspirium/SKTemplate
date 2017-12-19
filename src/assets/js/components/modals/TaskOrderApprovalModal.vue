@@ -38,7 +38,9 @@
                 </div>
                 <!--Footer-->
                 <div class="modal-footer btn-footer">
-                    <button type="button" class="btn btn-lg btn-save" v-on:click="assignValues">{{ lang('Assign') }}</button>
+                    <button id="save-btn" type="button" class="btn btn-lg btn-save" v-on:click="assignValues">{{ lang('Assign') }}
+                        <i class="fa fa-refresh fa-5x fa-fw spinner-delay-rotate spinner-loader text-white hide"></i>
+                    </button>
                     <button type="button" class="btn btn-lg btn-cancel" data-dismiss="modal">{{ lang('Cancel') }}</button>
                 </div>
             </div>
@@ -103,6 +105,7 @@
 
             },
             assignValues: function() {
+                toastr.success(this.lang('Zaduženje poslano'));
                 this.$emit('sendForApproval', {employees: this.employees, description: this.description});
                 $('#taskOrderApprovalModal').modal('hide');
             }
