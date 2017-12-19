@@ -121,7 +121,7 @@
                 this.employee_index = ei;
                 $('#taskOrderApprovalModal').modal('show');
             },
-            sendForApproval() {
+            sendForApproval(task) {
                 let data = _.map(this.employees[this.employee_index].tasks, (o) => {
                     return o.id;
                 });

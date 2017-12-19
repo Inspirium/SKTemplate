@@ -15,6 +15,7 @@
   "Roles": "Role",
   "Search...": "Traži...",
   "Add New Role": "Dodaj novu rolu",
+  "Add New Department": "Dodaj novi odjel",
   "Title": "Naziv",
   "Description": "Opis",
   "Enter Description": "Unesi opis",
@@ -310,7 +311,7 @@
   "Proposition Archive": "Arhiv propozicija",
   "Completition Date": "Datum završetka",
   "Create new": "Dodaj novu",
-  "Add new": "Dodaj novu",
+  "Add new": "Dodaj novo",
   "Propositions": "Propozicije",
   "Users": "Korisnici",
   "Add User": "Dodaj korisnika",
@@ -450,7 +451,6 @@
   ":requestee has accepted your request in :related": ":requestee je odobrio tvoj zahtjev u :related",
   "Task has been deleted": "Zadatak je obrisan",
   ":user has deleted a task :task": ":user je obrisao zadatak :task",
-  "User assigned you new task": "Korisnik ti je dodijelio novi zadatak",
   "assignment": "zadatak",
   "cost": "trošak",
   "Reject task priority": "Prihvaćam",
@@ -466,5 +466,7 @@
   "No print offers created": "Unesite naklade u koraku ranije da biste vidjeli print ponude",
   "Task Order Approve": "Prioritizacija zadataka",
   "Complete": "Završen zadatak",
-  "Edit Employee Roles": "Uredi korisničke razine pristupa"
+  "Edit Employee Roles": "Uredi korisničke razine pristupa",
+  "Assign employee directly": "Direktno zaduži zaposlenika"
+
 }

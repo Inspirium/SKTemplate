@@ -1,10 +1,8 @@
 <template>
     <div>
     <div class="btn-footer mt-4 mb-5 flex-column flex-md-row d-flex p-2">
-        <button id="save-btn" class="btn btn-lg btn-save" v-on:click="saveProposition">{{ lang('Save') }}
-            <i class="fa fa-refresh fa-5x fa-fw spinner-delay-rotate spinner-loader text-white hide"></i>
-            <i class="fa fa-check fa-5x fa-fw text-white spinner-success hide"></i>
-            <i class="fa fa-times fa-5x fa-fw text-white spinner-fail hide"></i>
+        <button class="btn btn-lg btn-save" v-on:click="saveProposition">{{ lang('Save') }}
+            <i v-bind:class="['fa', 'fa-5x', 'fa-fw', 'text-white', spinnerType, isSpinnerHidden]"></i>
         </button>
         <button class="btn btn-lg btn-assign btn-assign-icon " v-on:click="assignModalOpen">{{ lang('Assign to...') }}</button>
     </div>
@@ -31,7 +29,9 @@
                 access: 0,
                 priority: 0,
                 departments: [],
-                cancel: false
+                cancel: false,
+                spinnerType: 'fa-refresh spinner-delay-rotate spinner-loader',
+                isSpinnerHidden: 'hide'
             }
         },
         components: {
@@ -39,22 +39,30 @@
             AssignProposition, WarningModal
         },
         methods: {
-            saveProposition: function() {
-                let saveButton = document.getElementById('save-btn');
-                saveButton.setAttribute('style', 'color: #92C100 !important; position: relative');
-                $( "i.spinner-loader" ).toggleClass( "hide" );
-                
+            saveProposition: function(event) {
+                let saveButton = jQuery(event.target);
+                saveButton.toggleClass('spinner-loading');
+                this.isSpinnerHidden = '';
+
 	            this.$store.dispatch('proposition/' + this.$route.meta.save + '/saveData', this.$route.params.id)
                     .then(() => {
-                        saveButton.setAttribute('style', 'color: #FFFFFF !important');
-                        $( "i.spinner-loader" ).addClass( "hide" );
-
+                        this.spinnerType = 'fa-check spinner-success';
+                        setTimeout(() => {
+                            this.spinnerType = 'fa-refresh spinner-delay-rotate spinner-loader';
+                            this.isSpinnerHidden  ='hide';
+                            saveButton.toggleClass( "spinner-loading" );
+                        }, 1000)
                         toastr.success(this.lang('Uspješno obavljeno'));
                         this.$store.commit('editedFalse');
                     })
                     .catch(() => {
                         toastr.error(this.lang('Došlo je do problema. Pokušajte ponovno'));
-                        $( "i.spinner-loader" ).addClass( "hide" );
+                        this.spinnerType = 'fa-times spinner-fail';
+                        setTimeout(() => {
+                            this.spinnerType = 'fa-refresh spinner-delay-rotate spinner-loader';
+                            this.isSpinnerHidden  ='hide';
+                            saveButton.toggleClass( "spinner-loading" );
+                        }, 1000)
                     });
             },
             assignModalOpen: function() {

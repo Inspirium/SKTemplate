@@ -12,88 +12,22 @@
                         <i class="fa fa-user-circle-o fa-4x mb-1 animated rotateInDownLeft"></i>
                         <h1 class="modal-title w-100 text-center">{{ lang('Assign to...') }}</h1>
                     </div>
-                    <h6 class="w-100 text-center mb-2">{{ lang('Assign department or directly employee') }}</h6>
+                    <h6 class="w-100 text-center mb-2">{{ lang('Assign employee directly') }}</h6>
                 </div>
 
                 <!-- Nav tabs -->
                 <div class="tabs-wrapper">
                     <ul class="nav classic-tabs tabs-cyan tab-full" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link waves-light active" data-toggle="tab" href="#panel51" role="tab">{{ lang('Department') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link waves-light" data-toggle="tab" href="#panel52" role="tab">{{ lang('Employee') }}</a>
+                            <a class="nav-link waves-light active" data-toggle="tab" href="#panel52" role="tab">{{ lang('Employee') }}</a>
                         </li>
                     </ul>
                 </div>
 
                 <!-- Tab panels -->
                 <div class="tab-content">
-
-                    <!--Panel 1-->
-                    <div class="modal-body tab-pane fade in show active" id="panel51" role="tabpanel">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="md-form d-flex addon">
-                                    <input type="text" class="form-control" name="department" placeholder="Pronađi odjel" v-model="department" v-on:keyup="autocomplete($event, 'department')">
-                                    <ul class="mdb-autocomplete-wrap" v-if="d_suggestions.length">
-                                        <li v-for="(item, index) in d_suggestions" v-on:click="autocomplete_select(index, 'department')">{{ item.name }}</li>
-                                    </ul>
-                                </div>
-                                <div class="chip mb-5" v-for="department in departments">
-                                    {{ department.name }}<i class="close fa fa-times"></i>
-                                </div>
-                                <!-- Textarea -->
-                                <div class="md-form mt-2 mb-2">
-                                    <textarea id="description" class="md-textarea" v-model="description"></textarea>
-                                    <label for="description">{{ lang('Task Description') }}</label>
-                                </div>
-                                <!-- Date Picker -->
-                                <div class="row mt-4">
-                                    <div class="col-md-5">
-                                        <div class="md-form">
-                                            <input placeholder="Selected date" type="text" id="date-picker-example1" class="form-control datepicker btn-white" v-model="date">
-                                            <label for="date-picker-example1">{{ lang('Select Date') }}</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--/. Checkbox -->
-                                <div class="page-name-m">{{ lang('Priority') }}</div>
-                                <div class="form-inline mb-3">
-                                    <fieldset class="form-group">
-                                        <input name="priority" type="radio" id="radio11" value="high" v-model="priority">
-                                        <label for="radio11">{{ lang('High') }}</label>
-                                    </fieldset>
-                                    <fieldset class="form-group">
-                                        <input name="priority" type="radio" id="radio21" value="medium" v-model="priority">
-                                        <label for="radio21">{{ lang('Medium') }}</label>
-                                    </fieldset>
-                                    <fieldset class="form-group">
-                                        <input name="priority" type="radio" id="radio31" value="low" v-model="priority">
-                                        <label for="radio31">{{ lang('Low') }}</label>
-                                    </fieldset>
-                                </div>
-                                <!--/. Checkbox -->
-                                <!-- Checkbox -->
-                                <div class="page-name-m">{{ lang('Access Level') }}</div>
-                                <div class="form-inline mb-3">
-                                    <fieldset class="form-group">
-                                        <input checked name="access" type="radio" id="radio51" value="allpage" v-model="access">
-                                        <label for="radio51">{{ lang('All Proposition Pages') }}</label>
-                                    </fieldset>
-                                    <fieldset class="form-group">
-                                        <input name="access" type="radio" id="radio41" value="onepage" v-model="access">
-                                        <label for="radio41">{{ lang('Only This Page') }}</label>
-                                    </fieldset>
-                                </div>
-                                <!--/. Checkbox -->
-                            </div>
-                        </div>
-                    </div>
-                    <!--/.Panel 1-->
-
                     <!--Panel 2-->
-                    <div class="modal-body tab-pane fade" id="panel52" role="tabpanel">
+                    <div class="modal-body tab-pane fade in show active" id="panel52" role="tabpanel">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="md-form d-flex addon">
@@ -157,7 +91,8 @@
 
                 <!--Footer-->
                 <div class="modal-footer btn-footer">
-                    <button type="button" class="btn btn-lg btn-save" data-dismiss="modal" v-on:click="assignValues">{{ lang('Assign') }}</button>
+                    <button type="button" class="btn btn-lg btn-save" data-dismiss="modal" v-on:click="assignValues">{{ lang('Assign') }}
+                        <i v-bind:class="['fa', 'fa-5x', 'fa-fw', 'text-white', spinnerType, isSpinnerHidden]"></i></button>
                     <button type="button" class="btn btn-lg btn-cancel" data-dismiss="modal">{{ lang('Cancel') }}</button>
                 </div>
             </div>
@@ -181,7 +116,9 @@
                 access: 0,
                 priority: 0,
                 departments: [],
-                cancel: false
+                cancel: false,
+                spinnerType: 'fa-refresh spinner-delay-rotate spinner-loader',
+                isSpinnerHidden: 'hide'
             }
         },
         methods: {
@@ -223,13 +160,30 @@
                 }
 
             },
-            assignValues: function() {
+            assignValues: function(event) {
+                let saveButton = jQuery(event.target);
+                saveButton.toggleClass('spinner-loading');
+                this.isSpinnerHidden = '';
+
                 axios.post('/api/proposition/'+this.$route.params.id + '/assign', {employees: this.employees, departments: this.departments, description: this.description, date: this.date, access:this.access, priority: this.priority, path: window.location.href})
                     .then(() => {
+                        this.spinnerType = 'fa-check spinner-success';
+                        setTimeout(() => {
+                            this.spinnerType = 'fa-refresh spinner-delay-rotate spinner-loader';
+                            this.isSpinnerHidden  ='hide';
+                            saveButton.toggleClass( "spinner-loading" );
+
+                            $('#centralModalAssign').modal('hide');
+                        }, 1000);
                         toastr.success(this.lang('Uspješno obavljeno'));
-                        $('#centralModalAssign').modal('hide');
                     })
                     .catch(() => {
+                        this.spinnerType = 'fa-times spinner-fail';
+                        setTimeout(() => {
+                            this.spinnerType = 'fa-refresh spinner-delay-rotate spinner-loader';
+                            this.isSpinnerHidden  ='hide';
+                            saveButton.toggleClass( "spinner-loading" );
+                        }, 1000);
                         toastr.error(this.lang('Došlo je do problema. Pokušajte ponovno'));
                     })
             }
