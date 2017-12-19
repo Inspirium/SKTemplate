@@ -11,7 +11,9 @@ export default {
     },
     mutations: {
         setUser(state, payload) {
-
+            state.id = payload.id;
+            state.name = payload.name;
+            state.roles = payload.roles;
         }
     },
     getters: {},

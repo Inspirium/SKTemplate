@@ -19,7 +19,7 @@
             <tr>
                 <th class="w-30"></th>
                 <th class="w-30">#</th>
-                <th class="w-30">#</th>
+                <th class="w-30" v-if="can('employee_tasks_order_edit')">#</th>
                 <th data-title="Task">{{ lang('Task') }}</th>
                 <th data-title="Task Type">{{ lang('Task Type') }}</th>
                 <th data-title="Assigner">{{ lang('Assigner') }}</th>
@@ -31,7 +31,7 @@
                 <tr v-for="(task, index) in employee.tasks">
                     <td><div class="icon icon-handler"></div></td>
                     <th class="display-e w-30">{{ task.order }}</th>
-                    <th v-bind:class="newOrderClass(task)">{{ newOrderValue(task) }}</th>
+                    <th v-bind:class="newOrderClass(task)" v-if="can('employee_tasks_order_edit')">{{ newOrderValue(task) }}</th>
                     <td data-title="Task" class="table-title"><a>{{ task.name }}</a></td>
                     <td data-title="Task Type"><div>{{ task_types[task.type].title }}</div></td>
                     <td data-title="Assigner"><a class="text-uppercase file-box-sty"><img v-bind:src="task.assigner.image" class="profile-m mr-2">{{ task.assigner.name }}</a></td>
@@ -90,7 +90,17 @@
                 }
             }
         },
+        computed: {
+            user() {
+                return this.$store.state.employee;
+            }
+        },
         methods: {
+            can(role) {
+                return _.find(this.user.roles, (o) => {
+                    return o.name === role;
+                });
+            },
             newOrderValue(task) {
                 if (task.new_order) {
                     return Number(task.new_order) - Number(task.order);
@@ -111,11 +121,11 @@
                 this.employee_index = ei;
                 $('#taskOrderApprovalModal').modal('show');
             },
-            sendForApproval(task) {
+            sendForApproval() {
                 let data = _.map(this.employees[this.employee_index].tasks, (o) => {
                     return o.id;
                 });
-                axios.post('/api/tasks/requestOrder', {tasks: data, task: task})
+                axios.post('/api/tasks/requestOrder', {tasks: data, task: task, employee: this.employees[this.employee_index].id})
                     .then((res) => {
                         this.employee_index = 0;
                     })

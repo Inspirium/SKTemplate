@@ -25,6 +25,9 @@
             }
         },
         computed: {
+            user() {
+                return this.$store.state.employee;
+            },
             active: function() {
                 return this.$route.path.split('/');
             },
@@ -370,18 +373,10 @@
                 }
                 else {
                     routes = {
-                        administration: {
-                            enabled: true,
-                            title: 'Administration',
-                            order: 0,
-                            key: 'administration',
-                            children: {
-                            }
-                        },
                         human_resources: {
                             enabled: true,
                             title: 'Human Resources',
-                            order: 1,
+                            order: 0,
                             key: 'human_resources',
                             children: {
                                 employees: {
@@ -395,16 +390,16 @@
                                     title: 'Departments'
                                 },
                                 roles: {
-                                    enabled: true,
+                                    enabled: this.can('employee_update_roles'),
                                     path: '/human_resources/roles',
                                     title: 'Roles'
                                 }
                             }
                         },
                         propositions: {
-                            enabled: true,
+                            enabled: this.can('access_proposition_admin'),
                             title: 'Propositions',
-                            order: 2,
+                            order: 1,
                             key: 'propositions',
                             children: {
                                 propositions: {
@@ -422,7 +417,7 @@
                         books: {
                             enabled: true,
                             title: 'Books',
-                            order: 3,
+                            order: 2,
                             key: 'books',
                             children: {
                                 books: {
@@ -440,7 +435,7 @@
                         tasks: {
                             enabled: true,
                             title: 'Task Management',
-                            order: 4,
+                            order: 3,
                             key: 'tasks',
                             children: {
                                 view: {
@@ -450,19 +445,19 @@
                                     component: false
                                 },
                                 graphics: {
-                                    enabled: true,
+                                    enabled: this.can('access_department_tasks'),
                                     path: '/tasks/department/1',
                                     title: 'Graphics',
                                     component: false
                                 },
                                 editorial: {
-                                    enabled: true,
+                                    enabled: this.can('access_department_tasks'),
                                     path: '/tasks/department/77',
                                     title: 'Editorial',
                                     component: false
                                 },
                                 management: {
-                                    enabled: true,
+                                    enabled: this.can('access_department_tasks'),
                                     path: '/tasks/department/92',
                                     title: 'Management',
                                     component: false
@@ -472,7 +467,7 @@
                         notifications: {
                             enabled: true,
                             title: 'Notifications',
-                            order: 5,
+                            order: 4,
                             key: 'notifications',
                             children: {
                                 view: {
@@ -485,7 +480,7 @@
                         messages: {
                             enabled: true,
                             title: 'Messages',
-                            order: 6,
+                            order: 5,
                             key: 'messages',
                             children: {
                                 view: {
@@ -516,7 +511,6 @@
                 return this.$route.path === this.lroutes[group].children[key].path;
             },
             isComplete: function(group_key, key) {
-
                 if (this.$route.path === this.lroutes[group_key].children[key].path) {
                     if (this.lroutes[group_key].children[key].status === 'incomplete') {
                         return 'menu-incomplete';
@@ -526,9 +520,15 @@
                     }
                 }
                 return '';
-            }
+            },
+            can(role) {
+                return _.find(this.user.roles, (o) => {
+                    return o.name === role;
+                });
+            },
         },
         mounted: function() {
+            this.$store.dispatch('employee/initUser');
         }
     }
 </script>

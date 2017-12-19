@@ -64,11 +64,12 @@
     @can('update', $employee)
     <div class="btn-footer mt-2 mb-5 d-flex p-2">
         <a href="/human_resources/employee/{{ $employee->id }}/edit" class="btn btn-lg btn-neutral">@lang('Edit')</a>
+        @can('viewRoles', $employee)
+            <a href="{{ url('human_resources/employee/'.$employee->id.'/roles') }}" class="btn btn-lg btn-neutral">@lang('Edit Employee Roles')</a>
+        @endcan
     </div>
     @endcan
-    @if(Auth::user()->hasRole('edit_employee_roles'))
-        <a href="{{ url('human_resources/employee/'.$employee->id.'/roles') }}" class="btn btn-lg btn-neutral">@lang('Edit Employee Roles')</a>
-    @endif
+
     <!--/. Footer buttons -->
 </div>
 @endsection
