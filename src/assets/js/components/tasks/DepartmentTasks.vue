@@ -33,7 +33,7 @@
                     <th class="display-e w-30">{{ task.order }}</th>
                     <th v-bind:class="newOrderClass(task)" v-if="can('employee_tasks_order_edit')">{{ newOrderValue(task) }}</th>
                     <td data-title="Task" class="table-title"><a>{{ task.name }}</a></td>
-                    <td data-title="Task Type"><div>{{ task_types[task.type].title }}</div></td>
+                    <td data-title="Task Type"><div v-bind:class="task_types[element.type].className">{{ task_types[element.type].title }}</div></td>
                     <td data-title="Assigner"><a class="text-uppercase file-box-sty"><img v-bind:src="task.assigner.image" class="profile-m mr-2">{{ task.assigner.name }}</a></td>
                     <td data-title="Created">{{ task.created_at | moment('DD.MM.') }}</td>
                     <td data-title="Deadline">{{ task.deadline | moment('DD.MM.') }}</td>
