@@ -4,7 +4,7 @@
         <div class="md-form input-group search-big">
             <input type="search" class="form-control" v-model="filterKey" v-bind:placeholder="lang('Search...')">
         </div>
-    <div class="btn-header d-flex p-2">
+    <div class="btn-header d-flex p-2" v-if="links['add_new']">
         <a v-bind:href="links['add_new']" class="btn btn-lg btn-blank"><i class="fa fa-plus left"></i>{{ lang( strings['add_new'] ) }}</a>
     </div>
     <table class="table table-hover">
@@ -35,8 +35,8 @@
                 </template>
             </td>
             <td>
-                <a class="color-grey" v-bind:href="links['edit'] | add_id(entry)" v-bind:title="lang('Edit')"><i class="fa fa-pencil"></i></a>
-                <a class="color-grey" href="#" v-bind:title="lang('Delete')" v-on:click.prevent="deleteWarning(entry)"><i class="fa fa-times"></i></a>
+                <a v-if="links['edit']" class="color-grey" v-bind:href="links['edit'] | add_id(entry)" v-bind:title="lang('Edit')"><i class="fa fa-pencil"></i></a>
+                <a class="color-grey" v-if="links['delete']"  v-bind:title="lang('Delete')" v-on:click.prevent="deleteWarning(entry)"><i class="fa fa-times"></i></a>
             </td>
         </tr>
         </tbody>
