@@ -6,25 +6,25 @@
             <div class="quick-links">
                 <div class="quick-links-title mt-3">Brzi linkovi</div>
                 <div class="quick-links-box">
-                    <a href="#" onclick="toastr.info('Hi! I am info message.');">
+                    <a href="/human_resources/employees" onclick="toastr.info('Hi! I am info message.');">
                         <div class="quick-links-item">
                             <i class="fa fa-users fa-3x quick-item-icon" aria-hidden="true"></i>
                         </div>
                         <div class="quick-item-title">Imenik</div>
                     </a>
-                    <a href="#">
+                    <a href="/books">
                         <div class="quick-links-item">
                             <i class="fa fa-book fa-3x quick-item-icon" aria-hidden="true"></i>
                         </div>
                         <div class="quick-item-title">Izdanja</div>
                     </a>
-                    <a href="#">
+                    <a href="/tasks">
                         <div class="quick-links-item">
                             <i class="fa fa-thumb-tack fa-3x quick-item-icon" aria-hidden="true"></i>
                         </div>
                         <div class="quick-item-title">Moji zadaci</div>
                     </a>
-                    <a href="#">
+                    <a href="/notifications">
                         <div class="quick-links-item">
                             <i class="fa fa-comment fa-3x quick-item-icon" aria-hidden="true"></i>
                         </div>
@@ -34,7 +34,7 @@
             </div>
         </div>
 
-   
+
    <div class="chart mt-4">
        <div class="header">
            <div class="header__title--style">Naziv grafa</div>
@@ -49,7 +49,7 @@
            <div class="ct-chart ct-double-octave" id="chart1"></div>
        </div>
    </div>
-      
+
    <div class="chart mt-4">
        <div class="header">
            <div class="header__title--style">Naziv grafa</div>
@@ -63,10 +63,10 @@
        <div class="content mt-3">
            <div class="ct-chart ct-double-octave" id="chart2"></div>
        </div>
-   </div>   
-   
-    <div class="row">     
-        <div class="col-md-6">         
+   </div>
+
+    <div class="row">
+        <div class="col-md-6">
            <div class="chart mt-4">
                <div class="header">
                    <div class="header__title--style">Naziv grafa</div>
@@ -80,9 +80,9 @@
                <div class="content mt-3">
                    <div class="ct-chart ct-double-octave" id="chart3"></div>
                </div>
-           </div> 
+           </div>
         </div>
-        <div class="col-md-6">                 
+        <div class="col-md-6">
            <div class="chart mt-4">
                <div class="header">
                    <div class="header__title--style">Naziv grafa</div>
@@ -96,19 +96,19 @@
                <div class="content mt-3">
                    <div class="ct-chart ct-double-octave" id="chart4"></div>
                </div>
-           </div>  
-        </div> 
+           </div>
+        </div>
     </div>
-   
-  
-    
-       
+
+
+
+
         <div class="row">
             <div class="col-md-12">
                 <div class="page-name-xl mb-1 mt-3">@lang('New Editions')</div>
                 <div class="card-box">
                     <div class="row">
-                        <!--/.Card--> 
+                        <!--/.Card-->
                         <div class="col-md-3 align-self-end">
                             <!--Card-->
                             <a class="card mb-4">
@@ -125,7 +125,7 @@
                                 </div>
                             </a>
                         </div>
-                        <!--/.Card--> 
+                        <!--/.Card-->
                         <div class="col-md-3 align-self-end">
                             <!--Card-->
                             <a class="card mb-4">
@@ -142,7 +142,7 @@
                                 </div>
                             </a>
                         </div>
-                        <!--/.Card--> 
+                        <!--/.Card-->
                         <div class="col-md-3 align-self-end">
                             <!--Card-->
                             <a class="card mb-4">
@@ -159,7 +159,7 @@
                                 </div>
                             </a>
                         </div>
-                        <!--/.Card--> 
+                        <!--/.Card-->
                         <div class="col-md-3 align-self-end">
                             <!--Card-->
                             <a class="card mb-4">
@@ -176,7 +176,7 @@
                                 </div>
                             </a>
                         </div>
-                        <!--/.Card--> 
+                        <!--/.Card-->
                         <div class="col-md-3 align-self-end">
                             <!--Card-->
                             <a class="card mb-4">
@@ -193,7 +193,7 @@
                                 </div>
                             </a>
                         </div>
-                        <!--/.Card--> 
+                        <!--/.Card-->
                         <div class="col-md-3 align-self-end">
                             <!--Card-->
                             <a class="card mb-4">
@@ -218,7 +218,7 @@
             </div>
         </div>
     </div>
-    
+
 <script>
     new Chartist.Bar('#chart1', {
         labels: ['Propozicija', 'Pro. na odobrenju', 'Priprema teksta', 'Dizajn', 'Prijelom', 'Def. cijene', 'Priprema', 'Tisak'],
@@ -229,7 +229,7 @@
         labels: ['Propozicija', 'Pro. na odobrenju', 'Priprema teksta', 'Dizajn', 'Prijelom', 'Def. cijene', 'Priprema', 'Tisak'],
         series: [[11, 2, 11, 5, 23, 15, 15, 1]]
     });
-    
+
     var data = {
       labels: ['Bananas', 'Apples', 'Grapes'],
       series: [20, 15, 40]
@@ -253,9 +253,9 @@
         chartPadding: 20
       }]
     ];
-    new Chartist.Pie('#chart3', data, options, responsiveOptions);  
-    
-    
+    new Chartist.Pie('#chart3', data, options, responsiveOptions);
+
+
     new Chartist.Pie('#chart4', {
         series: [20, 10, 30, 40]
     }, {

@@ -22,7 +22,7 @@
             <div class="dropdown-menu dropdown-ins dropdown-menu-right dropdown-custom-login">
                 <div class="user-box">
                     <a class="waves-effect activity-item waves-light" href="{{ url('logout') }}">@lang('Log Out')</a>
-                    <a class="waves-effect waves-light" href="#">@lang('My account')</a>
+                    <a class="waves-effect waves-light" href="/human_resources/employee/{{ Auth::id() }}">@lang('My account')</a>
                 </div>
             </div>
         </div>
