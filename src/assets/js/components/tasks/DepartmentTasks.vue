@@ -19,7 +19,7 @@
             <tr>
                 <th class="w-30"></th>
                 <th class="w-30">#</th>
-                <th class="w-30" v-if="can('employee_tasks_order_edit')">#</th>
+                <th class="w-30" v-if="can('department_tasks_order_edit')">#</th>
                 <th data-title="Task">{{ lang('Task') }}</th>
                 <th data-title="Task Type">{{ lang('Task Type') }}</th>
                 <th data-title="Assigner">{{ lang('Assigner') }}</th>
@@ -31,7 +31,7 @@
                 <tr v-for="(task, index) in employee.tasks">
                     <td><div class="icon icon-handler"></div></td>
                     <th class="display-e w-30">{{ task.order }}</th>
-                    <th v-bind:class="newOrderClass(task)" v-if="can('employee_tasks_order_edit')">{{ newOrderValue(task) }}</th>
+                    <th v-bind:class="newOrderClass(task)" v-if="can('department_tasks_order_edit')">{{ newOrderValue(task) }}</th>
                     <td data-title="Task" class="table-title"><a v-bind:href="'/task/show/'+task.id">{{ task.name }}</a></td>
                     <td data-title="Task Type"><div v-bind:class="task_types[task.type].className">{{ task_types[task.type].title }}</div></td>
                     <td data-title="Assigner"><a v-bind:href="'/human_resources/employee/'+task.assigner.id+'/show'" class="text-uppercase file-box-sty"><img v-bind:src="task.assigner.image" class="profile-m mr-2">{{ task.assigner.name }}</a></td>
@@ -40,9 +40,9 @@
                 </tr>
             </draggable>
         </table>
-        <button v-on:click="openModalForApproval(ei)" type="button" class="btn btn-neutral btn-addon d-block ml-auto waves-effect waves-light">{{ lang('Save tasks priority') }}</button>
-        <button v-on:click="approveOrder(ei)" type="button" class="btn btn-success btn-addon d-block ml-auto waves-effect waves-light">{{ lang('Reject task priority') }}</button>
-        <button v-on:click="approveOrder(ei)" type="button" class="btn btn-danger btn-addon d-block ml-auto waves-effect waves-light">{{ lang('Approve task priority') }}</button>
+        <button v-if="can('department_tasks_order_edit')" v-on:click="openModalForApproval(ei)" type="button" class="btn btn-neutral btn-addon d-block ml-auto waves-effect waves-light">{{ lang('Save tasks priority') }}</button>
+        <button v-if="can('department_tasks_order_approve')" v-on:click="approveOrder(ei)" type="button" class="btn btn-success btn-addon d-block ml-auto waves-effect waves-light">{{ lang('Reject task priority') }}</button>
+        <button v-if="can('department_tasks_order_approve')" v-on:click="approveOrder(ei)" type="button" class="btn btn-danger btn-addon d-block ml-auto waves-effect waves-light">{{ lang('Approve task priority') }}</button>
         </template>
 
         <task-order-approval v-on:sendForApproval="sendForApproval"></task-order-approval>

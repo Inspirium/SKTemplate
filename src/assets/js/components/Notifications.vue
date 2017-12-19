@@ -43,7 +43,7 @@
             });
             Echo.private('users.' + window.Laravel.userId)
                 .notification((notification) => {
-                    this.notifications.push(notification)
+                    this.notifications.unshift(notification)
                 });
         },
         methods: {
