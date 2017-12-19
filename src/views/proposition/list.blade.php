@@ -149,7 +149,7 @@
 
             <!-- Table -->
             <div class="page-name-xl mb-2 mt-5">@lang('Proposition Archive')
-                <span class="tag tag-neutral text-white">154</span>
+                <span class="tag tag-neutral text-white">{{ $archived->count() }}</span>
             </div>
             <table class="table table-hover">
                 <thead class="thead-inverse">
@@ -162,34 +162,15 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td class="table-title">Fizika oko nas — udžbenik za fiziku </td>
-                    <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
-                    <td>9444,96</td>
-                    <td>12.12.2017.</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td class="table-title">Fizika oko nas — udžbenik za fiziku </td>
-                    <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
-                    <td>9444,96</td>
-                    <td> 12.12.2017.</td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td class="table-title">Fizika oko nas — udžbenik za fiziku </td>
-                    <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
-                    <td>9444,96</td>
-                    <td>12.12.2017.</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td class="table-title">Fizika oko nas — udžbenik za fiziku </td>
-                    <td><a href="" class="text-uppercase file-box-sty"><img class="profile-m mr-2" src="../images/profile.jpg" href="#">Jelena Lončarić</a></td>
-                    <td>9444,96</td>
-                    <td>12.12.2017.</td>
-                </tr>
+                @foreach($archived as $prop)
+                    <tr>
+                        <th scope="row">{{ $loop->iteration }}</th>
+                        <td data-title="@lang('Title')" class="table-title"><a href="{{ url('proposition/'.$prop->id.'/edit/start') }}">{{ $prop->title }}</a></td>
+                        <td data-title="@lang('Author')"><a href="{{ url('human_resources/employee/'.$prop->owner->id . '/show') }}" class="text-uppercase file-box-sty"><img class="profile-m mr-2" src="{{ $prop->owner->image }}">{{ $prop->owner->name }}</a></td>
+                        <td data-title="@lang('Creation Date')">{{ $prop->created_at }}</td>
+                        <td data-title="@lang('Completion Date')">{{ $prop->completed_at }}</td>
+                    </tr>
+                @endforeach
                 </tbody>
             </table>
             <button class="btn btn-neutral btn-addon d-block ml-auto" type="button">@lang('Show More')</button>
