@@ -6,7 +6,7 @@
             <div class="quick-links">
                 <div class="quick-links-title mt-3">Brzi linkovi</div>
                 <div class="quick-links-box">
-                    <a href="/human_resources/employees" onclick="toastr.info('Hi! I am info message.');">
+                    <a href="/human_resources/employees">
                         <div class="quick-links-item">
                             <i class="fa fa-users fa-3x quick-item-icon" aria-hidden="true"></i>
                         </div>
