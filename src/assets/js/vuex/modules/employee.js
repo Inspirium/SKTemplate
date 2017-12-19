@@ -20,7 +20,7 @@ export default {
     actions: {
         initUser({state, commit}) {
             if (!state.id || state.id !== window.Laravel.userId) {
-                axios.get('api/me')
+                axios.get('/api/me')
                     .then((res) => {
                          commit('setUser', res.data);
                     });

@@ -119,7 +119,7 @@
                                 <td data-title="Status"></td>
                             </template>
                         </tr>
-                    <tbody>
+                    </tbody>
                 </table>
             </div>
             <div class="tab-pane fade in show" id="completed_tasks" role="tabpanel">
