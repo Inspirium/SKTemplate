@@ -386,9 +386,9 @@ header .dropdown-toggle {
     .header-profile {
         margin: 0 .3rem;
         border-radius: 50%;
-        border: 3px solid $white;
-      max-width: 50px;
-      max-height: 50px;
+        border: 2px solid $white;
+        max-width: 50px;
+        max-height: 50px;
     }
     &:after {
         content: none;
@@ -669,16 +669,16 @@ table td .color-grey {
     overflow: hidden;
 }
 
-.file-icon:before {
-    color: lighten($color-body_text, 25%);
-    font-family: FontAwesome;
-    content: "\f016";
-    font-size: 3.6rem;
-    margin-right: 1.1rem;
-    margin-left: 0.5rem;
-    vertical-align: middle;
-
-}
+//.file-icon:before {
+//    color: lighten($color-body_text, 25%);
+//    font-family: FontAwesome;
+//    content: "\f016";
+//    font-size: 3.6rem;
+//    margin-right: 1.1rem;
+//    margin-left: 0.5rem;
+//    vertical-align: middle;
+//
+//}
 
 .file-icon:hover::before {
     color: $info-color;
