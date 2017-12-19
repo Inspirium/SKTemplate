@@ -108,18 +108,9 @@
                 let saveButton = document.getElementById('save-btn');
                 saveButton.setAttribute('style', 'color: #92C100 !important; position: relative');
                 $( "i.spinner-loader" ).toggleClass( "hide" );
-                
+
                 this.$emit('sendForApproval', {employees: this.employees, description: this.description});
-                $('#taskOrderApprovalModal').modal('hide')
-                .then((res) => {
-                    saveButton.setAttribute('style', 'color: #FFFFFF !important');
-                    $( "i.spinner-loader" ).addClass( "hide" );
-                    toastr.success(this.lang('Uspješno obavljeno'));
-                })
-                .catch(() => {
-                    toastr.error(this.lang('Došlo je do problema. Pokušajte ponovno'));
-                    $( "i.spinner-loader" ).addClass( "hide" );
-                });
+                $('#taskOrderApprovalModal').modal('hide');
             }
         }
     }
