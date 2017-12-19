@@ -116,7 +116,7 @@
                         saveButton.setAttribute('style', 'color: #FFFFFF !important');
                         $( "i.spinner-loader" ).addClass( "hide" );
                         toastr.success(this.lang('Uspješno obavljeno'));
-                    });
+                    })
                     .catch(() => {
                         toastr.error(this.lang('Došlo je do problema. Pokušajte ponovno'));
                         $( "i.spinner-loader" ).addClass( "hide" );
