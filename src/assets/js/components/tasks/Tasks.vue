@@ -93,24 +93,22 @@
                 <table class="table">
                     <thead class="thead-inverse">
                     <tr>
-                        <th class="w-30"></th>
                         <th class="w-30">#</th>
                         <th data-title="Task">{{ lang('Task') }}</th>
                         <th data-title="Task Type">{{ lang('Task Type') }}</th>
-                        <th data-title="Assigner">{{ lang('Assigner') }}</th>
+                        <th data-title="Assigner">{{ lang('Assign to') }}</th>
                         <th data-title="Created">{{ lang('Created') }}</th>
                         <th data-title="Deadline">{{ lang('Deadline') }}</th>
                         <th data-title="Assign to" v-if="authority" class="text-right">{{ lang('Assign to') }}</th>
                         <th data-title="Status">{{ lang('Status') }}</th>
                     </tr>
                     </thead>
-                    <draggable v-model="sent_tasks" v-bind:element="'tbody'" v-bind:options="{handle:'.icon-handler'}">
+                    <tbody>
                         <tr v-for="(element, index) in sent_tasks" v-bind:key="element.id">
-                            <td><div class="icon icon-handler"></div></td>
                             <th class="display-e w-30">{{ index+1 }}</th>
                             <td data-title="Task" class="table-title"><a v-bind:href="'/task/show/'+element.id">{{ element.name }}</a></td>
                             <td data-title="Task Type"><div v-bind:class="task_types[element.type].className">{{ task_types[element.type].title }}</div></td>
-                            <td data-title="Assigner"><a v-bind:href="'/human_resources/employee/'+element.assigner.id+'/show'" class="text-uppercase file-box-sty"><img class="profile-m mr-2" v-bind:src="element.assigner.image">{{ element.assigner.name }}</a></td>
+                            <td data-title="Assign to"><a v-bind:href="'/human_resources/employee/'+element.assigner.id+'/show'" class="text-uppercase file-box-sty"><img class="profile-m mr-2" v-bind:src="element.assigner.image">{{ element.assigner.name }}</a></td>
                             <td data-title="Created">{{ element.created_at | moment('DD.MM.') }}</td>
                             <td data-title="Deadline">{{ element.deadline | moment('DD.MM.') }}</td>
                             <td data-title="Assign to" v-if="authority" class="text-right"><div class="file-box-sty icon icon-assign">{{ lang('Assign') }}</div></td>
@@ -121,7 +119,7 @@
                                 <td data-title="Status"></td>
                             </template>
                         </tr>
-                    </draggable>
+                    <tbody>
                 </table>
             </div>
             <div class="tab-pane fade in show" id="completed_tasks" role="tabpanel">
@@ -131,7 +129,6 @@
                 <table class="table">
                     <thead class="thead-inverse">
                     <tr>
-                        <th class="w-30"></th>
                         <th class="w-30">#</th>
                         <th data-title="Task">{{ lang('Task') }}</th>
                         <th data-title="Task Type">{{ lang('Task Type') }}</th>
@@ -141,9 +138,8 @@
                         <th data-title="Assign to" v-if="authority" class="text-right">{{ lang('Assign to') }}</th>
                     </tr>
                     </thead>
-                    <draggable v-model="completed_tasks" v-bind:element="'tbody'" v-bind:options="{handle:'.icon-handler'}">
+                    <tbody>
                         <tr v-for="(element, index) in completed_tasks" v-bind:key="element.id">
-                            <td><div class="icon icon-handler"></div></td>
                             <th class="display-e w-30">{{ index+1 }}</th>
                             <td data-title="Task" class="table-title"><a v-bind:href="'/task/show/'+element.id">{{ element.name }}</a></td>
                             <td data-title="Task Type"><div v-bind:class="task_types[element.type].className">{{ task_types[element.type].title }}</div></td>
@@ -152,7 +148,7 @@
                             <td data-title="Deadline">{{ element.deadline | moment('DD.MM.') }}</td>
                             <td data-title="Assign to" v-if="authority" class="text-right"><div class="file-box-sty icon icon-assign">{{ lang('Assign') }}</div></td>
                         </tr>
-                    </draggable>
+                    </tbody>
                 </table>
             </div>
             <div class="tab-pane fade in show" id="rejected_tasks" role="tabpanel">
@@ -162,7 +158,6 @@
                 <table class="table">
                     <thead class="thead-inverse">
                     <tr>
-                        <th class="w-30"></th>
                         <th class="w-30">#</th>
                         <th data-title="Task">{{ lang('Task') }}</th>
                         <th data-title="Task Type">{{ lang('Task Type') }}</th>
@@ -172,9 +167,8 @@
                         <th data-title="Assign to" v-if="authority" class="text-right">{{ lang('Assign to') }}</th>
                     </tr>
                     </thead>
-                    <draggable v-model="rejected_tasks" v-bind:element="'tbody'" v-bind:options="{handle:'.icon-handler'}">
+                    <tbody>
                         <tr v-for="(element, index) in rejected_tasks" v-bind:key="element.id">
-                            <td><div class="icon icon-handler"></div></td>
                             <th class="display-e w-30">{{ index+1 }}</th>
                             <td data-title="Task" class="table-title"><a v-bind:href="'/task/show/'+element.id">{{ element.name }}</a></td>
                             <td data-title="Task Type"><div v-bind:class="task_types[element.type].className">{{ task_types[element.type].title }}</div></td>
@@ -183,7 +177,7 @@
                             <td data-title="Deadline">{{ element.deadline | moment('DD.MM.') }}</td>
                             <td data-title="Assign to" v-if="authority" class="text-right"><div class="file-box-sty icon icon-assign">{{ lang('Assign') }}</div></td>
                         </tr>
-                    </draggable>
+                    </tbody>
                 </table>
             </div>
         </div>
