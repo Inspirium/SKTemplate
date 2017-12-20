@@ -6,18 +6,20 @@
         </a>
         <div class="dropdown-menu dropdown-ins dropdown-menu-right dropdown-custom-login">
             <div class="activity-box">
-                <a href="/notifications" class="activity-item file-box-sty p-1 text-center d-block">Prikaži sve</a>
-                <div class="activity-item align-items-center d-flex" v-for="item in notifications">
-                    <div class="activity-avatar file-box-sty d-flex align-items-center" v-if="item.data.sender">
-                        <a v-bind:href="item.data.sender.link">
-                            <img class="profile-s mr-2" v-bind:src="item.data.sender.image">
-                        </a>
-                    </div>
-                    <div class="activity-content">
-                        <div class="activity-label tasktype-1">{{ item.data.tasktype }}</div>
-                        <div class="activity-time">{{ item.created_at | moment("from", "now") }}</div>
-                        <h4 class="activitiy-user"><a v-bind:href="item.data.link?item.data.link:'#'" v-on:click="markAsRead(item)">{{ lang(item.data.title) }}</a></h4>
-                        <h5>{{ lang(item.data.message) }}</h5>
+                <div class="activity-container">
+                    <a href="/notifications" class="activity-item file-box-sty p-1 text-center d-block">Prikaži sve</a>
+                    <div class="activity-item align-items-center d-flex" v-for="item in notifications">
+                        <div class="activity-avatar file-box-sty d-flex align-items-center" v-if="item.data.sender">
+                            <a v-bind:href="item.data.sender.link">
+                                <img class="profile-s mr-2" v-bind:src="item.data.sender.image">
+                            </a>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-label tasktype-1">{{ item.data.tasktype }}</div>
+                            <div class="activity-time">{{ item.created_at | moment("from", "now") }}</div>
+                            <h4 class="activitiy-user"><a v-bind:href="item.data.link?item.data.link:'#'" v-on:click="markAsRead(item)">{{ lang(item.data.title) }}</a></h4>
+                            <h5>{{ lang(item.data.message) }}</h5>
+                        </div>
                     </div>
                 </div>
             </div>

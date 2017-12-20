@@ -21,7 +21,7 @@
         methods: {
             sendToWarehouse() {
                 let saveButton = jQuery(event.target);
-                saveButton.toggleClass('spinner-loading');
+                saveButton.toggleClass('spinner-loading-blue');
                 this.isSpinnerHidden = '';
                 axios.post('/api/proposition/'+this.$router.params.id+'/warehouse')
                     .then((res)=>{
@@ -29,17 +29,19 @@
                         setTimeout(() => {
                             this.spinnerType = 'fa-refresh spinner-delay-rotate spinner-loader';
                             this.isSpinnerHidden  ='hide';
-                            saveButton.toggleClass( "spinner-loading" );
+                            saveButton.toggleClass( "spinner-loading-blue" );
                             window.location.href = res.data.link;
                         }, 1000)
+                        toastr.success(this.lang('Uspješno obavljeno'));
 
                     })
                     .catch(() => {
                         this.spinnerType = 'fa-times spinner-fail';
+                        toastr.success(this.lang('Došlo je do problema. Pokušajte ponovno'));
                         setTimeout(() => {
                             this.spinnerType = 'fa-refresh spinner-delay-rotate spinner-loader';
                             this.isSpinnerHidden  ='hide';
-                            saveButton.toggleClass( "spinner-loading" );
+                            saveButton.toggleClass( "spinner-loading-blue" );
                         }, 1000)
                     })
             }

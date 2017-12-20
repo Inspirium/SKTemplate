@@ -247,12 +247,6 @@ h6 {
     text-indent: 0;
 }
 
-@media only screen and (max-width : 768px) {
-    .search-big {
-        width: 100%;
-    }
-}
-
 .search-big .search-big-button {
     top: 4px;
     box-shadow: none;
@@ -1246,5 +1240,9 @@ input.md-form.addon {
 
 .spinner-loading {
   color: #92C100 !important;
+  position: relative;
+}
+.spinner-loading-blue {
+  color: #ffffff !important;
   position: relative;
 }

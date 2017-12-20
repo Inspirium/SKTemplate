@@ -753,6 +753,21 @@ $sk-skin-btn-default: #293756;
         position: relative;
         margin-left: -151px;
         margin-right: -73px;
+        &:before {
+            content: "";
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 12px 12px 12px;
+            border-color: transparent transparent #ffffff transparent;
+            position: absolute;
+            top: -12px;
+            left: 45%;
+        }
+        .activity-container {
+            max-height: 60vh;
+            overflow: hidden;
+        }
         .tasktype-1 {
             border-radius: 0.1rem;
             padding: 0px 5px;
@@ -1307,13 +1322,15 @@ $sk-skin-btn-default: #293756;
             padding-top: 1rem;
             padding-bottom: 2.5rem;
             }
+        .search-big {
+            width: 100%;
+            }
+        .btn-footer,
+        .stopwatch-controls > div {
+            flex-direction: column;
         }
 
-
-
-
-
-
+    }
 }
 
 
