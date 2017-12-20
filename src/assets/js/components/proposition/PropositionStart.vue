@@ -2,7 +2,7 @@
     <div class="content">
         <div class="row profile-head py-4 d-flex flex-column justify-content-center align-items-center">
             <div class="col-md-12">
-                <h1 class="display-3 text-white text-center">{{ lang('New Project') }}</h1>
+                <h1 class="display-3 text-white text-center">{{ start.project_name?start.project_name:lang('New Project') }}</h1>
             </div>
         </div>
 

@@ -30,8 +30,8 @@
                     <th scope="row">{{ $loop->iteration }}</th>
                     <td data-title="@lang('Title')" class="table-title"><a href="{{ url('proposition/'.$prop->id.'/edit/start') }}">{{ $prop->project_name?$prop->project_name:'untitled' }}</a></td>
                     <td data-title="@lang('Author')"><a href="{{ url('human_resources/employee/'.$prop->owner->id . '/show') }}" class="text-uppercase file-box-sty"><img class="profile-m mr-2" src="{{ $prop->owner->image }}">{{ $prop->owner->name }}</a></td>
-                    <td data-title="@lang('Waiting Approval')" data-title="Crea" >{{ $prop->created_at }}</td>
-                    <td></td>
+                    <td data-title="@lang('Creation Date')">{{ $prop->created_at }}</td>
+                    <td data-title="@lang('Waiting Approval')">{{ $prop->approved_on->diffForHumans(\Carbon\Carbon::now(), true) }}</td>
                 </tr>
                 @endforeach
                 </tbody>
