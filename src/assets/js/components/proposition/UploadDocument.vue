@@ -17,11 +17,6 @@
             <div class="justify-content-center d-flex mb-4">
                 <button type="button" class="btn btn-neutral" v-on:click="documentAdd('initial-documents')">{{ lang('Upload') }}</button>
             </div>
-<!--
-            <div class="modal-footer btn-footer">
-                <button type="button" class="btn btn-lg btn-save" v-on:click="saveFiles">{{ lang('Save') }}</button>
-            </div>
--->
 
             <div class="page-name-xl mb-4 mt-5">{{ lang('Final Document') }}</div>
         <div class="files mt-2 mb-2">
@@ -110,7 +105,7 @@
                 let saveButton = document.getElementById('save-btn');
                 saveButton.setAttribute('style', 'color: #92C100 !important; position: relative');
                 $( "i.spinner-loader" ).toggleClass( "hide" );
-                
+
                 axios.post('/api/proposition/' + this.$route.params.id + '/files/' + this.$route.meta.dir, {initial:this.files, final: this.final})
                     .then((res) => {
                         saveButton.setAttribute('style', 'color: #FFFFFF !important');

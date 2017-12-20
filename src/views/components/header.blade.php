@@ -28,17 +28,8 @@
         </div>
         <inspirium-notifications></inspirium-notifications>
 
-<!--
-        <a href="#" class="nav-item nav-link-icon d-flex">
-            <i class="fa fa-search"></i>
-        </a>
--->
         <!-- Breadcrumb -->
-        <ol class="breadcrumb d-flex align-items-center">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item"><a href="#">Library</a></li>
-            <li class="breadcrumb-item active">Data</li>
-        </ol>
+        <inspirium-breadcrumbs></inspirium-breadcrumbs>
         <!--/. Breadcrumb -->
         <div class="float-right hamburger-icon">
             <a href="#" data-activates="slide-out" class="button-collapse"><i class="fa fa-bars"></i></a>

@@ -411,7 +411,7 @@ header .navbar .breadcrumb {
         font-size: .9rem;
     }
 
-    .active {
+    .active, .active a {
         color: $white;
     }
 }
