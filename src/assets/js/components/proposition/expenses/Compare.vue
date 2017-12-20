@@ -288,6 +288,7 @@
     export default {
         data: function () {
             return {
+                next: false,
                 production_expenses: [
                     { designation: 'text_price', title: 'Text'},
                     { designation: 'reviews', title: 'Reviews'},
@@ -465,6 +466,15 @@
         mounted() {
             if (this.$route.params.id != 0) {
                 this.$store.dispatch('proposition/compare/getData', {id: this.$route.params.id});
+            }
+        },
+        beforeRouteLeave(to, from, next) {
+            if (this.$store.state.edited) {
+                this.next = next;
+                $('#modal-warning-not-saved').modal('show');
+            }
+            else {
+                next();
             }
         }
     }

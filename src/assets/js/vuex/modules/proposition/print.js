@@ -12,6 +12,21 @@ export default {
                 let key = Object.keys(state)[i];
                 state[key] = payload[key];
             }
+        },
+        addFile(state, payload) {
+            state.offers[payload.offer].files.push(payload.file);
+        },
+        deleteFile(state, payload) {
+            state.offers[payload.offer].files = _.filter(state.offers[payload.offer].files, (file) => {
+                return file.id !== payload.id;
+            })
+        },
+        filenameSave(state, payload) {
+            _.forEach(state.offers[payload.offer].files, (o) => {
+                if (o.id === payload.id) {
+                    o.title = payload.title;
+                }
+            });
         }
     },
     actions: {
@@ -41,6 +56,15 @@ export default {
                     reject();
                 }
             });
+        },
+        deleteFile({commit}, payload) {
+            commit('deleteFile', payload);
+            //make request to remove from system
+            axios.delete('/api/file/'+payload.id);
+        },
+        filenameSave({commit}, payload) {
+            commit('filenameSave', payload);
+            //TODO: make request to change in system
         }
     }
 }

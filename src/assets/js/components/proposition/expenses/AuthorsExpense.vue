@@ -88,7 +88,9 @@
     import {mapState} from 'vuex'
     export default {
         data: function() {
-            return {}
+            return {
+                next: false
+            }
         },
         components: {
             'footer-buttons': FooterButtons
@@ -116,6 +118,15 @@
         mounted: function() {
             if (this.$route.params.id != 0) {
                 this.$store.dispatch('proposition/authors_expense/getData', {id: this.$route.params.id, type:'expense'});
+            }
+        },
+        beforeRouteLeave(to, from, next) {
+            if (this.$store.state.edited) {
+                this.next = next;
+                $('#modal-warning-not-saved').modal('show');
+            }
+            else {
+                next();
             }
         }
     }

@@ -40,7 +40,7 @@
                     <div class="col-md-3">
                         <select class="mdb-select" v-model="employee.mobile_pre">
                             <option disabled>{{ lang('Choose') }}</option>
-                            <option v-for="area_code in mobile_area_codes" value="area_code">{{ area_code }}</option>
+                            <option v-for="area_code in mobile_area_codes" v-bind:value="area_code">{{ area_code }}</option>
                         </select>
                         <label>{{ lang('Area Code') }}</label>
                     </div>
@@ -62,7 +62,7 @@
                     <div class="col-md-3">
                         <select class="mdb-select" v-model="employee.phone_pre">
                             <option disabled>{{ lang('Choose') }}</option>
-                            <option v-for="area_code in area_codes" value="area_code">{{ area_code }}</option>
+                            <option v-for="area_code in area_codes" v-bind:value="area_code">{{ area_code }}</option>
                         </select>
                         <label>{{ lang('Area Code') }}</label>
                     </div>

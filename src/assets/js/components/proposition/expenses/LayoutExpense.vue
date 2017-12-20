@@ -53,6 +53,10 @@
                         <label>{{ lang('Layout Complexity') }}</label>
                     </div>
                 </div>
+                <div class="md-form">
+                    <input type="number" id="layout-fix-price" class="form-control" name="layout-fix-price" >
+                    <label for="layout-fix-price" v-model="data.layout_exact_price">{{ lang('Exact Price') }}</label>
+                </div>
                 <!-- TeAxtarea -->
                 <div class="md-form">
                     <textarea class="md-textarea" v-model="data.layout_note"></textarea>
@@ -76,6 +80,10 @@
                         <label>{{ lang('Design Complexity') }}</label>
                     </div>
                 </div>
+                <div class="md-form">
+                    <input type="number" id="design-fix-price" class="form-control" name="design-fix-price" >
+                    <label for="design-fix-price" v-model="data.design_exact_price">{{ lang('Exact Price') }}</label>
+                </div>
                 <!-- Textarea -->
                 <div class="md-form">
                     <textarea v-model="data.design_note" class="md-textarea"></textarea>
@@ -93,7 +101,9 @@
     import { mapGetters } from 'vuex'
     export default {
         data: function () {
-            return {}
+            return {
+                next: false
+            }
         },
         computed: {
             data() {
@@ -117,6 +127,15 @@
                     });
             }
         },
+        beforeRouteLeave(to, from, next) {
+            if (this.$store.state.edited) {
+                this.next = next;
+                $('#modal-warning-not-saved').modal('show');
+            }
+            else {
+                next();
+            }
+        }
 
     }
 </script>

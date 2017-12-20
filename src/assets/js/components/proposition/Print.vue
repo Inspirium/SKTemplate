@@ -4,7 +4,7 @@
     <div class="row tabs-wrapper">
         <ul class="col nav classic-tabs tabs-cyan" id="tabs" role="tablist">
             <li class="nav-item" v-for="(offer, key, index) in offers">
-                <a v-bind:class="['nav-link', !index?'active':'']" data-toggle="tab" v-bind:href="'#panel'+index" v-bind:key="key"  role="tab" v-on:click="switchTab($event)">{{ offer.title }}</a>
+                <a v-bind:class="['nav-link', !index?'active':'']" data-toggle="tab" v-bind:href="'#panel'+index" v-bind:key="key" v-bind:data-index="key" role="tab" v-on:click="switchTab($event)">{{ offer.title }}</a>
             </li>
         </ul>
     </div>
@@ -22,11 +22,6 @@
                                 <div class="md-form d-flex">
                                     <input type="number" class="form-control" v-bind:placeholder="lang('In Kn')" v-model="offer.print_offer">
                                     <label>{{ lang('Print offer') }}</label>
-<!--
-                                    <span class="d-flex">
-                                        <button class="btn btn-neutral btn-addon p-1 ml-1" type="button" v-on:click="saveOffer">{{ lang('Save') }}</button>
-                                    </span>
--->
                                 </div>
                             </div>
                         </div>
@@ -193,25 +188,25 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="page-name-xl mb-4 mt-3">{{ lang('Add Print Offers') }}</div>
             <!-- File/document table -->
             <div class="files mt-2 mb-2">
-                <div class="file-box file-box-l d-flex align-items-center" v-for="(file, index) in files">
+                <div class="file-box file-box-l d-flex align-items-center" v-for="(file, index) in offer.files">
                     <a v-bind:href="file.link" v-on:click.prevent="documentDownload(file.link)" class="file-icon">{{ file.title }}</a>
                     <div class="file-box-sty ml-auto d-flex">
                         <a v-bind:href="'human_resources/employee/'+file.owner.id+'/show'"><img class="profile-m-1 mr-1 align-self-center" v-bind:src="file.owner.image">{{ file.owner.name }}</a>
                     </div>
                     <div class="file-box-sty">{{ file.created_at.date | moment('DD.MM.YYYY.') }}</div>
                     <div class="file-box-sty icon icon-download" v-on:click="documentDownload(file.link)">Preuzmi</div>
-                    <div class="file-box-sty icon icon-cancel" v-on:click="fileDelete(index, 'files')">Obriši</div>
+                    <div class="file-box-sty icon icon-cancel" v-on:click="fileWarning(file.id, offer.id)">Obriši</div>
                 </div>
             </div>
 
             <div class="justify-content-center d-flex mb-4">
                 <button type="button" class="btn btn-neutral" v-on:click="documentAdd('initial-documents')">{{ lang('Upload') }}</button>
             </div>
-            
+
             <!-- Textarea -->
             <div class="md-form mt-3">
                 <textarea id="form76" class="md-textarea" v-model="offer.note"></textarea>
@@ -226,23 +221,29 @@
         </div>
     </div>
     <proposition-footer-buttons v-on:warningSaved="next"></proposition-footer-buttons>
+            <upload-modal action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" dir="print" v-on:fileDelete="fileDelete" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave"></upload-modal>
         </template>
         <template v-else>
             <div class="d-flex justify-content-center align-items-center flex-column mt-5">
                 <i class="fa fa-exclamation-triangle fa-5x mb-3 color-nav-sub" aria-hidden="true"></i>
-                <h1 clas="text-center mt-5">{{ lang('No print offers created') }}</h1>
+                <h1 class="text-center mt-5">{{ lang('No print offers created') }}</h1>
             </div>
         </template>
 </div>
 </template>
 <script>
+    import uploadModal from '../general/UploadModal.vue';
     import {mapState} from 'vuex'
     export default {
         data: function () {
             return {
+                active_offer: 0,
                 next: false,
                 option_colors: ['One Colour', 'Two Colours', 'Three Colours', 'Full Colour', 'Fifth Colour'],
             }
+        },
+        components: {
+            uploadModal
         },
         computed: {
             offers() {
@@ -251,11 +252,36 @@
         },
         methods: {
             switchTab: function(e) {
+                this.active_offer = $(e.target).data('index');
                 $(e.target).tab('show');
             },
             downloadOffer: function(id, type) {
                 window.open('/proposition/'+this.$route.params.id+'/edit/print/'+id+'/'+type,'_blank');
-            }
+            },
+            documentAdd: function() {
+                jQuery('#upload-modal').modal('show');
+            },
+            documentDownload: function(link) {
+                window.open(link, "_blank");
+                return false;
+            },
+            fileWarning(id, offer) {
+                this.index_to_delete = {id: id, offer: offer};
+                jQuery('#modal-warning').modal('show');
+            },
+            fileDelete: function (id) {
+                if (!id) {
+                    id = this.index_to_delete;
+                }
+                this.$store.dispatch('proposition/print/deleteFile', id);
+                this.index_to_delete = 0;
+            },
+            fileAdd: function(data) {
+                this.$store.commit('proposition/print/addFile', {file:data.file, offer: this.active_offer});
+            },
+            fileNameSave: function(data) {
+                this.$store.dispatch('proposition/basic_data/filenameSave', {id:data.file.id, title:data.file.title});
+            },
         },
         mounted: function() {
             if (this.$route.params.id != 0) {
@@ -263,6 +289,7 @@
                     .then(() => {
                         $('.mdb-select').material_select('destroy');
                         $('.mdb-select').material_select();
+                        this.active_offer = Object.keys(this.offers)[0];
                     });
             }
         },
