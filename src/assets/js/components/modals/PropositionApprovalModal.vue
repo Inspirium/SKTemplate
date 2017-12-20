@@ -10,7 +10,7 @@
                     </button>
                     <div class="d-flex mx-auto">
                         <i class="fa fa-magic fa-4x mb-1 animated rotateInDownLeft"></i>
-                        <h1 class="modal-title w-100 text-center">{{ lang('Cost Approve') }}</h1>
+                        <h1 class="modal-title w-100 text-center">{{ lang('Approval') }}</h1>
                     </div>
                     <h6 class="w-100 text-center mb-2">{{ lang('Assign employee') }}</h6>
                 </div>

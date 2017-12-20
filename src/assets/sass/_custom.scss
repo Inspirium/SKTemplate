@@ -663,16 +663,15 @@ table td .color-grey {
     overflow: hidden;
 }
 
-//.file-icon:before {
-//    color: lighten($color-body_text, 25%);
-//    font-family: FontAwesome;
-//    content: "\f016";
-//    font-size: 3.6rem;
-//    margin-right: 1.1rem;
-//    margin-left: 0.5rem;
-//    vertical-align: middle;
-//
-//}
+.file-icon:before {
+    color: lighten($color-body_text, 25%);
+    font-family: FontAwesome;
+    content: "\f016";
+    font-size: 2.25rem;
+    margin-right: 1.1rem;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+}
 
 .file-icon:hover::before {
     color: $info-color;

@@ -22,7 +22,8 @@
             </div>
             <button class="btn btn-neutral btn-addon mb-4 mr-5" type="button" v-on:click="openAuthorModal">{{ lang('Add New Author') }}</button>
             <div class="chip mb-3" v-for="(author, index) in basic_data.authors" v-bind:key="author.id">
-                <img v-bind:src="author.image"> {{ author.name }}<i class="close fa fa-times" v-on:click="authorDelete(author.id)"></i>
+<!--                <img v-bind:src="author.image">--> {{ author.name }}
+                <i class="close fa fa-times" v-on:click="authorDelete(author.id)"></i>
             </div>
 
             <!-- Textarea -->

@@ -194,7 +194,7 @@
                 </div>
             </div>
             
-            <div class="page-name-xl mb-4 mt-3">{{ lang('Upload Document') }}</div>
+            <div class="page-name-xl mb-4 mt-3">{{ lang('Add Print Offers') }}</div>
             <!-- File/document table -->
             <div class="files mt-2 mb-2">
                 <div class="file-box file-box-l d-flex align-items-center" v-for="(file, index) in files">
