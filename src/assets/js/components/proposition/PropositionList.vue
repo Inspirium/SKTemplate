@@ -55,9 +55,9 @@
                     columns: [
                         { title: '#', field: 'id', sortable: true },
                         { title: this.lang('Title'), field: 'project_name', sortable: true, tdComp: TitleCell, tdClass:'table-title' },
-                        { title: this.lang('Author'), field: 'owner', sortable: true, tdComp: AuthorCell },
-                        { title: this.lang('Creation Date'), field: 'created_at' },
-                        { title: this.lang('Waiting Approval'), field: 'approved_on' },
+                        { title: this.lang('Author'), field: 'owner', tdComp: AuthorCell },
+                        { title: this.lang('Creation Date'), field: 'created_at', sortable: true },
+                        { title: this.lang('Waiting Approval'), field: 'approved_on', sortable: true },
                     ],
                     data: [],
                     total: 0,
@@ -70,8 +70,8 @@
                     columns: [
                         { title: '#', field: 'id', sortable: true },
                         { title: this.lang('Title'), field: 'project_name', sortable: true, tdComp: TitleCell, tdClass:'table-title' },
-                        { title: this.lang('Author'), field: 'owner', sortable: true, tdComp: AuthorCell },
-                        { title: this.lang('Creation Date'), field: 'created_at' },
+                        { title: this.lang('Author'), field: 'owner',  tdComp: AuthorCell },
+                        { title: this.lang('Creation Date'), field: 'created_at', sortable: true  },
                     ],
                     data: [],
                     total: 0,
@@ -84,9 +84,9 @@
                     columns: [
                         { title: '#', field: 'id', sortable: true },
                         { title: this.lang('Title'), field: 'project_name', sortable: true, tdComp: TitleCell, tdClass:'table-title' },
-                        { title: this.lang('Author'), field: 'owner', sortable: true, tdComp: AuthorCell },
-                        { title: this.lang('Creation Date'), field: 'created_at' },
-                        { title: this.lang('Deleted Date'), field: 'deleted_at' },
+                        { title: this.lang('Author'), field: 'owner', tdComp: AuthorCell },
+                        { title: this.lang('Creation Date'), field: 'created_at', sortable: true  },
+                        { title: this.lang('Deleted Date'), field: 'deleted_at', sortable: true  },
                     ],
                     data: [],
                     total: 0,
@@ -99,9 +99,9 @@
                     columns: [
                         { title: '#', field: 'id', sortable: true },
                         { title: this.lang('Title'), field: 'project_name', sortable: true, tdComp: TitleCell, tdClass:'table-title' },
-                        { title: this.lang('Author'), field: 'owner', sortable: true, tdComp: AuthorCell },
-                        { title: this.lang('Creation Date'), field: 'created_at' },
-                        { title: this.lang('Current Status'), field: 'approved_on' },
+                        { title: this.lang('Author'), field: 'owner', tdComp: AuthorCell },
+                        { title: this.lang('Creation Date'), field: 'created_at', sortable: true  },
+                        { title: this.lang('Current Status'), field: 'approved_on', sortable: true  },
                     ],
                     data: [],
                     total: 0,
@@ -114,9 +114,9 @@
                     columns: [
                         { title: '#', field: 'id', sortable: true },
                         { title: this.lang('Title'), field: 'project_name', sortable: true, tdComp: TitleCell, tdClass:'table-title' },
-                        { title: this.lang('Author'), field: 'owner', sortable: true, tdComp: AuthorCell },
-                        { title: this.lang('Creation Date'), field: 'created_at' },
-                        { title: this.lang('Rejected'), field: 'approved_on' },
+                        { title: this.lang('Author'), field: 'owner', tdComp: AuthorCell },
+                        { title: this.lang('Creation Date'), field: 'created_at', sortable: true  },
+                        { title: this.lang('Rejected'), field: 'approved_on', sortable: true  },
                     ],
                     data: [],
                     total: 0,
@@ -129,9 +129,9 @@
                     columns: [
                         { title: '#', field: 'id', sortable: true },
                         { title: this.lang('Title'), field: 'project_name', sortable: true, tdComp: TitleCell, tdClass:'table-title' },
-                        { title: this.lang('Author'), field: 'owner', sortable: true, tdComp: AuthorCell },
-                        { title: this.lang('Creation Date'), field: 'created_at' },
-                        { title: this.lang('Completion Date'), field: 'completed_at' },
+                        { title: this.lang('Author'), field: 'owner', tdComp: AuthorCell },
+                        { title: this.lang('Creation Date'), field: 'created_at', sortable: true  },
+                        { title: this.lang('Completion Date'), field: 'completed_at', sortable: true  },
                     ],
                     data: [],
                     total: 0,
@@ -180,42 +180,42 @@
         },
         methods: {
             handleApprovalQueryChange () {
-                axios.post('/api/propositions/approval', this.query)
+                axios.post('/api/propositions/approval', this.approval.query)
                 .then((res) => {
                     this.approval.data = res.data.rows;
                     this.approval.total = res.data.total;
                 })
             },
             handleUnfinishedQueryChange () {
-                axios.post('/api/propositions/unfinished', this.query)
+                axios.post('/api/propositions/unfinished', this.unfinished.query)
                     .then((res) => {
                         this.unfinished.data = res.data.rows;
                         this.unfinished.total = res.data.total;
                     })
             },
             handleActiveQueryChange () {
-                axios.post('/api/propositions/active', this.query)
+                axios.post('/api/propositions/active', this.active.query)
                     .then((res) => {
                         this.active.data = res.data.rows;
                         this.active.total = res.data.total;
                     })
             },
             handleRejectedQueryChange () {
-                axios.post('/api/propositions/rejected', this.query)
+                axios.post('/api/propositions/rejected', this.rejected.query)
                     .then((res) => {
                         this.rejected.data = res.data.rows;
                         this.rejected.total = res.data.total;
                     })
             },
             handleDeletedQueryChange () {
-                axios.post('/api/propositions/deleted', this.query)
+                axios.post('/api/propositions/deleted', this.deleted.query)
                     .then((res) => {
                         this.deleted.data = res.data.rows;
                         this.deleted.total = res.data.total;
                     })
             },
             handleArchiveQueryChange () {
-                axios.post('/api/propositions/archive', this.query)
+                axios.post('/api/propositions/archive', this.archive.query)
                     .then((res) => {
                         this.archive.data = res.data.rows;
                         this.archive.total = res.data.total;
