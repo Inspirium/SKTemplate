@@ -31,8 +31,10 @@ import Tasks from './components/tasks/Tasks'
 import TaskEdit from './components/tasks/TaskEdit'
 import TaskShow from './components/tasks/TaskShow'
 import DepartmentTasks from './components/tasks/DepartmentTasks'
+import PropositionList from './components/proposition/PropositionList'
 
 export const routes = [
+    { path: '/propositions', component: PropositionList },
     { path: '/proposition/start', component: PropositionStart },
     { path: '/proposition/:id', component: Proposition,
         children: [

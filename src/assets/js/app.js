@@ -21,6 +21,7 @@ import * as VueDeepSet from 'vue-deepset'
 import store from './vuex/store'
 import { routes } from './routes'
 import { sync } from 'vuex-router-sync'
+import Datatable from 'vue2-datatable-component'
 //import { VuexValidator } from "vuex-validator";
 //import validators from "./vuex/validators";
 
@@ -39,6 +40,9 @@ Vue.component('proposition-footer-buttons', require('./components/proposition/pa
 Vue.use(VueMoment);
 Vue.use(VueRouter);
 Vue.use(VueDeepSet);
+Vue.use(Datatable);
+
+Vue.config.productionTip = false;
 
 const router = new VueRouter({
     mode: 'history',

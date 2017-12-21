@@ -57,7 +57,7 @@
                             <a v-bind:href="'/human_resources/employee/'+document.owner.id+'/show'"><img class="profile-m-1 mr-1 align-self-center" v-bind:src="document.owner.image">
                                 {{ document.owner.name }}
                             </a></div>
-                        <div class="file-box-sty">{{ document.date }}</div>
+                        <div class="file-box-sty">{{ document.created_at | moment("DD.MM.YYYY.") }}</div>
                         <div class="file-box-sty icon icon-download" v-on:click="documentDownload(document.link)">{{ lang('Download') }}</div>
                         <div class="file-box-sty icon icon-cancel" v-on:click="fileWarning(document.id)">{{ lang('Delete') }}</div>
                     </div>
