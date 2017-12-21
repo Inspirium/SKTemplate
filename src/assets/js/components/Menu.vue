@@ -101,12 +101,12 @@
                                 path: '/proposition/'+this.id+'/edit/marketing_expense',
                                 component: true
                             },
-                            distribution_expense: {
-                                enabled: true,
-                                title: 'Distribution Expense',
-                                path: '/proposition/'+this.id+'/edit/distribution_expense',
-                                component: true
-                            },
+//                            distribution_expense: {
+//                                enabled: true,
+//                                title: 'Distribution Expense',
+//                                path: '/proposition/'+this.id+'/edit/distribution_expense',
+//                                component: true
+//                            },
                             layout_expense: {
                                 enabled: true,
                                 title: 'Layout Expense',

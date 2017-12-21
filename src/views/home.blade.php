@@ -37,14 +37,16 @@
 
    <div class="chart mt-4">
        <div class="header">
-           <div class="header__title--style">Naziv grafa</div>
-           <div class="header__desc--style">ovo je opis grafa ako je potreban. Ako nije, nećemo ga pikazati</div>
+           <div class="header__title--style">Pregled projekata</div>
+<!--           <div class="header__desc--style">ovo je opis grafa ako je potreban. Ako nije, nećemo ga prikazati</div>-->
        </div>
+<!--
        <div class="filter">
            <div class="filter-chip--style">Tjedan</div>
            <div class="filter-chip--style">Mjesec</div>
            <div class="filter-chip--style active">Godina</div>
        </div>
+-->
        <div class="content mt-3">
            <div class="ct-chart ct-double-octave" id="chart1"></div>
        </div>
