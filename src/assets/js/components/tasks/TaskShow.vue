@@ -139,7 +139,7 @@
                             <div class="page-name-l mt-2 mb-1">{{ lang('Task Description') }}</div>
                             <div>
                                 <h4 class="mb-1">
-                                    {{ task.assigner.name }} has requested an proposition approval<br>
+                                    {{ task.assigner.name }} {{ lang('has requested an proposition approval') }}<br>
                                     {{ task.description }}<br>
                                 </h4>
                                 <a class="btn btn-neutral btn-addon mb-4 mr-5" v-bind:href="task.related_link" v-if="task.related_link">{{ lang('Go To Project') }}</a>
