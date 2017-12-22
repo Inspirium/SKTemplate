@@ -470,6 +470,8 @@
   "Complete": "Završen zadatak",
   "Edit Employee Roles": "Uredi korisničke razine pristupa",
   "Assign employee directly": "Direktno zaduži zaposlenika",
-  "Add Print Offers": "Priloži ponude za tisak"
-
+  "Add Print Offers": "Priloži ponude za tisak",
+  "approval" : "odobrenje",
+  "task" : "zadatak",
+  "document": "dokument",
 }
