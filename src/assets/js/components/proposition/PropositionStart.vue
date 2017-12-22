@@ -138,12 +138,8 @@
             }
         },
         mounted: function() {
-            if (typeof (this.$route.params.id) !== 'undefined' && this.$route.params.id != 0) {
                 this.$store.dispatch('proposition/start/getData', {id: this.$route.params.id});
-            }
-            else {
-                this.$store.dispatch('proposition/initData', {force: true, id: 0});
-            }
+
         },
         beforeRouteLeave(to, from, next) {
             if (this.$store.state.edited) {

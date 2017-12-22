@@ -1,15 +1,17 @@
 import axios from 'axios';
+import Vue from 'vue';
 
-export default {
-    namespaced: true,
-    state: {
+let initialState = {
         proposition_id: 0,
         project_number: '',
         project_name: '',
         additional_project_number: '',
         note: '',
         status: ''
-    },
+    };
+export default {
+    namespaced: true,
+    state: Vue.util.extend({}, initialState),
     mutations: {
         initData(state, payload) {
             state.project_number = payload.project_number;
@@ -21,12 +23,17 @@ export default {
     },
     actions: {
         getData({commit, state}, payload) {
+            if (payload.id !== state.proposition_id) {
                 //retrieve data only we don't have it or we need to refresh it
                 axios.get('/api/proposition/' + payload.id + '/start')
                     .then((res) => {
                         commit('initData', res.data);
                         commit('proposition/initData', res.data, {root: true});
                     });
+            }
+            else {
+                state = Vue.util.extend({}, initialState);
+            }
         },
         saveData({state, commit}, id) {
             return new Promise((resolve, reject) => {
