@@ -473,5 +473,7 @@
   "Add Print Offers": "Priloži ponude za tisak",
   "approval" : "odobrenje",
   "task" : "zadatak",
-  "document": "dokument"
+  "document": "dokument",
+  "message": "poruke",
+  "thread" : "rasprava"
 }
