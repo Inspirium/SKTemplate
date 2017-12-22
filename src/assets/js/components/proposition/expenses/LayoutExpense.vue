@@ -54,8 +54,8 @@
                     </div>
                 </div>
                 <div class="md-form">
-                    <input type="number" id="layout-fix-price" class="form-control" name="layout-fix-price" >
-                    <label for="layout-fix-price" v-model="data.layout_exact_price">{{ lang('Exact Price') }}</label>
+                    <input type="number" id="layout-fix-price" class="form-control" name="layout-fix-price" v-model="data.layout_exact_price">
+                    <label for="layout-fix-price" >{{ lang('Exact Price') }}</label>
                 </div>
                 <!-- TeAxtarea -->
                 <div class="md-form">
@@ -81,8 +81,8 @@
                     </div>
                 </div>
                 <div class="md-form">
-                    <input type="number" id="design-fix-price" class="form-control" name="design-fix-price" >
-                    <label for="design-fix-price" v-model="data.design_exact_price">{{ lang('Exact Price') }}</label>
+                    <input type="number" id="design-fix-price" class="form-control" name="design-fix-price" v-model="data.design_exact_price">
+                    <label for="design-fix-price" >{{ lang('Exact Price') }}</label>
                 </div>
                 <!-- Textarea -->
                 <div class="md-form">
