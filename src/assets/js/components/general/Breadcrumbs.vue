@@ -68,7 +68,7 @@
                         }
                         else {
                             out.push({
-                                link: '/proposition/'+path[2]+'/start',
+                                link: '/proposition/'+path[2]+'/edit/start',
                                 name: this.$store.state.proposition.start.project_name?this.$store.state.proposition.start.project_name:'untitled-'+path[2]
                             });
                             out.push({
