@@ -15,6 +15,7 @@ window.breakpoints = {
 };
 
 import Vue from 'vue';
+import moment from 'moment'
 import VueMoment from 'vue-moment'
 import VueRouter from 'vue-router'
 import * as VueDeepSet from 'vue-deepset'
@@ -24,6 +25,7 @@ import { sync } from 'vuex-router-sync'
 import Datatable from 'vue2-datatable-component'
 //import { VuexValidator } from "vuex-validator";
 //import validators from "./vuex/validators";
+require('moment/locale/hr')
 
 Vue.prototype.lang= function (key) {
     return _.get(window.translations, key, key);
@@ -37,7 +39,7 @@ Vue.component('not-saved-modal', require('./components/modals/WarningNotSavedMod
 Vue.component('inspirium-warning-modal', require('./components/modals/WarningModal.vue').default);
 Vue.component('proposition-footer-buttons', require('./components/proposition/partials/FooterButtons.vue').default);
 
-Vue.use(VueMoment);
+Vue.use(VueMoment, {moment});
 Vue.use(VueRouter);
 Vue.use(VueDeepSet);
 Vue.use(Datatable);

@@ -43,9 +43,11 @@
 <script>
     import TitleCell from '../table_components/TitleCell'
     import AuthorCell from '../table_components/AuthorCell'
+    import WaitingTime from '../table_components/WaitingTime'
+
     export default {
         components: {
-            TitleCell, AuthorCell
+            TitleCell, AuthorCell, WaitingTime
         },
         data: function () {
             return {
@@ -57,7 +59,7 @@
                         { title: this.lang('Title'), field: 'project_name', sortable: true, tdComp: TitleCell, tdClass:'table-title' },
                         { title: this.lang('Author'), field: 'owner', tdComp: AuthorCell },
                         { title: this.lang('Creation Date'), field: 'created_at', sortable: true },
-                        { title: this.lang('Waiting Approval'), field: 'approved_on', sortable: true },
+                        { title: this.lang('Waiting Approval'), field: 'approved_on', sortable: true, tdComp: WaitingTime },
                     ],
                     data: [],
                     total: 0,

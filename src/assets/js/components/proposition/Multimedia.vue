@@ -39,7 +39,9 @@
             <button type="button" class="btn btn-neutral" v-on:click="documentAdd('cover-psd')">{{ lang('Upload') }}</button>
         </div>
         <div class="modal-footer btn-footer">
-            <button type="button" class="btn btn-lg btn-save" v-on:click="saveFiles">{{ lang('Save') }}</button>
+            <button type="button" class="btn btn-lg btn-save" v-on:click="saveFiles">{{ lang('Save') }}
+                <i v-bind:class="['fa', 'fa-5x', 'fa-fw', 'text-white', spinnerType, isSpinnerHidden]"></i>
+            </button>
         </div>
 
         <upload-modal id="cover-jpg" action="/api/file" accept=".jpg, .jpeg" disk="proposition" dir="multimedia.jpg" v-on:fileDelete="fileDelete" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave"></upload-modal>
@@ -54,7 +56,9 @@
             return {
                 webshop: '',
                 jpg: [],
-                psd: []
+                psd: [],
+                spinnerType: 'fa-refresh spinner-delay-rotate spinner-loader',
+                isSpinnerHidden: 'hide'
             }
         },
         components: {
@@ -92,9 +96,27 @@
                 });
             },
             saveFiles: function() {
+                let saveButton = jQuery(event.target);
+                saveButton.toggleClass('spinner-loading');
+                this.isSpinnerHidden = '';
                 axios.post('/api/proposition/' + this.$route.params.id + '/files/multimedia', {jpg:this.jpg, psd: this.psd, webshop: this.webshop})
                     .then((res) => {
-
+                        this.spinnerType = 'fa-check spinner-success';
+                        setTimeout(() => {
+                            this.spinnerType = 'fa-refresh spinner-delay-rotate spinner-loader';
+                            this.isSpinnerHidden  ='hide';
+                            saveButton.toggleClass( "spinner-loading" );
+                        }, 1000)
+                        toastr.success(this.lang('Uspješno spremljeno'));
+                    })
+                    .catch(() => {
+                        toastr.error(this.lang('Došlo je do problema. Pokušajte ponovno'));
+                        this.spinnerType = 'fa-times spinner-fail';
+                        setTimeout(() => {
+                            this.spinnerType = 'fa-refresh spinner-delay-rotate spinner-loader';
+                            this.isSpinnerHidden  ='hide';
+                            saveButton.toggleClass( "spinner-loading" );
+                        }, 1000)
                     });
             }
         },
