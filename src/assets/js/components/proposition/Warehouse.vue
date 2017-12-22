@@ -23,14 +23,14 @@
                 let saveButton = jQuery(event.target);
                 saveButton.toggleClass('spinner-loading-blue');
                 this.isSpinnerHidden = '';
-                axios.post('/api/proposition/'+this.$router.params.id+'/warehouse')
+                axios.post('/api/proposition/'+this.$route.params.id+'/warehouse')
                     .then((res)=>{
                         this.spinnerType = 'fa-check spinner-success';
                         setTimeout(() => {
                             this.spinnerType = 'fa-refresh spinner-delay-rotate spinner-loader';
                             this.isSpinnerHidden  ='hide';
                             saveButton.toggleClass( "spinner-loading-blue" );
-                            window.location.href = res.data.link;
+                            window.location.href = '/propositions';
                         }, 1000)
                         toastr.success(this.lang('Uspješno obavljeno'));
 

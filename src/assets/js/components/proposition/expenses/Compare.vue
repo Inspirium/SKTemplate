@@ -436,7 +436,7 @@
 
             },
             assignValues: function() {
-                if (this.employees.length && this.description && this.expense) {
+                if (this.employees.length && this.expense) {
                     axios.post('/api/proposition/' + this.$route.params.id + '/request_approval', {
                         requestees: this.employees,
                         description: this.description,
