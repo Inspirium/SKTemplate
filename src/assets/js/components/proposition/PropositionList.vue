@@ -103,7 +103,7 @@
                         { title: this.lang('Title'), field: 'project_name', sortable: true, tdComp: TitleCell, tdClass:'table-title' },
                         { title: this.lang('Author'), field: 'owner', tdComp: AuthorCell },
                         { title: this.lang('Creation Date'), field: 'created_at', sortable: true  },
-                        { title: this.lang('Current Status'), field: 'approved_on', sortable: true  },
+                        { title: this.lang('Current Status'), field: 'status', sortable: true  },
                     ],
                     data: [],
                     total: 0,
