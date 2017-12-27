@@ -7,7 +7,7 @@
         </div>
 
         <template v-for="(employee, ei) in employees">
-        <div class="page-name-xl mb-3 mt-2">
+        <div class="page-name-xl mb-3 mt-2" v-bind:id="'employee-'+employee.id">
             <a v-bind:href="'/human_resources/employee/'+employee.id+'/show'">
                 <img class="profile-m mr-1 my-2" v-bind:src="employee.image">
                 {{ employee.first_name + ' ' + employee.last_name }}
