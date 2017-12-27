@@ -22,7 +22,7 @@
                 switch (path[1]) {
                     case 'human_resources':
                         out.push({
-                            link: '/human_resources',
+                            link: '/human_resources/employees',
                             name: 'Human Resources'
                         });
                         switch (path[2]) {

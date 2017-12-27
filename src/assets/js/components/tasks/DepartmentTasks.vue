@@ -31,7 +31,7 @@
                 <tr v-for="(task, index) in employee.tasks">
                     <td><div class="icon icon-handler"></div></td>
                     <th class="display-e w-30">{{ task.order }}</th>
-                    <th v-bind:class="newOrderClass(task)" v-if="can('department_tasks_order_edit')">{{ newOrderValue(task) }}</th>
+                    <th v-bind:class="newOrderClass(task, index)" v-if="can('department_tasks_order_edit')">{{ newOrderValue(task, index) }}</th>
                     <td data-title="Task" class="table-title"><a v-bind:href="'/task/show/'+task.id">{{ task.name }}</a></td>
                     <td data-title="Task Type"><div v-bind:class="task_types[task.type].className">{{ task_types[task.type].title }}</div></td>
                     <td data-title="Assigner"><a v-bind:href="'/human_resources/employee/'+task.assigner.id+'/show'" class="text-uppercase file-box-sty"><img v-bind:src="task.assigner.image" class="profile-m mr-2">{{ task.assigner.name }}</a></td>
@@ -101,21 +101,29 @@
                     return o.name === role;
                 });
             },
-            newOrderValue(task) {
-                if (task.new_order) {
-                    return Number(task.new_order) - Number(task.order);
+            newOrderValue(task, index) {
+                let val = task.new_order;
+                if (!val) {
+                    val = index+1;
                 }
-                return '';
+
+                let r =-(Number(val) - Number(task.order));
+                if (!r) {
+                    return '';
+                }
+                return r;
             },
-            newOrderClass(task) {
-                if (task.new_order) {
-                    let number = Number(task.new_order) - Number(task.order);
-                    if (number === 0) {
-                        return 'new-order';
-                    }
-                    return (number > 0) ? 'new-order new-order--up' : 'new-order new-order--down';
+            newOrderClass(task, index) {
+                let val = task.new_order;
+                if (!val) {
+                    val = index+1;
                 }
-                return '';
+                let number = Number(val) - Number(task.order);
+                if (number === 0) {
+                    return 'new-order';
+                }
+                return (number > 0) ? 'new-order new-order--down' : 'new-order new-order--up';
+
             },
             openModalForApproval(ei) {
                 this.employee_index = ei;
