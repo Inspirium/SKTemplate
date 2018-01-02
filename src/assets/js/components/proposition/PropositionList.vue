@@ -68,7 +68,7 @@
                 },
                 unfinished: {
                     supportNested: true,
-                    tblClass: 'table table-hover',
+                    tblClass: 'table table-hover table-draggable',
                     columns: [
                         { title: '#', field: 'id', sortable: true },
                         { title: this.lang('Title'), field: 'project_name', sortable: true, tdComp: TitleCell, tdClass:'table-title' },
@@ -222,7 +222,7 @@
                         this.archive.data = res.data.rows;
                         this.archive.total = res.data.total;
                     })
-            },
+            }
         }
     }
 </script>

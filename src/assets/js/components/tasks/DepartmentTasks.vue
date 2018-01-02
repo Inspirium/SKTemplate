@@ -14,6 +14,7 @@
                 <span class="tag tag-neutral text-white">{{ employee.tasks.length }}</span>
             </a>
         </div>
+            <employee-tasks v-bind:employee="employee"></employee-tasks>
         <table class="table">
             <thead class="thead-inverse">
             <tr>
@@ -27,7 +28,7 @@
                 <th data-title="Deadline">{{ lang('Deadline') }}</th>
             </tr>
             </thead>
-            <draggable v-model="employee.tasks" v-bind:element="'tbody'" v-bind:options="{handle: '.icon-handler' }">
+            <tbody v-model="employee.tasks" v-bind:element="'tbody'" v-bind:options="{handle: '.icon-handler' }">
                 <tr v-for="(task, index) in employee.tasks">
                     <td><div class="icon icon-handler"></div></td>
                     <th class="display-e w-30">{{ task.order }}</th>
@@ -38,7 +39,7 @@
                     <td data-title="Created">{{ task.created_at | moment('DD.MM.') }}</td>
                     <td data-title="Deadline">{{ task.deadline | moment('DD.MM.') }}</td>
                 </tr>
-            </draggable>
+            </tbody>
         </table>
         <button v-if="can('department_tasks_order_edit')" v-on:click="openModalForApproval(ei)" type="button" class="btn btn-neutral btn-addon d-block ml-auto waves-effect waves-light">{{ lang('Save tasks priority') }}</button>
         <button v-if="can('department_tasks_order_approve')" v-on:click="approveOrder(ei)" type="button" class="btn btn-success btn-addon d-block ml-auto waves-effect waves-light">{{ lang('Reject task priority') }}</button>
@@ -51,9 +52,11 @@
 <script>
     import draggable from 'vuedraggable'
     import taskOrderApproval from '../modals/TaskOrderApprovalModal'
+    import EmployeeTasks from "./EmployeeTasks";
+
     export default {
         components: {
-            draggable,
+            EmployeeTasks,
             taskOrderApproval
         },
         data: function () {
@@ -84,10 +87,10 @@
                         className: 'tasktype-1'
                     },
                     6: {
-                        title: 'Assignment',
+                        title: 'Task order',
                         className: 'tasktype-2'
                     }
-                }
+                },
             }
         },
         computed: {
@@ -148,7 +151,7 @@
                         this.employee_index = 0;
                     })
                     .catch((err) => {});
-            }
+            },
         },
         mounted: function() {
             axios.get('/api/tasks/department/'+this.$route.params.id)
