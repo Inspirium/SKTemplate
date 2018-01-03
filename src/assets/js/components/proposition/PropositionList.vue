@@ -68,7 +68,7 @@
                 },
                 unfinished: {
                     supportNested: true,
-                    tblClass: 'table table-hover table-draggable',
+                    tblClass: 'table table-hover',
                     columns: [
                         { title: '#', field: 'id', sortable: true },
                         { title: this.lang('Title'), field: 'project_name', sortable: true, tdComp: TitleCell, tdClass:'table-title' },

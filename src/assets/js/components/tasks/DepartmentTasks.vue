@@ -7,43 +7,7 @@
         </div>
 
         <template v-for="(employee, ei) in employees">
-        <div class="page-name-xl mb-3 mt-2" v-bind:id="'employee-'+employee.id">
-            <a v-bind:href="'/human_resources/employee/'+employee.id+'/show'">
-                <img class="profile-m mr-1 my-2" v-bind:src="employee.image">
-                {{ employee.first_name + ' ' + employee.last_name }}
-                <span class="tag tag-neutral text-white">{{ employee.tasks.length }}</span>
-            </a>
-        </div>
             <employee-tasks v-bind:employee="employee"></employee-tasks>
-        <table class="table">
-            <thead class="thead-inverse">
-            <tr>
-                <th class="w-30"></th>
-                <th class="w-30">#</th>
-                <th class="w-30" v-if="can('department_tasks_order_edit')">#</th>
-                <th data-title="Task">{{ lang('Task') }}</th>
-                <th data-title="Task Type">{{ lang('Task Type') }}</th>
-                <th data-title="Assigner">{{ lang('Assigner') }}</th>
-                <th data-title="Created">{{ lang('Created') }}</th>
-                <th data-title="Deadline">{{ lang('Deadline') }}</th>
-            </tr>
-            </thead>
-            <tbody v-model="employee.tasks" v-bind:element="'tbody'" v-bind:options="{handle: '.icon-handler' }">
-                <tr v-for="(task, index) in employee.tasks">
-                    <td><div class="icon icon-handler"></div></td>
-                    <th class="display-e w-30">{{ task.order }}</th>
-                    <th v-bind:class="newOrderClass(task, index)" v-if="can('department_tasks_order_edit')">{{ newOrderValue(task, index) }}</th>
-                    <td data-title="Task" class="table-title"><a v-bind:href="'/task/show/'+task.id">{{ task.name }}</a></td>
-                    <td data-title="Task Type"><div v-bind:class="task_types[task.type].className">{{ task_types[task.type].title }}</div></td>
-                    <td data-title="Assigner"><a v-bind:href="'/human_resources/employee/'+task.assigner.id+'/show'" class="text-uppercase file-box-sty"><img v-bind:src="task.assigner.image" class="profile-m mr-2">{{ task.assigner.name }}</a></td>
-                    <td data-title="Created">{{ task.created_at | moment('DD.MM.') }}</td>
-                    <td data-title="Deadline">{{ task.deadline | moment('DD.MM.') }}</td>
-                </tr>
-            </tbody>
-        </table>
-        <button v-if="can('department_tasks_order_edit')" v-on:click="openModalForApproval(ei)" type="button" class="btn btn-neutral btn-addon d-block ml-auto waves-effect waves-light">{{ lang('Save tasks priority') }}</button>
-        <button v-if="can('department_tasks_order_approve')" v-on:click="approveOrder(ei)" type="button" class="btn btn-success btn-addon d-block ml-auto waves-effect waves-light">{{ lang('Reject task priority') }}</button>
-        <button v-if="can('department_tasks_order_approve')" v-on:click="approveOrder(ei)" type="button" class="btn btn-danger btn-addon d-block ml-auto waves-effect waves-light">{{ lang('Approve task priority') }}</button>
         </template>
 
         <task-order-approval v-on:sendForApproval="sendForApproval"></task-order-approval>
@@ -128,10 +92,7 @@
                 return (number > 0) ? 'new-order new-order--down' : 'new-order new-order--up';
 
             },
-            openModalForApproval(ei) {
-                this.employee_index = ei;
-                $('#taskOrderApprovalModal').modal('show');
-            },
+
             sendForApproval(task) {
                 let data = _.map(this.employees[this.employee_index].tasks, (o) => {
                     return o.id;
@@ -142,16 +103,7 @@
                     })
                     .catch((err) => {});
             },
-            approveOrder(ei) {
-                let data = _.map(this.employees[ei].tasks, (o) => {
-                    return o.id;
-                });
-                axios.post('/api/tasks/updateOrder', {employee: this.employees[ei].id, tasks: data})
-                    .then((res) => {
-                        this.employee_index = 0;
-                    })
-                    .catch((err) => {});
-            },
+
         },
         mounted: function() {
             axios.get('/api/tasks/department/'+this.$route.params.id)

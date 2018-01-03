@@ -1,5 +1,18 @@
 <template>
+    <div>
+        <div class="page-name-xl mb-3 mt-2" v-bind:id="'employee-'+employee.id">
+            <a v-bind:href="'/human_resources/employee/'+employee.id+'/show'">
+                <img class="profile-m mr-1 my-2" v-bind:src="employee.image">
+                {{ employee.first_name + ' ' + employee.last_name }}
+                <span class="tag tag-neutral text-white">{{ total }}</span>
+            </a>
+        </div>
+
     <datatable v-bind="$data"></datatable>
+        <button v-if="can('department_tasks_order_edit')" v-on:click="openModalForApproval(ei)" type="button" class="btn btn-neutral btn-addon d-block ml-auto waves-effect waves-light">{{ lang('Save tasks priority') }}</button>
+        <button v-if="can('department_tasks_order_approve')" v-on:click="approveOrder(ei)" type="button" class="btn btn-success btn-addon d-block ml-auto waves-effect waves-light">{{ lang('Reject task priority') }}</button>
+        <button v-if="can('department_tasks_order_approve')" v-on:click="approveOrder(ei)" type="button" class="btn btn-danger btn-addon d-block ml-auto waves-effect waves-light">{{ lang('Approve task priority') }}</button>
+    </div>
 </template>
 
 <script>
@@ -13,14 +26,9 @@
         data() {
             return {
                 supportNested: true,
-                tblClass: 'table',
+                tblClass: 'table table-draggable',
                 columns: [
-                    {
-                        title: '',
-                        field: '',
-                        sortable: false,
-                        tdComp: Handle
-                    },
+                    { title: '', field: '', sortable: false, tdComp: Handle },
                     {title: '#', field: 'order', sortable: true},
                     {title: 'new', field: 'new_order', sortable: true},
                     {
@@ -37,7 +45,7 @@
                     },
                     {
                         title: this.lang('Assigner'),
-                        field: 'owner',
+                        field: 'assigner',
                         tdComp: AuthorCell
                     },
                     {
@@ -57,20 +65,46 @@
                 HeaderSettings: false,
                 draggableOptions: {
                     disabled: false,
-                    handle: '.icon-handle'
+                    handle: '.icon-handler'
                 }
             }
         },
         watch: {
             'query': {
-                handler () {
-                    axios.post('/api/tasks/employee/'+this.employee.id)
+                handler (val) {
+                    axios.post('/api/tasks/employee/'+this.employee.id, val)
                         .then((res) => {
                             this.data = res.data.tasks;
                             this.total = res.data.total;
                         })
                 },
                 deep: true
+            },
+        },
+        computed: {
+            user() {
+                return this.$store.state.employee;
+            }
+        },
+        methods: {
+            can(role) {
+                return _.find(this.user.roles, (o) => {
+                    return o.name === role;
+                });
+            },
+            openModalForApproval(ei) {
+                this.employee_index = ei;
+                $('#taskOrderApprovalModal').modal('show');
+            },
+            approveOrder(ei) {
+                let data = _.map(this.employees[ei].tasks, (o) => {
+                    return o.id;
+                });
+                axios.post('/api/tasks/updateOrder', {employee: this.employees[ei].id, tasks: data})
+                    .then((res) => {
+                        this.employee_index = 0;
+                    })
+                    .catch((err) => {});
             },
         }
     }
