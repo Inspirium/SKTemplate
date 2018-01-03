@@ -200,8 +200,8 @@
                         <th scope="row">12</th>
                         <td>Ukupno pokrivanje troška</td>
                         <td></td>
-                        <td class="text-right">{{ Number(totals[option.id].direct_cost) + Number(totals[option.id].indirect_expense) + Number(totals[option.id].remainder_after_sales) | flexCurrency( '', 2) }}</td>
-                        <td class="text-right">{{ (Number(totals[option.id].direct_cost) + Number(totals[option.id].indirect_expense) + Number(totals[option.id].remainder_after_sales)) / option.title | flexCurrency( ' kn', 2) }}</td>
+                        <td class="text-right">{{ totals[option.id].complete_expense | flexCurrency( '', 2) }}</td>
+                        <td class="text-right">{{ totals[option.id].complete_expense / option.title | flexCurrency( ' kn', 2) }}</td>
                     </tr>
                     <tr>
                         <th scope="row">13</th>
@@ -252,8 +252,8 @@
                         <th scope="row">18</th>
                         <td>Maloprodajna cijena</td>
                         <td class="text-right"></td>
-                        <td class="text-right">{{ totals[option.id].manufacturer_price + (totals[option.id].manufacturer_price * option.shop_percent / 100) | flexCurrency( '', 2) }}</td>
-                        <td class="text-right">{{ (totals[option.id].manufacturer_price + (totals[option.id].manufacturer_price * option.shop_percent / 100)) / option.title | flexCurrency( ' kn', 2) }}</td>
+                        <td class="text-right">{{ totals[option.id].price | flexCurrency( '', 2) }}</td>
+                        <td class="text-right">{{ totals[option.id].price / option.title | flexCurrency( ' kn', 2) }}</td>
                     </tr>
                     <tr>
                         <th scope="row">19</th>
