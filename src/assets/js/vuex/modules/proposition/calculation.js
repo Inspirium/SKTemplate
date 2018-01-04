@@ -66,7 +66,7 @@ export default {
                     x14 = x12 - Number(state.dotation),
                     x15 = x14 * option.calculated_profit_percent / 100,
                     x16 = x14 + x15,
-                    p17 = option.shop_percent / 100,
+                    p17 = Number(option.shop_percent) / 100,
                     x17 = x16 * p17 / (1-p17),
                     x18 = x17 + x16,
                     x19 = x17 * option.vat_percent / 100,

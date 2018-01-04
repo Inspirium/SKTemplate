@@ -245,8 +245,8 @@
                         <template v-else>
                             <td class="table-editable text-right" v-on:click="editField('shop_percent')">{{ option.shop_percent | percent }}</td>
                         </template>
-                        <td class="text-right">{{ totals[option.id].x17 / 100  | flexCurrency( '', 2) }}</td>
-                        <td class="text-right">{{ totals[option.id].x17 / 100 / option.title | flexCurrency( ' kn', 2) }}</td>
+                        <td class="text-right">{{ totals[option.id].x17  | flexCurrency( '', 2) }}</td>
+                        <td class="text-right">{{ totals[option.id].x17 / option.title | flexCurrency( ' kn', 2) }}</td>
                     </tr>
                     <tr>
                         <th scope="row">18</th>
