@@ -145,8 +145,8 @@
                         <th scope="row">6</th>
                         <td>Ukupno 1, 2, 3, 4, 5</td>
                         <td class="text-right"></td>
-                        <td class="text-right">{{ totals[option.id].total_expenses | flexCurrency( '', 2) }}</td>
-                        <td class="text-right">{{ totals[option.id].total_expenses / option.title | flexCurrency( ' kn', 2) }}</td>
+                        <td class="text-right">{{ totals[option.id].x6 | flexCurrency( '', 2) }}</td>
+                        <td class="text-right">{{ totals[option.id].x6 / option.title | flexCurrency( ' kn', 2) }}</td>
                     </tr>
                     <tr>
                         <th scope="row">7</th>
@@ -157,16 +157,16 @@
                         <template v-else>
                             <td class="table-editable text-right" v-on:click="editField('compensation')">{{ option.compensation | percent }}</td>
                         </template>
-                        <td class="text-right">{{ totals[option.id].total_expenses * (option.compensation) / 100 | flexCurrency( '', 2) }}</td>
-                        <td class="text-right">{{ totals[option.id].total_expenses * (option.compensation) / 100 / option.title | flexCurrency( ' kn', 2) }}</td>
+                        <td class="text-right">{{ totals[option.id].x7 | flexCurrency( '', 2) }}</td>
+                        <td class="text-right">{{ totals[option.id].x7 / option.title | flexCurrency( ' kn', 2) }}</td>
 
                     </tr>
                     <tr class="table-display-1">
                         <th scope="row">8</th>
                         <td>Direktni troškovi</td>
                         <td class="text-right"></td>
-                        <td class="text-right">{{ totals[option.id].direct_cost | flexCurrency( '', 2) }}</td>
-                        <td class="text-right">{{ totals[option.id].direct_cost / option.title | flexCurrency( ' kn', 2) }}</td>
+                        <td class="text-right">{{ totals[option.id].x8 | flexCurrency( '', 2) }}</td>
+                        <td class="text-right">{{ totals[option.id].x8 / option.title | flexCurrency( ' kn', 2) }}</td>
                     </tr>
                     <tr class="table-display-1">
                         <th scope="row">9</th>
@@ -178,30 +178,30 @@
                         <template v-else>
                             <td class="table-editable text-right" v-on:click="editField('indirect_expenses')">{{ option.indirect_expenses | percent }}</td>
                         </template>
-                        <td class="text-right">{{ totals[option.id].indirect_expense | flexCurrency( '', 2) }}</td>
-                        <td class="text-right">{{ totals[option.id].indirect_expense / option.title | flexCurrency( ' kn', 2) }}</td>
+                        <td class="text-right">{{ totals[option.id].x9 | flexCurrency( '', 2) }}</td>
+                        <td class="text-right">{{ totals[option.id].x9 / option.title | flexCurrency( ' kn', 2) }}</td>
 
                     </tr>
                     <tr class="table-display-2">
                         <th scope="row">10</th>
                         <td>Direktni + Indirektni</td>
                         <td class="text-right"></td>
-                        <td class="text-right">{{ Number(totals[option.id].direct_cost) + Number(totals[option.id].indirect_expense) | flexCurrency( '', 2) }}</td>
-                        <td class="text-right">{{ (Number(totals[option.id].direct_cost) + Number(totals[option.id].indirect_expense)) / option.title | flexCurrency( ' kn', 2) }}</td>
+                        <td class="text-right">{{ Number(totals[option.id].x10) | flexCurrency( '', 2) }}</td>
+                        <td class="text-right">{{ Number(totals[option.id].x10) / option.title | flexCurrency( ' kn', 2) }}</td>
                     </tr>
                     <tr>
                         <th scope="row">11</th>
                         <td>Ostatak AH ugovorenog po prodaji</td>
                         <td class="text-right"></td>
-                        <td class="text-right">{{ totals[option.id].remainder_after_sales | flexCurrency( '', 2) }}</td>
-                        <td class="text-right">{{ totals[option.id].remainder_after_sales / option.title | flexCurrency( ' kn', 2) }}</td>
+                        <td class="text-right">{{ totals[option.id].x11 | flexCurrency( '', 2) }}</td>
+                        <td class="text-right">{{ totals[option.id].x11 / option.title | flexCurrency( ' kn', 2) }}</td>
                     </tr>
                     <tr class="table-display-2">
                         <th scope="row">12</th>
                         <td>Ukupno pokrivanje troška</td>
                         <td></td>
-                        <td class="text-right">{{ totals[option.id].complete_expense | flexCurrency( '', 2) }}</td>
-                        <td class="text-right">{{ totals[option.id].complete_expense / option.title | flexCurrency( ' kn', 2) }}</td>
+                        <td class="text-right">{{ totals[option.id].x12 | flexCurrency( '', 2) }}</td>
+                        <td class="text-right">{{ totals[option.id].x12 / option.title | flexCurrency( ' kn', 2) }}</td>
                     </tr>
                     <tr>
                         <th scope="row">13</th>
@@ -214,8 +214,8 @@
                         <th scope="row">14</th>
                         <td>Ukupno pokrivanje troška - dotacije</td>
                         <td class="text-right"></td>
-                        <td class="text-right">{{ totals[option.id].cost_coverage | flexCurrency( '', 2) }}</td>
-                        <td class="text-right">{{ totals[option.id].cost_coverage / option.title | flexCurrency( ' kn', 2) }}</td>
+                        <td class="text-right">{{ totals[option.id].x14 | flexCurrency( '', 2) }}</td>
+                        <td class="text-right">{{ totals[option.id].x14 / option.title | flexCurrency( ' kn', 2) }}</td>
                     </tr>
                     <tr>
                         <th scope="row">15</th>
@@ -226,15 +226,15 @@
                         <template v-else>
                             <td class="table-editable text-right" v-on:click="editField('calculated_profit_percent')">{{ option.calculated_profit_percent | percent }}</td>
                         </template>
-                        <td class="text-right">{{ totals[option.id].cost_coverage * (option.calculated_profit_percent) / 100 | flexCurrency( '', 2) }}</td>
-                        <td class="text-right">{{ totals[option.id].cost_coverage * (option.calculated_profit_percent) / 100 / option.title | flexCurrency( ' kn', 2) }}</td>
+                        <td class="text-right">{{ totals[option.id].x15 | flexCurrency( '', 2) }}</td>
+                        <td class="text-right">{{ totals[option.id].x15 / option.title | flexCurrency( ' kn', 2) }}</td>
                     </tr>
                     <tr>
                         <th scope="row">16</th>
                         <td>Prodajna cijena proizvođača</td>
                         <td class="text-right"></td>
-                        <td class="text-right">{{ totals[option.id].manufacturer_price | flexCurrency( '', 2) }}</td>
-                        <td class="text-right">{{ totals[option.id].manufacturer_price / option.title | flexCurrency( ' kn', 2) }}</td>
+                        <td class="text-right">{{ totals[option.id].x16 | flexCurrency( '', 2) }}</td>
+                        <td class="text-right">{{ totals[option.id].x16 / option.title | flexCurrency( ' kn', 2) }}</td>
                     </tr>
                     <tr>
                         <th scope="row">17</th>
@@ -245,15 +245,15 @@
                         <template v-else>
                             <td class="table-editable text-right" v-on:click="editField('shop_percent')">{{ option.shop_percent | percent }}</td>
                         </template>
-                        <td class="text-right">{{ totals[option.id].manufacturer_price * option.shop_percent / 100  | flexCurrency( '', 2) }}</td>
-                        <td class="text-right">{{ totals[option.id].manufacturer_price * option.shop_percent / 100 / option.title | flexCurrency( ' kn', 2) }}</td>
+                        <td class="text-right">{{ totals[option.id].x17 / 100  | flexCurrency( '', 2) }}</td>
+                        <td class="text-right">{{ totals[option.id].x17 / 100 / option.title | flexCurrency( ' kn', 2) }}</td>
                     </tr>
                     <tr>
                         <th scope="row">18</th>
                         <td>Maloprodajna cijena</td>
                         <td class="text-right"></td>
-                        <td class="text-right">{{ totals[option.id].price | flexCurrency( '', 2) }}</td>
-                        <td class="text-right">{{ totals[option.id].price / option.title | flexCurrency( ' kn', 2) }}</td>
+                        <td class="text-right">{{ totals[option.id].x18 | flexCurrency( '', 2) }}</td>
+                        <td class="text-right">{{ totals[option.id].x18 / option.title | flexCurrency( ' kn', 2) }}</td>
                     </tr>
                     <tr>
                         <th scope="row">19</th>
@@ -264,16 +264,16 @@
                         <template v-else>
                             <td class="table-editable text-right" v-on:click="editField('vat_percent')">{{ option.vat_percent | percent }}</td>
                         </template>
-                        <td class="text-right">{{ totals[option.id].price * option.vat_percent / 100 | flexCurrency( '', 2) }}</td>
-                        <td class="text-right">{{ totals[option.id].price * option.vat_percent / 100 / option.title | flexCurrency( ' kn', 2) }}</td>
+                        <td class="text-right">{{ totals[option.id].x19 | flexCurrency( '', 2) }}</td>
+                        <td class="text-right">{{ totals[option.id].x19 / option.title | flexCurrency( ' kn', 2) }}</td>
                     </tr>
                     <tr>
                     <tr class="table-display-3">
                         <th scope="row">20</th>
                         <td>MPC + PDV</td>
                         <td class="text-right"></td>
-                        <td class="text-right">{{ totals[option.id].price * (100 + Number(option.vat_percent)) / 100 | flexCurrency( '', 2) }}</td>
-                        <td class="text-right">{{ totals[option.id].price * (100 + Number(option.vat_percent)) / 100 / option.title | flexCurrency( ' kn', 2) }}</td>
+                        <td class="text-right">{{ totals[option.id].x20 | flexCurrency( '', 2) }}</td>
+                        <td class="text-right">{{ totals[option.id].x20 / option.title | flexCurrency( ' kn', 2) }}</td>
                     </tr>
 
                     </tbody>

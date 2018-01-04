@@ -52,28 +52,43 @@ export default {
         totals(state) {
             let options = {};
             _.forEach(state.offers, (option) => {
-                let remainder = _.sumBy(Object.keys(state.author_expenses), (key) => {
+                let x6 = Number(state.authors_total) + Number(option.print_offer) + Number(state.marketing_expense) + Number(state.production_expense) + Number(state.design_layout_expense),
+                    x7 = x6 * option.compensation/100,
+                    x8 = x6 + x7,
+                    x9 = x8 * option.indirect_expenses / 100,
+                    x10 = x8 + x9,
+                    remainder = _.sumBy(Object.keys(state.author_expenses), (key) => {
                         let e = state.author_expenses[key];
                         return e.percentage * option.title * option.price_proposal / 100;
                     }),
-                    direct_cost = Number(state.authors_total) + Number(option.print_offer) + Number(option.compensation)*total_expenses/100 +Number(state.marketing_expense) + Number(state.production_expense) + Number(state.design_layout_expense),
-                    indirect_expense = direct_cost * option.indirect_expenses / 100,
-                    complete = direct_cost + indirect_expense + remainder-state.authors_advance,
-                    mprice = (Number(complete) - Number(state.dotation)) * (100 + Number(option.calculated_profit_percent)) / 100,
-                    price = mprice * (100 + Number(option.shop_percent)) / 100,
-                    total_expenses = Number(state.authors_total) + Number(option.print_offer) + Number(state.marketing_expense) + Number(state.production_expense) + Number(state.design_layout_expense);
+                    x11 = remainder - Number(state.authors_advance),
+                    x12 = x10 + x11,
+                    x14 = x12 - Number(state.dotation),
+                    x15 = x14 * option.calculated_profit_percent / 100,
+                    x16 = x14 + x15,
+                    p17 = option.shop_percent / 100,
+                    x17 = x16 * p17 / (1-p17),
+                    x18 = x17 + x16,
+                    x19 = x17 * option.vat_percent / 100,
+                    x20 = x18 + x19;
 
 
                 options[option.id] = {
-                    direct_cost: direct_cost,
-                    indirect_expense: indirect_expense,
-                    remainder_after_sales: remainder-state.authors_advance,
-                    complete_expense: complete,
-                    cost_coverage: (Number(complete) - Number(state.dotation)),
-                    manufacturer_price: mprice,
-                    price: price,
-                    total_cost: price * (100 + Number(option.vat_percent)) / 100,
-                    total_expenses: total_expenses
+                    x6: x6,
+                    x7: x7,
+                    x8: x8,
+                    x9: x9,
+                    x10: x10,
+                    x11: x11,
+                    x12: x12,
+                    x14: x14,
+                    x15: x15,
+                    x16: x16,
+                    x17: x17,
+                    x18: x18,
+                    x19: x19,
+                    x20: x20,
+
                 };
             });
             return options;
