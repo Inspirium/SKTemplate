@@ -457,8 +457,8 @@
   ":assigner has requested task order approval": ":assigner je podnio zahtjev za odobrenje prioriteta",
   "assignment": "zadatak",
   "cost": "trošak",
-  "Reject task priority": "Prihvaćam",
-  "Approve task priority": "Ne prihvaćam",
+  "Reject task priority": "Ne prihvaćam",
+  "Approve task priority": "Prihvaćam",
   "Today": "Danas",
   "Graphics": "Grafički odjel",
   "Editorial-1": "Urednički odjel 1",
@@ -477,5 +477,9 @@
   "task" : "zadatak",
   "document": "dokument",
   "message": "poruke",
-  "thread" : "rasprava"
+  "thread" : "rasprava",
+  "Task order has been approved": "Prioriteti su odobreni",
+  "Task order has been rejected": "Prioriteti nisu odobreni",
+  ":assignee has approved task order for :employee": ":assignee je odobrio prioritete za :employee",
+  ":assignee has rejected task order for :employee": ":assignee je odbio prioriritete za :employee"
 }
