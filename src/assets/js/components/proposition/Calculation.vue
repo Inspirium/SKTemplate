@@ -64,14 +64,14 @@
                         <div class="page-name-l-white text-center border-white">{{ lang('Direct Cost Cover') }}</div>
                         <div>
                             <h6 class="no-border text-white">{{ lang('Number of Sold Copies') }}</h6>
-                            <h3 class="mb-2">{{ totals[option.id].direct_cost / option.price_proposal | flexCurrency('', 0) }}</h3>
+                            <h3 class="mb-2">{{ totals[option.id].x8 * option.title / totals[option.id].x18  | flexCurrency('', 0) }}</h3>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="page-name-l-white text-center">{{ lang('Complete Cost Cover') }}</div>
                         <div>
                             <h6 class="no-border text-white">{{ lang('Number of Sold Copies') }}</h6>
-                            <h3 class="mb-2">{{ totals[option.id].cost_coverage / option.price_proposal | flexCurrency('', 0) }}</h3>
+                            <h3 class="mb-2">{{ totals[option.id].x14 * option.title / totals[option.id].x18 | flexCurrency('', 0) }}</h3>
                         </div>
                     </div>
                 </div>
