@@ -78,6 +78,12 @@
                 }
             }
         },
+        created() {
+            this.$eventHub.$on('UPDATE_DEPARTMENT_EMPLOYEE_TASKS', this.refreshTasks)
+        },
+        beforeDestroy() {
+            this.$eventHub.$off('UPDATE_DEPARTMENT_EMPLOYEE_TASKS', this.refreshTasks)
+        },
         watch: {
             'query': {
                 handler (val) {
@@ -120,7 +126,12 @@
             },
         },
         methods: {
-
+            refreshTasks(payload) {
+                if (payload.employee === this.employee.id) {
+                    this.query.sort = 'order';
+                    this.query.order = 'asc';
+                }
+            },
             can(role) {
                 return _.find(this.user.roles, (o) => {
                     return o.name === role;

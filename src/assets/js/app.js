@@ -23,6 +23,8 @@ import store from './vuex/store'
 import { routes } from './routes'
 import { sync } from 'vuex-router-sync'
 import Datatable from 'vue2-datatable-component'
+import EventHub from 'vue-event-hub';
+
 //import { VuexValidator } from "vuex-validator";
 //import validators from "./vuex/validators";
 require('moment/locale/hr')
@@ -43,6 +45,7 @@ Vue.use(VueMoment, {moment});
 Vue.use(VueRouter);
 Vue.use(VueDeepSet);
 Vue.use(Datatable);
+Vue.use(EventHub);
 
 Vue.config.productionTip = false;
 

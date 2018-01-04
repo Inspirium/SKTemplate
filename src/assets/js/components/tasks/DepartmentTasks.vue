@@ -28,33 +28,6 @@
                 employee_index: {},
                 department: false,
                 employees : false,
-                authority: true,
-                task_types: {
-                    1: {
-                        title: 'Project',
-                        className: 'tasktype-1'
-                    },
-                    2: {
-                        title: 'Assignment',
-                        className: 'tasktype-2'
-                    },
-                    3: {
-                        title: 'Project',
-                        className: 'tasktype-1'
-                    },
-                    4: {
-                        title: 'Assignment',
-                        className: 'tasktype-2'
-                    },
-                    5: {
-                        title: 'Project',
-                        className: 'tasktype-1'
-                    },
-                    6: {
-                        title: 'Task order',
-                        className: 'tasktype-2'
-                    }
-                },
             }
         },
         computed: {
@@ -73,8 +46,12 @@
                 axios.post('/api/tasks/requestOrder', {task:task, ...this.employee_index})
                     .then((res) => {
                         this.employee_index = {};
+                        toastr.success(this.lang('Uspješno obavljeno'));
+                        this.$eventHub.emit('UPDATE_DEPARTMENT_EMPLOYEE_TASKS', {employee: this.employee_index.employee});
                     })
-                    .catch((err) => {});
+                    .catch((err) => {
+                        toastr.error(this.lang('Greška'));
+                    });
             },
             openModalForApproval(payload) {
                 this.employee_index = payload;
@@ -84,6 +61,7 @@
                 axios.post('/api/tasks/updateOrder', data)
                     .then((res) => {
                         toastr.success(this.lang('Uspješno obavljeno'));
+                        this.$eventHub.$emit('UPDATE_DEPARTMENT_EMPLOYEE_TASKS', {employee: data.employee});
                     })
                     .catch((err) => {
                         toastr.error(this.lang('Greška'));
@@ -93,6 +71,7 @@
                 axios.post('/api/tasks/rejectOrder', data)
                     .then((res) => {
                         toastr.success(this.lang('Uspješno obavljeno'));
+                        this.$eventHub.emit('UPDATE_DEPARTMENT_EMPLOYEE_TASKS', {employee: data.employee});
                     })
                     .catch((err) => {
                         toastr.error(this.lang('Greška'));
