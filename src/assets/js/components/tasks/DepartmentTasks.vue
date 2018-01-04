@@ -6,8 +6,8 @@
             </div>
         </div>
 
-        <template v-for="(employee, ei) in employees">
-            <employee-tasks v-bind:employee="employee"></employee-tasks>
+        <template v-for="(employee, index) in employees">
+            <employee-tasks v-bind:employee="employee" v-on:openModal="openModalForApproval" v-on:approveOrder="approveOrder" v-on:rejectOrder="rejectOrder"></employee-tasks>
         </template>
 
         <task-order-approval v-on:sendForApproval="sendForApproval"></task-order-approval>
@@ -25,7 +25,7 @@
         },
         data: function () {
             return {
-                employee_index:0,
+                employee_index: {},
                 department: false,
                 employees : false,
                 authority: true,
@@ -68,38 +68,27 @@
                     return o.name === role;
                 });
             },
-            newOrderValue(task, index) {
-                let val = task.new_order;
-                if (!val) {
-                    val = index+1;
-                }
-
-                let r =-(Number(val) - Number(task.order));
-                if (!r) {
-                    return '';
-                }
-                return r;
-            },
-            newOrderClass(task, index) {
-                let val = task.new_order;
-                if (!val) {
-                    val = index+1;
-                }
-                let number = Number(val) - Number(task.order);
-                if (number === 0) {
-                    return 'new-order';
-                }
-                return (number > 0) ? 'new-order new-order--down' : 'new-order new-order--up';
-
-            },
 
             sendForApproval(task) {
-                let data = _.map(this.employees[this.employee_index].tasks, (o) => {
-                    return o.id;
-                });
-                axios.post('/api/tasks/requestOrder', {tasks: data, task: task, employee: this.employees[this.employee_index].id})
+                axios.post('/api/tasks/requestOrder', {task:task, ...this.employee_index})
                     .then((res) => {
-                        this.employee_index = 0;
+                        this.employee_index = {};
+                    })
+                    .catch((err) => {});
+            },
+            openModalForApproval(payload) {
+                this.employee_index = payload;
+                $('#taskOrderApprovalModal').modal('show');
+            },
+            approveOrder(data) {
+                axios.post('/api/tasks/updateOrder', data)
+                    .then((res) => {
+                    })
+                    .catch((err) => {});
+            },
+            rejectOrder(data) {
+                axios.post('/api/tasks/rejectOrder', data)
+                    .then((res) => {
                     })
                     .catch((err) => {});
             },
