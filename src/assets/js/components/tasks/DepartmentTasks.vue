@@ -83,14 +83,20 @@
             approveOrder(data) {
                 axios.post('/api/tasks/updateOrder', data)
                     .then((res) => {
+                        toastr.success(this.lang('Uspješno obavljeno'));
                     })
-                    .catch((err) => {});
+                    .catch((err) => {
+                        toastr.error(this.lang('Greška'));
+                    });
             },
             rejectOrder(data) {
                 axios.post('/api/tasks/rejectOrder', data)
                     .then((res) => {
+                        toastr.success(this.lang('Uspješno obavljeno'));
                     })
-                    .catch((err) => {});
+                    .catch((err) => {
+                        toastr.error(this.lang('Greška'));
+                    });
             },
 
         },
