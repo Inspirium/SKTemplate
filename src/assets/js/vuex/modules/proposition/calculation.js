@@ -69,7 +69,7 @@ export default {
                     p17 = Number(option.shop_percent) / 100,
                     x17 = x16 * p17 / (1-p17),
                     x18 = x17 + x16,
-                    x19 = x17 * option.vat_percent / 100,
+                    x19 = x18 * option.vat_percent / 100,
                     x20 = x18 + x19;
 
 
