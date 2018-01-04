@@ -88,7 +88,8 @@ export default {
                     x18: x18,
                     x19: x19,
                     x20: x20,
-
+                    direct_cost_cover: x8 / option.price_proposal,
+                    complete_cost_cover: x14 / option.price_proposal
                 };
             });
             return options;
