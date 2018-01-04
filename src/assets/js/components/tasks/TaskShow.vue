@@ -358,7 +358,7 @@
                         title: 'Approval Request',
                         className: 'tasktype-2'
                     },
-                    5: {
+                    6: {
                         title: 'Task Order',
                         className: 'tasktype-2'
                     },
