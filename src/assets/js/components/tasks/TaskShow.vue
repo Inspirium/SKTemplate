@@ -250,7 +250,7 @@
                     <!-- Initial Documents -->
                     <div class="page-name-xl mt-4">{{ lang('Initial Documents') }}</div>
                     <div class="files mt-2 mb-2">
-                        <div class="file-box file-box-l d-flex align-items-center" v-for="document in task.files.initial">
+                        <div class="file-box file-box-l d-flex align-items-center" v-for="(document,index) in task.files.initial">
                             <a v-bind:href="document.link" v-on:click.prevent="documentDownload(document.link)" class="file-icon">{{ document.title }}</a>
                             <div class="file-box-sty ml-auto d-flex">
                                 <a v-bind:href="'/human_resources/employee/'+document.owner.id+'/show'"><img class="profile-m-1 mr-1 align-self-center" v-bind:src="document.owner.image">
@@ -258,7 +258,7 @@
                                 </a></div>
                             <div class="file-box-sty">{{ document.date }}</div>
                             <div class="file-box-sty icon icon-download" v-on:click="documentDownload(document.link)">{{ lang('Download') }}</div>
-                            <div class="file-box-sty icon icon-cancel" v-on:click="fileWarning(document.id, 'initial')">{{ lang('Delete') }}</div>
+                            <div class="file-box-sty icon icon-cancel" v-on:click="fileWarning(index, 'initial')">{{ lang('Delete') }}</div>
                         </div>
                     </div>
 
@@ -269,7 +269,7 @@
                     <!-- Final Documents -->
                     <div class="page-name-xl mt-4">{{ lang('Final Documents') }}</div>
                     <div class="files mt-2 mb-2">
-                        <div class="file-box file-box-l d-flex align-items-center" v-for="document in task.files.final">
+                        <div class="file-box file-box-l d-flex align-items-center" v-for="(document,index) in task.files.final">
                             <a v-bind:href="document.link" v-on:click.prevent="documentDownload(document.link)" class="file-icon">{{ document.title }}</a>
                             <div class="file-box-sty ml-auto d-flex">
                                 <a v-bind:href="'/human_resources/employee/'+document.owner.id+'/show'"><img class="profile-m-1 mr-1 align-self-center" v-bind:src="document.owner.image">
@@ -277,7 +277,7 @@
                                 </a></div>
                             <div class="file-box-sty">{{ document.date }}</div>
                             <div class="file-box-sty icon icon-download" v-on:click="documentDownload(document.link)">{{ lang('Download') }}</div>
-                            <div class="file-box-sty icon icon-cancel" v-on:click="fileWarning(document.id, 'final')">{{ lang('Delete') }}</div>
+                            <div class="file-box-sty icon icon-cancel" v-on:click="fileWarning(index, 'final')">{{ lang('Delete') }}</div>
                         </div>
                     </div>
 
@@ -501,7 +501,10 @@
                 return false;
             },
             fileDelete: function (index, type) {
-                this.task.files[this.type_to_delete].splice(this.index_to_delete, 1);
+                axios.delete('/api/file/'+ this.task.files[this.type_to_delete][this.index_to_delete].id)
+                    .then(() => {
+                        this.task.files[this.type_to_delete].splice(this.index_to_delete, 1);
+                    });
             },
             fileAdd: function(data) {
                 if (data.isFinal) {
