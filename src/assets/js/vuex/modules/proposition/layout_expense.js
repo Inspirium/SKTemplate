@@ -39,7 +39,10 @@ export default {
                         commit('initData', res.data);
                         resolve();
                     })
-                    .catch(() => {
+                    .catch((err) => {
+                        if(err.response.status === 403) {
+                            window.location.href='/propositions'
+                        }
                         reject();
                     });
             });

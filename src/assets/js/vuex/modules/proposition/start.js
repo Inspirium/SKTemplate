@@ -27,8 +27,14 @@ export default {
                 //retrieve data only we don't have it or we need to refresh it
                 axios.get('/api/proposition/' + payload.id + '/start')
                     .then((res) => {
+                        console.log('then');
                         commit('initData', res.data);
                         commit('proposition/initData', res.data, {root: true});
+                    })
+                    .catch((err) => {
+                        if(err.response.status === 403) {
+                            window.location.href='/propositions'
+                        }
                     });
             }
             else {

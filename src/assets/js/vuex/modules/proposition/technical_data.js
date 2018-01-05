@@ -76,6 +76,12 @@ export default {
                         .then((res) => {
                             commit('initData', res.data);
                             resolve();
+                        })
+                        .catch((err) => {
+                            if(err.response.status === 403) {
+                                window.location.href='/propositions'
+                            }
+                            reject();
                         });
                 }
                 else {

@@ -94,6 +94,11 @@ export default {
                 axios.get(path)
                     .then((res) => {
                         commit('initData', res.data);
+                    })
+                    .catch((err) => {
+                        if(err.response.status === 403) {
+                            window.location.href='/propositions'
+                        }
                     });
 
         },

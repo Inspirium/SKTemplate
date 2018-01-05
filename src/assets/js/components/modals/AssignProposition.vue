@@ -165,7 +165,7 @@
                 saveButton.toggleClass('spinner-loading');
                 this.isSpinnerHidden = '';
 
-                axios.post('/api/proposition/'+this.$route.params.id + '/assign', {employees: this.employees, departments: this.departments, description: this.description, date: this.date, access:this.access, priority: this.priority, path: window.location.href})
+                axios.post('/api/proposition/'+this.$route.params.id + '/assign', {employees: this.employees, departments: this.departments, description: this.description, date: this.date, access:this.access, priority: this.priority, path: window.location.href, step: this.$route.meta.save})
                     .then(() => {
                         this.spinnerType = 'fa-check spinner-success';
                         setTimeout(() => {
