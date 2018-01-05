@@ -5,6 +5,7 @@ export default {
     state: {
         id: 0,
         name: '',
+        department_id: 0,
         roles: []
     },
     mutations: {
@@ -12,6 +13,7 @@ export default {
             state.id = payload.id;
             state.name = payload.name;
             state.roles = payload.roles;
+            state.department_id = payload.department_id;
         }
     },
     getters: {},

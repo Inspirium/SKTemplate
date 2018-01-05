@@ -80,11 +80,16 @@
 
         },
         mounted: function() {
-            axios.get('/api/tasks/department/'+this.$route.params.id)
-                .then((res) => {
-                    this.department = res.data.department;
-                    this.employees = res.data.employees;
-                })
+            if ( this.can('access_all_department_tasks') || (this.can('access_department_tasks') && this.user.department_id == this.$route.params.id) ) {
+                axios.get('/api/tasks/department/' + this.$route.params.id)
+                    .then((res) => {
+                        this.department = res.data.department;
+                        this.employees = res.data.employees;
+                    })
+            }
+            else {
+                window.location.href="/tasks";//TODO: fix
+            }
         }
     }
 </script>

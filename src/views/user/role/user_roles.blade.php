@@ -13,7 +13,7 @@
                 {{ csrf_field() }}
                 @foreach($roles as $role)
                     <div class="switch switch-sty d-flex">
-                        <span for="checkbox{{ $role->id }}" class="switch-label mr-auto">{{ $role->name }}</span>
+                        <span for="checkbox{{ $role->id }}" class="switch-label mr-auto">{{ $role->description }}</span>
                         <label class="">Off
                             <input type="checkbox" id="checkbox{{ $role->id }}" name="roles[]" value="{{ $role->id }}" {{ $user->hasRole($role->name)?'checked':'' }}>
                             <span class="lever"></span>
