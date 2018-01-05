@@ -258,7 +258,7 @@
                                 </a></div>
                             <div class="file-box-sty">{{ document.date }}</div>
                             <div class="file-box-sty icon icon-download" v-on:click="documentDownload(document.link)">{{ lang('Download') }}</div>
-                            <div class="file-box-sty icon icon-cancel" v-on:click="fileWarning(document.id)">{{ lang('Delete') }}</div>
+                            <div class="file-box-sty icon icon-cancel" v-on:click="fileWarning(document.id, 'initial')">{{ lang('Delete') }}</div>
                         </div>
                     </div>
 
@@ -277,7 +277,7 @@
                                 </a></div>
                             <div class="file-box-sty">{{ document.date }}</div>
                             <div class="file-box-sty icon icon-download" v-on:click="documentDownload(document.link)">{{ lang('Download') }}</div>
-                            <div class="file-box-sty icon icon-cancel" v-on:click="fileWarning(document.id)">{{ lang('Delete') }}</div>
+                            <div class="file-box-sty icon icon-cancel" v-on:click="fileWarning(document.id, 'final')">{{ lang('Delete') }}</div>
                         </div>
                     </div>
 
@@ -405,7 +405,9 @@
                     medium: 'Medium',
                     low: 'Low'
                 },
-                comment: ''
+                comment: '',
+                index_to_delete: 0,
+                type_to_delete: 0
             }
         },
         components: {
@@ -522,7 +524,8 @@
                     }
                 });
             },
-            fileWarning(id) {
+            fileWarning(id, type) {
+                this.type_to_delete = type;
                 this.index_to_delete = id;
                 jQuery('#modal-warning').modal('show');
             },
