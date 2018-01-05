@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('sktemplate::layout')
 
 @section('content')
 <div class="container">
