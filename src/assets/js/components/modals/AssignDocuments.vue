@@ -145,7 +145,7 @@
 
             },
             assignValues: function() {
-                axios.post('/api/proposition/'+this.$route.params.id + '/assign/document', {employees: this.employees, departments: this.departments, description: this.description, date: this.date, access:this.access, priority: this.priority, dir: this.$route.meta.dir, path:this.$route.path})
+                axios.post('/api/proposition/'+this.$route.params.id + '/assign/document', {employees: this.employees, departments: this.departments, description: this.description, date: this.date, access:this.access, priority: this.priority, dir: this.$route.meta.dir, path:this.$route.path, step: this.$route.meta.dir})
                     .then(() => {
                         toastr.success(this.lang('Uspješno obavljeno'));
                         $('#centralModalAssign').modal('hide');
