@@ -8,6 +8,10 @@
         data() {
             return {
                 task_types: {
+                    0: {
+                        title: '',
+                        className: ''
+                    },
                     1: {
                         title: 'Project',
                         className: 'tasktype-1'
