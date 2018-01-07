@@ -445,37 +445,37 @@
                                     component: false
                                 },
                                 graphics: {
-                                    enabled: this.can('access_department_tasks'),
+                                    enabled: this.canViewDepartmentTasks(1),
                                     path: '/tasks/department/1',
                                     title: 'Graphics',
                                     component: false
                                 },
                                 design: {
-                                    enabled: this.can('access_department_tasks'),
+                                    enabled: this.canViewDepartmentTasks(71),
                                     path: '/tasks/department/71',
                                     title: 'Design Department',
                                     component: false
                                 },
                                 'editorial-1': {
-                                    enabled: this.can('access_department_tasks'),
+                                    enabled: this.canViewDepartmentTasks(72),
                                     path: '/tasks/department/72',
                                     title: 'Editorial-1',
                                     component: false
                                 },
                                 'editorial-2': {
-                                    enabled: this.can('access_department_tasks'),
+                                    enabled: this.canViewDepartmentTasks(73),
                                     path: '/tasks/department/73',
                                     title: 'Editorial-2',
                                     component: false
                                 },
                                 'editorial-3': {
-                                    enabled: this.can('access_department_tasks'),
+                                    enabled: this.canViewDepartmentTasks(74),
                                     path: '/tasks/department/74',
                                     title: 'Editorial-3',
                                     component: false
                                 },
                                 management: {
-                                    enabled: this.can('access_department_tasks'),
+                                    enabled: this.canViewDepartmentTasks(92),
                                     path: '/tasks/department/92',
                                     title: 'Management',
                                     component: false
@@ -544,6 +544,13 @@
                     return o.name === role;
                 });
             },
+            canViewDepartmentTasks(department) {
+                if (this.can('access_all_department_tasks')) {
+                    return true;
+                }
+                return this.can('access_department_tasks') && this.user.department_id == department;
+
+            }
         },
         mounted: function() {
             this.$store.dispatch('employee/initUser');
