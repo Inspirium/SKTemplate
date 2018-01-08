@@ -27,7 +27,7 @@
                 </div>
 
                 <div class="text-center">
-                    <button type="submit" class="btn btn-lg btn-neutral mb-4">Login</button>
+                    <button type="submit" class="btn btn-lg btn-neutral mb-4">Prijavi se</button>
                 </div>
                 </form>
             </div>
