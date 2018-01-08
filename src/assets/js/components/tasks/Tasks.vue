@@ -3,16 +3,16 @@
         <div class="row tabs-wrapper">
             <ul class="col nav classic-tabs tabs-cyan tab-full" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" href="#tasks" role="tab">{{ lang('Tasks') }}</a>
+                    <a class="nav-link position-relative active" data-toggle="tab" href="#tasks" role="tab">{{ lang('Tasks') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#sent_tasks" role="tab">{{ lang('Sent Tasks') }}</a>
+                    <a class="nav-link position-relative" data-toggle="tab" href="#sent_tasks" role="tab">{{ lang('Sent Tasks') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#completed_tasks" role="tab">{{ lang('Completed Tasks') }}</a>
+                    <a class="nav-link position-relative" data-toggle="tab" href="#completed_tasks" role="tab">{{ lang('Completed Tasks') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#rejected_tasks" role="tab">{{ lang('Rejected Tasks') }}</a>
+                    <a class="nav-link position-relative" data-toggle="tab" href="#rejected_tasks" role="tab">{{ lang('Rejected Tasks') }}</a>
                 </li>
             </ul>
         </div>
@@ -20,7 +20,7 @@
         <!-- Tab panels -->
         <div class="tab-content">
             <div class="tab-pane fade in show active" id="tasks" role="tabpanel">
-                <div class="justify-content-center mt-1 mb-2 flex-column flex-md-row d-flex p-2">
+                <div class="justify-content-center mt-2 mb-2 flex-column flex-md-row d-flex p-2">
                     <button v-on:click="$router.push('/task/edit')" class="btn btn-lg btn-blank btn-plus-icon">{{ lang('Create new') }}</button>
                 </div>
                 <div class="page-name-xl mb-3 mt-4">{{ lang('New Tasks') }}
@@ -34,7 +34,7 @@
                 <datatable v-bind="$data.accepted"></datatable>
             </div>
             <div class="tab-pane fade in show" id="sent_tasks" role="tabpanel">
-                <div class="justify-content-center mt-1 mb-2 flex-column flex-md-row d-flex p-2">
+                <div class="justify-content-center mt-2 mb-2 flex-column flex-md-row d-flex p-2">
                     <button v-on:click="$router.push('/task/edit')" class="btn btn-lg btn-blank btn-plus-icon">{{ lang('Create new') }}</button>
                 </div>
                 <div class="page-name-xl mb-3 mt-4">{{ lang('Sent Tasks') }}
