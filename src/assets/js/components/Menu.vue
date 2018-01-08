@@ -42,7 +42,7 @@
                 if (this.editing_proposition) {
                     routes = {
                         proposition: {
-                            enabled: true,
+                            enabled: this.can('access_proposition_admin'),
                             title: 'Proposition',
                             order: 0,
                             key: 'edit',
@@ -397,7 +397,7 @@
                             }
                         },
                         propositions: {
-                            enabled: true,
+                            enabled: this.can('access_proposition_admin'),
                             title: 'Propositions',
                             order: 1,
                             key: 'propositions',
