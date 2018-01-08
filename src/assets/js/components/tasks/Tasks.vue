@@ -193,7 +193,7 @@
                             tdComp: 'TaskType'
                         },
                         {
-                            title: this.lang('Assignee'),
+                            title: this.lang('Assign to'),
                             field: 'assignee',
                             tdComp: 'AuthorCell'
                         },
@@ -207,7 +207,7 @@
                             title: this.lang('Deadline'),
                             field: 'deadline',
                             sortable: true,
-                            tdComp: 'DateCell'
+                            tdComp: 'Deadline'
                         },
                     ],
                     data: [],
