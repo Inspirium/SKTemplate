@@ -348,19 +348,19 @@
                     },
                     3: {
                         title: 'Approval Request',
-                        className: 'tasktype-2'
+                        className: 'tasktype-3'
                     },
                     4: {
                         title: 'Assignment',
-                        className: 'tasktype-2'
+                        className: 'tasktype-4'
                     },
                     5: {
                         title: 'Approval Request',
-                        className: 'tasktype-2'
+                        className: 'tasktype-5'
                     },
                     6: {
                         title: 'Task Order',
-                        className: 'tasktype-2'
+                        className: 'tasktype-6'
                     },
                 },
                 documents: false,

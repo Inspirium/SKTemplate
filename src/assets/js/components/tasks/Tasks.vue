@@ -34,11 +34,11 @@
                 <datatable v-bind="$data.accepted"></datatable>
             </div>
             <div class="tab-pane fade in show" id="sent_tasks" role="tabpanel">
-                <div class="page-name-xl mb-3 mt-2">{{ lang('Sent Tasks') }}
-                    <span class="tag tag-neutral text-white">{{ sent.total }}</span>
-                </div>
                 <div class="justify-content-center mt-1 mb-2 flex-column flex-md-row d-flex p-2">
                     <button v-on:click="$router.push('/task/edit')" class="btn btn-lg btn-blank btn-plus-icon">{{ lang('Create new') }}</button>
+                </div>
+                <div class="page-name-xl mb-3 mt-2">{{ lang('Sent Tasks') }}
+                    <span class="tag tag-neutral text-white">{{ sent.total }}</span>
                 </div>
                 <datatable v-bind="$data.sent"></datatable>
             </div>
@@ -77,26 +77,25 @@
                     },
                     3: {
                         title: 'Approval Request',
-                        className: 'tasktype-2'
+                        className: 'tasktype-3'
                     },
                     4: {
                         title: 'Assignment',
-                        className: 'tasktype-2'
+                        className: 'tasktype-4'
                     },
                     5: {
                         title: 'Approval Request',
-                        className: 'tasktype-2'
+                        className: 'tasktype-5'
                     },
                     6: {
                         title: 'Task Order Request',
-                        className: 'tasktype-2'
+                        className: 'tasktype-6'
                     },
                 },
                 new: {
                     supportNested: true,
                     tblClass: 'table',
                     columns: [
-                        { title: '', field: '', sortable: false, tdComp: 'Handle' },
                         {title: '#', field: 'order', sortable: true},
                         {
                             title: this.lang('Task'),
@@ -138,7 +137,6 @@
                     supportNested: true,
                     tblClass: 'table',
                     columns: [
-                        { title: '', field: '', sortable: false, tdComp: 'Handle' },
                         {title: '#', field: 'order', sortable: true},
                         {
                             title: this.lang('Task'),
@@ -180,7 +178,6 @@
                     supportNested: true,
                     tblClass: 'table',
                     columns: [
-                        { title: '', field: '', sortable: false, tdComp: 'Handle' },
                         {title: '#', field: 'order', sortable: true},
                         {
                             title: this.lang('Task'),
@@ -222,7 +219,6 @@
                     supportNested: true,
                     tblClass: 'table',
                     columns: [
-                        { title: '', field: '', sortable: false, tdComp: 'Handle' },
                         {title: '#', field: 'order', sortable: true},
                         {
                             title: this.lang('Task'),
@@ -264,7 +260,6 @@
                     supportNested: true,
                     tblClass: 'table',
                     columns: [
-                        { title: '', field: '', sortable: false, tdComp: 'Handle' },
                         {title: '#', field: 'order', sortable: true},
                         {
                             title: this.lang('Task'),
