@@ -193,8 +193,8 @@
                             tdComp: 'TaskType'
                         },
                         {
-                            title: this.lang('Assigner'),
-                            field: 'assigner',
+                            title: this.lang('Assignee'),
+                            field: 'assignee',
                             tdComp: 'AuthorCell'
                         },
                         {
