@@ -41,14 +41,9 @@
     </div>
 </template>
 <script>
-    import TitleCell from '../table_components/TitleCell'
-    import AuthorCell from '../table_components/AuthorCell'
-    import WaitingTime from '../table_components/WaitingTime'
-
+    import components from '../table_components'
     export default {
-        components: {
-            TitleCell, AuthorCell, WaitingTime
-        },
+        components,
         data: function () {
             return {
                 approval: {
@@ -56,10 +51,10 @@
                     tblClass: 'table table-hover',
                     columns: [
                         { title: '#', field: 'id', sortable: true },
-                        { title: this.lang('Title'), field: 'project_name', sortable: true, tdComp: TitleCell, tdClass:'table-title' },
-                        { title: this.lang('Author'), field: 'owner', tdComp: AuthorCell },
+                        { title: this.lang('Title'), field: 'project_name', sortable: true, tdComp: 'TitleCell', tdClass:'table-title' },
+                        { title: this.lang('Author'), field: 'owner', tdComp: 'AuthorCell' },
                         { title: this.lang('Creation Date'), field: 'created_at', sortable: true },
-                        { title: this.lang('Waiting Approval'), field: 'approved_on', sortable: true, tdComp: WaitingTime },
+                        { title: this.lang('Waiting Approval'), field: 'approved_on', sortable: true, tdComp: 'WaitingTime' },
                     ],
                     data: [],
                     total: 0,
@@ -71,8 +66,8 @@
                     tblClass: 'table table-hover',
                     columns: [
                         { title: '#', field: 'id', sortable: true },
-                        { title: this.lang('Title'), field: 'project_name', sortable: true, tdComp: TitleCell, tdClass:'table-title' },
-                        { title: this.lang('Author'), field: 'owner',  tdComp: AuthorCell },
+                        { title: this.lang('Title'), field: 'project_name', sortable: true, tdComp: 'TitleCell', tdClass:'table-title' },
+                        { title: this.lang('Author'), field: 'owner',  tdComp: 'AuthorCell' },
                         { title: this.lang('Creation Date'), field: 'created_at', sortable: true  },
                     ],
                     data: [],
@@ -85,8 +80,8 @@
                     tblClass: 'table table-hover',
                     columns: [
                         { title: '#', field: 'id', sortable: true },
-                        { title: this.lang('Title'), field: 'project_name', sortable: true, tdComp: TitleCell, tdClass:'table-title' },
-                        { title: this.lang('Author'), field: 'owner', tdComp: AuthorCell },
+                        { title: this.lang('Title'), field: 'project_name', sortable: true, tdComp: 'TitleCell', tdClass:'table-title' },
+                        { title: this.lang('Author'), field: 'owner', tdComp: 'AuthorCell' },
                         { title: this.lang('Creation Date'), field: 'created_at', sortable: true  },
                         { title: this.lang('Deleted Date'), field: 'deleted_at', sortable: true  },
                     ],
@@ -100,8 +95,8 @@
                     tblClass: 'table table-hover',
                     columns: [
                         { title: '#', field: 'id', sortable: true },
-                        { title: this.lang('Title'), field: 'project_name', sortable: true, tdComp: TitleCell, tdClass:'table-title' },
-                        { title: this.lang('Author'), field: 'owner', tdComp: AuthorCell },
+                        { title: this.lang('Title'), field: 'project_name', sortable: true, tdComp: 'TitleCell', tdClass:'table-title' },
+                        { title: this.lang('Author'), field: 'owner', tdComp: 'AuthorCell' },
                         { title: this.lang('Creation Date'), field: 'created_at', sortable: true  },
                         { title: this.lang('Current Status'), field: 'step', sortable: true },
                     ],
@@ -115,8 +110,8 @@
                     tblClass: 'table table-hover',
                     columns: [
                         { title: '#', field: 'id', sortable: true },
-                        { title: this.lang('Title'), field: 'project_name', sortable: true, tdComp: TitleCell, tdClass:'table-title' },
-                        { title: this.lang('Author'), field: 'owner', tdComp: AuthorCell },
+                        { title: this.lang('Title'), field: 'project_name', sortable: true, tdComp: 'TitleCell', tdClass:'table-title' },
+                        { title: this.lang('Author'), field: 'owner', tdComp: 'AuthorCell' },
                         { title: this.lang('Creation Date'), field: 'created_at', sortable: true  },
                         { title: this.lang('Rejected'), field: 'approved_on', sortable: true  },
                     ],
@@ -130,8 +125,8 @@
                     tblClass: 'table table-hover',
                     columns: [
                         { title: '#', field: 'id', sortable: true },
-                        { title: this.lang('Title'), field: 'project_name', sortable: true, tdComp: TitleCell, tdClass:'table-title' },
-                        { title: this.lang('Author'), field: 'owner', tdComp: AuthorCell },
+                        { title: this.lang('Title'), field: 'project_name', sortable: true, tdComp: 'TitleCell', tdClass:'table-title' },
+                        { title: this.lang('Author'), field: 'owner', tdComp: 'AuthorCell' },
                         { title: this.lang('Creation Date'), field: 'created_at', sortable: true  },
                         { title: this.lang('Completion Date'), field: 'completed_at', sortable: true  },
                     ],
