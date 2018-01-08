@@ -23,7 +23,7 @@
                 <div class="justify-content-center mt-1 mb-2 flex-column flex-md-row d-flex p-2">
                     <button v-on:click="$router.push('/task/edit')" class="btn btn-lg btn-blank btn-plus-icon">{{ lang('Create new') }}</button>
                 </div>
-                <div class="page-name-xl mb-3 mt-2">{{ lang('New Tasks') }}
+                <div class="page-name-xl mb-3 mt-4">{{ lang('New Tasks') }}
                     <span class="tag tag-neutral text-white">{{ $data.new.total }}</span>
                 </div>
                 <datatable v-bind="$data.new"></datatable>
@@ -37,19 +37,19 @@
                 <div class="justify-content-center mt-1 mb-2 flex-column flex-md-row d-flex p-2">
                     <button v-on:click="$router.push('/task/edit')" class="btn btn-lg btn-blank btn-plus-icon">{{ lang('Create new') }}</button>
                 </div>
-                <div class="page-name-xl mb-3 mt-2">{{ lang('Sent Tasks') }}
+                <div class="page-name-xl mb-3 mt-4">{{ lang('Sent Tasks') }}
                     <span class="tag tag-neutral text-white">{{ sent.total }}</span>
                 </div>
                 <datatable v-bind="$data.sent"></datatable>
             </div>
             <div class="tab-pane fade in show" id="completed_tasks" role="tabpanel">
-                <div class="page-name-xl mb-3 mt-2">{{ lang('Completed Tasks') }}
+                <div class="page-name-xl mb-3 mt-4">{{ lang('Completed Tasks') }}
                     <span class="tag tag-neutral text-white">{{ completed.total }}</span>
                 </div>
                 <datatable v-bind="$data.completed"></datatable>
             </div>
             <div class="tab-pane fade in show" id="rejected_tasks" role="tabpanel">
-                <div class="page-name-xl mb-3 mt-2">{{ lang('Rejected Tasks') }}
+                <div class="page-name-xl mb-3 mt-4">{{ lang('Rejected Tasks') }}
                     <span class="tag tag-neutral text-white">{{ rejected.total }}</span>
                 </div>
                 <datatable v-bind="$data.rejected"></datatable>

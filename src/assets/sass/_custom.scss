@@ -463,6 +463,16 @@ header .navbar .breadcrumb {
 
 .classic-tabs.tabs-cyan li a.active {
     border-color: $color-mainpanel;
+    &:after {
+        content: "";
+        width: 0;
+        height: 0;
+        position: relative;
+        left: 45%;
+        border-style: solid;
+        border-width: 0 10px 20px 10px;
+        border-color: transparent transparent $color-mainpanel transparent;
+    }
 }
 
 .classic-tabs li a {
@@ -697,7 +707,8 @@ table td .color-grey {
     color: $info-color;
 }
 
-.file-icon[href$=".jpg"]:before {
+.file-icon[href$=".jpg"]:before,
+.file-icon[href$=".jpeg"]:before{
     content: "\f1c5";
 }
 
@@ -705,11 +716,13 @@ table td .color-grey {
     content: "\f1c1";
 }
 
-.file-icon[href*=".xls"]:before {
+.file-icon[href*=".xls"]:before,
+.file-icon[href*=".xlsx"]:before {
     content: "\f1c3";
 }
 
-.file-icon[href*=".doc"]:before {
+.file-icon[href*=".doc"]:before,
+.file-icon[href*=".docx"]:before {
     font-family: FontAwesome;
     content: "\f1c2";
 }
