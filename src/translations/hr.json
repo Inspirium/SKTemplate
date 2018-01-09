@@ -482,5 +482,7 @@
   "Task order has been rejected": "Prioriteti nisu odobreni",
   ":assignee has approved task order for :employee": ":assignee je odobrio prioritete za :employee",
   ":assignee has rejected task order for :employee": ":assignee je odbio prioriritete za :employee",
-  "Deleted Date": "Datum brisanja"
+  "Deleted Date": "Datum brisanja",
+  "passwords.user": "Nepostojeći korisnik",
+  "passwords.sent": "Email je poslan"
 }

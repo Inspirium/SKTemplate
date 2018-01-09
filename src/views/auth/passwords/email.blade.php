@@ -15,7 +15,7 @@
                     <div class="panel-body">
                         @if (session('status'))
                             <div class="alert alert-success">
-                                {{ session('status') }}
+                                @lang(session('status'))
                             </div>
                         @endif
 
@@ -30,7 +30,7 @@
 
                                     @if ($errors->has('email'))
                                         <span class="help-block">
-                                            <strong>{{ $errors->first('email') }}</strong>
+                                            <strong>@lang($errors->first('email'))</strong>
                                         </span>
                                     @endif
                                 </div>
