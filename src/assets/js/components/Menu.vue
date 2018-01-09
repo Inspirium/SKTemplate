@@ -39,10 +39,10 @@
             },
             lroutes:function() {
                 let routes;
-                if (this.editing_proposition) {
+                if (this.editing_proposition && this.can('access_proposition_admin')) {
                     routes = {
                         proposition: {
-                            enabled: this.can('access_proposition_admin'),
+                            enabled: true,
                             title: 'Proposition',
                             order: 0,
                             key: 'edit',
