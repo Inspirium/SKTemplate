@@ -404,6 +404,8 @@ $sk-skin-btn-default: #293756;
         font-size: 1.4rem;
         background-color: transparent;
         border: none;
+        line-height: 3.1rem;
+        margin-left: 0.5rem;
     }
     span.caret {
         color: initial;
@@ -753,7 +755,7 @@ $sk-skin-btn-default: #293756;
         min-width: 350px;
         position: relative;
         margin-left: -151px;
-        margin-right: -55px;
+        margin-right: -70px;
         .activity-container {
             max-height: 60vh;
             overflow: hidden;

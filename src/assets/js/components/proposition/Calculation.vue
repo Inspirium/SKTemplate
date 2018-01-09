@@ -3,9 +3,9 @@
     <div class="row tabs-wrapper">
         <ul class="col nav classic-tabs tabs-cyan" id="tabs" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" href="#panel0" id="tab0" role="tab" v-on:click.prevent="switchTab('#tab0')">{{ lang('Precalculation') }}</a>
+                <a class="nav-link position-relative active" href="#panel0" id="tab0" role="tab" v-on:click.prevent="switchTab('#tab0')">{{ lang('Precalculation') }}</a>
             </li>
-            <li class="nav-item" v-for="(option, key, index) in offers">
+            <li class="nav-item position-relative" v-for="(option, key, index) in offers">
                 <a class="nav-link" v-bind:id="'tab'+(index+1)" v-bind:href="'#panel'+(index+1)" v-bind:key="key" role="tab" v-on:click.prevent="switchTab('#tab'+(index+1))">{{ option.title }}</a>
             </li>
         </ul>
