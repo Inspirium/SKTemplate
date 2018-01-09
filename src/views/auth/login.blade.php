@@ -18,12 +18,22 @@
                     <i class="fa fa-envelope prefix"></i>
                     <input type="email" id="form2" name="email" class="form-control" required value="{{ old('email') }}">
                     <label for="form2">Email</label>
+                    @if ($errors->has('email'))
+                        <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                    @endif
                 </div>
 
                 <div class="md-form">
                     <i class="fa fa-lock prefix"></i>
                     <input type="password" id="form4" name="password" class="form-control" required>
                     <label for="form4">Lozinka</label>
+                    @if ($errors->has('password'))
+                        <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                    @endif
                 </div>
 
                 <div class="text-center">
