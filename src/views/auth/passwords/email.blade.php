@@ -6,8 +6,6 @@
 
         <div class="col card mx-auto">
             <div class="card-block">
-                <form role="form" method="POST" action="{{ route('login') }}">
-                    {{ csrf_field() }}
                     <!--Header-->
                     <div class="form-header form-header-reset">
                         <h2>Resetiraj lozinku</h2>
@@ -21,7 +19,7 @@
                             </div>
                         @endif
 
-                        <form class="form-horizontal" role="form" method="POST" action="/password/email">
+                        <form class="form-horizontal" role="form" method="POST" action="{{ route('password.email') }}">
                             {{ csrf_field() }}
 
                             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -47,7 +45,6 @@
                             </div>
                         </form>
                     </div>
-                </form>
             </div>
         </div>
 
