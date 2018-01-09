@@ -500,12 +500,10 @@
     "validation.array": ":attribute mora biti niz", 
     "validation.before": ":attribute mora biti prije :date", 
     "validation.before_or_equal": ":attribute mora biti prije ili jednak :date", 
-    "validation.between": [
-      "validation.numeric": ":attribute mora biti između :min i :max",
-      "validation.file": ":attribute mora biti između :min i :max kilobajta",
-      "validation.string": ":attribute mora biti između :min i :max znakova",
-      "validation.array": ":attribute mora imati između :min i :max elemenata"
-        ], 
+    "validation.between.numeric": ":attribute mora biti između :min i :max",
+    "validation.between.file": ":attribute mora biti između :min i :max kilobajta",
+    "validation.between.string": ":attribute mora biti između :min i :max znakova",
+    "validation.between.array": ":attribute mora imati između :min i :max elemenata",
     "validation.boolean": ":attribute polje može biti točno ili netočno", 
     "validation.confirmed": ":attribute ne podudara se s unesenim", 
     "validation.date": ":attribute nije ispravan datum", 
@@ -527,20 +525,16 @@
     "validation.ipv4": ":attribute mora biti ispravna IPv4 adresa",
     "validation.ipv6": ":attribute mora biti ispravna IPv6 adresa",
     "validation.json": ":attribute mora biti ispravni JSON format",
-    "validation.max": ":attribute mora" [
-        "validation.numeric": ":attribute ne smije biti veći od :max",
-        "validation.file": ":attribute ne smije biti veći od :max kilobajta",
-        "validation.string": ":attribute ne smije biti veći od :max znakova",
-        "validation.array": ":attribute ne smije imati više od :max elemenata"
-        ],
+    "validation.max.numeric": ":attribute ne smije biti veći od :max",
+    "validation.max.file": ":attribute ne smije biti veći od :max kilobajta",
+    "validation.max.string": ":attribute ne smije biti veći od :max znakova",
+    "validation.max.array": ":attribute ne smije imati više od :max elemenata",
     "validation.mimes": ":attribute mora biti :values format datoteke",
     "validation.mimetypes": ":attribute mora biti :values format datoteke",
-    "validation.min": [
-        "validation.numeric": ":attribute mora imati najmanje :min",
-        "validation.file": ":attribute mora imati najmanje :in kilobajta",
-        "validation.string": ":attribute mora imati najmanje :min znakova",
-        "validation.array": ":attribute mora sadržavati najmanje :min elemenata"
-    ],
+    "validation.min.numeric": ":attribute mora imati najmanje :min",
+    "validation.min.file": ":attribute mora imati najmanje :in kilobajta",
+    "validation.min.string": ":attribute mora imati najmanje :min znakova",
+    "validation.min.array": ":attribute mora sadržavati najmanje :min elemenata",
     "validation.not_in": "Odabrani :attribute je neispravan",
     "validation.numeric": ":attribute mora biti znamenka",
     "validation.present": ":attribute polje mora biti prikazano",
@@ -553,12 +547,10 @@
     "validation.required_without": ":attribute polje je obvezno kada :value nije prikazan",
     "validation.required_without_all": ":attribute polje je obvezno kada niti jedan :value nije prikazan",
     "validation.same": ":attribute an :other moraju se podudarati",
-    "validation.size": [
-        "validation.numeric": ":attribute mora biti :size",
-        "validation.file": ":attribute mora imati :size kilobajta",
-        "validation.string": ":attribute mora imati :size znakova",
-        "validation.array": ":attribute mora sadržavati :size elemenata"
-    ],
+    "validation.size.numeric": ":attribute mora biti :size",
+    "validation.size.file": ":attribute mora imati :size kilobajta",
+    "validation.size.string": ":attribute mora imati :size znakova",
+    "validation.size.array": ":attribute mora sadržavati :size elemenata",
     "validation.string": ":attribute mora biti niz podataka",
     "validation.timezone": ":attribute mora biti ispravna vremenska zona",
     "validation.unique": ":attribute je zauzeto",
@@ -566,5 +558,4 @@
     "validation.url": ":attribute format nije ispravan"
 
 
-    
 }
