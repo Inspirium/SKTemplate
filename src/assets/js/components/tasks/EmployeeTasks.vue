@@ -104,7 +104,7 @@
                 if (this.can('department_tasks_order_approve')) {
                     return false;
                 }
-                if (this.can('department_tasks_order_edit')) {
+                if (this.can('department_tasks_order_edit') && (!this.query.sort || this.query.sort === 'order')) {
                     let e = _.filter(this.data, (t, index) => {
                         if (t.order !== (Number(index)+1)) {
                             return true;
@@ -112,9 +112,10 @@
                     });
                     return e.length;
                 }
+                return false;
             },
             shouldApprove() {
-                if (this.can('department_tasks_order_approve')) {
+                if (this.can('department_tasks_order_approve') && (!this.query.sort || this.query.sort === 'new_order')) {
                     let e = _.filter(this.data, (t, index) => {
                         if (t.order !== t.new_order || t.order !== (Number(index)+1)) {
                             return true;
