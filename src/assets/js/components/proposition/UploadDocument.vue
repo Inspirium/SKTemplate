@@ -124,6 +124,11 @@
                 this.files = res.data.files;
                 this.final = res.data.final;
                 })
+                .catch((err) => {
+                    if (err.response.status === 403) {
+                        window.location.href='/propositions';
+                    }
+                })
         }
     }
 </script>
