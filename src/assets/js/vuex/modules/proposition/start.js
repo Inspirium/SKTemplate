@@ -19,11 +19,19 @@ export default {
             state.project_name = payload.project_name;
             state.note = payload.note;
             state.status = payload.status;
+        },
+        initializeEmpty(state) {
+            state.proposition_id = 0;
+            state.project_number = '';
+            state.project_name = '';
+            state.additional_project_number = '';
+            state.note = '';
+            state.status = '';
         }
     },
     actions: {
-        getData({commit, state}, payload) {
-            if (payload.id !== state.proposition_id) {
+        getData({commit, dispatch, state}, payload) {
+            if (payload.id && payload.id !== state.proposition_id) {
                 //retrieve data only we don't have it or we need to refresh it
                 axios.get('/api/proposition/' + payload.id + '/start')
                     .then((res) => {
@@ -37,7 +45,7 @@ export default {
                     });
             }
             else {
-                state = Vue.util.extend({}, initialState);
+                dispatch('proposition/clearProposition', {}, {root: true});
             }
         },
         saveData({state, commit}, id) {

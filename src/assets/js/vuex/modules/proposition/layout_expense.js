@@ -66,7 +66,7 @@ export default {
     },
     getters: {
         number_of_hours: state => {
-            if (!state.group.parent){
+            if (!state.group || !state.group.parent){
                 return 0;
             }
             let category = state.group.parent.coefficient / 60,

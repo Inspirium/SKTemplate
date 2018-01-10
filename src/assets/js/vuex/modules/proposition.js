@@ -44,10 +44,6 @@ export default {
         updated_at: 0,
         deleted_at: 0,
         loaded: false,
-        assigned: {
-            departments: [],
-            employees: []
-        },
         retail_price: 0,
         error: ''
     },
@@ -57,6 +53,29 @@ export default {
             state.created_at = payload.created_at;
             state.updated_at = payload.updated_at;
             state.deleted_at = payload.deleted_at;
+        },
+        clearData(state) {
+            state.start = {};
+            state.basic_data = {};
+            state.categorization = {};
+            state.deadline = {};
+            state.distribution_expense = {};
+            state.layout_expense = {};
+            state.market_potential = {};
+            state.marketing_expense = {};
+            state.print = {};
+            state.production_expense = {};
+            state.technical_data = {};
+            state.authors_expense = {};
+            state.calculation = {};
+            state.compare = {};
+            state.price_definition = {};
+            state.owner = {};
+
+            state.proposition_id = 0;
+            state.created_at = 0;
+            state.updated_at = 0;
+            state.deleted_at = 0;
         }
     },
     actions: {
@@ -68,6 +87,9 @@ export default {
                         commit('proposition/owner/initData', res.data.owner, {root: true});
                     });
             }
+        },
+        clearProposition({commit}) {
+            commit('clearData');
         }
 
     }
