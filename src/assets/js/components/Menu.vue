@@ -133,6 +133,20 @@
                             }
                         }
                         },
+                        final_price: {
+                            enabled: true,
+                            title: 'Final Price',
+                            order: 5,
+                            key: 'final_price',
+                            children : {
+                                price_definition: {
+                                    enabled: true,
+                                    title: 'Price Definition',
+                                    path: '/proposition/'+this.id+'/final_price/price_definition',
+                                    component: true
+                                },
+                            }
+                        },
                         expenses: {
                             enabled: true,
                             title: 'Expenses',
@@ -299,20 +313,6 @@
                                     enabled: true,
                                     title: 'Revisions',
                                     path: '/proposition/'+this.id+'/layout/revisions',
-                                    component: true
-                                },
-                            }
-                        },
-                        final_price: {
-                            enabled: true,
-                            title: 'Final Price',
-                            order: 5,
-                            key: 'final_price',
-                            children : {
-                                price_definition: {
-                                    enabled: true,
-                                    title: 'Price Definition',
-                                    path: '/proposition/'+this.id+'/final_price/price_definition',
                                     component: true
                                 },
                             }

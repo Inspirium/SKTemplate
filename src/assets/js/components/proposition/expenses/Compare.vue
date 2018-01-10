@@ -268,8 +268,8 @@
                     </div>
                     <!--Footer-->
                     <div class="modal-footer btn-footer">
-                        <button type="button" class="btn btn-lg btn-cancel" data-dismiss="modal">{{ lang('Cancel') }}</button>
                         <button type="button" class="btn btn-lg btn-save" v-on:click="assignValues">{{ lang('Assign') }}</button>
+                        <button type="button" class="btn btn-lg btn-cancel" data-dismiss="modal">{{ lang('Cancel') }}</button>
                     </div>
                 </div>
                 <!--/.Content-->

@@ -1332,8 +1332,8 @@ $sk-skin-btn-default: #293756;
         }
         .activity-box {
             position: relative;
-            margin-left: -151px;
-            margin-right: -57px;
+            margin-left: -160px;
+            margin-right: -69px;
             .activity-item:first-child:before {
                 left: inherit;
                 right: 172px;
@@ -1356,6 +1356,9 @@ $sk-skin-btn-default: #293756;
         .stopwatch-controls > div {
             flex-direction: column;
         }
+        .classic-tabs li {
+            flex: 1 0 100%;
+        } 
 
     }
 }
