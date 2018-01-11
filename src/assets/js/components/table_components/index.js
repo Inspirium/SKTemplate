@@ -6,5 +6,6 @@ export default {
     NewOrder: require('./NewOrder').default,
     TaskType: require('./TaskType').default,
     WaitingTime: require('./WaitingTime').default,
-    Deadline: require('./Deadline').default
+    Deadline: require('./Deadline').default,
+    TaskStatus: require('./TaskStatus').default
 }

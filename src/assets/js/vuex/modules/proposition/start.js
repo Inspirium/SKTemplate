@@ -19,14 +19,6 @@ export default {
             state.project_name = payload.project_name;
             state.note = payload.note;
             state.status = payload.status;
-        },
-        initializeEmpty(state) {
-            state.proposition_id = 0;
-            state.project_number = '';
-            state.project_name = '';
-            state.additional_project_number = '';
-            state.note = '';
-            state.status = '';
         }
     },
     actions: {
@@ -50,8 +42,9 @@ export default {
         },
         saveData({state, commit}, id) {
             return new Promise((resolve, reject) => {
-                if (id) {
-                    axios.post('/api/proposition/' + id + '/start', state)
+                if (id || state.proposition_id) {
+                    let key = id?id:state.proposition_id;
+                    axios.post('/api/proposition/' + key + '/start', state)
                         .then((res) => {
                             resolve();
                         });

@@ -215,6 +215,12 @@
                             sortable: true,
                             tdComp: 'WaitingTime'
                         },
+                        {
+                            title: this.lang('Status'),
+                            field: 'status',
+                            sortable: false,
+                            tdComp: 'TaskStatus'
+                        }
                     ],
                     data: [],
                     total: 0,
