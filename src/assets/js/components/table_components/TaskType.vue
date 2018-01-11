@@ -22,19 +22,19 @@
                     },
                     3: {
                         title: 'Project',
-                        className: 'tasktype-1'
+                        className: 'tasktype-3'
                     },
                     4: {
                         title: 'Assignment',
-                        className: 'tasktype-2'
+                        className: 'tasktype-4'
                     },
                     5: {
                         title: 'Project',
-                        className: 'tasktype-1'
+                        className: 'tasktype-5'
                     },
                     6: {
                         title: 'Task order',
-                        className: 'tasktype-2'
+                        className: 'tasktype-6'
                     }
                 },
             }
