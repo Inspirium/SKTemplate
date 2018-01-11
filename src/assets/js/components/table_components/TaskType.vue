@@ -13,7 +13,7 @@
                         className: ''
                     },
                     1: {
-                        title: 'Project',
+                        title: 'Proposition task',
                         className: 'tasktype-1'
                     },
                     2: {
@@ -21,19 +21,19 @@
                         className: 'tasktype-2'
                     },
                     3: {
-                        title: 'Project',
+                        title: 'Approval Request',
                         className: 'tasktype-3'
                     },
                     4: {
-                        title: 'Assignment',
-                        className: 'tasktype-4'
+                        title: 'Proposition task',
+                        className: 'tasktype-1'
                     },
                     5: {
-                        title: 'Project',
+                        title: 'Proposition Approval',
                         className: 'tasktype-5'
                     },
                     6: {
-                        title: 'Task order',
+                        title: 'Task Order',
                         className: 'tasktype-6'
                     }
                 },

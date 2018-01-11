@@ -29,14 +29,18 @@ $sk-skin-btn-default: #293756;
     }
     .download-box {
         height: 5.5rem;
-        padding: .7rem;
+        padding: .7rem 0;
+        a {
+           color: $sk-skin-grey; 
+        }
         .file-icon {
             white-space: nowrap;
             overflow: hidden;
             border: 1px solid #dadde4;
             background-color: $white;
             border-radius: 11rem;
-            padding: 0.2rem 2rem;
+            padding: .2rem 2rem .2rem 1.5rem;
+            margin-right: 1rem;
         }
     }
     table.table { 
@@ -1371,7 +1375,15 @@ $sk-skin-btn-default: #293756;
         .classic-tabs li {
             flex: 1 0 100%;
         } 
-
+        .download-box {
+            flex-direction: column;
+            .file-icon {
+                margin-bottom: 1rem;
+                &:last-child {
+                    margin-bottom: none;
+                }
+            }
+        }
     }
 }
 

@@ -339,7 +339,7 @@
                 clock: false,
                 task_types: {
                     1: {
-                        title: 'Project',
+                        title: 'Proposition task',
                         className: 'tasktype-1'
                     },
                     2: {
@@ -351,11 +351,11 @@
                         className: 'tasktype-3'
                     },
                     4: {
-                        title: 'Assignment',
-                        className: 'tasktype-4'
+                        title: 'Proposition task',
+                        className: 'tasktype-1'
                     },
                     5: {
-                        title: 'Approval Request',
+                        title: 'Proposition Approval',
                         className: 'tasktype-5'
                     },
                     6: {
