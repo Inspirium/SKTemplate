@@ -226,7 +226,7 @@
         <template v-else>
             <div class="d-flex justify-content-center align-items-center flex-column mt-5">
                 <i class="fa fa-exclamation-triangle fa-5x mb-3 color-nav-sub" aria-hidden="true"></i>
-                <h1 class="text-center mt-5">{{ lang('No print offers created') }}</h1>
+                <h1 class="text-center mt-2">{{ lang('No print offers created') }}</h1>
             </div>
         </template>
 </div>

@@ -455,7 +455,7 @@
   ":requestee has accepted your request in :related": ":requestee je odobrio tvoj zahtjev u :related",
   "Task has been deleted": "Zadatak je obrisan",
   ":user has deleted a task :task": ":user je obrisao zadatak :task",
-  "Task order approval request": "Prioritizacija",
+  "Task Order Approval Request": "Prioritizacija",
   ":assigner has requested task order approval": ":assigner je podnio zahtjev za odobrenje prioriteta",
   "assignment": "zadatak",
   "Assignment": "zadatak",
@@ -564,7 +564,9 @@
     "Word document": "Word dokument",
     "PDF document": "PDF dokument",
     "Proposition has been accepted": "Propozicija je odobrena",
-    "Proposition has been denied": "Propozicija nije odobrena"
+    "Proposition has been denied": "Propozicija nije odobrena",
+    "You are not authorized to view this page": "Niste ovlašteni za pregled ove stranice",
+    "Contact proposition's author to gain access": "Kontaktirajte autora ove propozicije za puno ovlaštenje"
     
 
 
