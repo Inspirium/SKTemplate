@@ -114,15 +114,6 @@
                 return Number(this.price_definition.price_second_year.retail) + Number(this.price_definition.price_second_year.wholesale) + Number(this.price_definition.price_second_year.direct) + Number(this.price_definition.price_second_year.field) + Number(this.price_definition.price_second_year.promotors) + Number(this.price_definition.price_second_year.export)
             }
         },
-        methods: {
-
-        },
-        mounted() {
-            if (this.$route.params.id != 0) {
-                this.$store.dispatch('proposition/price_definition/getData', {id: this.$route.params.id});
-            }
-
-        },
         beforeRouteLeave(to, from, next) {
             if (this.$store.state.edited) {
                 this.next = next;

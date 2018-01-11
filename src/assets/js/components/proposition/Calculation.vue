@@ -485,15 +485,6 @@
                 this.activeEdit = '';
             }
         },
-        mounted: function() {
-            if (this.$route.params.id != 0) {
-                this.$store.dispatch('proposition/calculation/getData', {id: this.$route.params.id, force: true})
-                    .then(() => {
-                        $('.mdb-select').material_select('destroy');
-                        $('.mdb-select').material_select();
-                    });
-            }
-        },
         beforeRouteLeave(to, from, next) {
             if (this.$store.state.edited) {
                 this.next = next;

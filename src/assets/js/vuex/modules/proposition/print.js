@@ -4,14 +4,18 @@ export default {
     namespaced: true,
     state: {
         id: 0,
-        offers: {}
+        offers: {},
+        active_offer: 0
     },
     mutations: {
         initData(state, payload) {
             for (let i in Object.keys(state)) {
                 let key = Object.keys(state)[i];
-                state[key] = payload[key];
+                if (payload.hasOwnProperty(key)) {
+                    state[key] = payload[key];
+                }
             }
+            state.active_offer = Object.keys(state.offers)[0];
         },
         addFile(state, payload) {
             state.offers[payload.offer].files.push(payload.file);

@@ -121,6 +121,7 @@
             }
         },
         mounted() {
+            //TODO: move to store
             axios.get('/api/proposition/' + this.$route.params.id + '/files/multimedia')
                 .then((res) => {
                     this.jpg = res.data.jpg;

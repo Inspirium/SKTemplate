@@ -118,15 +118,6 @@
             'footer-buttons' : FooterButtons
         },
         methods: {},
-        mounted: function() {
-            if (this.$route.params.id != 0) {
-                this.$store.dispatch('proposition/layout_expense/getData', {id: this.$route.params.id, type:'expense'})
-                    .then(() => {
-                        $('.mdb-select').material_select('destroy');
-                        $('.mdb-select').material_select();
-                    });
-            }
-        },
         beforeRouteLeave(to, from, next) {
             if (this.$store.state.edited) {
                 this.next = next;

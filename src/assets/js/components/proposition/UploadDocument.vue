@@ -119,6 +119,7 @@
             }
         },
         mounted() {
+            //TODO: move to store
             axios.get('/api/proposition/' + this.$route.params.id + '/files/' + this.$route.meta.dir)
                 .then((res) => {
                 this.files = res.data.files;

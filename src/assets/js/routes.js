@@ -36,7 +36,7 @@ import PropositionList from './components/proposition/PropositionList'
 export const routes = [
     { path: '/propositions', component: PropositionList },
     { path: '/proposition/start', component: PropositionStart },
-    { path: '/proposition/:id', component: Proposition,
+    { path: '/proposition/:id', component: Proposition, name: 'proposition',
         children: [
             { path: 'edit/start', component: PropositionStart, meta: {save : 'start', validate: {id:'int'}, breadcrumb: 'Start'} },
             { path: 'edit/basic_data', component: BasicData, meta: {save : 'basic_data', validate: {id:'int'}, breadcrumb: 'Basic Data'}},
@@ -61,11 +61,11 @@ export const routes = [
             { path: 'preparation/technical_correction', component: UploadDocument, meta: {dir: 'technical_correction', validate: {id:'int'}, breadcrumb: 'Technical Correction'} },
             { path: 'preparation/final_review', component: UploadDocument, meta: {dir: 'final_review', validate: {id:'int'}, breadcrumb: 'Final Review'} },
 
-            { path: 'expenses/authors_expense', component: ExpenseAuthorsExpense, meta: {save : 'authors_expense', validate: {id:'int'}, breadcrumb: 'Authors Expense'} },
-            { path: 'expenses/production_expense', component: ExpenseProductionExpense, meta: {save:'production_expense',validate: {id:'int'}, breadcrumb: 'Production Expense'} },
-            { path: 'expenses/marketing_expense', component: ExpenseMarketingExpense, meta: { save: 'marketing_expense',validate: {id:'int'}, breadcrumb: 'Marketing Expense' } },
-            { path: 'expenses/distribution_expense', component: ExpenseDistributionExpense, meta: {save : 'distribution_expense', validate: {id:'int'}, breadcrumb: 'Distribution Expense'} },
-            { path: 'expenses/layout_expense', component: ExpenseLayoutExpense, meta: {save : 'layout_expense',validate: {id:'int'}, breadcrumb: 'Layout Expense'} },
+            { path: 'expenses/authors_expense', component: ExpenseAuthorsExpense, meta: {save : 'authors_expense', validate: {id:'int'}, breadcrumb: 'Authors Expense', 'type': 'expense'} },
+            { path: 'expenses/production_expense', component: ExpenseProductionExpense, meta: {save:'production_expense',validate: {id:'int'}, breadcrumb: 'Production Expense', 'type': 'expense'} },
+            { path: 'expenses/marketing_expense', component: ExpenseMarketingExpense, meta: { save: 'marketing_expense',validate: {id:'int'}, breadcrumb: 'Marketing Expense', 'type': 'expense' } },
+            { path: 'expenses/distribution_expense', component: ExpenseDistributionExpense, meta: {save : 'distribution_expense', validate: {id:'int'}, breadcrumb: 'Distribution Expense', 'type': 'expense'} },
+            { path: 'expenses/layout_expense', component: ExpenseLayoutExpense, meta: {save : 'layout_expense',validate: {id:'int'}, breadcrumb: 'Layout Expense', 'type': 'expense'} },
             { path: 'expenses/compare', component: Compare, meta: {validate: {id:'int'}, breadcrumb: 'Compare'} },
 
             { path: 'design/cover_design', component: UploadDocument, meta: {dir: 'cover_design',validate: {id:'int'}, breadcrumb: 'Cover Design'} },

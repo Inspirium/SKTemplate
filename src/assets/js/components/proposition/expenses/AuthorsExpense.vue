@@ -115,11 +115,6 @@
                 this.$store.commit('proposition/authors_expense/deleteOtherExpense', index);
             }
         },
-        mounted: function() {
-            if (this.$route.params.id != 0) {
-                this.$store.dispatch('proposition/authors_expense/getData', {id: this.$route.params.id, type:'expense'});
-            }
-        },
         beforeRouteLeave(to, from, next) {
             if (this.$store.state.edited) {
                 this.next = next;

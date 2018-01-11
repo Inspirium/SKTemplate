@@ -55,11 +55,6 @@
 
             <proposition-footer-buttons v-on:warningSaved="next"></proposition-footer-buttons>
         </template>
-        <template v-else>
-            <div class="loading-motion">
-                <div class="spinner"></div>
-            </div>
-        </template>
     </div>
 </template>
 <script>
@@ -83,11 +78,6 @@
             },
             deleteExpense: function(index) {
                 this.$store.commit('proposition/marketing_expense/deleteExpense', index);
-            }
-        },
-        mounted: function() {
-            if (this.$route.params.id != 0) {
-                this.$store.dispatch('proposition/marketing_expense/getData', {id: this.$route.params.id});
             }
         },
         beforeRouteLeave(to, from, next) {

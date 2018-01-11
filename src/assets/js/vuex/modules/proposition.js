@@ -79,14 +79,46 @@ export default {
         }
     },
     actions: {
-        initData({commit, state}, payload) {
-            if (!state.proposition_id || state.proposition_id != payload.id || payload.force) {
-                axios.get('/api/proposition/' + payload.id + '/init')
-                    .then((res) => {
-                        commit('initData', res.data);
-                        commit('proposition/owner/initData', res.data.owner, {root: true});
-                    });
-            }
+        initData({commit, state, dispatch, rootState}, payload) {
+            return new Promise((resolve, reject) => {
+                if (!state.proposition_id || state.proposition_id != rootState.route.params.id) {
+                    axios.get('/api/proposition/' + rootState.route.params.id + '/init')
+                        .then((res) => {
+                            commit('initData', res.data);
+                            commit('owner/initData', res.data.owner);
+                            dispatch('getData')
+                                .then(resolve)
+                                .catch(reject);
+                        })
+                        .catch(reject);
+                }
+                else {
+                    dispatch('getData')
+                        .then(resolve)
+                        .catch(reject);
+                }
+            });
+        },
+        getData({state, rootState, commit, dispatch}, payload) {
+            return new Promise((resolve, reject) => {
+                Promise.all([
+                    dispatch('categorization/getData', {}, {root: true}),
+                    new Promise((resolve, reject) => {
+                        let path = '/api/proposition/' + state.proposition_id + '/' + rootState.route.meta.save;
+                        if (rootState.route.meta.type) {
+                            path += rootState.route.meta.type;
+                        }
+                        axios.get(path)
+                            .then((res) => {
+                                commit(rootState.route.meta.save + '/initData', res.data);
+                                resolve();
+                            })
+                            .catch((err) => {
+                                 reject(403);
+                            });
+                    })
+                ]).then(resolve).catch(reject);
+            });
         },
         clearProposition({commit}) {
             commit('clearData');
