@@ -214,9 +214,9 @@
             </div>
 
             <div class="page-name-l text-center">{{ lang('Download as...') }}</div>
-            <div class="file-box file-box-l d-flex align-items-center mt-1">
-                <a href="#.pdf" class="file-icon" v-on:click.prevent="downloadOffer(offer.id, 'pdf')">.pdf</a>
-                <a href="#.docx" class="file-icon" v-on:click.prevent="downloadOffer(offer.id, 'docx')">.docx</a>
+            <div class="download-box d-flex align-items-center mt-1">
+                <a href="#.pdf" class="file-icon" v-on:click.prevent="downloadOffer(offer.id, 'pdf')">{{ lang('PDF document') }}</a>
+                <a href="#.docx" class="file-icon" v-on:click.prevent="downloadOffer(offer.id, 'docx')">{{ lang('Word document') }}</a>
             </div>
         </div>
     </div>

@@ -560,7 +560,9 @@
     "validation.uploaded": ":attribute nije preneseno",
     "validation.url": ":attribute format nije ispravan",
     "Task order": "Redoslijed zadataka",
-    "Find employee to reassign": "Pronađi osobu kojoj prosljeđuješ zadatak"
+    "Find employee to reassign": "Pronađi osobu kojoj prosljeđuješ zadatak",
+    "Word document": "Word dokument",
+    "PDF document": "PDF dokument"
     
 
 

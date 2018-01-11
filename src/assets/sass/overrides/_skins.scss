@@ -27,6 +27,18 @@ $sk-skin-btn-default: #293756;
     .file-box a {
         color: $sk-skin-grey;
     }
+    .download-box {
+        height: 5.5rem;
+        padding: .7rem;
+        .file-icon {
+            white-space: nowrap;
+            overflow: hidden;
+            border: 1px solid #dadde4;
+            background-color: $white;
+            border-radius: 11rem;
+            padding: 0.2rem 2rem;
+        }
+    }
     table.table { 
         a {
             color: $sk-skin-grey;
