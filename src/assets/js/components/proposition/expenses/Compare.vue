@@ -18,11 +18,11 @@
            </div>
            <div class="col-md-3">
                 <h6 class="white-label">{{ lang('Difference') }}</h6>
-                <h3 class="mb-1 text-white">{{ total_difference | flexCurrency(' kn', 2) }}</h3>
+                <h3 class="mb-1 text-white">{{ Math.abs(total_difference) | flexCurrency(' kn', 2) }}</h3>
            </div>
            <div class="col-md-3">
                 <h6 class="white-label">{{ lang('Difference in precentage') }}</h6>
-                <h3 class="mb-1 text-white">{{ total_percent_difference }}%</h3>
+                <h3 class="mb-1 text-white">{{ Math.abs(total_percent_difference) }}%</h3>
            </div>
         </div>
 
