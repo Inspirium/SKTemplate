@@ -458,6 +458,7 @@
   "Task order approval request": "Prioritizacija",
   ":assigner has requested task order approval": ":assigner je podnio zahtjev za odobrenje prioriteta",
   "assignment": "zadatak",
+  "Assignment": "zadatak",
   "cost": "trošak",
   "Reject task priority": "Ne prihvaćam",
   "Approve task priority": "Prihvaćam",
@@ -557,7 +558,10 @@
     "validation.timezone": ":attribute mora biti ispravna vremenska zona",
     "validation.unique": ":attribute je zauzeto",
     "validation.uploaded": ":attribute nije preneseno",
-    "validation.url": ":attribute format nije ispravan"
+    "validation.url": ":attribute format nije ispravan",
+    "Task order": "Redoslijed zadataka",
+    "Find employee to reassign": "Pronađi osobu kojoj prosljeđuješ zadatak"
+    
 
 
 }

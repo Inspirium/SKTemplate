@@ -9,10 +9,10 @@
                         <span>&times;</span>
                     </button>
                     <div class="d-flex mx-auto">
-                        <i class="fa fa-exclamation-triangle fa-4x animated flash"></i>
+                        <i class="fa fa-random fa-4x animated flash"></i>
                         <h1 class="modal-title w-100 text-center">{{ lang('Reassign') }}</h1>
                     </div>
-                    <h4 class="w-100 text-center mt-5">{{ lang('Are you sure you want to proceed?') }}</h4>
+                    <h4 class="w-100 text-center mt-5">{{ lang('Find employee to reassign') }}</h4>
                 </div>
                 <!--Body-->
                 <div class="modal-body">
