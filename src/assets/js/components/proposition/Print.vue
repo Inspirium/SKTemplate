@@ -237,7 +237,6 @@
     export default {
         data: function () {
             return {
-                active_offer: 0,
                 next: false,
                 option_colors: ['One Colour', 'Two Colours', 'Three Colours', 'Full Colour', 'Fifth Colour'],
             }
@@ -246,6 +245,9 @@
             uploadModal
         },
         computed: {
+            active_offer() {
+                return this.$deepModel('proposition.print.active_offer')
+            },
             offers() {
                 return this.$deepModel('proposition.print.offers');
             }
@@ -282,16 +284,6 @@
             fileNameSave: function(data) {
                 this.$store.dispatch('proposition/basic_data/filenameSave', {id:data.file.id, title:data.file.title});
             },
-        },
-        mounted: function() {
-            if (this.$route.params.id != 0) {
-                this.$store.dispatch('proposition/print/getData', {id: this.$route.params.id})
-                    .then(() => {
-                        $('.mdb-select').material_select('destroy');
-                        $('.mdb-select').material_select();
-                        this.active_offer = Object.keys(this.offers)[0];
-                    });
-            }
         },
         beforeRouteLeave(to, from, next) {
             if (this.$store.state.edited) {

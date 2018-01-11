@@ -84,11 +84,6 @@
                 this.$store.dispatch('proposition/market_potential/filenameSave', {id:data.file.id, title:data.file.title});
             },
         },
-        mounted: function() {
-            if (this.$route.params.id != 0) {
-                this.$store.dispatch('proposition/market_potential/getData', {id: this.$route.params.id});
-            }
-        },
         beforeRouteLeave(to, from, next) {
             if (this.$store.state.edited) {
                 this.next = next;

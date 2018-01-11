@@ -91,6 +91,7 @@
             }
         },
         mounted() {
+            //TODO: move to store
             axios.get('/api/proposition/' + this.$route.params.id + '/files/marketing')
                 .then((res) => {
                     this.cover = res.data.cover;

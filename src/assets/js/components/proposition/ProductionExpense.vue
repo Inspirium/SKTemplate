@@ -359,11 +359,6 @@
                 this.$store.commit('proposition/production_expense/deleteExpense', index);
             }
         },
-        mounted: function() {
-            if (this.$route.params.id != 0) {
-                this.$store.dispatch('proposition/production_expense/getData', {id: this.$route.params.id, type:'budget'});
-            }
-        },
         beforeRouteLeave(to, from, next) {
             if (this.$store.state.edited) {
                 this.next = next;

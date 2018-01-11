@@ -202,19 +202,6 @@
                 next: false
             }
         },
-        mounted: function() {
-            if (this.$route.params.id != 0) {
-                Promise.all([
-                        this.$store.dispatch('proposition/categorization/getData', {id: this.$route.params.id}),
-                        this.$store.dispatch('categorization/getData')
-                    ])
-                    .then(() => {
-                        $('.mdb-select').material_select('destroy');
-                        $('.mdb-select').material_select();
-                    });
-            }
-
-        },
         computed: {
             categories() {
                 return this.$store.state.categorization.categories;
@@ -298,6 +285,9 @@
                     $('.mdb-select').material_select();
                 }, 500);
             }
+        },
+        mounted() {
+
         },
         beforeRouteLeave(to, from, next) {
             if (this.$store.state.edited) {

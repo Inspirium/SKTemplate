@@ -82,11 +82,6 @@
                 this.$store.commit('proposition/marketing_expense/deleteExpense', index);
             }
         },
-        mounted: function() {
-            if (this.$route.params.id != 0) {
-                this.$store.dispatch('proposition/marketing_expense/getData', {id: this.$route.params.id, type:'expense'});
-            }
-        },
         beforeRouteLeave(to, from, next) {
             if (this.$store.state.edited) {
                 this.next = next;

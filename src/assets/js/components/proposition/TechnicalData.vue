@@ -246,16 +246,6 @@
                 }
             }
         },
-        mounted: function() {
-            if (this.$route.params.id != 0) {
-                console.log(this.$route.params.id);
-                this.$store.dispatch('proposition/technical_data/getData', {id: this.$route.params.id})
-                    .then(() => {
-                        $('.mdb-select').material_select('destroy');
-                        $('.mdb-select').material_select();
-                    });
-            }
-        },
         beforeRouteLeave(to, from, next) {
             if (this.$store.state.edited) {
                 this.next = next;

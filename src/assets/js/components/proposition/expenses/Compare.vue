@@ -463,11 +463,6 @@
                 }
             }
         },
-        mounted() {
-            if (this.$route.params.id != 0) {
-                this.$store.dispatch('proposition/compare/getData', {id: this.$route.params.id});
-            }
-        },
         beforeRouteLeave(to, from, next) {
             if (this.$store.state.edited) {
                 this.next = next;

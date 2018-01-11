@@ -44,23 +44,6 @@ export default {
         }
     },
     actions: {
-        getData({commit, state}, payload) {
-            return new Promise((resolve, reject) => {
-                if (!state.id || state.id != payload.id || payload.force) {
-                    //retrieve data only we don't have it or we need to refresh it
-                    axios.get('/api/proposition/' + payload.id + '/categorization')
-                        .then((res) => {
-                            commit('initData', res.data);
-                            resolve();
-                        })
-                        .catch((err) => {
-                            if(err.response.status === 403) {
-                                window.location.href='/propositions'
-                            }
-                        });;
-                }
-            });
-        },
         saveData({state, commit}, id) {
             return new Promise((resolve, reject) => {
                 if (id) {

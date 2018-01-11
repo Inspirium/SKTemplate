@@ -56,14 +56,15 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-    if (typeof (to.meta.validate) !== 'undefined' &&
-        typeof (to.meta.validate.id) !== 'undefined' &&
-        to.params.id === 'undefined') {
-        next('/proposition/start');
-    }
-    else {
+    if (to.matched.length && to.matched[0].name === 'proposition') {
+        if (typeof (to.meta.validate) !== 'undefined' &&
+            typeof (to.meta.validate.id) !== 'undefined' &&
+            to.params.id === 'undefined') {
+            next('/proposition/start');
+        }
         next();
     }
+    next();
 });
 
 store.subscribe((mutation, state) => {

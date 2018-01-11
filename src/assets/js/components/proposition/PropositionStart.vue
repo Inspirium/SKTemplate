@@ -137,10 +137,6 @@
                 this.next();
             }
         },
-        mounted: function() {
-                this.$store.dispatch('proposition/start/getData', {id: this.$route.params.id});
-
-        },
         beforeRouteLeave(to, from, next) {
             if (this.$store.state.edited) {
                 this.next = next;
