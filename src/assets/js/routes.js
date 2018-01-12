@@ -38,10 +38,10 @@ export const routes = [
     { path: '/proposition/start', component: PropositionStart },
     { path: '/proposition/:id', component: Proposition, name: 'proposition',
         children: [
-            { path: 'edit/start', component: PropositionStart, meta: {save : 'start', validate: {id:'int'}, breadcrumb: 'Start'} },
-            { path: 'edit/basic_data', component: BasicData, meta: {save : 'basic_data', validate: {id:'int'}, breadcrumb: 'Basic Data'}},
+            { path: 'edit/start', component: PropositionStart, meta: {save : 'start', validate: {id:'int'}, breadcrumb: 'Start', warning: 'proposition/deleteProposition'} },
+            { path: 'edit/basic_data', component: BasicData, meta: {save : 'basic_data', validate: {id:'int'}, breadcrumb: 'Basic Data', warning: 'proposition/basic_data/deleteFile'}},
             { path: 'edit/categorization', component: Categorization, meta: {save : 'categorization', validate: {id:'int'}, breadcrumb: 'Categorization'} },
-            { path: 'edit/market_potential', component: MarketPotential, meta: {save : 'market_potential', validate: {id:'int'}, breadcrumb: 'Market Potential'} },
+            { path: 'edit/market_potential', component: MarketPotential, meta: {save : 'market_potential', validate: {id:'int'}, breadcrumb: 'Market Potential', warning: 'proposition/market_potential/deleteFile'} },
             { path: 'edit/technical_data', component: TechnicalData, meta: {save : 'technical_data', validate: {id:'int'}, breadcrumb: 'Technical Data'} },
             { path: 'edit/print', component: Print, meta: {save : 'print', validate: {id:'int'}, breadcrumb: 'Print'} },
             { path: 'edit/authors_expense', component: AuthorsExpense, meta: {save : 'authors_expense', validate: {id:'int'}, breadcrumb: 'Authors Expense'} },

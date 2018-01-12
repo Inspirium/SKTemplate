@@ -82,19 +82,6 @@
             start() {
                 return this.$deepModel('proposition.start');
             }
-        },
-        methods: {
-           /* saveProposition: function() {
-                this.$store.dispatch('proposition/start/saveData', this.$route.params.id)
-                    .then(() => {
-                        toastr.success(this.lang('Uspješno obavljeno'));
-                        this.$store.commit('editedFalse');
-                    })
-                    .catch(() => {
-                        toastr.error(this.lang('Došlo je do problema. Pokušajte ponovno'));
-                    });
-            },*/
-
         }
     }
 </script>

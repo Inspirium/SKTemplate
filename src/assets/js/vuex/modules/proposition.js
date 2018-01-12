@@ -120,6 +120,17 @@ export default {
                 ]).then(resolve).catch(reject);
             });
         },
+        listenForWarning({state, rootState, dispatch}, payload) {
+            payload.vue.$eventHub.on('warningConfirmed', () => {
+                dispatch(rootState.route.meta.warning, payload, {root: true});
+            })
+        },
+        deleteProposition({state}, payload) {
+            axios.delete('/api/proposition/'+state.proposition_id)
+                .then((res) => {
+                    payload.vue.$router.push('/propositions');
+                });
+        },
         clearProposition({commit}) {
             commit('clearData');
         }

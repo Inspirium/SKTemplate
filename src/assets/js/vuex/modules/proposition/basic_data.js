@@ -84,10 +84,10 @@ export default {
                 }
             });
         },
-        deleteFile({commit}, id) {
-            commit('deleteFile', id);
+        deleteFile({commit}, payload) {
+            commit('deleteFile', payload.data.id);
             //make request to remove from system
-            axios.delete('/api/file/'+id);
+            axios.delete('/api/file/'+payload.data.id);
         },
         filenameSave({commit}, payload) {
             commit('filenameSave', payload);

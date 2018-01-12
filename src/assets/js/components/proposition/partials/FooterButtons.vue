@@ -11,14 +11,14 @@
                 <button type="button" class="btn btn-lg btn-cancel" v-on:click="propRestore">{{ lang('Restore') }}</button>
             </template>
             <template v-else>
-                <button type="button" class="btn btn-lg btn-cancel" v-on:click="propDelete">{{ lang('Delete') }}</button>
+                <button type="button" class="btn btn-lg btn-cancel" v-on:click="warningModalOpen">{{ lang('Delete') }}</button>
             </template>
         </template>
     </div>
 
         <proposition-approval-modal></proposition-approval-modal>
         <assign-proposition></assign-proposition>
-        <warning-modal v-on:warning="$emit('warning')"></warning-modal>
+        <warning-modal></warning-modal>
         <warning-not-saved-modal v-on:warning="$emit('warningSaved')"></warning-not-saved-modal>
     </div>
 </template>
@@ -118,6 +118,10 @@
             },
             sendForApproval() {
                 jQuery('#propositionApprovalModal').modal('show')
+            },
+            warningModalOpen() {
+                this.$store.dispatch('proposition/listenForWarning', {vue: this, data: {}});
+                jQuery('#modal-warning').modal('show');
             }
         }
     }

@@ -61,7 +61,7 @@
                 axios.post('/api/tasks/updateOrder', data)
                     .then((res) => {
                         toastr.success(this.lang('Uspješno obavljeno'));
-                        this.$eventHub.$emit('UPDATE_DEPARTMENT_EMPLOYEE_TASKS', {employee: data.employee});
+                        this.$eventHub.emit('UPDATE_DEPARTMENT_EMPLOYEE_TASKS', {employee: data.employee});
                     })
                     .catch((err) => {
                         toastr.error(this.lang('Greška'));

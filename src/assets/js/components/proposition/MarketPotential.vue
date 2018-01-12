@@ -62,15 +62,8 @@
                 window.open(link, "_blank");
                 return false;
             },
-            fileDelete: function (id) {
-                if (!id) {
-                    id = this.index_to_delete;
-                }
-                this.$store.dispatch('proposition/market_potential/deleteFile', id);
-                this.index_to_delete = 0;
-            },
             fileWarning(id) {
-                this.index_to_delete = id;
+                this.$store.dispatch('proposition/listenForWarning', {vue: this, data: {id: id}});
                 jQuery('#modal-warning').modal('show');
             },
             fileAdd: function(data) {

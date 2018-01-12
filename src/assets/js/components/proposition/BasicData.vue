@@ -146,8 +146,7 @@
             return {
                 cancel: false,
                 author: '',
-                suggestions: [],
-                index_to_delete: 0
+                suggestions: []
             }
         },
         components: {
@@ -163,15 +162,8 @@
                 return false;
             },
             fileWarning(id) {
-                this.index_to_delete = id;
+                this.$store.dispatch('proposition/listenForWarning', {vue: this, data: {id: id}});
                 jQuery('#modal-warning').modal('show');
-            },
-            fileDelete: function (id) {
-                if (!id) {
-                    id = this.index_to_delete;
-                }
-                this.$store.dispatch('proposition/basic_data/deleteFile', id);
-                this.index_to_delete = 0;
             },
             fileAdd: function(data) {
                 this.$store.commit('proposition/basic_data/addFile', data.file);
