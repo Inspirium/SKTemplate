@@ -83,7 +83,7 @@
         </div>
         <!--/. Footer buttons -->
         <proposition-approval-modal></proposition-approval-modal>
-        <not-saved-modal v-on:warning="next()"></not-saved-modal>
+        <not-saved-modal v-on:warning="continueNavigation"></not-saved-modal>
     </div>
 </template>
 <script>
@@ -91,9 +91,7 @@
     export default {
         components: {PropositionApprovalModal},
         data: function () {
-            return {
-                next: false
-            }
+            return {}
         },
         computed: {
             proposition() {
@@ -135,15 +133,6 @@
             continueNavigation() {
                 this.$store.commit('editedFalse');
                 this.next();
-            }
-        },
-        beforeRouteLeave(to, from, next) {
-            if (this.$store.state.edited) {
-                this.next = next;
-                $('#modal-warning-not-saved').modal('show');
-            }
-            else {
-                next();
             }
         }
     }

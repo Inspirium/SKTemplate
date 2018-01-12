@@ -17,14 +17,17 @@ export default new Vuex.Store({
         'employee' : employee
     },
     state: {
-        edited: false
+        edited: false,
+        next: false
     },
     mutations: VueDeepSet.extendMutation({
         editedFalse(state) {
+            state.next();
             state.edited = false;
+            state.next = false;
         },
-        editedTrue(state) {
-            state.edited = true;
+        editedTrue(state, payload) {
+            state.next = payload.next;
         }
     }),
     strict: false

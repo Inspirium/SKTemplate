@@ -44,16 +44,13 @@
             </div>
         </div>
     </div>
-        <proposition-footer-buttons v-on:warningSaved="next"></proposition-footer-buttons>
     </div>
 </template>
 <script>
     import { vuexSet } from 'vue-deepset'
     export default {
         data: function () {
-            return {
-                next: false
-            }
+            return {}
         },
         computed: {
             deadline() {
@@ -62,26 +59,6 @@
         },
         methods: {
             vuexSet: vuexSet
-        },
-        mounted: function() {
-            $('.datepicker1').pickadate({
-                format: 'dd. mm. yyyy.',
-                onSet: (context) => {
-                    let date = new Date(context.select);
-                    date = this.$options.filters.moment(date, 'DD. MM. YYYY.');
-                    this.$store.commit('proposition/deadline/saveDate', date);
-                }
-            });
-
-        },
-        beforeRouteLeave(to, from, next) {
-            if (this.$store.state.edited) {
-                this.next = next;
-                $('#modal-warning-not-saved').modal('show');
-            }
-            else {
-                next();
-            }
         }
     }
 </script>

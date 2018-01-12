@@ -9,11 +9,13 @@
             <div class="d-flex justify-content-center align-items-center flex-column mt-5">
                 <i class="fa fa-exclamation-triangle fa-5x mb-3 color-nav-sub" aria-hidden="true"></i>
                 <h1 class="text-center mt-5">{{ lang('You are not authorized to view this page') }}</h1>
-                <h5 class="text-center mt-2">{{ lang('Contact proposition's author to gain access') }}</h5>
+                <h5 class="text-center mt-2">{{ lang("Contact proposition's author to gain access") }}</h5>
             </div>
         </template>
         <template v-else>
             <router-view :key="$route.fullPath"></router-view>
+
+            <proposition-footer-buttons v-on:warning="fileDelete(false)" v-on:warningSaved="continueNavigation"></proposition-footer-buttons>
         </template>
     </div>
 </template>
@@ -22,11 +24,16 @@
         data: function () {
             return {
                 loading: true,
-                authorized: true
+                authorized: true,
+                next: null
             }
         },
         computed: {},
         methods: {
+            continueNavigation() {
+                this.$store.commit('editedFalse');
+                //this.$store.state.next();
+            },
             loadStep() {
                 this.loading = true;
                 //we are moving to other step
@@ -64,6 +71,6 @@
             else {
                 this.$router.push({path: '/proposition/start'})
             }
-        }
+        },
     }
 </script>

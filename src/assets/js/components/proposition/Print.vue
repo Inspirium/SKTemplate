@@ -220,7 +220,6 @@
             </div>
         </div>
     </div>
-    <proposition-footer-buttons v-on:warningSaved="next"></proposition-footer-buttons>
             <upload-modal action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" dir="print" v-on:fileDelete="fileDelete" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave"></upload-modal>
         </template>
         <template v-else>
@@ -237,7 +236,6 @@
     export default {
         data: function () {
             return {
-                next: false,
                 option_colors: ['One Colour', 'Two Colours', 'Three Colours', 'Full Colour', 'Fifth Colour'],
             }
         },
@@ -284,15 +282,6 @@
             fileNameSave: function(data) {
                 this.$store.dispatch('proposition/basic_data/filenameSave', {id:data.file.id, title:data.file.title});
             },
-        },
-        beforeRouteLeave(to, from, next) {
-            if (this.$store.state.edited) {
-                this.next = next;
-                $('#modal-warning-not-saved').modal('show');
-            }
-            else {
-                next();
-            }
         }
     }
 </script>

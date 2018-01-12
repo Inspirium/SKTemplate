@@ -27,33 +27,16 @@
         </div>
     </div>
 
-    <proposition-footer-buttons v-on:warningSaved="next"></proposition-footer-buttons>
 </div>
 </template>
 <script>
-    import FooterButtons from '../partials/FooterButtons.vue'
     export default {
         data: function () {
-            return {
-                next: false
-            }
+            return {}
         },
         computed: {
             distribution() {
                 return this.$deepModel('proposition.distribution_expense');
-            }
-        },
-        components: {
-            'footer-buttons' : FooterButtons
-        },
-        methods: {},
-        beforeRouteLeave(to, from, next) {
-            if (this.$store.state.edited) {
-                this.next = next;
-                $('#modal-warning-not-saved').modal('show');
-            }
-            else {
-                next();
             }
         }
     }

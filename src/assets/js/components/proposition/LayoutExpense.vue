@@ -93,8 +93,6 @@
                 </div>
             </div>
         </div>
-
-    <proposition-footer-buttons v-on:warningSaved="next"></proposition-footer-buttons>
     </div>
 </div>
 </template>
@@ -102,9 +100,7 @@
     import { mapGetters } from 'vuex'
     export default {
         data: function () {
-            return {
-                next: false
-            }
+            return {}
         },
         computed: {
             data() {
@@ -114,15 +110,6 @@
                 layout_total: 'proposition/layout_expense/layout_total',
                 design_total: 'proposition/layout_expense/design_total',
             })
-        },
-        beforeRouteLeave(to, from, next) {
-            if (this.$store.state.edited) {
-                this.next = next;
-                $('#modal-warning-not-saved').modal('show');
-            }
-            else {
-                next();
-            }
         }
     }
 </script>

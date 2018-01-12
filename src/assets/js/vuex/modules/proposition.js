@@ -104,7 +104,7 @@ export default {
                 Promise.all([
                     dispatch('categorization/getData', {}, {root: true}),
                     new Promise((resolve, reject) => {
-                        let path = '/api/proposition/' + state.proposition_id + '/' + rootState.route.meta.save;
+                        let path = '/api/proposition/' + rootState.route.params.id + '/' + rootState.route.meta.save;
                         if (rootState.route.meta.type) {
                             path += rootState.route.meta.type;
                         }

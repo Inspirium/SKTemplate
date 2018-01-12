@@ -35,22 +35,18 @@
         </div>
     </div>
         <upload-modal action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" dir="market_potential" v-on:fileDelete="fileDelete" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave"></upload-modal>
-        <proposition-footer-buttons v-on:warningSaved="next" v-on:warning="fileDelete(false)"></proposition-footer-buttons>
     </div>
 </template>
 
 <script>
-    import FooterButtons from './partials/FooterButtons.vue'
     import uploadModal from '../general/UploadModal.vue';
     export default {
         data: function() {
             return {
                 index_to_delete: 0,
-                next: false
             }
         },
         components: {
-            'footer-buttons' : FooterButtons,
             'upload-modal' : uploadModal
         },
         computed: {
@@ -83,15 +79,6 @@
             fileNameSave: function(data) {
                 this.$store.dispatch('proposition/market_potential/filenameSave', {id:data.file.id, title:data.file.title});
             },
-        },
-        beforeRouteLeave(to, from, next) {
-            if (this.$store.state.edited) {
-                this.next = next;
-                $('#modal-warning-not-saved').modal('show');
-            }
-            else {
-                next();
-            }
         }
     }
 </script>

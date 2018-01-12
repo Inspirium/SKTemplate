@@ -315,20 +315,13 @@
             <textarea id="form76" class="md-textarea" v-model="expense.note"></textarea>
             <label for="form76">{{ lang('Note') }}</label>
         </div>
-        <proposition-footer-buttons v-on:warningSaved="next"></proposition-footer-buttons>
 
     </div>
 </template>
 <script>
-    import FooterButtons from '../partials/FooterButtons.vue';
     export default {
         data: function () {
-            return {
-                next: false
-            }
-        },
-        components: {
-            'footer-buttons': FooterButtons
+            return {}
         },
         computed: {
             expense() {
@@ -359,15 +352,6 @@
             },
             deleteExpense: function(index) {
                 this.$store.commit('proposition/production_expense/deleteExpense', index);
-            }
-        },
-        beforeRouteLeave(to, from, next) {
-            if (this.$store.state.edited) {
-                this.next = next;
-                $('#modal-warning-not-saved').modal('show');
-            }
-            else {
-                next();
             }
         }
     }

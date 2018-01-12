@@ -428,8 +428,6 @@
 
             </div>
     </div>
-
-    <proposition-footer-buttons v-on:warningSaved="next"></proposition-footer-buttons>
 </div>
 </template>
 <script>
@@ -440,8 +438,7 @@
         data: function () {
             return {
                 option_colors: ['One Colour', 'Two Colours', 'Three Colours', 'Full Colour', 'Fifth Colour'],
-                activeEdit: '',
-                next: false
+                activeEdit: ''
             }
         },
         computed: {
@@ -483,15 +480,6 @@
             },
             closeEdit: function() {
                 this.activeEdit = '';
-            }
-        },
-        beforeRouteLeave(to, from, next) {
-            if (this.$store.state.edited) {
-                this.next = next;
-                $('#modal-warning-not-saved').modal('show');
-            }
-            else {
-                next();
             }
         }
     }

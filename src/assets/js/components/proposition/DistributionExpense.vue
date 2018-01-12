@@ -26,29 +26,16 @@
             </div>
         </div>
     </div>
-
-    <proposition-footer-buttons v-on:warningSaved="next"></proposition-footer-buttons>
 </div>
 </template>
 <script>
     export default {
         data: function () {
-            return {
-                next: false
-            }
+            return {}
         },
         computed: {
             distribution() {
                 return this.$deepModel('proposition.distribution_expense');
-            }
-        },
-        beforeRouteLeave(to, from, next) {
-            if (this.$store.state.edited) {
-                this.next = next;
-                $('#modal-warning-not-saved').modal('show');
-            }
-            else {
-                next();
             }
         }
     }

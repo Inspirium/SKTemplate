@@ -92,16 +92,13 @@
             <input type="text" id="form15" class="form-control" name="final_price" v-model="price_definition.retail_price">
             <label for="form15" class="">{{ lang('Retail Price') }}</label>
         </div>
-        <proposition-footer-buttons v-on:warningSaved="next"></proposition-footer-buttons>
     </div>
 
 </template>
 <script>
     export default {
         data: function () {
-            return {
-                next: false
-            }
+            return {}
         },
         computed: {
             price_definition() {
@@ -112,15 +109,6 @@
             },
             total2() {
                 return Number(this.price_definition.price_second_year.retail) + Number(this.price_definition.price_second_year.wholesale) + Number(this.price_definition.price_second_year.direct) + Number(this.price_definition.price_second_year.field) + Number(this.price_definition.price_second_year.promotors) + Number(this.price_definition.price_second_year.export)
-            }
-        },
-        beforeRouteLeave(to, from, next) {
-            if (this.$store.state.edited) {
-                this.next = next;
-                $('#modal-warning-not-saved').modal('show');
-            }
-            else {
-                next();
             }
         }
     }

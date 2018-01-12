@@ -191,16 +191,13 @@
         <textarea id="categorization_note" class="md-textarea" v-model="categorization.note"></textarea>
         <label for="categorization_note">{{ lang('Note') }}</label>
     </div>
-    <proposition-footer-buttons v-on:warningSaved="next"></proposition-footer-buttons>
 </div>
 </template>
 
 <script>
     export default {
         data: function() {
-            return {
-                next: false
-            }
+            return {}
         },
         computed: {
             categories() {
@@ -284,18 +281,6 @@
                     $('.mdb-select').material_select('destroy');
                     $('.mdb-select').material_select();
                 }, 500);
-            }
-        },
-        mounted() {
-
-        },
-        beforeRouteLeave(to, from, next) {
-            if (this.$store.state.edited) {
-                this.next = next;
-                $('#modal-warning-not-saved').modal('show');
-            }
-            else {
-                next();
             }
         }
     }

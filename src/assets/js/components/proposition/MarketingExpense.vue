@@ -52,17 +52,13 @@
                 </div>
             </div>
             <button class="btn btn-neutral btn-addon" type="button" v-on:click="addExpense">{{ lang('Add New Expense') }}</button>
-
-            <proposition-footer-buttons v-on:warningSaved="next"></proposition-footer-buttons>
         </template>
     </div>
 </template>
 <script>
     export default {
         data: function () {
-            return {
-                next: false
-            }
+            return {}
         },
         computed: {
             expenses() {
@@ -78,15 +74,6 @@
             },
             deleteExpense: function(index) {
                 this.$store.commit('proposition/marketing_expense/deleteExpense', index);
-            }
-        },
-        beforeRouteLeave(to, from, next) {
-            if (this.$store.state.edited) {
-                this.next = next;
-                $('#modal-warning-not-saved').modal('show');
-            }
-            else {
-                next();
             }
         }
     }

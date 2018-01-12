@@ -51,17 +51,12 @@
         </div>
     </div>
     <button class="btn btn-neutral btn-addon" type="button" v-on:click="addExpense">{{ lang('Add New Expense') }}</button>
-
-    <proposition-footer-buttons v-on:warningSaved="next"></proposition-footer-buttons>
 </div>
 </template>
 <script>
-    import FooterButtons from '../partials/FooterButtons.vue'
     export default {
         data: function () {
-            return {
-                next: false
-            }
+            return {}
         },
         computed: {
             expenses() {
@@ -71,24 +66,12 @@
                 return Number(this.expenses.expense) +  _.sumBy(this.expenses.additional_expense, function(o) { return Number(o.amount) });
             }
         },
-        components: {
-            'footer-buttons' : FooterButtons
-        },
         methods: {
             addExpense: function() {
                 this.$store.commit('proposition/marketing_expense/addExpense');
             },
             deleteExpense: function(index) {
                 this.$store.commit('proposition/marketing_expense/deleteExpense', index);
-            }
-        },
-        beforeRouteLeave(to, from, next) {
-            if (this.$store.state.edited) {
-                this.next = next;
-                $('#modal-warning-not-saved').modal('show');
-            }
-            else {
-                next();
             }
         }
     }

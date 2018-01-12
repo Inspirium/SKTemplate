@@ -282,13 +282,11 @@
 </template>
 <script>
     import _ from 'lodash'
-    import FooterButtons from '../partials/FooterButtons.vue';
     import { mapState } from 'vuex'
 
     export default {
         data: function () {
             return {
-                next: false,
                 production_expenses: [
                     { designation: 'text_price', title: 'Text'},
                     { designation: 'reviews', title: 'Reviews'},
@@ -339,9 +337,6 @@
                 },
                 expense: ''
             }
-        },
-        components: {
-            'footer-buttons': FooterButtons
         },
         computed: {
             total_budget() {
@@ -461,15 +456,6 @@
                 else {
                     this.error = 'Missing data';
                 }
-            }
-        },
-        beforeRouteLeave(to, from, next) {
-            if (this.$store.state.edited) {
-                this.next = next;
-                $('#modal-warning-not-saved').modal('show');
-            }
-            else {
-                next();
             }
         }
     }

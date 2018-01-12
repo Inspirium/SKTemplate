@@ -133,8 +133,6 @@
     </div>
 
     <authors-modal v-on:authorAdded="authorAdded"></authors-modal>
-
-    <proposition-footer-buttons v-on:warning="fileDelete(false)" v-on:warningSaved="next"></proposition-footer-buttons>
     </div>
 </template>
 
@@ -149,8 +147,7 @@
                 cancel: false,
                 author: '',
                 suggestions: [],
-                index_to_delete: 0,
-                next: false
+                index_to_delete: 0
             }
         },
         components: {
@@ -220,15 +217,6 @@
         computed: {
             basic_data() {
                 return this.$deepModel('proposition.basic_data');
-            }
-        },
-        beforeRouteLeave(to, from, next) {
-            if (this.$store.state.edited) {
-                this.next = next;
-                $('#modal-warning-not-saved').modal('show');
-            }
-            else {
-                next();
             }
         }
     }

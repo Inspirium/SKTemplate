@@ -61,14 +61,22 @@ router.beforeEach((to, from, next) => {
             typeof (to.meta.validate.id) !== 'undefined' &&
             to.params.id === 'undefined') {
             next('/proposition/start');
+            return;
+        }
+        else if (store.state.edited) {
+            store.commit('editedTrue', {next: next});
+            $('#modal-warning-not-saved').modal('show');
+            return;
         }
         next();
+        return;
     }
     next();
 });
 
 store.subscribe((mutation, state) => {
     if (mutation.type == 'VUEX_DEEP_SET') {
+        console.log("edited");
         state.edited = true;
     }
 });
