@@ -5,6 +5,7 @@
             <i v-bind:class="['fa', 'fa-5x', 'fa-fw', 'text-white', spinnerType, isSpinnerHidden]"></i>
         </button>
         <button v-if="assign" class="btn btn-lg btn-assign btn-assign-icon " v-on:click="assignModalOpen">{{ lang('Assign to...') }}</button>
+        <button v-if="assignDocuments" class="btn btn-lg btn-assign btn-assign-icon" v-on:click="assignDocumentModalOpen">{{ lang('Assign to...') }}</button>
         <button v-if="approval && canSendForApproval" class="btn btn-lg btn-save" v-on:click="sendForApproval" >{{ lang('Send on Approval') }}</button>
         <template v-if="deleteRestore">
             <template v-if="$store.state.proposition.deleted_at">
@@ -16,10 +17,11 @@
         </template>
     </div>
 
-        <proposition-approval-modal></proposition-approval-modal>
-        <assign-proposition></assign-proposition>
+        <proposition-approval-modal v-if="approval"></proposition-approval-modal>
+        <assign-proposition v-if="assign"></assign-proposition>
         <warning-modal></warning-modal>
         <warning-not-saved-modal v-on:warning="$emit('warningSaved')"></warning-not-saved-modal>
+        <assign-documents v-if="assignDocuments"></assign-documents>
     </div>
 </template>
 <script>
@@ -27,6 +29,7 @@
     import WarningModal from '../../modals/WarningModal'
     import WarningNotSavedModal from "../../modals/WarningNotSavedModal";
     import PropositionApprovalModal from '../../modals/PropositionApprovalModal'
+    import assignDocuments from '../../modals/AssignDocuments'
 
     export default {
         props: {
@@ -35,6 +38,10 @@
                 default: false
             },
             assign: {
+                type: Boolean,
+                default: false
+            },
+            assignDocuments: {
                 type: Boolean,
                 default: false
             },
@@ -66,7 +73,7 @@
         },
         components: {
             WarningNotSavedModal,
-            AssignProposition, WarningModal, PropositionApprovalModal
+            AssignProposition, WarningModal, PropositionApprovalModal, assignDocuments
         },
         computed: {
             canSendForApproval() {
@@ -115,6 +122,9 @@
             },
             assignModalOpen: function() {
                 jQuery('#centralModalAssign').modal('show');
+            },
+            assignDocumentModalOpen: function() {
+                jQuery('#assign-documents').modal('show');
             },
             sendForApproval() {
                 jQuery('#propositionApprovalModal').modal('show')

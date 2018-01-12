@@ -38,6 +38,12 @@
                         approval: true
                     }
                 }
+                if (this.$route.meta.dir) {
+                    return {
+                        save: true,
+                        assignDocuments: true
+                    }
+                }
                 return {
                     save: true,
                     assign: true
