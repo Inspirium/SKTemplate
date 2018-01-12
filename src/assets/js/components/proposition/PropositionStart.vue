@@ -67,29 +67,11 @@
                 </div>
             </div>
         </div>
-
-        <!-- Buttons -->
-        <div class="btn-footer mt-2 mb-5 flex-column flex-md-row d-flex p-2">
-            <button class="btn btn-lg btn-save" v-on:click="saveProposition">{{ lang('Save') }}</button>
-            <button v-if="canSendForApproval" class="btn btn-lg btn-save" v-on:click="sendForApproval" >{{ lang('Send on Approval') }}</button>
-            <template v-if="proposition.deleted_at">
-                <button type="button" class="btn btn-lg btn-cancel" v-on:click="propRestore">{{ lang('Restore') }}</button>
-            </template>
-            <template v-else>
-                <button type="button" class="btn btn-lg btn-cancel" v-on:click="propDelete">{{ lang('Delete') }}</button>
-            </template>
-
-
-        </div>
-        <!--/. Footer buttons -->
-        <proposition-approval-modal></proposition-approval-modal>
-        <not-saved-modal v-on:warning="continueNavigation"></not-saved-modal>
     </div>
 </template>
 <script>
-    import PropositionApprovalModal from '../modals/PropositionApprovalModal'
+
     export default {
-        components: {PropositionApprovalModal},
         data: function () {
             return {}
         },
@@ -99,25 +81,10 @@
             },
             start() {
                 return this.$deepModel('proposition.start');
-            },
-            canSendForApproval() {
-                return this.start.status !== 'requested' && this.start.status !== 'approved' && !this.proposition.deleted_at;
             }
         },
         methods: {
-            propDelete: function() {
-                axios.delete('/api/proposition/'+this.$route.params.id)
-                    .then((res) => {
-                        window.location.href = '/propositions';
-                    });
-            },
-            propRestore: function() {
-                axios.post('/api/proposition/'+this.$route.params.id+'/restore')
-                    .then((res) => {
-                        window.location.href = '/propositions';
-                    });
-            },
-            saveProposition: function() {
+           /* saveProposition: function() {
                 this.$store.dispatch('proposition/start/saveData', this.$route.params.id)
                     .then(() => {
                         toastr.success(this.lang('Uspješno obavljeno'));
@@ -126,14 +93,8 @@
                     .catch(() => {
                         toastr.error(this.lang('Došlo je do problema. Pokušajte ponovno'));
                     });
-            },
-            sendForApproval() {
-                jQuery('#propositionApprovalModal').modal('show')
-            },
-            continueNavigation() {
-                this.$store.commit('editedFalse');
-                this.next();
-            }
+            },*/
+
         }
     }
 </script>

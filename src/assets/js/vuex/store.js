@@ -22,7 +22,9 @@ export default new Vuex.Store({
     },
     mutations: VueDeepSet.extendMutation({
         editedFalse(state) {
-            state.next();
+            if (state.next) {
+                state.next();
+            }
             state.edited = false;
             state.next = false;
         },

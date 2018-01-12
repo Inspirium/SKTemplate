@@ -15,7 +15,7 @@
         <template v-else>
             <router-view :key="$route.fullPath"></router-view>
 
-            <proposition-footer-buttons v-on:warning="fileDelete(false)" v-on:warningSaved="continueNavigation"></proposition-footer-buttons>
+            <proposition-footer-buttons v-bind="buttons" v-on:warning="fileDelete(false)" v-on:warningSaved="continueNavigation"></proposition-footer-buttons>
         </template>
     </div>
 </template>
@@ -28,11 +28,25 @@
                 next: null
             }
         },
-        computed: {},
+        computed: {
+            buttons() {
+                if (this.$route.meta.save === 'start') {
+                    return {
+                        save: true,
+                        assign: true,
+                        deleteRestore: true,
+                        approval: true
+                    }
+                }
+                return {
+                    save: true,
+                    assign: true
+                }
+            }
+        },
         methods: {
             continueNavigation() {
                 this.$store.commit('editedFalse');
-                //this.$store.state.next();
             },
             loadStep() {
                 this.loading = true;
