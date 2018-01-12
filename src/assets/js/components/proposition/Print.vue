@@ -3,8 +3,8 @@
         <template v-if="Object.keys(offers).length">
     <div class="row tabs-wrapper">
         <ul class="col nav classic-tabs tabs-cyan" id="tabs" role="tablist">
-            <li class="nav-item position-relative" v-for="(offer, key, index) in offers">
-                <a v-bind:class="['nav-link', !index?'active':'']" data-toggle="tab" v-bind:href="'#panel'+index" v-bind:key="key" v-bind:data-index="key" role="tab" v-on:click="switchTab($event)">{{ offer.title }}</a>
+            <li class="nav-item" v-for="(offer, key, index) in offers">
+                <a v-bind:class="['nav-link', 'position-relative', !index?'active':'']" data-toggle="tab" v-bind:href="'#panel'+index" v-bind:key="key" v-bind:data-index="key" role="tab" v-on:click="switchTab($event)">{{ offer.title }}</a>
             </li>
         </ul>
     </div>
