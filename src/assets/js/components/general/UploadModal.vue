@@ -108,9 +108,9 @@
                 });
 
             },
-            fileDelete: function(index) {
-                this.$emit('fileDelete', this.files[index].id, this.isFinal);
+            fileDelete: function (index) {
                 this.files.splice(index, 1);
+                this.$store.dispatch(this.$route.meta.warning, {vue: this, data: {id: this.files[index].id, isFinal: this.isFinal}});
             },
             fileInputChange: function() {
                 _.forEach(this.$refs.fileInput.files, (file, index) => {

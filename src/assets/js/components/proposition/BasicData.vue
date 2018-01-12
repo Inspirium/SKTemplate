@@ -129,7 +129,7 @@
             </div>
         </div>
 
-        <upload-modal action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" dir="manuscripts" v-on:fileDelete="fileDelete" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave"></upload-modal>
+        <upload-modal action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" dir="manuscripts" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave"></upload-modal>
     </div>
 
     <authors-modal v-on:authorAdded="authorAdded"></authors-modal>
