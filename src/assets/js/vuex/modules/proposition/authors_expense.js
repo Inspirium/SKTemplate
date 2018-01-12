@@ -1,5 +1,6 @@
 import axios from "axios/index";
 
+
 export default {
     namespaced: true,
     state: {

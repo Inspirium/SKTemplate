@@ -10,7 +10,7 @@
                     </div>
                     <div class="file-box-sty">{{ file.created_at.date | moment('DD.MM.YYYY.') }}</div>
                     <div class="file-box-sty icon icon-download" v-on:click="documentDownload(file.link)">Preuzmi</div>
-                    <div class="file-box-sty icon icon-cancel" v-on:click="fileDelete(index, 'files')">Obriši</div>
+                    <div class="file-box-sty icon icon-cancel" v-on:click="fileWarning({id:file.id, isFinal: false})">Obriši</div>
                 </div>
             </div>
 
@@ -27,7 +27,7 @@
                 </div>
                 <div class="file-box-sty">{{ file.created_at.date | moment('DD.MM.YYYY.') }}</div>
                 <div class="file-box-sty icon icon-download" v-on:click="documentDownload(file.link)">Preuzmi</div>
-                <div class="file-box-sty icon icon-cancel" v-on:click="fileDelete(index, 'final')">Obriši</div>
+                <div class="file-box-sty icon icon-cancel" v-on:click="fileWarning({id:file.id, isFinal: true})">Obriši</div>
             </div>
         </div>
                 <div class="justify-content-center d-flex mb-4">
@@ -44,16 +44,20 @@
     import assignDocuments from '../modals/AssignDocuments'
     export default {
         data: function () {
-            return {
-                files: [],
-                final: []
-            }
+            return {}
         },
         components: {
             uploadModal,
             assignDocuments
         },
-        computed: {},
+        computed: {
+            files() {
+                return this.$deepModel('proposition.files.files');
+            },
+            final() {
+                return this.$deepModel('proposition.files.final');
+            }
+        },
         methods: {
             assignModalOpen: function () {
                 jQuery('#assign-documents').modal('show');
@@ -65,56 +69,16 @@
                 window.open(link, "_blank");
                 return false;
             },
-            fileDelete: function (id, isFinal) {
-                if (isFinal) {
-                    this.final = _.filter(this.final, (file) => {
-                        return file.id !== id;
-                    })
-                }
-                else {
-                    this.files = _.filter(this.files, (file) => {
-                        return file.id !== id;
-                    })
-                }
-            },
             fileAdd: function (data) {
-                if (data.isFinal) {
-                    this.final.push(data.file);
-                }
-                else {
-                    this.files.push(data.file);
-                }
+                this.$store.commit('proposition/files/addFile', data);
             },
             fileNameSave: function (data) {
-                let files = this.files;
-                if (data.isFinal) {
-                    files = this.final;
-                }
-                _.forEach(files, (o) => {
-                    if (o.id === payload.id) {
-                        o.title = data.file.title;
-                    }
-                });
+                this.$store.dispatch('proposition/files/filenameSave', data);
             },
-            saveFiles: function () {
-                let saveButton = document.getElementById('save-btn');
-                saveButton.setAttribute('style', 'color: #92C100 !important; position: relative');
-                $("i.spinner-loader").toggleClass("hide");
-
-                axios.post('/api/proposition/' + this.$route.params.id + '/files/' + this.$route.meta.dir, {
-                    initial: this.files,
-                    final: this.final
-                })
-                    .then((res) => {
-                        saveButton.setAttribute('style', 'color: #FFFFFF !important');
-                        $("i.spinner-loader").addClass("hide");
-                        toastr.success(this.lang('Uspješno obavljeno'));
-                    })
-                    .catch(() => {
-                        toastr.error(this.lang('Došlo je do problema. Pokušajte ponovno'));
-                        $("i.spinner-loader").addClass("hide");
-                    });
-            }
+            fileWarning(id) {
+                this.$store.dispatch('proposition/listenForWarning', {vue: this, data: {id: id}});
+                jQuery('#modal-warning').modal('show');
+            },
         }
     }
 </script>
