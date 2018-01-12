@@ -9,7 +9,7 @@
             <div class="d-flex justify-content-center align-items-center flex-column mt-5">
                 <i class="fa fa-exclamation-triangle fa-5x mb-3 color-nav-sub" aria-hidden="true"></i>
                 <h1 class="text-center mt-5">{{ lang('You are not authorized to view this page') }}</h1>
-                <h5 class="text-center mt-2">{{ lang('Contact proposition's author to gain access') }}</h5>
+                <h5 class="text-center mt-2">{{ lang('Contact proposition author to gain access') }}</h5>
             </div>
         </template>
         <template v-else>
