@@ -146,6 +146,10 @@
             },
             assignValues: function() {
                 if (this.employees.length) {
+                    let saveButton = jQuery(event.target);
+                    saveButton.toggleClass('spinner-loading');
+                    this.isSpinnerHidden = '';
+                    
                     axios.post('/api/proposition/' + this.$route.params.id + '/assign/document', {
                         employees: this.employees,
                         departments: this.departments,
@@ -158,10 +162,23 @@
                         step: this.$route.meta.dir
                     })
                         .then(() => {
+                            this.spinnerType = 'fa-check spinner-success';
+                            setTimeout(() => {
+                                this.spinnerType = 'fa-refresh spinner-delay-rotate spinner-loader';
+                                this.isSpinnerHidden = 'hide';
+                                saveButton.toggleClass("spinner-loading");
+
+                                $('#centralModalAssign').modal('hide');
+                            }, 1000);
                             toastr.success(this.lang('Uspješno obavljeno'));
-                            $('#centralModalAssign').modal('hide');
                         })
                         .catch(() => {
+                            this.spinnerType = 'fa-times spinner-fail';
+                            setTimeout(() => {
+                                this.spinnerType = 'fa-refresh spinner-delay-rotate spinner-loader';
+                                this.isSpinnerHidden = 'hide';
+                                saveButton.toggleClass("spinner-loading");
+                            }, 1000);
                             toastr.error(this.lang('Došlo je do problema. Pokušajte ponovno'));
                         })
                 }

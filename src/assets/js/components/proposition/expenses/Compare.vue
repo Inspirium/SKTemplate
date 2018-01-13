@@ -208,73 +208,7 @@
         </table>
 
         <!-- Central Modal Medium Assign Tab -->
-        <div class="modal fade" id="ModalCostApprove" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-notify modal-warning" role="document">
-                <!--Content-->
-                <div class="modal-content">
-                    <!--Header-->
-                    <div class="modal-header flex-column px-3 pt-3">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true" class="white-text">&times;</span>
-                        </button>
-                        <div class="d-flex mx-auto">
-                            <i class="fa fa-magic fa-4x mb-1 animated rotateInDownLeft"></i>
-                            <h1 class="modal-title w-100 text-center">{{ lang('Cost Approve') }}</h1>
-                        </div>
-                        <h6 class="w-100 text-center mb-2">{{ lang('Assign employee') }}</h6>
-                    </div>
-
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="md-form d-flex addon">
-                                    <input type="text" class="form-control" name="employee" v-bind:placeholder="lang('Find employee')" v-model="employee" v-on:keyup="autocomplete($event, 'employee')">
-                                    <ul class="mdb-autocomplete-wrap" v-if="e_suggestions.length">
-                                        <li v-for="(item, index) in e_suggestions" v-on:click="autocomplete_select(index, 'employee')">{{ item.name }}</li>
-                                    </ul>
-                                </div>
-                                <div class="chip mb-5" v-for="employee in employees">
-                                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg">{{ employee.name }}<i class="close fa fa-times"></i>
-                                </div>
-                                <!-- Expense difference -->
-                                <div class="page-name-m">{{ lang('Expense') }}</div>
-                                <table class="table">
-                                    <thead class="thead-inverse">
-                                    <tr>
-                                        <th>{{ lang('Item') }}</th>
-                                        <th class="text-right">{{ lang('Budget') }}</th>
-                                        <th class="text-right">{{ lang('Expense Total') }}</th>
-                                        <th class="text-right">{{ lang('Difference') }}</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody class="white">
-                                    <tr>
-                                        <td v-bind:data-title="lang('Title')">{{ lang(line_title) }}</td>
-                                        <td class="text-right" v-bind:data-title="lang('Budget')">{{ line_budget | flexCurrency(' kn', 2) }}</td>
-                                        <td class="text-right" v-bind:data-title="lang('Expense Total')">{{ line_expense | flexCurrency(' kn', 2) }}</td>
-                                        <td class="text-right" v-bind:data-title="lang('Difference')">{{ Math.abs(line_budget-line_expense) | flexCurrency(' kn', 2) }}</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                                <!--/. Expense difference -->
-                                <!-- Textarea -->
-                                <div class="md-form mt-5 mb-2">
-                                    <textarea id="form76" class="md-textarea" v-model="description"></textarea>
-                                    <label for="form76">{{ lang('Task Description') }}</label>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <!--Footer-->
-                    <div class="modal-footer btn-footer">
-                        <button type="button" class="btn btn-lg btn-save" v-on:click="assignValues">{{ lang('Assign') }}</button>
-                        <button type="button" class="btn btn-lg btn-cancel" data-dismiss="modal">{{ lang('Cancel') }}</button>
-                    </div>
-                </div>
-                <!--/.Content-->
-            </div>
-        </div>
+        <expense-approval-modal :line="line" :expense="expense"></expense-approval-modal>
         <!-- Central Modal Medium Assign tab-->
 
     </div>
@@ -283,6 +217,7 @@
 <script>
     import _ from 'lodash'
     import { mapState } from 'vuex'
+    import ExpenseApprovalModal from '../../modals/ExpenseApprovalModal'
 
     export default {
         data: function () {
@@ -312,9 +247,11 @@
                 employees: [],
                 description: '',
                 cancel: false,
-                line_title: '',
-                line_budget: '',
-                line_expense: '',
+                line: {
+                    title: '',
+                    budget: '',
+                    expense: '',
+                },
                 titles: {
                     text_price : 'Text',
                     reviews: 'Reviews',
@@ -337,6 +274,9 @@
                 },
                 expense: ''
             }
+        },
+        components: {
+            ExpenseApprovalModal
         },
         computed: {
             total_budget() {
@@ -368,95 +308,30 @@
             },
             sendForApproval: function(what) {
                 if (what === 'marketing_expense') {
-                    this.line_title = 'Marketing budget';
-                    this.line_budget = this.marketing_expense.budget.totals;
-                    this.line_expense = this.marketing_expense.expense.totals;
+                    this.line.title = 'Marketing budget';
+                    this.line.budget = this.marketing_expense.budget.totals;
+                    this.line.expense = this.marketing_expense.expense.totals;
                 }
                 if (what === 'layout_expense') {
-                    this.line_title = 'Layout and Design budget';
-                    this.line_budget = this.production_expense.budget.totals.layout;
-                    this.line_expense = this.production_expense.expense.totals.layout;
+                    this.line.title = 'Layout and Design budget';
+                    this.line.budget = this.production_expense.budget.totals.layout;
+                    this.line.expense = this.production_expense.expense.totals.layout;
                 }
                 if (what.includes('production_expense.')) {
                     let vars = what.split('.');
-                    this.line_title = this.titles[vars[1]];
-                    this.line_budget = this.production_expense.budget.totals[vars[1]];
-                    this.line_expense = this.production_expense.expense.totals[vars[1]];
+                    this.line.title = this.titles[vars[1]];
+                    this.line.budget = this.production_expense.budget.totals[vars[1]];
+                    this.line.expense = this.production_expense.expense.totals[vars[1]];
                 }
                 if (what.includes('author_expense.')) {
                     let vars = what.split('.');
-                    this.line_title = this.authors[vars[1]].name;
-                    this.line_budget = this.authors[vars[1]].expenses[0].totals;
-                    this.line_expense = this.authors[vars[1]].expenses[1].totals;
+                    this.line.title = this.authors[vars[1]].name;
+                    this.line.budget = this.authors[vars[1]].expenses[0].totals;
+                    this.line.expense = this.authors[vars[1]].expenses[1].totals;
                 }
                 this.expense = what;
                 $('#ModalCostApprove').modal('show');
             },
-            autocomplete: function(event, type) {
-                if (this.cancel) {
-                    this.cancel();
-                    this.cancel = false;
-                }
-                let CancelToken = axios.CancelToken;
-                if (this[type].length > 2) {
-                    axios.get('/api/human_resources/'+type+'/search/' + this[type], {
-                        cancelToken: new CancelToken((c) => {
-                            this.cancel = c;
-                        })
-                    })
-                        .then((response) => {
-                            if (type === 'department') {
-                                this.d_suggestions = response.data;
-                            }
-                            else {
-                                this.e_suggestions = response.data;
-                            }
-                        })
-                        .catch((error) => {});
-                }
-            },
-            autocomplete_select: function(index, type) {
-                if (type === 'department') {
-                    //this.$store.commit('proposition/pushToArray', {key: 'departments', group: 'assigned', value: this.d_suggestions[index]});
-                    this.departments.push(this.d_suggestions[index]);
-                    this.d_suggestions = [];
-                    this.department = '';
-                }
-                else {
-                    //this.$store.commit('proposition/pushToArray', {key: 'employees', group: 'assigned', value: this.e_suggestions[index]});
-                    this.employees.push(this.e_suggestions[index]);
-                    this.e_suggestions = [];
-                    this.employee = '';
-                }
-
-            },
-            assignValues: function() {
-                if (this.employees.length && this.expense) {
-                    axios.post('/api/proposition/' + this.$route.params.id + '/request_approval', {
-                        requestees: this.employees,
-                        description: this.description,
-                        expense: this.line_expense,
-                        budget: this.line_budget,
-                        name: this.line_title,
-                        designation: this.expense
-                    })
-                        .then(() => {
-                            this.employees = [];
-                            this.description = '';
-                            this.line_expense = '';
-                            this.line_budget = '';
-                            this.line_title = '';
-                            this.expense = '';
-                            $('#ModalCostApprove').modal('hide');
-                        })
-                        .catch((err) => {
-                            this.error = 'Error in request. Try again.'
-                        })
-                }
-                else {
-                    this.error = 'Missing data';
-                }
-            }
         }
     }
 </script>
