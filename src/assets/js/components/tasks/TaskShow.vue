@@ -68,7 +68,7 @@
                         <div class="col-md-3">
                             <div class="page-name-l mt-2 mb-1">{{ lang('Task Type') }}</div>
                             <div>
-                                <h4 v-bind:class="['mb-1', task_types[task.type].className]">{{ task_types[task.type].title }}</h4>
+                                <h4 v-bind:class="['mb-1', task_types[task.type].className]">{{ lang(task_types[task.type].title) }}</h4>
                             </div>
                         </div>
                     </div>
@@ -148,7 +148,7 @@
                         <div class="col-md-3">
                             <div class="page-name-l mt-2 mb-1">{{ lang('Task Type') }}</div>
                             <div>
-                                <h4 v-bind:class="['mb-1', task_types[task.type].className]">{{ task_types[task.type].title }}</h4>
+                                <h4 v-bind:class="['mb-1', task_types[task.type].className]">{{ lang(task_types[task.type].title) }}</h4>
                             </div>
                         </div>
                     </div>
@@ -242,7 +242,7 @@
                         <div class="col-md-3">
                             <div class="page-name-l mt-2 mb-1">{{ lang('Task Type') }}</div>
                             <div>
-                                <h4 v-bind:class="['mb-1', task_types[task.type].className]">{{ task_types[task.type].title }}</h4>
+                                <h4 v-bind:class="['mb-1', task_types[task.type].className]">{{ lang(task_types[task.type].title) }}</h4>
                             </div>
                         </div>
                     </div>

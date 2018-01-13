@@ -66,32 +66,6 @@
         data: function () {
             return {
                 authority: false,
-                task_types: {
-                    1: {
-                        title: 'Project',
-                        className: 'tasktype-1'
-                    },
-                    2: {
-                        title: 'Assignment',
-                        className: 'tasktype-2'
-                    },
-                    3: {
-                        title: 'Approval Request',
-                        className: 'tasktype-3'
-                    },
-                    4: {
-                        title: 'Assignment',
-                        className: 'tasktype-4'
-                    },
-                    5: {
-                        title: 'Approval Request',
-                        className: 'tasktype-5'
-                    },
-                    6: {
-                        title: 'Task Order Request',
-                        className: 'tasktype-6'
-                    },
-                },
                 new: {
                     supportNested: true,
                     tblClass: 'table',

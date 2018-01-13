@@ -1,5 +1,5 @@
 <template>
-    <div v-bind:class="task_types[value].className">{{ task_types[value].title }}</div>
+    <div v-bind:class="task_types[value].className">{{ lang(task_types[value].title) }}</div>
 </template>
 
 <script>
