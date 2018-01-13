@@ -26,7 +26,7 @@
             </div>
             <div class="col-md-2">
                 <h6 class="white-label">{{ lang('Category') }}</h6>
-                <h3 class="mb-1 text-white" v-if="data.group.parent">{{ data.group.parent.parent.name }}</h3>
+                <h3 class="mb-1 text-white" v-if="data.group">{{ data.group.parent.parent.name }}</h3>
             </div>
             <div class="col-md-2">
                 <h6 class="white-label">{{ lang('Group') }}</h6>

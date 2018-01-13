@@ -69,19 +69,30 @@
                     .then(() => {
                         this.loading = false;
                         this.authorized = true;
+                        this.notAvailable = false;
                         //for screen that need special loading
                         setTimeout(() => {
                             $('.mdb-select').material_select('destroy');
                             $('.mdb-select').material_select();
+                            $('.datepicker1').pickadate({
+                                format: 'dd. mm. yyyy.',
+                                onSet: (context) => {
+                                    let date = new Date(context.select);
+                                    date = this.$options.filters.moment(date, 'DD. MM. YYYY.');
+                                    this.$store.commit('proposition/deadline/saveDate', date);
+                                }
+                            });
                         }, 200);
                     })
                     .catch((err) => {
                         if (err === 403) {
                             this.loading = false;
                             this.authorized = false;
+                            this.notAvailable = false;
                         }
                         else {
                             this.loading = false;
+                            this.authorized = true;
                             this.notAvailable = true;
                         }
                     });

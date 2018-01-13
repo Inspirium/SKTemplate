@@ -34,7 +34,6 @@ export default {
     },
     mutations: {
         initData(state, payload) {
-            console.log(payload);
             if (payload.group) {
                 state.supergroup = payload.group.parent.parent_id;
                 state.upgroup = payload.group.parent.id;
