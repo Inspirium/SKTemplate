@@ -86,8 +86,8 @@ export const routes = [
             { path: ':id/prepress/print', component: UploadDocument, meta: {save: 'files', dir: 'print',validate: {id:'int'}, breadcrumb: 'Print', warning: 'proposition/files/deleteFile'} },
             { path: ':id/prepress/warehouse', component: Warehouse,meta: {save: 'warehouse', validate: {id:'int'}, breadcrumb: 'Warehouse'} },
 
-            { path: ':id/additionals/multimedia', component: Multimedia,meta: {save: 'files', validate: {id:'int'}, breadcrumb: 'Multimedia'} },
-            { path: ':id/additionals/marketing', component: Marketing,meta: {save: 'files', validate: {id:'int'}, breadcrumb: 'Marketing'} },
+            { path: ':id/additionals/multimedia', component: Multimedia,meta: {save: 'files', dir: 'multimedia', validate: {id:'int'}, breadcrumb: 'Multimedia',warning: 'proposition/multimedia/deleteFile'} },
+            { path: ':id/additionals/marketing', component: Marketing,meta: {save: 'files', dir: 'marketing', validate: {id:'int'}, breadcrumb: 'Marketing', warning: 'proposition/marketing/deleteFile'} },
         ]
     },
 

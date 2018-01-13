@@ -18,6 +18,8 @@ import calculation from './proposition/calculation'
 import compare from './proposition/compare'
 import price_definition from "./proposition/price_definition"
 import files from "./proposition/files"
+import multimedia from './proposition/multimedia'
+import marketing from './proposition/marketing'
 
 export default {
     namespaced: true,
@@ -38,7 +40,9 @@ export default {
         compare : compare,
         price_definition: price_definition,
         owner: owner,
-        files: files
+        files: files,
+        marketing: marketing,
+        multimedia: multimedia
     },
     state: {
         proposition_id: 0,

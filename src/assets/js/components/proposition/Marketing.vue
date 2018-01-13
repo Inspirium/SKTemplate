@@ -10,7 +10,7 @@
                 </div>
                 <div class="file-box-sty">{{ file.created_at.date | moment('DD.MM.YYYY.') }}</div>
                 <div class="file-box-sty icon icon-download" v-on:click="documentDownload(file.link)">Preuzmi</div>
-                <div class="file-box-sty icon icon-cancel" v-on:click="fileDelete(index, 'cover')">Obriši</div>
+                <div class="file-box-sty icon icon-cancel" v-on:click="fileWarning({id: file.id, type: 'cover'})">Obriši</div>
             </div>
         </div>
         <div class="justify-content-center d-flex mb-4">
@@ -25,14 +25,11 @@
                 </div>
                 <div class="file-box-sty">{{ file.created_at.date | moment('DD.MM.YYYY.') }}</div>
                 <div class="file-box-sty icon icon-download" v-on:click="documentDownload(file.link)">Preuzmi</div>
-                <div class="file-box-sty icon icon-cancel" v-on:click="fileDelete(index, 'leaflet')">Obriši</div>
+                <div class="file-box-sty icon icon-cancel" v-on:click="fileWarning({id: file.id, type: 'leaflet'})">Obriši</div>
             </div>
         </div>
         <div class="justify-content-center d-flex mb-4">
             <button type="button" class="btn btn-neutral" v-on:click="documentAdd('leaflet')">{{ lang('Upload') }}</button>
-        </div>
-        <div class="modal-footer btn-footer">
-            <button type="button" class="btn btn-lg btn-save" v-on:click="saveFiles">{{ lang('Save') }}</button>
         </div>
 
         <upload-modal id="cover-pdf" action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" dir="marketing.cover" v-on:fileDelete="fileDelete" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave"></upload-modal>
@@ -61,42 +58,10 @@
                 window.open(link, "_blank");
                 return false;
             },
-            fileDelete: function (index, type) {
-                this[type].splice(index, 1);
+            fileWarning(data) {
+                this.$store.dispatch('proposition/listenForWarning', {vue: this, data: data});
+                jQuery('#modal-warning').modal('show');
             },
-            fileAdd: function(data) {
-                if (data.isFinal) {
-                    this.leaflet.push(data.file);
-                }
-                else {
-                    this.cover.push(data.file);
-                }
-            },
-            fileNameSave: function(data) {
-                let files = this.files;
-                if (data.isFinal) {
-                    files = this.final;
-                }
-                _.forEach(files, (o) => {
-                    if (o.id === payload.id) {
-                        o.title = data.file.title;
-                    }
-                });
-            },
-            saveFiles: function() {
-                axios.post('/api/proposition/' + this.$route.params.id + '/files/marketing', {cover:this.cover, leaflet: this.leaflet})
-                    .then((res) => {
-
-                    });
-            }
-        },
-        mounted() {
-            //TODO: move to store
-            axios.get('/api/proposition/' + this.$route.params.id + '/files/marketing')
-                .then((res) => {
-                    this.cover = res.data.cover;
-                    this.leaflet = res.data.leaflet;
-                })
         }
     }
 </script>

@@ -75,8 +75,8 @@
             fileNameSave: function (data) {
                 this.$store.dispatch('proposition/files/filenameSave', data);
             },
-            fileWarning(id) {
-                this.$store.dispatch('proposition/listenForWarning', {vue: this, data: {id: id}});
+            fileWarning(data) {
+                this.$store.dispatch('proposition/listenForWarning', {vue: this, data: data});
                 jQuery('#modal-warning').modal('show');
             },
         }

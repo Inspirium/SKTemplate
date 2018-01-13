@@ -3,10 +3,9 @@ import axios from "axios/index";
 export default {
     namespaced: true,
     state: {
-        proposition_id: 0,
-        files: [],
-        final: [],
-        dir: ''
+        webshop: '',
+        jpg: [],
+        psd: [],
     },
     mutations: {
         initData(state, payload) {
@@ -17,26 +16,19 @@ export default {
         },
         addFile(state, data) {
             if (data.isFinal) {
-                state.final.push(data.file);
+                state.psd.push(data.file);
             }
             else {
-                state.files.push(data.file);
+                state.jpg.push(data.file);
             }
         },
         deleteFile(state, payload) {
-            if (payload.isFinal) {
-                state.final = _.filter(state.final, (file) => {
+            state[payload.type] = _.filter(state[payload.type], (file) => {
                     return file.id !== payload.id;
                 })
-            }
-            else {
-                state.files = _.filter(state.files, (file) => {
-                    return file.id !== payload.id;
-                })
-            }
         },
         filenameSave(state, payload) {
-            let files = payload.isFinal?state.final:state.files;
+            let files = payload.isFinal?state.psd:state.jpg;
             _.forEach(files, (o) => {
                 if (o.id === payload.id) {
                     o.title = payload.file.title;
@@ -45,13 +37,11 @@ export default {
         }
     },
     actions: {
-        saveData({state, commit, rootState}, id) {
+        saveData({state, commit}, id) {
             return new Promise((resolve, reject) => {
                 if (id) {
-                    let path = '/api/proposition/' + id + '/files/' + rootState.route.meta.dir;
-                    axios.post(path, state)
+                    axios.post('/api/proposition/' + id + '/files/multimedia', state)
                         .then((res) => {
-                            commit('initData', res.data);
                             resolve();
                         })
                         .catch(() => { reject(); });

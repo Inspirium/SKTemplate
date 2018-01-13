@@ -17,7 +17,7 @@
                 </div>
                 <div class="file-box-sty">{{ file.created_at.date | moment('DD.MM.YYYY.') }}</div>
                 <div class="file-box-sty icon icon-download" v-on:click="documentDownload(file.link)">Preuzmi</div>
-                <div class="file-box-sty icon icon-cancel" v-on:click="fileDelete(index, 'jpg')">Obriši</div>
+                <div class="file-box-sty icon icon-cancel" v-on:click="fileWarning({id: file.id, type: 'jpg'})">Obriši</div>
             </div>
         </div>
         <div class="justify-content-center d-flex mb-4">
@@ -32,16 +32,11 @@
                 </div>
                 <div class="file-box-sty">{{ file.created_at.date | moment('DD.MM.YYYY.') }}</div>
                 <div class="file-box-sty icon icon-download" v-on:click="documentDownload(file.link)">Preuzmi</div>
-                <div class="file-box-sty icon icon-cancel" v-on:click="fileDelete(index, 'psd')">Obriši</div>
+                <div class="file-box-sty icon icon-cancel" v-on:click="fileWarning({id: file.id, type: 'psd'})">Obriši</div>
             </div>
         </div>
         <div class="justify-content-center d-flex mb-4">
             <button type="button" class="btn btn-neutral" v-on:click="documentAdd('cover-psd')">{{ lang('Upload') }}</button>
-        </div>
-        <div class="modal-footer btn-footer">
-            <button type="button" class="btn btn-lg btn-save" v-on:click="saveFiles">{{ lang('Save') }}
-                <i v-bind:class="['fa', 'fa-5x', 'fa-fw', 'text-white', spinnerType, isSpinnerHidden]"></i>
-            </button>
         </div>
 
         <upload-modal id="cover-jpg" action="/api/file" accept=".jpg, .jpeg" disk="proposition" dir="multimedia.jpg" v-on:fileDelete="fileDelete" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave"></upload-modal>
@@ -53,13 +48,7 @@
     import uploadModal from '../general/UploadModal.vue';
     export default {
         data: function () {
-            return {
-                webshop: '',
-                jpg: [],
-                psd: [],
-                spinnerType: 'fa-refresh spinner-delay-rotate spinner-loader',
-                isSpinnerHidden: 'hide'
-            }
+            return {}
         },
         components: {
             'upload-modal' : uploadModal
@@ -73,52 +62,10 @@
                 window.open(link, "_blank");
                 return false;
             },
-            fileDelete: function (index, type) {
-                this[type].splice(index, 1)
+            fileWarning(data) {
+                this.$store.dispatch('proposition/listenForWarning', {vue: this, data: data});
+                jQuery('#modal-warning').modal('show');
             },
-            fileAdd: function(data) {
-                if (data.isFinal) {
-                    this.psd.push(data.file);
-                }
-                else {
-                    this.jpg.push(data.file);
-                }
-            },
-            fileNameSave: function(data) {
-                let files = this.files;
-                if (data.isFinal) {
-                    files = this.final;
-                }
-                _.forEach(files, (o) => {
-                    if (o.id === payload.id) {
-                        o.title = data.file.title;
-                    }
-                });
-            },
-            saveFiles: function() {
-                let saveButton = jQuery(event.target);
-                saveButton.toggleClass('spinner-loading');
-                this.isSpinnerHidden = '';
-                axios.post('/api/proposition/' + this.$route.params.id + '/files/multimedia', {jpg:this.jpg, psd: this.psd, webshop: this.webshop})
-                    .then((res) => {
-                        this.spinnerType = 'fa-check spinner-success';
-                        setTimeout(() => {
-                            this.spinnerType = 'fa-refresh spinner-delay-rotate spinner-loader';
-                            this.isSpinnerHidden  ='hide';
-                            saveButton.toggleClass( "spinner-loading" );
-                        }, 1000)
-                        toastr.success(this.lang('Uspješno spremljeno'));
-                    })
-                    .catch(() => {
-                        toastr.error(this.lang('Došlo je do problema. Pokušajte ponovno'));
-                        this.spinnerType = 'fa-times spinner-fail';
-                        setTimeout(() => {
-                            this.spinnerType = 'fa-refresh spinner-delay-rotate spinner-loader';
-                            this.isSpinnerHidden  ='hide';
-                            saveButton.toggleClass( "spinner-loading" );
-                        }, 1000)
-                    });
-            }
         },
         mounted() {
             //TODO: move to store
