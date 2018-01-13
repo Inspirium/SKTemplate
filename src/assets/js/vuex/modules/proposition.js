@@ -117,7 +117,7 @@ export default {
                                 resolve();
                             })
                             .catch((err) => {
-                                 reject(403);
+                                 reject(err.response.status);
                             });
                     })
                 ]).then(resolve).catch(reject);
