@@ -309,7 +309,7 @@
                         <button v-if="canAccept()" class="btn btn-lg btn-save" v-on:click="acceptTask">{{ lang('Accept') }}</button>
                         <button v-if="canAssign()" class="btn btn-lg btn-assign btn-assign-icon" v-on:click="openModal('modal-reassign')">{{ lang('Assign to...') }}</button>
                         <button v-if="canComplete()" class="btn btn-lg btn-assign btn-assign-icon" v-on:click="completeTask">{{ lang('Complete') }}</button>
-                        <button v-if="canDelete()" class="btn btn-lg btn-cancel" v-on:click="taskDelete">{{ lang('Delete') }}</button>
+                        <button v-if="canDelete()" class="btn btn-lg btn-cancel" v-on:click="taskWarning">{{ lang('Delete') }}</button>
                     </div>
                 </div>
 
@@ -319,7 +319,7 @@
 
                 <!-- Modal for reassigning task -->
                 <modal-reassign v-on:reassign="reassignTask"></modal-reassign>
-                <warning-modal v-on:warning="fileDelete"></warning-modal>
+                <warning-modal v-on:warningConfirmed="listenForWarning" v-on:warningCanceled="clearDelete"></warning-modal>
             </template>
         </template>
         <template v-else>
@@ -406,8 +406,9 @@
                     low: 'Low'
                 },
                 comment: '',
-                index_to_delete: 0,
-                type_to_delete: 0
+                index_to_delete: false,
+                type_to_delete: false,
+                task_to_delete: false
             }
         },
         components: {
@@ -532,11 +533,28 @@
                 this.index_to_delete = id;
                 jQuery('#modal-warning').modal('show');
             },
+            listenForWarning() {
+                if (this.task_to_delete) {
+                    this.taskDelete();
+                }
+                if (this.index_to_delete) {
+                    this.fileDelete();
+                }
+            },
+            taskWarning(id, type) {
+                this.task_to_delete = true;
+                jQuery('#modal-warning').modal('show');
+            },
             taskDelete() {
                 axios.delete('/api/task/'+this.task.id)
                     .then(() => {
                         this.$router.push('/tasks');
                     });
+            },
+            clearDelete() {
+                this.type_to_delete = false;
+                this.index_to_delete = false;
+                this.task_to_delete = false;
             }
         },
         mounted: function() {

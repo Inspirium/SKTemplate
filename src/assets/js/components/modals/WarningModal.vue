@@ -22,7 +22,7 @@
                 <!--Footer-->
                 <div class="modal-footer btn-footer">
                     <button type="button" class="btn btn-lg btn-save" v-on:click="emitWarningConfirmation" data-dismiss="modal">{{ lang('Yes') }}</button>
-                    <button type="button" class="btn btn-lg btn-cancel" data-dismiss="modal">{{ lang('No') }}</button>
+                    <button type="button" class="btn btn-lg btn-cancel" data-dismiss="modal" v-on:click="$emit('warningCanceled')">{{ lang('No') }}</button>
                 </div>
             </div>
             <!--/.Content-->
@@ -36,6 +36,7 @@
         methods: {
             emitWarningConfirmation() {
                 this.$eventHub.emit('warningConfirmed');
+                this.$emit('warningConfirmed')
             }
         }
     }
