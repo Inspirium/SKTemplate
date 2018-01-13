@@ -55,9 +55,11 @@
         },
         methods: {
             confirm() {
-                this.$emit('reassign', this.employees);
-                this.employees = [];
-                this.employee = '';
+                if (this.employees.length) {
+                    this.$emit('reassign', this.employees);
+                    this.employees = [];
+                    this.employee = '';
+                }
             },
             autocomplete: function(event, type) {
                 if (this.cancel) {

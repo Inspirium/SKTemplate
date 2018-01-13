@@ -107,29 +107,35 @@
 
             },
             assignValues: function() {
-                let saveButton = jQuery(event.target);
-                saveButton.toggleClass('spinner-loading');
-                this.isSpinnerHidden = '';
-                axios.post('/api/proposition/'+this.$route.params.id + '/approval', {employees: this.employees, departments: this.departments, description: this.description})
-                    .then(() => {
-                        this.spinnerType = 'fa-check spinner-success';
-                        setTimeout(() => {
-                            this.spinnerType = 'fa-refresh spinner-delay-rotate spinner-loader';
-                            this.isSpinnerHidden  ='hide';
-                            saveButton.toggleClass( "spinner-loading" );
-                            $('#propositionApprovalModal').modal('hide');
-                        }, 1000)
-                        toastr.success(this.lang('Uspješno obavljeno'));
+                if (this.employees.length) {
+                    let saveButton = jQuery(event.target);
+                    saveButton.toggleClass('spinner-loading');
+                    this.isSpinnerHidden = '';
+                    axios.post('/api/proposition/' + this.$route.params.id + '/approval', {
+                        employees: this.employees,
+                        departments: this.departments,
+                        description: this.description
                     })
-                    .catch(() => {
-                        this.spinnerType = 'fa-times spinner-fail';
-                        setTimeout(() => {
-                            this.spinnerType = 'fa-refresh spinner-delay-rotate spinner-loader';
-                            this.isSpinnerHidden  ='hide';
-                            saveButton.toggleClass( "spinner-loading" );
-                        }, 1000)
-                        toastr.error(this.lang('Došlo je do problema. Pokušajte ponovno'));
-                    })
+                        .then(() => {
+                            this.spinnerType = 'fa-check spinner-success';
+                            setTimeout(() => {
+                                this.spinnerType = 'fa-refresh spinner-delay-rotate spinner-loader';
+                                this.isSpinnerHidden = 'hide';
+                                saveButton.toggleClass("spinner-loading");
+                                $('#propositionApprovalModal').modal('hide');
+                            }, 1000)
+                            toastr.success(this.lang('Uspješno obavljeno'));
+                        })
+                        .catch(() => {
+                            this.spinnerType = 'fa-times spinner-fail';
+                            setTimeout(() => {
+                                this.spinnerType = 'fa-refresh spinner-delay-rotate spinner-loader';
+                                this.isSpinnerHidden = 'hide';
+                                saveButton.toggleClass("spinner-loading");
+                            }, 1000)
+                            toastr.error(this.lang('Došlo je do problema. Pokušajte ponovno'));
+                        })
+                }
             }
         }
     }

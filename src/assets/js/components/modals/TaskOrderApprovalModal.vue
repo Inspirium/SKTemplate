@@ -105,12 +105,17 @@
 
             },
             assignValues: function() {
-                let saveButton = document.getElementById('save-btn');
-                saveButton.setAttribute('style', 'color: #92C100 !important; position: relative');
-                $( "i.spinner-loader" ).toggleClass( "hide" );
+                if (this.employees.length) {
+                    let saveButton = document.getElementById('save-btn');
+                    saveButton.setAttribute('style', 'color: #92C100 !important; position: relative');
+                    $("i.spinner-loader").toggleClass("hide");
 
-                this.$emit('sendForApproval', {employees: this.employees, description: this.description});
-                $('#taskOrderApprovalModal').modal('hide');
+                    this.$emit('sendForApproval', {
+                        employees: this.employees,
+                        description: this.description
+                    });
+                    $('#taskOrderApprovalModal').modal('hide');
+                }
             }
         }
     }
