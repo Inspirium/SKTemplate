@@ -149,7 +149,7 @@
                     let saveButton = jQuery(event.target);
                     saveButton.toggleClass('spinner-loading');
                     this.isSpinnerHidden = '';
-                    
+
                     axios.post('/api/proposition/' + this.$route.params.id + '/assign/document', {
                         employees: this.employees,
                         departments: this.departments,

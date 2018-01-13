@@ -1,5 +1,9 @@
 import axios from "axios/index";
-
+let initialState = {
+    id: 0,
+    offers: {},
+    active_offer: 0
+};
 export default {
     namespaced: true,
     state: {
@@ -34,26 +38,12 @@ export default {
         }
     },
     actions: {
-        getData({commit, state}, payload) {
+        initClear({commit}) {
             return new Promise((resolve, reject) => {
-                if (!state.id || state.id != payload.id || payload.force) {
-                    //retrieve data only we don't have it or we need to refresh it
-                    axios.get('/api/proposition/' + payload.id + '/print')
-                        .then((res) => {
-                            commit('initData', res.data);
-                            resolve();
-                        })
-                        .catch((err) => {
-                            if(err.response.status === 403) {
-                                window.location.href='/propositions'
-                            }
-                            reject();
-                        });
-                }
-                else {
-                    resolve();
-                }
+                commit('initData', initialState);
+                resolve();
             })
+
         },
         saveData({state}, id) {
             return new Promise((resolve, reject) => {

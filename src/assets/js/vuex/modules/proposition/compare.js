@@ -1,5 +1,24 @@
 import axios from "axios/index";
-
+let initialState = {
+    marketing_expense : {
+        budget: {
+            totals: {}
+        },
+        expense: {
+            totals: {}
+        }
+    },
+    production_expense : {
+        budget: {
+            totals: {}
+        },
+        expense: {
+            totals: {}
+        }
+    },
+    authors : [],
+    requests: {}
+};
 export default {
     namespaced: true,
     state: {
@@ -31,20 +50,6 @@ export default {
         },
     },
     actions: {
-        getData({commit, state}, payload) {
-            if (!state.id || state.id != payload.id || payload.force) {
-                //retrieve data only we don't have it or we need to refresh it
-                axios.get('/api/proposition/' + payload.id + '/compare')
-                    .then((res) => {
-                        commit('initData', res.data);
-                    })
-                    .catch((err) => {
-                        if(err.response.status === 403) {
-                            window.location.href='/propositions'
-                        }
-                    });;
-            }
-        },
         saveData({state, commit}, id) {
             return new Promise((resolve, reject) => {
                 if (id) {
@@ -58,6 +63,13 @@ export default {
                     reject();
                 }
             });
+        },
+        initClear({commit}) {
+            return new Promise((resolve, reject) => {
+                commit('initData', initialState);
+                resolve();
+            })
+
         }
     }
 }

@@ -1,5 +1,12 @@
 import axios from "axios/index";
-
+let initialState = {
+    proposition_id: 0,
+    type: '',
+    expense: '',
+    note: '',
+    additional_expenses: [],
+    parent: {}
+};
 export default {
     namespaced: true,
     state: {
@@ -28,21 +35,11 @@ export default {
         }
     },
     actions: {
-        getData({commit, state}, payload) {
-                //retrieve data only we don't have it or we need to refresh it
-                let path = '/api/proposition/' + payload.id + '/marketing_expense/';
-                if (payload.type) {
-                    path += payload.type;
-                }
-                axios.get(path)
-                    .then((res) => {
-                        commit('initData', res.data);
-                    })
-                    .catch((err) => {
-                        if(err.response.status === 403) {
-                            window.location.href='/propositions'
-                        }
-                    });
+        initClear({commit}) {
+            return new Promise((resolve, reject) => {
+                commit('initData', initialState);
+                resolve();
+            })
 
         },
         saveData({state, commit}, id) {

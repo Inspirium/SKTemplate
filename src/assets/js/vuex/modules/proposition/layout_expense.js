@@ -1,5 +1,21 @@
 import axios from "axios/index";
-
+let initialState = {
+    type: '',
+    proposition_id: 0,
+    layout_complexity: '',
+    layout_include: '',
+    layout_note: '',
+    layout_exact_price: '',
+    design_complexity: '',
+    design_include: '',
+    design_note: '',
+    design_exact_price: '',
+    number_of_pages: 0,
+    photos_amount: 0,
+    illustrations_amount: 0,
+    technical_drawings_amount: 0,
+    group: {}
+};
 export default {
     namespaced: true,
     state: {
@@ -28,25 +44,6 @@ export default {
         }
     },
     actions: {
-        getData({commit, state}, payload) {
-            return new Promise((resolve, reject) => {
-                let path = '/api/proposition/' + payload.id + '/layout_expense/';
-                if (payload.type) {
-                    path += payload.type;
-                }
-                axios.get(path)
-                    .then((res) => {
-                        commit('initData', res.data);
-                        resolve();
-                    })
-                    .catch((err) => {
-                        if(err.response.status === 403) {
-                            window.location.href='/propositions'
-                        }
-                        reject();
-                    });
-            });
-        },
         saveData({state, commit}, id) {
             return new Promise((resolve, reject) => {
                 if (id) {
@@ -62,6 +59,13 @@ export default {
                     reject();
                 }
             });
+        },
+        initClear({commit}) {
+            return new Promise((resolve, reject) => {
+                commit('initData', initialState);
+                resolve();
+            })
+
         }
     },
     getters: {

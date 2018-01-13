@@ -1,5 +1,17 @@
 import axios from "axios/index";
-
+let initialState = {
+    id: 0,
+    author_expenses: [],
+    offers: [],
+    authors_expenses: [],
+    authors_total: 0,
+    authors_advance: 0,
+    authors_other: 0,
+    marketing_expense: 0,
+    production_expense: 0,
+    design_layout_expense: 0,
+    dotation: 0,
+};
 export default {
     namespaced: true,
     state: {
@@ -24,20 +36,6 @@ export default {
         },
     },
     actions: {
-        getData({commit, state, dispatch}, payload) {
-            if (!state.id || state.id != payload.id || payload.force) {
-                //retrieve data only we don't have it or we need to refresh it
-                axios.get('/api/proposition/' + payload.id + '/calculation')
-                    .then((res) => {
-                        commit('initData', res.data);
-                    })
-                    .catch((err) => {
-                        if(err.response.status === 403) {
-                            window.location.href='/propositions'
-                        }
-                    });;
-            }
-        },
         saveData({state, commit}, id) {
             return new Promise((resolve, reject) => {
                 if (id) {
@@ -51,6 +49,13 @@ export default {
                     reject();
                 }
             });
+        },
+        initClear({commit}) {
+            return new Promise((resolve, reject) => {
+                commit('initData', initialState);
+                resolve();
+            })
+
         }
     },
     getters: {

@@ -1,6 +1,18 @@
 import axios from 'axios'
 import _ from 'lodash'
-
+let initialState = {
+    id: 0,
+    title: '',
+    authors: [],
+    concept: '',
+    note: '',
+    possible_products: [],
+    dotation: 'no',
+    dotation_amount: '',
+    dotation_origin: '',
+    manuscript: '',
+    manuscript_documents: []
+};
 export default {
     namespaced: true,
     state: {
@@ -54,20 +66,6 @@ export default {
         }
     },
     actions: {
-        getData({commit, state}, payload) {
-            if (!state.id || state.id != payload.id || payload.force) {
-                //retrieve data only we don't have it or we need to refresh it
-                axios.get('/api/proposition/' + payload.id + '/basic_data')
-                    .then((res) => {
-                        commit('initData', res.data);
-                    })
-                    .catch((err) => {
-                        if(err.response.status === 403) {
-                            window.location.href='/propositions'
-                        }
-                    });
-            }
-        },
         saveData({state}, id) {
             return new Promise((resolve, reject) => {
                 if (id) {
@@ -92,6 +90,13 @@ export default {
         filenameSave({commit}, payload) {
             commit('filenameSave', payload);
             //TODO: make request to change in system
+        },
+        initClear({commit}) {
+            return new Promise((resolve, reject) => {
+                commit('initData', initialState);
+                resolve();
+            })
+
         }
     }
 }

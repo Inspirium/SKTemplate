@@ -1,5 +1,70 @@
 import axios from "axios/index";
-
+let initialState = {
+        id: 0,
+        type: '',
+        text_price: '',
+        text_price_amount: '',
+        note: '',
+        accontation: '',
+        netto_price_percentage: '',
+        reviews: '',
+        lecture: '',
+        lecture_amount: '',
+        correction: '',
+        correction_amount: '',
+        proofreading: '',
+        proofreading_amount: '',
+        translation: '',
+        translation_amount: '',
+        index: '',
+        index_amount: '',
+        epilogue: '',
+        photos: '',
+        photos_amount: '',
+        illustrations: '',
+        illustrations_amount: '',
+        technical_drawings: '',
+        technical_drawings_amount: '',
+        expert_report: '',
+        copyright: '',
+        copyright_mediator: '',
+        selection: '',
+        powerpoint_presentation: '',
+        methodical_instrumentarium: '',
+        additional_expenses: [],
+        parent:{
+            text_price: '',
+            text_price_amount: '',
+            note: '',
+            accontation: '',
+            netto_price_percentage: '',
+            reviews: '',
+            lecture: '',
+            lecture_amount: '',
+            correction: '',
+            correction_amount: '',
+            proofreading: '',
+            proofreading_amount: '',
+            translation: '',
+            translation_amount: '',
+            index: '',
+            index_amount: '',
+            epilogue: '',
+            photos: '',
+            photos_amount: '',
+            illustrations: '',
+            illustrations_amount: '',
+            technical_drawings: '',
+            technical_drawings_amount: '',
+            expert_report: '',
+            copyright: '',
+            copyright_mediator: '',
+            selection: '',
+            powerpoint_presentation: '',
+            methodical_instrumentarium: '',
+            additional_expenses: [],
+        }
+    };
 export default {
     namespaced: true,
     state: {
@@ -86,20 +151,11 @@ export default {
         }
     },
     actions: {
-        getData({commit, state}, payload) {
-                let path = '/api/proposition/' + payload.id + '/production_expense/';
-                if (payload.type) {
-                    path += payload.type;
-                }
-                axios.get(path)
-                    .then((res) => {
-                        commit('initData', res.data);
-                    })
-                    .catch((err) => {
-                        if(err.response.status === 403) {
-                            window.location.href='/propositions'
-                        }
-                    });
+        initClear({commit}) {
+            return new Promise((resolve, reject) => {
+                commit('initData', initialState);
+                resolve();
+            })
 
         },
         saveData({state, commit}, id) {

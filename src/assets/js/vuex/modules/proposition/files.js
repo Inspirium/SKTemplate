@@ -1,5 +1,10 @@
 import axios from "axios/index";
-
+let initialState = {
+    proposition_id: 0,
+    files: [],
+    final: [],
+    dir: ''
+};
 export default {
     namespaced: true,
     state: {
@@ -66,5 +71,12 @@ export default {
             //make request to remove from system
             axios.delete('/api/file/'+payload.data.id);
         },
+        initClear({commit}) {
+            return new Promise((resolve, reject) => {
+                commit('initData', initialState);
+                resolve();
+            })
+
+        }
     }
 }

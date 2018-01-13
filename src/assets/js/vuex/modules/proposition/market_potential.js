@@ -1,5 +1,10 @@
 import axios from "axios/index";
-
+let initialState = {
+    id: 0,
+    main_target: '',
+    note: '',
+    market_potential_documents: [],
+};
 export default {
     namespaced: true,
     state: {
@@ -31,19 +36,12 @@ export default {
         }
     },
     actions: {
-        getData({commit, state}, payload) {
-            if (!state.id || state.id != payload.id || payload.force) {
-                //retrieve data only we don't have it or we need to refresh it
-                axios.get('/api/proposition/' + payload.id + '/market_potential')
-                    .then((res) => {
-                        commit('initData', res.data);
-                    })
-                    .catch((err) => {
-                        if(err.response.status === 403) {
-                            window.location.href='/propositions'
-                        }
-                    });
-            }
+        initClear({commit}) {
+            return new Promise((resolve, reject) => {
+                commit('initData', initialState);
+                resolve();
+            })
+
         },
         saveData({state}, id) {
             return new Promise((resolve, reject) => {

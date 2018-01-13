@@ -1,6 +1,12 @@
 import axios from "axios/index";
 
-
+let initialState = {
+    id: 0,
+    type: '',
+    authors: [],
+    note: '',
+    other: [],
+};
 export default {
     namespaced: true,
     state: {
@@ -31,23 +37,6 @@ export default {
         }
     },
     actions: {
-        getData({commit, state}, payload) {
-            if (!state.id || state.id != payload.id || payload.force) {
-                let path = '/api/proposition/' + payload.id + '/authors_expense/';
-                if (payload.type) {
-                    path += payload.type;
-                }
-                axios.get(path)
-                    .then((res) => {
-                        commit('initData', res.data);
-                    })
-                    .catch((err) => {
-                        if(err.response.status === 403) {
-                            window.location.href='/propositions'
-                        }
-                    });
-            }
-        },
         saveData({state, commit}, id) {
             return new Promise((resolve, reject) => {
                 if (id) {
@@ -66,6 +55,13 @@ export default {
                     reject();
                 }
             });
+        },
+        initClear({commit}) {
+            return new Promise((resolve, reject) => {
+                commit('initData', initialState);
+                resolve();
+            })
+
         }
     }
 }

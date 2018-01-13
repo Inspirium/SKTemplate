@@ -1,5 +1,26 @@
 import axios from "axios/index";
-
+let initialState = {
+    id: 0,
+    circulations: [],
+    additions: [],
+    number_of_pages: 0,
+    width: 0,
+    height: 0,
+    paper_type: '',
+    additional_work: '',
+    colors: '',
+    colors_first_page: '',
+    colors_last_page: '',
+    cover_type: '',
+    cover_paper_type: '',
+    cover_colors: '',
+    cover_plastification: '',
+    film_print: 0,
+    blind_print: 0,
+    uv_print: 0,
+    book_binding: '',
+    note: ''
+};
 export default {
     namespaced: true,
     state: {
@@ -68,26 +89,12 @@ export default {
         }
     },
     actions: {
-        getData({commit, state}, payload) {
+        initClear({commit}) {
             return new Promise((resolve, reject) => {
-                if (!state.id || state.id != payload.id || payload.force) {
-                    //retrieve data only we don't have it or we need to refresh it
-                    axios.get('/api/proposition/' + payload.id + '/technical_data')
-                        .then((res) => {
-                            commit('initData', res.data);
-                            resolve();
-                        })
-                        .catch((err) => {
-                            if(err.response.status === 403) {
-                                window.location.href='/propositions'
-                            }
-                            reject();
-                        });
-                }
-                else {
-                    resolve();
-                }
-            });
+                commit('initData', initialState);
+                resolve();
+            })
+
         },
         saveData({commit, state}, id) {
             return new Promise((resolve, reject) => {

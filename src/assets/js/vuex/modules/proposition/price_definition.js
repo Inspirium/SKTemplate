@@ -1,5 +1,25 @@
 import axios from 'axios';
-
+let initialState = {
+    price_first_year: {
+        retail: 0,
+        wholesale: 0,
+        direct: 0,
+        field:0,
+        promotors:0,
+        export: 0
+    },
+    price_second_year: {
+        retail: 0,
+        wholesale: 0,
+        direct: 0,
+        field:0,
+        promotors:0,
+        export: 0
+    },
+    retail_price: 0,
+    selected_circulation: 0,
+    offers: {}
+};
 export default {
     namespaced: true,
     state: {
@@ -31,19 +51,12 @@ export default {
         }
     },
     actions: {
-        getData({commit, state}, payload) {
-            if (!state.id || state.id != payload.id || payload.force) {
-                //retrieve data only we don't have it or we need to refresh it
-                axios.get('/api/proposition/' + payload.id + '/price_definition')
-                    .then((res) => {
-                        commit('initData', res.data);
-                    })
-                    .catch((err) => {
-                        if(err.response.status === 403) {
-                            window.location.href='/propositions'
-                        }
-                    });
-            }
+        initClear({commit}) {
+            return new Promise((resolve, reject) => {
+                commit('initData', initialState);
+                resolve();
+            })
+
         },
         saveData({state, commit}, id) {
             return new Promise((resolve, reject) => {
