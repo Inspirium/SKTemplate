@@ -76,7 +76,6 @@ router.beforeEach((to, from, next) => {
 
 store.subscribe((mutation, state) => {
     if (mutation.type == 'VUEX_DEEP_SET') {
-        console.log("edited");
         state.edited = true;
     }
 });

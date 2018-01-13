@@ -13,5 +13,10 @@ export default {
             state.name = payload.name;
             state.id = payload.id;
         }
+    },
+    actions: {
+        initClear({commit, rootState}) {
+            commit('initData', rootState.employee);
+        }
     }
 }

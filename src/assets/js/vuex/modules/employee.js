@@ -6,7 +6,8 @@ export default {
         id: 0,
         name: '',
         department_id: 0,
-        roles: []
+        roles: [],
+        image: ''
     },
     mutations: {
         setUser(state, payload) {
@@ -14,6 +15,7 @@ export default {
             state.name = payload.name;
             state.roles = payload.roles;
             state.department_id = payload.department_id;
+            state.image = payload.image;
         }
     },
     getters: {},

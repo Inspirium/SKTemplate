@@ -84,7 +84,13 @@
             }
         },
         mounted() {
-            if (this.$route.params.id != 0) {
+            if (this.$route.path === '/proposition/start') {
+                this.$store.dispatch(('proposition/initClear'))
+                    .then(() => {
+                        this.loading = false;
+                    });
+            }
+            else if (this.$route.params.id != 0) {
                 this.$store.dispatch('proposition/initData')
                     .then(this.loadStep());
             }

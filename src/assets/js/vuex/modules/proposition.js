@@ -88,17 +88,11 @@ export default {
                         .then((res) => {
                             commit('initData', res.data);
                             commit('owner/initData', res.data.owner);
-                            dispatch('getData')
-                                .then(resolve)
-                                .catch(reject);
+                            resolve();
                         })
                         .catch(reject);
                 }
-                else {
-                    dispatch('getData')
-                        .then(resolve)
-                        .catch(reject);
-                }
+                resolve();
             });
         },
         getData({state, rootState, commit, dispatch}, payload) {
@@ -136,8 +130,9 @@ export default {
                     payload.vue.$router.push('/propositions');
                 });
         },
-        clearProposition({commit}) {
-            commit('clearData');
+        initClear({dispatch}) {
+            dispatch('owner/initClear');
+            dispatch('start/initClear');
         }
 
     }

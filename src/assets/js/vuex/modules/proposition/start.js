@@ -63,6 +63,13 @@ export default {
                         .catch(() => { reject(); });
                 }
             });
+        },
+        initClear({commit}) {
+            return new Promise((resolve, reject) => {
+                commit('initData', initialState);
+                resolve();
+            })
+
         }
     }
 }
