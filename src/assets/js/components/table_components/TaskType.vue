@@ -1,5 +1,5 @@
 <template>
-    <div v-bind:class="task_types[value].className">{{ lang(task_types[value].title) }}</div>
+    <div v-bind:class="value.className">{{ lang(value.title) }}</div>
 </template>
 
 <script>
@@ -39,7 +39,10 @@
                 },
             }
         },
-        props: ['value']
+        props: ['value'],
+        mounted() {
+            console.log(this.value);
+        }
     }
 </script>
 

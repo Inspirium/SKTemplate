@@ -46,7 +46,7 @@
                     },
                     {
                         title: this.lang('Task Type'),
-                        field: 'type',
+                        field: 'formatted_type',
                         sortable: true,
                         tdComp: TaskType
                     },
