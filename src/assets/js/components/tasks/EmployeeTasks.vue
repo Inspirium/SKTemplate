@@ -12,8 +12,10 @@
 
 
         <button v-if="canRequestOrder" v-on:click="openModal" type="button" class="btn btn-neutral btn-addon d-block ml-auto waves-effect waves-light">{{ lang('Save tasks priority') }}</button>
-        <button v-if="shouldApprove" v-on:click="approveOrder" type="button" class="btn btn-success btn-addon d-block ml-auto waves-effect waves-light">{{ lang('Approve task priority') }}</button>
-        <button v-if="shouldApprove" v-on:click="rejectOrder" type="button" class="btn btn-danger btn-addon d-block ml-auto waves-effect waves-light">{{ lang('Reject task priority') }}</button>
+        <button v-if="shouldApprove" v-on:click="approveOrder" type="button" class="btn btn-success btn-addon d-block ml-auto waves-effect waves-light">{{ lang('Approve task priority') }}
+            <i v-bind:class="['fa', 'fa-5x', 'fa-fw', 'text-white', spinnerType, isSpinnerHidden]"></i></button></button>
+        <button v-if="shouldApprove" v-on:click="rejectOrder" type="button" class="btn btn-danger btn-addon d-block ml-auto waves-effect waves-light">{{ lang('Reject task priority') }}
+            <i v-bind:class="['fa', 'fa-5x', 'fa-fw', 'text-white', spinnerType, isSpinnerHidden]"></i></button>
     </div>
 </template>
 
@@ -75,7 +77,10 @@
                 draggableOptions: {
                     disabled: false,
                     handle: '.icon-handler'
-                }
+                },
+                spinnerType: 'fa-refresh spinner-delay-rotate spinner-loader',
+                isSpinnerHidden: 'hide',
+                saveButton: null
             }
         },
         created() {
@@ -129,8 +134,16 @@
         methods: {
             refreshTasks(payload) {
                 if (payload.employee === this.employee.id) {
-                    this.query.sort = 'order';
-                    this.query.order = 'asc';
+                    if (!payload.error) {
+                        this.query.sort = 'order';
+                        this.query.order = 'asc';
+                    }
+                    this.spinnerType = 'fa-check spinner-success';
+                    setTimeout(() => {
+                        this.spinnerType = 'fa-refresh spinner-delay-rotate spinner-loader';
+                        this.isSpinnerHidden = 'hide';
+                        this.saveButton.toggleClass("spinner-loading");
+                    }, 1000);
                 }
             },
             can(role) {
@@ -145,6 +158,9 @@
                 this.$emit('openModal', {employee: this.employee.id, tasks: data});
             },
             approveOrder() {
+                this.saveButton = jQuery(event.target);
+                this.saveButton.toggleClass('spinner-loading');
+                this.isSpinnerHidden = '';
                 let data = _.map(this.data, (o) => {
                     return o.id;
                 });

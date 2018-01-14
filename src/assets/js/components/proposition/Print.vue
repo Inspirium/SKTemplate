@@ -220,7 +220,7 @@
             </div>
         </div>
     </div>
-            <upload-modal action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" dir="print" v-on:fileDelete="fileDelete" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave"></upload-modal>
+            <upload-modal action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" dir="print" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave"></upload-modal>
         </template>
         <template v-else>
             <div class="d-flex justify-content-center align-items-center flex-column mt-5">
@@ -266,18 +266,11 @@
                 return false;
             },
             fileWarning(id, offer) {
-                this.index_to_delete = {id: id, offer: offer};
+                this.$store.dispatch('proposition/listenForWarning', {vue: this, data: {id: id, offer: offer}});
                 jQuery('#modal-warning').modal('show');
             },
-            fileDelete: function (id) {
-                if (!id) {
-                    id = this.index_to_delete;
-                }
-                this.$store.dispatch('proposition/print/deleteFile', id);
-                this.index_to_delete = 0;
-            },
             fileAdd: function(data) {
-                this.$store.commit('proposition/print/addFile', {file:data.file, offer: this.active_offer});
+                this.$store.commit('proposition/print/addFile', {file:data.file});
             },
             fileNameSave: function(data) {
                 this.$store.dispatch('proposition/basic_data/filenameSave', {id:data.file.id, title:data.file.title});

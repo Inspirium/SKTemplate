@@ -58,9 +58,7 @@
 
                 <!--Footer-->
                 <div class="modal-footer btn-footer">
-                    <button type="button" class="btn btn-lg btn-save" v-on:click="saveAuthor">{{ lang('Save') }}
-                        <i v-bind:class="['fa', 'fa-5x', 'fa-fw', 'text-white', spinnerType, isSpinnerHidden]"></i>
-                    </button>
+                    <spinner-button v-on:button_clicked="saveAuthor" v-on:button_cleanup_success="hideModal"></spinner-button>
                     <button type="button" class="btn btn-lg btn-cancel" data-dismiss="modal">{{ lang('Cancel') }}</button>
                 </div>
             </div>
@@ -76,17 +74,12 @@
                 last_name : '',
                 occupation : '',
                 title : '',
-                work : '',
-                spinnerType: 'fa-refresh spinner-delay-rotate spinner-loader',
-                isSpinnerHidden: 'hide'
+                work : ''
             }
         },
         computed: {},
         methods: {
             saveAuthor() {
-                let saveButton = jQuery(event.target);
-                saveButton.toggleClass('spinner-loading');
-                this.isSpinnerHidden = '';
                 axios.post('/api/author', {
                     first_name : this.first_name,
                     last_name : this.last_name,
@@ -95,14 +88,7 @@
                     work: this.work
                 })
                     .then((res) => {
-                        this.spinnerType = 'fa-check spinner-success';
-                        setTimeout(() => {
-                            this.spinnerType = 'fa-refresh spinner-delay-rotate spinner-loader';
-                            this.isSpinnerHidden  ='hide';
-                            saveButton.toggleClass( "spinner-loading" );
-                            //close modal
-                            jQuery('#centralModalAuthors').modal('hide');
-                        }, 1000)
+                        this.$eventHub.emit('BUTTON_LISTEN_FOR_SUCCESS');
                         //emit event upstream
                         this.$emit('authorAdded', res.data);
                         //clear data
@@ -114,13 +100,11 @@
 
                     })
                     .catch((err) => {
-                        this.spinnerType = 'fa-times spinner-fail';
-                        setTimeout(() => {
-                            this.spinnerType = 'fa-refresh spinner-delay-rotate spinner-loader';
-                            this.isSpinnerHidden  ='hide';
-                            saveButton.toggleClass( "spinner-loading" );
-                        }, 1000);
+                        this.$eventHub.emit('BUTTON_LISTEN_FOR_FAILURE');
                     })
+            },
+            hideModal() {
+                jQuery('#centralModalAuthors').modal('hide');
             }
         }
     }

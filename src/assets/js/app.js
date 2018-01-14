@@ -40,6 +40,7 @@ Vue.component('inspirium-breadcrumbs', require('./components/general/Breadcrumbs
 Vue.component('not-saved-modal', require('./components/modals/WarningNotSavedModal.vue').default);
 Vue.component('inspirium-warning-modal', require('./components/modals/WarningModal.vue').default);
 Vue.component('proposition-footer-buttons', require('./components/proposition/partials/FooterButtons.vue').default);
+Vue.component('spinner-button', require('./components/general/SpinnerButton').default);
 
 Vue.use(VueMoment, {moment});
 Vue.use(VueRouter);

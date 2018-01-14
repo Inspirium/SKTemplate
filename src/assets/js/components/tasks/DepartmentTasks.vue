@@ -65,6 +65,7 @@
                     })
                     .catch((err) => {
                         toastr.error(this.lang('Greška'));
+                        this.$eventHub.emit('UPDATE_DEPARTMENT_EMPLOYEE_TASKS', {employee: data.employee, error:true});
                     });
             },
             rejectOrder(data) {
@@ -75,6 +76,7 @@
                     })
                     .catch((err) => {
                         toastr.error(this.lang('Greška'));
+                        this.$eventHub.emit('UPDATE_DEPARTMENT_EMPLOYEE_TASKS', {employee: data.employee, error:true});
                     });
             },
 

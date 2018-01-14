@@ -2,9 +2,8 @@
     <div class="content">
         <div class="page-name-xl mb-4 mt-3">{{ lang('Završni dokument') }}</div>
         <div class="justify-content-center d-flex mb-4">
-            <button type="button" class="btn btn-l btn-neutral" v-on:click="sendToWarehouse">{{ lang('Recieved in Warehouse') }}
-                <i v-bind:class="['fa', 'fa-5x', 'fa-fw', 'text-white', spinnerType, isSpinnerHidden]"></i>
-            </button>
+            <spinner-button v-on:button_clicked="sendToWarehouse" v-on:button_cleanup_success="redirect" v-bind:title="Recieved in Warehouse" v-bind:classes="'btn btn-l btn-neutral'"></spinner-button>
+
         </div>
     </div>
 
@@ -12,38 +11,23 @@
 <script>
     export default {
         data: function () {
-            return {
-                spinnerType: 'fa-refresh spinner-delay-rotate spinner-loader',
-                isSpinnerHidden: 'hide'
-            }
+            return {}
         },
         computed: {},
         methods: {
             sendToWarehouse() {
-                let saveButton = jQuery(event.target);
-                saveButton.toggleClass('spinner-loading-blue');
-                this.isSpinnerHidden = '';
                 axios.post('/api/proposition/'+this.$route.params.id+'/warehouse')
                     .then((res)=>{
-                        this.spinnerType = 'fa-check spinner-success';
-                        setTimeout(() => {
-                            this.spinnerType = 'fa-refresh spinner-delay-rotate spinner-loader';
-                            this.isSpinnerHidden  ='hide';
-                            saveButton.toggleClass( "spinner-loading-blue" );
-                            window.location.href = '/propositions';
-                        }, 1000)
+                        this.$eventHub.emit('BUTTON_LISTEN_FOR_SUCCESS');
                         toastr.success(this.lang('Uspješno obavljeno'));
-
                     })
                     .catch(() => {
-                        this.spinnerType = 'fa-times spinner-fail';
+                        this.$eventHub.emit('BUTTON_LISTEN_FOR_FAILURE');
                         toastr.success(this.lang('Došlo je do problema. Pokušajte ponovno'));
-                        setTimeout(() => {
-                            this.spinnerType = 'fa-refresh spinner-delay-rotate spinner-loader';
-                            this.isSpinnerHidden  ='hide';
-                            saveButton.toggleClass( "spinner-loading-blue" );
-                        }, 1000)
                     })
+            },
+            redirect() {
+                this.$router.push('/propositions');
             }
         }
     }

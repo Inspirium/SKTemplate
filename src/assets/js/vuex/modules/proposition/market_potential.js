@@ -22,9 +22,9 @@ export default {
         addFile(state, file) {
             state.market_potential_documents.push(file);
         },
-        deleteFile(state, id) {
+        deleteFile(state, data) {
             state.market_potential_documents = _.filter(state.market_potential_documents, (file) => {
-                return file.id != id;
+                return file.id != data.data;
             })
         },
         filenameSave(state, payload) {
@@ -55,10 +55,11 @@ export default {
                 }
             });
         },
-        deleteFile({commit}, id) {
-            commit('deleteFile', id);
+        deleteFile({commit}, data) {
+            console.log(data);
+            commit('deleteFile', data);
             //make request to remove from system
-            axios.delete('/api/file/'+id);
+            axios.delete('/api/file/'+data.data);
         },
         filenameSave({commit}, payload) {
             commit('filenameSave', payload);

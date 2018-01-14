@@ -38,9 +38,7 @@
                 </div>
                 <!--Footer-->
                 <div class="modal-footer btn-footer">
-                    <button type="button" class="btn btn-lg btn-save" v-on:click="assignValues">{{ lang('Assign') }}
-                        <i v-bind:class="['fa', 'fa-5x', 'fa-fw', 'text-white', spinnerType, isSpinnerHidden]"></i>
-                    </button>
+                    <spinner-button v-on:button_clicked="assignValues" v-on:button_cleanup_success="hideModal"></spinner-button>
                     <button type="button" class="btn btn-lg btn-cancel" data-dismiss="modal">{{ lang('Cancel') }}</button>
                 </div>
             </div>
@@ -62,9 +60,7 @@
                 description: '',
 
                 departments: [],
-                cancel: false,
-                spinnerType: 'fa-refresh spinner-delay-rotate spinner-loader',
-                isSpinnerHidden: 'hide'
+                cancel: false
             }
         },
         methods: {
@@ -108,34 +104,23 @@
             },
             assignValues: function() {
                 if (this.employees.length) {
-                    let saveButton = jQuery(event.target);
-                    saveButton.toggleClass('spinner-loading');
-                    this.isSpinnerHidden = '';
                     axios.post('/api/proposition/' + this.$route.params.id + '/approval', {
                         employees: this.employees,
                         departments: this.departments,
                         description: this.description
                     })
                         .then(() => {
-                            this.spinnerType = 'fa-check spinner-success';
-                            setTimeout(() => {
-                                this.spinnerType = 'fa-refresh spinner-delay-rotate spinner-loader';
-                                this.isSpinnerHidden = 'hide';
-                                saveButton.toggleClass("spinner-loading");
-                                $('#propositionApprovalModal').modal('hide');
-                            }, 1000)
+                            this.$eventHub.emit('BUTTON_LISTEN_FOR_SUCCESS');
                             toastr.success(this.lang('Uspješno obavljeno'));
                         })
                         .catch(() => {
-                            this.spinnerType = 'fa-times spinner-fail';
-                            setTimeout(() => {
-                                this.spinnerType = 'fa-refresh spinner-delay-rotate spinner-loader';
-                                this.isSpinnerHidden = 'hide';
-                                saveButton.toggleClass("spinner-loading");
-                            }, 1000)
+                            this.$eventHub.emit('BUTTON_LISTEN_FOR_FAILURE');
                             toastr.error(this.lang('Došlo je do problema. Pokušajte ponovno'));
                         })
                 }
+            },
+            hideModal() {
+                $('#propositionApprovalModal').modal('hide');
             }
         }
     }

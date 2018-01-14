@@ -22,7 +22,7 @@ export default {
             state.active_offer = Object.keys(state.offers)[0];
         },
         addFile(state, payload) {
-            state.offers[payload.offer].files.push(payload.file);
+            state.offers[state.active_offer].files.push(payload.file);
         },
         deleteFile(state, payload) {
             state.offers[payload.offer].files = _.filter(state.offers[payload.offer].files, (file) => {
@@ -30,7 +30,7 @@ export default {
             })
         },
         filenameSave(state, payload) {
-            _.forEach(state.offers[payload.offer].files, (o) => {
+            _.forEach(state.offers[state.active_offer].files, (o) => {
                 if (o.id === payload.id) {
                     o.title = payload.title;
                 }
@@ -58,9 +58,9 @@ export default {
             });
         },
         deleteFile({commit}, payload) {
-            commit('deleteFile', payload);
+            commit('deleteFile', payload.data);
             //make request to remove from system
-            axios.delete('/api/file/'+payload.id);
+            axios.delete('/api/file/'+payload.data.id);
         },
         filenameSave({commit}, payload) {
             commit('filenameSave', payload);

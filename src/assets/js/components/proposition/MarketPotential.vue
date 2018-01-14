@@ -63,7 +63,8 @@
                 return false;
             },
             fileWarning(id) {
-                this.$store.dispatch('proposition/listenForWarning', {vue: this, data: {id: id}});
+                console.log(id);
+                this.$store.dispatch('proposition/listenForWarning', {vue: this, data: id});
                 jQuery('#modal-warning').modal('show');
             },
             fileAdd: function(data) {

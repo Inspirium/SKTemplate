@@ -43,7 +43,7 @@ export const routes = [
             { path: ':id/edit/categorization', component: Categorization, meta: {save : 'categorization', validate: {id:'int'}, breadcrumb: 'Categorization'} },
             { path: ':id/edit/market_potential', component: MarketPotential, meta: {save : 'market_potential', validate: {id:'int'}, breadcrumb: 'Market Potential', warning: 'proposition/market_potential/deleteFile'} },
             { path: ':id/edit/technical_data', component: TechnicalData, meta: {save : 'technical_data', validate: {id:'int'}, breadcrumb: 'Technical Data'} },
-            { path: ':id/edit/print', component: Print, meta: {save : 'print', validate: {id:'int'}, breadcrumb: 'Print'} },
+            { path: ':id/edit/print', component: Print, meta: {save : 'print', validate: {id:'int'}, breadcrumb: 'Print', warning: 'proposition/print/deleteFile'} },
             { path: ':id/edit/authors_expense', component: AuthorsExpense, meta: {save : 'authors_expense', validate: {id:'int'}, breadcrumb: 'Authors Expense'} },
             { path: ':id/edit/production_expense', component: ProductionExpense, meta: {save : 'production_expense', validate: {id:'int'}, breadcrumb: 'Production Expense'} },
             { path: ':id/edit/marketing_expense', component: MarketingExpense, meta: {save : 'marketing_expense', validate: {id:'int'}, breadcrumb: 'Marketing Expense'} },
