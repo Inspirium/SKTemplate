@@ -16,9 +16,9 @@
         <div class="activity align-items-center mt-1">
             @if(isset($notification->data['tasktype']))
                 @if(is_array($notification->data['tasktype']))
-                    <div class="activity-label mx-1 {{ $notification->data['tasktype']['className'] }}">{{ $notification->data['tasktype']['title'] }}</div>
+                    <div class="activity-label mx-1 {{ $notification->data['tasktype']['className'] }}">@lang($notification->data['tasktype']['title'])</div>
                 @else
-                    <div class="activity-label mx-1 tasktype-1">{{ $notification->data['tasktype'] }}</div>
+                    <div class="activity-label mx-1 tasktype-1">@lang($notification->data['tasktype'])</div>
                 @endif
             @endif
             <div class="activity-avatar file-box-sty d-flex align-items-center">
