@@ -18,11 +18,11 @@
            </div>
            <div class="col-md-3">
                 <h6 class="white-label">{{ lang('Difference') }}</h6>
-                <h3 class="mb-1 text-white">{{ Math.abs(total_difference) | flexCurrency(' kn', 2) }}</h3>
+                <h3 class="mb-1 text-white">{{ total_difference | flexCurrency(' kn', 2) }}</h3>
            </div>
            <div class="col-md-3">
                 <h6 class="white-label">{{ lang('Difference in precentage') }}</h6>
-                <h3 class="mb-1 text-white">{{ Math.abs(total_percent_difference) }}%</h3>
+                <h3 class="mb-1 text-white">{{ total_percent_difference }}%</h3>
            </div>
         </div>
 
@@ -242,10 +242,6 @@
                     { designation: 'powerpoint_presentation', title: 'Powerpoint Presentation'},
                     { designation: 'additional_expenses', title: 'Additional Expenses'}
                     ],
-                employee: '',
-                e_suggestions: [],
-                employees: [],
-                description: '',
                 cancel: false,
                 line: {
                     title: '',
@@ -280,17 +276,16 @@
         },
         computed: {
             total_budget() {
-                console.log(this.pro);
-                return _.sumBy(this.authors, (a) =>{return Number(a.expenses[0].totals)}) + Number(this.production_expense.budget.totals.total) + Number(this.marketing_expense.budget.totals);
+                return _.sumBy(this.authors, (a) =>{return Number(a.expenses[0].totals)}) + Number(this.production_expense.budget.totals.total) + Number(this.marketing_expense.budget.totals) + Number(this.production_expense.budget.totals.layout);
             },
             total_expenses() {
-                return _.sumBy(this.authors, (a) =>{return Number(a.expenses[1].totals)}) + Number(this.production_expense.expense.totals.total) + Number(this.marketing_expense.expense.totals);
+                return _.sumBy(this.authors, (a) =>{return Number(a.expenses[1].totals)}) + Number(this.production_expense.expense.totals.total) + Number(this.marketing_expense.expense.totals) + Number(this.production_expense.expense.totals.layout);
             },
             total_difference() {
-                return this.total_budget - this.total_expenses;
+                return Math.abs(this.total_budget - this.total_expenses);
             },
             total_percent_difference() {
-                return Math.round( this.total_difference / this.total_budget * 100 );
+                return Math.abs(Math.round( this.total_difference / this.total_budget * 100 ));
             },
             ...mapState('proposition/compare', [
                 'production_expense', 'marketing_expense', 'authors', 'requests'

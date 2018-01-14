@@ -49,9 +49,7 @@ export default {
         initData(state, payload) {
             for (let i in Object.keys(state)) {
                 let key = Object.keys(state)[i];
-                if (payload[key]) {
-                    state[key] = payload[key];
-                }
+                state[key] = payload[key];
             }
         },
         addCirculation(state, circulation) {

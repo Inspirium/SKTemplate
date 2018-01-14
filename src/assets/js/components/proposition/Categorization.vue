@@ -66,6 +66,7 @@
         <!-- Dropdown menu -->
         <div class="col-md-6">
             <select class="mdb-select" v-model="categorization.school_type" multiple v-bind:searchable="lang('Search here...')">
+                <option value="" disabled selected>{{ lang('Choose your option') }}</option>
                 <option v-for="(item, key) in school_types" v-bind:value="key">{{ item.name }}</option>
             </select>
             <label>{{ lang('School type') }}</label>
