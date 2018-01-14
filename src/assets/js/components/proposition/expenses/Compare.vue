@@ -69,6 +69,35 @@
                     <td class="text-right" v-bind:data-title="lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval('author_expense.'+i)" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
                 </template>
             </tr>
+            <tr>
+                <th scope="row">1</th>
+                <td v-bind:data-title="lang('Title')">{{ lang('Other Author Expenses') }}</td>
+                <td class="text-right" v-bind:data-title="lang('Budget')">{{ authors_other.budget | flexCurrency(' kn', 2) }}</td>
+                <td class="text-right" v-bind:data-title="lang('Expense Total')">{{ authors_other.expense | flexCurrency(' kn', 2) }}</td>
+                <td class="text-right" v-bind:data-title="lang('Difference')">{{ Math.abs(diff = authors_other.budget - authors_other.expense) | flexCurrency(' kn', 2) }}</td>
+                <template v-if="requests['authors_other'] && requests['authors_other'][0] && requests['authors_other'][0].status === 'requested'">
+                    <td class="text-right" v-bind:data-title="lang('Cost pending')">
+                        <div class="file-box-sty icon icon-cost-pending">{{ lang('Cost Approval Pending') }}
+
+                        </div>
+                    </td>
+                </template>
+                <template v-else-if="requests['authors_other'] && requests['authors_other'][0] && requests['authors_other'][0].status === 'denied'">
+                    <td class="text-right" v-bind:data-title="lang('Cost Rejected')">
+                        <div class="file-box-sty icon icon-cost-rejected" v-on:click="sendForApproval('authors_other')">{{ lang('Cost Rejected') }}
+                        </div>
+                    </td>
+                </template>
+                <template v-else-if="requests['authors_other'] && requests['authors_other'][0] && requests['authors_other'][0].status === 'accepted'">
+                    <td class="text-right" v-bind:data-title="lang('Cost Approved')">
+                        <div class="file-box-sty icon icon-cost-approved">{{ lang('Cost Approved') }}
+                        </div>
+                    </td>
+                </template>
+                <template v-else>
+                    <td class="text-right" v-bind:data-title="lang('Send for Approval')"><div class="file-box-sty icon icon-cost-approval" v-on:click="sendForApproval('authors_other')" v-if="diff<0">{{ lang('Send for Approval') }}</div></td>
+                </template>
+            </tr>
             </tbody>
         </table>
 
@@ -276,10 +305,10 @@
         },
         computed: {
             total_budget() {
-                return _.sumBy(this.authors, (a) =>{return Number(a.expenses[0].totals)}) + Number(this.production_expense.budget.totals.total) + Number(this.marketing_expense.budget.totals) + Number(this.production_expense.budget.totals.layout);
+                return _.sumBy(this.authors, (a) =>{return Number(a.expenses[0].totals)}) + Number(this.production_expense.budget.totals.total) + Number(this.marketing_expense.budget.totals) + Number(this.production_expense.budget.totals.layout) + Number(this.authors_other.budget);
             },
             total_expenses() {
-                return _.sumBy(this.authors, (a) =>{return Number(a.expenses[1].totals)}) + Number(this.production_expense.expense.totals.total) + Number(this.marketing_expense.expense.totals) + Number(this.production_expense.expense.totals.layout);
+                return _.sumBy(this.authors, (a) =>{return Number(a.expenses[1].totals)}) + Number(this.production_expense.expense.totals.total) + Number(this.marketing_expense.expense.totals) + Number(this.production_expense.expense.totals.layout) + Number(this.authors_other.expense);
             },
             total_difference() {
                 return Math.abs(this.total_budget - this.total_expenses);
@@ -288,7 +317,7 @@
                 return Math.abs(Math.round( this.total_difference / this.total_budget * 100 ));
             },
             ...mapState('proposition/compare', [
-                'production_expense', 'marketing_expense', 'authors', 'requests'
+                'production_expense', 'marketing_expense', 'authors', 'requests', 'authors_other'
             ])
         },
         methods: {
@@ -323,6 +352,11 @@
                     this.line.title = this.authors[vars[1]].name;
                     this.line.budget = this.authors[vars[1]].expenses[0].totals;
                     this.line.expense = this.authors[vars[1]].expenses[1].totals;
+                }
+                if (what === 'authors_other') {
+                    this.line.title = 'Other Authors Expenses';
+                    this.line.budget = this.authors_other.budget;
+                    this.line.expense = this.authors_other.expense;
                 }
                 this.expense = what;
                 $('#ModalCostApprove').modal('show');

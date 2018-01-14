@@ -17,6 +17,10 @@ let initialState = {
         }
     },
     authors : [],
+    authors_other: {
+        budget: 0,
+        expense: 0
+    },
     requests: {}
 };
 export default {
@@ -39,6 +43,10 @@ export default {
             }
         },
         authors : [],
+        authors_other: {
+            budget: 0,
+            expense: 0
+        },
         requests: {}
     },
     mutations: {
