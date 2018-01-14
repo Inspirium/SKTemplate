@@ -62,7 +62,9 @@
                 description: '',
 
                 departments: [],
-                cancel: false
+                cancel: false,
+                spinnerType: 'fa-refresh spinner-delay-rotate spinner-loader',
+                isSpinnerHidden: 'hide'
             }
         },
         methods: {
@@ -114,6 +116,12 @@
                         employees: this.employees,
                         description: this.description
                     });
+                    this.employees = [];
+                    this.employee = '';
+                    this.description = '';
+                    this.spinnerType = 'fa-refresh spinner-delay-rotate spinner-loader';
+                    this.isSpinnerHidden = 'hide';
+                    saveButton.toggleClass("spinner-loading");
                     $('#taskOrderApprovalModal').modal('hide');
                 }
             }
