@@ -1,5 +1,5 @@
 <template>
-    <div class="modal fade" v-bind:id="id" tabindex="-1" role="dialog" aria-hidden="true" v-on:dragenter.prevent="fileDragEnter" v-on:drop.prevent="fileDrop($event)">
+    <div class="modal fade upload-style" v-bind:id="id" tabindex="-1" role="dialog" aria-hidden="true" v-on:dragenter.prevent="fileDragEnter" v-on:drop.prevent="fileDrop($event)">
         <div class="modal-dialog" role="document" v-on:dragenter.prevent="fileDragEnter">
             <!--Content-->
             <div class="modal-content">
