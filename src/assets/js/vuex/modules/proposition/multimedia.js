@@ -27,9 +27,16 @@ export default {
             }
         },
         deleteFile(state, payload) {
-            state[payload.type] = _.filter(state[payload.type], (file) => {
+            if (payload.isFinal) {
+                state.psd = _.filter(state.psd, (file) => {
                     return file.id !== payload.id;
                 })
+            }
+            else {
+                state.jpg = _.filter(state.jpg, (file) => {
+                    return file.id !== payload.id;
+                })
+            }
         },
         filenameSave(state, payload) {
             let files = payload.isFinal?state.psd:state.jpg;

@@ -621,7 +621,7 @@ $sk-skin-btn-default: #293756;
             }
         }
         &#upload-modal,
-        &#initial-documents {
+        &.upload-style {
             input[type="text"] {
                 background-color: transparent;
                 border: none;
@@ -632,7 +632,7 @@ $sk-skin-btn-default: #293756;
             }
             .progress {
                 background-color: $sk-skin-background;
-                height: 2px
+                height: 2px;
             }
             .file-icon {
                 font-size: 0.85rem;
