@@ -25,9 +25,16 @@ export default {
             }
         },
         deleteFile(state, payload) {
-            state[payload.type] = _.filter(state[payload.type], (file) => {
+            if (data.isFinal) {
+                state.leaflet = _.filter(state.leaflet, (file) => {
                     return file.id !== payload.id;
                 })
+            }
+            else {
+                state.cover = _.filter(state.cover, (file) => {
+                    return file.id !== payload.id;
+                })
+            }
         },
         filenameSave(state, payload) {
             let files = payload.isFinal?state.leaflet:state.cover;

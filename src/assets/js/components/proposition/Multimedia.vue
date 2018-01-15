@@ -17,7 +17,7 @@
                 </div>
                 <div class="file-box-sty">{{ file.created_at.date | moment('DD.MM.YYYY.') }}</div>
                 <div class="file-box-sty icon icon-download" v-on:click="documentDownload(file.link)">Preuzmi</div>
-                <div class="file-box-sty icon icon-cancel" v-on:click="fileWarning({id: file.id, type: 'jpg'})">Obriši</div>
+                <div class="file-box-sty icon icon-cancel" v-on:click="fileWarning({id: file.id, isFinal: false})">Obriši</div>
             </div>
         </div>
         <div class="justify-content-center d-flex mb-4">
@@ -32,7 +32,7 @@
                 </div>
                 <div class="file-box-sty">{{ file.created_at.date | moment('DD.MM.YYYY.') }}</div>
                 <div class="file-box-sty icon icon-download" v-on:click="documentDownload(file.link)">Preuzmi</div>
-                <div class="file-box-sty icon icon-cancel" v-on:click="fileWarning({id: file.id, type: 'psd'})">Obriši</div>
+                <div class="file-box-sty icon icon-cancel" v-on:click="fileWarning({id: file.id, isFinal: true})">Obriši</div>
             </div>
         </div>
         <div class="justify-content-center d-flex mb-4">
