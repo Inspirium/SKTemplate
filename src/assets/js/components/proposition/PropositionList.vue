@@ -42,6 +42,7 @@
 </template>
 <script>
     import components from '../table_components'
+    //import TitleCell from '../table_components/TitleCell'
     export default {
         components,
         data: function () {

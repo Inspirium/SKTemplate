@@ -231,16 +231,12 @@
 </div>
 </template>
 <script>
-    import uploadModal from '../general/UploadModal.vue';
     import {mapState} from 'vuex'
     export default {
         data: function () {
             return {
                 option_colors: ['One Colour', 'Two Colours', 'Three Colours', 'Full Colour', 'Fifth Colour'],
             }
-        },
-        components: {
-            uploadModal
         },
         computed: {
             active_offer() {

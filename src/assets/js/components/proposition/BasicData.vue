@@ -137,9 +137,6 @@
 </template>
 
 <script>
-    import uploadModal from '../general/UploadModal.vue';
-    import AuthorsModal from './partials/AuthorsModal.vue';
-
     export default {
         name: 'BasicData',
         data: function() {
@@ -148,10 +145,6 @@
                 author: '',
                 suggestions: []
             }
-        },
-        components: {
-            'upload-modal' : uploadModal,
-            'authors-modal' : AuthorsModal
         },
         methods: {
             documentAdd: function() {

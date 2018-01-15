@@ -21,7 +21,7 @@
         <template v-else>
             <router-view :key="$route.fullPath"></router-view>
 
-            <proposition-footer-buttons v-bind="buttons" v-on:warningSaved="continueNavigation"></proposition-footer-buttons>
+            <footer-buttons v-bind="buttons" v-on:warningSaved="continueNavigation"></footer-buttons>
         </template>
     </div>
 </template>

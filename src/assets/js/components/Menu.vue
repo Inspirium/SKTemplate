@@ -20,6 +20,7 @@
 </template>
 <script>
     export default {
+        name: "inspirium-menu",
         data: function () {
             return {
             }

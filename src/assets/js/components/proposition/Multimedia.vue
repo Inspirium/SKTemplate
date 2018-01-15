@@ -45,13 +45,9 @@
 
 </template>
 <script>
-    import uploadModal from '../general/UploadModal.vue';
     export default {
         data: function () {
             return {}
-        },
-        components: {
-            'upload-modal' : uploadModal
         },
         computed: {
             multimedia() {

@@ -1,11 +1,11 @@
 export default {
-    TitleCell: require('./TitleCell').default,
-    Handle: require('./Handle').default,
-    AuthorCell: require('./AuthorCell').default,
-    DateCell: require('./DateCell').default,
-    NewOrder: require('./NewOrder').default,
-    TaskType: require('./TaskType').default,
-    WaitingTime: require('./WaitingTime').default,
-    Deadline: require('./Deadline').default,
-    TaskStatus: require('./TaskStatus').default
+    TitleCell: require('./TitleCell'),
+    Handle: require('./Handle'),
+    AuthorCell: require('./AuthorCell'),
+    DateCell: require('./DateCell'),
+    NewOrder: require('./NewOrder'),
+    TaskType: require('./TaskType'),
+    WaitingTime: require('./WaitingTime'),
+    Deadline: require('./Deadline'),
+    TaskStatus: require('./TaskStatus')
 }

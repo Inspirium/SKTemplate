@@ -318,7 +318,7 @@
 
 
                 <!-- Modal for reassigning task -->
-                <modal-reassign v-on:reassign="reassignTask"></modal-reassign>
+                <task-reassign v-on:reassign="reassignTask"></task-reassign>
                 <warning-modal v-on:warningConfirmed="listenForWarning" v-on:warningCanceled="clearDelete"></warning-modal>
             </template>
         </template>
@@ -330,9 +330,6 @@
     </div>
 </template>
 <script>
-    import ModalReassign from '../modals/TaskReassign'
-    import uploadModal from '../general/UploadModal'
-    import WarningModal from '../modals/WarningModal'
     export default {
         data: function () {
             return {
@@ -410,9 +407,6 @@
                 type_to_delete: false,
                 task_to_delete: false
             }
-        },
-        components: {
-            ModalReassign, uploadModal, WarningModal
         },
         computed: {
             filteredMessages() {

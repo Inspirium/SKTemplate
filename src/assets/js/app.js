@@ -25,24 +25,34 @@ import { sync } from 'vuex-router-sync'
 import Datatable from 'vue2-datatable-component'
 import EventHub from 'vue-event-hub';
 import datatable_locale from './fixes/datatable-hr'
-
+//import components from './components'
 
 //import { VuexValidator } from "vuex-validator";
 //import validators from "./vuex/validators";
 require('moment/locale/hr')
 
+Vue.component('inspirium-menu', require('./components/Menu'));
+Vue.component('inspirium-notifications', require('./components/Notifications'));
+Vue.component('inspirium-breadcrumbs', require('./components/general/Breadcrumbs'));
+Vue.component('inspirium-tablesearch', require('./components/TableSearch'));
+Vue.component('spinner-button', require('./components/general/SpinnerButton'));
+Vue.component('footer-buttons', require('./components/general/FooterButtons'));
+//modals
+Vue.component('warning-not-saved-modal', require('./components/modals/WarningNotSavedModal'));
+Vue.component('warning-modal', require('./components/modals/WarningModal'));
+Vue.component('assign-documents', require('./components/modals/AssignDocuments'));
+Vue.component('assign-proposition', require('./components/modals/AssignProposition'));
+Vue.component('expense-approval-modal', require('./components/modals/ExpenseApprovalModal'));
+Vue.component('proposition-approval-modal', require('./components/modals/PropositionApprovalModal'));
+Vue.component('task-order-approval-modal', require('./components/modals/TaskOrderApprovalModal'));
+Vue.component('task-reassign', require('./components/modals/TaskReassign'));
+Vue.component('task-reject', require('./components/modals/TaskReject'));
+Vue.component('upload-modal', require('./components/modals/UploadModal'));
+Vue.component('authors-modal', require('./components/modals/AuthorsModal'));
+
 Vue.prototype.lang= function (key) {
     return _.get(window.translations, key, key);
 };
-
-Vue.component('inspirium-tablesearch', require('./components/TableSearch.vue').default);
-Vue.component('inspirium-notifications', require('./components/Notifications.vue').default);
-Vue.component('inspirium-menu', require('./components/Menu.vue').default);
-Vue.component('inspirium-breadcrumbs', require('./components/general/Breadcrumbs.vue').default);
-Vue.component('not-saved-modal', require('./components/modals/WarningNotSavedModal.vue').default);
-Vue.component('inspirium-warning-modal', require('./components/modals/WarningModal.vue').default);
-Vue.component('proposition-footer-buttons', require('./components/proposition/partials/FooterButtons.vue').default);
-Vue.component('spinner-button', require('./components/general/SpinnerButton').default);
 
 Vue.use(VueMoment, {moment});
 Vue.use(VueRouter);
@@ -112,7 +122,8 @@ Vue.filter('flexCurrency', function (value, currency, decimals) {
 const app = new Vue({
     el: '#app',
     store,
-    router
+    router,
+    //components
 });
 
 

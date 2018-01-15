@@ -40,15 +40,9 @@
     </div>
 </template>
 <script>
-    import uploadModal from '../general/UploadModal.vue'
-    import assignDocuments from '../modals/AssignDocuments'
     export default {
         data: function () {
             return {}
-        },
-        components: {
-            uploadModal,
-            assignDocuments
         },
         computed: {
             files() {

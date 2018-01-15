@@ -23,13 +23,8 @@
     </div>
 </template>
 <script>
-    import AssignProposition from '../../modals/AssignProposition'
-    import WarningModal from '../../modals/WarningModal'
-    import WarningNotSavedModal from "../../modals/WarningNotSavedModal";
-    import PropositionApprovalModal from '../../modals/PropositionApprovalModal'
-    import assignDocuments from '../../modals/AssignDocuments'
-
     export default {
+        name: "proposition-footerbuttons",
         props: {
             save: {
                 type: Boolean,
@@ -66,10 +61,6 @@
                 departments: [],
                 cancel: false
             }
-        },
-        components: {
-            WarningNotSavedModal,
-            AssignProposition, WarningModal, PropositionApprovalModal, assignDocuments
         },
         computed: {
             canSendForApproval() {
