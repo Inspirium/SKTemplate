@@ -239,8 +239,8 @@
             }
         },
         computed: {
-            active_offer() {
-                return this.$deepModel('proposition.print.active_offer')
+            print() {
+                return this.$deepModel('proposition.print')
             },
             offers() {
                 return this.$deepModel('proposition.print.offers');
@@ -248,7 +248,7 @@
         },
         methods: {
             switchTab: function(e) {
-                this.active_offer = $(e.target).data('index');
+                this.print.active_offer = $(e.target).data('index');
                 $(e.target).tab('show');
             },
             downloadOffer: function(id, type) {
