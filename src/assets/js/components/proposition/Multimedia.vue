@@ -4,13 +4,13 @@
 
         <!-- Textarea -->
         <div class="md-form mt-5">
-            <textarea id="note" name="note" class="md-textarea" v-model="webshop"></textarea>
+            <textarea id="note" name="note" class="md-textarea" v-model="multimedia.webshop"></textarea>
             <label for="note">{{ lang('Webshop Description') }}</label>
         </div>
 
         <div class="page-name-l mb-3 mt-1">{{ lang('Cover - JPG format') }}</div>
         <div class="files mt-2 mb-2">
-            <div class="file-box file-box-l d-flex align-items-center" v-for="(file,index) in jpg">
+            <div class="file-box file-box-l d-flex align-items-center" v-for="(file,index) in multimedia.jpg">
                 <a v-bind:href="file.link" v-on:click.prevent="documentDownload(file.link)" class="file-icon">{{ file.title }}</a>
                 <div class="file-box-sty ml-auto d-flex">
                     <a v-bind:href="'human_resources/employee/'+file.owner.id+'/show/'"><img class="profile-m-1 mr-1 align-self-center" v-bind:src="file.owner.image">{{ file.owner.name }}</a>
@@ -25,7 +25,7 @@
         </div>
         <div class="page-name-l mb-3 mt-1">{{ lang('Cover 3D - PSD format') }}</div>
         <div class="files mt-2 mb-2">
-            <div class="file-box file-box-l d-flex align-items-center" v-for="(file,index) in psd">
+            <div class="file-box file-box-l d-flex align-items-center" v-for="(file,index) in multimedia.psd">
                 <a v-bind:href="file.link" v-on:click.prevent="documentDownload(file.link)" class="file-icon">{{ file.title }}</a>
                 <div class="file-box-sty ml-auto d-flex">
                     <a v-bind:href="'human_resources/employee/'+file.owner.id+'/show'"><img class="profile-m-1 mr-1 align-self-center" v-bind:src="file.owner.image">{{ file.owner.name }}</a>
@@ -39,8 +39,8 @@
             <button type="button" class="btn btn-neutral" v-on:click="documentAdd('cover-psd')">{{ lang('Upload') }}</button>
         </div>
 
-        <upload-modal id="cover-jpg" action="/api/file" accept=".jpg, .jpeg" disk="proposition" dir="multimedia.jpg" v-on:fileDelete="fileDelete" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave"></upload-modal>
-        <upload-modal id="cover-psd" action="/api/file" accept=".psd" disk="proposition" dir="multimedia.psd" v-on:fileDelete="fileDelete" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave" v-bind:isFinal="true"></upload-modal>
+        <upload-modal id="cover-jpg" action="/api/file" accept=".jpg, .jpeg" disk="proposition" dir="multimedia.jpg" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave"></upload-modal>
+        <upload-modal id="cover-psd" action="/api/file" accept=".psd" disk="proposition" dir="multimedia.psd" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave" v-bind:isFinal="true"></upload-modal>
     </div>
 
 </template>
@@ -53,7 +53,11 @@
         components: {
             'upload-modal' : uploadModal
         },
-        computed: {},
+        computed: {
+            multimedia() {
+                return this.$deepModel('proposition.multimedia');
+            }
+        },
         methods: {
             documentAdd: function(modal) {
                 jQuery('#'+modal).modal('show');
@@ -66,15 +70,12 @@
                 this.$store.dispatch('proposition/listenForWarning', {vue: this, data: data});
                 jQuery('#modal-warning').modal('show');
             },
-        },
-        mounted() {
-            //TODO: move to store
-            axios.get('/api/proposition/' + this.$route.params.id + '/files/multimedia')
-                .then((res) => {
-                    this.jpg = res.data.jpg;
-                    this.psd = res.data.psd;
-                    this.webshop = res.data.webshop;
-                })
+            fileAdd: function (data) {
+                this.$store.commit('proposition/multimedia/addFile', data);
+            },
+            fileNameSave: function (data) {
+                this.$store.dispatch('proposition/multimedia/filenameSave', data);
+            },
         }
     }
 </script>

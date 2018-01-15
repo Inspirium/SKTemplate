@@ -50,21 +50,28 @@ export default {
         }
     },
     actions: {
-        saveData({state, commit, rootState}, id) {
-            return new Promise((resolve, reject) => {
-                if (id) {
-                    let path = '/api/proposition/' + id + '/files/' + rootState.route.meta.dir;
-                    axios.post(path, state)
-                        .then((res) => {
-                            commit('initData', res.data);
-                            resolve();
-                        })
-                        .catch(() => { reject(); });
-                }
-                else {
-                    reject();
-                }
-            });
+        saveData({state, commit, rootState, dispatch}, id) {
+            if (rootState.route.meta.dir === 'marketing' || rootState.route.meta.dir === 'multimedia'){
+                return dispatch( 'proposition/' + rootState.route.meta.dir + '/saveData', id, {root: true});
+            }
+            else {
+                return new Promise((resolve, reject) => {
+                    if (id) {
+                        let path = '/api/proposition/' + id + '/files/' + rootState.route.meta.dir;
+                        axios.post(path, state)
+                            .then((res) => {
+                                commit('initData', res.data);
+                                resolve();
+                            })
+                            .catch(() => {
+                                reject();
+                            });
+                    }
+                    else {
+                        reject();
+                    }
+                });
+            }
         },
         deleteFile({commit}, payload) {
             commit('deleteFile', payload.data);
