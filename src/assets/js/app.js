@@ -24,6 +24,8 @@ import { routes } from './routes'
 import { sync } from 'vuex-router-sync'
 import Datatable from 'vue2-datatable-component'
 import EventHub from 'vue-event-hub';
+import datatable_locale from './fixes/datatable-hr'
+
 
 //import { VuexValidator } from "vuex-validator";
 //import validators from "./vuex/validators";
@@ -45,7 +47,7 @@ Vue.component('spinner-button', require('./components/general/SpinnerButton').de
 Vue.use(VueMoment, {moment});
 Vue.use(VueRouter);
 Vue.use(VueDeepSet);
-Vue.use(Datatable);
+Vue.use(Datatable, { locale: datatable_locale });
 Vue.use(EventHub);
 
 Vue.config.productionTip = false;
