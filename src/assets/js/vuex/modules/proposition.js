@@ -114,7 +114,12 @@ export default {
                             }
                             axios.get(path)
                                 .then((res) => {
-                                    commit(rootState.route.meta.save + '/initData', res.data);
+                                    if (rootState.route.meta.dir === 'multimedia' || rootState.route.meta.dir === 'marketing') {
+                                        commit(rootState.route.meta.dir + '/initData', res.data);
+                                    }
+                                    else {
+                                        commit(rootState.route.meta.save + '/initData', res.data);
+                                    }
                                     resolve();
                                 })
                                 .catch((err) => {
