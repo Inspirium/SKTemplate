@@ -45,6 +45,9 @@
                         approval: true
                     }
                 }
+                if (this.$route.meta.save === 'warehouse') {
+                    return {}
+                }
                 if (this.$route.meta.dir) {
                     return {
                         save: true,

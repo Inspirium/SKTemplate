@@ -136,7 +136,7 @@
                         final_price: {
                             enabled: true,
                             title: 'Final Price',
-                            order: 5,
+                            order: 1,
                             key: 'final_price',
                             children : {
                                 price_definition: {
@@ -150,7 +150,7 @@
                         expenses: {
                             enabled: true,
                             title: 'Expenses',
-                            order: 1,
+                            order: 2,
                             key: 'expenses',
                             children : {
                                 authors_expense: {
@@ -194,7 +194,7 @@
                         text_preparation: {
                             enabled: true,
                             title: 'Text Preparation',
-                            order: 2,
+                            order: 3,
                             key: 'preparation',
                             children : {
                                 translation: {
@@ -250,7 +250,7 @@
                         design: {
                             enabled: true,
                             title: 'Design',
-                            order: 3,
+                            order: 4,
                             key: 'design',
                             children : {
                                 cover_design: {
@@ -270,7 +270,7 @@
                         layout: {
                             enabled: true,
                             title: 'Layout',
-                            order: 4,
+                            order: 5,
                             key: 'layout',
                             children : {
                                 first_block_layout: {
