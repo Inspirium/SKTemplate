@@ -67,6 +67,11 @@
                 isSpinnerHidden: 'hide'
             }
         },
+        computed: {
+            enabledAssign() {
+                return !!this.employees.length
+            }
+        },
         methods: {
             autocomplete: function(event, type) {
                 if (this.cancel) {

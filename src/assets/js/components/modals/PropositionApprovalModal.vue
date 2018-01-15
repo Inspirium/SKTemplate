@@ -38,7 +38,7 @@
                 </div>
                 <!--Footer-->
                 <div class="modal-footer btn-footer">
-                    <spinner-button v-on:button_clicked="assignValues" v-on:button_cleanup_success="hideModal"></spinner-button>
+                    <spinner-button v-on:button_clicked="assignValues" v-on:button_cleanup_success="hideModal" :enabled="enabledAssign"></spinner-button>
                     <button type="button" class="btn btn-lg btn-cancel" data-dismiss="modal">{{ lang('Cancel') }}</button>
                 </div>
             </div>
@@ -61,6 +61,11 @@
 
                 departments: [],
                 cancel: false
+            }
+        },
+        computed: {
+            enabledAssign() {
+                return !!this.employees.length
             }
         },
         methods: {

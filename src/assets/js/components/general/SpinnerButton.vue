@@ -27,7 +27,10 @@
                 type: String,
                 default: 'fa fa-5x fa-fw text-white'
             },
-
+            enabled: {
+                type: Boolean,
+                default: true
+            }
         },
         computed: {
             bClasses() {
@@ -39,11 +42,16 @@
         },
         methods: {
             click() {
-                this.spinnerLoading = ' spinner-loading';
-                this.isSpinnerHidden = '';
-                this.$eventHub.on('BUTTON_LISTEN_FOR_SUCCESS', this.success);
-                this.$eventHub.on('BUTTON_LISTEN_FOR_FAILURE', this.failure);
-                this.$emit('button_clicked');
+                if (this.enabled) {
+                    this.spinnerLoading = ' spinner-loading';
+                    this.isSpinnerHidden = '';
+                    this.$eventHub.on('BUTTON_LISTEN_FOR_SUCCESS', this.success);
+                    this.$eventHub.on('BUTTON_LISTEN_FOR_FAILURE', this.failure);
+                    this.$emit('button_clicked');
+                }
+                else {
+                    this.$emit('button_not_enabled')
+                }
             },
             success() {
 

@@ -98,7 +98,7 @@
         <div class="justify-content-center d-flex mt-2 mb-4">
             <button type="button" class="btn btn-neutral" v-on:click="documentAdd('initial-documents')">{{ lang('Upload') }}</button>
         </div>
-
+        <template v-if="task.id">
         <!-- Final Documents -->
         <div class="page-name-xl mt-4">{{ lang('Final Documents') }}</div>
         <div class="files mt-2 mb-2">
@@ -117,7 +117,7 @@
         <div class="justify-content-center d-flex mt-2 mb-4">
             <button type="button" class="btn btn-neutral" v-on:click="documentAdd('final-documents')">{{ lang('Upload') }}</button>
         </div>
-
+        </template>
         <!-- Footer buttons -->
         <div class="btn-footer mt-2 mb-5 flex-column flex-md-row d-flex p-2">
             <spinner-button v-on:button_clicked="submitTask" v-on:button_cleanup_success="redirect" v-bind:title="'Submit'"></spinner-button>
