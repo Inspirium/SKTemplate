@@ -80,28 +80,52 @@
             </div>
         </div>
 
-        <!-- Documents upload
-        <div class="page-name-l mb-1">{{ lang('Documents') }}</div>
-        <button class="btn btn-neutral btn-addon" type="button">{{ lang('Add Documents') }}</button>
-
-
+        <!-- Initial Documents -->
+        <div class="page-name-xl mt-4">{{ lang('Initial Documents') }}</div>
         <div class="files mt-2 mb-2">
-            <div class="file-box file-box-l d-flex align-items-center" v-for="document in task.documents">
-                <a v-bind:href="document.link" class="file-icon">{{ document.name }}</a>
+            <div class="file-box file-box-l d-flex align-items-center" v-for="(document,index) in task.files.initial">
+                <a v-bind:href="document.link" v-on:click.prevent="documentDownload(document.link)" class="file-icon">{{ document.title }}</a>
                 <div class="file-box-sty ml-auto d-flex">
-                    <img class="profile-m-1 mr-3 float-left align-self-center" v-bind:src="document.owner.image">{{ document.owner.name }}
-                </div>
-                <div class="file-box-sty">{{ document.created_at | moment("dd.MM.YYYY.") }}</div>
-                <div class="file-box-sty icon icon-download">Preuzmi</div>
-                <div class="file-box-sty icon icon-cancel">Obriši</div>
+                    <a v-bind:href="'/human_resources/employee/'+document.owner.id+'/show'"><img class="profile-m-1 mr-1 align-self-center" v-bind:src="document.owner.image">
+                        {{ document.owner.name }}
+                    </a></div>
+                <div class="file-box-sty">{{ document.date }}</div>
+                <div class="file-box-sty icon icon-download" v-on:click="documentDownload(document.link)">{{ lang('Download') }}</div>
+                <div class="file-box-sty icon icon-cancel" v-on:click="fileWarning(index, 'initial')">{{ lang('Delete') }}</div>
             </div>
-        </div>-->
+        </div>
+
+        <div class="justify-content-center d-flex mt-2 mb-4">
+            <button type="button" class="btn btn-neutral" v-on:click="documentAdd('initial-documents')">{{ lang('Upload') }}</button>
+        </div>
+
+        <!-- Final Documents -->
+        <div class="page-name-xl mt-4">{{ lang('Final Documents') }}</div>
+        <div class="files mt-2 mb-2">
+            <div class="file-box file-box-l d-flex align-items-center" v-for="(document,index) in task.files.final">
+                <a v-bind:href="document.link" v-on:click.prevent="documentDownload(document.link)" class="file-icon">{{ document.title }}</a>
+                <div class="file-box-sty ml-auto d-flex">
+                    <a v-bind:href="'/human_resources/employee/'+document.owner.id+'/show'"><img class="profile-m-1 mr-1 align-self-center" v-bind:src="document.owner.image">
+                        {{ document.owner.name }}
+                    </a></div>
+                <div class="file-box-sty">{{ document.date }}</div>
+                <div class="file-box-sty icon icon-download" v-on:click="documentDownload(document.link)">{{ lang('Download') }}</div>
+                <div class="file-box-sty icon icon-cancel" v-on:click="fileWarning(index, 'final')">{{ lang('Delete') }}</div>
+            </div>
+        </div>
+
+        <div class="justify-content-center d-flex mt-2 mb-4">
+            <button type="button" class="btn btn-neutral" v-on:click="documentAdd('final-documents')">{{ lang('Upload') }}</button>
+        </div>
 
         <!-- Footer buttons -->
         <div class="btn-footer mt-2 mb-5 flex-column flex-md-row d-flex p-2">
             <spinner-button v-on:button_clicked="submitTask" v-on:button_cleanup_success="redirect" v-bind:title="'Submit'"></spinner-button>
         </div>
         <!--/. Footer buttons -->
+        <warning-modal v-on:warningConfirmed="listenForWarning" v-on:warningCanceled="clearDelete"></warning-modal>
+        <upload-modal id="initial-documents" action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" v-bind:dir="task.files.path" v-on:fileDelete="fileDelete" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave"></upload-modal>
+        <upload-modal id="final-documents" action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" v-bind:dir="task.files.path" v-on:fileDelete="fileDelete" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave" v-bind:isFinal="true"></upload-modal>
     </div>
     </div>
 </template>
@@ -120,8 +144,14 @@
                     departments: [],
                     priority: '',
                     deadline: '',
-                    documents: []
-                }
+                    files: {
+                        initial: [],
+                        final: [],
+                        path: 'tasks'
+                    }
+                },
+                type_to_delete: false,
+                index_to_delete: false
             }
         },
         computed: {},
@@ -198,6 +228,52 @@
             },
             redirect() {
                 this.$router.push('/tasks');
+            },
+            documentAdd: function(modal) {
+                jQuery('#'+modal).modal('show');
+            },
+            documentDownload: function(link) {
+                window.open(link, "_blank");
+                return false;
+            },
+            fileDelete: function (index, type) {
+                axios.delete('/api/file/'+ this.task.files[this.type_to_delete][this.index_to_delete].id)
+                    .then(() => {
+                        this.task.files[this.type_to_delete].splice(this.index_to_delete, 1);
+                    });
+            },
+            fileAdd: function(data) {
+                if (data.isFinal) {
+                    this.task.files.final.push(data.file);
+                }
+                else {
+                    this.task.files.initial.push(data.file);
+                }
+            },
+            fileNameSave: function(data) {
+                let files = this.task.files.initial;
+                if (data.isFinal) {
+                    files = this.task.files.final;
+                }
+                _.forEach(files, (o) => {
+                    if (o.id === payload.id) {
+                        o.title = data.file.title;
+                    }
+                });
+            },
+            fileWarning(id, type) {
+                this.type_to_delete = type;
+                this.index_to_delete = id;
+                jQuery('#modal-warning').modal('show');
+            },
+            listenForWarning() {
+                if (this.index_to_delete) {
+                    this.fileDelete();
+                }
+            },
+            clearDelete() {
+                this.type_to_delete = false;
+                this.index_to_delete = false;
             }
         },
         mounted: function() {
