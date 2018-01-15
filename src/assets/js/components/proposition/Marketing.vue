@@ -32,8 +32,8 @@
             <button type="button" class="btn btn-neutral" v-on:click="documentAdd('leaflet')">{{ lang('Upload') }}</button>
         </div>
 
-        <upload-modal id="cover-pdf" action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" dir="marketing.cover" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave"></upload-modal>
-        <upload-modal id="leaflet" action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" dir="marketing.leaflet" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave" v-bind:isFinal="true"></upload-modal>
+        <upload-modal id="cover-pdf" action="/api/file" accept=".pdf" disk="proposition" dir="marketing.cover" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave"></upload-modal>
+        <upload-modal id="leaflet" action="/api/file" accept=".pdf, .doc, .docx" disk="proposition" dir="marketing.leaflet" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave" v-bind:isFinal="true"></upload-modal>
     </div>
 
 </template>
