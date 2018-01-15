@@ -113,13 +113,13 @@ const app = new Vue({
 if (window.translations.datepicker) {
     $.extend($.fn.pickadate.defaults, window.translations.datepicker)
 }
-
+/*
 // SideNav init
 $(".button-collapse").sideNav();
 
 // Custom scrollbar init
 var el = document.querySelector('.custom-scrollbar');
-Ps.initialize(el);
+Ps.initialize(el);*/
 
 // Material Select Initialization
 $(document).ready(function() {

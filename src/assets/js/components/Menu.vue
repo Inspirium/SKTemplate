@@ -553,7 +553,18 @@
             }
         },
         mounted: function() {
-            this.$store.dispatch('employee/initUser');
+            this.$store.dispatch('employee/initUser')
+                .then(() => {
+
+                })
+        },
+        watch: {
+            lroutes() {
+                // SideNav init
+                $(".button-collapse").sideNav();
+                // Custom scrollbar init
+                Ps.initialize(document.querySelector('.custom-scrollbar'));
+            }
         }
     }
 </script>
