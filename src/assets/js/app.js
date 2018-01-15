@@ -66,9 +66,14 @@ router.beforeEach((to, from, next) => {
             next('/proposition/start');
             return;
         }
-        else if (store.state.edited) {
+        if (store.state.edited && from.matched[0] === 'proposition') {
             store.commit('editedTrue', {next: next});
             $('#modal-warning-not-saved').modal('show');
+            return;
+        }
+        if (store.state.edited && from.matched[0] !== 'proposition') {
+            store.commit('editedFalse');
+            next();
             return;
         }
         next();

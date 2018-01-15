@@ -45,10 +45,10 @@
 <!-- Scripts -->
 <script src="{{ asset('js/jquery.js') }}"></script>
 <script src="{{ asset('js/popper.js') }}"></script>
-<script src="{{ asset('js/flipclock.js') }}"></script>
+<script src="{{ mix('js/flipclock.js') }}"></script>
 <script src="{{ asset('js/bootstrap.js') }}"></script>
-<script src="{{ asset('js/mdb.js') }}"></script>
-<script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ mix('js/mdb.js') }}"></script>
+<script src="{{ mix('js/app.js') }}"></script>
 <script src="{{ asset('js/scripts.js') }}"></script>
 @endif
 </body>

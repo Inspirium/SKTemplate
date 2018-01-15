@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-12">
             <select id="supergroup" class="mdb-select" v-model="supergroup">
-                <option disabled >{{ lang('Choose Category') }}</option>
+                <option value="" selected>{{ lang('Choose Category') }}</option>
                 <template v-if="Object.keys(categories).length">
                     <option v-for="(item, key) in categories" v-bind:value="key">{{ item.name }}</option>
                 </template>
@@ -15,7 +15,7 @@
 
                <div class="col-md-6">
                     <select class="mdb-select" v-model="upgroup">
-                        <option disabled >{{ lang('Choose Category') }}</option>
+                        <option value="" selected>{{ lang('Choose Category') }}</option>
                         <template v-if="supergroup && Object.keys(categories).length">
                         <option v-for="(item, key) in categories[supergroup]['groups']" v-bind:value="key">{{ item.name }}</option>
                         </template>
@@ -25,7 +25,7 @@
 
                 <div class="col-md-6">
                     <select class="mdb-select" v-model="group">
-                        <option disabled >{{ lang('Choose Category') }}</option>
+                        <option value="" selected>{{ lang('Choose Category') }}</option>
                         <template v-if="upgroup && Object.keys(categories).length">
                         <option v-for="(item, key) in categories[supergroup]['groups'][upgroup]['groups']" v-bind:value="key">{{ item.name }}</option>
                         </template>
@@ -42,7 +42,7 @@
         <!-- Dropdown menu -->
         <div class="col-md-6">
             <select class="mdb-select" v-model="book_type_group">
-                <option disabled >{{ lang('Choose Category') }}</option>
+                <option value="" selected>{{ lang('Choose Category') }}</option>
                 <option v-for="(item, key) in book_types" v-bind:value="key">{{ item.name }}</option>
             </select>
             <label>{{ lang('Main Group') }}</label>
@@ -51,7 +51,7 @@
         <!-- Dropdown menu -->
         <div class="col-md-6">
             <select class="mdb-select" v-model="categorization.book_type">
-                <option disabled>{{ lang('Choose Category') }}</option>
+                <option value="" selected>{{ lang('Choose Category') }}</option>
                 <template v-if="book_type_group && Object.keys(book_types).length">
 
                     <option v-for="(item, key) in book_types[book_type_group].groups" v-bind:value="key">{{ item.name }}</option>
@@ -66,7 +66,7 @@
         <!-- Dropdown menu -->
         <div class="col-md-6">
             <select class="mdb-select" v-model="categorization.school_type" multiple v-bind:searchable="lang('Search here...')">
-                <option value="" disabled selected>{{ lang('Choose your option') }}</option>
+                <option value="" selected>{{ lang('Choose your option') }}</option>
                 <option v-for="(item, key) in school_types" v-bind:value="key">{{ item.name }}</option>
             </select>
             <label>{{ lang('School type') }}</label>
@@ -155,7 +155,7 @@
         <!-- Dropdown menu -->
         <div class="col-md-6">
             <select class="mdb-select" v-model="school_subject">
-                <option disabled >{{ lang('Choose Category') }}</option>
+                <option value="" selected>{{ lang('Choose Category') }}</option>
                 <option v-for="(item, key) in school_subjects" v-bind:value="key">{{ item.name }}</option>
             </select>
             <label>{{ lang('Field') }}</label>
@@ -164,7 +164,7 @@
         <!-- Dropdown menu -->
         <div class="col-md-6">
             <select class="mdb-select" v-model="categorization.school_subject_detailed">
-                <option disabled >{{ lang('Choose Category') }}</option>
+                <option value="" selected>{{ lang('Choose Category') }}</option>
                 <template v-if="school_subject && Object.keys(school_subjects).length">
                 <option v-for="(item, key) in school_subjects[school_subject].subjects" v-bind:value="key">{{ item.name }}</option>
                 </template>
@@ -178,7 +178,7 @@
         <!-- Dropdown menu -->
         <div class="col-md-6">
             <select class="mdb-select" v-model="categorization.biblioteca">
-                <option disabled >{{ lang('Choose Category') }}</option>
+                <option value="" selected>{{ lang('Choose Category') }}</option>
                 <option v-for="(item, key) in bibliotecas" v-bind:value="key">{{ item.name }}</option>
             </select>
             <label>{{ lang('Bibliography') }}</label>
