@@ -778,7 +778,12 @@ $sk-skin-btn-default: #293756;
             max-height: 60vh;
             overflow: hidden;
         }
-        .tasktype-1 {
+        .tasktype-1,
+        .tasktype-2,
+        .tasktype-3,
+        .tasktype-4,
+        .tasktype-5,
+        .tasktype-6 {
             border-radius: 0.1rem;
             padding: 0px 5px;
         }

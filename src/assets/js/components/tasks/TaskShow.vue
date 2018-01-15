@@ -308,7 +308,7 @@
                     <div class="btn-footer mt-2 mb-2 flex-column flex-md-row d-flex p-2">
                         <button v-if="canAccept()" class="btn btn-lg btn-save" v-on:click="acceptTask">{{ lang('Accept') }}</button>
                         <button v-if="canAssign()" class="btn btn-lg btn-assign btn-assign-icon" v-on:click="openModal('modal-reassign')">{{ lang('Assign to...') }}</button>
-                        <button v-if="canComplete()" class="btn btn-lg btn-assign btn-assign-icon" v-on:click="completeTask">{{ lang('Complete') }}</button>
+                        <button v-if="canComplete()" class="btn btn-lg btn-save btn-complete-icon" v-on:click="completeTask">{{ lang('Complete') }}</button>
                         <button v-if="canDelete()" class="btn btn-lg btn-cancel" v-on:click="taskWarning">{{ lang('Delete') }}</button>
                     </div>
                 </div>
