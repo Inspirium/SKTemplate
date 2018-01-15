@@ -115,7 +115,7 @@ if (window.translations.datepicker) {
 }
 
 // SideNav init
-//$(".button-collapse").sideNav();
+$(".button-collapse").sideNav();
 
 // Custom scrollbar init
 var el = document.querySelector('.custom-scrollbar');

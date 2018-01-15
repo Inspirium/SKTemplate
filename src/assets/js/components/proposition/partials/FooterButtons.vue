@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div v-if="save || assign || assignDocuments || approval || deleteRestore">
     <div class="btn-footer mt-4 mb-5 flex-column flex-md-row d-flex p-2">
-        <spinner-button v-on:button_clicked="saveProposition"></spinner-button>
+        <spinner-button v-if="save" v-on:button_clicked="saveProposition"></spinner-button>
         <button v-if="assign" class="btn btn-lg btn-assign btn-assign-icon " v-on:click="assignModalOpen">{{ lang('Assign to...') }}</button>
         <button v-if="assignDocuments" class="btn btn-lg btn-assign btn-assign-icon" v-on:click="assignDocumentModalOpen">{{ lang('Assign to...') }}</button>
         <button v-if="approval && canSendForApproval" class="btn btn-lg btn-save" v-on:click="sendForApproval" >{{ lang('Send on Approval') }}</button>

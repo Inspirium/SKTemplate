@@ -2,7 +2,7 @@
     <div class="content">
         <div class="page-name-xl mb-4 mt-3">{{ lang('Završni dokument') }}</div>
         <div class="justify-content-center d-flex mb-4">
-            <spinner-button v-on:button_clicked="sendToWarehouse" v-on:button_cleanup_success="redirect" v-bind:title="Recieved in Warehouse" v-bind:classes="'btn btn-l btn-neutral'"></spinner-button>
+            <spinner-button v-on:button_clicked="sendToWarehouse" v-on:button_cleanup_success="redirect" v-bind:title="'Recieved in Warehouse'" v-bind:classes="'btn btn-l btn-neutral'"></spinner-button>
 
         </div>
     </div>

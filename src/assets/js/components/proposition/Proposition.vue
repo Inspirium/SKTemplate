@@ -37,6 +37,9 @@
         },
         computed: {
             buttons() {
+                if (!this.$route.meta.save) {
+                    return {}
+                }
                 if (this.$route.meta.save === 'start') {
                     return {
                         save: true,
@@ -44,9 +47,6 @@
                         deleteRestore: true,
                         approval: true
                     }
-                }
-                if (this.$route.meta.save === 'warehouse') {
-                    return {}
                 }
                 if (this.$route.meta.dir) {
                     return {

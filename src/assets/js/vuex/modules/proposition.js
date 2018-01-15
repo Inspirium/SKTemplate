@@ -101,26 +101,31 @@ export default {
         },
         getData({state, rootState, commit, dispatch}, payload) {
             return new Promise((resolve, reject) => {
-                Promise.all([
-                    dispatch('categorization/getData', {}, {root: true}),
-                    new Promise((resolve, reject) => {
-                        let path = '/api/proposition/' + rootState.route.params.id + '/' + rootState.route.meta.save;
-                        if (rootState.route.meta.type) {
-                            path += '/' + rootState.route.meta.type;
-                        }
-                        if (rootState.route.meta.dir) {
-                            path += '/' + rootState.route.meta.dir;
-                        }
-                        axios.get(path)
-                            .then((res) => {
-                                commit(rootState.route.meta.save + '/initData', res.data);
-                                resolve();
-                            })
-                            .catch((err) => {
-                                reject(err.response.status);
-                            });
-                    })
-                ]).then(resolve).catch(reject);
+                if (rootState.route.meta.save) {
+                    Promise.all([
+                        dispatch('categorization/getData', {}, {root: true}),
+                        new Promise((resolve, reject) => {
+                            let path = '/api/proposition/' + rootState.route.params.id + '/' + rootState.route.meta.save;
+                            if (rootState.route.meta.type) {
+                                path += '/' + rootState.route.meta.type;
+                            }
+                            if (rootState.route.meta.dir) {
+                                path += '/' + rootState.route.meta.dir;
+                            }
+                            axios.get(path)
+                                .then((res) => {
+                                    commit(rootState.route.meta.save + '/initData', res.data);
+                                    resolve();
+                                })
+                                .catch((err) => {
+                                    reject(err.response.status);
+                                });
+                        })
+                    ]).then(resolve).catch(reject);
+                }
+                else {
+                    resolve();
+                }
             });
         },
         listenForWarning({state, rootState, dispatch}, payload) {
