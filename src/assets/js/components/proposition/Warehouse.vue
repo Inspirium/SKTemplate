@@ -23,7 +23,7 @@
                     })
                     .catch(() => {
                         this.$eventHub.emit('BUTTON_LISTEN_FOR_FAILURE');
-                        toastr.success(this.lang('Došlo je do problema. Pokušajte ponovno'));
+                        toastr.error(this.lang('Došlo je do problema. Pokušajte ponovno'));
                     })
             },
             redirect() {
