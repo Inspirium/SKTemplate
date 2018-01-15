@@ -2,6 +2,7 @@
     <div>
         <template v-if="task.id">
             <template v-if="task.type==3">
+                <!-- Approval -->
                 <div class="content">
                     <div class="profile-head row py-4 d-flex flex-column justify-content-center align-items-center">
                         <div class="col-md-12">
@@ -100,6 +101,7 @@
                 </div>
             </template>
             <template v-else-if="task.type==5">
+                <!-- Proposition approval -->
                 <div class="content">
                     <div class="profile-head row py-4 d-flex flex-column justify-content-center align-items-center">
                         <div class="col-md-12">
@@ -187,8 +189,6 @@
                         </div>
                     </div>
                 </div>
-
-
                 <!-- Display fileds -->
                 <div class="content">
                     <div class="profile-head pb-2 row">
@@ -309,6 +309,7 @@
                         <button v-if="canAccept()" class="btn btn-lg btn-save" v-on:click="acceptTask">{{ lang('Accept') }}</button>
                         <button v-if="canAssign()" class="btn btn-lg btn-assign btn-assign-icon" v-on:click="openModal('modal-reassign')">{{ lang('Assign to...') }}</button>
                         <button v-if="canComplete()" class="btn btn-lg btn-save btn-complete-icon" v-on:click="completeTask">{{ lang('Complete') }}</button>
+                        <button v-if="canResend()" class="btn btn-lg btn-save" v-on:click="resendTask">{{ lang('Resend') }}</button>
                         <button v-if="canDelete()" class="btn btn-lg btn-cancel" v-on:click="taskWarning">{{ lang('Delete') }}</button>
                     </div>
                 </div>
@@ -426,6 +427,9 @@
             canDelete() {
                 return (this.task.assigner.id === window.Laravel.userId)
             },
+            canResend() {
+                return (this.task.status === 'completed' && (this.task.assigner.id === window.Laravel.userId))
+            },
             acceptTask() {
                 axios.post('/api/task/' + this.task.id + '/accept')
                     .then((res) => {
@@ -466,6 +470,12 @@
                     .then(() => {
                         this.$router.push('/tasks')
                 });
+            },
+            resendTask() {
+                axios.post('/api/task/' + this.task.id + '/resend')
+                    .then(() => {
+                        this.$router.push('/tasks')
+                    });
             },
             openModal(modal) {
                 $('#'+modal).modal('show');
