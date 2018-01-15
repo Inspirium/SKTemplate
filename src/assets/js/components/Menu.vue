@@ -560,10 +560,9 @@
         },
         watch: {
             lroutes() {
-                // SideNav init
-                $(".button-collapse").sideNav();
-                // Custom scrollbar init
-                Ps.initialize(document.querySelector('.custom-scrollbar'));
+                setTimeout(() => {
+                    $('.collapsible').collapsible();
+                }, 300);
             }
         }
     }

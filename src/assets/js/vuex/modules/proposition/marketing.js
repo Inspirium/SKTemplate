@@ -25,7 +25,7 @@ export default {
             }
         },
         deleteFile(state, payload) {
-            if (data.isFinal) {
+            if (payload.isFinal) {
                 state.leaflet = _.filter(state.leaflet, (file) => {
                     return file.id !== payload.id;
                 })
