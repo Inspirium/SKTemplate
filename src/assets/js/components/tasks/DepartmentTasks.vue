@@ -48,9 +48,11 @@
                         this.employee_index = {};
                         toastr.success(this.lang('Uspješno obavljeno'));
                         this.$eventHub.emit('UPDATE_DEPARTMENT_EMPLOYEE_TASKS', {employee: this.employee_index.employee});
+                        this.$eventHub.emit('BUTTON_LISTEN_FOR_SUCCESS');
                     })
                     .catch((err) => {
                         toastr.error(this.lang('Greška'));
+                        this.$eventHub.emit('BUTTON_LISTEN_FOR_FAILURE');
                     });
             },
             openModalForApproval(payload) {

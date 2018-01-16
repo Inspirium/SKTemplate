@@ -38,9 +38,7 @@
                 </div>
                 <!--Footer-->
                 <div class="modal-footer btn-footer">
-                    <button id="save-btn" type="button" class="btn btn-lg btn-save" v-on:click="assignValues">{{ lang('Assign') }}
-                        <i class="fa fa-refresh fa-5x fa-fw spinner-delay-rotate spinner-loader text-white hide"></i>
-                    </button>
+                    <spinner-button title="Assign" v-on:button_clicked="assignValues" :enabled="enabledAssign"></spinner-button>
                     <button type="button" class="btn btn-lg btn-cancel" data-dismiss="modal">{{ lang('Cancel') }}</button>
                 </div>
             </div>
@@ -50,7 +48,10 @@
 </template>
 
 <script>
+    import SpinnerButton from "../general/SpinnerButton";
+
     export default {
+        components: {SpinnerButton},
         name: "proposition-approval-modal",
         data() {
             return {
@@ -112,12 +113,7 @@
 
             },
             assignValues: function() {
-                //TODO
                 if (this.employees.length) {
-                    let saveButton = document.getElementById('save-btn');
-                    saveButton.setAttribute('style', 'color: #92C100 !important; position: relative');
-                    $("i.spinner-loader").toggleClass("hide");
-
                     this.$emit('sendForApproval', {
                         employees: this.employees,
                         description: this.description
@@ -125,11 +121,10 @@
                     this.employees = [];
                     this.employee = '';
                     this.description = '';
-                    this.spinnerType = 'fa-refresh spinner-delay-rotate spinner-loader';
-                    this.isSpinnerHidden = 'hide';
-                    saveButton.toggleClass("spinner-loading");
-                    $('#taskOrderApprovalModal').modal('hide');
                 }
+            },
+            hideModal() {
+                $('#taskOrderApprovalModal').modal('hide');
             }
         }
     }
