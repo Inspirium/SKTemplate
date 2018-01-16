@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="content">
         <div class="page-name-xl mb-2 mt-3">{{ lang( 'Books' ) }}</div>
 
     <datatable v-bind="$data"></datatable>
