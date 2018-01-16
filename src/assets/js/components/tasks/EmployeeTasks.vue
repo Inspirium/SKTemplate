@@ -12,10 +12,8 @@
 
 
         <button v-if="canRequestOrder" v-on:click="openModal" type="button" class="btn btn-neutral btn-addon d-block ml-auto waves-effect waves-light">{{ lang('Save tasks priority') }}</button>
-        <button v-if="shouldApprove" v-on:click="approveOrder" type="button" class="btn btn-success btn-addon d-block ml-auto waves-effect waves-light">{{ lang('Approve task priority') }}
-            <i v-bind:class="['fa', 'fa-5x', 'fa-fw', 'text-white', spinnerType, isSpinnerHidden]"></i></button></button>
-        <button v-if="shouldApprove" v-on:click="rejectOrder" type="button" class="btn btn-danger btn-addon d-block ml-auto waves-effect waves-light">{{ lang('Reject task priority') }}
-            <i v-bind:class="['fa', 'fa-5x', 'fa-fw', 'text-white', spinnerType, isSpinnerHidden]"></i></button>
+        <spinner-button v-if="shouldApprove" classes="btn btn-success btn-addon d-block ml-auto waves-effect waves-light" title="Approve task priority" v-on:button_clicked="approveOrder"></spinner-button>
+        <spinner-button v-if="shouldApprove" classes="btn btn-danger btn-addon d-block ml-auto waves-effect waves-light" title="Reject task priority" v-on:button_clicked="rejectOrder"></spinner-button>
     </div>
 </template>
 
@@ -27,8 +25,10 @@
     import NewOrder from '../table_components/NewOrder'
     import DateCell from '../table_components/DateCell'
     import TaskType from '../table_components/TaskType'
+    import SpinnerButton from "../general/SpinnerButton";
 
     export default {
+        components: {SpinnerButton},
         name: "employee-tasks",
         props: ['employee'],
         data() {
@@ -78,9 +78,6 @@
                     disabled: false,
                     handle: '.icon-handler'
                 },
-                spinnerType: 'fa-refresh spinner-delay-rotate spinner-loader',
-                isSpinnerHidden: 'hide',
-                saveButton: null
             }
         },
         created() {

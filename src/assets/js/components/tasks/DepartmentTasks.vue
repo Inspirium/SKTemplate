@@ -62,10 +62,12 @@
                     .then((res) => {
                         toastr.success(this.lang('Uspješno obavljeno'));
                         this.$eventHub.emit('UPDATE_DEPARTMENT_EMPLOYEE_TASKS', {employee: data.employee});
+                        this.$eventHub.emit('BUTTON_LISTEN_FOR_SUCCESS');
                     })
                     .catch((err) => {
                         toastr.error(this.lang('Greška'));
                         this.$eventHub.emit('UPDATE_DEPARTMENT_EMPLOYEE_TASKS', {employee: data.employee, error:true});
+                        this.$eventHub.emit('BUTTON_LISTEN_FOR_FAILURE');
                     });
             },
             rejectOrder(data) {
@@ -73,10 +75,12 @@
                     .then((res) => {
                         toastr.success(this.lang('Uspješno obavljeno'));
                         this.$eventHub.emit('UPDATE_DEPARTMENT_EMPLOYEE_TASKS', {employee: data.employee});
+                        this.$eventHub.emit('BUTTON_LISTEN_FOR_SUCCESS');
                     })
                     .catch((err) => {
                         toastr.error(this.lang('Greška'));
                         this.$eventHub.emit('UPDATE_DEPARTMENT_EMPLOYEE_TASKS', {employee: data.employee, error:true});
+                        this.$eventHub.emit('BUTTON_LISTEN_FOR_FAILURE');
                     });
             },
 
