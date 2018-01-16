@@ -41,7 +41,7 @@
         </tr>
         </tbody>
     </table>
-        <inspirium-warning-modal v-on:warningConfirmed="deleteUser"></inspirium-warning-modal>
+        <warning-modal v-on:warningConfirmed="deleteUser"></warning-modal>
     </div>
 </template>
 
