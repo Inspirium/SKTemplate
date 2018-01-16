@@ -83,7 +83,7 @@
                             </div>
                         </div>
                         <div class="justify-content-end d-flex mb-2">
-                            <button type="button" class="btn btn-neutral" v-on:click="commentTask()">{{ lang('Send') }}</button>
+                            <spinner-button classes="btn btn-neutral" v-on:button_clicked="commentTask" title="Send"></spinner-button>
                         </div>
                         <template v-if="task.thread">
                             <div v-for="message in filteredMessages">
@@ -164,7 +164,7 @@
                             </div>
                         </div>
                         <div class="justify-content-end d-flex mb-2">
-                            <button type="button" class="btn btn-neutral" v-on:click="commentTask()">{{ lang('Send') }}</button>
+                            <spinner-button classes="btn btn-neutral" v-on:button_clicked="commentTask" title="Send"></spinner-button>
                         </div>
                         <template v-if="task.thread">
                             <div v-for="message in filteredMessages">
@@ -294,7 +294,7 @@
                                 </div>
                             </div>
                             <div class="justify-content-end d-flex mb-2">
-                                <button type="button" class="btn btn-neutral" v-on:click="commentTask()">{{ lang('Send') }}</button>
+                                <spinner-button classes="btn btn-neutral" v-on:button_clicked="commentTask" title="Send"></spinner-button>
                             </div>
                             <template v-if="task.thread">
                                 <div v-for="message in filteredMessages">
@@ -331,7 +331,10 @@
     </div>
 </template>
 <script>
+    import SpinnerButton from "../general/SpinnerButton";
+
     export default {
+        components: {SpinnerButton},
         data: function () {
             return {
                 clock: false,
@@ -449,8 +452,11 @@
                     .then((res) => {
                         this.task.thread.messages = res.data;
                         this.comment = '';
+                        this.$eventHub.emit('BUTTON_LISTEN_FOR_SUCCESS');
                     })
-                    .catch((err) => {});
+                    .catch((err) => {
+                        this.$eventHub.emit('BUTTON_LISTEN_FOR_FAILURE');
+                    });
             },
             reassignTask(employees) {
                 axios.post('/api/task/' + this.task.id + '/reassign', {employees: employees})
