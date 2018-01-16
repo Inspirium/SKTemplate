@@ -33,6 +33,8 @@ import TaskShow from './components/tasks/TaskShow'
 import DepartmentTasks from './components/tasks/DepartmentTasks'
 import PropositionList from './components/proposition/PropositionList'
 
+import Books from './components/books/Books'
+
 export const routes = [
     { path: '/propositions', component: PropositionList },
     { path: '/proposition', component: Proposition, name: 'proposition',
@@ -98,5 +100,7 @@ export const routes = [
 
     { path: '/human_resources/employee/new', component: EditProfile},
     { path: '/human_resources/employee/:id(\\d+)/edit', component: EditProfile},
-    { path: '/human_resources/employee/:id(\\d+)', component: EditProfile}
+    { path: '/human_resources/employee/:id(\\d+)', component: EditProfile},
+
+    { path: '/books', component: Books}
 ];
