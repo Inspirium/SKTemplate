@@ -1193,7 +1193,9 @@ input.md-form.addon {
 ////////// Spiner
 
 .loading-motion {
-    background-color: rgba(255,255,255,.85);
+    width: 100vw;
+    height: 100vh;
+//    background-color: rgba(255,255,255,.85);
     position: absolute;
     top: 40%;
     left: 40%;
