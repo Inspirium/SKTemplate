@@ -574,5 +574,6 @@
     "This page in not available because there is data missing": "Stranica nije dostupna jer nedostaju podaci za njen prikaz",
     "Task has been resent": "Zadatak je ponovno poslan",
     ":assigner has reactivated a task :task": ":assigner je zatražio doradu zadatka - :task",
-  "Editor": "Urednik"
+  "Editor": "Urednik",
+  "No data": "Nema podataka"
 }
