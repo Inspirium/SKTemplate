@@ -102,8 +102,12 @@
                     </div>
                 </div>
                 <div class="md-form">
-                    <input type="password" class="form-control" name="password" v-model="employee.password">
+                    <input type="password" class="form-control" name="password" v-model="password">
                     <label>{{ lang('Password') }}</label>
+                </div>
+                <div class="md-form">
+                    <input type="password" class="form-control" name="password2" v-model="password2">
+                    <label>{{ lang('Repeat Password') }}</label>
                 </div>
             </div>
 
@@ -162,7 +166,8 @@
                     department_id: '',
                 },
                 new_image: false,
-                password: ''
+                password: '',
+                password2: ''
             }
         },
         methods: {
@@ -187,18 +192,26 @@
                     data.append('new_image', this.new_image.files[0], this.new_image.files[0].name);
                 }
                 if (this.password) {
-                    data.append('password', this.password);
+                    if (this.password === this.password2) {
+                        data.append('password', this.password);
+                    }
+                    else {
+                        toastr.error(this.lang('Password must match'));
+                        return;
+                    }
                 }
                 if (this.$route.params.id) {
                     axios.post('/api/human_resources/employee/' + this.$route.params.id, data)
                         .then(() => {
                             toastr.success(this.lang('Succesfully saved an employee'));
+                            window.location.href= '/human_resources/employee/'+this.$route.params.id+'/show';
                         })
                 }
                 else {
                     axios.post('/api/human_resources/employee', data)
-                        .then(() => {
+                        .then((res) => {
                             toastr.success(this.lang('Succesfully saved an employee'));
+                            window.location.href= '/human_resources/employee/'+res.data.id+'/show';
                         })
                 }
             }
