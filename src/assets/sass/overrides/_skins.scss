@@ -799,6 +799,8 @@ $sk-skin-btn-default: #293756;
             padding: .2rem .8rem;
             &:first-child {
                 border-top: none;
+                text-transform: uppercase;
+                font-weight: 700;
                 &:hover {
                     &:before {
                         border-color: transparent transparent lighten($color-sidebar, 79%) transparent;
@@ -834,15 +836,16 @@ $sk-skin-btn-default: #293756;
             }
         }
         h5 {
-            font-size: .75rem;
+            font-size: .85rem;
             font-weight: normal;
-            line-height: 1rem;
+            line-height: 1.2rem;
             color: $gray-light;
         }
         .activity-time {
             color: lighten($color-sidebar, 55%);
             display: inline-block;
             font-size: .65rem;
+            line-height: 0.9rem;
             text-transform: uppercase;
             vertical-align: text-bottom;
             &:before {

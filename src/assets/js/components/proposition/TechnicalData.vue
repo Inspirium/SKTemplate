@@ -67,9 +67,9 @@
                                 <select class="mdb-select" v-model="technical_data.book_binding">
                                     <option disabled >{{ lang('Book binding') }}</option>
                                     <option value="none">{{ lang('None') }}</option>
-                                    <option value="hard">{{ lang('Hard book binding') }}</option>
-                                    <option value="soft">{{ lang('Soft book binding') }}</option>
-                                    <option value="both">{{ lang('Spiral book binding') }}</option>
+                                    <option value="hard">{{ lang('Stitch Binding') }}</option>
+                                    <option value="soft">{{ lang('Glue Binding') }}</option>
+                                    <option value="both">{{ lang('Clasp Binding') }}</option>
                                 </select>
                                 <label>{{ lang('Book binding') }}</label>
                             </div>
