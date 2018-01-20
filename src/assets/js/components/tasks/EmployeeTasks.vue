@@ -155,9 +155,6 @@
                 this.$emit('openModal', {employee: this.employee.id, tasks: data});
             },
             approveOrder() {
-                this.saveButton = jQuery(event.target);
-                this.saveButton.toggleClass('spinner-loading');
-                this.isSpinnerHidden = '';
                 let data = _.map(this.data, (o) => {
                     return o.id;
                 });

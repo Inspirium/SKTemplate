@@ -1,4 +1,6 @@
-import axios from "axios/index";
+import axios from "axios/index"
+import Vue from "vue"
+
 let initialState = {
     marketing_expense : {
         budget: {
@@ -56,6 +58,9 @@ export default {
                 state[key] = payload[key];
             }
         },
+        requestsUpdate(state, payload) {
+            Vue.set(state.requests, payload, [{status: 'requested' }]);
+        }
     },
     actions: {
         saveData({state, commit}, id) {
@@ -77,7 +82,6 @@ export default {
                 commit('initData', initialState);
                 resolve();
             })
-
         }
     }
 }

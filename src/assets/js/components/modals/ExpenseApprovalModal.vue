@@ -127,7 +127,6 @@
             },
             assignValues: function() {
                 if (this.employees.length && this.expense) {
-
                     axios.post('/api/proposition/' + this.$route.params.id + '/request_approval', {
                         requestees: this.employees,
                         description: this.description,
@@ -140,13 +139,13 @@
                             this.employees = [];
                             this.description = '';
                             this.$eventHub.emit('BUTTON_LISTEN_FOR_SUCCESS');
-
-                            toastr.success(this.lang('Uspješno obavljeno'));
+                            toastr.success(this.lang('Successfully requested'));
+                            this.$store.commit('proposition/compare/requestsUpdate', this.expense);
                         })
                         .catch((err) => {
                             this.$eventHub.emit('BUTTON_LISTEN_FOR_FAILURE');
 
-                            toastr.error(this.lang('Došlo je do problema. Pokušajte ponovno'));
+                            toastr.error(this.lang('There was an error. Please try again'));
                         })
                 }
                 else {
