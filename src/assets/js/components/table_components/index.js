@@ -7,5 +7,7 @@ export default {
     TaskType: require('./TaskType'),
     WaitingTime: require('./WaitingTime'),
     Deadline: require('./Deadline'),
-    TaskStatus: require('./TaskStatus')
+    TaskStatus: require('./TaskStatus'),
+    ImageCell: require('./ImageCell'),
+    Actions: require('./Actions')
 }

@@ -70,7 +70,7 @@
                     supportNested: true,
                     tblClass: 'table',
                     columns: [
-                        {title: '#', field: 'order', sortable: true},
+                        {title: '#', field: 'id', sortable: true},
                         {
                             title: this.lang('Task'),
                             field: 'name',
@@ -111,7 +111,7 @@
                     supportNested: true,
                     tblClass: 'table',
                     columns: [
-                        {title: '#', field: 'order', sortable: true},
+                        {title: '#', field: 'id', sortable: true},
                         {
                             title: this.lang('Task'),
                             field: 'name',
@@ -152,7 +152,7 @@
                     supportNested: true,
                     tblClass: 'table',
                     columns: [
-                        {title: '#', field: 'order', sortable: true},
+                        {title: '#', field: 'id', sortable: true},
                         {
                             title: this.lang('Task'),
                             field: 'name',
@@ -205,7 +205,7 @@
                     supportNested: true,
                     tblClass: 'table',
                     columns: [
-                        {title: '#', field: 'order', sortable: true},
+                        {title: '#', field: 'id', sortable: true},
                         {
                             title: this.lang('Task'),
                             field: 'name',
@@ -246,7 +246,7 @@
                     supportNested: true,
                     tblClass: 'table',
                     columns: [
-                        {title: '#', field: 'order', sortable: true},
+                        {title: '#', field: 'id', sortable: true},
                         {
                             title: this.lang('Task'),
                             field: 'name',

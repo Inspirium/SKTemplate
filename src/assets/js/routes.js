@@ -26,6 +26,7 @@ import Marketing from './components/proposition/Marketing'
 import Multimedia from './components/proposition/Multimedia'
 
 import EditProfile from './components/hr/EditProfile'
+import Employees from './components/hr/Employees'
 
 import Tasks from './components/tasks/Tasks'
 import TaskEdit from './components/tasks/TaskEdit'
@@ -98,6 +99,7 @@ export const routes = [
     { path: '/task/show/:id(\\d+)', component: TaskShow },
     { path: '/tasks/department/:id(\\d+)', component: DepartmentTasks },
 
+    { path: '/human_resources/employees', component: Employees},
     { path: '/human_resources/employee/new', component: EditProfile},
     { path: '/human_resources/employee/:id(\\d+)/edit', component: EditProfile},
     { path: '/human_resources/employee/:id(\\d+)', component: EditProfile},

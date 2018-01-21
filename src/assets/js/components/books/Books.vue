@@ -1,6 +1,9 @@
 <template>
     <div class="content">
         <div class="page-name-xl mb-2 mt-3">{{ lang( 'Books' ) }}</div>
+        <div class="md-form input-group search-big">
+            <input type="search" class="form-control" v-model="query.filter" v-bind:placeholder="lang('Search...')">
+        </div>
 
     <datatable v-bind="$data"></datatable>
     </div>
@@ -40,7 +43,7 @@
                 data: [],
                 total: 0,
                 PageSizeSelect: [50],
-                query: {},
+                query: {filter: ''},
                 HeaderSettings: false
             }
         },
