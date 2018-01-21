@@ -63,7 +63,7 @@
                 data: [],
                 total: 0,
                 PageSizeSelect: [50],
-                query: {filter: ''},
+                query: {filter: '', limit: 50},
                 HeaderSettings: false
             }
         },

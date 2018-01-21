@@ -24,6 +24,8 @@
                     .catch(() => {
                         toastr.error(this.lang('Action failed'));
                     });
+                this.$eventHub.off('warningConfirmed');
+                this.$eventHub.off('warningCanceled');
             },
             cancel() {
                 this.$eventHub.off('warningConfirmed');
