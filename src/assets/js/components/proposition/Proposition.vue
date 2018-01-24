@@ -45,7 +45,8 @@
                         save: true,
                         assign: true,
                         deleteRestore: true,
-                        approval: true
+                        approval: true,
+                        forceDelete: true
                     }
                 }
                 if (this.$route.meta.dir) {

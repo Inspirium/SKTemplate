@@ -589,5 +589,6 @@
   "You are receiving this email because we received a password reset request for your account.": "primili ste ovu poruku jer smo dobili zahtjev za oporavak Vaše lozinke.",
   "Reset Password": "Oporavi lozinku",
   "If you did not request a password reset, no further action is required.": "Ako niste zatražili poništenje lozinke, zanemarite ovaj email.",
-  "All rights reserved.": "Sva prava pridržana."
+  "All rights reserved.": "Sva prava pridržana.",
+  "Permanently Delete": "Trajno izbriši"
 }

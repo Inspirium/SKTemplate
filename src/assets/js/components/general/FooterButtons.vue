@@ -13,6 +13,9 @@
                 <button type="button" class="btn btn-lg btn-cancel" v-on:click="warningModalOpen">{{ lang('Delete') }}</button>
             </template>
         </template>
+        <template v-if="canForceDelete">
+            <button type="button" class="btn btn-lg btn-cancel" v-on:click="warningModalOpenForced">{{ lang('Permanently Delete') }}</button>
+        </template>
     </div>
 
         <proposition-approval-modal v-if="approval"></proposition-approval-modal>
@@ -45,6 +48,10 @@
             deleteRestore: {
                 type: Boolean,
                 default: false
+            },
+            forceDelete: {
+                Boolean,
+                default: false
             }
         },
         data: function () {
@@ -65,6 +72,14 @@
         computed: {
             canSendForApproval() {
                 return this.$store.state.proposition.start.status !== 'requested' && this.$store.state.proposition.start.status !== 'approved' && !this.$store.state.proposition.deleted_at;
+            },
+            canForceDelete() {
+                if (this.forceDelete) {
+                    return _.find(this.$store.state.employee.roles, (o) => {
+                        return o.name === 'delete_propositions';
+                    });
+                }
+                return false;
             }
         },
         methods: {
@@ -104,6 +119,10 @@
             },
             warningModalOpen() {
                 this.$store.dispatch('proposition/listenForWarning', {vue: this, data: {}});
+                jQuery('#modal-warning').modal('show');
+            },
+            warningModalOpenForced() {
+                this.$store.dispatch('proposition/listenForForcedDelete', {vue: this, data: {}});
                 jQuery('#modal-warning').modal('show');
             }
         }

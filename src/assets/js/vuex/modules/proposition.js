@@ -138,8 +138,19 @@ export default {
                 dispatch(rootState.route.meta.warning, payload, {root: true});
             })
         },
+        listenForForcedDelete({state, rootState, dispatch}, payload) {
+            payload.vue.$eventHub.on('warningConfirmed', () => {
+                dispatch('forceDelete', payload);
+            })
+        },
         deleteProposition({state}, payload) {
             axios.delete('/api/proposition/'+state.proposition_id)
+                .then((res) => {
+                    payload.vue.$router.push('/propositions');
+                });
+        },
+        forceDelete({state}, payload) {
+            axios.delete('/api/proposition/'+state.proposition_id+'/force')
                 .then((res) => {
                     payload.vue.$router.push('/propositions');
                 });
