@@ -45,7 +45,7 @@
 @import "~mdb-pro/sass/mdb/free/data/mixins";
 
 // Variables
-@import "overrides/colors"; //TODO: check if more changes
+@import "overrides/colors";
 @import "~mdb-pro/sass/mdb/free/data/colors";
 
 
@@ -111,7 +111,6 @@
 @import "~mdb-pro/sass/mdb/pro/charts-pro";
 @import "~mdb-pro/sass/mdb/pro/progress";
 @import "~mdb-pro/sass/mdb/pro/scrollbar";
-//@import "~mdb-pro/sass/mdb/pro/skins"; // TODO: compare changes
 @import "overrides/skins";
 
 @import "~mdb-pro/sass/mdb/pro/date_picker/default";

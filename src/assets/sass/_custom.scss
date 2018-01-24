@@ -213,7 +213,7 @@ h6 {
             border-bottom-left-radius: 0px;
             border-bottom-right-radius: 0px;
             background-color: #D90000;
-            
+
             &-reset {
                 margin-bottom: 1.5rem;
             }
@@ -349,7 +349,7 @@ header .tag {
     }
 }
 
-@media only screen and (max-width : 1440px) {
+@media only screen and (max-width : 1200px) {
     .navbar .button-collapse {
         display: block;
         position: relative;

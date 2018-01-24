@@ -31,7 +31,7 @@ $sk-skin-btn-default: #293756;
         height: 5.5rem;
         padding: .7rem 0;
         a {
-           color: $sk-skin-grey; 
+           color: $sk-skin-grey;
         }
         .file-icon {
             white-space: nowrap;
@@ -45,7 +45,7 @@ $sk-skin-btn-default: #293756;
             font-size: 0.8rem;
         }
     }
-    table.table { 
+    table.table {
         a {
             color: $sk-skin-grey;
             &:hover {
@@ -71,7 +71,7 @@ $sk-skin-btn-default: #293756;
             padding: 0 15px;
         }
     }
-    @media only screen and (max-width : 1440px) {
+    @media only screen and (max-width : 1200px) {
         header, .container-fluid, .main-content {
             padding-left: 0;
         }
@@ -1187,13 +1187,13 @@ $sk-skin-btn-default: #293756;
             border-radius: 5px;
             margin-left: 7px;
             &.active {
-                background-color: $info-color;  
+                background-color: $info-color;
                 a {
                     color: #fff;
                     box-shadow: none;
                     background-color: $info-color;
                     &:hover {
-                        background-color: $info-color;    
+                        background-color: $info-color;
                     }
                 }
             }
@@ -1204,19 +1204,19 @@ $sk-skin-btn-default: #293756;
                 text-align: center;
                 line-height: 1rem;
                 border-radius: 5px;
-                color: $gray-light; 
-                transition: .2s; 
-                
+                color: $gray-light;
+                transition: .2s;
+
                 &:hover {
                     background-color: $gray-lighter;
-                    transition: .3s; 
+                    transition: .3s;
                 }
             }
-        } 
+        }
     }
-    
-    
-    
+
+
+
     ///Charts--style
     .ct-series-a .ct-point, .ct-series-a .ct-line, .ct-series-a .ct-bar, .ct-series-a .ct-slice-donut {
         stroke: $sk-skin-accent;
@@ -1387,7 +1387,7 @@ $sk-skin-btn-default: #293756;
         }
         .classic-tabs li {
             flex: 1 0 100%;
-        } 
+        }
         .download-box {
             flex-direction: column;
             .file-icon {
