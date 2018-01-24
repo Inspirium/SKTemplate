@@ -26,7 +26,7 @@
                                     </ul>
                                 </div>
                                 <div class="chip mb-5" v-for="employee in employees">
-                                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg">{{ employee.name }}<i class="close fa fa-times"></i>
+                                    <img v-bind:src="employee.image">{{ employee.name }}<i class="close fa fa-times"></i>
                                 </div>
                             </div>
                         </div>
