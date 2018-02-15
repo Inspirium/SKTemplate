@@ -35,6 +35,7 @@ import DepartmentTasks from './components/tasks/DepartmentTasks'
 import PropositionList from './components/proposition/PropositionList'
 
 import Books from './components/books/Books'
+import Authors from './components/books/Authors'
 
 export const routes = [
     { path: '/propositions', component: PropositionList },
@@ -104,5 +105,6 @@ export const routes = [
     { path: '/human_resources/employee/:id(\\d+)/edit', component: EditProfile},
     { path: '/human_resources/employee/:id(\\d+)', component: EditProfile},
 
-    { path: '/books', component: Books}
+    { path: '/books', component: Books},
+    { path: '/books/authors', component: Authors}
 ];
