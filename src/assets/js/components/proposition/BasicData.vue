@@ -10,17 +10,20 @@
                 <label for="title" class="">{{ lang('Title') }}</label>
             </div>
             <div class="row">
-                <div class="col-md-12">
-                    <div class="md-form d-flex addon">
-                        <input type="text" id="author" class="form-control mdb-autocomplete" name="author" v-bind:placeholder="lang('Author')" v-model="author" v-on:keyup="autocomplete($event)">
+                <div class="col-md-5">
+                    <div class="md-form d-flex addon--small">
+                        <input type="text" id="author" class="form-control mdb-autocomplete" name="author" v-bind:placeholder="lang('Search for Author')" v-model="author" v-on:keyup="autocomplete($event)">
                         <ul class="mdb-autocomplete-wrap" v-if="suggestions.length">
                             <li v-for="(item, index) in suggestions" v-on:click="autocompleteSelect(index)">{{ item.first_name }} {{ item.last_name }}</li>
                         </ul>
                         <label for="author" class="">{{ lang('Author') }}</label>
+                        <span class="d-flex">
+                            <button class="btn btn-neutral btn-addon--small" type="button" >{{ lang('Add') }}</button>
+                        </span>
                     </div>
                 </div>
             </div>
-            <button class="btn btn-neutral btn-addon mb-4 mr-5" type="button" v-on:click="openAuthorModal">{{ lang('Add New Author') }}</button>
+            <button class="btn btn-assign btn-addon mb-4 mr-5" type="button" v-on:click="openAuthorModal">{{ lang('Add New Author') }}</button>
             <div class="chip mb-3" v-for="(author, index) in basic_data.authors" v-bind:key="author.id">
 <!--                <img v-bind:src="author.image">--> {{ author.name }}
                 <i class="close fa fa-times" v-on:click="authorDelete(author.id)"></i>

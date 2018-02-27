@@ -15,13 +15,13 @@
                 </div>
                 <div class="col-md-12">
                     <div class="md-form d-flex addon">
-                        <input type="text" id="form2" class="form-control" v-bind:placeholder="lang('Precentage')" v-model="author.expenses[0].percentage">
+                        <input type="number" id="form2" class="form-control" v-bind:placeholder="lang('Precentage')" v-model="author.expenses[0].percentage">
                         <label for="form2">{{ lang('Percentage') }}</label>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="md-form d-flex addon">
-                        <input type="text" id="form3" class="form-control" v-bind:placeholder="lang('Accontation')" v-model="author.expenses[0].accontation">
+                        <input type="number" id="form3" class="form-control" v-bind:placeholder="lang('Accontation')" v-model="author.expenses[0].accontation">
                         <label for="form3">{{ lang('Accontation') }}</label>
                     </div>
                 </div>
