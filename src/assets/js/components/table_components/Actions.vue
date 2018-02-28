@@ -1,7 +1,8 @@
 <template>
     <div>
-    <a v-if="value['edit']['link']" class="color-grey" v-bind:href="value['edit']['link']" v-bind:title="lang('Edit')"><i class="fa fa-pencil"></i></a>
-    <a class="color-grey" v-if="value['delete']['link']" v-bind:title="lang('Delete')" v-on:click.prevent="deleteWarning"><i class="fa fa-times"></i></a>
+        <a v-if="value['edit'] && value['edit']['link']" class="color-grey" v-bind:href="value['edit']['link']" v-bind:title="lang('Edit')"><i class="fa fa-pencil"></i></a>
+        <a class="color-grey" v-if="value['delete'] && value['delete']['link']" v-bind:title="lang('Delete')" v-on:click.prevent="deleteWarning"><i class="fa fa-times"></i></a>
+        <a class="color-grey" v-if="value['related'] && value['related']['link']" v-bind:title="lang('Related')" v-bind:href="value['related']['link']"><i class="fa fa-list"></i></a>
     </div>
 </template>
 

@@ -14,7 +14,7 @@
     import components from '../table_components'
 
     export default {
-        name: "books",
+        name: "authors-related",
         components,
         data() {
             return {
@@ -23,22 +23,11 @@
                 columns: [
                     {title: '#', field: 'id', sortable: true},
                     {
-                        title: this.lang('First Name'),
-                        field: 'first_name',
+                        title: this.lang('Proposition'),
+                        field: 'project_name',
                         sortable: true,
                         tdComp: 'TitleCell',
                     },
-                    {
-                        title: this.lang('Last Name'),
-                        field: 'last_name',
-                        sortable: true,
-                        tdComp: 'TitleCell',
-                    },
-                    {
-                        title: this.lang('Actions'),
-                        tdComp: 'Actions',
-                        field: 'links'
-                    }
                 ],
                 data: [],
                 total: 0,
@@ -57,7 +46,7 @@
         },
         methods: {
             queryHandler() {
-                axios.post('/api/authors', this.query)
+                axios.post('/api/authors/'+this.$route.params.id+'/related/propositions', this.query)
                     .then((res) => {
                         this.data = res.data.rows;
                         this.total = res.data.total;
@@ -72,7 +61,3 @@
         }
     }
 </script>
-
-<style scoped>
-
-</style>

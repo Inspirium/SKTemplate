@@ -96,7 +96,7 @@ export default {
         },
         design_total: (state, getters) => {
             if (state.design_exact_price) {
-                return state.layout_exact_price;
+                return state.design_exact_price;
             }
             let price = 15000 / 175;
             const complexity = {
