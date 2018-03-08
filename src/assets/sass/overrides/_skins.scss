@@ -788,7 +788,7 @@ $sk-skin-btn-default: #293756;
         margin-right: -70px;
         .activity-container {
             max-height: 60vh;
-            overflow: scroll;//FIX to enable scroll in notifications
+            overflow: hidden; 
         }
         .tasktype-1,
         .tasktype-2,

@@ -215,7 +215,6 @@
 
             <div class="page-name-l text-center">{{ lang('Download as...') }}</div>
             <div class="download-box d-flex align-items-center mt-1">
-                <a href="#.pdf" class="file-icon" v-on:click.prevent="downloadOffer(offer.id, 'pdf')">{{ lang('PDF document') }}</a>
                 <a href="#.docx" class="file-icon" v-on:click.prevent="downloadOffer(offer.id, 'docx')">{{ lang('Word document') }}</a>
             </div>
         </div>
@@ -235,7 +234,7 @@
     export default {
         data: function () {
             return {
-                option_colors: ['One Colour', 'Two Colours', 'Three Colours', 'Full Colour', 'Fifth Colour'],
+                option_colors: ['One Colour', 'Two Colours', 'Three Colours', 'Full Colour', 'Only One Color', 'Only Two Color', 'Only Three Color', 'Only Four Color', 'Fifth Colour'],
             }
         },
         computed: {

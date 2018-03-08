@@ -6,7 +6,7 @@
                 <div class="col-md-12">
                     <!-- Circulation Number -->
                     <div class="col-md-12 mb-3">
-                        <h6 class="text-center no-border display-e">{{ lang('Total') }}</h6>
+                        <h6 class="text-center no-border display-e">{{ lang('Total') }} brutto</h6>
                         <h1 class="text-center display-2">{{ total | flexCurrency(' kn', 2) }}</h1>
                     </div>
                     <!-- Input field -->
