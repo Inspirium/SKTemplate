@@ -23,7 +23,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <h6>@lang('Mobile Phone')</h6>
-                    <h3 class="mb-1">{{ $employee->mobile }}</h3>
+                    <h3 class="mb-1">{{ $employee->mobile_merged }}</h3>
                 </div>
                 <div class="col-md-6">
                     <h6>@lang('VPN Mobile Phone')</h6>
@@ -33,7 +33,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <h6>@lang('Phone')</h6>
-                    <h3 class="mb-1">{{ $employee->phone }}</h3>
+                    <h3 class="mb-1">{{ $employee->phone_merged }}</h3>
                 </div>
                 <div class="col-md-6">
                     <h6>@lang('VPN phone')</h6>
