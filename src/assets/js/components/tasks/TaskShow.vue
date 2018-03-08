@@ -441,7 +441,7 @@
                               v-on:fileDelete="fileDelete"
                               v-on:fileAdd="fileAdd"
                               v-on:fileNameSave="fileNameSave"
-                              v-bind:isFinal="true"></upload-modal>
+                              isFinal="final"></upload-modal>
 
 
                 <!-- Modal for reassigning task -->
@@ -655,7 +655,7 @@
                     });
             },
             fileAdd: function (data) {
-                if (data.isFinal) {
+                if (data.isFinal === 'final') {
                     this.task.files.final.push(data.file);
                 }
                 else {
@@ -667,7 +667,7 @@
             },
             fileNameSave: function (data) {
                 let files = this.task.files.initial;
-                if (data.isFinal) {
+                if (data.isFinal === 'final') {
                     files = this.task.files.final;
                 }
                 _.forEach(files, (o) => {

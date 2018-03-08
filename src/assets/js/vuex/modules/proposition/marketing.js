@@ -17,7 +17,7 @@ export default {
             }
         },
         addFile(state, data) {
-            if (data.isFinal) {
+            if (data.isFinal === 'final') {
                 state.leaflet.push(data.file);
             }
             else {
@@ -25,7 +25,7 @@ export default {
             }
         },
         deleteFile(state, payload) {
-            if (payload.isFinal) {
+            if (payload.isFinal === 'final') {
                 state.leaflet = _.filter(state.leaflet, (file) => {
                     return file.id !== payload.id;
                 })
@@ -37,7 +37,7 @@ export default {
             }
         },
         filenameSave(state, payload) {
-            let files = payload.isFinal?state.leaflet:state.cover;
+            let files = payload.isFinal==='final'?state.leaflet:state.cover;
             _.forEach(files, (o) => {
                 if (o.id === payload.id) {
                     o.title = payload.file.title;

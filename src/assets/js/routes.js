@@ -19,7 +19,6 @@ import Calculation from './components/proposition/Calculation'
 import PropositionStart from './components/proposition/PropositionStart'
 import Compare from './components/proposition/expenses/Compare'
 import UploadDocument from './components/proposition/UploadDocument'
-import Revisions from './components/proposition/Revisions'
 import PriceDefinition from './components/proposition/PriceDefinition'
 import Warehouse from './components/proposition/Warehouse'
 import Marketing from './components/proposition/Marketing'
@@ -82,7 +81,7 @@ export const routes = [
             { path: ':id/layout/first_revision', component: UploadDocument, meta: {save: 'files', dir: 'first_revision',validate: {id:'int'}, breadcrumb: 'First Revision', warning: 'proposition/files/deleteFile'} },
             { path: ':id/layout/correction', component: UploadDocument, meta: {save: 'files', dir: 'correction',validate: {id:'int'}, breadcrumb: 'Correction', warning: 'proposition/files/deleteFile'} },
             { path: ':id/layout/correction_input', component: UploadDocument, meta: {save: 'files', dir: 'correction_input',validate: {id:'int'}, breadcrumb: 'Correction Input', warning: 'proposition/files/deleteFile'} },
-            { path: ':id/layout/revisions', component: Revisions, meta: {save: 'revisions', validate: {id:'int'}, breadcrumb: 'Revisions'} },
+            { path: ':id/layout/revisions', component: UploadDocument, meta: {save: 'files', dir: 'revisions', validate: {id:'int'}, breadcrumb: 'Revisions', warning: 'proposition/files/deleteFile'} },
 
             { path: ':id/final_price/price_definition', component: PriceDefinition, meta: {save: 'price_definition', validate: {id:'int'}, breadcrumb: 'Price Definition'} },
 

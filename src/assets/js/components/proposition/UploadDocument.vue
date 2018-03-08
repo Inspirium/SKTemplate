@@ -10,7 +10,7 @@
                     </div>
                     <div class="file-box-sty">{{ file.created_at.date | moment('DD.MM.YYYY.') }}</div>
                     <div class="file-box-sty icon icon-download" v-on:click="documentDownload(file.link)">Preuzmi</div>
-                    <div class="file-box-sty icon icon-cancel" v-on:click="fileWarning({id:file.id, isFinal: false})">Obriši</div>
+                    <div class="file-box-sty icon icon-cancel" v-on:click="fileWarning({id:file.id, isFinal: 'initial'})">Obriši</div>
                 </div>
             </div>
 
@@ -27,7 +27,7 @@
                 </div>
                 <div class="file-box-sty">{{ file.created_at.date | moment('DD.MM.YYYY.') }}</div>
                 <div class="file-box-sty icon icon-download" v-on:click="documentDownload(file.link)">Preuzmi</div>
-                <div class="file-box-sty icon icon-cancel" v-on:click="fileWarning({id:file.id, isFinal: true})">Obriši</div>
+                <div class="file-box-sty icon icon-cancel" v-on:click="fileWarning({id:file.id, isFinal: 'final'})">Obriši</div>
             </div>
         </div>
                 <div class="justify-content-center d-flex mb-4">
@@ -35,7 +35,7 @@
                 </div>
 
         <upload-modal id="initial-documents" action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" v-bind:dir="$route.meta.dir" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave"></upload-modal>
-        <upload-modal id="final-document" action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" v-bind:dir="$route.meta.dir" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave" v-bind:isFinal="true"></upload-modal>
+        <upload-modal id="final-document" action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" v-bind:dir="$route.meta.dir" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave" isFinal="final"></upload-modal>
 
     </div>
 </template>

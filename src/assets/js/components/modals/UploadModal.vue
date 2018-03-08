@@ -72,8 +72,8 @@
             dir: String,
             accept: String,
             isFinal: {
-                type: Boolean,
-                default: false
+                type: String,
+                default: 'initial'
             },
             id: {
                 type: String,

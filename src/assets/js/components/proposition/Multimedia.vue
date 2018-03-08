@@ -17,7 +17,7 @@
                 </div>
                 <div class="file-box-sty">{{ file.created_at.date | moment('DD.MM.YYYY.') }}</div>
                 <div class="file-box-sty icon icon-download" v-on:click="documentDownload(file.link)">Preuzmi</div>
-                <div class="file-box-sty icon icon-cancel" v-on:click="fileWarning({id: file.id, isFinal: false})">Obriši</div>
+                <div class="file-box-sty icon icon-cancel" v-on:click="fileWarning({id: file.id, isFinal: 'initial'})">Obriši</div>
             </div>
         </div>
         <div class="justify-content-center d-flex mb-4">
@@ -32,33 +32,33 @@
                 </div>
                 <div class="file-box-sty">{{ file.created_at.date | moment('DD.MM.YYYY.') }}</div>
                 <div class="file-box-sty icon icon-download" v-on:click="documentDownload(file.link)">Preuzmi</div>
-                <div class="file-box-sty icon icon-cancel" v-on:click="fileWarning({id: file.id, isFinal: true})">Obriši</div>
+                <div class="file-box-sty icon icon-cancel" v-on:click="fileWarning({id: file.id, isFinal: 'final'})">Obriši</div>
             </div>
         </div>
         <div class="justify-content-center d-flex mb-4">
             <button type="button" class="btn btn-neutral" v-on:click="documentAdd('cover-psd')">{{ lang('Upload') }}</button>
         </div>
-        
-<!--        Nadodano za listalicu-->
+
         <div class="page-name-l mb-3 mt-1">{{ lang('Free preview PDF') }}</div>
         <div class="files mt-2 mb-2">
-            <div class="file-box file-box-l d-flex align-items-center" v-for="(file,index) in multimedia.psd">
+            <div class="file-box file-box-l d-flex align-items-center" v-for="(file,index) in multimedia.preview">
                 <a v-bind:href="file.link" v-on:click.prevent="documentDownload(file.link)" class="file-icon">{{ file.title }}</a>
                 <div class="file-box-sty ml-auto d-flex">
                     <a v-bind:href="'human_resources/employee/'+file.owner.id+'/show'"><img class="profile-m-1 mr-1 align-self-center" v-bind:src="file.owner.image">{{ file.owner.name }}</a>
                 </div>
                 <div class="file-box-sty">{{ file.created_at.date | moment('DD.MM.YYYY.') }}</div>
                 <div class="file-box-sty icon icon-download" v-on:click="documentDownload(file.link)">Preuzmi</div>
-                <div class="file-box-sty icon icon-cancel" v-on:click="fileWarning({id: file.id, isFinal: true})">Obriši</div>
+                <div class="file-box-sty icon icon-cancel" v-on:click="fileWarning({id: file.id, isFinal: 'preview'})">Obriši</div>
             </div>
         </div>
-        
+
         <div class="justify-content-center d-flex mb-4">
-            <button type="button" class="btn btn-neutral" v-on:click="documentAdd('cover-psd')">{{ lang('Upload') }}</button>
+            <button type="button" class="btn btn-neutral" v-on:click="documentAdd('cover-preview')">{{ lang('Upload') }}</button>
         </div>
 
         <upload-modal id="cover-jpg" action="/api/file" accept=".jpg, .jpeg" disk="proposition" dir="multimedia.jpg" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave"></upload-modal>
-        <upload-modal id="cover-psd" action="/api/file" accept=".psd" disk="proposition" dir="multimedia.psd" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave" v-bind:isFinal="true"></upload-modal>
+        <upload-modal id="cover-psd" action="/api/file" accept=".psd" disk="proposition" dir="multimedia.psd" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave" isFinal="final"></upload-modal>
+        <upload-modal id="cover-preview" action="/api/file" accept=".pdf" disk="proposition" dir="multimedia.preview" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave" isFinal="preview"></upload-modal>
     </div>
 
 </template>

@@ -21,7 +21,7 @@ export default {
             }
         },
         addFile(state, data) {
-            if (data.isFinal) {
+            if (data.isFinal === 'final') {
                 state.final.push(data.file);
             }
             else {
@@ -29,7 +29,7 @@ export default {
             }
         },
         deleteFile(state, payload) {
-            if (payload.isFinal) {
+            if (payload.isFinal === 'final') {
                 state.final = _.filter(state.final, (file) => {
                     return file.id !== payload.id;
                 })
@@ -41,7 +41,7 @@ export default {
             }
         },
         filenameSave(state, payload) {
-            let files = payload.isFinal?state.final:state.files;
+            let files = payload.isFinal==='final'?state.final:state.files;
             _.forEach(files, (o) => {
                 if (o.id === payload.id) {
                     o.title = payload.file.title;

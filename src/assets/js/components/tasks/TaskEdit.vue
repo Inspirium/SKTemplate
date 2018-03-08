@@ -125,7 +125,7 @@
         <!--/. Footer buttons -->
         <warning-modal v-on:warningConfirmed="listenForWarning" v-on:warningCanceled="clearDelete"></warning-modal>
         <upload-modal id="initial-documents" action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" v-bind:dir="task.files.path" v-on:fileDelete="fileDelete" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave"></upload-modal>
-        <upload-modal id="final-documents" action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" v-bind:dir="task.files.path" v-on:fileDelete="fileDelete" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave" v-bind:isFinal="true"></upload-modal>
+        <upload-modal id="final-documents" action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" v-bind:dir="task.files.path" v-on:fileDelete="fileDelete" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave" isFinal="final"></upload-modal>
     </div>
     </div>
 </template>
@@ -243,7 +243,7 @@
                     });
             },
             fileAdd: function(data) {
-                if (data.isFinal) {
+                if (data.isFinal === 'final') {
                     this.task.files.final.push(data.file);
                 }
                 else {
@@ -252,7 +252,7 @@
             },
             fileNameSave: function(data) {
                 let files = this.task.files.initial;
-                if (data.isFinal) {
+                if (data.isFinal === 'final') {
                     files = this.task.files.final;
                 }
                 _.forEach(files, (o) => {

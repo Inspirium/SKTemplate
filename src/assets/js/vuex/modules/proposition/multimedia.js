@@ -3,6 +3,7 @@ let initialState = {
     webshop: '',
     jpg: [],
     psd: [],
+    preview: []
 };
 export default {
     namespaced: true,
@@ -10,6 +11,7 @@ export default {
         webshop: '',
         jpg: [],
         psd: [],
+        preview: []
     },
     mutations: {
         initData(state, payload) {
@@ -19,27 +21,39 @@ export default {
             }
         },
         addFile(state, data) {
-            if (data.isFinal) {
+            console.log(data);
+            if (data.isFinal === 'preview') {
+                state.preview.push(data.file);
+            }
+            if (data.isFinal === 'final') {
                 state.psd.push(data.file);
             }
-            else {
+            if (data.isFinal === 'initial') {
                 state.jpg.push(data.file);
             }
         },
         deleteFile(state, payload) {
-            if (payload.isFinal) {
+            if (payload.isFinal === 'preview') {
+                state.preview = _.filter(state.preview, (file) => {
+                    return file.id !== payload.id;
+                })
+            }
+            if (payload.isFinal === 'final') {
                 state.psd = _.filter(state.psd, (file) => {
                     return file.id !== payload.id;
                 })
             }
-            else {
+            if (data.isFinal === 'initial') {
                 state.jpg = _.filter(state.jpg, (file) => {
                     return file.id !== payload.id;
                 })
             }
         },
         filenameSave(state, payload) {
-            let files = payload.isFinal?state.psd:state.jpg;
+            let files = payload.isFinal==='final'?state.psd:state.jpg;
+            if (payload.isFinal === 'preview') {
+                files = state.preview;
+            }
             _.forEach(files, (o) => {
                 if (o.id === payload.id) {
                     o.title = payload.file.title;
