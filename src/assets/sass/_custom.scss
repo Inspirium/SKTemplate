@@ -150,6 +150,17 @@ h6 {
     }
 }
 
+.warehouse-list {
+    list-style-position: inside;
+    text-align: center;
+    a {
+        color: $color-nav;
+        &:hover {
+           color: $color-sidebar; 
+        }
+    }
+}
+
 ///Task
 
 .tasktype {
