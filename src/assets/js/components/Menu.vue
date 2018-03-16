@@ -300,7 +300,7 @@
                                 },
                                 correction: {
                                     enabled: true,
-                                    title: 'Correction',
+                                    title: 'Tehnical Correction',
                                     path: '/proposition/'+this.id+'/layout/correction',
                                     component: true
                                 },

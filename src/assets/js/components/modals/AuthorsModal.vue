@@ -51,6 +51,11 @@
                                 <input type="text" id="form_author_work" class="form-control" required v-model="work">
                                 <label for="form_author_work" class="">{{ lang('Working in') }}</label>
                             </div>
+                            <!-- Textarea -->
+                            <div class="md-form mt-3">
+                                <textarea id="categorization_note" class="md-textarea" v-model="categorization.note"></textarea>
+                                <label for="categorization_note">{{ lang('Note') }}</label>
+                            </div>
                             <button class="btn btn-neutral btn-addon mb-2" type="button">{{ lang('Add Additional Information') }}</button>
                         </div>
                     </div>

@@ -127,6 +127,7 @@
                                     <option value="hard">{{ lang('Hard Cover') }}</option>
                                     <option value="soft">{{ lang('Soft Cover') }}</option>
                                     <option value="both">{{ lang('Hard and Soft Cover') }}</option>
+                                    <option value="soft">{{ lang('Flex Cover') }}</option>
                                 </select>
                                 <label>{{ lang('Hard/Soft Cover') }}</label>
                             </div>
@@ -159,6 +160,17 @@
                                 <label>{{ lang('Plastification') }}</label>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <select class="mdb-select" v-model="technical_data.uv_print">
+                                    <option disabled >{{ lang('Varnishe') }}</option>
+                                    <option value="none">{{ lang('None') }}</option>
+                                    <option value="glossy">{{ lang('Glossy Varnishe') }}</option>
+                                    <option value="mat">{{ lang('Mat Varnishe') }}</option>
+                                </select>
+                                <label>{{ lang('Varnishe') }}</label>
+                            </div>
+                        </div>
 
                         <!--/. Checkbox -->
                         <div class="page-name-m">{{ lang('Film Print') }}</div>
@@ -185,17 +197,6 @@
                             </fieldset>
                         </div>
 
-                        <div class="page-name-m">{{ lang('UV Film') }}</div>
-                        <div class="form-inline mb-3">
-                            <fieldset class="form-group">
-                                <input name="uv" type="radio" id="uv11" value="no" v-model="technical_data.uv_print">
-                                <label for="uv11">{{ lang('No') }}</label>
-                            </fieldset>
-                            <fieldset class="form-group">
-                                <input name="uv" type="radio" id="uv21" value="yes" v-model="technical_data.uv_print">
-                                <label for="uv21">{{ lang('Yes') }}</label>
-                            </fieldset>
-                        </div>
                     </div>
                 </div>
             </div>

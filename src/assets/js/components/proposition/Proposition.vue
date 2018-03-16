@@ -8,7 +8,7 @@
         <template v-else-if="notAvailable">
             <div class="d-flex justify-content-center align-items-center flex-column mt-5">
                 <i class="fa fa-exclamation-triangle fa-5x mb-3 color-nav-sub" aria-hidden="true"></i>
-                <h1 class="text-center mt-5">{{ lang('This page in not available because there is data missing.') }}</h1>
+                <h1 class="text-center mt-5">{{ lang('This page in not available because there is data missing') }}</h1>
             </div>
         </template>
         <template v-else-if="!authorized">

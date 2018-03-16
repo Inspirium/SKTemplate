@@ -234,7 +234,7 @@
     export default {
         data: function () {
             return {
-                option_colors: ['One Colour', 'Two Colours', 'Three Colours', 'Full Colour', 'Only One Color', 'Only Two Color', 'Only Three Color', 'Only Four Color', 'Fifth Colour'],
+                option_colors: ['No Colour', 'One Colour', 'Two Colours', 'Three Colours', 'Full Colour', 'Only One Color', 'Only Two Color', 'Only Three Color', 'Only Four Color', 'Fifth Colour'],
             }
         },
         computed: {

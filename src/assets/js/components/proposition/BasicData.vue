@@ -68,6 +68,22 @@
                 <!-- Show only if "Delivered"  -->
             </template>
 
+            <!-- Author questionnaire upload -->
+            <div class="page-name-m mt-2">{{ lang('Author Questionnaire') }}</div>
+            <button class="btn btn-neutral btn-addon" type="button" v-on:click="documentAdd">{{ lang('Add Documents') }}</button>
+
+            <!-- File/document table -->
+            <div class="files mt-2 mb-2">
+                <div class="file-box file-box-l d-flex align-items-center" v-for="item in basic_data.questionnaire">
+                    <a v-bind:href="item.link" class="file-icon" v-on:click.prevent="documentDownload(item.link)">{{ item.title }}</a>
+                    <div class="file-box-sty ml-auto d-flex">
+                        <a v-bind:href="'/human_resources/employee/show/'+item.owner.id+'/show'"><img class="profile-m-1 mr-1 align-self-center" v-bind:src="item.owner.image">{{ item.owner.name }}
+                        </a></div>
+                    <div class="file-box-sty">{{ item.created_at | moment("D.M.Y.") }}</div>
+                    <div class="file-box-sty icon icon-download" v-on:click="documentDownload(item.link)">Preuzmi</div>
+                    <div class="file-box-sty icon icon-cancel" v-on:click="fileWarning(item.id)">Obriši</div>
+                </div>
+            </div>
 
             <!--/. Checkbox -->
             <div class="page-name-m mt-3">{{ lang('Dotation') }}</div>
