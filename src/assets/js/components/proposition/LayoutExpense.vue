@@ -37,7 +37,7 @@
         <!-- Circulation Number -->
         <div class="row">
             <div class="col-md-6 mt-2">
-                <h6 class="text-center no-border display-e">{{ lang('Layout Expense') }}</h6>
+                <h6 class="text-center no-border display-e">{{ lang('Layout Brutto Expense') }}</h6>
                 <h1 class="text-center display-2">{{ layout_total | flexCurrency(' kn', 2) }}</h1>
                 <div class="col-md-6 mx-auto mt-4">
                     <!-- Dropdown menu -->
