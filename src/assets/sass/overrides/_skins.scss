@@ -18,6 +18,9 @@ $sk-skin-btn-primary: #309e9e;
 $sk-skin-btn-secondary: #324f7b;
 $sk-skin-btn-default: #293756;
 .sk-skin {
+    .iconfont {
+        font-family: FontAwesome;
+    }
     .page-name-xl a {
         color: $sk-skin-grey;
         &:hover {

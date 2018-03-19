@@ -37,7 +37,12 @@
         <upload-modal id="initial-documents" action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" v-bind:dir="$route.meta.dir" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave"></upload-modal>
         <upload-modal id="final-document" action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" v-bind:dir="$route.meta.dir" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave" isFinal="final"></upload-modal>
 
+        <button type="button" class="btn btn-lg btn-assign btn-assign-icon" v-on:click="documentAdd('initial-documents')">{{ lang('Skip Step') }}</button>
+        <button type="button" class="btn btn-lg btn-assign btn-assign-icon" v-on:click="documentAdd('initial-documents')">{{ lang('Step Done') }}</button>
+
     </div>
+    
+    
 </template>
 <script>
     export default {
