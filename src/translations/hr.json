@@ -583,7 +583,8 @@
   "Other Author Expenses": "Ostali autorski troškovi",
   "In Kn": "U kunama",
   "Choose your option": "Odaberi",
-  "This page in not available because there is data missing": "Pod sekcijom *tehnički podaci* moraju biti unesene naklade da bi se prikazao sadržaj ove stranice",
+  "You need to enter circulations under section *technical data* in order to enable this screen": "Pod sekcijom *tehnički podaci* moraju biti unesene naklade da bi se prikazao sadržaj ove stranice",
+  "You need to select the book group in order to enable this screen": "Morate odabrati grupu kojoj propozicija pripada da bi omogućili ovu stranicu",
   "Task has been resent": "Zadatak je ponovno poslan",
   ":assigner has reactivated a task :task": ":assigner je zatražio doradu zadatka - :task",
   "Editor": "Urednik",
@@ -606,5 +607,6 @@
   "Varnishe": "Lakiranje",
   "Glossy Varnishe": "Sjajno lakiranje",
   "Mat Varnishe": "Mat lakiranje",
-  "Author Questionnaire": "Autorski upitnik"
+  "Author Questionnaire": "Autorski upitnik",
+  "Request Code" : "Zatraži šifru"
 }

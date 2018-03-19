@@ -98,19 +98,9 @@
                 }
             },
             autocomplete_select: function(index, type) {
-                if (type === 'department') {
-                    //this.$store.commit('proposition/pushToArray', {key: 'departments', group: 'assigned', value: this.d_suggestions[index]});
-                    this.departments.push(this.d_suggestions[index]);
-                    this.d_suggestions = [];
-                    this.department = '';
-                }
-                else {
-                    //this.$store.commit('proposition/pushToArray', {key: 'employees', group: 'assigned', value: this.e_suggestions[index]});
-                    this.employees.push(this.e_suggestions[index]);
+                    this.employees.splice(0,1,this.e_suggestions[index]);
                     this.e_suggestions = [];
                     this.employee = '';
-                }
-
             },
             assignValues: function() {
                 if (this.employees.length) {

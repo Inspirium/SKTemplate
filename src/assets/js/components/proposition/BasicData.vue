@@ -50,7 +50,7 @@
             <template v-if="basic_data.manuscript === 'delivered'">
                 <!-- Show only if "Delivered"  -->
                 <!-- Documents upload -->
-                <button class="btn btn-neutral btn-addon mt-2" type="button" v-on:click="documentAdd">{{ lang('Add Documents') }}</button>
+                <button class="btn btn-neutral btn-addon mt-2" type="button" v-on:click="documentAdd('manuscripts')">{{ lang('Add Documents') }}</button>
 
                 <!-- File/document table -->
                 <div class="files mt-2 mb-2">
@@ -62,7 +62,7 @@
                             </a></div>
                         <div class="file-box-sty">{{ document.created_at | moment("DD.MM.YYYY.") }}</div>
                         <div class="file-box-sty icon icon-download" v-on:click="documentDownload(document.link)">{{ lang('Download') }}</div>
-                        <div class="file-box-sty icon icon-cancel" v-on:click="fileWarning(document.id)">{{ lang('Delete') }}</div>
+                        <div class="file-box-sty icon icon-cancel" v-on:click="fileWarning(document.id, 'manuscripts')">{{ lang('Delete') }}</div>
                     </div>
                 </div>
                 <!-- Show only if "Delivered"  -->
@@ -70,7 +70,7 @@
 
             <!-- Author questionnaire upload -->
             <div class="page-name-m mt-2">{{ lang('Author Questionnaire') }}</div>
-            <button class="btn btn-neutral btn-addon" type="button" v-on:click="documentAdd">{{ lang('Add Documents') }}</button>
+            <button class="btn btn-neutral btn-addon" type="button" v-on:click="documentAdd('questionnaire')">{{ lang('Add Documents') }}</button>
 
             <!-- File/document table -->
             <div class="files mt-2 mb-2">
@@ -81,7 +81,7 @@
                         </a></div>
                     <div class="file-box-sty">{{ item.created_at | moment("D.M.Y.") }}</div>
                     <div class="file-box-sty icon icon-download" v-on:click="documentDownload(item.link)">Preuzmi</div>
-                    <div class="file-box-sty icon icon-cancel" v-on:click="fileWarning(item.id)">Obriši</div>
+                    <div class="file-box-sty icon icon-cancel" v-on:click="fileWarning(item.id, 'questionnaire')">Obriši</div>
                 </div>
             </div>
 
@@ -148,7 +148,8 @@
             </div>
         </div>
 
-        <upload-modal action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" dir="manuscripts" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave"></upload-modal>
+            <upload-modal id="manuscripts" action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" dir="manuscripts" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave" isFinal="manuscripts"></upload-modal>
+            <upload-modal action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" id="questionnaire" dir="questionnaire" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave" isFinal="questionnaire"></upload-modal>
     </div>
 
     <authors-modal v-on:authorAdded="authorAdded"></authors-modal>
@@ -166,19 +167,19 @@
             }
         },
         methods: {
-            documentAdd: function() {
-                jQuery('#upload-modal').modal('show');
+            documentAdd: function(id) {
+                jQuery('#'+id).modal('show');
             },
             documentDownload: function(link) {
                 window.open(link, "_blank");
                 return false;
             },
-            fileWarning(id) {
-                this.$store.dispatch('proposition/listenForWarning', {vue: this, data: {id: id}});
+            fileWarning(id, isFinal) {
+                this.$store.dispatch('proposition/listenForWarning', {vue: this, data: {id: id, isFinal: isFinal}});
                 jQuery('#modal-warning').modal('show');
             },
             fileAdd: function(data) {
-                this.$store.commit('proposition/basic_data/addFile', data.file);
+                this.$store.commit('proposition/basic_data/addFile', data);
             },
             fileNameSave: function(data) {
                 this.$store.dispatch('proposition/basic_data/filenameSave', {id:data.file.id, title:data.file.title});

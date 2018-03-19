@@ -3,6 +3,7 @@
     <div class="btn-footer mt-4 mb-5 flex-column flex-md-row d-flex p-2">
         <spinner-button v-if="save" v-on:button_clicked="saveProposition"></spinner-button>
         <button v-if="assign" class="btn btn-lg btn-assign btn-assign-icon " v-on:click="assignModalOpen">{{ lang('Assign to...') }}</button>
+        <button v-if="requestCode" class="btn btn-lg btn-assign btn-assign-icon " v-on:click="assignModalOpen">{{ lang('Request Code...') }}</button>
         <button v-if="assignDocuments" class="btn btn-lg btn-assign btn-assign-icon" v-on:click="assignDocumentModalOpen">{{ lang('Assign to...') }}</button>
         <button v-if="approval && canSendForApproval" class="btn btn-lg btn-save" v-on:click="sendForApproval" >{{ lang('Send on Approval') }}</button>
         <template v-if="deleteRestore">
@@ -20,6 +21,7 @@
 
         <proposition-approval-modal v-if="approval"></proposition-approval-modal>
         <assign-proposition v-if="assign"></assign-proposition>
+        <assign-proposition v-if="requestCode"></assign-proposition>
         <warning-modal></warning-modal>
         <warning-not-saved-modal v-on:warning="$emit('warningSaved')"></warning-not-saved-modal>
         <assign-documents v-if="assignDocuments"></assign-documents>
@@ -50,7 +52,11 @@
                 default: false
             },
             forceDelete: {
-                Boolean,
+                type: Boolean,
+                default: false
+            },
+            requestCode: {
+                type: Boolean,
                 default: false
             }
         },

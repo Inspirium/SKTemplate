@@ -11,7 +11,8 @@ let initialState = {
     dotation_amount: '',
     dotation_origin: '',
     manuscript: '',
-    manuscript_documents: []
+    manuscript_documents: [],
+    questionnaire: []
 };
 export default {
     namespaced: true,
@@ -26,7 +27,8 @@ export default {
         dotation_amount: '',
         dotation_origin: '',
         manuscript: '',
-        manuscript_documents: []
+        manuscript_documents: [],
+        questionnaire: []
     },
     mutations: {
         initData(state, payload) {
@@ -49,13 +51,29 @@ export default {
                 return author.id != payload;
             })
         },
-        addFile(state, file) {
-            state.manuscript_documents.push(file);
+        addFile(state, payload) {
+            file = payload.file
+            if (payload.isFinal === 'manuscripts') {
+                state.manuscript_documents.push(file);
+            }
+            if (payload.isFinal === 'questionnaire') {
+                state.questionnaire.push(file);
+            }
+
         },
-        deleteFile(state, id) {
-            state.manuscript_documents = _.filter(state.manuscript_documents, (file) => {
-                return file.id != id;
-            })
+        deleteFile(state, payload) {
+            id = payload.file
+            if (payload.isFinal === 'manuscripts') {
+                state.manuscript_documents = _.filter(state.manuscript_documents, (file) => {
+                    return file.id != id;
+                })
+            }
+            if (payload.isFinal === 'questionnaire') {
+                state.questionnaire = _.filter(state.questionnaire, (file) => {
+                    return file.id != id;
+                })
+            }
+
         },
         filenameSave(state, payload) {
             _.forEach(state.manuscript_documents, (o) => {

@@ -127,7 +127,7 @@
                                     <option value="hard">{{ lang('Hard Cover') }}</option>
                                     <option value="soft">{{ lang('Soft Cover') }}</option>
                                     <option value="both">{{ lang('Hard and Soft Cover') }}</option>
-                                    <option value="soft">{{ lang('Flex Cover') }}</option>
+                                    <option value="flex">{{ lang('Flex Cover') }}</option>
                                 </select>
                                 <label>{{ lang('Hard/Soft Cover') }}</label>
                             </div>

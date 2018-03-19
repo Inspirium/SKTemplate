@@ -26,6 +26,8 @@ import Multimedia from './components/proposition/Multimedia'
 
 import EditProfile from './components/hr/EditProfile'
 import Employees from './components/hr/Employees'
+import Departments from './components/hr/Departments'
+import DepartmentEdit from './components/hr/DepartmentEdit'
 
 import Tasks from './components/tasks/Tasks'
 import TaskEdit from './components/tasks/TaskEdit'
@@ -35,6 +37,7 @@ import PropositionList from './components/proposition/PropositionList'
 
 import Books from './components/books/Books'
 import Authors from './components/books/Authors'
+import AuthorEdit from './components/books/AuthorEdit'
 import AuthorsRelated from './components/books/AuthorsRelated'
 
 export const routes = [
@@ -104,8 +107,12 @@ export const routes = [
     { path: '/human_resources/employee/new', component: EditProfile},
     { path: '/human_resources/employee/:id(\\d+)/edit', component: EditProfile},
     { path: '/human_resources/employee/:id(\\d+)', component: EditProfile},
+    { path: '/human_resources/departments', component: Departments},
+    { path: '/human_resources/department/:id(\\d+)/edit', component: DepartmentEdit},
+    { path: '/human_resources/department/new', component: DepartmentEdit},
 
     { path: '/books', component: Books},
     { path: '/books/authors', component: Authors},
+    { path: '/books/author/:id(\\d+)', component: AuthorEdit},
     { path: '/books/author/:id(\\d+)/related/propositions', component: AuthorsRelated}
 ];

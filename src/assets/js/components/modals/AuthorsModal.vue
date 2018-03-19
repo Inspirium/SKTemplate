@@ -53,8 +53,8 @@
                             </div>
                             <!-- Textarea -->
                             <div class="md-form mt-3">
-                                <textarea id="categorization_note" class="md-textarea" v-model="categorization.note"></textarea>
-                                <label for="categorization_note">{{ lang('Note') }}</label>
+                                <textarea id="note" class="md-textarea" v-model="note"></textarea>
+                                <label for="note">{{ lang('Note') }}</label>
                             </div>
                             <button class="btn btn-neutral btn-addon mb-2" type="button">{{ lang('Add Additional Information') }}</button>
                         </div>
@@ -79,7 +79,8 @@
                 last_name : '',
                 occupation : '',
                 title : '',
-                work : ''
+                work : '',
+                note: ''
             }
         },
         computed: {},
@@ -90,7 +91,8 @@
                     last_name : this.last_name,
                     title : this.title,
                     occupation: this.occupation,
-                    work: this.work
+                    work: this.work,
+                    note: this.note
                 })
                     .then((res) => {
                         this.$eventHub.emit('BUTTON_LISTEN_FOR_SUCCESS');
@@ -102,7 +104,7 @@
                         this.occupation = '';
                         this.title = '';
                         this.work = '';
-
+                        this.note = '';
                     })
                     .catch((err) => {
                         this.$eventHub.emit('BUTTON_LISTEN_FOR_FAILURE');

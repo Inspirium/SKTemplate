@@ -19,7 +19,13 @@ let initialState = {
     blind_print: 0,
     uv_print: 0,
     book_binding: '',
-    note: ''
+    note: '',
+    coverpaper_paper_type: '',
+    coverpaper_colors: '',
+    coverpaper_plastification: '',
+    coverpaper_uv_print: '',
+    coverpaper_film_print: '',
+    coverpaper_blind_print: ''
 };
 export default {
     namespaced: true,
@@ -43,7 +49,13 @@ export default {
         blind_print: 0,
         uv_print: 0,
         book_binding: '',
-        note: ''
+        note: '',
+        coverpaper_paper_type: '',
+        coverpaper_colors: '',
+        coverpaper_plastification: '',
+        coverpaper_uv_print: '',
+        coverpaper_film_print: '',
+        coverpaper_blind_print: ''
     },
     mutations: {
         initData(state, payload) {
