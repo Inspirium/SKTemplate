@@ -69,7 +69,7 @@
             </template>
 
             <!-- Author questionnaire upload -->
-            <div class="page-name-m mt-2">{{ lang('Author Questionnaire') }}</div>
+            <div class="page-name-m mt-4">{{ lang('Author Questionnaire') }}</div>
             <button class="btn btn-neutral btn-addon" type="button" v-on:click="documentAdd('questionnaire')">{{ lang('Add Documents') }}</button>
 
             <!-- File/document table -->
@@ -86,7 +86,7 @@
             </div>
 
             <!--/. Checkbox -->
-            <div class="page-name-m mt-3">{{ lang('Dotation') }}</div>
+            <div class="page-name-m mt-4">{{ lang('Dotation') }}</div>
             <div class="form-inline mb-4">
                 <fieldset class="form-group">
                     <input name="dotation" type="radio" id="dot-yes" value="yes" v-model="basic_data.dotation">

@@ -234,12 +234,6 @@
                                     path: '/proposition/'+this.id+'/preparation/lecture',
                                     component: true
                                 },
-                                technical_correction: {
-                                    enabled: true,
-                                    title: 'Technical Correction',
-                                    path: '/proposition/'+this.id+'/preparation/technical_correction',
-                                    component: true
-                                },
                                 final_review: {
                                     enabled: true,
                                     title: 'Final Review',
