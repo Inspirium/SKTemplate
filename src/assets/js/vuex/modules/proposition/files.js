@@ -11,7 +11,8 @@ export default {
         proposition_id: 0,
         files: [],
         final: [],
-        dir: ''
+        dir: '',
+        step_status: ''
     },
     mutations: {
         initData(state, payload) {
@@ -83,7 +84,31 @@ export default {
                 commit('initData', initialState);
                 resolve();
             })
-
+        },
+        skipStep({rootState}) {
+            return new Promise((resolve, reject) => {
+                let path = '/api/proposition/' + rootState.route.params.id + '/files/' + rootState.route.meta.dir;
+                console.log(path);
+                axios.post(path, {status: 'skipped'})
+                    .then(() => {
+                        resolve();
+                    })
+                    .catch(() => {
+                        reject();
+                    });
+            });
+        },
+        markFinished({rootState}) {
+            return new Promise((resolve, reject) => {
+                let path = '/api/proposition/' + rootState.route.params.id + '/files/' + rootState.route.meta.dir;
+                axios.post(path, {status: 'finished'})
+                    .then(() => {
+                        resolve();
+                    })
+                    .catch(() => {
+                        reject();
+                    })
+            });
         }
     }
 }

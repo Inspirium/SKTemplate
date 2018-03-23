@@ -52,7 +52,9 @@
                 if (this.$route.meta.dir) {
                     return {
                         save: true,
-                        assignDocuments: true
+                        assignDocuments: true,
+                        skip: true,
+                        finish: true
                     }
                 }
                 return {

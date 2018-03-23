@@ -34,15 +34,16 @@
                     <button type="button" class="btn btn-neutral" v-on:click="documentAdd('final-document')">{{ lang('Upload') }}</button>
                 </div>
 
+        <div class="justify-content-center d-flex">
+            {{ lang(status) }}
+        </div>
+
         <upload-modal id="initial-documents" action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" v-bind:dir="$route.meta.dir" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave"></upload-modal>
         <upload-modal id="final-document" action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" v-bind:dir="$route.meta.dir" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave" isFinal="final"></upload-modal>
 
-        <button type="button" class="btn btn-lg btn-assign btn-assign-icon" v-on:click="documentAdd('initial-documents')">{{ lang('Skip Step') }}</button>
-        <button type="button" class="btn btn-lg btn-assign btn-assign-icon" v-on:click="documentAdd('initial-documents')">{{ lang('Step Done') }}</button>
-
     </div>
-    
-    
+
+
 </template>
 <script>
     export default {
@@ -55,6 +56,16 @@
             },
             final() {
                 return this.$deepModel('proposition.files.final');
+            },
+            status() {
+                switch (this.$store.state.proposition.files.step_status) {
+                    case 'skipped':
+                        return 'User has skipped this step';
+                    case 'finished':
+                        return 'User has finished this step';
+                    default:
+                        return '';
+                }
             }
         },
         methods: {
@@ -77,7 +88,7 @@
             fileWarning(data) {
                 this.$store.dispatch('proposition/listenForWarning', {vue: this, data: data});
                 jQuery('#modal-warning').modal('show');
-            },
+            }
         }
     }
 </script>

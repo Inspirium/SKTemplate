@@ -3,7 +3,8 @@ let initialState = {
     webshop: '',
     jpg: [],
     psd: [],
-    preview: []
+    preview: [],
+    step_status: ''
 };
 export default {
     namespaced: true,

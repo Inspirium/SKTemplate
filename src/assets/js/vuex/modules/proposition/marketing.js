@@ -1,7 +1,8 @@
 import axios from "axios/index";
 let initialState = {
     cover: [],
-    leaflet: []
+    leaflet: [],
+    step_status:''
 };
 export default {
     namespaced: true,

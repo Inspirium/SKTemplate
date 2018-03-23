@@ -17,6 +17,8 @@
         <template v-if="canForceDelete">
             <button type="button" class="btn btn-lg btn-cancel" v-on:click="warningModalOpenForced">{{ lang('Permanently Delete') }}</button>
         </template>
+        <button v-if="skip" type="button" class="btn btn-lg btn-assign btn-assign-icon" v-on:click="skipStep">{{ lang('Skip Step') }}</button>
+        <button v-if="finish" type="button" class="btn btn-lg btn-assign btn-assign-icon" v-on:click="markFinished">{{ lang('Step Done') }}</button>
     </div>
 
         <proposition-approval-modal v-if="approval"></proposition-approval-modal>
@@ -56,6 +58,14 @@
                 default: false
             },
             requestCode: {
+                type: Boolean,
+                default: false
+            },
+            skip: {
+                type: Boolean,
+                default: false
+            },
+            finish: {
                 type: Boolean,
                 default: false
             }
@@ -130,6 +140,26 @@
             warningModalOpenForced() {
                 this.$store.dispatch('proposition/listenForForcedDelete', {vue: this, data: {}});
                 jQuery('#modal-warning').modal('show');
+            },
+            skipStep() {
+                this.$store.dispatch('proposition/' + this.$route.meta.save + '/skipStep', this.$route)
+                    .then(() => {
+                        toastr.success(this.lang('Uspješno obavljeno'));
+                        this.$store.commit('editedFalse');
+                    })
+                    .catch(() => {
+                        toastr.error(this.lang('Došlo je do problema. Pokušajte ponovno'));
+                    });
+            },
+            markFinished() {
+                this.$store.dispatch('proposition/' + this.$route.meta.save + '/markFinished', this.$route)
+                    .then(() => {
+                        toastr.success(this.lang('Uspješno obavljeno'));
+                        this.$store.commit('editedFalse');
+                    })
+                    .catch(() => {
+                        toastr.error(this.lang('Došlo je do problema. Pokušajte ponovno'));
+                    });
             }
         }
     }
