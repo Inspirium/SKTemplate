@@ -38,6 +38,7 @@ import PropositionList from './components/proposition/PropositionList'
 import Books from './components/books/Books'
 import Authors from './components/books/Authors'
 import AuthorEdit from './components/books/AuthorEdit'
+import AuthorShow from './components/books/AuthorShow'
 import AuthorsRelated from './components/books/AuthorsRelated'
 
 export const routes = [
@@ -113,6 +114,7 @@ export const routes = [
 
     { path: '/books', component: Books},
     { path: '/books/authors', component: Authors},
-    { path: '/books/author/:id(\\d+)', component: AuthorEdit},
+    { path: '/books/author/:id(\\d+)', component: AuthorShow},
+    { path: '/books/author/:id(\\d+)/edit', component: AuthorEdit},
     { path: '/books/author/:id(\\d+)/related/propositions', component: AuthorsRelated}
 ];
