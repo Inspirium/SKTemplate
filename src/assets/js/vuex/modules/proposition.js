@@ -123,7 +123,7 @@ export default {
                                     resolve();
                                 })
                                 .catch((err) => {
-                                    reject(err.response.status);
+                                    reject(err.response);
                                 });
                         })
                     ]).then(resolve).catch(reject);
@@ -159,6 +159,5 @@ export default {
             dispatch('owner/initClear');
             dispatch('start/initClear');
         }
-
     }
 }

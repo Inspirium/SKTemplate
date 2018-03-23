@@ -52,7 +52,7 @@ export default {
             })
         },
         addFile(state, payload) {
-            file = payload.file
+            let file = payload.file;
             if (payload.isFinal === 'manuscripts') {
                 state.manuscript_documents.push(file);
             }

@@ -89,7 +89,7 @@
                         }, 200);
                     })
                     .catch((err) => {
-                        if (err === 403) {
+                        if (err.status === 403) {
                             this.loading = false;
                             this.authorized = false;
                             this.notAvailable = false;
@@ -97,7 +97,7 @@
                         else {
                             this.loading = false;
                             this.authorized = true;
-                            this.notAvailable = err.response.data.message;
+                            this.notAvailable = err.data.message;
                         }
                     });
             }
@@ -118,7 +118,8 @@
             }
             else if (this.$route.params.id != 0) {
                 this.$store.dispatch('proposition/initData')
-                    .then(this.loadStep());
+                    .then(this.loadStep())
+                    .catch();
             }
             else {
                 this.$router.push({path: '/proposition/start'})
