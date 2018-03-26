@@ -24,6 +24,13 @@ $sk-skin-btn-default: #293756;
             color: $sk-skin-accent;
         }
     }
+    .steps-notif {
+        background-color: $sk-skin-flat;
+        opacity: .85;
+        padding: 9.6rem;
+        color: white;
+        margin-top: -319px;
+    }
     .file-box a {
         color: $sk-skin-grey;
     }

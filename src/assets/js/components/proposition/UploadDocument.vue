@@ -34,7 +34,7 @@
                     <button type="button" class="btn btn-neutral" v-on:click="documentAdd('final-document')">{{ lang('Upload') }}</button>
                 </div>
 
-        <div class="justify-content-center d-flex">
+        <div class="justify-content-center steps-notif d-flex">
             {{ lang(status) }}
         </div>
 
