@@ -63,7 +63,7 @@ export default {
 
         },
         deleteFile(state, payload) {
-            id = payload.file
+            let id = payload.id;
             if (payload.isFinal === 'manuscripts') {
                 state.manuscript_documents = _.filter(state.manuscript_documents, (file) => {
                     return file.id != id;
@@ -102,7 +102,7 @@ export default {
             });
         },
         deleteFile({commit}, payload) {
-            commit('deleteFile', payload.data.id);
+            commit('deleteFile', payload.data);
             //make request to remove from system
             axios.delete('/api/file/'+payload.data.id);
         },
