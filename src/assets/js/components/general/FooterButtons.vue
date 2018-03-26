@@ -17,8 +17,8 @@
         <template v-if="canForceDelete">
             <button type="button" class="btn btn-lg btn-cancel" v-on:click="warningModalOpenForced">{{ lang('Permanently Delete') }}</button>
         </template>
-        <button v-if="skip" type="button" class="btn btn-lg btn-assign btn-assign-icon" v-on:click="skipStep">{{ lang('Skip Step') }}</button>
-        <button v-if="finish" type="button" class="btn btn-lg btn-assign btn-assign-icon" v-on:click="markFinished">{{ lang('Step Done') }}</button>
+        <button v-if="skip" type="button" class="btn btn-lg btn-assign btn-skip-icon" v-on:click="skipStep">{{ lang('Skip Step') }}</button>
+        <button v-if="finish" type="button" class="btn btn-lg btn-assign btn-done-icon" v-on:click="markFinished">{{ lang('Step Done') }}</button>
     </div>
 
         <proposition-approval-modal v-if="approval"></proposition-approval-modal>

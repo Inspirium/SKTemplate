@@ -1045,7 +1045,7 @@ input.md-form.addon {
     font-size: .8rem;
 }
 
-.btn-footer {
+.btn-footer { 
     justify-content: center;
     border-top: 1px solid darken($color-mainpanel, 10%);
 }
@@ -1091,12 +1091,12 @@ input.md-form.addon {
     background-color: $color-incomplete;
 }
 
-.btn-sub2 {
+.btn-sub2 { 
     background-color: $color-nav-sub2;
 }
 
 .btn-white {
-    background-color: $white;
+    background-color: $white; 
 }
 
 .btn-icons {
@@ -1142,6 +1142,18 @@ input.md-form.addon {
     @extend .btn-icons;
     content: "\f017";
     font-size: 3.6rem;
+}
+
+.btn-skip-icon:before {
+    @extend .btn-icons;
+    content: "\f01e";
+    font-size: 2.4rem;
+}
+
+.btn-done-icon:before {
+    @extend .btn-icons;
+    content: "\f058";
+    font-size: 2.4rem;
 }
 
 
