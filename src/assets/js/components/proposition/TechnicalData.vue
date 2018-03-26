@@ -39,7 +39,7 @@
 
                 <!-- First column -->
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="page-name-l mb-4">{{ lang('Book Block') }}</div>
                         <!-- Input fileds -->
                         <div class="md-form">
@@ -113,165 +113,168 @@
                             <label for="form7" class="">{{ lang('Additional Work') }}</label>
                         </div>
                     </div>
-
+                </div>
+                <div class="row">
                     <!-- Second column -->
-                    <div class="col-md-6">
-                        <div class="page-name-l mb-4">{{ lang('Cover') }}</div>
-
-                        <!-- Dropdown menu -->
+                    <div class="col-md-12">
                         <div class="row">
-                            <div class="col-md-12">
-                                <select class="mdb-select" v-model="technical_data.cover_type">
-                                    <option disabled >{{ lang('Hard/Soft Cover') }}</option>
-                                    <option value="none">{{ lang('None') }}</option>
-                                    <option value="hard">{{ lang('Hard Cover') }}</option>
-                                    <option value="soft">{{ lang('Soft Cover') }}</option>
-                                    <option value="both">{{ lang('Hard and Soft Cover') }}</option>
-                                    <option value="flex">{{ lang('Flex Cover') }}</option>
-                                </select>
-                                <label>{{ lang('Hard/Soft Cover') }}</label>
+                            <div class="col-md-6">
+                                <div class="page-name-l mb-4">{{ lang('Cover') }}</div>
+
+                                <!-- Dropdown menu -->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <select class="mdb-select" v-model="technical_data.cover_type">
+                                            <option disabled >{{ lang('Hard/Soft Cover') }}</option>
+                                            <option value="none">{{ lang('None') }}</option>
+                                            <option value="hard">{{ lang('Hard Cover') }}</option>
+                                            <option value="soft">{{ lang('Soft Cover') }}</option>
+                                            <option value="both">{{ lang('Hard and Soft Cover') }}</option>
+                                            <option value="flex">{{ lang('Flex Cover') }}</option>
+                                        </select>
+                                        <label>{{ lang('Hard/Soft Cover') }}</label>
+                                    </div>
+                                </div>
+
+                                <!-- Input fileds -->
+                                <div class="md-form">
+                                    <input type="text" id="form6" class="form-control" v-model="technical_data.cover_paper_type">
+                                    <label for="form6" class="">{{ lang('Paper Type') }}</label>
+                                </div>
+
+                                <!-- Input fileds -->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <select class="mdb-select" v-model="technical_data.cover_colors">
+                                            <option disabled >{{ lang('Choose Colors') }}</option>
+                                            <option v-for="(color, index) in option_colors" v-bind:value="index+1">{{ lang(color) }}</option>
+                                        </select>
+                                        <label>{{ lang('Colors') }}</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <select class="mdb-select" v-model="technical_data.cover_plastification">
+                                            <option disabled >{{ lang('Plastification') }}</option>
+                                            <option value="none">{{ lang('None') }}</option>
+                                            <option value="glossy">{{ lang('Glossy plastification') }}</option>
+                                            <option value="mat">{{ lang('Mat plastification') }}</option>
+                                        </select>
+                                        <label>{{ lang('Plastification') }}</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <select class="mdb-select" v-model="technical_data.uv_print">
+                                            <option disabled >{{ lang('Varnishe') }}</option>
+                                            <option value="none">{{ lang('None') }}</option>
+                                            <option value="glossy">{{ lang('Glossy Varnishe') }}</option>
+                                            <option value="mat">{{ lang('Mat Varnishe') }}</option>
+                                        </select>
+                                        <label>{{ lang('Varnishe') }}</label>
+                                    </div>
+                                </div>
+
+                                <!--/. Checkbox -->
+                                <div class="page-name-m">{{ lang('Film Print') }}</div>
+                                <div class="form-inline mb-3">
+                                    <fieldset class="form-group">
+                                        <input name="film" type="radio" id="film11" value="no" v-model="technical_data.film_print">
+                                        <label for="film11">{{ lang('No') }}</label>
+                                    </fieldset>
+                                    <fieldset class="form-group">
+                                        <input name="film" type="radio" id="film21" value="yes" v-model="technical_data.film_print">
+                                        <label for="film21">{{ lang('Yes') }}</label>
+                                    </fieldset>
+                                </div>
+
+                                <div class="page-name-m">{{ lang('Blind Print') }}</div>
+                                <div class="form-inline mb-3">
+                                    <fieldset class="form-group">
+                                        <input name="blind" type="radio" id="blind11" value="no" v-model="technical_data.blind_print">
+                                        <label for="blind11">{{ lang('No') }}</label>
+                                    </fieldset>
+                                    <fieldset class="form-group">
+                                        <input name="blind" type="radio" id="blind21" value="yes" v-model="technical_data.blind_print">
+                                        <label for="blind21">{{ lang('Yes') }}</label>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="col-md-6">   
+                                <div class="page-name-l mb-4">{{ lang('Cover Paper') }}</div>
+                                    <!-- Input fileds -->
+                                    <div class="md-form">
+                                        <input type="text" id="form8" class="form-control" v-model="technical_data.coverpaper_paper_type">
+                                        <label for="form8" class="">{{ lang('Paper Type') }}</label>
+                                    </div>
+
+                                    <!-- Input fileds -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <select class="mdb-select" v-model="technical_data.coverpaper_colors">
+                                                <option disabled >{{ lang('Choose Colors') }}</option>
+                                                <option v-for="(color, index) in option_colors" v-bind:value="index+1">{{ lang(color) }}</option>
+                                            </select>
+                                            <label>{{ lang('Colors') }}</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <select class="mdb-select" v-model="technical_data.coverpaper_plastification">
+                                                <option disabled >{{ lang('Plastification') }}</option>
+                                                <option value="none">{{ lang('None') }}</option>
+                                                <option value="glossy">{{ lang('Glossy plastification') }}</option>
+                                                <option value="mat">{{ lang('Mat plastification') }}</option>
+                                            </select>
+                                            <label>{{ lang('Plastification') }}</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <select class="mdb-select" v-model="technical_data.coverpaper_uv_print">
+                                                <option disabled >{{ lang('Varnishe') }}</option>
+                                                <option value="none">{{ lang('None') }}</option>
+                                                <option value="glossy">{{ lang('Glossy Varnishe') }}</option>
+                                                <option value="mat">{{ lang('Mat Varnishe') }}</option>
+                                            </select>
+                                            <label>{{ lang('Varnishe') }}</label>
+                                        </div>
+                                    </div>
+
+                                    <!--/. Checkbox -->
+                                    <div class="page-name-m">{{ lang('Film Print') }}</div>
+                                    <div class="form-inline mb-3">
+                                        <fieldset class="form-group">
+                                            <input name="film_coverpaper" type="radio" id="film12" value="no" v-model="technical_data.coverpaper_film_print">
+                                            <label for="film12">{{ lang('No') }}</label>
+                                        </fieldset>
+                                        <fieldset class="form-group">
+                                            <input name="film_coverpaper" type="radio" id="film22" value="yes" v-model="technical_data.coverpaper_film_print">
+                                            <label for="film22">{{ lang('Yes') }}</label>
+                                        </fieldset>
+                                    </div>
+
+                                    <div class="page-name-m">{{ lang('Blind Print') }}</div>
+                                    <div class="form-inline mb-3">
+                                        <fieldset class="form-group">
+                                            <input name="blind_coverpaper" type="radio" id="blind12" value="no" v-model="technical_data.coverpaper_blind_print">
+                                            <label for="blind12">{{ lang('No') }}</label>
+                                        </fieldset>
+                                        <fieldset class="form-group">
+                                            <input name="blind_coverpaper" type="radio" id="blind22" value="yes" v-model="technical_data.coverpaper_blind_print">
+                                            <label for="blind22">{{ lang('Yes') }}</label>
+                                        </fieldset>
+                                    </div>
+
                             </div>
                         </div>
-
-                        <!-- Input fileds -->
-                        <div class="md-form">
-                            <input type="text" id="form6" class="form-control" v-model="technical_data.cover_paper_type">
-                            <label for="form6" class="">{{ lang('Paper Type') }}</label>
-                        </div>
-
-                        <!-- Input fileds -->
-                        <div class="row">
-                            <div class="col-md-12">
-                                <select class="mdb-select" v-model="technical_data.cover_colors">
-                                    <option disabled >{{ lang('Choose Colors') }}</option>
-                                    <option v-for="(color, index) in option_colors" v-bind:value="index+1">{{ lang(color) }}</option>
-                                </select>
-                                <label>{{ lang('Colors') }}</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <select class="mdb-select" v-model="technical_data.cover_plastification">
-                                    <option disabled >{{ lang('Plastification') }}</option>
-                                    <option value="none">{{ lang('None') }}</option>
-                                    <option value="glossy">{{ lang('Glossy plastification') }}</option>
-                                    <option value="mat">{{ lang('Mat plastification') }}</option>
-                                </select>
-                                <label>{{ lang('Plastification') }}</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <select class="mdb-select" v-model="technical_data.uv_print">
-                                    <option disabled >{{ lang('Varnishe') }}</option>
-                                    <option value="none">{{ lang('None') }}</option>
-                                    <option value="glossy">{{ lang('Glossy Varnishe') }}</option>
-                                    <option value="mat">{{ lang('Mat Varnishe') }}</option>
-                                </select>
-                                <label>{{ lang('Varnishe') }}</label>
-                            </div>
-                        </div>
-
-                        <!--/. Checkbox -->
-                        <div class="page-name-m">{{ lang('Film Print') }}</div>
-                        <div class="form-inline mb-3">
-                            <fieldset class="form-group">
-                                <input name="film" type="radio" id="film11" value="no" v-model="technical_data.film_print">
-                                <label for="film11">{{ lang('No') }}</label>
-                            </fieldset>
-                            <fieldset class="form-group">
-                                <input name="film" type="radio" id="film21" value="yes" v-model="technical_data.film_print">
-                                <label for="film21">{{ lang('Yes') }}</label>
-                            </fieldset>
-                        </div>
-
-                        <div class="page-name-m">{{ lang('Blind Print') }}</div>
-                        <div class="form-inline mb-3">
-                            <fieldset class="form-group">
-                                <input name="blind" type="radio" id="blind11" value="no" v-model="technical_data.blind_print">
-                                <label for="blind11">{{ lang('No') }}</label>
-                            </fieldset>
-                            <fieldset class="form-group">
-                                <input name="blind" type="radio" id="blind21" value="yes" v-model="technical_data.blind_print">
-                                <label for="blind21">{{ lang('Yes') }}</label>
-                            </fieldset>
-                        </div>
-
-                   <div class="page-name-l mb-4 mt-5">{{ lang('Cover Paper') }}</div>
-
-                        <!-- Input fileds -->
-                        <div class="md-form">
-                            <input type="text" id="form8" class="form-control" v-model="technical_data.coverpaper_paper_type">
-                            <label for="form8" class="">{{ lang('Paper Type') }}</label>
-                        </div>
-
-                        <!-- Input fileds -->
-                        <div class="row">
-                            <div class="col-md-12">
-                                <select class="mdb-select" v-model="technical_data.coverpaper_colors">
-                                    <option disabled >{{ lang('Choose Colors') }}</option>
-                                    <option v-for="(color, index) in option_colors" v-bind:value="index+1">{{ lang(color) }}</option>
-                                </select>
-                                <label>{{ lang('Colors') }}</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <select class="mdb-select" v-model="technical_data.coverpaper_plastification">
-                                    <option disabled >{{ lang('Plastification') }}</option>
-                                    <option value="none">{{ lang('None') }}</option>
-                                    <option value="glossy">{{ lang('Glossy plastification') }}</option>
-                                    <option value="mat">{{ lang('Mat plastification') }}</option>
-                                </select>
-                                <label>{{ lang('Plastification') }}</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <select class="mdb-select" v-model="technical_data.coverpaper_uv_print">
-                                    <option disabled >{{ lang('Varnishe') }}</option>
-                                    <option value="none">{{ lang('None') }}</option>
-                                    <option value="glossy">{{ lang('Glossy Varnishe') }}</option>
-                                    <option value="mat">{{ lang('Mat Varnishe') }}</option>
-                                </select>
-                                <label>{{ lang('Varnishe') }}</label>
-                            </div>
-                        </div>
-
-                        <!--/. Checkbox -->
-                        <div class="page-name-m">{{ lang('Film Print') }}</div>
-                        <div class="form-inline mb-3">
-                            <fieldset class="form-group">
-                                <input name="film_coverpaper" type="radio" id="film12" value="no" v-model="technical_data.coverpaper_film_print">
-                                <label for="film12">{{ lang('No') }}</label>
-                            </fieldset>
-                            <fieldset class="form-group">
-                                <input name="film_coverpaper" type="radio" id="film22" value="yes" v-model="technical_data.coverpaper_film_print">
-                                <label for="film22">{{ lang('Yes') }}</label>
-                            </fieldset>
-                        </div>
-
-                        <div class="page-name-m">{{ lang('Blind Print') }}</div>
-                        <div class="form-inline mb-3">
-                            <fieldset class="form-group">
-                                <input name="blind_coverpaper" type="radio" id="blind12" value="no" v-model="technical_data.coverpaper_blind_print">
-                                <label for="blind12">{{ lang('No') }}</label>
-                            </fieldset>
-                            <fieldset class="form-group">
-                                <input name="blind_coverpaper" type="radio" id="blind22" value="yes" v-model="technical_data.coverpaper_blind_print">
-                                <label for="blind22">{{ lang('Yes') }}</label>
-                            </fieldset>
-                        </div>
-                   
-                   
-                   
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Textarea -->
-        <div class="md-form mt-2">
+        <div class="md-form mt-4">
             <textarea id="form76" class="md-textarea" v-model="technical_data.note"></textarea>
             <label for="form76">{{ lang('Note') }}</label>
         </div>
@@ -284,7 +287,7 @@
             return {
                 circulation: '',
                 addition: '',
-                option_colors: ['No Colour', 'Only One Color', 'Only Two Color', 'Only Three Color', 'Only Four Color', 'One Colour', 'Two Colours', 'Three Colours', 'Full Colour', 'Fifth Colour'],
+                option_colors: ['No Colour', 'Only One Color', 'Only Two Color', 'Only Three Color', 'Only Four Color', 'One Colour', 'Two Colours', 'Three Colours', 'Full Colour'],
             }
         },
         computed: {
