@@ -142,8 +142,7 @@
                 jQuery('#modal-warning').modal('show');
             },
             skipStep() {
-                this.$store.dispatch('proposition/' + this.$route.meta.save + '/skipStep', this.$route)
-                    .then(() => {
+                this.$store.dispatch('proposition/' + this.$route.meta.save + '/skipStep').then(() => {
                         toastr.success(this.lang('Uspješno obavljeno'));
                         this.$store.commit('editedFalse');
                     })

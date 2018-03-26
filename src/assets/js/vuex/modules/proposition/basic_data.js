@@ -42,6 +42,7 @@ export default {
             state.dotation_origin = payload.dotation_origin;
             state.manuscript = payload.manuscript;
             state.manuscript_documents = payload.manuscript_documents;
+            state.questionnaire = payload.questionnaire;
         },
         addAuthor(state, payload) {
             state.authors.push(payload);

@@ -1,17 +1,13 @@
 import axios from "axios/index";
 let initialState = {
-    proposition_id: 0,
     files: [],
     final: [],
-    dir: ''
 };
 export default {
     namespaced: true,
     state: {
-        proposition_id: 0,
         files: [],
         final: [],
-        dir: '',
         step_status: ''
     },
     mutations: {
@@ -85,24 +81,24 @@ export default {
                 resolve();
             })
         },
-        skipStep({rootState}) {
+        skipStep({rootState, commit}) {
             return new Promise((resolve, reject) => {
                 let path = '/api/proposition/' + rootState.route.params.id + '/files/' + rootState.route.meta.dir;
-                console.log(path);
                 axios.post(path, {status: 'skipped'})
-                    .then(() => {
+                    .then((res) => {
+                        commit('initData', res.data);
                         resolve();
-                    })
-                    .catch(() => {
+                    }).catch(() => {
                         reject();
                     });
             });
         },
-        markFinished({rootState}) {
+        markFinished({rootState, commit}) {
             return new Promise((resolve, reject) => {
                 let path = '/api/proposition/' + rootState.route.params.id + '/files/' + rootState.route.meta.dir;
                 axios.post(path, {status: 'finished'})
-                    .then(() => {
+                    .then((res) => {
+                        commit('initData', res.data);
                         resolve();
                     })
                     .catch(() => {
