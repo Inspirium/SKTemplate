@@ -5,6 +5,7 @@
             <a href="{{ url('/') }}">
                 <img src="{{ asset('images/sk_logo.svg') }}">
             </a>
+            <a href="{{ url('/') }}">v. 1.01</a>
         </li>
         <!--/. Logo -->
         <!-- Side navigation links -->

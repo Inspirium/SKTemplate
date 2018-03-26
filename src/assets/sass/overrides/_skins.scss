@@ -25,11 +25,11 @@ $sk-skin-btn-default: #293756;
         }
     }
     .steps-notif {
-        background-color: $sk-skin-flat;
-        opacity: .85;
-        padding: 9.6rem;
-        color: white;
-        margin-top: -319px;
+        font-size: 2rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: -.15rem;
+        color: $color-cancel;
     }
     .file-box a {
         color: $sk-skin-grey;
@@ -154,9 +154,19 @@ $sk-skin-btn-default: #293756;
         letter-spacing: .05rem;
         .brand {
             height: 160px;
+            flex-direction: column;
             a {
                 height: auto;
                 padding-left: 0;
+                &:last-child {
+                    font-size: .75rem;
+                    margin-top: .5rem;
+                    line-height: 1rem;
+                    color: $white;
+                    &:hover {
+                        color: $sk-skin-accent;
+                    }
+                }
             }
             &> div {
                 background-color: transparent!important;

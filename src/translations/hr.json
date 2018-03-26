@@ -302,7 +302,7 @@
   "Promotors": "Promotori",
   "Export": "Izvoz",
   "Retail Price": "Maloprodajna cijena",
-  "Retail price definition": "Definiranje maloprodajne cijene",
+  "Final Definition": "Konačno definiranje",
   "Webshop Description": "Opis za webshop",
   "Cover - JPG format": "Naslovnica - JPG format",
   "Cover - PSD format": "Naslovnica - PSD format",
@@ -608,5 +608,7 @@
   "Glossy Varnishe": "Sjajno lakiranje",
   "Mat Varnishe": "Mat lakiranje",
   "Author Questionnaire": "Autorski upitnik",
-  "Request Code..." : "Zatraži šifru"
+  "Request Code..." : "Zatraži šifru",
+  "Final Circulation": "Konačna naklada",
+  "Final Print Price": "Konačna cijena tiska"
 }
