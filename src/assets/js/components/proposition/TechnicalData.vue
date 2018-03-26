@@ -278,7 +278,9 @@
             <textarea id="form76" class="md-textarea" v-model="technical_data.note"></textarea>
             <label for="form76">{{ lang('Note') }}</label>
         </div>
+        <div class="div">Blablaval</div>
     </div>
+    
 </template>
 
 <script>
