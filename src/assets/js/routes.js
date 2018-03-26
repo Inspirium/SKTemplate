@@ -87,7 +87,7 @@ export const routes = [
             { path: ':id/layout/correction_input', component: UploadDocument, meta: {save: 'files', dir: 'correction_input',validate: {id:'int'}, breadcrumb: 'Correction Input', warning: 'proposition/files/deleteFile'} },
             { path: ':id/layout/revisions', component: UploadDocument, meta: {save: 'files', dir: 'revisions', validate: {id:'int'}, breadcrumb: 'Revisions', warning: 'proposition/files/deleteFile'} },
 
-            { path: ':id/final_price/price_definition', component: PriceDefinition, meta: {save: 'price_definition', validate: {id:'int'}, breadcrumb: 'Price Definition'} },
+            { path: ':id/final_price/price_definition', component: PriceDefinition, meta: {save: 'price_definition', validate: {id:'int'}, breadcrumb: 'Price Definition', warning: 'proposition/price_definition/deleteFile'} },
 
             { path: ':id/prepress/print_proof', component: UploadDocument, meta: {save: 'files', dir: 'print_proof',validate: {id:'int'}, breadcrumb: 'Print Proof', warning: 'proposition/files/deleteFile'} },
             { path: ':id/prepress/print_proof_correction', component: UploadDocument, meta: {save: 'files', dir: 'print_proof_correction',validate: {id:'int'}, breadcrumb: 'Print Proof Correction', warning: 'proposition/files/deleteFile'} },

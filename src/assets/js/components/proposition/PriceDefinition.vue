@@ -89,39 +89,39 @@
 
         <div class="page-name-xl mb-4 mt-3">{{ lang('Retail price definition') }}</div>
         <div class="md-form">
-            <input type="text" id="form15" class="form-control" name="final_price" v-model="price_definition.retail_price">
-            <label for="form15" class="">{{ lang('Retail Price') }}</label>
+            <input type="text" class="form-control" v-model="price_definition.retail_price">
+            <label class="">{{ lang('Retail Price') }}</label>
         </div>
         <div class="md-form">
-            <input type="text" id="form15" class="form-control" name="final_price" v-model="price_definition.retail_price">
-            <label for="form15" class="">{{ lang('Final Circulation') }}</label>
+            <input type="text" class="form-control" v-model="price_definition.final_circulation">
+            <label class="">{{ lang('Final Circulation') }}</label>
         </div>
         <div class="md-form">
-            <input type="text" id="form15" class="form-control" name="final_price" v-model="price_definition.retail_price">
-            <label for="form15" class="">{{ lang('Final Print Price') }}</label>
+            <input type="text" class="form-control" v-model="price_definition.final_print_price">
+            <label  class="">{{ lang('Final Print Price') }}</label>
         </div>
-    </div>
-    
-    <div class="page-name-xl mb-4 mt-3">{{ lang('Add Print Offers') }}</div>
-    <!-- File/document table -->
-    <div class="files mt-2 mb-2">
-        <div class="file-box file-box-l d-flex align-items-center" v-for="(file, index) in offer.files">
-            <a v-bind:href="file.link" v-on:click.prevent="documentDownload(file.link)" class="file-icon">{{ file.title }}</a>
-            <div class="file-box-sty ml-auto d-flex">
-                <a v-bind:href="'human_resources/employee/'+file.owner.id+'/show'"><img class="profile-m-1 mr-1 align-self-center" v-bind:src="file.owner.image">{{ file.owner.name }}</a>
-            </div>
-            <div class="file-box-sty">{{ file.created_at.date | moment('DD.MM.YYYY.') }}</div>
-            <div class="file-box-sty icon icon-download" v-on:click="documentDownload(file.link)">Preuzmi</div>
-            <div class="file-box-sty icon icon-cancel" v-on:click="fileWarning(file.id, offer.id)">Obriši</div>
-        </div>
-    </div>
 
-    <div class="justify-content-center d-flex mb-4">
-        <button type="button" class="btn btn-neutral" v-on:click="documentAdd('initial-documents')">{{ lang('Upload') }}</button>
+
+        <div class="page-name-xl mb-4 mt-3">{{ lang('Add Print Offers') }}</div>
+        <!-- File/document table -->
+        <div class="files mt-2 mb-2">
+            <div class="file-box file-box-l d-flex align-items-center" v-for="file in price_definition.print_offers">
+                <a v-bind:href="file.link" v-on:click.prevent="documentDownload(file.link)" class="file-icon">{{ file.title }}</a>
+                <div class="file-box-sty ml-auto d-flex">
+                    <a v-bind:href="'human_resources/employee/'+file.owner.id+'/show'"><img class="profile-m-1 mr-1 align-self-center" v-bind:src="file.owner.image">{{ file.owner.name }}</a>
+                </div>
+                <div class="file-box-sty">{{ file.created_at.date | moment('DD.MM.YYYY.') }}</div>
+                <div class="file-box-sty icon icon-download" v-on:click="documentDownload(file.link)">Preuzmi</div>
+                <div class="file-box-sty icon icon-cancel" v-on:click="fileWarning(file.id, 'print_offers')">Obriši</div>
+            </div>
+        </div>
+
+        <div class="justify-content-center d-flex mb-4">
+            <button type="button" class="btn btn-neutral" v-on:click="documentAdd('print_offers')">{{ lang('Upload') }}</button>
+        </div>
+
+        <upload-modal id="print_offers" action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" dir="print_offers" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave" isFinal="print_offers"></upload-modal>
     </div>
-    
-    
-    
 
 </template>
 <script>
@@ -139,6 +139,25 @@
             total2() {
                 return Number(this.price_definition.price_second_year.retail) + Number(this.price_definition.price_second_year.wholesale) + Number(this.price_definition.price_second_year.direct) + Number(this.price_definition.price_second_year.field) + Number(this.price_definition.price_second_year.promotors) + Number(this.price_definition.price_second_year.export)
             }
+        },
+        methods: {
+            documentAdd: function(id) {
+                jQuery('#'+id).modal('show');
+            },
+            documentDownload: function(link) {
+                window.open(link, "_blank");
+                return false;
+            },
+            fileWarning(id, isFinal) {
+                this.$store.dispatch('proposition/listenForWarning', {vue: this, data: {id: id, isFinal: isFinal}});
+                jQuery('#modal-warning').modal('show');
+            },
+            fileAdd: function(data) {
+                this.$store.commit('proposition/price_definition/addFile', data);
+            },
+            fileNameSave: function(data) {
+                this.$store.dispatch('proposition/price_definition/filenameSave', {id:data.file.id, title:data.file.title});
+            },
         }
     }
 </script>
