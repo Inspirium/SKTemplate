@@ -610,5 +610,8 @@
   "Author Questionnaire": "Autorski upitnik",
   "Request Code..." : "Zatraži šifru",
   "Final Circulation": "Konačna naklada",
-  "Final Print Price": "Konačna cijena tiska"
+  "Final Print Price": "Konačna cijena tiska",
+  "User has skipped this step": "Korak je preskočen",
+  "User has finished this step": "Korak je završen",
+  "Cover is missing": "Nedostaje fotografija naslovnice"
 }

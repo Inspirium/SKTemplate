@@ -87,7 +87,7 @@
             </div>
         </div>
 
-        <div class="page-name-xl mb-4 mt-3">{{ lang('Retail price definition') }}</div>
+        <div class="page-name-xl mb-4 mt-3">{{ lang('Final Circulation') }}</div>
         <div class="md-form">
             <input type="text" class="form-control" v-model="price_definition.retail_price">
             <label class="">{{ lang('Retail Price') }}</label>
