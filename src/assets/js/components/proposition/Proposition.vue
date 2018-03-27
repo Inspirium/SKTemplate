@@ -20,12 +20,13 @@
         </template>
         <template v-else>
             <router-view :key="$route.fullPath"></router-view>
-
+            <video-tutorial></video-tutorial>
             <footer-buttons v-bind="buttons" v-on:warningSaved="continueNavigation"></footer-buttons>
         </template>
     </div>
 </template>
 <script>
+    import VideoTutorial from '../general/VideoTutorial'
     export default {
         data: function () {
             return {
@@ -34,6 +35,10 @@
                 next: null,
                 notAvailable: false
             }
+        },
+        components: {
+            VideoTutorial,
+            'video-tutorial': VideoTutorial
         },
         computed: {
             buttons() {
