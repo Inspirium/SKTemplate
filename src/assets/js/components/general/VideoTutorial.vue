@@ -1,7 +1,7 @@
 <template>
     <div v-if="video">
         <!--Help-->
-        <a href="#help-content" class="help"><i class="fa fa-3x fa-question-circle"></i> Trebaš pomoć</a>
+        <a href="#help-content" class="help"><i class="fa fa-3x fa-question-circle" v-on:click="showVideo"></i> Trebaš pomoć</a>
         <div id="help-content">
             <iframe width="630" height="394" v-bind:src="video" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         </div>
@@ -15,7 +15,8 @@
             return {
                 videos: {
                     'edit/basic_data': 'https://www.useloom.com/embed/7c0434f775b8417ca19a932f65cf3a5c'
-                }
+                },
+                show: false
             }
         },
         computed: {
@@ -27,6 +28,11 @@
                     return this.videos[path];
                 }
                 return false;
+            }
+        },
+        methods: {
+            showVideo() {
+                this.show = !this.show;
             }
         }
     }
