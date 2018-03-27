@@ -146,6 +146,11 @@
                 <textarea id="note" name="note" v-model="basic_data.note" class="md-textarea"></textarea>
                 <label for="note">{{ lang('Note') }}</label>
             </div>
+            <!--Help-->
+            <a href="#help-content" class="help"><i class="fa fa-3x fa-question-circle"></i> Trebaš pomoć</a>
+            <div id="help-content">
+                <iframe width="630" height="394" src="https://www.useloom.com/embed/7c0434f775b8417ca19a932f65cf3a5c" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            </div>
         </div>
 
             <upload-modal id="manuscripts" action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" dir="manuscripts" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave" isFinal="manuscripts"></upload-modal>
