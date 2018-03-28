@@ -187,8 +187,8 @@
                                             <label v-bind:for="'blind_print_yes'+index">{{ lang('Yes') }}</label>
                                         </fieldset>
                                     </div>
-                                 </div>  
-                                      
+                                 </div>
+
                                 <div class="col-md-6">
                                 <div class="page-name-l mb-4">{{ lang('Cover Paper') }}</div>
                                 <!-- Input fileds -->
@@ -306,7 +306,7 @@
     export default {
         data: function () {
             return {
-                option_colors: ['No Colour', 'One Colour', 'Two Colours', 'Three Colours', 'Full Colour', 'Only One Color', 'Only Two Color', 'Only Three Color', 'Only Four Color', 'Fifth Colour'],
+                option_colors: ['No Colour', 'Only One Colour', 'Only Two Colours', 'Only Three Colours', 'Only Four Colours', 'One Colour', 'Two Colours', 'Three Colours', 'Full Colour'],
             }
         },
         computed: {
