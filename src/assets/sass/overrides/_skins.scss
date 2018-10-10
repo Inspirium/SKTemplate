@@ -805,7 +805,7 @@ $sk-skin-btn-default: #293756;
         margin-right: -70px;
         .activity-container {
             max-height: 60vh;
-            overflow: hidden; 
+            overflow: hidden;
         }
         .tasktype-1,
         .tasktype-2,
@@ -1427,25 +1427,22 @@ $sk-skin-btn-default: #293756;
             }
         }
     }
-    
+
     .help {
-        display: block;
-        text-align: center;
-        color: $color-body_text;
-        text-transform: uppercase;
-        &:hover {
-            color: $info-color;
-        }
-        i {
-            vertical-align: middle;
-            margin-right: 8px; 
-            color: $info-color;
-        }
+      display: block;
+      text-align: center;
+      color: $color-body_text;
+      text-transform: uppercase;
+      &:hover {
+        color: $info-color;
+      }
+      i {
+        vertical-align: middle;
+        margin-right: 8px;
+        color: $info-color;
+      }
     }
     #help-content {
-        display: none;
-    }
-    #help-content:target {
         display: block;
         text-align: center;
         color: $color-sidebar;

@@ -474,7 +474,26 @@
                                     path: '/tasks/department/92',
                                     title: 'Management',
                                     component: false
+                                },
+                                'izrada-sadrzaja': {
+                                    enabled: this.canViewDepartmentTasks(93),
+                                    path: '/tasks/department/03',
+                                    title: 'Izrada sadržaja',
+                                    component: false
+                                },
+                                razvoj: {
+                                    enabled: this.canViewDepartmentTasks(94),
+                                    path: '/tasks/department/94',
+                                    title: 'Razvoj',
+                                    component: false
+                                },
+                                mozabook: {
+                                    enabled: this.canViewDepartmentTasks(95),
+                                    path: '/tasks/department/95',
+                                    title: 'Mozabook',
+                                    component: false
                                 }
+
                             }
                         },
                         notifications: {
