@@ -217,7 +217,7 @@
             }
         },
         mounted() {
-            axios.get('/api/human_resources/departments')
+            axios.post('/api/human_resources/departments')
                 .then((res) => {
                     this.departments = res.data;
                     setTimeout(() => {

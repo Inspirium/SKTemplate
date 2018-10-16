@@ -477,7 +477,7 @@
                                 },
                                 'izrada-sadrzaja': {
                                     enabled: this.canViewDepartmentTasks(93),
-                                    path: '/tasks/department/03',
+                                    path: '/tasks/department/93',
                                     title: 'Izrada sadržaja',
                                     component: false
                                 },
