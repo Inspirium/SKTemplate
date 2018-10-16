@@ -217,9 +217,9 @@
             }
         },
         mounted() {
-            axios.post('/api/human_resources/departments')
+            axios.get('/api/human_resources/departments')
                 .then((res) => {
-                    this.departments = res.data;
+                    this.departments = res.data.rows;
                     setTimeout(() => {
                         $('.mdb-select').material_select('destroy');
                         $('.mdb-select').material_select();
