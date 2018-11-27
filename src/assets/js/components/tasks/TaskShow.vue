@@ -229,11 +229,9 @@
                     <!-- Footer buttons -->
                     <div class="btn-footer mt-2 mb-2 flex-column flex-md-row d-flex p-2">
                         <spinner-button
-                                v-if="task.related.status === 'requested'"
                                 v-on:button_clicked="approveRequest"
                                 title="Approve"></spinner-button>
                         <spinner-button
-                                v-if="task.related.status === 'requested'"
                                 classes="btn btn-lg btn-cancel" title="Reject"
                                 v-on:button_clicked="rejectRequest"></spinner-button>
                     </div>
