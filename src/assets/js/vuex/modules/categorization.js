@@ -9,7 +9,8 @@ export default {
         types:0,
         schools:0,
         subjects:0,
-        bibliotecas:0
+        bibliotecas:0,
+        book_tenders:0
     },
     mutations: {
         setCategories(state, payload) {
@@ -26,6 +27,9 @@ export default {
         },
         setBibliotecas(state, payload) {
             state.bibliotecas = payload;
+        },
+        setBookTenders(state, payload) {
+            state.book_tenders = payload;
         }
     },
     actions: {
@@ -99,6 +103,20 @@ export default {
                 }
             });
         },
+        getBookTenders({commit, state}) {
+            return new Promise((resolve, reject) => {
+                if (!state.book_tenders) {
+                    axios.get('/api/book/book_tenders')
+                        .then((res) => {
+                            commit('setBookTenders', res.data);
+                            resolve();
+                        });
+                }
+                else {
+                    resolve();
+                }
+            });
+        },
         getData({commit, state, dispatch}) {
             return new Promise((resolve, reject) => {
                 Promise.all([
@@ -107,6 +125,7 @@ export default {
                     dispatch('getSchools'),
                     dispatch('getSubjects'),
                     dispatch('getBibliotecas'),
+                    dispatch('getBookTenders'),
                 ])
                     .then(() => {resolve()});
             })

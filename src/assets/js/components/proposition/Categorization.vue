@@ -1,6 +1,16 @@
 <template>
     <div class="content">
     <div class="page-name-xl mb-4 mt-3">{{ lang('Categorization') }}</div>
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+            <select class="mdb-select" v-model="categorization.book_tender">
+                <option value="" selected>{{ lang('Choose') }}</option>
+                <option v-for="(item, key) in book_tenders" v-bind:value="key">{{ item.name }}</option>
+                <option value="other">Ostalo</option>
+            </select>
+            <label>{{ lang('Tender type') }}</label>
+            </div>
+        </div>
     <div class="page-name-l mb-4">{{ lang('Basic Categorization') }}</div>
     <div class="row">
         <div class="col-md-12">
@@ -215,6 +225,9 @@
             },
             bibliotecas() {
                 return this.$store.state.categorization.bibliotecas;
+            },
+            book_tenders() {
+                return this.$store.state.categorization.book_tenders;
             },
             categorization() {
                 return this.$deepModel('proposition.categorization');

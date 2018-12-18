@@ -13,7 +13,8 @@ let initialState = {
     school_assignment: 0,
     school_subject: 0,
     school_subject_detailed: 0,
-    biblioteca: 0
+    biblioteca: 0,
+    book_tender: 0
 };
 export default {
     namespaced: true,
@@ -30,7 +31,8 @@ export default {
         school_assignment: 0,
         school_subject: 0,
         school_subject_detailed: 0,
-        biblioteca: 0
+        biblioteca: 0,
+        book_tender: 0
     },
     mutations: {
         initData(state, payload) {
@@ -66,6 +68,12 @@ export default {
             }
             if (payload.biblioteca) {
                 state.biblioteca = payload.biblioteca.id;
+            }
+            else {
+                state.biblioteca = 0;
+            }
+            if (payload.book_tender) {
+                state.book_tender = payload.book_tender.id;
             }
             else {
                 state.biblioteca = 0;
