@@ -76,7 +76,7 @@ export default {
                 state.book_tender = payload.book_tender.id;
             }
             else {
-                state.biblioteca = 0;
+                state.book_tender = 0;
             }
             state.note = payload.note;
         }

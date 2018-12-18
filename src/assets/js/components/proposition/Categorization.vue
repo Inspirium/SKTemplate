@@ -5,8 +5,8 @@
             <div class="col-md-6 offset-md-3">
             <select class="mdb-select" v-model="categorization.book_tender">
                 <option value="" selected>{{ lang('Choose') }}</option>
-                <option v-for="(item, key) in book_tenders" v-bind:value="key">{{ item.name }}</option>
-                <option value="other">Ostalo</option>
+                <option v-for="(item, key) in book_tenders" v-bind:value="key">{{ item.title }}</option>
+                <option value="0">Ostalo</option>
             </select>
             <label>{{ lang('Tender type') }}</label>
             </div>
