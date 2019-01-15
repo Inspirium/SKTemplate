@@ -22,7 +22,7 @@
             </ul>
         </div>
         <div class="tab-content">
-            <div class="tab-pane fade active" id="panel1" role="tabpanel">
+            <div class="tab-pane fade show active" id="panel1" role="tabpanel">
                 <template v-for="(employee, index) in employees">
                     <employee-tasks v-bind:employee="employee" v-on:openModal="openModalForApproval" v-on:approveOrder="approveOrder" v-on:rejectOrder="rejectOrder"></employee-tasks>
                 </template>
