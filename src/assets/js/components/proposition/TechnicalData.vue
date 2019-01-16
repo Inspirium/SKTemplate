@@ -278,7 +278,6 @@
             <textarea id="form76" class="md-textarea" v-model="technical_data.note"></textarea>
             <label for="form76">{{ lang('Note') }}</label>
         </div>
-        <div class="div">Blablaval</div>
     </div>
 
 </template>
@@ -289,7 +288,7 @@
             return {
                 circulation: '',
                 addition: '',
-                option_colors: ['No Colour', 'Only One Colour', 'Only Two Colours', 'Only Three Colours', 'Only Four Colours', 'One Colour', 'Two Colours', 'Three Colours', 'Full Colour'],
+                option_colors: ['No Colour', 'Only One Color', 'Only Two Colors', 'Only Three Colors', 'Only Four Colors', 'One Colour', 'Two Colours', 'Three Colours', 'Full Colour'],
             }
         },
         computed: {

@@ -37,6 +37,7 @@
                         </div>
 
                         <!-- Input fileds -->
+                        <!--
                         <div class="md-form input-group">
                             <input type="text" id="accontation" class="form-control" v-model="expense.accontation" v-bind:placeholder="expense.parent.accontation">
                             <label for="accontation">{{ lang('Accontation') }}</label>
@@ -47,6 +48,7 @@
                             <label for="netto-price-percentage">{{ lang('Netto Price Percentage') }}</label>
                             <span class="input-group-addon">{{ lang('%') }}</span>
                         </div>
+                        -->
                         <div class="md-form input-group">
                             <input type="text" id="reviews" class="form-control" v-model="expense.reviews" v-bind:placeholder="expense.parent.reviews">
                             <label for="reviews">{{ lang('Reviews') }}</label>
