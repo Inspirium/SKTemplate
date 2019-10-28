@@ -120,7 +120,7 @@
             <button type="button" class="btn btn-neutral" v-on:click="documentAdd('print_offers')">{{ lang('Upload') }}</button>
         </div>
 
-        <upload-modal id="print_offers" action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" dir="print_offers" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave" isFinal="print_offers"></upload-modal>
+        <upload-modal id="print_offers" action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx, .zip" disk="proposition" dir="print_offers" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave" isFinal="print_offers"></upload-modal>
     </div>
 
 </template>

@@ -428,13 +428,13 @@
                 </div>
 
                 <upload-modal id="initial-documents" action="/api/file"
-                              accept=".pdf, .doc, .docx, .xls, .xlsx"
+                              accept=".pdf, .doc, .docx, .xls, .xlsx, .zip"
                               disk="proposition" v-bind:dir="task.files.path"
                               v-on:fileDelete="fileDelete"
                               v-on:fileAdd="fileAdd"
                               v-on:fileNameSave="fileNameSave"></upload-modal>
                 <upload-modal id="final-documents" action="/api/file"
-                              accept=".pdf, .doc, .docx, .xls, .xlsx"
+                              accept=".pdf, .doc, .docx, .xls, .xlsx, .zip"
                               disk="proposition" v-bind:dir="task.files.path"
                               v-on:fileDelete="fileDelete"
                               v-on:fileAdd="fileAdd"

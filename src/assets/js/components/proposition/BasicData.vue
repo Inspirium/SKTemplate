@@ -149,8 +149,8 @@
 
         </div>
 
-            <upload-modal id="manuscripts" action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" dir="manuscripts" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave" isFinal="manuscripts"></upload-modal>
-            <upload-modal action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" id="questionnaire" dir="questionnaire" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave" isFinal="questionnaire"></upload-modal>
+            <upload-modal id="manuscripts" action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx, .zip" disk="proposition" dir="manuscripts" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave" isFinal="manuscripts"></upload-modal>
+            <upload-modal action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx, .zip" disk="proposition" id="questionnaire" dir="questionnaire" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave" isFinal="questionnaire"></upload-modal>
     </div>
 
     <authors-modal v-on:authorAdded="authorAdded"></authors-modal>

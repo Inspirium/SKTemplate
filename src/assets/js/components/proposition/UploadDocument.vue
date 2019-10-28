@@ -38,8 +38,8 @@
             {{ lang(status) }}
         </div>
 
-        <upload-modal id="initial-documents" action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" v-bind:dir="$route.meta.dir" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave"></upload-modal>
-        <upload-modal id="final-document" action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx" disk="proposition" v-bind:dir="$route.meta.dir" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave" isFinal="final"></upload-modal>
+        <upload-modal id="initial-documents" action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx, .zip" disk="proposition" v-bind:dir="$route.meta.dir" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave"></upload-modal>
+        <upload-modal id="final-document" action="/api/file" accept=".pdf, .doc, .docx, .xls, .xlsx, .zip" disk="proposition" v-bind:dir="$route.meta.dir" v-on:fileAdd="fileAdd" v-on:fileNameSave="fileNameSave" isFinal="final"></upload-modal>
 
     </div>
 
